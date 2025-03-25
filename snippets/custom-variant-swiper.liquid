@@ -1,0 +1,126 @@
+<div class="{{ initial_product.handle }}-{{ section.id }}-medias-container x:rounded-t-md">
+    {% assign product_medias = initial_product.first_available_variant.metafields.custom.other_images %}
+
+    {% if product_medias %}
+        <div class="{{ initial_product.handle }}-{{ section.id }}-swiper product-display-element x:w-full x:aspect-square x:overflow-hidden x:-z-20 x:flex x:items-center">
+            <div class="swiper-wrapper x:z-[0]">
+                <div class="swiper-slide" style="background-image: url({{ initial_product.first_available_variant.featured_image | image_url: width: initial_product.featured_media.width }}); background-size: cover; background-position: 50% 50%;">
+                    &nbsp;
+                </div>
+                {% for current_media in product_medias.value %}
+                    <div class="swiper-slide {{ initial_product.id }}-{{ section.id }}-slide_element" style="background-image: url({{ current_media }}); background-size: cover; background-position: 50% 50%;">
+                        &nbsp;
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="x:bg-white x:w-full x:absolute x:flex x:justify-between x:items-center">
+                <button class="{{ initial_product.handle }}-{{ section.id }}-swiper-button-prev x:absolute x:left-0 x:bg-white x:flex x:items-center x:transition-opacity x:duration-300 x:ease-in-out">
+                    <i class='bx bx-chevron-left x:text-[24px]'></i>
+                </button>
+                <button class="{{ initial_product.handle }}-{{ section.id }}-swiper-button-next x:absolute x:right-0 x:bg-white x:flex x:items-center x:transition-opacity x:duration-300 x:ease-in-out">
+                    <i class='bx bx-chevron-right x:text-[24px]'></i>
+                </button>
+            </div>
+
+            <div class="{{ initial_product.handle }}-{{ section.id }}-swiper-scrollbar swiper-scrollbar x:w-full x:left-0 x:bottom-0 x:rounded-none x:bg-white"></div>
+        </div>
+    {% else %}
+        <div class="{{ initial_product.handle }}-{{ section.id }}-solo product-display-element x:w-full x:aspect-square" style="background-image: url({% if initial_product.first_available_variant.featured_image %}{{ initial_product.first_available_variant.featured_image | image_url: width: 1000 }}{% else %}{{ initial_product.featured_image | image_url: width: initial_product.featured_media.width }}{% endif %}); background-size: cover; background-position: 50% 50%;">
+            &nbsp;
+        </div>
+    {% endif %}
+</div>
+
+<style>
+    .swiper-button-disabled {
+        opacity: 0.5;
+    }
+
+    .swiper-scrollbar-drag {
+        border-radius: 0px;
+        background-color: black;
+    }
+
+    .product-display-element {
+        border-radius: 0.375rem 0.375rem 0px 0px;
+    }
+</style>
+
+<script>
+    $(window).on('load', function() {
+        const productId = {{ initial_product.id }};
+        const productHandle = '{{ initial_product.handle }}';
+        const sectionId = '{{ section.id }}';
+
+        // Function to initialize Swiper
+        function initializeSwiper() {
+            return new Swiper(`.${productHandle}-${sectionId}-swiper`, {
+                slidesPerView: 1,
+                navigation: {
+                    nextEl: `.${productHandle}-${sectionId}-swiper-button-next`,
+                    prevEl: `.${productHandle}-${sectionId}-swiper-button-prev`
+                },
+                scrollbar: {
+                    el: `.${productHandle}-${sectionId}-swiper-scrollbar`,
+                    hide: false
+                }
+            });
+        }
+
+        initializeSwiper();
+
+        // Function to create slide
+        function createSlide(swiper, src) {
+            const slide = document.createElement('div');
+            slide.classList.add('swiper-slide');
+            Object.assign(slide.style, {
+                backgroundImage: `url(${src})`,
+                backgroundSize: 'cover',
+                backgroundPosition: '50% 50%'
+            });
+            swiper.appendSlide(slide);
+        }
+
+        // Event listener for swatch focus
+        $(`[data-product-id="${productId}"]`).on('focus', function(e) {
+            const currentSwatch = e.target;
+            const featuredMedia = JSON.parse(currentSwatch.getAttribute('data-variant-media'));
+            const otherMedia = JSON.parse(currentSwatch.getAttribute('data-other-media'));
+
+            const mediaContainer = $(`.${productHandle}-${sectionId}-medias-container`);
+            mediaContainer.empty();
+
+            if (otherMedia && otherMedia.length > 0) {
+                // Create Swiper structure
+                mediaContainer.html(`
+                    <div class="${productHandle}-${sectionId}-swiper product-display-element x:w-full x:aspect-square x:overflow-hidden x:flex x:items-center">
+                        <div class="swiper-wrapper x:z-[0]"></div>
+                        <div class="x:bg-white x:w-full x:absolute x:flex x:justify-between x:items-center">
+                            <button class="${productHandle}-${sectionId}-swiper-button-prev x:absolute x:left-0 x:bg-white x:flex x:items-center x:transition-opacity x:duration-300 x:ease-in-out">
+                                <i class='bx bx-chevron-left x:text-[24px]'></i>
+                            </button>
+                            <button class="${productHandle}-${sectionId}-swiper-button-next x:absolute x:right-0 x:bg-white x:flex x:items-center x:transition-opacity x:duration-300 x:ease-in-out">
+                                <i class='bx bx-chevron-right x:text-[24px]'></i>
+                            </button>
+                        </div>
+                        <div class="${productHandle}-${sectionId}-swiper-scrollbar swiper-scrollbar x:w-full x:left-0 x:bottom-0 x:rounded-none x:bg-white"></div>
+                    </div>
+                `);
+
+                const swiper = initializeSwiper();
+
+                // Add featured image and other media
+                createSlide(swiper, featuredMedia.src);
+                otherMedia.forEach(src => createSlide(swiper, src));
+            } else {
+                // Create solo image
+                mediaContainer.html(`
+                    <div class="${productHandle}-${sectionId}-solo product-display-element x:w-full x:aspect-square" style="background-image: url(${featuredMedia.src}); background-size: cover; background-position: 50% 50%;">
+                        &nbsp;
+                    </div>
+                `);
+            }
+        });
+    });
+</script>
