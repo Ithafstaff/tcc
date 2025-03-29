@@ -125,6 +125,30 @@
     },
     "rich_text_EK3hAN": {
       "type": "custom-rich-text",
+      "blocks": {
+        "button_9wJnqN": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP NEW",
+            "url": ""
+          }
+        },
+        "button_iUCqYQ": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP BEST SELLERS",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_9wJnqN",
+        "button_iUCqYQ"
+      ],
+      "settings": {
+        "heading": "LUXURY. ELEGANCE. STYLE.",
+        "subheading": "Timeless pieces for meaningful moments"
+      }
     },
     "drawer_banner": {
       "type": "custom-drawer-banner",
