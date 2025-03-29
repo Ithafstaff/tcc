@@ -32,7 +32,7 @@
         "full_width": true,
         "allow_transparent_header": true,
         "autoplay": true,
-        "video_size": "auto",
+        "video_size": "lg",
         "video": "shopify://files/videos/TEST VIDEO.mp4",
         "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "text_color": "#ffffff",
@@ -113,7 +113,7 @@
         "collections_per_row": 3,
         "show_progress_bar": false,
         "subheading": "",
-        "title": "Collection list",
+        "title": "BEAUTIFUL CELEBRATIONS START HERE",
         "content": "",
         "link_url": "",
         "link_text": "View all",
@@ -124,6 +124,62 @@
         "heading_gradient": ""
       }
     },
+    "rich_text_EK3hAN": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PGwJFP": {
+          "type": "heading",
+          "settings": {
+            "text": "LUXURY. ELEGANCE. STYLE.",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_thrWQ6": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Timeless pieces for meaningful moments</p>"
+          }
+        },
+        "button_BHfDGG": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "xl",
+            "text": "SHOP NEW",
+            "url": "",
+            "background": "",
+            "text_color": ""
+          }
+        },
+        "button_JE3a3U": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "xl",
+            "text": "SHOP BEST SELLERS",
+            "url": "",
+            "background": "",
+            "text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_PGwJFP",
+        "richtext_thrWQ6",
+        "button_BHfDGG",
+        "button_JE3a3U"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_width": "medium",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "drawer_banner": {
       "type": "custom-drawer-banner",
       "settings": {
@@ -131,418 +187,128 @@
         "collection": "test"
       }
     },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "",
-        "products": [
-          "alexandria-8pc-100-cotton-bedding-set",
-          "arlington-8pc-100-cotton-bedding-set",
-          "chelsea-8pc-100-cotton-bedding-set",
-          "clear-tongs-twin-pack"
-        ],
-        "full_width": true,
-        "stack_products": false,
-        "show_progress_bar": false,
-        "products_count": 6,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "subheading": "",
-        "title": "Featured collection",
-        "content": "",
-        "link_url": "",
-        "link_text": "View all",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
-      }
-    },
-    "impact-text": {
-      "type": "impact-text",
+    "rich_text_f3VHqP": {
+      "type": "rich-text",
       "blocks": {
-        "1664424181b38582d5-0": {
-          "type": "item",
-          "settings": {
-            "title": "100%",
-            "subheading": "Showcase a benefit of your product",
-            "content": "",
-            "button_text": "",
-            "button_url": "",
-            "animate_impact_text": false,
-            "animate_impact_text_duration": 2
-          }
-        }
-      },
-      "block_order": [
-        "1664424181b38582d5-0"
-      ],
-      "settings": {
-        "full_width": true,
-        "stack_mobile": true,
-        "text_alignment": "center",
-        "impact_text_style": "fill",
-        "text_divider": "none",
-        "impact_text_size_ratio": 1,
-        "background": "",
-        "background_gradient": "",
-        "heading_text_color": "",
-        "heading_gradient": "linear-gradient(180deg, rgba(26, 26, 26, 0.2), rgba(26, 26, 26, 0) 100%)",
-        "text_color": "",
-        "button_background": "",
-        "button_text_color": ""
-      }
-    },
-    "image-with-text-overlay": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "1664424230c4756b0e-0": {
-          "type": "subheading",
-          "settings": {
-            "text": "Subheading"
-          }
-        },
-        "1664424230c4756b0e-1": {
+        "heading_4tY7iN": {
           "type": "heading",
           "settings": {
-            "text": "Image with text overlay",
-            "heading_tag": "h1"
+            "text": "WAKE UP IN SOFT BLOOM",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
           }
         },
-        "1664424230c4756b0e-2": {
+        "richtext_dn7pYk": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "content": "<p>Floral bedding designed for comfort, crafter for beauty - turn every morning into a moment</p>"
+          }
+        },
+        "button_7UXXxF": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "xl",
+            "text": "SHOP COLLECTION",
+            "url": "",
+            "background": "",
+            "text_color": ""
           }
         }
       },
       "block_order": [
-        "1664424230c4756b0e-0",
-        "1664424230c4756b0e-1",
-        "1664424230c4756b0e-2"
+        "heading_4tY7iN",
+        "richtext_dn7pYk",
+        "button_7UXXxF"
       ],
       "settings": {
         "full_width": true,
-        "allow_transparent_header": false,
-        "enable_parallax": false,
-        "image_size": "auto",
-        "mobile_text_position": "place-self-center text-center",
-        "desktop_text_position": "sm:place-self-center sm:text-center",
-        "text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 30
-      }
-    },
-    "media-grid": {
-      "type": "media-grid",
-      "blocks": {
-        "item-1": {
-          "type": "image",
-          "settings": {
-            "title": "Promote your products",
-            "heading_tag": "h4",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 2,
-            "desktop_row_span": 2,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "item-2": {
-          "type": "image",
-          "settings": {
-            "title": "Promote your products",
-            "heading_tag": "h4",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "item-3": {
-          "type": "image",
-          "settings": {
-            "title": "Promote your products",
-            "heading_tag": "h4",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 1,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "29246d34-c6e0-4373-84f6-b15e57736a00": {
-          "type": "image",
-          "settings": {
-            "title": "Promote your products",
-            "heading_tag": "h4",
-            "link_url": "",
-            "link_text": "",
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_column_span": 2,
-            "desktop_row_span": 1,
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "background": "#000000",
-            "background_gradient": "",
-            "text_color": "#ffffff",
-            "text_gradient": "",
-            "button_background": "#000000",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "item-1",
-        "item-2",
-        "item-3",
-        "29246d34-c6e0-4373-84f6-b15e57736a00"
-      ],
-      "settings": {
-        "full_width": true,
-        "reduce_width": false,
-        "desktop_row_height": 290,
-        "mobile_row_height": 150,
-        "background": "",
-        "background_gradient": ""
-      }
-    },
-    "before-after-image": {
-      "type": "before-after-image",
-      "settings": {
-        "full_width": true,
-        "subheading": "",
-        "title": "Before/after",
-        "content": "<p>Showcase your product benefit by using before/after image comparison.</p>",
-        "expand_image": false,
+        "content_width": "medium",
         "text_position": "center",
-        "before_after_text_position": "bottom",
-        "before_text": "Before",
-        "after_text": "After",
-        "drag_initial_position": 50,
         "background": "",
         "background_gradient": "",
-        "text_color": "",
-        "before_text_color": "#ffffff",
-        "after_text_color": "#ffffff",
-        "drag_cursor_background": "#ffffff",
-        "drag_cursor_color": "#000000"
+        "text_color": ""
       }
     },
-    "press": {
-      "type": "press",
+    "rich_text_kLr3HB": {
+      "type": "rich-text",
       "blocks": {
-        "16644243327ba53d2a-0": {
-          "type": "quote",
+        "heading_erm8Y6": {
+          "type": "heading",
           "settings": {
-            "logo_width": 100,
-            "author": "",
-            "content": "Share info about what your customers say about your products.",
-            "show_rating": false,
-            "rating": 4
+            "text": "DESIGNED TO REFLECT ELEGANCE",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
           }
         },
-        "16644243327ba53d2a-1": {
-          "type": "quote",
+        "richtext_3MqVPH": {
+          "type": "richtext",
           "settings": {
-            "logo_width": 100,
-            "author": "",
-            "content": "Or share content about your promotion, offers...",
-            "show_rating": false,
-            "rating": 4
+            "content": "<p>Designed to blend into any space and stand out all at once</p>"
+          }
+        },
+        "button_4qGQnF": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "xl",
+            "text": "SHOP COLLECTION",
+            "url": "",
+            "background": "",
+            "text_color": ""
           }
         }
       },
       "block_order": [
-        "16644243327ba53d2a-0",
-        "16644243327ba53d2a-1"
+        "heading_erm8Y6",
+        "richtext_3MqVPH",
+        "button_4qGQnF"
       ],
       "settings": {
         "full_width": true,
-        "content_size": "medium",
+        "content_width": "medium",
+        "text_position": "center",
         "background": "",
         "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "logo_item_background": "",
-        "logo_item_border": ""
+        "text_color": ""
       }
     },
-    "hot-spots": {
-      "type": "hot-spots",
-      "blocks": {
-        "1664424434f5b7d0e0-0": {
-          "type": "item",
-          "settings": {
-            "horizontal_position": 24,
-            "vertical_position": 70,
-            "horizontal_position_mobile": 24,
-            "vertical_position_mobile": 70,
-            "icon_width": 32,
-            "title": "Feature name",
-            "content": "<p>Share useful information about your product features.</p>"
-          }
-        },
-        "1664424434f5b7d0e0-1": {
-          "type": "item",
-          "settings": {
-            "horizontal_position": 62,
-            "vertical_position": 14,
-            "horizontal_position_mobile": 62,
-            "vertical_position_mobile": 14,
-            "icon_width": 32,
-            "title": "Feature name",
-            "content": "<p>Share useful information about your product features.</p>"
-          }
-        },
-        "1664424434f5b7d0e0-2": {
-          "type": "item",
-          "settings": {
-            "horizontal_position": 83,
-            "vertical_position": 75,
-            "horizontal_position_mobile": 83,
-            "vertical_position_mobile": 75,
-            "icon_width": 32,
-            "title": "Feature name",
-            "content": "<p>Share useful information about your product features.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "1664424434f5b7d0e0-0",
-        "1664424434f5b7d0e0-1",
-        "1664424434f5b7d0e0-2"
-      ],
-      "settings": {
-        "full_width": true,
-        "title": "",
-        "content": "",
-        "button_text": "",
-        "button_url": "",
-        "desktop_text_position": "place-self-start text-start",
-        "image_background": "",
-        "image_background_gradient": "",
-        "overlay_color": "#000000",
-        "overlay_opacity": 0,
-        "overlay_text_color": "#ffffff",
-        "overlay_button_background": "",
-        "overlay_button_text_color": "",
-        "hot_spot_dot_background": "#ffffff",
-        "hot_spot_dot_text_color": "#000000",
-        "hot_spot_content_background": "#ffffff",
-        "hot_spot_content_text_color": "#000000",
-        "hot_spot_content_opacity": 90,
-        "hot_spot_content_blur_radius": 3
-      }
-    },
-    "multiple-images-with-text": {
-      "type": "multiple-images-with-text",
-      "blocks": {
-        "1664424486a2b084ab-0": {
-          "type": "item",
-          "settings": {
-            "image_rotation_degrees": -2,
-            "subheading": "",
-            "title": "Heading 1",
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "button_url": "",
-            "button_text": ""
-          }
-        },
-        "1664424486a2b084ab-1": {
-          "type": "item",
-          "settings": {
-            "image_rotation_degrees": 1.5,
-            "subheading": "",
-            "title": "Heading 2",
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
-            "button_url": "",
-            "button_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "1664424486a2b084ab-0",
-        "1664424486a2b084ab-1"
-      ],
-      "settings": {
-        "full_width": true,
-        "images_layout": "scattered",
-        "collage_images_alignment": "middle",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "button_background": "",
-        "button_text_color": ""
-      }
-    },
-    "featured-product": {
+    "featured_product_wjhVjG": {
       "type": "featured-product",
       "blocks": {
-        "vendor": {
+        "vendor_wJ4UBL": {
           "type": "vendor",
           "settings": {}
         },
-        "title": {
+        "title_LWAqYC": {
           "type": "title",
           "settings": {
             "heading_tag": "h2"
           }
         },
-        "badges": {
+        "badges_twxVty": {
           "type": "badges",
           "settings": {}
         },
-        "price": {
+        "price_LQhpTh": {
           "type": "price",
           "settings": {
             "show_taxes_notice": false
           }
         },
-        "rating": {
+        "rating_BPkTMH": {
           "type": "rating",
           "settings": {
             "show_empty": false
           }
         },
-        "separator": {
+        "separator_aX3n4d": {
           "type": "separator",
           "settings": {}
         },
-        "description": {
+        "description_LKVAUT": {
           "type": "description",
           "settings": {
             "icon": "none",
@@ -550,22 +316,22 @@
             "collapse_content": false
           }
         },
-        "variant-picker": {
+        "variant_picker_UK79Ek": {
           "type": "variant_picker",
           "settings": {
             "hide_sold_out_variants": false,
             "stack_blocks": true,
             "selector_style": "block",
-            "swatch_selector_style": "color",
+            "swatch_selector_style": "swatch",
             "variant_image_options": "",
             "size_chart_page": ""
           }
         },
-        "quantity-selector": {
+        "quantity_selector_kKPC7p": {
           "type": "quantity_selector",
           "settings": {}
         },
-        "buy-buttons": {
+        "buy_buttons_XKqyMF": {
           "type": "buy_buttons",
           "settings": {
             "show_payment_button": true,
@@ -575,22 +341,27 @@
             "payment_button_background": "",
             "payment_button_text_color": ""
           }
+        },
+        "pickup_availability_iJ8YmX": {
+          "type": "pickup_availability",
+          "settings": {}
         }
       },
       "block_order": [
-        "vendor",
-        "title",
-        "badges",
-        "price",
-        "rating",
-        "separator",
-        "description",
-        "variant-picker",
-        "quantity-selector",
-        "buy-buttons"
+        "vendor_wJ4UBL",
+        "title_LWAqYC",
+        "badges_twxVty",
+        "price_LQhpTh",
+        "rating_BPkTMH",
+        "separator_aX3n4d",
+        "description_LKVAUT",
+        "variant_picker_UK79Ek",
+        "quantity_selector_kKPC7p",
+        "buy_buttons_XKqyMF",
+        "pickup_availability_iJ8YmX"
       ],
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "product": "",
         "desktop_media_width": 55,
         "desktop_media_layout": "carousel_thumbnails_left",
@@ -600,79 +371,21 @@
         "enable_video_looping": false,
         "enable_image_zoom": true,
         "max_image_zoom_level": 3,
-        "background": "#ffffff",
+        "background": "",
         "background_gradient": "",
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
-      }
-    },
-    "faq": {
-      "type": "faq",
-      "blocks": {
-        "166442457738b23caf-0": {
-          "type": "item",
-          "settings": {
-            "title": "Do you ship overseas?",
-            "content": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
-          }
-        },
-        "166442457738b23caf-1": {
-          "type": "item",
-          "settings": {
-            "title": "How long will it take to get my orders?",
-            "content": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
-          }
-        },
-        "166442457738b23caf-2": {
-          "type": "item",
-          "settings": {
-            "title": "Any question?",
-            "content": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "166442457738b23caf-0",
-        "166442457738b23caf-1",
-        "166442457738b23caf-2"
-      ],
-      "settings": {
-        "full_width": false,
-        "subheading": "",
-        "title": "FAQ",
-        "content": "<p>Use this text to share information about your product or shipping policies.</p>",
-        "team_avatar_width": 160,
-        "support_hours": "Our customer support is available Monday to Friday: 8am-8:30pm.",
-        "answer_time": "Average answer time: 24h",
-        "button_text": "",
-        "button_url": "",
-        "text_position": "start",
-        "background": "#ffffff",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "button_background": "",
-        "button_text_color": "",
-        "accordion_background": "",
-        "accordion_text_color": ""
       }
     }
   },
   "order": [
     "video_UmP9qt",
     "collection-list",
+    "rich_text_EK3hAN",
     "drawer_banner",
-    "featured-collection",
-    "impact-text",
-    "image-with-text-overlay",
-    "media-grid",
-    "before-after-image",
-    "press",
-    "hot-spots",
-    "multiple-images-with-text",
-    "featured-product",
-    "faq"
+    "rich_text_f3VHqP",
+    "rich_text_kLr3HB",
+    "featured_product_wjhVjG"
   ]
 }
