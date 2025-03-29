@@ -9,6 +9,21 @@
  */
 {
   "sections": {
+    "image_with_text_overlay_YVqTtY": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": true,
+        "enable_parallax": false,
+        "image_size": "lg",
+        "image": "shopify://shop_images/Img_tbl-top.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
     "video_UmP9qt": {
       "type": "video",
       "blocks": {
@@ -28,6 +43,7 @@
         "play_BqAzjj",
         "heading_UHQwxp"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "allow_transparent_header": true,
@@ -183,7 +199,7 @@
     "drawer_banner": {
       "type": "custom-drawer-banner",
       "settings": {
-        "image": "shopify://shop_images/02436-2T.jpg",
+        "image": "shopify://shop_images/Img_hero-banner.png",
         "collection": "test"
       }
     },
@@ -380,6 +396,7 @@
     }
   },
   "order": [
+    "image_with_text_overlay_YVqTtY",
     "video_UmP9qt",
     "collection-list",
     "rich_text_EK3hAN",
