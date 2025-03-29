@@ -157,6 +157,25 @@
         "collection": "test"
       }
     },
+    "custom_rich_text_white_fz6trn": {
+      "type": "custom-rich-text_white",
+      "blocks": {
+        "button_yc77Ek": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP COLLECTION",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "button_yc77Ek"
+      ],
+      "settings": {
+        "heading": "WAKE UP IN SOFT BLOOM",
+        "subheading": "Floral bedding designed for comfort, crafted for beauty — turn every morning into a moment"
+      }
+    },
     "rich_text_f3VHqP": {
       "type": "rich-text",
       "blocks": {
@@ -404,6 +423,7 @@
     "collection-list",
     "rich_text_EK3hAN",
     "drawer_banner",
+    "custom_rich_text_white_fz6trn",
     "rich_text_f3VHqP",
     "rich_text_kLr3HB",
     "featured_product_wjhVjG",
