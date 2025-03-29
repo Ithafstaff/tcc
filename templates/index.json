@@ -57,7 +57,7 @@
       }
     },
     "collection-list": {
-      "type": "collection-list",
+      "type": "custom-collection-list",
       "blocks": {
         "collection-1": {
           "type": "collection",

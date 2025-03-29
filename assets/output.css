@@ -554,6 +554,12 @@
   .x\:mx-auto {
     margin-inline: auto !important;
   }
+  .x\:mt-4 {
+    margin-top: calc(var(--x-spacing) * 4) !important;
+  }
+  .x\:mt-8 {
+    margin-top: calc(var(--x-spacing) * 8) !important;
+  }
   .x\:mb-\[8px\] {
     margin-bottom: 8px !important;
   }
@@ -566,23 +572,53 @@
   .x\:hidden {
     display: none !important;
   }
-  .x\:inline-flex {
-    display: inline-flex !important;
-  }
   .x\:aspect-square {
     aspect-ratio: 1 / 1 !important;
+  }
+  .x\:h-12 {
+    height: calc(var(--x-spacing) * 12) !important;
+  }
+  .x\:h-\[400px\] {
+    height: 400px !important;
+  }
+  .x\:h-\[635px\] {
+    height: 635px !important;
+  }
+  .x\:h-full {
+    height: 100% !important;
+  }
+  .x\:w-12 {
+    width: calc(var(--x-spacing) * 12) !important;
+  }
+  .x\:w-\[calc\(33\.33\%-1\.5rem\)\] {
+    width: calc(33.33% - 1.5rem) !important;
+  }
+  .x\:w-\[calc\(33\.333\%-1\.5rem\)\] {
+    width: calc(33.333% - 1.5rem) !important;
   }
   .x\:w-full {
     width: 100% !important;
   }
+  .x\:shrink-0 {
+    flex-shrink: 0 !important;
+  }
   .x\:flex-grow {
     flex-grow: 1 !important;
+  }
+  .x\:basis-\[calc\(33\.333\%-1\.5rem\)\] {
+    flex-basis: calc(33.333% - 1.5rem) !important;
+  }
+  .x\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
   }
   .x\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
   .x\:flex-col {
     flex-direction: column !important;
+  }
+  .x\:flex-wrap {
+    flex-wrap: wrap !important;
   }
   .x\:items-center {
     align-items: center !important;
@@ -595,6 +631,12 @@
   }
   .x\:justify-center {
     justify-content: center !important;
+  }
+  .x\:gap-4 {
+    gap: calc(var(--x-spacing) * 4) !important;
+  }
+  .x\:gap-6 {
+    gap: calc(var(--x-spacing) * 6) !important;
   }
   .x\:gap-\[8px\] {
     gap: 8px !important;
@@ -615,8 +657,17 @@
   .x\:overflow-hidden {
     overflow: hidden !important;
   }
+  .x\:overflow-x-auto {
+    overflow-x: auto !important;
+  }
+  .x\:scroll-smooth {
+    scroll-behavior: smooth !important;
+  }
   .x\:rounded-full {
     border-radius: calc(infinity * 1px) !important;
+  }
+  .x\:rounded-md {
+    border-radius: var(--x-radius-md) !important;
   }
   .x\:rounded-none {
     border-radius: 0 !important;
@@ -636,8 +687,14 @@
   .x\:border-black {
     border-color: var(--x-color-black) !important;
   }
+  .x\:border-gray-400 {
+    border-color: var(--x-color-gray-400) !important;
+  }
   .x\:bg-\[\#222\] {
     background-color: #222 !important;
+  }
+  .x\:bg-gray-300 {
+    background-color: var(--x-color-gray-300) !important;
   }
   .x\:bg-white {
     background-color: var(--x-color-white) !important;
@@ -650,6 +707,12 @@
   }
   .x\:bg-no-repeat {
     background-repeat: no-repeat !important;
+  }
+  .x\:object-cover {
+    object-fit: cover !important;
+  }
+  .x\:p-6 {
+    padding: calc(var(--x-spacing) * 6) !important;
   }
   .x\:p-\[6px\] {
     padding: 6px !important;
@@ -674,6 +737,14 @@
   }
   .x\:text-center {
     text-align: center !important;
+  }
+  .x\:text-3xl {
+    font-size: var(--x-text-3xl) !important;
+    line-height: var(--tw-leading, var(--x-text-3xl--line-height)) !important;
+  }
+  .x\:text-lg {
+    font-size: var(--x-text-lg) !important;
+    line-height: var(--tw-leading, var(--x-text-lg--line-height)) !important;
   }
   .x\:text-\[12px\] {
     font-size: 12px !important;
@@ -700,6 +771,14 @@
     --tw-leading: 18px !important;
     line-height: 18px !important;
   }
+  .x\:font-bold {
+    --tw-font-weight: var(--x-font-weight-bold) !important;
+    font-weight: var(--x-font-weight-bold) !important;
+  }
+  .x\:font-semibold {
+    --tw-font-weight: var(--x-font-weight-semibold) !important;
+    font-weight: var(--x-font-weight-semibold) !important;
+  }
   .x\:tracking-\[-0\.21px\] {
     --tw-tracking: -0.21px !important;
     letter-spacing: -0.21px !important;
@@ -721,6 +800,10 @@
   .x\:text-white {
     color: var(--x-color-white) !important;
   }
+  .x\:shadow-lg {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1)) !important;
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow) !important;
+  }
   .x\:transition-opacity {
     transition-property: opacity !important;
     transition-timing-function: var(--tw-ease, var(--x-default-transition-timing-function)) !important;
@@ -739,11 +822,6 @@
       margin-bottom: 18px !important;
     }
   }
-  .x\:md\:mb-\[20px\] {
-    @media (width >= 990px) {
-      margin-bottom: 20px !important;
-    }
-  }
   .x\:md\:hidden {
     @media (width >= 990px) {
       display: none !important;
@@ -752,15 +830,6 @@
   .x\:md\:w-\[820px\] {
     @media (width >= 990px) {
       width: 820px !important;
-    }
-  }
-  .x\:md\:space-y-\[2px\] {
-    @media (width >= 990px) {
-      :where(& > :not(:last-child)) {
-        --tw-space-y-reverse: 0 !important;
-        margin-block-start: calc(2px * var(--tw-space-y-reverse)) !important;
-        margin-block-end: calc(2px * calc(1 - var(--tw-space-y-reverse))) !important;
-      }
     }
   }
   .x\:md\:space-y-\[5px\] {
@@ -881,9 +950,68 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-tracking {
   syntax: "*";
   inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
 }
 @property --tw-duration {
   syntax: "*";
