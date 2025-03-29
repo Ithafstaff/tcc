@@ -32,6 +32,59 @@ CSS
       --collection-list-grid: {% if section.settings.stack_collections %}auto / repeat({{ section.settings.collections_per_row }}, minmax(0, 1fr)){% else %}auto / auto-flow calc(var(--container-inner-width) / {{ section.settings.collections_per_row }} - (var(--grid-gutter) / {{ section.settings.collections_per_row }} * {{ section.settings.collections_per_row | minus: 1 }})){% endif %};
     }
   }
+
+  /* Custom Styling for this Collection List */
+#shopify-section-{{ section.id }}.custom-collection-list {
+  text-align: center;
+  padding: 40px;
+}
+
+.custom-collection-list h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.custom-collection-list .collection-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.custom-collection-list .collection-card {
+  flex: 1;
+  max-width: calc(100% / 3 - 20px);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.custom-collection-list .collection-card img {
+  border-radius: 8px;
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.custom-collection-list .collection-card p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Arrow Buttons Styling */
+.custom-collection-list button[is="prev-button"],
+.custom-collection-list button[is="next-button"] {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.custom-collection-list button[is="prev-button"]:hover,
+.custom-collection-list button[is="next-button"]:hover {
+  background-color: #f0f0f0;
+}
 </style>
 
 {%- comment -%}
@@ -41,7 +94,7 @@ LIQUID
 {%- endcomment -%}
 
 <div {% render 'section-properties' %}>
-  <div class="section-stack">
+  <div class="section-stack custom-collection-list">
     {%- assign link_url = section.settings.link_url | default: section.settings.collection.url -%}
     {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, heading_color: section.settings.heading_color, heading_gradient: section.settings.heading_gradient, content: section.settings.content, link_text: section.settings.link_text, link_url: link_url -%}
 
