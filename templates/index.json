@@ -183,6 +183,25 @@
         "collection": ""
       }
     },
+    "custom_rich_text_white_qqai8x": {
+      "type": "custom-rich-text_white",
+      "blocks": {
+        "button_nrDnrQ": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP COLLECTION",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "button_nrDnrQ"
+      ],
+      "settings": {
+        "heading": "DESIGNED TO REFLECT ELEGANCE",
+        "subheading": "Designed to blend into any space and stand out all at once"
+      }
+    },
     "rich_text_f3VHqP": {
       "type": "rich-text",
       "blocks": {
@@ -432,6 +451,7 @@
     "drawer_banner",
     "custom_rich_text_white_fz6trn",
     "custom_drawer_banner_nKGchn",
+    "custom_rich_text_white_qqai8x",
     "rich_text_f3VHqP",
     "rich_text_kLr3HB",
     "featured_product_wjhVjG",
