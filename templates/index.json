@@ -208,19 +208,19 @@
         "product_UgR38e": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "superior-linen-bears-in-umbrellas-blue-6pc-twin-bedding-set"
           }
         },
         "product_3V8HQN": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "superior-linen-bicycles-and-balls-6pc-twin-bedding-set"
           }
         },
         "product_GBEr6W": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
           }
         }
       },
@@ -271,19 +271,19 @@
         "product_RjF4gD": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
           }
         },
         "product_KbrCpc": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
           }
         },
         "product_NMDFmn": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
           }
         }
       },
@@ -291,37 +291,6 @@
         "product_RjF4gD",
         "product_KbrCpc",
         "product_NMDFmn"
-      ],
-      "settings": {
-        "title": ""
-      }
-    },
-    "custom_collection_products_x6DChT": {
-      "type": "custom-collection-products",
-      "blocks": {
-        "product_nF4iia": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_pKJEK7": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "product_TNgjN4": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "product_nF4iia",
-        "product_pKJEK7",
-        "product_TNgjN4"
       ],
       "settings": {
         "title": ""
@@ -377,6 +346,37 @@
       "settings": {
         "heading": "SLEEK SOPHISTICATION FOR EVERYDAY USE",
         "subheading": "Timeless lucite pieces that elevate your home with clarity, grace, and understated luxury"
+      }
+    },
+    "custom_collection_products_x6DChT": {
+      "type": "custom-collection-products",
+      "blocks": {
+        "product_nF4iia": {
+          "type": "product",
+          "settings": {
+            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
+          }
+        },
+        "product_pKJEK7": {
+          "type": "product",
+          "settings": {
+            "product": "superior-linen-bears-in-umbrellas-blue-6pc-twin-bedding-set"
+          }
+        },
+        "product_TNgjN4": {
+          "type": "product",
+          "settings": {
+            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
+          }
+        }
+      },
+      "block_order": [
+        "product_nF4iia",
+        "product_pKJEK7",
+        "product_TNgjN4"
+      ],
+      "settings": {
+        "title": ""
       }
     },
     "custom_shipping_section_QJdWUJ": {
