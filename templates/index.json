@@ -393,6 +393,55 @@
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
       }
+    },
+    "rich_text_QiXRVd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_9TGHq3": {
+          "type": "heading",
+          "settings": {
+            "text": "FREE SHIPPING ON ORDERS OVER $200",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "subheading_M7nRTg": {
+          "type": "subheading",
+          "settings": {
+            "text": "Get alerts about new items, sales, and more."
+          }
+        },
+        "divider_xbVp4B": {
+          "type": "divider",
+          "settings": {}
+        },
+        "button_cAJ9P9": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "xl",
+            "text": "GET STARTED",
+            "url": "",
+            "background": "",
+            "text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_9TGHq3",
+        "subheading_M7nRTg",
+        "divider_xbVp4B",
+        "button_cAJ9P9"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
@@ -403,6 +452,7 @@
     "drawer_banner",
     "rich_text_f3VHqP",
     "rich_text_kLr3HB",
-    "featured_product_wjhVjG"
+    "featured_product_wjhVjG",
+    "rich_text_QiXRVd"
   ]
 }
