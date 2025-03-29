@@ -854,6 +854,9 @@
   .x\:text-\[\#222\] {
     color: #222 !important;
   }
+  .x\:text-black {
+    color: var(--x-color-black) !important;
+  }
   .x\:text-gray-400 {
     color: var(--x-color-gray-400) !important;
   }
