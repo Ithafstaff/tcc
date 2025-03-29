@@ -795,6 +795,10 @@
     font-size: var(--x-text-lg) !important;
     line-height: var(--tw-leading, var(--x-text-lg--line-height)) !important;
   }
+  .x\:text-sm {
+    font-size: var(--x-text-sm) !important;
+    line-height: var(--tw-leading, var(--x-text-sm--line-height)) !important;
+  }
   .x\:text-\[12px\] {
     font-size: 12px !important;
   }
@@ -859,6 +863,9 @@
   }
   .x\:text-gray-400 {
     color: var(--x-color-gray-400) !important;
+  }
+  .x\:text-gray-500 {
+    color: var(--x-color-gray-500) !important;
   }
   .x\:text-white {
     color: var(--x-color-white) !important;

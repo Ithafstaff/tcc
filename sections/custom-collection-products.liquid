@@ -1,0 +1,128 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+LIQUID
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+<!-- CSS to Hide Scrollbar -->
+<style>
+  #scroll-area-{{ section.id }} {
+    -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+
+  #scroll-area-{{ section.id }}::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  }
+</style>
+
+<div {% render 'section-properties' %} class="x:w-full x:h-[635px] x:bg-white x:p-6">
+  <!-- Header Section -->
+  <div class="x:flex x:items-center x:justify-between">
+    <!-- Centered Header -->
+    {%- if section.settings.title != blank -%}
+      <h1 class="x:text-3xl x:font-bold x:text-center x:flex-grow">
+        {{ section.settings.title }}
+      </h1>
+    {%- endif -%}
+    <!-- Navigation Buttons -->
+    <div class="x:flex x:gap-4">
+      <!-- Back Button -->
+      <button is="prev-button" class="x:w-12 x:h-12 x:border x:border-gray-400 x:flex x:items-center x:justify-center hover:x:bg-gray-100" aria-controls="scroll-area-{{ section.id }}">
+        &lt;
+      </button>
+      <!-- Forward Button -->
+      <button is="next-button" class="x:w-12 x:h-12 x:border x:border-gray-400 x:flex x:items-center x:justify-center hover:x:bg-gray-100" aria-controls="scroll-area-{{ section.id }}">
+        &gt;
+      </button>
+    </div>
+  </div>
+
+  <!-- Product List Section with Scrollable Carousel -->
+  <div class="x:mt-8 x:overflow-hidden">
+    <div id="scroll-area-{{ section.id }}" class="x:flex x:gap-6 x:overflow-x-auto x:scroll-smooth" style="scroll-snap-type: x mandatory;">
+      {%- for block in section.blocks -%}
+        {%- assign product = block.settings.product -%}
+
+        <!-- Product Card -->
+        <a href="{{ product.url }}" class="product-card x:w-[calc(33.333%-1.5rem)] sm:x:w-[calc(50%-1.5rem)] lg:x:w-[calc(33.333%-1.5rem)] x:shrink-0 x:overflow-hidden x:rounded-md">
+          <div class="x:w-full x:h-[400px] x:flex x:items-center x:justify-center x:bg-gray-300">
+            {%- if product.featured_image != blank -%}
+              <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" class="x:w-full x:h-full x:object-cover" loading="lazy">
+            {%- else -%}
+              <span>No Image Available</span>
+            {%- endif -%}
+          </div>
+          <p class="x:text-center x:mt-4 x:text-lg x:font-semibold">{{ product.title }}</p>
+          <p class="x:text-center x:text-sm x:text-gray-500">{{ product.price | money }}</p>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<!-- Javascript for Carousel Scroll -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const scrollArea = document.getElementById('scroll-area-{{ section.id }}');
+    const prevButton = document.querySelector('button[is="prev-button"]');
+    const nextButton = document.querySelector('button[is="next-button"]');
+
+    function scrollProducts(direction) {
+      const cardWidth = scrollArea.querySelector('.product-card').offsetWidth + 24; 
+      scrollArea.scrollBy({
+        left: cardWidth * direction,
+        behavior: 'smooth'
+      });
+    }
+
+    prevButton.addEventListener('click', () => scrollProducts(-1));
+    nextButton.addEventListener('click', () => scrollProducts(1));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Collection Product",
+  "class": "shopify-section--collection-products",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": ""
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Collection Products",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
