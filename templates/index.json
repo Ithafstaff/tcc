@@ -141,60 +141,7 @@
       }
     },
     "rich_text_EK3hAN": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_PGwJFP": {
-          "type": "heading",
-          "settings": {
-            "text": "LUXURY. ELEGANCE. STYLE.",
-            "heading_tag": "h1",
-            "text_color": "",
-            "gradient": ""
-          }
-        },
-        "richtext_thrWQ6": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Timeless pieces for meaningful moments</p>"
-          }
-        },
-        "button_BHfDGG": {
-          "type": "button",
-          "settings": {
-            "style": "fill",
-            "size": "xl",
-            "text": "SHOP NEW",
-            "url": "",
-            "background": "",
-            "text_color": ""
-          }
-        },
-        "button_JE3a3U": {
-          "type": "button",
-          "settings": {
-            "style": "fill",
-            "size": "xl",
-            "text": "SHOP BEST SELLERS",
-            "url": "",
-            "background": "",
-            "text_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_PGwJFP",
-        "richtext_thrWQ6",
-        "button_BHfDGG",
-        "button_JE3a3U"
-      ],
-      "settings": {
-        "full_width": true,
-        "content_width": "medium",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
+      "type": "custom-rich-text",
     },
     "drawer_banner": {
       "type": "custom-drawer-banner",
