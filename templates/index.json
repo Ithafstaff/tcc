@@ -63,81 +63,64 @@
           "type": "collection",
           "settings": {
             "collection": "",
-            "subheading": "",
-            "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "image": "shopify://shop_images/Image_fullImg_2.png",
+            "title": "SHOP DINNERWARE",
+            "url": ""
+          }
+        },
+        "collection_GpwWda": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg.png",
+            "title": "SHOP TOWELS",
+            "url": ""
           }
         },
         "collection-2": {
           "type": "collection",
           "settings": {
             "collection": "",
-            "subheading": "",
+            "image": "shopify://shop_images/Image_fullImg_1.png",
+            "title": "SHOP JUDAICA",
+            "url": ""
+          }
+        },
+        "collection_bR7fGU": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
             "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "url": ""
           }
         },
         "collection-3": {
           "type": "collection",
           "settings": {
             "collection": "",
-            "subheading": "",
             "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "url": ""
           }
         },
         "collection_Qg49He": {
           "type": "collection",
           "settings": {
             "collection": "",
-            "subheading": "",
             "title": "",
-            "url": "",
-            "heading_tag": "h2",
-            "text_position": "place-self-center text-center",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30
+            "url": ""
           }
         }
       },
       "block_order": [
         "collection-1",
+        "collection_GpwWda",
         "collection-2",
+        "collection_bR7fGU",
         "collection-3",
         "collection_Qg49He"
       ],
       "settings": {
-        "full_width": true,
-        "stack_collections": false,
-        "collections_per_row_mobile": "1",
-        "collections_per_row": 3,
-        "show_progress_bar": false,
-        "subheading": "",
-        "title": "BEAUTIFUL CELEBRATIONS START HERE",
-        "content": "",
-        "link_url": "",
-        "link_text": "View all",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": ""
+        "title": "BEAUTIFUL CELEBRATIONS START HERE"
       }
     },
     "rich_text_EK3hAN": {
