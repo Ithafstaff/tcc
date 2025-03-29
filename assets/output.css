@@ -696,6 +696,12 @@
   .x\:bg-\[\#222\] {
     background-color: #222 !important;
   }
+  .x\:bg-\[\#\] {
+    background-color: # !important;
+  }
+  .x\:bg-\[\#ffffff\] {
+    background-color: #ffffff !important;
+  }
   .x\:bg-black {
     background-color: var(--x-color-black) !important;
   }
