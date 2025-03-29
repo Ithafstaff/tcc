@@ -176,6 +176,13 @@
         "subheading": "Floral bedding designed for comfort, crafted for beauty — turn every morning into a moment"
       }
     },
+    "custom_drawer_banner_nKGchn": {
+      "type": "custom-drawer-banner",
+      "settings": {
+        "image": "shopify://shop_images/Judaica.png",
+        "collection": ""
+      }
+    },
     "rich_text_f3VHqP": {
       "type": "rich-text",
       "blocks": {
@@ -424,6 +431,7 @@
     "rich_text_EK3hAN",
     "drawer_banner",
     "custom_rich_text_white_fz6trn",
+    "custom_drawer_banner_nKGchn",
     "rich_text_f3VHqP",
     "rich_text_kLr3HB",
     "featured_product_wjhVjG",
