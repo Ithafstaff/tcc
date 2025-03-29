@@ -611,6 +611,9 @@
   .x\:w-full {
     width: 100% !important;
   }
+  .x\:max-w-\[1300px\] {
+    max-width: 1300px !important;
+  }
   .x\:shrink-0 {
     flex-shrink: 0 !important;
   }
@@ -635,14 +638,35 @@
   .x\:justify-center {
     justify-content: center !important;
   }
+  .x\:gap-1 {
+    gap: calc(var(--x-spacing) * 1) !important;
+  }
+  .x\:gap-2 {
+    gap: calc(var(--x-spacing) * 2) !important;
+  }
   .x\:gap-4 {
     gap: calc(var(--x-spacing) * 4) !important;
   }
   .x\:gap-6 {
     gap: calc(var(--x-spacing) * 6) !important;
   }
+  .x\:gap-10 {
+    gap: calc(var(--x-spacing) * 10) !important;
+  }
+  .x\:gap-\[2\] {
+    gap: 2 !important;
+  }
+  .x\:gap-\[5px\] {
+    gap: 5px !important;
+  }
   .x\:gap-\[8px\] {
     gap: 8px !important;
+  }
+  .x\:gap-\[10px\] {
+    gap: 10px !important;
+  }
+  .x\:gap-\[px\] {
+    gap: px !important;
   }
   .x\:gap-x-\[15px\] {
     column-gap: 15px !important;
@@ -699,6 +723,9 @@
   .x\:bg-\[\#222222\] {
     background-color: #222222 !important;
   }
+  .x\:bg-\[\#22222\] {
+    background-color: #22222 !important;
+  }
   .x\:bg-\[\#222\] {
     background-color: #222 !important;
   }
@@ -707,6 +734,9 @@
   }
   .x\:bg-\[\#ffffff\] {
     background-color: #ffffff !important;
+  }
+  .x\:bg-\[black\] {
+    background-color: black !important;
   }
   .x\:bg-black {
     background-color: var(--x-color-black) !important;
@@ -762,9 +792,6 @@
   .x\:py-\[3\.5px\] {
     padding-block: 3.5px !important;
   }
-  .x\:pt-\[5px\] {
-    padding-top: 5px !important;
-  }
   .x\:pt-\[15px\] {
     padding-top: 15px !important;
   }
@@ -774,11 +801,14 @@
   .x\:pt-\[25px\] {
     padding-top: 25px !important;
   }
-  .x\:pt-\[40px\] {
-    padding-top: 40px !important;
-  }
   .x\:pt-\[50px\] {
     padding-top: 50px !important;
+  }
+  .x\:pt-\[5px\] {
+    padding-top: 5px !important;
+  }
+  .x\:pt-\[40px\] {
+    padding-top: 40px !important;
   }
   .x\:pb-\[25px\] {
     padding-bottom: 25px !important;
@@ -817,6 +847,9 @@
   .x\:text-\[12px\] {
     font-size: 12px !important;
   }
+  .x\:text-\[16px\] {
+    font-size: 16px !important;
+  }
   .x\:text-\[20px\] {
     font-size: 20px !important;
   }
@@ -842,6 +875,10 @@
   .x\:font-bold {
     --tw-font-weight: var(--x-font-weight-bold) !important;
     font-weight: var(--x-font-weight-bold) !important;
+  }
+  .x\:font-normal {
+    --tw-font-weight: var(--x-font-weight-normal) !important;
+    font-weight: var(--x-font-weight-normal) !important;
   }
   .x\:font-semibold {
     --tw-font-weight: var(--x-font-weight-semibold) !important;

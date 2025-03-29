@@ -1,23 +1,26 @@
-<div class="x:w-full x:h-[112px] x:bg-black x:p-6 x:flex x:justify-between x:items-center">
-    <!-- Left Text Section -->
-    <div>
-      <h2 class="x:text-white x:text-lg x:font-bold">
-        {{ section.settings.heading | default: 'FREE SHIPPING ON ORDERS OVER $200' }}
-      </h2>
-      <p class="x:text-gray-400 x:text-sm">
-        {{ section.settings.subheading | default: 'Get alerts about new items, sales, and more.' }}
-      </p>
+<div class="x:w-full x:h-[112px] x:bg-[#222222] x:text-white x:flex x:items-center x:justify-center x:px-6">
+    <!-- Container to Center the Content -->
+    <div class="x:flex x:items-center x:justify-center x:w-full x:max-w-[1300px] x:gap-10">
+      
+      <!-- Left Text Section -->
+      <div class="x:flex x:flex-col x:justify-center">
+        <h2 class="x:text-white x:text-[24px] x:font-normal">
+          {{ section.settings.heading | default: 'FREE SHIPPING ON ORDERS OVER $200' }}
+        </h2>
+        <p class="x:text-white x:text-[16px]">
+          {{ section.settings.subheading | default: 'Get alerts about new items, sales, and more.' }}
+        </p>
+      </div>
+    
+      <!-- Button Section (Only If Text is Present) -->
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_url | default: '#' }}"
+           class="x:bg-white x:text-black x:px-6 x:py-2 x:text-sm x:font-semibold hover:x:bg-gray-200 x:shrink-0">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
     </div>
-  
-    <!-- Button Section -->
-    {% if section.settings.button_text != blank %}
-      <a href="{{ section.settings.button_url | default: '#' }}"
-         class="x:bg-white x:text-black x:px-6 x:py-2 x:text-sm x:font-semibold x:rounded-md hover:x:bg-gray-200">
-        {{ section.settings.button_text }}
-      </a>
-    {% endif %}
   </div>
-  
   {% schema %}
   {
     "name": "Custom Shipping Section",
