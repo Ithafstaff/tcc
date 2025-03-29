@@ -750,9 +750,6 @@
   .x\:py-\[3\.5px\] {
     padding-block: 3.5px !important;
   }
-  .x\:pt-\[5px\] {
-    padding-top: 5px !important;
-  }
   .x\:pt-\[15px\] {
     padding-top: 15px !important;
   }
@@ -764,6 +761,12 @@
   }
   .x\:pt-\[50px\] {
     padding-top: 50px !important;
+  }
+  .x\:pt-\[5px\] {
+    padding-top: 5px !important;
+  }
+  .x\:pt-\[40px\] {
+    padding-top: 40px !important;
   }
   .x\:pb-\[25px\] {
     padding-bottom: 25px !important;
