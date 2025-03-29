@@ -183,34 +183,6 @@
         "collection": ""
       }
     },
-    "custom_collection_product": {
-  "type": "custom-collection-products",
-  "blocks": {
-    "product_1": {
-      "type": "product",
-      "settings": {
-        "product": ""
-      }
-    },
-    "product_2": {
-      "type": "product",
-      "settings": {
-        "product": ""
-      }
-    },
-    "product_3": {
-      "type": "product",
-      "settings": {
-        "product": ""
-      }
-    }
-  },
-  "block_order": [
-    "product_1",
-    "product_2",
-    "product_3"
-  ]
-},
     "custom_rich_text_white_qqai8x": {
       "type": "custom-rich-text_white",
       "blocks": {
@@ -230,236 +202,59 @@
         "subheading": "Designed to blend into any space and stand out all at once"
       }
     },
-    "rich_text_f3VHqP": {
+    "custom_collection_products_TPa6kD": {
+      "type": "custom-collection-products",
+      "blocks": {
+        "product_UgR38e": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_3V8HQN": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_GBEr6W": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_UgR38e",
+        "product_3V8HQN",
+        "product_GBEr6W"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "custom_drawer_banner_e9xLj7": {
+      "type": "custom-drawer-banner",
+      "settings": {
+        "image": "shopify://shop_images/Image_fullImg_2.png",
+        "collection": ""
+      }
+    },
+    "rich_text_MaTfnB": {
       "type": "rich-text",
       "blocks": {
-        "heading_4tY7iN": {
+        "heading_EA9yx8": {
           "type": "heading",
           "settings": {
-            "text": "WAKE UP IN SOFT BLOOM",
-            "heading_tag": "h1",
+            "text": "SPECIAL OFFERS JUST FOR YOU",
+            "heading_tag": "h2",
             "text_color": "",
             "gradient": ""
           }
-        },
-        "richtext_dn7pYk": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Floral bedding designed for comfort, crafter for beauty - turn every morning into a moment</p>"
-          }
-        },
-        "button_7UXXxF": {
-          "type": "button",
-          "settings": {
-            "style": "fill",
-            "size": "xl",
-            "text": "SHOP COLLECTION",
-            "url": "",
-            "background": "",
-            "text_color": ""
-          }
         }
       },
       "block_order": [
-        "heading_4tY7iN",
-        "richtext_dn7pYk",
-        "button_7UXXxF"
-      ],
-      "settings": {
-        "full_width": true,
-        "content_width": "medium",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
-    "rich_text_kLr3HB": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_erm8Y6": {
-          "type": "heading",
-          "settings": {
-            "text": "DESIGNED TO REFLECT ELEGANCE",
-            "heading_tag": "h1",
-            "text_color": "",
-            "gradient": ""
-          }
-        },
-        "richtext_3MqVPH": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Designed to blend into any space and stand out all at once</p>"
-          }
-        },
-        "button_4qGQnF": {
-          "type": "button",
-          "settings": {
-            "style": "fill",
-            "size": "xl",
-            "text": "SHOP COLLECTION",
-            "url": "",
-            "background": "",
-            "text_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_erm8Y6",
-        "richtext_3MqVPH",
-        "button_4qGQnF"
-      ],
-      "settings": {
-        "full_width": true,
-        "content_width": "medium",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
-    "featured_product_wjhVjG": {
-      "type": "featured-product",
-      "blocks": {
-        "vendor_wJ4UBL": {
-          "type": "vendor",
-          "settings": {}
-        },
-        "title_LWAqYC": {
-          "type": "title",
-          "settings": {
-            "heading_tag": "h2"
-          }
-        },
-        "badges_twxVty": {
-          "type": "badges",
-          "settings": {}
-        },
-        "price_LQhpTh": {
-          "type": "price",
-          "settings": {
-            "show_taxes_notice": false
-          }
-        },
-        "rating_BPkTMH": {
-          "type": "rating",
-          "settings": {
-            "show_empty": false
-          }
-        },
-        "separator_aX3n4d": {
-          "type": "separator",
-          "settings": {}
-        },
-        "description_LKVAUT": {
-          "type": "description",
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "collapse_content": false
-          }
-        },
-        "variant_picker_UK79Ek": {
-          "type": "variant_picker",
-          "settings": {
-            "hide_sold_out_variants": false,
-            "stack_blocks": true,
-            "selector_style": "block",
-            "swatch_selector_style": "swatch",
-            "variant_image_options": "",
-            "size_chart_page": ""
-          }
-        },
-        "quantity_selector_kKPC7p": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_XKqyMF": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_payment_button": true,
-            "show_gift_card_recipient": true,
-            "atc_button_background": "",
-            "atc_button_text_color": "",
-            "payment_button_background": "",
-            "payment_button_text_color": ""
-          }
-        },
-        "pickup_availability_iJ8YmX": {
-          "type": "pickup_availability",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "vendor_wJ4UBL",
-        "title_LWAqYC",
-        "badges_twxVty",
-        "price_LQhpTh",
-        "rating_BPkTMH",
-        "separator_aX3n4d",
-        "description_LKVAUT",
-        "variant_picker_UK79Ek",
-        "quantity_selector_kKPC7p",
-        "buy_buttons_XKqyMF",
-        "pickup_availability_iJ8YmX"
-      ],
-      "settings": {
-        "full_width": true,
-        "product": "",
-        "desktop_media_width": 55,
-        "desktop_media_layout": "carousel_thumbnails_left",
-        "mobile_media_size": "expanded",
-        "mobile_carousel_control": "floating_dots",
-        "enable_video_autoplay": true,
-        "enable_video_looping": false,
-        "enable_image_zoom": true,
-        "max_image_zoom_level": 3,
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "input_background": "rgba(0,0,0,0)",
-        "input_text_color": ""
-      }
-    },
-    "rich_text_QiXRVd": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_9TGHq3": {
-          "type": "heading",
-          "settings": {
-            "text": "FREE SHIPPING ON ORDERS OVER $200",
-            "heading_tag": "h1",
-            "text_color": "",
-            "gradient": ""
-          }
-        },
-        "subheading_M7nRTg": {
-          "type": "subheading",
-          "settings": {
-            "text": "Get alerts about new items, sales, and more."
-          }
-        },
-        "divider_xbVp4B": {
-          "type": "divider",
-          "settings": {}
-        },
-        "button_cAJ9P9": {
-          "type": "button",
-          "settings": {
-            "style": "fill",
-            "size": "xl",
-            "text": "GET STARTED",
-            "url": "",
-            "background": "",
-            "text_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_9TGHq3",
-        "subheading_M7nRTg",
-        "divider_xbVp4B",
-        "button_cAJ9P9"
+        "heading_EA9yx8"
       ],
       "settings": {
         "full_width": true,
@@ -468,6 +263,129 @@
         "background": "",
         "background_gradient": "",
         "text_color": ""
+      }
+    },
+    "custom_collection_products_gXXUyr": {
+      "type": "custom-collection-products",
+      "blocks": {
+        "product_RjF4gD": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_KbrCpc": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_NMDFmn": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_RjF4gD",
+        "product_KbrCpc",
+        "product_NMDFmn"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "custom_collection_products_x6DChT": {
+      "type": "custom-collection-products",
+      "blocks": {
+        "product_nF4iia": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_pKJEK7": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_TNgjN4": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_nF4iia",
+        "product_pKJEK7",
+        "product_TNgjN4"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "custom_drawer_banner_pUz7df": {
+      "type": "custom-drawer-banner",
+      "settings": {
+        "image": "shopify://shop_images/Dining.png",
+        "collection": ""
+      }
+    },
+    "custom_rich_text_white_pJ6T83": {
+      "type": "custom-rich-text_white",
+      "blocks": {
+        "button_E9cczY": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP PROMO",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "button_E9cczY"
+      ],
+      "settings": {
+        "heading": "DINING ELEGANCE ON SALE",
+        "subheading": "Created to impress, built to serve — modern dinnerware with graceful appeal"
+      }
+    },
+    "custom_drawer_banner_NweafM": {
+      "type": "custom-drawer-banner",
+      "settings": {
+        "image": "shopify://shop_images/Lucite-1.png",
+        "collection": ""
+      }
+    },
+    "custom_rich_text_white_GCaAey": {
+      "type": "custom-rich-text_white",
+      "blocks": {
+        "button_zz6wbT": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP COLLECTION",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "button_zz6wbT"
+      ],
+      "settings": {
+        "heading": "SLEEK SOPHISTICATION FOR EVERYDAY USE",
+        "subheading": "Timeless lucite pieces that elevate your home with clarity, grace, and understated luxury"
+      }
+    },
+    "custom_shipping_section_QJdWUJ": {
+      "type": "custom-shipping-section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
       }
     }
   },
@@ -480,10 +398,15 @@
     "custom_rich_text_white_fz6trn",
     "custom_drawer_banner_nKGchn",
     "custom_rich_text_white_qqai8x",
-    "rich_text_f3VHqP",
-    "rich_text_kLr3HB",
-    "featured_product_wjhVjG",
-    "rich_text_QiXRVd",
-    "custom_collection_product"
+    "custom_collection_products_TPa6kD",
+    "custom_drawer_banner_e9xLj7",
+    "rich_text_MaTfnB",
+    "custom_collection_products_gXXUyr",
+    "custom_drawer_banner_pUz7df",
+    "custom_rich_text_white_pJ6T83",
+    "custom_drawer_banner_NweafM",
+    "custom_rich_text_white_GCaAey",
+    "custom_collection_products_x6DChT",
+    "custom_shipping_section_QJdWUJ"
   ]
 }
