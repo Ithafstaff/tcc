@@ -55,14 +55,15 @@
         context: 'main_product'
       -%}
 {% if product.metafields.custom.show_inclusions %}
-  {% assign inclusions_raw = product.metafields.custom.inclusions.value %}
-  {% assign inclusions_list = inclusions_raw | split: '\n' %}
-
-  <ul class="x-pl-[8px] x-pt-[8px] list-disc">
-    {% for inclusion in inclusions_list %}
-      <li>{{ inclusion }}</li>
-    {% endfor %}
-  </ul>
+  {% assign inclusions_raw = variant.metafields.custom.inclusions.value %}
+  {% if inclusions_raw %}
+    {% assign inclusions_list = inclusions_raw | split: '\n' %}
+    <ul class="x-pl-[8px] x-pt-[8px] list-disc">
+      {% for inclusion in inclusions_list %}
+        <li>{{ inclusion }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {% endif %}
     </div>
   </product-rerender>
