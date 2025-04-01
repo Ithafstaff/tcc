@@ -42,7 +42,6 @@
 {%- capture product_form_id -%}product-form-{{ product.id }}-{{ section.id }}{%- endcapture -%}
 
 <div {% render 'section-properties', tight: true %}>
-  <div>HELLO</div>
   <product-rerender id="product-info-{{ product.id }}-{{ section.id }}" observe-form="{{ product_form_id }}" allow-partial-rerender>
     <div class="product">
       {%- if product.media.size > 0 -%}
@@ -55,6 +54,16 @@
         product_form_id: product_form_id,
         context: 'main_product'
       -%}
+{% if product.metafields.custom.show_inclusions %}
+  {% assign inclusions_raw = product.metafields.custom.inclusions.value %}
+  {% assign inclusions_list = inclusions_raw | split: '\n' %}
+
+  <ul class="x-pl-[8px] x-pt-[8px] list-disc">
+    {% for inclusion in inclusions_list %}
+      <li>{{ inclusion }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
     </div>
   </product-rerender>
 </div>
