@@ -54,6 +54,7 @@
         product_form_id: product_form_id,
         context: 'main_product'
       -%}
+      {% for variant in product.variants %}
 {% if product.metafields.custom.show_inclusions %}
   {% assign inclusions_raw = variant.metafields.custom.inclusions.value %}
   {% if inclusions_raw %}
@@ -65,6 +66,7 @@
     </ul>
   {% endif %}
 {% endif %}
+      {%  endfor %}}
     </div>
   </product-rerender>
 </div>
