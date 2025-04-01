@@ -42,6 +42,7 @@
 {%- capture product_form_id -%}product-form-{{ product.id }}-{{ section.id }}{%- endcapture -%}
 
 <div {% render 'section-properties', tight: true %}>
+  <div>HELLO</div>
   <product-rerender id="product-info-{{ product.id }}-{{ section.id }}" observe-form="{{ product_form_id }}" allow-partial-rerender>
     <div class="product">
       {%- if product.media.size > 0 -%}
