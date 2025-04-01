@@ -54,9 +54,9 @@
         product_form_id: product_form_id,
         context: 'main_product'
       -%}
-      {% for variant in product.variants %}
 {% if product.metafields.custom.show_inclusions %}
-  {% assign inclusions_raw = variant.metafields.custom.inclusions.value %}
+  {% assign selected_variant = product.selected_or_first_available_variant %}
+{% assign inclusions_raw = selected_variant.metafields.custom.inclusions.value %}
   {% if inclusions_raw %}
     {% assign inclusions_list = inclusions_raw | split: '\n' %}
     <ul class="x-pl-[8px] x-pt-[8px] list-disc">
@@ -66,7 +66,6 @@
     </ul>
   {% endif %}
 {% endif %}
-      {%  endfor %}}
     </div>
   </product-rerender>
 </div>
