@@ -938,6 +938,11 @@
     transition-timing-function: var(--tw-ease, var(--x-default-transition-timing-function)) !important;
     transition-duration: var(--tw-duration, var(--x-default-transition-duration)) !important;
   }
+  .x\:transition-transform {
+    transition-property: transform, translate, scale, rotate !important;
+    transition-timing-function: var(--tw-ease, var(--x-default-transition-timing-function)) !important;
+    transition-duration: var(--tw-duration, var(--x-default-transition-duration)) !important;
+  }
   .x\:duration-300 {
     --tw-duration: 300ms !important;
     transition-duration: 300ms !important;
@@ -989,6 +994,42 @@
   .x\:focus-within\:ring-black {
     &:focus-within {
       --tw-ring-color: var(--x-color-black) !important;
+    }
+  }
+  .x\:hover\:-translate-x-1 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-x: calc(var(--x-spacing) * -1) !important;
+        translate: var(--tw-translate-x) var(--tw-translate-y) !important;
+      }
+    }
+  }
+  .x\:hover\:translate-x-1 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-x: calc(var(--x-spacing) * 1) !important;
+        translate: var(--tw-translate-x) var(--tw-translate-y) !important;
+      }
+    }
+  }
+  .x\:hover\:scale-105 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 105% !important;
+        --tw-scale-y: 105% !important;
+        --tw-scale-z: 105% !important;
+        scale: var(--tw-scale-x) var(--tw-scale-y) !important;
+      }
+    }
+  }
+  .x\:hover\:scale-110 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 110% !important;
+        --tw-scale-y: 110% !important;
+        --tw-scale-z: 110% !important;
+        scale: var(--tw-scale-x) var(--tw-scale-y) !important;
+      }
     }
   }
   .x\:hover\:bg-white {
@@ -1235,4 +1276,19 @@
   syntax: "*";
   inherits: false;
   initial-value: 0 0 #0000;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
 }
