@@ -257,11 +257,28 @@ the underlying logic of the menu.
           {%- endif -%}
 
           <li>
-            <a href="{{ routes.search_url }}" class="hidden tap-area sm:block" aria-controls="search-drawer">
-              <span class="sr-only">{{ 'header.general.search' | t }}</span>
-              {%- render 'icon' with 'search' -%}
-            </a>
+            <div class="x:relative x:w-full x:focus-within:icon-visible">
+              <a
+                href="{{ routes.search_url }}"
+                class="x:flex x:items-center x:w-full x:border x:border-black x:px-4 x:py-1 x:focus-within:ring-black"
+                aria-controls="search-drawer"
+              >
+                <input
+                  type="text"
+                  class="x:w-full x:placeholder-black x:outline-none"
+                  placeholder="What are you looking for?"
+                />
+                <span class="sr-only">{{ 'header.general.search' | t }}</span>
+          
+                <!-- Icon: shown only on focus using JS or utility class toggle -->
+                <span>
+                  {%- render 'icon' with 'search' -%}
+                </span>
+              </a>
+            </div>
           </li>
+          
+          
           
           {%- if shop.customer_accounts_enabled -%}
             <li>
