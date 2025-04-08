@@ -1131,6 +1131,16 @@
       padding: 40px !important;
     }
   }
+  .x\:md\:py-1 {
+    @media (width >= 990px) {
+      padding-block: calc(var(--x-spacing) * 1) !important;
+    }
+  }
+  .x\:md\:py-2 {
+    @media (width >= 990px) {
+      padding-block: calc(var(--x-spacing) * 2) !important;
+    }
+  }
   .x\:md\:text-2xl {
     @media (width >= 990px) {
       font-size: var(--x-text-2xl) !important;
