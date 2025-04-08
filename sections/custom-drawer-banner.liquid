@@ -5,7 +5,7 @@
                 <sl-drawer label="" class="drawer-overview-{{ section.id }}">
                     <div slot="label">
                         <div
-                            class="x:absolute x:w-full x:z-[-1] x:flex x:item-center x:justify-center x:tracking-widest">
+                            class="x:absolute x:w-full x:z-[-1] x:flex x:item-center x:justify-center x:tracking-widest x:text-sm">
                             GET THE LOOK
                         </div>
                         &nbsp;
@@ -39,10 +39,10 @@
                         style="background-image: url('{{ section.settings.image | image_url: width: 1000 }}');">
                         <div class="x:absolute x:bottom-[4%] x:left-[4%] x:z-[1]">
                             <button
-                                class="drawer-button-{{ section.id }} x:bg-[#222] x:text-white x:aspect-square x:flex x:items-center x:lg:aspect-auto x:justify-center x:rounded-full x:p-[12px] x:md:p-[20px] x:lg:pr-[0px]">
-                                <i class="bx bx-shopping-bag x:text-[20px] x:md:text-[32px] x:leading-[0px]"></i>
+                                class="drawer-button-{{ section.id }} x:bg-[#222]/70 x:text-white x:aspect-square x:flex x:items-center x:lg:aspect-auto x:justify-center x:rounded-full x:p-3 x:md:p-3 x:lg:pr-[0px]">
+                                <i class="bx bx-shopping-bag x:text-base x:md:text-xl x:leading-[0px]"></i>
                                 <p
-                                    class="animate-on-scroll x:text-[24px] x:text-center x:text-nowrap x:hidden x:lg:block">
+                                    class="animate-on-scroll x:text-base x:text-center x:text-nowrap x:hidden x:lg:block">
                                     GET THE LOOK
                                 </p>
                             </button>
