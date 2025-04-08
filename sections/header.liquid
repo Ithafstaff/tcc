@@ -115,9 +115,9 @@ the underlying logic of the menu.
                     endfor
                   %}
 
-                  <li>
+                  <li class="x:uppercase x:tracking-wider x:underline-offset-4 x:group x:transition-all x:duration-400">
                     {%- if link.levels == 0 and mega_menu_block == '' -%}
-                      <a href="{{ link.url }}" class="bold link-faded-reverse" {% if link.current %}aria-current="page"{% endif %}>{{- link.title -}}</a>
+                      <a href="{{ link.url }}" class="link-faded-reverse" {% if link.current %}aria-current="page"{% endif %}>{{- link.title -}}</a>
                     {%- else -%}
                       {%- if mega_menu_block != '' -%}
                         {%- comment -%}
@@ -128,8 +128,9 @@ the underlying logic of the menu.
                         {%- endcomment -%}
                         {%- unless mega_menu_block.settings.layout == 'drawer' -%}
                           <details is="mega-menu-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}" {{ mega_menu_block.shopify_attributes }}>
-                            <summary class="text-with-icon gap-2.5 bold link-faded-reverse" {% if link.url != '#' %}data-url="{{ link.url | escape }}"{% endif %}>
-                              {{- link.title -}} {%- render 'icon' with 'chevron-bottom' -%}
+                            <summary class="text-with-icon gap-2.5 link-faded-reverse" {% if link.url != '#' %}data-url="{{ link.url | escape }}"{% endif %}>
+                              {{- link.title -}} 
+                              {% comment %} {%- render 'icon' with 'chevron-bottom' -%} {% endcomment %}
                             </summary>
 
                            {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
@@ -184,6 +185,8 @@ the underlying logic of the menu.
                         </details>
                       {%- endif -%}
                     {%- endif -%}
+
+                    <div class="x:h-0.5 x:w-0 x:rounded-full x:bg-black x:transition-all x:duration-300 x:group-hover:w-full"></div>
                   </li>
                 {%- endfor -%}
               </ul>
