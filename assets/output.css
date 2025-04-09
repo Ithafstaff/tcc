@@ -626,9 +626,6 @@
   .x\:flex-grow {
     flex-grow: 1 !important;
   }
-  .x\:columns-4 {
-    columns: 4 !important;
-  }
   .x\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
@@ -652,9 +649,6 @@
   }
   .x\:gap-4 {
     gap: calc(var(--x-spacing) * 4) !important;
-  }
-  .x\:gap-5 {
-    gap: calc(var(--x-spacing) * 5) !important;
   }
   .x\:gap-6 {
     gap: calc(var(--x-spacing) * 6) !important;
@@ -701,10 +695,6 @@
     border-top-right-radius: var(--x-radius-md) !important;
   }
   .x\:border {
-    border-style: var(--tw-border-style) !important;
-    border-width: 1px !important;
-  }
-  .x\:border-1 {
     border-style: var(--tw-border-style) !important;
     border-width: 1px !important;
   }
@@ -900,6 +890,9 @@
   }
   .x\:uppercase {
     text-transform: uppercase !important;
+  }
+  .x\:underline {
+    text-decoration-line: underline !important;
   }
   .x\:underline-offset-4 {
     text-underline-offset: 4px !important;
