@@ -724,6 +724,9 @@
   .x\:border-white {
     border-color: var(--x-color-white) !important;
   }
+  .x\:border-t-gray-400 {
+    border-top-color: var(--x-color-gray-400) !important;
+  }
   .x\:bg-\[\#222222\] {
     background-color: #222222 !important;
   }
