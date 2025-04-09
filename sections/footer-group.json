@@ -14,26 +14,35 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "links": {
-          "type": "links",
-          "settings": {
-            "menu": "footer",
-            "show_menu_title": true,
-            "menu_title": ""
-          }
-        },
-        "text": {
+        "ORDERS": {
           "type": "text",
           "settings": {
-            "title": "About",
-            "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
-            "enable_follow_on_shop": true
+            "title": "ORDERS",
+            "content": "<p>Find out when your purchase will arrive or schedule a delivery.</p><p><a href=\"#\">TRACK ORDER</a> &nbsp; | &nbsp; <a href=\"#\">SCHEDULE DELIVERY</a></p>",
+            "enable_follow_on_shop": true,
           }
-        }
+        },
+        "ABOUT": {
+          "type": "text",
+          "settings": {
+            "title": "CONTACT US & STORE LOCATOR",
+            "content": "<p>Find out when your purchase will arrive or schedule a delivery.</p><p><a href=\"#\">CHAT WITH US</a> &nbsp; | &nbsp; <a href=\"#\">LEAVE FEEDBACK</a> &nbsp; | &nbsp; <a href=\"#\">FIND A STORE</a></p>",
+            "enable_follow_on_shop": true,
+          }
+        },
+        "CLOSEOUT": {
+          "type": "text",
+          "settings": {
+            "title": "THE CLOSEOUT CONECTION CREDIT CARD",
+            "content": "<p>Find out when your purchase will arrive or schedule a delivery.</p><p><a href=\"#\">APPLY NOW</a> &nbsp; | &nbsp; <a href=\"#\">MANAGE YOUR ACCOUNT</a></p>",
+            "enable_follow_on_shop": true,
+          }
+        },
       },
       "block_order": [
-        "links",
-        "text"
+        "ORDERS",
+        "ABOUT",
+        "CLOSEOUT"
       ],
       "settings": {
         "show_social_media": true,

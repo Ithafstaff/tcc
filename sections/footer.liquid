@@ -25,6 +25,25 @@
 
       {%- if section.blocks.size > 0 -%}
         <div class="footer__block-list empty:hidden">
+
+          {% comment %} <div class="footer__block footer__block--text">
+            <p class="bold">Orders</p>
+
+            <div class="prose text-subdued">
+                <p>
+                  Find out when your purchase will arrive or schedule a delivery.
+                </p>
+
+                <div class="x:wrap x:flex x:gap-5 ">
+                  <a>TRACK ORDER</a>
+                  <a>SCHEDULE DELIVERY</a>
+                </div>
+            </div>
+
+          </div> {% endcomment %}
+
+
+
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
@@ -53,6 +72,9 @@
                   </div>
                 {%- endif -%}
 
+
+                
+
               {%- when 'links' -%}
                 {%- if block.settings.menu != blank -%}
                   <div class="footer__block footer__block--menu" {{ block.shopify_attributes }}>
@@ -68,7 +90,7 @@
                       {%- endfor -%}
                     </ul>
                   </div>
-                {%- endif -%}
+                {%- endif -%} 
 
               {%- when 'newsletter' -%}
                 <div class="footer__block footer__block--newsletter" {{ block.shopify_attributes }}>

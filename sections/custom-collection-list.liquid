@@ -25,11 +25,11 @@ LIQUID
     <!-- Navigation Buttons -->
     <div class="x:flex x:gap-4">
       <!-- Back Button -->
-      <button is="prev-button" class="x:w-12 x:h-12 x:border x:border-gray-400 x:flex x:items-center x:justify-center hover:x:bg-gray-500 x:hover:scale-110 x:transition-transform x:duration-300" aria-controls="scroll-area-{{ section.id }}">
+      <button is="prev-button" class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300" aria-controls="scroll-area-{{ section.id }}">
         {%- render 'icon' with 'chevron-left' -%}
       </button>
       <!-- Forward Button -->
-      <button is="next-button" class="x:w-12 x:h-12 x:border x:border-gray-400 x:flex x:items-center x:justify-center hover:x:bg-gray-500 x:hover:scale-110 x:transition-transform x:duration-300" aria-controls="scroll-area-{{ section.id }}">
+      <button is="next-button" class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300" aria-controls="scroll-area-{{ section.id }}">
         {%- render 'icon' with 'chevron-right' -%}
       </button>
     </div>
