@@ -647,8 +647,14 @@
   .x\:justify-center {
     justify-content: center !important;
   }
+  .x\:gap-1 {
+    gap: calc(var(--x-spacing) * 1) !important;
+  }
   .x\:gap-4 {
     gap: calc(var(--x-spacing) * 4) !important;
+  }
+  .x\:gap-5 {
+    gap: calc(var(--x-spacing) * 5) !important;
   }
   .x\:gap-6 {
     gap: calc(var(--x-spacing) * 6) !important;
