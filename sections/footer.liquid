@@ -26,21 +26,7 @@
       {%- if section.blocks.size > 0 -%}
         <div class="footer__block-list empty:hidden">
 
-          {% comment %} <div class="footer__block footer__block--text">
-            <p class="bold">Orders</p>
-
-            <div class="prose text-subdued">
-                <p>
-                  Find out when your purchase will arrive or schedule a delivery.
-                </p>
-
-                <div class="x:wrap x:flex x:gap-5 ">
-                  <a>TRACK ORDER</a>
-                  <a>SCHEDULE DELIVERY</a>
-                </div>
-            </div>
-
-          </div> {% endcomment %}
+    
 
 
 
@@ -71,9 +57,7 @@
                     {%- endif -%}
                   </div>
                 {%- endif -%}
-
-
-                
+  
 
               {%- when 'links' -%}
                 {%- if block.settings.menu != blank -%}
@@ -134,6 +118,60 @@
           {%- endfor -%}
         </div>
       {%- endif -%}
+
+      <div class="x:border-t x:mt-5 footer__block-list empty:hidden">
+        {% comment %} HELP COLUMN {% endcomment %}
+         <div class="footer__block footer__block--text">
+            <p class="bold">HELP</p>
+            <ul>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">customer service</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">account</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">return policy</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">shipping information</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">product recalls</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">email & text preferences</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">sign up for texts</a></li>
+            </ul>
+          </div> 
+
+          {% comment %} RESOURCES COLUMN {% endcomment %}
+          <div class="footer__block footer__block--text">
+            <p class="bold">RESOURCES</p>
+            <ul>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">free design services</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">gift registry</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">gift cards</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">catalogs</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">trade program</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">contract grade furniture</a></li>
+            </ul>
+          </div>
+
+          {% comment %} OUR COMPANY COLUMN {% endcomment %}
+          <div class="footer__block footer__block--text">
+            <p class="bold">OUR COMPANY</p>
+            <ul>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">free design services</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">gift registry</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">gift cards</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline" href="#">catalogs</a></li>
+            </ul>
+          </div>
+
+          {% comment %} TAG POSTS COLUMN {% endcomment %}
+          <div class="footer__block footer__block--text">
+            <p class="bold">TAG US IN YOUR POST</p>
+            <ul class="x:grid x:grid-cols-4">
+              <li>test</li>
+              <li>test</li>
+              <li>test</li>
+              <li>test</li>
+              
+            </ul>
+
+            <p>logo</p>
+          </div>
+      </div>
 
       {%- comment -%}
       ------------------------------------------------------------------------------------------------------------------
@@ -213,6 +251,8 @@
         </div>
       </div>
     </div>
+
+    
   </div>
 </div>
 

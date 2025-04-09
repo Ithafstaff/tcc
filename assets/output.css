@@ -557,6 +557,9 @@
   .x\:mt-4 {
     margin-top: calc(var(--x-spacing) * 4) !important;
   }
+  .x\:mt-5 {
+    margin-top: calc(var(--x-spacing) * 5) !important;
+  }
   .x\:mt-8 {
     margin-top: calc(var(--x-spacing) * 8) !important;
   }
@@ -623,8 +626,14 @@
   .x\:flex-grow {
     flex-grow: 1 !important;
   }
+  .x\:columns-4 {
+    columns: 4 !important;
+  }
   .x\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .x\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   }
   .x\:flex-col {
     flex-direction: column !important;
@@ -694,6 +703,14 @@
   .x\:border {
     border-style: var(--tw-border-style) !important;
     border-width: 1px !important;
+  }
+  .x\:border-1 {
+    border-style: var(--tw-border-style) !important;
+    border-width: 1px !important;
+  }
+  .x\:border-t {
+    border-top-style: var(--tw-border-style) !important;
+    border-top-width: 1px !important;
   }
   .x\:border-solid {
     --tw-border-style: solid !important;
@@ -964,6 +981,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--x-color-black) !important;
+      }
+    }
+  }
+  .x\:hover\:underline {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: underline !important;
       }
     }
   }
