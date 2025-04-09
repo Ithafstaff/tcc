@@ -650,6 +650,12 @@
   .x\:gap-1 {
     gap: calc(var(--x-spacing) * 1) !important;
   }
+  .x\:gap-2 {
+    gap: calc(var(--x-spacing) * 2) !important;
+  }
+  .x\:gap-3 {
+    gap: calc(var(--x-spacing) * 3) !important;
+  }
   .x\:gap-4 {
     gap: calc(var(--x-spacing) * 4) !important;
   }
@@ -777,6 +783,15 @@
   }
   .x\:py-\[3\.5px\] {
     padding-block: 3.5px !important;
+  }
+  .x\:pt-5 {
+    padding-top: calc(var(--x-spacing) * 5) !important;
+  }
+  .x\:pt-10 {
+    padding-top: calc(var(--x-spacing) * 10) !important;
+  }
+  .x\:pt-20 {
+    padding-top: calc(var(--x-spacing) * 20) !important;
   }
   .x\:pt-\[5px\] {
     padding-top: 5px !important;

@@ -41,7 +41,7 @@
                 {%- if block.settings.title != blank or block.settings.content != blank or shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
                   <div class="footer__block footer__block--text" {{ block.shopify_attributes }}>
                     {%- if block.settings.title != blank -%}
-                      <p class="bold">{{ block.settings.title | escape }}</p>
+                      <p class="bold x:tracking-widest">{{ block.settings.title | escape }}</p>
                     {%- endif -%}
 
                     {%- if block.settings.content != blank -%}
@@ -119,11 +119,11 @@
         </div>
       {%- endif -%}
 
-      <div class="x:border-t x:mt-5 footer__block-list empty:hidden">
+      <div class="x:border-t- x:pt-20 footer__block-list empty:hidden">
         {% comment %} HELP COLUMN {% endcomment %}
          <div class="footer__block footer__block--text">
-            <p class="bold">HELP</p>
-            <ul class="x:gap-1 x:flex x:flex-col">
+            <p class="bold x:tracking-widest">HELP</p>
+            <ul class="x:gap-2 x:flex x:flex-col">
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">customer service</a></li>
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">account</a></li>
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">return policy</a></li>
@@ -136,8 +136,8 @@
 
           {% comment %} RESOURCES COLUMN {% endcomment %}
           <div class="footer__block footer__block--text">
-            <p class="bold">RESOURCES</p>
-            <ul class="x:gap-1 x:flex x:flex-col">
+            <p class="bold x:tracking-widest">RESOURCES</p>
+            <ul class="x:gap-2 x:flex x:flex-col">
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">free design services</a></li>
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">gift registry</a></li>
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">gift cards</a></li>
@@ -149,8 +149,8 @@
 
           {% comment %} OUR COMPANY COLUMN {% endcomment %}
           <div class="footer__block footer__block--text">
-            <p class="bold">OUR COMPANY</p>
-            <ul class="x:gap-1 x:flex x:flex-col">
+            <p class="bold x:tracking-widest">OUR COMPANY</p>
+            <ul class="x:gap-2 x:flex x:flex-col">
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">free design services</a></li>
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">gift registry</a></li>
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">gift cards</a></li>
@@ -160,7 +160,7 @@
 
           {% comment %} TAG POSTS COLUMN {% endcomment %}
           <div class="footer__block footer__block--text">
-            <p class="bold">TAG US IN YOUR POST</p>
+            <p class="bold x:tracking-widest">TAG US IN YOUR POST</p>
             <ul class="x:grid x:grid-cols-4">
               <li>logo</li>
               <li>logo</li>
