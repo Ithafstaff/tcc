@@ -1,12 +1,21 @@
-function renderPrice() {
-  const salePriceEl = document.querySelector('sale-price'); // Correct selector for custom element
+document.addEventListener('DOMContentLoaded', function () {
   const renderPrice = document.getElementById('renderPrice');
 
-  // Get the price text directly from the sale-price element
-  const salePriceOnly = salePriceEl.textContent.trim();
+  // Function to update the price dynamically
+  function updatePrice() {
+    const selectedVariant = window.product && window.product.selectedVariant;
+    if (selectedVariant) {
+      const productPrice = selectedVariant.price / 100; // Price in cents
+      renderPrice.innerText = `$${productPrice.toFixed(2)}`;
+    }
+  }
 
-  renderPrice.innerText = salePriceOnly;
-  console.log(salePriceOnly); // Outputs the price, e.g., "$1.00"
-}
+  // Example event listener for a variant change (assuming variant select element exists)
+  const variantSelector = document.querySelector('select[name="id"]');
+  if (variantSelector) {
+    variantSelector.addEventListener('change', updatePrice);
+  }
 
-renderPrice();
+  // Initial price display
+  updatePrice();
+});
