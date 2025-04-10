@@ -32,6 +32,12 @@
             "show_taxes_notice": false
           }
         },
+        "text_cedcxt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Available for <a href=\"#\" title=\"#\">Pickup</a> and <a href=\"#\" title=\"#\">Delivery</a></p>"
+          }
+        },
         "rating": {
           "type": "rating",
           "settings": {
@@ -86,6 +92,7 @@
         "title",
         "badges",
         "price",
+        "text_cedcxt",
         "rating",
         "payment_terms",
         "separator",
