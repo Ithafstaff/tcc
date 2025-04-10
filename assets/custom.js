@@ -7,7 +7,8 @@ function renderPrice () {
     .filter(node => node.nodeType === Node.TEXT_NODE)
     .map(node => node.textContent.trim())
     .join('');
-  
-  console.log(salePriceOnly); // Outputs: "$0.00"
+
+    renderPrice.innerText = salePriceOnly;
+    console.log(salePriceOnly); // Outputs: "$0.00"
 }
 renderPrice();
