@@ -169,6 +169,9 @@
     },
     "featured_collection_x3HbxJ": {
       "type": "featured-collection",
+      "custom_css": [
+        ".section-stack {max-width: 1356px; margin: 0 auto;}"
+      ],
       "settings": {
         "collection": "",
         "products": [
@@ -180,7 +183,7 @@
         ],
         "full_width": false,
         "stack_products": true,
-        "show_progress_bar": true,
+        "show_progress_bar": false,
         "products_count": 3,
         "products_per_row_mobile": "2",
         "products_per_row_desktop": 3,
@@ -198,19 +201,69 @@
         "product_card_text_color": ""
       }
     },
-    "custom_liquid_Rj9JM7": {
-      "type": "custom-liquid",
-      "custom_css": [
-        ".section-full {background: #222; max-width: unset;}"
+    "custom_collection_list_4GN478": {
+      "type": "custom-collection-list",
+      "blocks": {
+        "collection_YPKkRD": {
+          "type": "collection",
+          "settings": {
+            "collection": "better-bed-collection",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_KaYFhe": {
+          "type": "collection",
+          "settings": {
+            "collection": "luxe-premium-bedware",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_HNcFUH": {
+          "type": "collection",
+          "settings": {
+            "collection": "superior-linen",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_rzQbA4": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_BRYiPN": {
+          "type": "collection",
+          "settings": {
+            "collection": "better-bed-collection",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_YPKkRD",
+        "collection_KaYFhe",
+        "collection_HNcFUH",
+        "collection_rzQbA4",
+        "collection_BRYiPN"
       ],
+      "disabled": true,
       "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": true,
-        "remove_horizontal_spacing": true,
-        "liquid": "{% render 'free-shipping' %}",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
+        "title": "BEAUTIFUL CELEBRATIONS START HERE"
+      }
+    },
+    "custom_shipping_section_NnmfF6": {
+      "type": "custom-shipping-section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
       }
     }
   },
@@ -220,6 +273,7 @@
     "related-products",
     "custom_liquid_BWRTar",
     "featured_collection_x3HbxJ",
-    "custom_liquid_Rj9JM7"
+    "custom_collection_list_4GN478",
+    "custom_shipping_section_NnmfF6"
   ]
 }
