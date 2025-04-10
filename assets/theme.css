@@ -7940,7 +7940,8 @@ product-rerender {
   }
 
   .product-gallery--desktop-thumbnails-left .product-gallery__thumbnail-list {
-    gap: var(--spacing-2-5);
+    /* gap: var(--spacing-2-5); */
+    gap: 20px;
     grid-auto-flow: row;
     max-height: 600px;
     overflow: auto;
