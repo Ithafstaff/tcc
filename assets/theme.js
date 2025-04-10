@@ -5242,7 +5242,13 @@ export {
     waitForEvent
 };
 
-const salePrice = document.querySelector('sale-price')?.textContent.trim();
-console.log(salePrice); // Will log "$0.00" or whatever is dynamically rendered
+const salePriceEl = document.querySelector('sale-price');
+const salePriceOnly = Array.from(salePriceEl.childNodes)
+  .filter(node => node.nodeType === Node.TEXT_NODE)
+  .map(node => node.textContent.trim())
+  .join('');
+
+console.log(salePriceOnly); // Outputs: "$0.00"
+
 
 
