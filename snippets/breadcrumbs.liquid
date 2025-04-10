@@ -1,0 +1,49 @@
+<style> 
+
+  .breadcrumbs--root {
+    display: flex;
+    max-width: 1356px;
+    width: 100%;
+    gap: 15px;
+    margin: 0 auto;
+  }
+  
+  .breadcrumbs--root li,
+  .breadcrumbs--root li a {
+    font-size: 16px !important;
+    color: #000 !important;
+    text-transform: none;
+  }
+
+  .breadcrumbs--root li {
+    font-size: 16px !important;
+    color: #000 !important;
+  }
+
+  .breadcrumbs--root li:not(:last-child) {
+    position: relative;
+  }
+  
+  .breadcrumbs--root li:not(:last-child)::after {
+    content: '/';
+    margin-left: 10px;
+  }
+  
+</style>
+
+
+<ul class="breadcrumbs--root">
+   <li data-item="block-link">
+      <a href="{{ routes.root_url }}">Home</a>
+   </li>
+
+   {% if request.page_type == "product" %}
+         <li data-item="block-link">
+            <a href="{{ routes.collections_url }}">
+               Product
+            </a>
+         </li>
+    {% endif %}
+      <li data-item="accent-text">{{ product.title }}</li>
+
+</ul>
