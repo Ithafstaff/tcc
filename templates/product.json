@@ -9,6 +9,18 @@
  */
 {
   "sections": {
+    "custom_liquid_WpJwGU": {
+      "type": "custom-liquid",
+      "settings": {
+        "full_width": false,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "liquid": "{% render 'breadcrumbs' %}",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -187,6 +199,7 @@
     }
   },
   "order": [
+    "custom_liquid_WpJwGU",
     "main",
     "related-products",
     "custom_liquid_BWRTar",
