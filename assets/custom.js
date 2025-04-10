@@ -1,3 +1,5 @@
+// for rendering product price in product page
+
 const salePriceEl = document.querySelector('sale-price');
 const salePriceOnly = Array.from(salePriceEl.childNodes)
   .filter(node => node.nodeType === Node.TEXT_NODE)
