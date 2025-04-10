@@ -7728,9 +7728,9 @@ product-rerender {
 .product-gallery__thumbnail:after {
   content: "";
   opacity: 0;
-  background: currentColor;
+  background: #222;
   width: 100%;
-  height: 2px;
+  height: 4px;
   margin-block-start: 4px;
   transition: opacity .15s;
   display: block;
