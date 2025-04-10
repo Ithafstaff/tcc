@@ -196,6 +196,18 @@
         "product_card_background": "",
         "product_card_text_color": ""
       }
+    },
+    "custom_liquid_Rj9JM7": {
+      "type": "custom-liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "liquid": "{% render 'free-shipping' %}",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
@@ -203,6 +215,7 @@
     "main",
     "related-products",
     "custom_liquid_BWRTar",
-    "featured_collection_x3HbxJ"
+    "featured_collection_x3HbxJ",
+    "custom_liquid_Rj9JM7"
   ]
 }
