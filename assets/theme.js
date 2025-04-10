@@ -5242,7 +5242,7 @@ export {
     waitForEvent
 };
 
-const salePriceElement = document.querySelector('sale-price');
-const salePrice = salePriceElement.textContent;
-console.log(salePrice); // Logs "$0.00"
+const salePrice = document.querySelector('sale-price')?.textContent.trim();
+console.log(salePrice); // Will log "$0.00" or whatever is dynamically rendered
+
 
