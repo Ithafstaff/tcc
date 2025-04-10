@@ -5241,3 +5241,8 @@ export {
     throttle,
     waitForEvent
 };
+
+const salePriceElement = document.querySelector('sale-price');
+const salePrice = salePriceElement.textContent.trim();
+console.log(salePrice); // Logs "$0.00"
+
