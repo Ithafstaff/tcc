@@ -158,7 +158,13 @@
       "type": "featured-collection",
       "settings": {
         "collection": "",
-        "products": [],
+        "products": [
+          "alexandria-8pc-100-cotton-bedding-set",
+          "better-bed-collection-aristocratic-crest-taupe-8pc-bedding-sets-300-thread-count-1",
+          "arlington-8pc-100-cotton-bedding-set",
+          "superior-linen-artistic-peels-pink-6pc-twin-bedding-set",
+          "superior-linen-bears-in-umbrellas-blue-6pc-twin-bedding-set"
+        ],
         "full_width": false,
         "stack_products": true,
         "show_progress_bar": true,
