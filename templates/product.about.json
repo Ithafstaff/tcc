@@ -52,6 +52,7 @@
     },
     "custom_liquid_WpJwGU": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "full_width": false,
         "remove_vertical_spacing": true,
