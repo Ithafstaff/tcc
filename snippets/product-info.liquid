@@ -275,7 +275,7 @@ Supported variables
                   <button type="button" class="quantity-selector__button custom-product__quantity-button" aria-label="{{ 'product.quantity.increase_quantity' | t }}">{% render 'icon' with 'plus', width: 10, height: 10 %}</button>
                 </quantity-selector>
               </div>
-              <span>Test Price</span>
+              <span id="renderPrice"></span>
 
               {%- liquid
                 assign quantity_rules = ''
