@@ -200,7 +200,7 @@
     "custom_liquid_Rj9JM7": {
       "type": "custom-liquid",
       "custom_css": [
-        "section {background: #222; max-width: unset;}"
+        ".se {background: #222222; max-width: unset;}"
       ],
       "settings": {
         "full_width": true,
