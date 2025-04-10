@@ -15,7 +15,7 @@ Supported variables
 * context: the context of the product info. Can be "main_product", "featured_product" or "quick_buy"
 {%- endcomment -%}
 
-<safe-sticky class="product-info">
+<safe-sticky class="product-info custom-product__info">
   {%- assign inside_block_group_context = false -%}
   {%- assign current_block_group_name = '' -%}
 
@@ -81,7 +81,7 @@ Supported variables
 
         {%- when 'title' -%}
           {%- if request.page_type == 'product' -%}
-            <h1 class="product-info__title {{ block.settings.heading_tag }}">
+            <h1 class="product-info__title custom-product__info-title {{ block.settings.heading_tag }}">
               {{- product.title -}}
             </h1>
           {%- else -%}
@@ -171,7 +171,7 @@ Supported variables
           {%- endif -%}
 
         {%- when 'variant_picker' -%}
-          <div class="product-info__variant-picker">
+          <div class="product-info__variant-picker test">
             {%- render 'variant-picker', 
               product: product, 
               form_id: product_form_id,
@@ -203,6 +203,7 @@ Supported variables
                   {%- assign metafield_namespace = metafield_parts | first -%}
                   {%- assign metafield_key = metafield_parts | last -%}
 
+            
                   {%- if block.settings.option_name != blank -%}
                     <div class="variant-picker__option-info">
                       <div class="h-stack gap-2">
@@ -211,6 +212,7 @@ Supported variables
                       </div>
                     </div>
                   {%- endif -%}
+               
 
                   <div class="variant-picker__option-values wrap gap-2">
                     {%- for product_variation in block.settings.products -%}
@@ -263,16 +265,17 @@ Supported variables
           {%- if product.available -%}
             {%- assign variant = product.selected_or_first_available_variant -%}
 
-            <div class="product-info__quantity-selector">
+            <div class="product-info__quantity-selector custom-product__info-quantity-wrap">
               <div class="form-control">
-                <label for="{{ product_form_id }}-quantity" class="block-label text-subdued">{{- 'product.quantity.label' | t -}}:</label>
+                <!-- <label for="{{ product_form_id }}-quantity" class="block-label text-subdued">{{- 'product.quantity.label' | t -}}:</label> -->
 
-                <quantity-selector class="quantity-selector">
-                  <button type="button" class="quantity-selector__button" aria-label="{{ 'product.quantity.decrease_quantity' | t }}">{% render 'icon' with 'minus', width: 10, height: 2 %}</button>
-                  <input id="{{ product_form_id }}-quantity" type="number" is="quantity-input" inputmode="numeric" class="quantity-selector__input" name="quantity" form="{{ product_form_id }}" value="{{ variant.quantity_rule.min | default: 1 }}" step="{{ variant.quantity_rule.increment }}" min="{{ variant.quantity_rule.min }}" {% if variant.quantity_rule.max != nil %}max="{{ variant.quantity_rule.max }}"{% endif %} autocomplete="off">
-                  <button type="button" class="quantity-selector__button" aria-label="{{ 'product.quantity.increase_quantity' | t }}">{% render 'icon' with 'plus', width: 10, height: 10 %}</button>
+                <quantity-selector class="quantity-selector custom-product__quantity-selector">
+                  <button type="button" class="quantity-selector__button custom-product__quantity-button" aria-label="{{ 'product.quantity.decrease_quantity' | t }}">{% render 'icon' with 'minus', width: 10, height: 2 %}</button>
+                  <input id="{{ product_form_id }}-quantity" type="number" is="quantity-input" inputmode="numeric" class="quantity-selector__input custom-product__quantity-input" name="quantity" form="{{ product_form_id }}" value="{{ variant.quantity_rule.min | default: 1 }}" step="{{ variant.quantity_rule.increment }}" min="{{ variant.quantity_rule.min }}" {% if variant.quantity_rule.max != nil %}max="{{ variant.quantity_rule.max }}"{% endif %} autocomplete="off">
+                  <button type="button" class="quantity-selector__button custom-product__quantity-button" aria-label="{{ 'product.quantity.increase_quantity' | t }}">{% render 'icon' with 'plus', width: 10, height: 10 %}</button>
                 </quantity-selector>
               </div>
+              <span>Test Price</span>
 
               {%- liquid
                 assign quantity_rules = ''
