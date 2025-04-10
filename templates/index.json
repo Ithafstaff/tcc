@@ -14,7 +14,7 @@
       "settings": {
         "full_width": true,
         "allow_transparent_header": true,
-        "enable_parallax": true,
+        "enable_parallax": false,
         "image_size": "lg",
         "image": "shopify://shop_images/Img_tbl-top.png",
         "mobile_text_position": "place-self-center text-center",
