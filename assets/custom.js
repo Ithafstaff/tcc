@@ -1,15 +1,12 @@
-// For rendering product price in product page renderPrice
 function renderPrice() {
-  const salePriceEl = document.querySelector('sale-price');
+  const salePriceEl = document.querySelector('sale-price'); // Correct selector for custom element
   const renderPrice = document.getElementById('renderPrice');
 
-  const salePriceOnly = Array.from(salePriceEl.childNodes)
-    .filter(node => node.nodeType === Node.TEXT_NODE)
-    .map(node => node.textContent.trim())
-    .join('');
+  // Get the price text directly from the sale-price element
+  const salePriceOnly = salePriceEl.textContent.trim();
 
   renderPrice.innerText = salePriceOnly;
-  console.log(salePriceOnly); // Outputs: "$0.00"
+  console.log(salePriceOnly); // Outputs the price, e.g., "$1.00"
 }
 
 renderPrice();
