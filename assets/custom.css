@@ -187,7 +187,8 @@
   font-weight: 400 !important;
   font-style: normal !important;
   line-height: 20px;
-  margin: 50px;
+  padding-top: 50px;
+  margin-bottom: 52px;
 }
 
 .section {
