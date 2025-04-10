@@ -47,7 +47,7 @@ only way to do it on Shopify right now.
   endif
 -%}
 
-<product-gallery form="{{ product_form_id }}" filtered-indexes="{{ filtered_indexes | json }}" {%- if section.settings.enable_image_zoom -%}allow-zoom="{{ section.settings.max_image_zoom_level }}"{% endif %} class="product-gallery {% if section.settings.mobile_carousel_control contains 'dots' %}product-gallery--mobile-dots{% endif %} {% if section.settings.desktop_media_layout contains 'grid' %}product-gallery--desktop-grid{% else %}product-gallery--desktop-carousel{% endif %} {% if section.settings.desktop_media_layout == 'carousel_thumbnails_left' %}product-gallery--desktop-thumbnails-left{% endif %} {% if section.settings.mobile_media_size == 'expanded' %}product-gallery--mobile-expanded{% endif %}">
+<product-gallery form="{{ product_form_id }}" filtered-indexes="{{ filtered_indexes | json }}" {%- if section.settings.enable_image_zoom -%}allow-zoom="{{ section.settings.max_image_zoom_level }}"{% endif %} class="product-gallery custom-product__gallery {% if section.settings.mobile_carousel_control contains 'dots' %}product-gallery--mobile-dots{% endif %} {% if section.settings.desktop_media_layout contains 'grid' %}product-gallery--desktop-grid{% else %}product-gallery--desktop-carousel{% endif %} {% if section.settings.desktop_media_layout == 'carousel_thumbnails_left' %}product-gallery--desktop-thumbnails-left{% endif %} {% if section.settings.mobile_media_size == 'expanded' %}product-gallery--mobile-expanded{% endif %}">
   {%- capture page_dots -%}
     <page-dots class="page-dots {% if section.settings.mobile_carousel_control == 'floating_dots' %}page-dots--blurred{% endif %} md:hidden" aria-controls="{{ product_gallery_id }}">
       {%- for media in product.media -%}
@@ -58,8 +58,8 @@ only way to do it on Shopify right now.
     </page-dots>
   {%- endcapture -%}
 
-  <div class="product-gallery__ar-wrapper">
-    <div class="product-gallery__media-list-wrapper">
+  <div class="product-gallery__ar-wrapper custom-product__gallery-wrapper">
+    <div class="product-gallery__media-list-wrapper custom-product__gallery-media-list">
       {%- if section.settings.desktop_media_layout contains 'carousel' and product.media.size > 1 -%}
         <custom-cursor class="product-gallery__cursor" {% if default_media.media_type != 'image' %}hidden{% endif %}>
           <div class="circle-button circle-button--fill circle-button--lg">
@@ -73,7 +73,7 @@ only way to do it on Shopify right now.
       MEDIA LIST
       --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
-      <media-carousel desktop-mode="{{ section.settings.desktop_media_layout }}" adaptive-height initial-index="{{ default_media.position | minus: 1 }}" {% if section.settings.enable_video_autoplay %}autoplay{% endif %} id="{{ product_gallery_id }}" class="product-gallery__media-list {% if section.settings.mobile_media_size == 'expanded' %}full-bleed{% else %}bleed{% endif %} scroll-area md:unbleed">
+      <media-carousel desktop-mode="{{ section.settings.desktop_media_layout }}" adaptive-height initial-index="{{ default_media.position | minus: 1 }}" {% if section.settings.enable_video_autoplay %}autoplay{% endif %} id="{{ product_gallery_id }}" class="product-gallery__media-list custom-product__gallery-media {% if section.settings.mobile_media_size == 'expanded' %}full-bleed{% else %}bleed{% endif %} scroll-area md:unbleed">
         {%- assign media_attached_to_variant = product.images | where: 'attached_to_variant?', true | map: 'src' -%}
 
         {%- for media in product.media -%}
@@ -94,7 +94,7 @@ only way to do it on Shopify right now.
               {%- capture sizes -%}(max-width: 740px) calc(100vw - 40px), (max-width: 999px) calc(100vw - 64px), {% if forloop.first or media_attached_to_variant contains media.src %}min(1200px, 60vw){% else %}min(580px, 30vw){% endif %}{%- endcapture -%}
           {%- endcase -%}
 
-          <div class="product-gallery__media {% if media.alt contains '@expand' %}product-gallery__media--expand{% endif %} {% if section.settings.mobile_carousel_control != 'free_scroll' %}snap-center{% endif %}" data-media-type="{{ media.media_type }}" data-media-id="{{ media.id }}" {% if filtered_indexes contains media.position %}hidden{% endif %}>
+          <div class="product-gallery__media custom-product__gallery-media {% if media.alt contains '@expand' %}product-gallery__media--expand{% endif %} {% if section.settings.mobile_carousel_control != 'free_scroll' %}snap-center{% endif %}" data-media-type="{{ media.media_type }}" data-media-id="{{ media.id }}" {% if filtered_indexes contains media.position %}hidden{% endif %}>
             {%- if default_media == media -%}
               {%- assign preload = true -%}
             {%- else -%}
@@ -161,10 +161,10 @@ only way to do it on Shopify right now.
     {%- endif -%}
 
     {%- if section.settings.mobile_carousel_control == 'thumbnails' or section.settings.desktop_media_layout contains 'thumbnails' -%}
-      <scroll-shadow class="product-gallery__thumbnail-list-wrapper">
-        <page-dots align-selected class="product-gallery__thumbnail-list scroll-area bleed md:unbleed" aria-controls="{{ product_gallery_id }}">
+      <scroll-shadow class="product-gallery__thumbnail-list-wrapper custom-product__thumbnail-wrapper">
+        <page-dots align-selected class="product-gallery__thumbnail-list custom-product__gallery-thumbnail-list scroll-area bleed md:unbleed" aria-controls="{{ product_gallery_id }}">
           {%- for media in product.media -%}
-            <button type="button" class="product-gallery__thumbnail" {% if filtered_indexes contains media.position %}hidden{% endif %} aria-current="{% if media == default_media %}true{% else %}false{% endif %}" aria-label="{{ 'general.accessibility.go_to_item' | t: index: forloop.index | escape }}">
+            <button type="button" class="product-gallery__thumbnail custom-product__gallery-thumbnail" {% if filtered_indexes contains media.position %}hidden{% endif %} aria-current="{% if media == default_media %}true{% else %}false{% endif %}" aria-label="{{ 'general.accessibility.go_to_item' | t: index: forloop.index | escape }}">
               {{- media | image_url: width: media.preview_image.width | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 56px, 64px', widths: '56,64,112,128,168,192', class: 'object-contain rounded-sm' -}}
 
               {%- unless media.media_type == 'image' -%}
