@@ -153,11 +153,37 @@
         "background_gradient": "",
         "text_color": ""
       }
+    },
+    "featured_collection_x3HbxJ": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "",
+        "products": [],
+        "full_width": false,
+        "stack_products": true,
+        "show_progress_bar": true,
+        "products_count": 3,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "YOU MAY ALSO LIKE",
+        "content": "",
+        "link_url": "",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "custom_liquid_BWRTar"
+    "custom_liquid_BWRTar",
+    "featured_collection_x3HbxJ"
   ]
 }
