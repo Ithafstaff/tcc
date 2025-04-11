@@ -38,8 +38,11 @@ LIQUID
           {%- assign product = block.settings.product -%}
 
           <!-- Product Card -->
-          <a href="{{ product.url }}" class="product-card x:w-[calc(33.333%-1.5rem)] sm:x:w-[calc(50%-1.5rem)] lg:x:w-[calc(33.333%-1.5rem)] x:shrink-0 x:overflow-hidden x:rounded-md">
-            <div class="x:w-full x:h-[400px] x:flex x:items-center x:justify-center x:bg-gray-300">
+          <a href="{{ product.url }}" class="x:group product-card x:w-[calc(33.333%-1.5rem)] sm:x:w-[calc(50%-1.5rem)] lg:x:w-[calc(33.333%-1.5rem)] x:shrink-0 x:overflow-hidden x:rounded-md">
+            <div class=" x:w-full x:h-[400px] x:flex x:items-center x:justify-center x:bg-gray-300 x:relative">
+              <div class="x:absolute x:bottom-0 x:left-0 x:w-full x:h-12 x:bg-black x:z-10 x:opacity-0 x:pointer-events-none x:group-hover:opacity-70 x:group-hover:pointer-events-auto x:flex x:items-center x:justify-center x:transition-all x:duration-300">
+                <span class="x:uppercase x:text-white">view product</span>
+              </div>
               {%- if product.featured_image != blank -%}
                 <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" class="x:w-full x:h-full x:object-cover" loading="lazy">
               {%- else -%}
