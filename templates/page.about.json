@@ -56,10 +56,19 @@
         "overlay_color": "#000000",
         "overlay_opacity": 30
       }
+    },
+    "image_col_with_text_YWzRkU": {
+      "type": "image-col-with-text",
+      "settings": {
+        "id_header": "",
+        "id_desc": "",
+        "id_btn": ""
+      }
     }
   },
   "order": [
     "main",
-    "image_with_text_overlay_aDgFWA"
+    "image_with_text_overlay_aDgFWA",
+    "image_col_with_text_YWzRkU"
   ]
 }
