@@ -36,7 +36,7 @@
         "collection_WtMntQ": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "better-bed-collection",
             "title": "",
             "url": ""
           }
@@ -44,7 +44,15 @@
         "collection_FjhifT": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "luxe-premium-bedware",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_VCgdUw": {
+          "type": "collection",
+          "settings": {
+            "collection": "superior-linen",
             "title": "",
             "url": ""
           }
@@ -52,7 +60,7 @@
         "collection_hX43qQ": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "superity-linen",
             "title": "",
             "url": ""
           }
@@ -61,6 +69,7 @@
       "block_order": [
         "collection_WtMntQ",
         "collection_FjhifT",
+        "collection_VCgdUw",
         "collection_hX43qQ"
       ],
       "settings": {
