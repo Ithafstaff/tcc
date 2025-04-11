@@ -64,14 +64,25 @@
         "id_desc-txt": "Whether you work as a party planner or you’re a bride-to-be vetting wedding party supplies, we’ve got the best supplies at the best prices for you.",
         "id_img1": "shopify://shop_images/Tabletop_1.png",
         "id_img2": "shopify://shop_images/Tabletop_1.png",
+        "hr-line": false
+      }
+    },
+    "image_col_with_text_7w7Gij": {
+      "type": "image-col-with-text",
+      "settings": {
+        "id_header": "Stylish, Elegant, and Affordable Party Goods",
+        "id_desc-txt": "The Closeout Connection is proud to offer supplies that are stylish, elegant, and still affordable. Our selection of party goods and specialty holiday items is second to none. We offer a wide selection of items including machine-washable tablecloths, high-end glassware, and much more, so you can create a stylish atmosphere for your guests.",
+        "id_img1": "shopify://shop_images/Tabletop_1.png",
+        "id_img2": "shopify://shop_images/Tabletop_1.png",
         "id_img3": "shopify://shop_images/Tabletop_1.png",
-        "hr-line": true
+        "hr-line": false
       }
     }
   },
   "order": [
     "main",
     "image_with_text_overlay_aDgFWA",
-    "image_col_with_text_YWzRkU"
+    "image_col_with_text_YWzRkU",
+    "image_col_with_text_7w7Gij"
   ]
 }
