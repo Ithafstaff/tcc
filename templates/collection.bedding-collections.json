@@ -46,7 +46,8 @@
           "type": "collection",
           "settings": {
             "collection": "luxe-premium-bedware",
-            "title": "",
+            "image": "shopify://shop_images/Div_pla-slide_1.png",
+            "title": "COTTON BEDDING SETS",
             "url": ""
           }
         },
