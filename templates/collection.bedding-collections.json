@@ -30,6 +30,43 @@
         "overlay_opacity": 30
       }
     },
+    "custom_collection_list_JWwkTi": {
+      "type": "custom-collection-list",
+      "blocks": {
+        "collection_WtMntQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_FjhifT": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_hX43qQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_WtMntQ",
+        "collection_FjhifT",
+        "collection_hX43qQ"
+      ],
+      "settings": {
+        "title": "BEDDING COLLECTIONS"
+      }
+    },
     "main": {
       "type": "main-collection",
       "settings": {
@@ -47,6 +84,7 @@
   },
   "order": [
     "banner",
+    "custom_collection_list_JWwkTi",
     "main"
   ]
 }
