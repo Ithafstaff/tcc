@@ -82,7 +82,9 @@
   </div>
   
   <div class="image-col-txt__desc-wrap">
+    {% if section.settings.id_header %}
     <h2 class="image-col-txt__desc-heading">{{ section.settings.id_header }}</h2>
+    {% endif %}
     <p class="image-col-txt__desc-txt">{{ section.settings.id_desc-txt }}</p>
   </div>
 </div>
