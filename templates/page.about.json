@@ -88,6 +88,15 @@
         "hr-line": true
       }
     },
+    "get_in_touch_ecWGJb": {
+      "type": "get-in-touch",
+      "settings": {
+        "id_btn1": "VISIT OUR STORES",
+        "id_id_btn1-link": "#",
+        "id_btn2": "GET IN TOUCH",
+        "id_id_btn2-link": "#"
+      }
+    },
     "custom_shipping_section_DaRzrX": {
       "type": "custom-shipping-section",
       "settings": {
@@ -95,14 +104,6 @@
         "subheading": "Get alerts about new items, sales, and more.",
         "button_text": "GET STARTED",
         "button_url": ""
-      }
-    },
-    "get_in_touch_ecWGJb": {
-      "type": "get-in-touch",
-      "settings": {
-        "id_header": "",
-        "id_desc-txt": "",
-        "hr-line": true
       }
     }
   },
