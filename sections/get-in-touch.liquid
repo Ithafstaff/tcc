@@ -30,9 +30,16 @@
 
 
 <div class="get-in-touch__container">
-  <a class="get-in-touch__button" href="#">
-    VISIT OUR STORES
-  </a>
+  {% if section.settings.id_btn1  %}
+    <a class="get-in-touch__button" href="{{ section.settings.id_btn1-link }}">
+      {{ section.settings.id_btn1 }}
+    </a>
+  {% endif %}
+  {% if section.settings.id_btn2  %}
+    <a class="get-in-touch__button" href="{{ section.settings.id_btn2-link }}">
+     {{ section.settings.id_btn2 }}
+    </a>
+  {% endif %}
 </div>
 
 
@@ -44,10 +51,24 @@
 
       {
       "type": "text",
-      "label": "Button 1",
+      "label": "Button 1 Txt",
       "id": "id_btn1"
       },
-     
+      {
+      "type": "text",
+      "label": "Button 1 Link",
+      "id": "id_id_btn1-link"
+      },
+      {
+      "type": "text",
+      "label": "Button 2 Txt",
+      "id": "id_btn2"
+      },
+      {
+      "type": "text",
+      "label": "Button 2 Link",
+      "id": "id_id_btn2-link"
+      },
     
       
     ],
