@@ -60,7 +60,12 @@
     "image_col_with_text_YWzRkU": {
       "type": "image-col-with-text",
       "settings": {
-        "id_header": "Discount Party Supply Store"
+        "id_header": "Discount Party Supply Store",
+        "id_desc-txt": "Whether you work as a party planner or you’re a bride-to-be vetting wedding party supplies, we’ve got the best supplies at the best prices for you.",
+        "id_img1": "shopify://shop_images/Tabletop_1.png",
+        "id_img2": "shopify://shop_images/Tabletop_1.png",
+        "id_img3": "shopify://shop_images/Tabletop_1.png",
+        "hr-line": true
       }
     }
   },
