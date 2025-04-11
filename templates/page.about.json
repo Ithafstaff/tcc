@@ -96,6 +96,14 @@
         "button_text": "GET STARTED",
         "button_url": ""
       }
+    },
+    "get_in_touch_ecWGJb": {
+      "type": "get-in-touch",
+      "settings": {
+        "id_header": "",
+        "id_desc-txt": "",
+        "hr-line": true
+      }
     }
   },
   "order": [
@@ -104,6 +112,7 @@
     "image_col_with_text_YWzRkU",
     "image_col_with_text_7w7Gij",
     "image_col_with_text_BXcBDd",
+    "get_in_touch_ecWGJb",
     "custom_shipping_section_DaRzrX"
   ]
 }
