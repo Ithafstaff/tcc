@@ -32,17 +32,17 @@
             "heading_tag": "h5"
           }
         },
-        "richtext_wwHkAg": {
-          "type": "richtext",
+        "text_PKMC9i": {
+          "type": "text",
           "settings": {
-            "content": ""
+            "customText": "No matter what event you’re planning, you can find closeout deals on the party supplies you need with The Closeout Connection"
           }
         }
       },
       "block_order": [
         "subheading_yH7iiG",
         "heading_j7RACP",
-        "richtext_wwHkAg"
+        "text_PKMC9i"
       ],
       "settings": {
         "full_width": true,
