@@ -72,11 +72,11 @@
                 {%- endif -%}
               
               {%- when 'customText' -%}
-                {%- if block.settings.liquid != blank -%}
+             
                   <div {{ block.shopify_attributes }}>
-                    {{- block.settings.liquid -}}
+                    {{- block.settings.customText -}}
                   </div>
-                {%- endif -%}
+         
 
               {%- when 'button' -%}
                 {%- if block.settings.text != blank -%}
