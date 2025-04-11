@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
     "image_with_text_overlay_aDgFWA": {
       "type": "image-with-text-overlay",
       "blocks": {
@@ -49,16 +56,10 @@
         "overlay_color": "#000000",
         "overlay_opacity": 30
       }
-    },
-    "main": {
-      "type": "main-page",
-      "settings": {
-        "content_width": "80ch"
-      }
     }
   },
   "order": [
-    "image_with_text_overlay_aDgFWA",
-    "main"
+    "main",
+    "image_with_text_overlay_aDgFWA"
   ]
 }
