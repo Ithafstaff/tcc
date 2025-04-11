@@ -16,7 +16,14 @@
   }
 
   .pad0 {
-    padding: 0;
+     padding-block-start: 0 !important;
+  }
+  .custom-text {
+    font-size: 32px !important;
+    font-family: "Alata", sans-serif !important;
+    font-weight: 400;
+    font-style: normal !important;
+    line-height: 66px;
   }
 </style>
 
@@ -75,11 +82,7 @@
                   </div>
                 {%- endif -%}
               
-              {%- when 'customText' -%}
-                  <div {{ block.shopify_attributes }}>
-                    {{- block.settings.customText -}}
-                  </div>
-         
+            
 
               {%- when 'button' -%}
                 {%- if block.settings.text != blank -%}
@@ -337,7 +340,7 @@
               "label": "XX-Small"
             },
             {
-              "value": "custom",
+              "value": "custom-text",
               "label": "custom"
             }
           ],
@@ -366,17 +369,6 @@
           "id": "liquid",
           "label": "Liquid",
           "default": "<p>Use this text to output some custom Liquid code to include widget or dynamic code.</p>"
-        }
-      ]
-    },
-    {
-      "name": "customText",
-      "type": "text",
-      "settings": [
-        {
-          "type": "text",
-          "id": "customText",
-          "label": "Custom Text",
         }
       ]
     },
