@@ -60,35 +60,13 @@
 
 
 
-<div class="image-col-txt__container image-col-txt__container--border-{{ section.settings.hr-line }}">
-  <div class="image-col-txt__image-wrap">
-
-    {% if section.settings.id_img1 %}
-      <div class="image-col-txt__image-box">
-        <img class="image-col-txt__image" src="{{ section.settings.id_img1 | img_url: 'master' }}">
-      </div>
-    {% endif %}
-    {% if section.settings.id_img2 %}
-      <div class="image-col-txt__image-box">
-        <img class="image-col-txt__image" src="{{ section.settings.id_img2 | img_url: 'master' }}">
-      </div>
-    {% endif %}
-    {% if section.settings.id_img3 %}
-      <div class="image-col-txt__image-box">
-        <img class="image-col-txt__image" src="{{ section.settings.id_img3 | img_url: 'master' }}">
-      </div>
-    {% endif %}
-    
-  </div>
-  
-  <div class="image-col-txt__desc-wrap">
-    {% if section.settings.id_header %}
-      <h2 class="image-col-txt__desc-heading">{{ section.settings.id_header }}</h2>
-    {% endif %}
-    {% if section.settings.id_desc-txt %}
-      <p class="image-col-txt__desc-txt">{{ section.settings.id_desc-txt }}</p>
-    {% endif %}
-  </div>
+<div class="get-in-touch__container">
+  <a class="get-in-touch__button" href="#">
+    VISIT OUR STORES
+  </a>
+  <a class="get-in-touch__button" href="#">
+    GET IN TOUCH
+  </a>
 </div>
 
 
