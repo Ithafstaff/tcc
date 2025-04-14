@@ -11,7 +11,7 @@ function splider() {
 
      new Splide(productSlider1, {
       type       : 'loop',
-      height     : '9rem',
+      // height     : '200px',
       perPage    : 6,
       breakpoints: {
         640: {
