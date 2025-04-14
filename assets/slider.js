@@ -14,7 +14,7 @@ function splider() {
       // height     : '200px',
       perPage    : 6,
       perMove    : 1,
-       gap: 50,
+       gap: 20,
       breakpoints: {
         640: {
           height: '6rem',
