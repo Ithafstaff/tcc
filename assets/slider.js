@@ -5,11 +5,7 @@
 function splider() {
 
     
-  // ---for real girls slider section ---
-    const productSlider1 = document.querySelector('.js-collection-slider');
-    if (productSlider1) {
-
-     new Splide(productSlider1, {
+ new Splide('.splide', {
       type       : 'loop',
       height     : '9rem',
       perPage    : 2,
@@ -19,8 +15,6 @@ function splider() {
         },
       },
     }).mount();
-      
-    }
 
 
 
