@@ -95,11 +95,27 @@
             "id_img": "shopify://shop_images/Div_pla-slide_1.png",
             "id_img-label": "COTTON BEDDING SETS"
           }
+        },
+        "image_xzDQcK": {
+          "type": "Image",
+          "settings": {
+            "id_img": "shopify://shop_images/Div_pla-slide_2.png",
+            "id_img-label": "LUXURY BEDDING SETS"
+          }
+        },
+        "image_4rq9Wt": {
+          "type": "Image",
+          "settings": {
+            "id_img": "shopify://shop_images/Div_pla-slide_3.png",
+            "id_img-label": "COMFORTERS"
+          }
         }
       },
       "block_order": [
         "image_ginM4K",
-        "image_7Gwcij"
+        "image_7Gwcij",
+        "image_xzDQcK",
+        "image_4rq9Wt"
       ],
       "settings": {
         "id_header": "BEDDING COLLECTIONS",
