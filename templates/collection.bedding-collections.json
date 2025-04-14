@@ -30,6 +30,14 @@
         "overlay_opacity": 30
       }
     },
+    "custom_collection_slider_7tetRg": {
+      "type": "custom-collection-slider",
+      "settings": {
+        "id_header": "",
+        "id_content": "",
+        "flex_direction": "row"
+      }
+    },
     "custom_collection_list_JWwkTi": {
       "type": "custom-collection-list",
       "blocks": {
@@ -95,6 +103,7 @@
   },
   "order": [
     "banner",
+    "custom_collection_slider_7tetRg",
     "custom_collection_list_JWwkTi",
     "main"
   ]
