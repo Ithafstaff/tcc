@@ -9,19 +9,16 @@ function splider() {
     const productSlider1 = document.querySelector('.js-collection-slider');
     if (productSlider1) {
 
-      const sectionSlider1 = new Splide(productSlider1, {
-        type: 'loop',
-        drag: false,
-        focus: 'center',
-        rewind: true,
-        gap: 50,
-        autoplay: true,
-        updateOnMove: true,
-        pagination: false,
-        perPage: 1,
-      });
-
-      sectionSlider1.mount();
+     new Splide(productSlider1, {
+      type       : 'loop',
+      height     : '9rem',
+      perPage    : 2,
+      breakpoints: {
+        640: {
+          height: '6rem',
+        },
+      },
+    }).mount();
       
     }
 
