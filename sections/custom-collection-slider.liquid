@@ -83,7 +83,7 @@
       <ul class="custom-col-slider__list splide__list">
 
         {% for block in section.blocks %}
-        <a class="custom-col-slider__slide splide__slide" href="{{ block.settings.id_img-label | strip_html }}">
+        <a class="custom-col-slider__slide splide__slide" href="{{ block.settings.id_link | strip_html }}">
           <div class="custom-col-slider__img-box">
             <img class="custom-col-slider__img" src="{{ block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
           </div>
