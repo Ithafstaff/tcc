@@ -11,3 +11,51 @@
     </div>
   </div>
 </div>
+
+{% schema %}
+  {
+    "name": "Custom Collection Slider",
+    "settings": [
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "id_img"
+        },
+        {
+          "type": "text",
+          "label": "Header",
+          "id": "id_header"
+        },
+        {
+          "type": "richtext",
+          "label": "Content",
+          "id": "id_content"
+        },
+        {
+        "type": "select",
+        "id": "flex_direction",
+        "label": "Flex Direction",
+        "options": [
+          {
+            "value": "row",
+            "label": "Row"
+          },
+          {
+            "value": "row-reverse",
+            "label": "Row Reverse"
+          }
+        ],
+        "default": "row"
+      }
+    ],
+    "blocks": [
+      
+    ],
+    "presets": [
+      {
+        "name": "Custom Collection Slider"
+      }
+    ],
+    "max_blocks": 4
+  }
+{% endschema %}
