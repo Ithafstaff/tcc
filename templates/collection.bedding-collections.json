@@ -30,14 +30,6 @@
         "overlay_opacity": 30
       }
     },
-    "custom_collection_slider_7tetRg": {
-      "type": "custom-collection-slider",
-      "settings": {
-        "id_header": "",
-        "id_content": "",
-        "flex_direction": "row"
-      }
-    },
     "custom_collection_list_JWwkTi": {
       "type": "custom-collection-list",
       "blocks": {
@@ -82,8 +74,17 @@
         "collection_VCgdUw",
         "collection_hX43qQ"
       ],
+      "disabled": true,
       "settings": {
         "title": "BEDDING COLLECTIONS"
+      }
+    },
+    "custom_collection_slider_7tetRg": {
+      "type": "custom-collection-slider",
+      "settings": {
+        "id_header": "",
+        "id_content": "",
+        "flex_direction": "row"
       }
     },
     "main": {
@@ -103,8 +104,8 @@
   },
   "order": [
     "banner",
-    "custom_collection_slider_7tetRg",
     "custom_collection_list_JWwkTi",
+    "custom_collection_slider_7tetRg",
     "main"
   ]
 }
