@@ -88,10 +88,18 @@
             "id_img": "shopify://shop_images/Div_pla-slide_a3d2287f-6362-47a8-b93f-1ec37fad1c4c.png",
             "id_img-label": "EVERYDAY BEDDING SETS"
           }
+        },
+        "image_7Gwcij": {
+          "type": "Image",
+          "settings": {
+            "id_img": "shopify://shop_images/Div_pla-slide_1.png",
+            "id_img-label": "COTTON BEDDING SETS"
+          }
         }
       },
       "block_order": [
-        "image_ginM4K"
+        "image_ginM4K",
+        "image_7Gwcij"
       ],
       "settings": {
         "id_header": "BEDDING COLLECTIONS",
