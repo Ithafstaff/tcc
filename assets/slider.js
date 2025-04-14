@@ -6,7 +6,7 @@ function splider() {
 
     
   // ---for real girls slider section ---
-    const productSlider1 = document.querySelector('.splide');
+    const productSlider1 = document.querySelector('.js-collection-slider');
     if (productSlider1) {
 
       const sectionSlider1 = new Splide(productSlider1, {
