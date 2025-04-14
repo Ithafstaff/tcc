@@ -4,14 +4,12 @@
 
 function splider() {
 
-
-alert('test');
     
     const bestSlider = document.querySelector('.js-collection-slider');
     if (bestSlider) {
       const customBestSlide = new Splide(bestSlider, {
         type: 'loop',
-        perPage: 3,
+        perPage: 4,
         perMove: 1,
         gap: 60,
         pagination: false,
