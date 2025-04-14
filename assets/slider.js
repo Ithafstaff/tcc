@@ -13,7 +13,7 @@ function splider() {
       type       : 'loop',
       // height     : '200px',
       perPage    : 6,
-      perSlide   : 1,
+      perMove    : 1,
       breakpoints: {
         640: {
           height: '6rem',
