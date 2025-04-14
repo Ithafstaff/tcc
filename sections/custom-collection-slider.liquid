@@ -85,9 +85,9 @@
         {% for block in section.blocks %}
         <li class="custom-col-slider__slide splide__slide">
           <div class="custom-col-slider__img-box">
-            <img class="custom-col-slider__img" src="{{block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
+            <img class="custom-col-slider__img" src="{{ block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
           </div>
-          <span class="custom-col-slider__img-label">{{ id_img-label | strip_html }}</span>
+          <span class="custom-col-slider__img-label">{{ block.settings.id_img-label | strip_html }}</span>
         </li>
         {% endfor %}
   
