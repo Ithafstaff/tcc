@@ -82,54 +82,14 @@
     <div class="custom-col-slider__track splide__track">
       <ul class="custom-col-slider__list splide__list">
 
-        
+        {% for block in section.blocks %}
         <li class="custom-col-slider__slide splide__slide">
           <div class="custom-col-slider__img-box">
             <img class="custom-col-slider__img" src="{{block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
           </div>
           <span class="custom-col-slider__img-label">{{ id_img-label | strip_html }}</span>
         </li>
-
-        
-        <!-- <li class="custom-col-slider__slide splide__slide">
-          <div class="custom-col-slider__img-box">
-            <img class="custom-col-slider__img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_pla-slide_1_0cec8dc0-f0cb-4639-a23f-77e2a67f89f7.png?v=1744643429">
-          </div>
-          <span class="custom-col-slider__img-label">COTTON BEDDING SETS</span>
-        </li>
-        <li class="custom-col-slider__slide splide__slide">
-          <div class="custom-col-slider__img-box">
-            <img class="custom-col-slider__img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_pla-slide_2.png?v=1744643429">
-          </div>
-          <span class="custom-col-slider__img-label">LUXURY BEDDING SETS</span>
-        </li>
-        <li class="custom-col-slider__slide splide__slide">
-          <div class="custom-col-slider__img-box">
-            <img class="custom-col-slider__img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_pla-slide_3.png?v=1744643429">
-          </div>
-          <span class="custom-col-slider__img-label">COMFORTERS</span>
-        </li>
-        <li class="custom-col-slider__slide splide__slide">
-          <div class="custom-col-slider__img-box">
-            <img class="custom-col-slider__img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_image-shop-btn-overlay-container.png?v=1744643429">
-          </div>
-          <span class="custom-col-slider__img-label">FITTED SHEETS</span>
-        </li>
-        <li class="custom-col-slider__slide splide__slide">
-          <div class="custom-col-slider__img-box">
-            <img class="custom-col-slider__img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Image_fullImg_f2d57c0b-2882-486b-b455-4e6f5e11dbe1.png?v=1744643429">
-          </div>
-          <span class="custom-col-slider__img-label">PILLOWS</span>
-        </li>
-
-        
-        <li class="custom-col-slider__slide splide__slide">
-          <div class="custom-col-slider__img-box">
-            <img class="custom-col-slider__img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/CC_Brand_Shoot-88_1.png?v=1744643429">
-          </div>
-          <span class="custom-col-slider__img-label">MATTRESS</span>
-        </li> -->
-        
+        {% endfor %}
   
       </ul>
     </div>
