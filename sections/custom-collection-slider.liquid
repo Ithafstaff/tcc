@@ -83,12 +83,12 @@
       <ul class="custom-col-slider__list splide__list">
 
         {% for block in section.blocks %}
-        <li class="custom-col-slider__slide splide__slide">
+        <a class="custom-col-slider__slide splide__slide" href="{{ block.settings.id_img-label | strip_html }}">
           <div class="custom-col-slider__img-box">
             <img class="custom-col-slider__img" src="{{ block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
           </div>
           <span class="custom-col-slider__img-label">{{ block.settings.id_img-label | strip_html }}</span>
-        </li>
+        </a>
         {% endfor %}
   
       </ul>
