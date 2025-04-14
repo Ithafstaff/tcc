@@ -2,7 +2,7 @@
  * Initialization and options for Splide js
  */
 
-function splider() {
+
 
     
  new Splide('.splide', {
@@ -18,6 +18,3 @@ function splider() {
 
 
 
-  
-}
-splider();
