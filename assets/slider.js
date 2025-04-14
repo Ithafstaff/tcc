@@ -5,7 +5,7 @@
 function splider() {
 
 
-
+alert('test');
     
     const bestSlider = document.querySelector('.js-collection-slider');
     if (bestSlider) {
