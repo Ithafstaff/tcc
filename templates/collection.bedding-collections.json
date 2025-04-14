@@ -81,10 +81,20 @@
     },
     "custom_collection_slider_7tetRg": {
       "type": "custom-collection-slider",
+      "blocks": {
+        "image_ginM4K": {
+          "type": "Image",
+          "settings": {
+            "id_img": "shopify://shop_images/Div_pla-slide_a3d2287f-6362-47a8-b93f-1ec37fad1c4c.png"
+          }
+        }
+      },
+      "block_order": [
+        "image_ginM4K"
+      ],
       "settings": {
         "id_header": "BEDDING COLLECTIONS",
-        "id_content": "<p>30+ custom fabrics, delivery in as little as 4 weeks</p>",
-        "flex_direction": "row"
+        "id_content": "<p>30+ custom fabrics, delivery in as little as 4 weeks</p>"
       }
     },
     "main": {
