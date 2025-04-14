@@ -81,13 +81,17 @@
   <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
     <div class="custom-col-slider__track splide__track">
       <ul class="custom-col-slider__list splide__list">
+
+        
         <li class="custom-col-slider__slide splide__slide">
           <div class="custom-col-slider__img-box">
             <img class="custom-col-slider__img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_pla-slide_a3d2287f-6362-47a8-b93f-1ec37fad1c4c.png?v=1744643429">
           </div>
           <span class="custom-col-slider__img-label">EVERYDAY BEDDING SETS</span>
         </li>
-        <li class="custom-col-slider__slide splide__slide">
+
+        
+        <!-- <li class="custom-col-slider__slide splide__slide">
           <div class="custom-col-slider__img-box">
             <img class="custom-col-slider__img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_pla-slide_1_0cec8dc0-f0cb-4639-a23f-77e2a67f89f7.png?v=1744643429">
           </div>
@@ -117,12 +121,14 @@
           </div>
           <span class="custom-col-slider__img-label">PILLOWS</span>
         </li>
+
+        
         <li class="custom-col-slider__slide splide__slide">
           <div class="custom-col-slider__img-box">
             <img class="custom-col-slider__img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/CC_Brand_Shoot-88_1.png?v=1744643429">
           </div>
           <span class="custom-col-slider__img-label">MATTRESS</span>
-        </li>
+        </li> -->
         
   
       </ul>
@@ -137,11 +143,6 @@
     "name": "Custom Collection Slider",
     "settings": [
         {
-          "type": "image_picker",
-          "label": "Image",
-          "id": "id_img"
-        },
-        {
           "type": "text",
           "label": "Header",
           "id": "id_header"
@@ -154,7 +155,17 @@
   
     ],
     "blocks": [
-      
+      {
+        "type": "Image",
+        "name": "image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "label": "Image",
+            "id": "id_img"
+          }
+        ]
+      }
     ],
     "presets": [
       {
