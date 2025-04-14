@@ -7,7 +7,7 @@ function splider() {
 
 
     
-    const bestSlider = document.querySelector('.best-for-you-slider');
+    const bestSlider = document.querySelector('.js-collection-slider');
     if (bestSlider) {
       const customBestSlide = new Splide(bestSlider, {
         type: 'loop',
