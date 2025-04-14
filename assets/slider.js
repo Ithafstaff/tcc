@@ -5,27 +5,28 @@
 function splider() {
 
     
-    const bestSlider = document.querySelector('.js-collection-slider');
-    if (bestSlider) {
-      const customBestSlide = new Splide(bestSlider, {
+  // ---for real girls slider section ---
+    const productSlider1 = document.querySelector('.js-collection-slider');
+    if (productSlider1) {
+
+      const sectionSlider1 = new Splide(productSlider1, {
         type: 'loop',
-        perPage: 4,
-        perMove: 1,
-        gap: 60,
+        drag: false,
+        focus: 'center',
+        rewind: true,
+        gap: 50,
+        autoplay: true,
+        updateOnMove: true,
         pagination: false,
-        breakpoints: {
-        767: {
-            autoplay: true,
-            perPage: 1,
-            perMove: 1,
-            rewind: true,
-            padding: '4rem',
-            focus  : 'center',
-            gap: 20,
-          },
-        }
+        perPage: 1,
       });
-      customBestSlide.mount();
+
+      sectionSlider1.mount();
+      
     }
+
+
+
+  
 }
 splider();
