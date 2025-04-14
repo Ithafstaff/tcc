@@ -2,10 +2,14 @@
  * Initialization and options for Splide js
  */
 
-
+function splider() {
 
     
- new Splide('.splide', {
+  // ---for real girls slider section ---
+    const productSlider1 = document.querySelector('.js-collection-slider');
+    if (productSlider1) {
+
+     new Splide(productSlider1, {
       type       : 'loop',
       height     : '9rem',
       perPage    : 2,
@@ -15,6 +19,11 @@
         },
       },
     }).mount();
+      
+    }
 
 
 
+  
+}
+splider();
