@@ -16,27 +16,27 @@
         <p class="custom-multi-col__desc">{{ block.settings.id_col-desc | strip_html }}</p>
      </div>
     </div>
-  {% endfor %}
-  
-
 
   
-  <div class="custom-multi-col__slide-wrap splide  js-collection-slider">
-    <div class="custom-multi-col__track splide__track">
-      <ul class="custom-multi-col__list splide__list">
-
-        {% for block in section.blocks %}
-        <a class="custom-multi-col__slide splide__slide" href="{{ block.settings.id_link | strip_html }}">
-          <div class="custom-multi-col__img-box">
-           
-          </div>
-          <span class="custom-multi-col__img-label">{{ block.settings.id_img-label | strip_html }}</span>
-        </a>
-        {% endfor %}
   
-      </ul>
+    <div class="custom-multi-col__slide-wrap splide  js-collection-slider">
+      <div class="custom-multi-col__track splide__track">
+        <ul class="custom-multi-col__list splide__list">
+  
+  
+          <a class="custom-multi-col__slide splide__slide" href="{{ block.settings.id_link | strip_html }}">
+            <div class="custom-multi-col__img-box">
+             
+            </div>
+            <span class="custom-multi-col__img-label">{{ block.settings.id_img-label | strip_html }}</span>
+          </a>
+   
+    
+        </ul>
+      </div>
     </div>
-  </div>
+  
+  {% endfor %}
 
 </div>
 
