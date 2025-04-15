@@ -179,6 +179,80 @@
 </div>
 
 
+<div class="custom-multi-col__container">
+  {% for block in section.blocks %}
+    <div class="custom-multi-col__banner-block">
+      <img class="custom-multi-col__img" src="{{ block.settings.id_col-img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
+      <div class="custom-multi-col__banner-desc-wrap">
+        <h2 class="custom-multi-col__heading">{{ block.settings.id_col-name | strip_html }}</h2>
+        <p class="custom-multi-col__desc">{{ block.settings.id_col-desc | newline_to_br }}</p>
+        <div class="custom-multi-col__swatch-wrap">
+          <span>swatch test</span>
+        </div>
+        <a class="custom-multi-col__button" href="#">SHOP EVERYDAY bedding sets COLLECTION</a>
+     </div>
+    </div>
+
+  
+  
+    <div class="custom-multi-col__col-wrap">
+      <div class="custom-multi-col__item-box">
+        <img class="custom-multi-col__item-img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_product-1.png?v=1744743919" width="100%" height="" loading="lazy"/>
+        <div class="custom-multi-col__item-swatch-wrap">
+          <span>swatch test</span>
+        </div>
+        <h3 class="custom-multi-col__item-name">EVERYDAY BEDDING SET</h3>
+        <p class="custom-multi-col__item-desc">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</p>
+        <span class="custom-multi-col__item-price">$26.99</span>
+        <span class="custom-multi-col__item-cert">cert test</span>
+      </div>
+      <div class="custom-multi-col__item-box">
+        <img class="custom-multi-col__item-img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_product-1.png?v=1744743919" width="100%" height="" loading="lazy"/>
+        <div class="custom-multi-col__item-swatch-wrap">
+          <span>swatch test</span>
+        </div>
+        <h3 class="custom-multi-col__item-name">EVERYDAY BEDDING SET</h3>
+        <p class="custom-multi-col__item-desc">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</p>
+        <span class="custom-multi-col__item-price">$26.99</span>
+        <span class="custom-multi-col__item-cert">cert test</span>
+      </div>
+      <div class="custom-multi-col__item-box">
+        <img class="custom-multi-col__item-img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_product-1.png?v=1744743919" width="100%" height="" loading="lazy"/>
+        <div class="custom-multi-col__item-swatch-wrap">
+          <span>swatch test</span>
+        </div>
+        <h3 class="custom-multi-col__item-name">EVERYDAY BEDDING SET</h3>
+        <p class="custom-multi-col__item-desc">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</p>
+        <span class="custom-multi-col__item-price">$26.99</span>
+        <span class="custom-multi-col__item-cert">cert test</span>
+      </div>
+      <div class="custom-multi-col__item-box">
+        <img class="custom-multi-col__item-img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_product-1.png?v=1744743919" width="100%" height="" loading="lazy"/>
+        <div class="custom-multi-col__item-swatch-wrap">
+          <span>swatch test</span>
+        </div>
+        <h3 class="custom-multi-col__item-name">EVERYDAY BEDDING SET</h3>
+        <p class="custom-multi-col__item-desc">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</p>
+        <span class="custom-multi-col__item-price">$26.99</span>
+        <span class="custom-multi-col__item-cert">cert test</span>
+      </div>
+      <div class="custom-multi-col__item-box">
+        <img class="custom-multi-col__item-img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_product-1.png?v=1744743919" width="100%" height="" loading="lazy"/>
+        <div class="custom-multi-col__item-swatch-wrap">
+          <span>swatch test</span>
+        </div>
+        <h3 class="custom-multi-col__item-name">EVERYDAY BEDDING SET</h3>
+        <p class="custom-multi-col__item-desc">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</p>
+        <span class="custom-multi-col__item-price">$26.99</span>
+        <span class="custom-multi-col__item-cert">cert test</span>
+      </div>
+    </div>
+  
+  {% endfor %}
+
+</div>
+
+
 {% schema %}
   { 
     "name": "Custom Multi Collection",
