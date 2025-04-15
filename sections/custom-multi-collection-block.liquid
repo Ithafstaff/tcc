@@ -6,19 +6,19 @@
 
 
 
-<div class="custom-col-slider__container">
-  <h2 class="custom-col-slider__heading">{{ section.settings.id_header }}</h2>
-  <p class="custom-col-slider__desc">{{ section.settings.id_content | strip_html }}</p>
-  <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
-    <div class="custom-col-slider__track splide__track">
-      <ul class="custom-col-slider__list splide__list">
+<div class="custom-multi-col__container">
+  <h2 class="custom-multi-col__heading">{{ section.settings.id_header }}</h2>
+  <p class="custom-multi-col__desc">{{ section.settings.id_content | strip_html }}</p>
+  <div class="custom-multi-col__slide-wrap splide  js-collection-slider">
+    <div class="custom-multi-col__track splide__track">
+      <ul class="custom-multi-col__list splide__list">
 
         {% for block in section.blocks %}
-        <a class="custom-col-slider__slide splide__slide" href="{{ block.settings.id_link | strip_html }}">
-          <div class="custom-col-slider__img-box">
-            <img class="custom-col-slider__img" src="{{ block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
+        <a class="custom-multi-col__slide splide__slide" href="{{ block.settings.id_link | strip_html }}">
+          <div class="custom-multi-col__img-box">
+            <img class="custom-multi-col__img" src="{{ block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
           </div>
-          <span class="custom-col-slider__img-label">{{ block.settings.id_img-label | strip_html }}</span>
+          <span class="custom-multi-col__img-label">{{ block.settings.id_img-label | strip_html }}</span>
         </a>
         {% endfor %}
   
