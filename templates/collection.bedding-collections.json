@@ -170,6 +170,18 @@
     },
     "custom_multi_collection_block_N4JfXa": {
       "type": "custom-multi-collection-block",
+      "blocks": {
+        "image_VPEBhw": {
+          "type": "Image",
+          "settings": {
+            "id_img-label": "",
+            "id_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_VPEBhw"
+      ],
       "settings": {
         "id_header": "",
         "id_content": ""
