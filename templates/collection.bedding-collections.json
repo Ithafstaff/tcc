@@ -166,12 +166,20 @@
         "show_filter_values_count": true,
         "open_first_filter_group": true
       }
+    },
+    "custom_multi_collection_block_N4JfXa": {
+      "type": "custom-multi-collection-block",
+      "settings": {
+        "id_header": "",
+        "id_content": ""
+      }
     }
   },
   "order": [
     "banner",
     "custom_collection_list_JWwkTi",
     "custom_collection_slider_7tetRg",
-    "main"
+    "main",
+    "custom_multi_collection_block_N4JfXa"
   ]
 }
