@@ -7,8 +7,12 @@
 
 
 <div class="custom-multi-col__container">
-  <h2 class="custom-multi-col__heading">{{ section.settings.id_header }}</h2>
-  <p class="custom-multi-col__desc">{{ section.settings.id_content | strip_html }}</p>
+  <div class="custom-multi-col__banner-block">
+    <img class="custom-multi-col__banner"></img>
+    <h2 class="custom-multi-col__heading">{{ section.settings.id_header }}</h2>
+    <p class="custom-multi-col__desc">{{ section.settings.id_content | strip_html }}</p>
+  </div>
+  
   <div class="custom-multi-col__slide-wrap splide  js-collection-slider">
     <div class="custom-multi-col__track splide__track">
       <ul class="custom-multi-col__list splide__list">
