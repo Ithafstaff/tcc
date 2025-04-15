@@ -1,6 +1,148 @@
+<style>
+  .custom-col-slider__container {
+    max-width: 1381px;
+    margin: 50px auto;
+  }
+
+  .custom-col-slider__heading {
+    font-family: "Alata", sans-serif !important;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #222;
+  }
+
+  .custom-col-slider__desc {
+    font-family: "Alata", sans-serif !important;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #000;
+  }
+
+  .custom-col-slider__slide-wrap {
+    margin: 40px 0;
+  }
+
+
+
+  
+
+  .custom-col-slider__list {
+    display: flex;
+    /* gap: 20px; */
+  }
+
+  .custom-col-slider__slide {
+    width: 200px !important;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .custom-col-slider__img-box {
+    height: 200px;
+  }
+
+  .custom-col-slider__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .splide__arrow {
+    border-radius: 0;
+    border: 1px solid #000;
+    transform: none;
+    top: -72px;
+  }
+  
+  .splide__arrow--next {
+    right: 30px
+  }
+  .splide__arrow--prev {
+    left: unset;
+    right: 70px;
+  }
+</style>
+
+
+
+
+
+
+
+
+<div class="custom-col-slider__container">
+  <h2 class="custom-col-slider__heading">{{ section.settings.id_header }}</h2>
+  <p class="custom-col-slider__desc">{{ section.settings.id_content | strip_html }}</p>
+  <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
+    <div class="custom-col-slider__track splide__track">
+      <ul class="custom-col-slider__list splide__list">
+
+        {% for block in section.blocks %}
+        <a class="custom-col-slider__slide splide__slide" href="{{ block.settings.id_link | strip_html }}">
+          <div class="custom-col-slider__img-box">
+            <img class="custom-col-slider__img" src="{{ block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
+          </div>
+          <span class="custom-col-slider__img-label">{{ block.settings.id_img-label | strip_html }}</span>
+        </a>
+        {% endfor %}
+  
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+  { 
+    "name": "Custom Multi Collection",
+    "settings": [
+        {
+          "type": "text",
+          "label": "Header",
+          "id": "id_header"
+        },
+        {
+          "type": "richtext",
+          "label": "Content",
+          "id": "id_content"
+        },
+  
+    ],
+    "blocks": [
+      {
+        "type": "Image",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "image_picker",
+            "label": "Image",
+            "id": "id_img"
+          },
+          {
+            "type": "text",
+            "label": "Collection Label",
+            "id": "id_img-label"
+          },
+          {
+            "type": "url",
+            "label": "Collection Link",
+            "id": "id_link",
+          },
+        ]
+      },
+
+      
+    ],
+    "presets": [
+      {
+        "name": "Custom Multi Collection"
+      }
+    ],
   }
 {% endschema %}
