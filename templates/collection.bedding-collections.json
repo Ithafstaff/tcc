@@ -176,7 +176,7 @@
           "settings": {
             "id_col-img": "shopify://shop_images/CC_Brand_Shoot-81_2_1.png",
             "id_col-name": "EVERYDAY BEDDING SETS collectIon",
-            "id_col-desc": "<p>Oversized profile is perfect for lounging with family and friends without sacrificing style  Available in Sofa, Sectional & Armless Chair</p>",
+            "id_col-desc": "<p>Oversized profile is perfect for lounging with family and friends without sacrificing style<br/><br/>Available in Sofa, Sectional & Armless Chair25+ Fabrics<br/><br/></p>",
             "id_link": ""
           }
         }
@@ -185,8 +185,8 @@
         "image_VPEBhw"
       ],
       "settings": {
-        "id_header": "EVERYDAY BEDDING SETS collectIon",
-        "id_content": "<p>Oversized profile is perfect for lounging with family and friends without sacrificing style<br/><br/>Available in Sofa, Sectional & Armless Chair25+ Fabrics<br/></p>"
+        "id_header": "",
+        "id_content": ""
       }
     }
   },
