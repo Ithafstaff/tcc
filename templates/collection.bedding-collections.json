@@ -247,6 +247,16 @@
         "product_card_background": "",
         "product_card_text_color": ""
       }
+    },
+    "custom_shipping_section_yyTCaW": {
+      "type": "custom-shipping-section",
+      "name": "Custom Shipping Section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
     }
   },
   "order": [
@@ -256,6 +266,7 @@
     "main",
     "custom_multi_collection_block_N4JfXa",
     "custom_category_slider_ELP3LG",
-    "custom_recently_viewed_products_TW7TV4"
+    "custom_recently_viewed_products_TW7TV4",
+    "custom_shipping_section_yyTCaW"
   ]
 }
