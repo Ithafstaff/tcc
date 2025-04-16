@@ -106,6 +106,9 @@
     },
     "main": {
       "type": "main-collection",
+      "custom_css": [
+        ".container {max-width: 1385px; margin: 0 autol}"
+      ],
       "settings": {
         "products_per_page": 20,
         "products_per_row_mobile": "2",
