@@ -26,10 +26,10 @@ function splider() {
     }
   
   // ---for  recently viewed product slider---
-    const productSlider1 = document.querySelector('.js-recently-view');
+    const productSlider2 = document.querySelector('.js-recently-view');
     if (productSlider1) {
 
-     new Splide(productSlider1, {
+     new Splide(productSlider2, {
       type       : 'slide',
       // height     : '200px',
       perPage    : 6,
