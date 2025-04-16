@@ -108,7 +108,8 @@
     "main": {
       "type": "main-collection",
       "custom_css": [
-        ".container {max-width: 1385px; margin: 0 auto;}"
+        ".container {max-width: 1385px; margin: 0 auto;}",
+        ".bg-custom {background: transparent;}"
       ],
       "settings": {
         "products_per_page": 20,
