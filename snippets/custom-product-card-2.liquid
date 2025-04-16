@@ -28,6 +28,11 @@ Supported variables
   .custom-product-card {
     width: 200px;
   }
+  
+  .custom-product-card .product-card__info {
+    padding: 0;
+  }
+  
 </style>
 
 {%- assign show_rating = show_rating | default: settings.show_product_rating, allow_false: true -%}
