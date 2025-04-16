@@ -177,7 +177,9 @@
 <div class="custom-multi-col__container">
   {% for block in section.blocks %}
     <div class="custom-multi-col__banner-block">
-      <img class="custom-multi-col__img" src="{{ block.settings.id_col-img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
+      <div class="">
+        <img class="custom-multi-col__img" src="{{ block.settings.id_col-img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
+      </div>
       <div class="custom-multi-col__banner-desc-wrap">
 
 
