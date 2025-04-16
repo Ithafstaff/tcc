@@ -179,10 +179,19 @@
             "id_col-desc": "<p>Oversized profile is perfect for lounging  <br/>with family and friends without sacrificing style<br/><br/>Available in Sofa, Sectional & Armless Chair  25+ Fabrics</p>",
             "id_link": "better-bed-collection"
           }
+        },
+        "image_9GKayQ": {
+          "type": "Image",
+          "settings": {
+            "id_col-name": "",
+            "id_col-desc": "",
+            "id_link": "luxe-premium-bedware"
+          }
         }
       },
       "block_order": [
-        "image_VPEBhw"
+        "image_VPEBhw",
+        "image_9GKayQ"
       ],
       "settings": {}
     }
