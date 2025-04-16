@@ -26,7 +26,7 @@ function splider() {
     }
   
   // ---for  recently viewed product slider---
-    const productSlider2 = document.querySelector('.js-recently-view');
+    const productSlider2 = document.querySelector('.js-category-slider');
     if (productSlider2) {
 
      new Splide(productSlider2, {
