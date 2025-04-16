@@ -68,7 +68,8 @@ LIQUID
                       {%- if product_to_render != blank -%}
                         <li class="splide__slide">
                           
-                          test1
+                          {%- render 'custom-product-card-2', product: product_to_render, stacked: section.settings.stack_products, position: forloop.index, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color, show_badges: true -%}
+                        
                         </li>
                       {%- endif -%}
                     {%- endfor -%}
