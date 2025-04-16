@@ -174,7 +174,10 @@
           <span></span>
           <p>+ more</p>
         </div>
-        <a class="custom-multi-col__button" href="#">SHOP EVERYDAY bedding sets COLLECTION</a>
+        {% assign col = collections[block.settings.id_link] %}
+        <a class="custom-multi-col__button" href="{{ col.url }}">
+          SHOP {{ col.title | upcase }}
+        </a>
      </div>
     </div>
   
