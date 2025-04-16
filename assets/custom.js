@@ -42,3 +42,9 @@ productCards.forEach((card, index) => {
 
   // Do something with each card...
 });
+productCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    console.log('Tapped:', card.getAttribute('handle'));
+    window.location.href = card.querySelector('a')?.href;
+  });
+});
