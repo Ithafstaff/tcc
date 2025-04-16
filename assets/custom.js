@@ -20,3 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
   updatePrice();
 });
 
+
+
+
+
+
+
+  alert('test3);
