@@ -54,7 +54,7 @@ LIQUID
                 {%- assign product_to_render = search.results | where: 'id', id | first -%}
 
                 {%- if product_to_render != blank -%}
-                  {%- render 'product-card', product: product_to_render, stacked: section.settings.stack_products, position: forloop.index, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color, show_badges: true -%}
+                  {%- render 'custom-product-card-2', product: product_to_render, stacked: section.settings.stack_products, position: forloop.index, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color, show_badges: true -%}
                 {%- endif -%}
               {%- endfor -%}
             </product-list>
