@@ -205,7 +205,6 @@
     },
     "custom_recently_viewed_products_TW7TV4": {
       "type": "custom-recently-viewed-products",
-      "disabled": true,
       "name": "Custom Recently viewed",
       "settings": {
         "full_width": true,
@@ -243,8 +242,7 @@
       ],
       "name": "Custom Category Slider",
       "settings": {
-        "id_header": "SHOP MORE CATEGORIES",
-        "id_content": ""
+        "id_header": "SHOP MORE CATEGORIES"
       }
     }
   },
@@ -254,7 +252,7 @@
     "custom_collection_slider_7tetRg",
     "main",
     "custom_multi_collection_block_N4JfXa",
-    "custom_recently_viewed_products_TW7TV4",
-    "custom_category_slider_ELP3LG"
+    "custom_category_slider_ELP3LG",
+    "custom_recently_viewed_products_TW7TV4"
   ]
 }
