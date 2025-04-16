@@ -225,6 +225,27 @@
         "product_card_background": "",
         "product_card_text_color": ""
       }
+    },
+    "custom_category_slider_ELP3LG": {
+      "type": "custom-category-slider",
+      "blocks": {
+        "image_HkqR6U": {
+          "type": "Image",
+          "settings": {
+            "id_img": "shopify://shop_images/Div_pla-slide_4.png",
+            "id_img-label": "TABLE TOP",
+            "id_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_HkqR6U"
+      ],
+      "name": "Custom Category Slider",
+      "settings": {
+        "id_header": "",
+        "id_content": ""
+      }
     }
   },
   "order": [
@@ -233,6 +254,7 @@
     "custom_collection_slider_7tetRg",
     "main",
     "custom_multi_collection_block_N4JfXa",
-    "custom_recently_viewed_products_TW7TV4"
+    "custom_recently_viewed_products_TW7TV4",
+    "custom_category_slider_ELP3LG"
   ]
 }
