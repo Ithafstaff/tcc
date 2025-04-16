@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-document.querySelectorAll('.product-card__title').forEach(span => {
-  span.classList.add('test');
+document.querySelectorAll('.product-card__title').forEach(title => {
+  title.style.color = 'red';
 });
 
 
