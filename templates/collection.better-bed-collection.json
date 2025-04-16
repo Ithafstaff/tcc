@@ -106,7 +106,6 @@
     },
     "main": {
       "type": "main-collection",
-      "disabled": true,
       "settings": {
         "products_per_page": 24,
         "products_per_row_mobile": "2",
