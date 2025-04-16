@@ -1,10 +1,10 @@
 <style>
-  .custom-col-slider__container {
+  .custom-recently-view__container {
     max-width: 1381px;
     margin: 50px auto;
   }
 
-  .custom-col-slider__heading {
+  .custom-recently-view__heading {
     font-family: "Alata", sans-serif !important;
     font-size: 32px;
     text-align: center;
@@ -13,7 +13,7 @@
     color: #222;
   }
 
-  .custom-col-slider__desc {
+  .custom-recently-view__desc {
     font-family: "Alata", sans-serif !important;
     font-size: 20px;
     text-align: center;
@@ -22,7 +22,7 @@
     color: #000;
   }
 
-  .custom-col-slider__slide-wrap {
+  .custom-recently-view__slide-wrap {
     margin: 40px 0;
   }
 
@@ -30,23 +30,23 @@
 
   
 
-  .custom-col-slider__list {
+  .custom-recently-view__list {
     display: flex;
     /* gap: 20px; */
   }
 
-  .custom-col-slider__slide {
+  .custom-recently-view__slide {
     width: 200px !important;
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 
-  .custom-col-slider__img-box {
+  .custom-recently-view__img-box {
     height: 200px;
   }
 
-  .custom-col-slider__img {
+  .custom-recently-view__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -75,19 +75,19 @@
 
 
 
-<div class="custom-col-slider__container">
-  <h2 class="custom-col-slider__heading">{{ section.settings.id_header }}</h2>
-  <p class="custom-col-slider__desc">{{ section.settings.id_content | strip_html }}</p>
-  <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
-    <div class="custom-col-slider__track splide__track">
-      <ul class="custom-col-slider__list splide__list">
+<div class="custom-recently-view__container">
+  <h2 class="custom-recently-view__heading">{{ section.settings.id_header }}</h2>
+  <p class="custom-recently-view__desc">{{ section.settings.id_content | strip_html }}</p>
+  <div class="custom-recently-view__slide-wrap splide  js-collection-slider">
+    <div class="custom-recently-view__track splide__track">
+      <ul class="custom-recently-view__list splide__list">
 
         {% for block in section.blocks %}
-        <a class="custom-col-slider__slide splide__slide" href="{{ block.settings.id_link | strip_html }}">
-          <div class="custom-col-slider__img-box">
-            <img class="custom-col-slider__img" src="{{ block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
+        <a class="custom-recently-view__slide splide__slide" href="{{ block.settings.id_link | strip_html }}">
+          <div class="custom-recently-view__img-box">
+            <img class="custom-recently-view__img" src="{{ block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
           </div>
-          <span class="custom-col-slider__img-label">{{ block.settings.id_img-label | strip_html }}</span>
+          <span class="custom-recently-view__img-label">{{ block.settings.id_img-label | strip_html }}</span>
         </a>
         {% endfor %}
   
