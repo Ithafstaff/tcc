@@ -27,7 +27,7 @@ function splider() {
   
   // ---for  recently viewed product slider---
     const productSlider2 = document.querySelector('.js-recently-view');
-    if (productSlider1) {
+    if (productSlider2) {
 
      new Splide(productSlider2, {
       type       : 'slide',
