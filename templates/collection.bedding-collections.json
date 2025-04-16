@@ -224,6 +224,19 @@
         "product_card_background": "",
         "product_card_text_color": ""
       }
+    },
+    "custom_liquid_YzDECd": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<div class=\"splide js-recently-view\">\n                <div class=\"splide__track\">\n                  <ul class=\"splide__list\">\n                    <li class=\"splide__slide\">test1</li>\n                    \n                   \n                  \n                  </ul>\n                </div>\n              </div>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
@@ -232,6 +245,7 @@
     "custom_collection_slider_7tetRg",
     "main",
     "custom_multi_collection_block_N4JfXa",
-    "custom_recently_viewed_products_TW7TV4"
+    "custom_recently_viewed_products_TW7TV4",
+    "custom_liquid_YzDECd"
   ]
 }
