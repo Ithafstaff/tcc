@@ -204,7 +204,9 @@
       {% if block.settings.id_link.products_count > 0 %}
         {% for product in block.settings.id_link.products limit: 5 %}
           <div class="custom-multi-col__item-box">
-            <img class="custom-multi-col__item-img" src="{{ product.featured_image | img_url: 'medium' }}" width="100%" loading="lazy" />
+            <div class="custom-multi-col__item-img-box">
+              <img class="custom-multi-col__item-img" src="{{ product.featured_image | img_url: 'medium' }}" width="100%" loading="lazy" />
+            </div>
             <div class="custom-multi-col__item-swatch-wrap">
               <span>swatch test</span> <!-- Customize this as needed -->
             </div>
