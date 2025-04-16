@@ -43,7 +43,7 @@ CSS
 LIQUID
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
-
+<!-- 
    <div class="splide js-recently-view">
                 <div class="splide__track">
                   <ul class="splide__list">
@@ -55,7 +55,7 @@ LIQUID
                           </li>
      </ul>
                 </div>
-              </div>
+              </div> -->
 
 <recently-viewed-products products-count="{{ section.settings.products_count }}" {% if request.page_type == 'product' %}exclude-id="{{ product.id }}"{% endif %} {% render 'section-properties' %}>
   {%- if search.performed and search.results_count > 0 -%}
