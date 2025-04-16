@@ -29,7 +29,7 @@ Supported variables
 
         {%- if heading != blank -%}
           <h2 class="h2" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %}>
-            {%- render 'styled-text', content: heading| upcase, text_color: heading_color, gradient: heading_gradient, apparition_effect: true -%}
+            {%- render 'styled-text', content: heading, text_color: heading_color, gradient: heading_gradient, apparition_effect: true -%}
           </h2>
         {%- endif -%}
 
