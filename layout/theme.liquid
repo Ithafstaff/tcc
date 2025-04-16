@@ -140,7 +140,16 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     </main>
 
 
-  
+  <script>
+  const cards = document.querySelectorAll('.custom-product-card');
+
+  cards.forEach(card => {
+    card.style.color = 'red';
+    alert('test');
+  });
+
+
+</script>
 
     <!-- Splider Script -->
 
@@ -155,7 +164,7 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     alert('test');
   });
 
-  alert('test1');
+
 </script>
 
     {{ 'custom.js' | asset_url | script_tag }}
