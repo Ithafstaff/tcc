@@ -175,9 +175,7 @@
           <p>+ more</p>
         </div>
         {% assign col = collections[block.settings.id_link] %}
-        <a class="custom-multi-col__button" href="{{ col.url }}">
-          SHOP {{ col.title | upcase }}
-        </a>
+        <a class="custom-multi-col__button" href="#">SHOP EVERYDAY bedding sets COLLECTION</a>
      </div>
     </div>
   
@@ -187,7 +185,9 @@
         <div class="custom-multi-col__item-swatch-wrap">
           <span>swatch test</span>
         </div>
-        <h3 class="custom-multi-col__item-name">EVERYDAY BEDDING SET</h3>
+        {% assign col = collections[block.settings.id_link] %}
+        
+        <h3 class="custom-multi-col__item-name">{{ col.title | upcase }}</h3>
         <p class="custom-multi-col__item-desc">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</p>
         <span class="custom-multi-col__item-price">$26.99</span>
         <img class="custom-multi-col__item-cert" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331">
