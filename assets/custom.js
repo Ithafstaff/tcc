@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-document.querySelectorAll('.product-card__title').forEach(title => {
+document.querySelectorAll('.custom-product-card').forEach(title => {
   title.style.color = 'red';
 });
 
