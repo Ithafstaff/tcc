@@ -44,7 +44,18 @@ LIQUID
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
-
+   <div class="splide js-recently-view">
+                <div class="splide__track">
+                  <ul class="splide__list">
+  <li class="splide__slide">
+    test1
+                          </li>
+  <li class="splide__slide">
+    test2
+                          </li>
+     </ul>
+                </div>
+              </div>
 
 <recently-viewed-products products-count="{{ section.settings.products_count }}" {% if request.page_type == 'product' %}exclude-id="{{ product.id }}"{% endif %} {% render 'section-properties' %}>
   {%- if search.performed and search.results_count > 0 -%}
@@ -60,18 +71,7 @@ LIQUID
 
 
             
-   <div class="splide js-recently-view">
-                <div class="splide__track">
-                  <ul class="splide__list">
-  <li class="splide__slide">
-    test1
-                          </li>
-  <li class="splide__slide">
-    test2
-                          </li>
-     </ul>
-                </div>
-              </div>
+
             
             <product-list class="product-list custom-product-list">
 
