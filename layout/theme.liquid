@@ -114,12 +114,13 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
 
   <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
 
+    
 <script>
   const cards = document.querySelectorAll('.js-recently-view');
 
-
+  cards.forEach(card => {
     card.style.border = "1px solid red";
-
+  });
 
   alert('test31);
 </script>
