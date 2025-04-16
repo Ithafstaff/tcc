@@ -17,6 +17,7 @@
         "ORDERS": {
           "type": "text",
           "settings": {
+            "icon": "media-view-in-space",
             "title": "ORDERS",
             "content": "<p>Find out when your purchase will arrive or schedule a delivery.</p><p><a href=\"#\">TRACK ORDER</a> &nbsp; | &nbsp; <a href=\"#\">SCHEDULE DELIVERY</a></p>",
             "enable_follow_on_shop": true,
@@ -25,16 +26,18 @@
         "ABOUT": {
           "type": "text",
           "settings": {
+            "icon": "picto-mobile-phone",
             "title": "CONTACT US & STORE LOCATOR",
-            "content": "<p>Find out when your purchase will arrive or schedule a delivery.</p><p><a href=\"#\">CHAT WITH US</a> &nbsp; | &nbsp; <a href=\"#\">LEAVE FEEDBACK</a> &nbsp; | &nbsp; <a href=\"#\">FIND A STORE</a></p>",
+            "content": "<p>Questions? Text us: (000) 000-0000.</p><p><a href=\"#\">CHAT WITH US</a> &nbsp; | &nbsp; <a href=\"#\">LEAVE FEEDBACK</a> &nbsp; | &nbsp; <a href=\"#\">FIND A STORE</a></p>",
             "enable_follow_on_shop": true,
           }
         },
         "CLOSEOUT": {
           "type": "text",
           "settings": {
+            "icon": "picto-credit-card",
             "title": "THE CLOSEOUT CONECTION CREDIT CARD",
-            "content": "<p>Find out when your purchase will arrive or schedule a delivery.</p><p><a href=\"#\">APPLY NOW</a> &nbsp; | &nbsp; <a href=\"#\">MANAGE YOUR ACCOUNT</a></p>",
+            "content": "<p>Earn Reward Dollars every time you shop* (excluding special financing purchases), plus get access to special offers and events.</p><p><a href=\"#\">APPLY NOW</a> &nbsp; | &nbsp; <a href=\"#\">MANAGE YOUR ACCOUNT</a></p>",
             "enable_follow_on_shop": true,
           }
         },
