@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-document.querySelectorAll('.product-card__title').forEach(el => {
-  el.classList.add('test');
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.product-card__title').forEach(el => {
+    el.classList.add('test');
+  });
 });
+
 console.log('test');
