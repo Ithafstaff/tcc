@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.querySelectorAll('.custom-product-card').forEach(title => {
   title.style.color = 'red';
+  alert('test');
 });
 
 
