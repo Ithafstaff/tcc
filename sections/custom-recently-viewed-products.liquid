@@ -52,8 +52,15 @@ LIQUID
               <div class="splide js-recently-view">
               <div class="splide__track">
                 <div class="splide__list">
+                  <div class="splide__slide">test1</div>
                   
-                  {%- for parsed_term in parsed_terms -%}
+                 
+                
+                </div>
+              </div>
+              </div>
+              
+               {%- for parsed_term in parsed_terms -%}
                     {%- assign id = parsed_term | split: 'id:' | last | times: 1 -%}
                     {%- assign product_to_render = search.results | where: 'id', id | first -%}
     
@@ -61,10 +68,6 @@ LIQUID
                       {%- render 'custom-product-card-2', product: product_to_render, stacked: section.settings.stack_products, position: forloop.index, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color, show_badges: true -%}
                     {%- endif -%}
                   {%- endfor -%}
-                
-                </div>
-              </div>
-              </div>
             </product-list>
             
           </reveal-items>
