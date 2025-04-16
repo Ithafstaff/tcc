@@ -175,7 +175,6 @@
           "type": "Image",
           "settings": {
             "id_col-img": "shopify://shop_images/CC_Brand_Shoot-81_2_1.png",
-            "id_col-name": "COTTON BEDDING SETS COLLECTION",
             "id_col-desc": "<p>Oversized profile is perfect for lounging  <br/>with family and friends without sacrificing style<br/><br/>Available in Sofa, Sectional & Armless Chair  25+ Fabrics</p>",
             "id_link": "better-bed-collection"
           }
@@ -183,8 +182,7 @@
         "image_9GKayQ": {
           "type": "Image",
           "settings": {
-            "id_col-name": "",
-            "id_col-desc": "",
+            "id_col-desc": "<p>Oversized profile is perfect for lounging with family and friends without sacrificing style  Available in Sofa, Sectional & Armless Chair25+ Fabrics<br/><br/></p>",
             "id_link": "luxe-premium-bedware"
           }
         }
