@@ -226,7 +226,7 @@
     "custom_recently_viewed_products_TW7TV4": {
       "type": "custom-recently-viewed-products",
       "custom_css": [
-        ".section-full {padding-top: 0}"
+        ".section-full {padding: 0 0 32px;;}"
       ],
       "name": "Custom Recently viewed",
       "settings": {
