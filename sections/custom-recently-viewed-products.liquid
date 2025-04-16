@@ -47,6 +47,7 @@ LIQUID
 
         <scroll-carousel selector="product-card" id="{{ scroll_area_id }}" class="scroll-area bleed {% if section.settings.recommendations_count > section.settings.products_per_row_desktop %}is-scrollable{% endif %}">
           <reveal-items selector=".product-list > *">
+            
             <product-list class="product-list custom-product-list">
               {%- for parsed_term in parsed_terms -%}
                 {%- assign id = parsed_term | split: 'id:' | last | times: 1 -%}
@@ -57,6 +58,7 @@ LIQUID
                 {%- endif -%}
               {%- endfor -%}
             </product-list>
+            
           </reveal-items>
         </scroll-carousel>
 
