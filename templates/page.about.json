@@ -28,14 +28,14 @@
         "heading_j7RACP": {
           "type": "heading",
           "settings": {
-            "text": "No matter what event you’re planning, you can find closeout deals on the party supplies you need with The Closeout Connection",
+            "text": "No matter what event you're planning, you can find closeout deals on the party supplies you need with The Closeout Connection",
             "heading_tag": "custom"
           }
         },
         "text_PKMC9i": {
-          "type": "text",
+          "type": "richtext",
           "settings": {
-            "customText": "No matter what event you’re planning, you can find closeout deals on the party supplies you need with The Closeout Connection"
+            "customText": "No matter what event you're planning, you can find closeout deals on the party supplies you need with The Closeout Connection"
           }
         }
       },
@@ -61,7 +61,7 @@
       "type": "image-col-with-text",
       "settings": {
         "id_header": "Discount Party Supply Store",
-        "id_desc-txt": "Whether you work as a party planner or you’re a bride-to-be vetting wedding party supplies, we’ve got the best supplies at the best prices for you.",
+        "id_desc-txt": "Whether you work as a party planner or you're a bride-to-be vetting wedding party supplies, we've got the best supplies at the best prices for you.",
         "id_img1": "shopify://shop_images/Tabletop_1.png",
         "id_img2": "shopify://shop_images/Tabletop_1.png",
         "hr-line": false
