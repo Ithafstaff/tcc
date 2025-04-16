@@ -166,7 +166,10 @@
       <div class="custom-multi-col__banner-desc-wrap">
 
 
-        <h2 class="custom-multi-col__heading">{{ block.settings.id_link.title }}</h2>
+        {% if block.settings.id_link %}
+  <h2 class="custom-multi-col__heading">{{ block.settings.id_link.title }}</h2>
+{% endif %}
+
         <!-- <h2 class="custom-multi-col__heading">{{ block.settings.id_col-name | strip_html }}</h2> -->
         <p class="custom-multi-col__desc">{{ block.settings.id_col-desc | newline_to_br }}</p>
         <div class="custom-multi-col__swatch-wrap">
