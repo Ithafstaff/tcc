@@ -233,7 +233,7 @@
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "liquid": "<div class=\"splide js-recently-view\">\n                <div class=\"splide__track\">\n                  <ul class=\"splide__list\">\n                    <li class=\"splide__slide\">test1</li>\n                    <li class=\"splide__slide\">test2</li>\n                    \n                   \n                  \n                  </ul>\n                </div>\n              </div>",
+        "liquid": "{% render 'custom-recently-viewed' %}",
         "background": "",
         "background_gradient": "",
         "text_color": ""
