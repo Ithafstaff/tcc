@@ -20,11 +20,3 @@ document.addEventListener('DOMContentLoaded', function () {
   updatePrice();
 });
 
-
-document.querySelectorAll('.custom-product-card').forEach(title => {
-  title.style.color = 'red';
-  alert('test');
-});
-
-
-console.log('test');
