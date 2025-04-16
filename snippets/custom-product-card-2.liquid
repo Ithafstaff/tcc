@@ -38,7 +38,7 @@ Supported variables
 {%- assign card_text_color = text_color | default: settings.product_card_text_color -%}
 
 {%- if section_background != 'rgba(0,0,0,0)' and card_background != 'rgba(0,0,0,0)' and section_background != card_background -%}
-  {%- assign card_class = 'product-card ' -%}
+  {%- assign card_class = 'product-cards ' -%}
 {%- else -%}
   {%- assign card_class = 'product-card product-card--blends ' -%}
 {%- endif -%}
