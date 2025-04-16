@@ -109,7 +109,22 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
 
   </head>
 
+
+  
+
   <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
+
+<script>
+  const cards = document.querySelectorAll('.js-recently-view');
+
+  cards.forEach(card => {
+    card.style.border = "1px solid red";
+  });
+
+  alert('test31);
+</script>
+
+    
     {%- render 'shadow-dom-templates' -%}
 
     <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
@@ -140,15 +155,7 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     </main>
 
 
-<script>
-  const cards = document.querySelectorAll('.js-recently-view');
 
-  cards.forEach(card => {
-    card.style.border = "1px solid red";
-  });
-
-  alert('test31);
-</script>
 
 
     <!-- Splider Script -->
