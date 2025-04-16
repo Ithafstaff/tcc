@@ -212,7 +212,7 @@
         "stack_products": true,
         "show_progress_bar": true,
         "products_per_row_mobile": "1",
-        "products_per_row_desktop": 3,
+        "products_per_row_desktop": 2,
         "subheading": "",
         "title": "Recently viewed products",
         "content": "",
