@@ -47,6 +47,13 @@ Supported variables
   {%- assign card_class = card_class | append: 'product-card--show-secondary-media' -%}
 {%- endif -%}
 
+<div class="splide__track">
+  <div class="splide__list">
+  
+
+  </div>
+</div>
+
 <product-card test handle="{{ product.handle | escape }}" {% if reveal and settings.stagger_products_apparition %}reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
   {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------
