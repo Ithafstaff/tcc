@@ -205,6 +205,7 @@
     },
     "custom_recently_viewed_products_TW7TV4": {
       "type": "custom-recently-viewed-products",
+      "disabled": true,
       "name": "Custom Recently viewed",
       "settings": {
         "full_width": true,
