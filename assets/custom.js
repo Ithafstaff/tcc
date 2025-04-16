@@ -19,6 +19,3 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initial price display
   updatePrice();
 });
-
-
-theme
