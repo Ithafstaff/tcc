@@ -182,6 +182,7 @@
         "image_9GKayQ": {
           "type": "Image",
           "settings": {
+            "id_col-img": "shopify://shop_images/Div_image-shop-btn-overlay-container.png",
             "id_col-desc": "<p>Oversized profile is perfect for lounging with family and friends without sacrificing style  Available in Sofa, Sectional & Armless Chair25+ Fabrics<br/><br/></p>",
             "id_link": "luxe-premium-bedware"
           }
