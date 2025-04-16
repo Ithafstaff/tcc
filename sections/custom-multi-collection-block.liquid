@@ -211,27 +211,28 @@
       </div>
     </div> -->
 
-    <div class="custom-multi-col__col-wrap">
-      {% if block.settings.id_link.products_count > 0 %}
-        {% for product in block.settings.id_link.products limit: 5 %}
-          <div class="custom-multi-col__item-box">
-            <div class="custom-multi-col__item-img-box">
-              <img class="custom-multi-col__item-img" src="{{ product.featured_image | img_url: 'medium' }}" width="100%" loading="lazy" />
-            </div>
-            <div class="custom-multi-col__item-swatch-wrap">
-              <span>swatch test</span> <!-- Customize this as needed -->
-            </div>
-    
-            <h3 class="custom-multi-col__item-name">{{ product.title }}</h3>
-            <p class="custom-multi-col__item-desc">{{ product.description | strip_html | truncatewords: 10 }}</p>
-            <span class="custom-multi-col__item-price">
-              {{ product.price | money }}
-            </span>
-            <img class="custom-multi-col__item-cert" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" />
-          </div>
-        {% endfor %}
-      {% endif %}
-    </div>
+<div class="custom-multi-col__col-wrap">
+  {% assign custom_collection = collections[block.settings.id_link.handle] %}
+  {% if custom_collection.products_count > 0 %}
+    {% for product in custom_collection.products limit: 5 %}
+      <div class="custom-multi-col__item-box">
+        <div class="custom-multi-col__item-img-box">
+          <img class="custom-multi-col__item-img" src="{{ product.featured_image | img_url: 'medium' }}" width="100%" loading="lazy" />
+        </div>
+        <div class="custom-multi-col__item-swatch-wrap">
+          <span>swatch test</span>
+        </div>
+        <h3 class="custom-multi-col__item-name">{{ product.title }}</h3>
+        <p class="custom-multi-col__item-desc">{{ product.description | strip_html | truncatewords: 10 }}</p>
+        <span class="custom-multi-col__item-price">
+          {{ product.price | money }}
+        </span>
+        <img class="custom-multi-col__item-cert" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" />
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+
 
   
   {% endfor %}
