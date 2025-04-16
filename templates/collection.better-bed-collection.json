@@ -30,55 +30,6 @@
         "overlay_opacity": 30
       }
     },
-    "custom_collection_list_JWwkTi": {
-      "type": "custom-collection-list",
-      "blocks": {
-        "collection_WtMntQ": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Bedding.jpg",
-            "title": "EVERYDAY BEDDING SETS",
-            "url": ""
-          }
-        },
-        "collection_FjhifT": {
-          "type": "collection",
-          "settings": {
-            "collection": "luxe-premium-bedware",
-            "image": "shopify://shop_images/Div_pla-slide_1.png",
-            "title": "COTTON BEDDING SETS",
-            "url": ""
-          }
-        },
-        "collection_VCgdUw": {
-          "type": "collection",
-          "settings": {
-            "collection": "superior-linen",
-            "title": "",
-            "url": ""
-          }
-        },
-        "collection_hX43qQ": {
-          "type": "collection",
-          "settings": {
-            "collection": "superity-linen",
-            "title": "",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_WtMntQ",
-        "collection_FjhifT",
-        "collection_VCgdUw",
-        "collection_hX43qQ"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "BEDDING COLLECTIONS"
-      }
-    },
     "custom_collection_slider_7tetRg": {
       "type": "custom-collection-slider",
       "blocks": {
@@ -149,8 +100,8 @@
         "image_MDdWJG"
       ],
       "settings": {
-        "id_header": "BEDDING COLLECTIONS",
-        "id_content": "<p>30+ custom fabrics, delivery in as little as 4 weeks</p>"
+        "id_header": "EVERYDAY BEDDING SETS COLLECTION",
+        "id_content": "<p>Luxury bedding sets at unbeatable prices. Our sets include pillowcases, duvet covers, and fitted sheets for two beds. Upgrade to 8-piece sets with extra pillowcases or floral comforter covers for an elegant touch to your bedroom.<br/><br/></p>"
       }
     },
     "main": {
@@ -201,6 +152,7 @@
         "image_9GKayQ",
         "image_HAYgRn"
       ],
+      "disabled": true,
       "settings": {}
     },
     "custom_category_slider_ELP3LG": {
@@ -261,7 +213,6 @@
   },
   "order": [
     "banner",
-    "custom_collection_list_JWwkTi",
     "custom_collection_slider_7tetRg",
     "main",
     "custom_multi_collection_block_N4JfXa",
