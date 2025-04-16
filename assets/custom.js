@@ -21,30 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-const productCards = document.querySelectorAll('.custom-product-list .custom-product-item');
 
-productCards.forEach((card, index) => {
-  console.log(`Product ${index + 1}:`, card);
 
-  // Example: get the handle
-  const handle = card.getAttribute('handle');
-  console.log('Handle:', handle);
-
-  // Example: get the product title
-  const titleElement = card.querySelector('.product-card__title a');
-  const title = titleElement ? titleElement.textContent.trim() : 'No title found';
-  console.log('Title:', title);
-
-  // Example: get image URL
-  const img = card.querySelector('img');
-  const imgUrl = img ? img.getAttribute('src') : 'No image found';
-  console.log('Image URL:', imgUrl);
-
-  // Do something with each card...
-});
-productCards.forEach((card) => {
-  card.addEventListener('click', () => {
-    console.log('Tapped:', card.getAttribute('handle'));
-    window.location.href = card.querySelector('a')?.href;
-  });
+document.querySelectorAll('.product-card__title').forEach(title => {
+  console.log(title.textContent.trim());
 });
