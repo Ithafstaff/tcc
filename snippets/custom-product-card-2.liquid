@@ -38,7 +38,7 @@ Supported variables
 {%- assign card_text_color = text_color | default: settings.product_card_text_color -%}
 
 {%- if section_background != 'rgba(0,0,0,0)' and card_background != 'rgba(0,0,0,0)' and section_background != card_background -%}
-  {%- assign card_class = 'product-cards ' -%}
+  {%- assign card_class = 'product-card custom-product-card' -%}
 {%- else -%}
   {%- assign card_class = 'product-card product-card--blends ' -%}
 {%- endif -%}
@@ -50,7 +50,7 @@ Supported variables
 
 
 
-  <product-card handle="{{ product.handle | escape }}" {% if reveal and settings.stagger_products_apparition %}reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
+  <product-card test handle="{{ product.handle | escape }}" {% if reveal and settings.stagger_products_apparition %}reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
 {%- comment -%}
 --------------------------------------------------------------------------------------------------------------------
 PRODUCT BADGES
