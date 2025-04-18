@@ -121,10 +121,15 @@
         "button_text": "GET STARTED",
         "button_url": ""
       }
+    },
+    "custom_cart_Lwnxzd": {
+      "type": "custom-cart",
+      "settings": {}
     }
   },
   "order": [
     "main",
+    "custom_cart_Lwnxzd",
     "custom_image_carousel_DL3VF8",
     "custom_shipping_section_Xezaxd"
   ]
