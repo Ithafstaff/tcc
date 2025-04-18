@@ -12,69 +12,103 @@
     </div>
   </div>
 {%- else -%}
-  <div class="container">
-    <div class="page-spacer">
-      <div class="cart">
-        <div class="cart-header">
-          <h1 class="h2">{{ 'cart.general.title' | t }}</h1>
+<section class="x:border-t-2">
+  <div class="container x:flex x:flex-col x:py-10">
+    <div class="x:flex x:items-center x:flex-col x:gap-3">
+      <h1 class="x:uppercase x:font-normal">your shopping cart: {{ cart.item_count }} items</h1>
+      <span>Review your items and save big — with curbside pickup now available at checkout!</span>
+      {% comment %} PROGRESS LABEL {% endcomment %}
+      <div class="x:flex x:items-center x:gap-3 x:justify-center x:text-[#222222]/50">
+        <span class="x:uppercase x:underline">cart</span>
+        {%- render 'icon' with 'arrow-right' -%}
+        <span class="x:uppercase">checkout</span>
+        {%- render 'icon' with 'arrow-right' -%}
+        <span class="x:uppercase">confirmation</span>
+      </div>
+    </div>
+
+    {% comment %} ITEM GRID {% endcomment %}
+    <div class="x:flex x:flex-col x:gap-3 x:border-b-2 x:py-10">
+      {% comment %} GRID HEADER {% endcomment %}
+      <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_4rem] x:py-5 x:px-2 x:border-b-2">
+        <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
+        <span class="x:uppercase">all items</span>
+        <span class="x:uppercase x:text-center">product</span>
+        <span class="x:uppercase x:text-center">variation</span>
+        <span class="x:uppercase x:text-center">unit price</span>
+        <span class="x:uppercase x:text-center">quantity</span>
+        <span class="x:uppercase x:text-center">total price</span>
+        <span class="x:uppercase x:text-center">actions</span>
+      </div>
+
+      {% comment %} GRID ROWS {% endcomment %}
+      {%- for line_item in cart.items -%}
+        <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:bg-[#222222]/5 x:py-4 x:px-5">
+          <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
+          <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]">
+            {% if line_item.image %}
+              <img src="{{ line_item.image | image_url: width: 100 }}" alt="{{ line_item.title | escape }}" class="x:w-full x:h-full x:object-cover" width="100" height="100">
+            {% endif %}
+          </div>
+          <span>{{ line_item.title }}</span>
+          <span class="x:text-center">{{ line_item.variant.title }}</span>
+          <span class="x:text-center">{{ line_item.original_price | money }}</span>
+          <span class="x:text-center">
+            <input type="number" class="x:w-16 x:text-center" value="{{ line_item.quantity }}" min="1" data-line-key="{{ line_item.key }}">
+          </span>
+          <span class="x:text-center">{{ line_item.final_line_price | money }}</span>
+          <div class="x:flex x:flex-col x:gap-3 x:max-w-[9rem]">
+            <button class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm">
+              update item
+            </button>
+            <a href="{{ line_item.url_to_remove }}" class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm">
+              remove item
+            </a>
+            <button class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm">
+              find similar
+            </button>
+          </div>
         </div>
+      {%- endfor -%}
 
-        <div class="cart-order">
-          <div class="cart-order__summary">
-            <table class="order-summary">
-              <thead class="order-summary__header">
-                <tr>
-                  <th>{{ 'customer.order.product' | t }}</th>
-                  <th class="w-0">{{ 'customer.order.quantity' | t }}</th>
-                  <th class="text-end">{{ 'customer.order.total' | t }}</th>
-                </tr>
-              </thead>
-
-              <tbody class="order-summary__body">
-                {%- for line_item in cart.items -%}
-                  <tr>
-                    <td>{%- render 'line-item', line_item: line_item -%}</td>
-                    <td class="hidden align-center text-center text-subdued sm:table-cell">
-                      <line-item-quantity class="v-stack justify-center gap-2">
-                        <input class="quantity-input" type="number" is="quantity-input" inputmode="numeric" min="1" step="1" data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
-                        <span class="text-xs">
-                          <a href="{{ line_item.url_to_remove }}" class="link" aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}">
-                            {{- 'cart.order.remove' | t -}}
-                          </a>
-                        </span>
-                      </line-item-quantity>
-                    </td>
-                    <td class="hidden align-center text-subdued text-end sm:table-cell">{{ line_item.final_line_price | money }}</td>
-                  </tr>
-                {%- endfor -%}
-              </tbody>
-            </table>
+      <div class="x:flex x:justify-between">
+        <div class="x:flex x:flex-col x:justify-between">
+          <div class="x:flex x:items-center x:gap-3">
+            <label class="x:uppercase x:font-medium">selected:</label>
+            <span class="x:uppercase x:text-4xl x:font-medium">{{ cart.item_count }} items</span>
           </div>
 
-          <safe-sticky class="cart-order__recap v-stack gap-6">
-            <form action="{{ routes.cart_url }}" method="POST" class="cart-form rounded">
-              <div class="cart-form__totals v-stack gap-2">
-                <div class="h-stack gap-4 justify-between">
-                  <span class="text-subdued">{{ 'cart.general.subtotal' | t }}</span>
-                  <span class="text-subdued">{{ cart.items_subtotal_price | money }}</span>
-                </div>
-
-                <div class="h-stack gap-4 justify-between">
-                  <span class="h5">{{ 'cart.general.total' | t }}</span>
-                  <span class="h5">{{- cart.total_price | money_with_currency -}}</span>
-                </div>
-
-                <span class="text-subdued text-sm">{{ 'cart.general.taxes_and_shipping_at_checkout' | t }}</span>
-              </div>
-
-              {%- assign checkout_button = 'cart.general.checkout' | t -%}
-              {%- render 'button', type: 'submit', icon: 'picto-lock', content: checkout_button, size: 'xl', name: 'checkout', stretch: true -%}
+          <div class="x:flex x:gap-3">
+            <form action="{{ routes.cart_clear_url }}" method="POST">
+              <button type="submit" class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap">
+                remove all items
+              </button>
             </form>
-          </safe-sticky>
+            <button class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap">
+              move to wishlist
+            </button>
+          </div>
+        </div>
+
+        <div class="x:flex x:flex-col x:items-center x:gap-3">
+          <div class="x:flex x:items-center x:gap-3">
+            <label class="x:uppercase x:font-medium">total:</label>
+            <span class="x:uppercase x:text-4xl x:font-medium">{{ cart.total_price | money }}</span>
+          </div>
+
+          <div class="x:flex x:flex-col">
+            <span class="x:text-xs x:text-[#222222]/50">Tax will be calculated at checkout</span>
+            <form action="{{ routes.cart_url }}" method="POST">
+              <button type="submit" name="checkout" class="x:w-full x:border x:border-[#222222] x:text-[#f0f0f0] x:bg-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#f0f0f0] x:hover:text-[#222222] x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap x:text-center">
+                checkout now
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 {%- endif -%}
 
 {% schema %}
