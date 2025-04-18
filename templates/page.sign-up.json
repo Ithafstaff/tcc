@@ -9,12 +9,28 @@
  */
 {
   "sections": {
+    "image_with_text_overlay_E4UgeR": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "sm",
+        "image": "shopify://shop_images/Plastic_Dinnerware-1_b7a3a444-55c0-4d4d-b04a-09ad2005de04.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20
+      }
+    },
     "main": {
       "type": "custom-sign-up",
       "settings": {}
     }
   },
   "order": [
+    "image_with_text_overlay_E4UgeR",
     "main"
   ]
 }
