@@ -1,5 +1,82 @@
 <section class="x:flex x:flex-col x:items-center x:border-t-2">
-    <div class="container x:w-[70rem] x:flex x:flex-col x:gap-5">
-        <h1>Sign Up</h1>
+  <div class="container x:w-[70rem] x:flex x:flex-col x:gap-5 x:py-10">
+    <div class="x:flex x:flex-col x:items-center">
+      <h1 class="x:uppercase x:font-normal">create an account</h1>
+      <span>Sign up to access your order history, wishlist, and exclusive deals</span>
     </div>
+
+    <div class="x:flex x:flex-col x:gap-5">
+      {% comment %} FIRSTNAME/LASTNAME INPUT {% endcomment %}
+      <div class="x:flex x:gap-5 x:w-full">
+        {% comment %} FIRST NAME INPUT {% endcomment %}
+        <div class="x:relative x:group x:w-full">
+          <input placeholder="First Name" class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full">
+
+          <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+            <i>
+              {%- render 'icon' with 'user', class: 'user' -%}
+            </i>
+          </div>
+        </div>
+
+        {% comment %} LAST NAME INPUT {% endcomment %}
+        <div class="x:relative x:group x:w-full">
+          <input placeholder="Last Name" class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full">
+
+          <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+            <i>
+              {%- render 'icon' with 'user', class: 'user' -%}
+            </i>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} PHONE NUMBER INPUT {% endcomment %}
+      <div class="x:relative x:group x:w-full">
+        <input placeholder="Phone Number" class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full">
+
+        <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+          <i>
+            {%- render 'icon' with 'picto-phone' -%}
+          </i>
+        </div>
+      </div>
+
+      {% comment %} EMAIL INPUT {% endcomment %}
+      <div class="x:relative x:group x:w-full">
+        <input placeholder="Email" class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full">
+
+        <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+          <i>
+            {%- render 'icon' with 'email' -%}
+          </i>
+        </div>
+      </div>
+
+      {% comment %} PASSWORD INPUT {% endcomment %}
+      <div class="x:relative x:group x:w-full">
+        <input placeholder="Password" class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full">
+
+        <!-- Left icon -->
+        <div class="x:absolute x:left-3 x:top-1/2 x:-translate-y-1/2">
+          {%- render 'icon' with 'picto-lock' -%}
+        </div>
+
+        <!-- Right icon -->
+        <div class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2">
+          {%- render 'icon' with 'eye-off' -%}
+        </div>
+      </div>
+
+      <button class="x:w-full x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:h-[3.75rem] x:uppercase">
+        create account
+      </button>
+
+      <span class="x:text-center x:w-full x:text-[#222222]/50">
+        By creating an account you are agreeing to our <span class="x:underline x:hover:text-black x:hover:cursor-pointer">Terms of Use</span> and <span class="x:underline x:hover:text-black x:hover:cursor-pointer">Privacy Policy</span>
+      </span>
+
+      <span class="x:w-full x:text-center x:text-[#222222]/50">Already have an account? <a class="x:underline x:hover:text-black x:hover:cursor-pointer">Sign In</a></span>
+    </div>
+  </div>
 </section>
