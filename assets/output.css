@@ -584,6 +584,9 @@
   .x\:z-10 {
     z-index: 10 !important;
   }
+  .x\:z-50 {
+    z-index: 50 !important;
+  }
   .x\:z-\[-1\] {
     z-index: -1 !important;
   }
@@ -632,14 +635,29 @@
   .x\:h-6 {
     height: calc(var(--x-spacing) * 6) !important;
   }
+  .x\:h-10 {
+    height: calc(var(--x-spacing) * 10) !important;
+  }
   .x\:h-12 {
     height: calc(var(--x-spacing) * 12) !important;
+  }
+  .x\:h-72 {
+    height: calc(var(--x-spacing) * 72) !important;
   }
   .x\:h-\[3\.75rem\] {
     height: 3.75rem !important;
   }
   .x\:h-\[7rem\] {
     height: 7rem !important;
+  }
+  .x\:h-\[20rem\] {
+    height: 20rem !important;
+  }
+  .x\:h-\[30rem\] {
+    height: 30rem !important;
+  }
+  .x\:h-\[40rem\] {
+    height: 40rem !important;
   }
   .x\:h-\[50vh\] {
     height: 50vh !important;
@@ -662,20 +680,38 @@
   .x\:h-full {
     height: 100% !important;
   }
+  .x\:h-screen {
+    height: 100vh !important;
+  }
   .x\:w-0 {
     width: calc(var(--x-spacing) * 0) !important;
+  }
+  .x\:w-3xs {
+    width: var(--x-container-3xs) !important;
   }
   .x\:w-6 {
     width: calc(var(--x-spacing) * 6) !important;
   }
+  .x\:w-10 {
+    width: calc(var(--x-spacing) * 10) !important;
+  }
   .x\:w-12 {
     width: calc(var(--x-spacing) * 12) !important;
+  }
+  .x\:w-20 {
+    width: calc(var(--x-spacing) * 20) !important;
   }
   .x\:w-52 {
     width: calc(var(--x-spacing) * 52) !important;
   }
   .x\:w-\[21\.875rem\] {
     width: 21.875rem !important;
+  }
+  .x\:w-\[35rem\] {
+    width: 35rem !important;
+  }
+  .x\:w-\[40rem\] {
+    width: 40rem !important;
   }
   .x\:w-\[70rem\] {
     width: 70rem !important;
@@ -700,6 +736,9 @@
   }
   .x\:w-md {
     width: var(--x-container-md) !important;
+  }
+  .x\:w-screen {
+    width: 100vw !important;
   }
   .x\:max-w-96 {
     max-width: calc(var(--x-spacing) * 96) !important;
@@ -799,6 +838,9 @@
   .x\:rounded-full {
     border-radius: calc(infinity * 1px) !important;
   }
+  .x\:rounded-lg {
+    border-radius: var(--x-radius-lg) !important;
+  }
   .x\:rounded-md {
     border-radius: var(--x-radius-md) !important;
   }
@@ -849,8 +891,14 @@
   .x\:bg-\[\#222\]\/70 {
     background-color: color-mix(in oklab, #222 70%, transparent) !important;
   }
+  .x\:bg-\[\#f0f0f0\] {
+    background-color: #f0f0f0 !important;
+  }
   .x\:bg-black {
     background-color: var(--x-color-black) !important;
+  }
+  .x\:bg-black\/50 {
+    background-color: color-mix(in oklab, var(--x-color-black) 50%, transparent) !important;
   }
   .x\:bg-gray-300 {
     background-color: var(--x-color-gray-300) !important;
@@ -870,6 +918,9 @@
   .x\:object-cover {
     object-fit: cover !important;
   }
+  .x\:p-2 {
+    padding: calc(var(--x-spacing) * 2) !important;
+  }
   .x\:p-3 {
     padding: calc(var(--x-spacing) * 3) !important;
   }
@@ -882,11 +933,20 @@
   .x\:p-6 {
     padding: calc(var(--x-spacing) * 6) !important;
   }
+  .x\:p-10 {
+    padding: calc(var(--x-spacing) * 10) !important;
+  }
+  .x\:p-20 {
+    padding: calc(var(--x-spacing) * 20) !important;
+  }
   .x\:p-\[6px\] {
     padding: 6px !important;
   }
   .x\:p-\[20px\] {
     padding: 20px !important;
+  }
+  .x\:px-2 {
+    padding-inline: calc(var(--x-spacing) * 2) !important;
   }
   .x\:px-3 {
     padding-inline: calc(var(--x-spacing) * 3) !important;
@@ -1036,6 +1096,10 @@
   .x\:font-bold {
     --tw-font-weight: var(--x-font-weight-bold) !important;
     font-weight: var(--x-font-weight-bold) !important;
+  }
+  .x\:font-light {
+    --tw-font-weight: var(--x-font-weight-light) !important;
+    font-weight: var(--x-font-weight-light) !important;
   }
   .x\:font-normal {
     --tw-font-weight: var(--x-font-weight-normal) !important;
@@ -1192,6 +1256,11 @@
       @media (hover: hover) {
         opacity: 70% !important;
       }
+    }
+  }
+  .x\:checked\:bg-black {
+    &:checked {
+      background-color: var(--x-color-black) !important;
     }
   }
   .x\:focus-within\:ring-black {
