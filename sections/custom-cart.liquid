@@ -1,0 +1,92 @@
+{%- if cart.item_count == 0 -%}
+  <div class="empty-state">
+    <div class="empty-state__icon-wrapper">
+      {%- render 'icon' with 'cart', width: 32, height: 32, stroke_width: 1 -%}
+      <span class="count-bubble count-bubble--lg">0</span>
+    </div>
+
+    <div class="prose">
+      <p class="h4">{{ 'cart.general.empty' | t }}</p>
+      {%- assign button_content = 'cart.general.continue_shopping' | t -%}
+      {%- render 'button', href: settings.cart_empty_button_link, size: 'xl', content: button_content -%}
+    </div>
+  </div>
+{%- else -%}
+  <div class="container">
+    <div class="page-spacer">
+      <div class="cart">
+        <div class="cart-header">
+          <h1 class="h2">{{ 'cart.general.title' | t }}</h1>
+        </div>
+
+        <div class="cart-order">
+          <div class="cart-order__summary">
+            <table class="order-summary">
+              <thead class="order-summary__header">
+                <tr>
+                  <th>{{ 'customer.order.product' | t }}</th>
+                  <th class="w-0">{{ 'customer.order.quantity' | t }}</th>
+                  <th class="text-end">{{ 'customer.order.total' | t }}</th>
+                </tr>
+              </thead>
+
+              <tbody class="order-summary__body">
+                {%- for line_item in cart.items -%}
+                  <tr>
+                    <td>{%- render 'line-item', line_item: line_item -%}</td>
+                    <td class="hidden align-center text-center text-subdued sm:table-cell">
+                      <line-item-quantity class="v-stack justify-center gap-2">
+                        <input class="quantity-input" type="number" is="quantity-input" inputmode="numeric" min="1" step="1" data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
+                        <span class="text-xs">
+                          <a href="{{ line_item.url_to_remove }}" class="link" aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}">
+                            {{- 'cart.order.remove' | t -}}
+                          </a>
+                        </span>
+                      </line-item-quantity>
+                    </td>
+                    <td class="hidden align-center text-subdued text-end sm:table-cell">{{ line_item.final_line_price | money }}</td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+          </div>
+
+          <safe-sticky class="cart-order__recap v-stack gap-6">
+            <form action="{{ routes.cart_url }}" method="POST" class="cart-form rounded">
+              <div class="cart-form__totals v-stack gap-2">
+                <div class="h-stack gap-4 justify-between">
+                  <span class="text-subdued">{{ 'cart.general.subtotal' | t }}</span>
+                  <span class="text-subdued">{{ cart.items_subtotal_price | money }}</span>
+                </div>
+
+                <div class="h-stack gap-4 justify-between">
+                  <span class="h5">{{ 'cart.general.total' | t }}</span>
+                  <span class="h5">{{- cart.total_price | money_with_currency -}}</span>
+                </div>
+
+                <span class="text-subdued text-sm">{{ 'cart.general.taxes_and_shipping_at_checkout' | t }}</span>
+              </div>
+
+              {%- assign checkout_button = 'cart.general.checkout' | t -%}
+              {%- render 'button', type: 'submit', icon: 'picto-lock', content: checkout_button, size: 'xl', name: 'checkout', stretch: true -%}
+            </form>
+          </safe-sticky>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Custom Cart",
+  "class": "shopify-section--custom-cart",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Custom Cart"
+    }
+  ]
+}
+{% endschema %} 
