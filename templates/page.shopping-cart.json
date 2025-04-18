@@ -12,9 +12,19 @@
     "main": {
       "type": "custom-shop-cart",
       "settings": {}
+    },
+    "custom_shipping_section_Xezaxd": {
+      "type": "custom-shipping-section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_shipping_section_Xezaxd"
   ]
 }
