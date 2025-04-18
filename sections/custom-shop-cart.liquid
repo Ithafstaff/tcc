@@ -13,15 +13,109 @@
       <span class="x:uppercase">confirmation</span>
     </div>
 
-    <div class="x:grid x:grid-cols-[5rem_repeat(7,_1fr)]">
-      <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
-      <span class="x:uppercase">all items</span>
-      <span class="x:uppercase">product</span>
-      <span class="x:uppercase">variation</span>
-      <span class="x:uppercase">unit price</span>
-      <span class="x:uppercase">quantity</span>
-      <span class="x:uppercase">total price</span>
-      <span class="x:uppercase">actions</span>
+    <div class="x:flex x:flex-col x:gap-3">
+      {% comment %} GRID HEADER {% endcomment %}
+      <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_4rem] x:py-5 x:px-2 x:border-b-2">
+        <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
+        <span class="x:uppercase">all items</span>
+        <span class="x:uppercase x:text-center">product</span>
+        <span class="x:uppercase x:text-center">variation</span>
+        <span class="x:uppercase x:text-center">unit price</span>
+        <span class="x:uppercase x:text-center">quantity</span>
+        <span class="x:uppercase x:text-center">total price</span>
+        <span class="x:uppercase x:text-center">actions</span>
+      </div>
+
+      {% comment %} GRID ROW {% endcomment %}
+      <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:bg-[#222222]/5 x:py-4 x:px-5">
+        <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
+        <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]"></div>
+        <span>Organic Hammered Plates Blue/Gold Rim-10cttle</span>
+        <span>Gold, 9" Lunch Plate</span>
+        <span class="x:text-center">$5.69</span>
+        <span class="x:text-center">2</span>
+        <span class="x:text-center">$11.38</span>
+        <div class="x:flex x:flex-col x:gap-3 x:max-w-[9rem]">
+          <button class="x:uppercase x:border-2 x:border-black x:py-1 x:px-2 x:text-center x:hover:bg-[#222222] x:hover:text-white x:text-sm">
+            update item
+          </button>
+          <button class="x:uppercase x:border-2 x:border-black x:py-1 x:px-2 x:text-center x:hover:bg-[#222222] x:hover:text-white x:text-sm">
+            remove item
+          </button>
+          <button class="x:uppercase x:border-2 x:border-black x:py-1 x:px-2 x:text-center x:hover:bg-[#222222] x:hover:text-white x:text-sm">
+            find similar
+          </button>
+        </div>
+      </div>
+
+      <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:py-4 x:px-5">
+        <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
+        <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]"></div>
+        <span>Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</span>
+        <span>Gold</span>
+        <span class="x:text-center">$26.99</span>
+        <span class="x:text-center">2</span>
+        <span class="x:text-center">$53.98</span>
+        <div class="x:flex x:flex-col x:gap-3 x:max-w-[9rem]">
+          <button class="x:uppercase x:border-2 x:border-black x:py-1 x:px-2 x:text-center x:hover:bg-[#222222] x:hover:text-white x:text-sm">
+            update item
+          </button>
+          <button class="x:uppercase x:border-2 x:border-black x:py-1 x:px-2 x:text-center x:hover:bg-[#222222] x:hover:text-white x:text-sm">
+            remove item
+          </button>
+          <button class="x:uppercase x:border-2 x:border-black x:py-1 x:px-2 x:text-center x:hover:bg-[#222222] x:hover:text-white x:text-sm">
+            find similar
+          </button>
+        </div>
+      </div>
+
+      <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:bg-[#222222]/5 x:py-4 x:px-5">
+        <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
+        <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]"></div>
+        <span>Decorative Crystal Butterfly Figurine</span>
+        <span>Blue</span>
+        <span class="x:text-center">$19.99</span>
+        <span class="x:text-center">1</span>
+        <span class="x:text-center">$19.99</span>
+        <div class="x:flex x:flex-col x:gap-3 x:max-w-[9rem]">
+          <button class="x:uppercase x:border-2 x:border-black x:py-1 x:px-2 x:text-center x:hover:bg-[#222222] x:hover:text-white x:text-sm">
+            update item
+          </button>
+          <button class="x:uppercase x:border-2 x:border-black x:py-1 x:px-2 x:text-center x:hover:bg-[#222222] x:hover:text-white x:text-sm">
+            remove item
+          </button>
+          <button class="x:uppercase x:border-2 x:border-black x:py-1 x:px-2 x:text-center x:hover:bg-[#222222] x:hover:text-white x:text-sm">
+            find similar
+          </button>
+        </div>
+      </div>
+
+      <div class="x:flex x:justify-between">
+        <div class="x:flex x:flex-col x:justify-between">
+            <div class="x:flex x:items-center x:gap-3">
+                <label class="x:uppercase x:font-medium">selected:</label>
+                <span class="x:uppercase x:text-4xl x:font-medium">3 items</span>
+            </div>
+
+            <div class="x:flex x:gap-3">
+                <button class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap">remove all items</button>
+                <button class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap">move to wishlist</button>
+            </div>
+
+        </div>
+
+        <div class="x:flex x:flex-col x:items-center x:gap-3">
+            <div class="x:flex x:items-center x:gap-3">
+                <label class="x:uppercase x:font-medium">total:</label>
+                <span class="x:uppercase x:text-4xl x:font-medium">$85.35</span>
+            </div>
+            
+            <div class="x:flex x:flex-col">
+                <span class="x:text-xs x:text-[#222222]/50">Tax will be calculated at checkout</span>
+                <button class="x:w-full x:border x:border-[#222222] x:text-[#f0f0f0] x:bg-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#f0f0f0] x:hover:text-[#222222] x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap x:text-center">checkout now</button>
+            </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
