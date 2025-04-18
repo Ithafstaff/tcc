@@ -1,15 +1,16 @@
 {% stylesheet %}
-/* Optional: Hide scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+  /* Optional: Hide scrollbar */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 {% endstylesheet %}
 
-<div class="x:py-10 x:flex x:flex-col x:gap-3">
+<div class="x:py-10 x:flex x:flex-col x:gap-3 section
+    ">
   <!-- HEADER AND ARROW NAVIGATION BUTTONS -->
   <div class="x:flex x:justify-between x:items-center">
     <label class="x:uppercase x:font-semibold x:text-xl">{{ section.settings.heading }}</label>
@@ -46,7 +47,7 @@
               loading="lazy"
               width="300"
               height="300"
-            />
+            >
           {% endif %}
         </div>
 

@@ -569,6 +569,24 @@
   .x\:z-\[1\] {
     z-index: 1 !important;
   }
+  .x\:container {
+    width: 100% !important;
+    @media (width >= 990px) {
+      max-width: 990px !important;
+    }
+    @media (width >= 1280px) {
+      max-width: 1280px !important;
+    }
+    @media (width >= 40rem) {
+      max-width: 40rem !important;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem !important;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem !important;
+    }
+  }
   .x\:mx-auto {
     margin-inline: auto !important;
   }
