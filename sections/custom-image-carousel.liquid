@@ -1,0 +1,132 @@
+{% stylesheet %}
+/* Optional: Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+{% endstylesheet %}
+
+<div class="x:py-10 x:flex x:flex-col x:gap-3">
+  <!-- HEADER AND ARROW NAVIGATION BUTTONS -->
+  <div class="x:flex x:justify-between x:items-center">
+    <label class="x:uppercase x:font-semibold x:text-xl">{{ section.settings.heading }}</label>
+    <div class="x:flex x:items-center x:gap-3">
+      <button
+        onclick="document.getElementById('carousel-{{ section.id }}').scrollBy({ left: -250, behavior: 'smooth' })"
+        class="x:border-[#222222] x:border-2 x:px-3 x:py-2 x:hover:bg-[#222222] x:hover:text-[#f0f0f0] x:transition-all x:duration-300"
+      >
+        {% render 'icon', icon: 'chevron-left' %}
+      </button>
+      <button
+        onclick="document.getElementById('carousel-{{ section.id }}').scrollBy({ left: 250, behavior: 'smooth' })"
+        class="x:border-[#222222] x:border-2 x:px-3 x:py-2 x:hover:bg-[#222222] x:hover:text-[#f0f0f0] x:transition-all x:duration-300"
+      >
+        {% render 'icon', icon: 'chevron-right' %}
+      </button>
+    </div>
+  </div>
+
+  <!-- ITEM CARD CONTAINER -->
+  <div
+    id="carousel-{{ section.id }}"
+    class="x:flex x:items-start x:overflow-x-auto x:gap-3 x:scroll-smooth x:snap-x x:snap-mandatory scrollbar-hide"
+  >
+    {% for block in section.blocks %}
+      <div class="x:flex x:flex-col x:max-w-[15rem] x:snap-start" {{ block.shopify_attributes }}>
+        <!-- IMAGE CONTAINER -->
+        <div class="x:w-[14rem] x:h-[15rem] x:bg-gray-300">
+          {% if block.settings.image %}
+            <img
+              src="{{ block.settings.image | image_url: width: 300 }}"
+              alt="{{ block.settings.title | escape }}"
+              class="x:w-full x:h-full x:object-cover"
+              loading="lazy"
+              width="300"
+              height="300"
+            />
+          {% endif %}
+        </div>
+
+        <!-- ITEM DETAILS -->
+        <div class="x:flex x:flex-col x:gap-1 x:mt-2">
+          {% if block.settings.title != blank %}
+            <label>{{ block.settings.title }}</label>
+          {% endif %}
+          {% if block.settings.price != blank %}
+            <span>{{ block.settings.price }}</span>
+          {% endif %}
+          {% if block.settings.old_price != blank %}
+            <span class="x:line-through x:text-sm x:text-gray-500">{{ block.settings.old_price }}</span>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Image Carousel",
+  "tag": "section",
+  "class": "custom-carousel-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "you may also like"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Carousel Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Fancy Square White Plastic Serving Bowl"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$884.00"
+        },
+        {
+          "type": "text",
+          "id": "old_price",
+          "label": "Old Price",
+          "default": "$2.69"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Custom Image Carousel",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

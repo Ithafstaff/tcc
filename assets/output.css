@@ -575,6 +575,9 @@
   .x\:my-5 {
     margin-block: calc(var(--x-spacing) * 5) !important;
   }
+  .x\:mt-2 {
+    margin-top: calc(var(--x-spacing) * 2) !important;
+  }
   .x\:mt-4 {
     margin-top: calc(var(--x-spacing) * 4) !important;
   }
@@ -1122,6 +1125,9 @@
   }
   .x\:uppercase {
     text-transform: uppercase !important;
+  }
+  .x\:line-through {
+    text-decoration-line: line-through !important;
   }
   .x\:underline {
     text-decoration-line: underline !important;
