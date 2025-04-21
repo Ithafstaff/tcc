@@ -50,6 +50,10 @@
 .custom-navigation-promo__txt {
   text-transform: capitalize;
   text-decoration: underline;
+  font-family: "Alata", sans-serif !important;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
 }
 /* end of custom mega menu layout */
 
