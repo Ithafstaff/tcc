@@ -7,7 +7,7 @@
 }
 
 .mega-menu__nav {
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(5, 1fr);
 }
 .mega-menu__nav li:nth-child(4) {
