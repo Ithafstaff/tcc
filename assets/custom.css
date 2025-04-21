@@ -56,7 +56,7 @@
   color: #000;
   line-height: 26px;
   margin-top: 10px;
-  display: block;
+  display: flex;
   position: relative;
 }
 
