@@ -36,6 +36,12 @@
 .li-pair:nth-child(4) li:nth-child(2) {
   display: none;
 }
+
+.li-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 /* end of custom mega menu layout */
 
 .custom-product__info {
