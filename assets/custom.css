@@ -273,10 +273,10 @@
 
 .color-swatch::before {
       content: "";
-    /* inset: calc(-1 * var(--swatch-offset)); */
+    inset: unset;
     opacity: 0;
-    /* border-radius: inherit; */
-    /* will-change: transform; */
+    border-radius: 0;
+    will-change: unset;
 
     box-shadow: none;
     width: 100%;
