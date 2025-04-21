@@ -57,6 +57,20 @@
   line-height: 26px;
   margin-top: 10px;
   display: block;
+  position: relative;
+}
+
+.custom-navigation-promo__txt::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 8px;
+  background: url('https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector.png?v=1745259174') no-repeat;
+  background-size: 100%;
+  bottom: 0;
+  right: 20px;
+  
+  
 }
 /* end of custom mega menu layout */
 
