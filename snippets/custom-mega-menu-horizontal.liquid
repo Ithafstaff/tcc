@@ -42,27 +42,51 @@
 <div id="mega-menu-{{ mega_menu_block.id }}" class="mega-menu {% if link.links.size == 0 %}justify-center{% endif %}">
   {%- if link.links.size > 0 -%}
     <ul class="mega-menu__nav custom-mega-menu__nav" role="list">
-      {%- for sub_link in link.links -%}
-        <li class="v-stack gap-4 justify-items-start">
-          <a {% if sub_link.url != '#' %}href="{{ sub_link.url }}"{% endif %} class="{% if mega_menu_block.settings.submenu_style == 'bold_heading' %}h5{% endif %}" {% if sub_link.current %}aria-current="page"{% endif %}>
-            <span {% if sub_link.url != '#' %}class="{% if mega_menu_block.settings.submenu_style == 'bold_text' %}link-faded{% else %}reversed-link hover:show{% endif %}"{% endif %}>
-              {{- sub_link.title -}}
-            </span>
-          </a>
+{%- for sub_link in link.links -%}
 
-          {%- if sub_link.levels > 0 -%}
-            <ul class="v-stack gap-2 justify-items-start" role="list">
-              {%- for sub_sub_link in sub_link.links -%}
-                <li>
-                  <a href="{{ sub_sub_link.url }}" class="{% if mega_menu_block.settings.submenu_style == 'bold_text' %}h5{% else %}link-faded{% endif %}">
-                    <span {% if mega_menu_block.settings.submenu_style == 'bold_text' %}class="reversed-link hover:show"{% endif %}>{{- sub_sub_link.title -}}</span>
-                  </a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
-        </li>
-      {%- endfor -%}
+  {% assign loop_index = forloop.index0 %}
+
+  {% if loop_index modulo 2 == 0 %}
+    <div class="li-pair">
+  {% endif %}
+
+    <li class="v-stack gap-4 justify-items-start">
+      <a {% if sub_link.url != '#' %}href="{{ sub_link.url }}"{% endif %}
+         class="{% if mega_menu_block.settings.submenu_style == 'bold_heading' %}h5{% endif %}"
+         {% if sub_link.current %}aria-current="page"{% endif %}>
+        <span {% if sub_link.url != '#' %}
+                class="{% if mega_menu_block.settings.submenu_style == 'bold_text' %}
+                         link-faded
+                       {% else %}
+                         reversed-link hover:show
+                       {% endif %}"{% endif %}>
+          {{- sub_link.title -}}
+        </span>
+      </a>
+
+      {%- if sub_link.levels > 0 -%}
+        <ul class="v-stack gap-2 justify-items-start" role="list">
+          {%- for sub_sub_link in sub_link.links -%}
+            <li>
+              <a href="{{ sub_sub_link.url }}"
+                 class="{% if mega_menu_block.settings.submenu_style == 'bold_text' %}h5{% else %}link-faded{% endif %}">
+                <span {% if mega_menu_block.settings.submenu_style == 'bold_text' %}
+                        class="reversed-link hover:show"{% endif %}>
+                  {{- sub_sub_link.title -}}
+                </span>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </li>
+
+  {% if loop_index modulo 2 == 1 or forloop.last %}
+    </div>
+  {% endif %}
+
+{%- endfor -%}
+
     </ul>
   {%- endif -%}
 
