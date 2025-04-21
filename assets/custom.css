@@ -58,6 +58,7 @@
   margin-top: 10px;
   display: flex;
   position: relative;
+  width:  fit-content;
 }
 
 .custom-navigation-promo__txt::after {
