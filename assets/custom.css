@@ -270,3 +270,17 @@
 .custom-product-card {
   /* border: 1px solid; */
 }
+
+.color-swatch::before {
+      content: "";
+    /* inset: calc(-1 * var(--swatch-offset)); */
+    opacity: 0;
+    /* border-radius: inherit; */
+    /* will-change: transform; */
+
+    box-shadow: none;
+    width: 100%;
+    height: 4px;
+    background: inherit;
+    bottom: -10px;  
+}
