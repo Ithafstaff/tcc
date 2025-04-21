@@ -42,7 +42,10 @@
 <div id="mega-menu-{{ mega_menu_block.id }}" class="mega-menu {% if link.links.size == 0 %}justify-center{% endif %}">
   {%- if link.links.size > 0 -%}
     <ul class="mega-menu__nav custom-mega-menu__nav" role="list">
+      
+    
       {%- for sub_link in link.links -%}
+        
         <li class="v-stack gap-4 justify-items-start">
           <a {% if sub_link.url != '#' %}href="{{ sub_link.url }}"{% endif %} class="{% if mega_menu_block.settings.submenu_style == 'bold_heading' %}h5{% endif %}" {% if sub_link.current %}aria-current="page"{% endif %}>
             <span {% if sub_link.url != '#' %}class="{% if mega_menu_block.settings.submenu_style == 'bold_text' %}link-faded{% else %}reversed-link hover:show{% endif %}"{% endif %}>
@@ -62,7 +65,10 @@
             </ul>
           {%- endif -%}
         </li>
+      
       {%- endfor -%}
+
+      
     </ul>
   {%- endif -%}
 
