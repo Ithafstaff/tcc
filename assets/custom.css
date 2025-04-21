@@ -6,6 +6,11 @@
   gap: 25px !important;
 }
 
+/* start of custom mega menu layout */
+.mega-menu__nav {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr);
+}
 .mega-menu__nav {
   display: grid !important;
   grid-template-columns: repeat(5, 1fr);
@@ -13,6 +18,7 @@
 .mega-menu__nav li:nth-child(4) {
   grid-row: span 2;
 }
+/* end of custom mega menu layout */
 
 .custom-product__info {
   /* border: 1px solid; */
