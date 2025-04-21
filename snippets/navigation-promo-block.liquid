@@ -224,7 +224,8 @@
       {{ promo_block_content }}
     </div>
   {%- if mega_menu_block.settings['image_btn'] != blank -%} 
-    <a href="{{ mega_menu_block.settings['image_btn'] }}">{{ mega_menu_block.settings['image_btn'].title }}</a>
+    {% comment %}<a href="{{ mega_menu_block.settings['image_btn'] }}">{{ mega_menu_block.settings['image_btn'].title }}</a>{% endcomment %}
+    <a href="{{ mega_menu_block.settings['image_btn'] }}">View Promo }}</a>
   {% endif %}
   {%- else -%}
     <div class="relative">
