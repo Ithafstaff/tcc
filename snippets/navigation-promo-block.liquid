@@ -214,18 +214,17 @@
   {%- endif -%}
 {%- endcapture -%}
 
-{% assign promo_collection = mega_menu_block.settings['image_btn'] %}
 
 <div class="navigation-promo__wrapper {% if use_carousel_fallback_until %}{{ use_carousel_fallback_until }}:hidden{% endif %} {% if hide_promo_until != blank %}{{ hide_promo_until }}-max:hidden{% endif %}" id="navigation-promo-{{ promo_id }}">
-  {%- if mega_menu_block.settings[promo_collection] != blank -%} 
+  {%- if mega_menu_block.settings['image_btn'] != blank -%} 
     <span>10% OFF</span>
   {% endif %}
   {%- if is_promo_grid or is_promo_collage -%}
     <div class="navigation-promo navigation-promo--{{ mega_menu_block.settings.promo_content_layout }} {% if is_promo_grid %}scroll-area bleed{% endif %}">
       {{ promo_block_content }}
     </div>
-  {%- if mega_menu_block.settings[promo_collection] != blank -%} 
-    <a href="{{ promo_collection.url }}">{{ promo_collection.title }}</a>
+  {%- if mega_menu_block.settings['image_btn'] != blank -%} 
+    <a href="{{ mega_menu_block.settings['image_btn'] }}">{{ mega_menu_block.settings['image_btn'].title }}</a>
   {% endif %}
   {%- else -%}
     <div class="relative">
