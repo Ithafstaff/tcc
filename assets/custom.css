@@ -46,6 +46,11 @@
 .li-pair li {
   gap: 0 !important;
 }
+
+.custom-navigation-promo__txt {
+  text-transform: capitalize;
+  text-decoration: underline;
+}
 /* end of custom mega menu layout */
 
 .custom-product__info {
