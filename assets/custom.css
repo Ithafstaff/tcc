@@ -32,6 +32,10 @@
 .mega-menu__nav li:nth-child(4) {
   grid-row: span 2;
 }
+
+.li-pair:nth-child(4) li {
+  display: none;
+}
 /* end of custom mega menu layout */
 
 .custom-product__info {
