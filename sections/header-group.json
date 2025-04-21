@@ -74,7 +74,7 @@
             "layout": "horizontal",
             "submenu_style": "bold_text",
             "image_1": "shopify://shop_images/CC_Brand_Shoot-44.png",
-            "image_heading_1": "",
+            "image_heading_1": "test",
             "image_link_1": "",
             "image_text_color_1": "#ffffff",
             "image_heading_2": "",
