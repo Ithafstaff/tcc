@@ -134,6 +134,9 @@ the underlying logic of the menu.
                             </summary>
 
                            {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                           
+                          
+                            {% comment %} {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%} {% endcomment %}
                           </details>
                         {%- else -%}
                           <button aria-controls="navigation-drawer-{{ forloop.index }}" aria-expanded="false" class="text-with-icon gap-2.5 bold link-faded-reverse">
