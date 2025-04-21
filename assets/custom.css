@@ -42,6 +42,10 @@
   flex-direction: column;
   gap: 15px;
 }
+
+.li-pair li {
+  gap: 0 !important;
+}
 /* end of custom mega menu layout */
 
 .custom-product__info {
