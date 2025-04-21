@@ -130,17 +130,13 @@ the underlying logic of the menu.
                           <details is="mega-menu-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}" {{ mega_menu_block.shopify_attributes }}>
                             <summary class="text-with-icon gap-2.5 link-faded-reverse" {% if link.url != '#' %}data-url="{{ link.url | escape }}"{% endif %}>
                               {{- link.title -}} 
-
-                              {% if link.title == 'CATALOG' %}
                               {% comment %} {%- render 'icon' with 'chevron-bottom' -%} {% endcomment %}
-                                </summary>
-    
-                               {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
-                                
-                             {% else %}
-                               </summary>
-                               {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
-                             {% endif %}
+                            </summary>
+                           {% if link.title == 'CATALOG' %}
+                             {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                            {% else %}
+                           {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                            {% endif %}
                            
                           
                             {% comment %} {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%} {% endcomment %}
