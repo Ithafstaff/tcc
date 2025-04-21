@@ -47,7 +47,7 @@
 {%- for sub_link in link.links -%}
   {%- assign i = forloop.index0 -%}
 
-  {%- if i modulo 2 == 0 -%}
+  {%- if i | modulo: 2 == 0 -%}
     <div class="li-pair"> <!-- OPEN wrapper every 2 items -->
   {%- endif -%}
 
@@ -71,7 +71,7 @@
       {%- endif -%}
     </li>
 
-  {%- if i modulo 2 == 1 or forloop.last -%}
+  {%- if i | modulo: 2 == 1 or forloop.last -%}
     </div> <!-- CLOSE wrapper after 2 items or at end -->
   {%- endif -%}
 
