@@ -297,6 +297,10 @@
   position: relative !important;
 }
 
+.Size .custom-variant__inputs:checked {
+  font-weight: 700;
+}
+
 .Size .block-swatch {
   font-family: "Poppins", sans-serif !important;
   font-size: 14px;
