@@ -49,6 +49,7 @@
             "submenu_style": "bold_text",
             "image_1": "shopify://shop_images/Screenshot_2025-02-13_124856.png",
             "image_heading_1": "ccccc",
+            "image_btn": "",
             "image_link_1": "shopify://pages/contact",
             "image_text_color_1": "#ffffff",
             "image_2": "shopify://shop_images/Screenshot_2025-02-13_124856.png",
@@ -75,6 +76,7 @@
             "submenu_style": "bold_text",
             "image_1": "shopify://shop_images/CC_Brand_Shoot-44.png",
             "image_heading_1": "",
+            "image_btn": "better-bed-collection",
             "image_link_1": "",
             "image_text_color_1": "#ffffff",
             "image_heading_2": "",
@@ -90,16 +92,41 @@
             "stretch_promo": false,
             "drawer_link_image": "show"
           }
+        },
+        "mega_menu_KAgdzQ": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_heading_1": "",
+            "image_btn": "",
+            "image_link_1": "",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
         }
       },
       "block_order": [
         "mega_menu_UAHtdB",
-        "mega_menu_VWypqM"
+        "mega_menu_VWypqM",
+        "mega_menu_KAgdzQ"
       ],
       "settings": {
         "enable_sticky": false,
         "hide_on_scroll": false,
-        "logo": "shopify://shop_images/191c0feb-cdad-4903-a42d-079ca3f988c9.png",
+        "logo": "shopify://shop_images/WhatsApp_Image_2025-04-22_at_00.20.28_e284780a-Photoroom.png",
         "logo_max_width": 120,
         "logo_mobile_max_width": 100,
         "menu": "main-menu",
