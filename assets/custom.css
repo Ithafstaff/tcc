@@ -323,6 +323,10 @@
   opacity: 1;
   border-radius: 0;
 }
+.Size .block-swatch:checked::before {
+   content: "0";
+  
+}
 
 .variant-picker__option-values.Size {
   display: flex;
