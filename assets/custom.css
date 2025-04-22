@@ -297,7 +297,7 @@
   position: relative !important;
 }
 
-:checked .block-swatch {
+.Size .custom-variant__inputs:checked + * {
   font-weight: 700;
 }
 
