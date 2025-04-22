@@ -131,9 +131,9 @@ Color swatch specific parameters:
     {%- endif -%}
   {%- endcapture -%}
 
-  <input class="sr-only" type="{% if allow_multiple %}checkbox{% else %}radio{% endif %}" name="{{ param_name }}" id="{{ id | escape }}" value="{{ value | escape }}" {% if form %}form="{{ form }}"{% endif %} {% if selected %}checked="checked"{% endif %} {% if hide_if_disabled and disabled and selected == false %}disabled{% endif %} {% if option_value and option_value.product_url %}data-product-url="{{ option_value.product_url | escape }}"{% endif %} {% if option_position %}data-option-position="{{ option_position }}"{% endif %} {{ variant_attributes }}>
+  <input class="sr-only test1" type="{% if allow_multiple %}checkbox{% else %}radio{% endif %}" name="{{ param_name }}" id="{{ id | escape }}" value="{{ value | escape }}" {% if form %}form="{{ form }}"{% endif %} {% if selected %}checked="checked"{% endif %} {% if hide_if_disabled and disabled and selected == false %}disabled{% endif %} {% if option_value and option_value.product_url %}data-product-url="{{ option_value.product_url | escape }}"{% endif %} {% if option_position %}data-option-position="{{ option_position }}"{% endif %} {{ variant_attributes }}>
 {%- elsif option_value and option_value.selected -%}
-  <input class="sr-only" type="radio" name="{{ param_name }}" id="{{ id | escape }}" value="{{ value | escape }}" data-option-position="{{ option_position }}" {% if form %}form="{{ form }}"{% endif %} checked="checked">
+  <input class="sr-only test2" type="radio" name="{{ param_name }}" id="{{ id | escape }}" value="{{ value | escape }}" data-option-position="{{ option_position }}" {% if form %}form="{{ form }}"{% endif %} checked="checked">
 {%- endif -%}
 
 {%- case type -%}
@@ -142,7 +142,7 @@ Color swatch specific parameters:
 
     {%- if image != blank -%}
       <{{ option_value_tag }} class="thumbnail-swatch {% if size == 'sm' %}thumbnail-swatch--sm{% endif %} {% if disabled %}is-disabled{% endif %} {% if selected and option_value_tag == 'a' %}is-selected{% endif %} {% if bordered %}border{% endif %}" {{ attributes }}>
-        <span class="sr-only">{{ label | default: value }}</span>
+        <span class="sr-only test3">{{ label | default: value }}</span>
         {{- image | image_url: width: image.width | image_tag: sizes: '60px', widths: '60,120', class: 'object-cover' -}}
       </{{ option_value_tag }}>
     {%- else -%}
@@ -166,7 +166,7 @@ Color swatch specific parameters:
     {%- assign white_label_list = 'general.label.white' | t | replace: ', ', ',' | downcase | split: ',' -%}
 
     <{{ option_value_tag }} class="color-swatch custom-product__swatch-rectangle {% if settings.color_swatch_style == 'rectangle' %}color-swatch--rectangle{% endif %} {% if size == 'sm' %}color-swatch--sm{% endif %} {% if disabled %}is-disabled{% endif %} {% if selected and option_value_tag == 'a' %}is-selected{% endif %} {% if white_label_list contains downcase_label %}ring-inset{% endif %} {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %}" {% if show_tooltip %}data-tooltip="{{ label | default: value | escape }}"{% endif %} style="{{ swatch_style }}" {{ attributes }}>
-      <span class="sr-only test">{{ label | default: value }}</span>
+      <span class="sr-only test4">{{ label | default: value }}</span>
     </{{ option_value_tag }}>
 
   {%- when 'image_filter' -%}
