@@ -290,9 +290,58 @@
   color: #000;
 }
 
-.Size .sr-only {
-    /* border: 1px solid red;
-    width: 25px;
-    height: 25px;
-      clip: unset; */
+.Size .custom-variant__inputs {
+  display: none;
+}
+
+.Size .custom-variant__inputs:checked + * {
+  font-weight: 700;
+}
+
+.Size .block-swatch {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  border: none !important;
+  line-height: 20px;
+  height: unset;
+  width: fit-content;
+  position: relative;
+  padding-left: 34px;
+}
+
+.Size .block-swatch::before {
+   content: "";
+   box-shadow: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  border-radius: 0;
+}
+
+.Size input[type="radio"]:checked + .block-swatch::before {
+  content: "\2714";
+  color: #fff;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.variant-picker__option-values.Size {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px 0 35px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.custom-product-info__block-item {
+  margin: 0;
 }
