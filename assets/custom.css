@@ -311,7 +311,10 @@
 
 .Size .block-swatch::before {
    content: "";
-  box-shadow: none;
+   box-shadow: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid;
 }
 
 .variant-picker__option-values.Size {
