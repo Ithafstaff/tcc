@@ -279,7 +279,7 @@
     box-shadow: none !important;
     width: 100%;
     height: 2px;
-    background: inherit;
+    background:  var(--swatch-background);;
     bottom: -10px !important;
 }
 
