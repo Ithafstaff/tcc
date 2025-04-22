@@ -324,8 +324,7 @@
   border-radius: 0;
 }
 .Size .block-swatch:checked::before {
-   content: "0";
-  
+   content: "test";
 }
 
 .variant-picker__option-values.Size {
