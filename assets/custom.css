@@ -312,7 +312,7 @@
 }
 
 .Size .block-swatch::before {
-   content: "res";
+   content: "";
    box-shadow: none;
   width: 24px;
   height: 24px;
