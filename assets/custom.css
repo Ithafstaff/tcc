@@ -291,8 +291,8 @@
 }
 
 .Size .sr-only {
-    border: 1px solid red;
+    /* border: 1px solid red;
     width: 25px;
     height: 25px;
-      clip: unset;
+      clip: unset; */
 }
