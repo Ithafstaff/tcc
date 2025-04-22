@@ -72,9 +72,9 @@
 
             <span class="x:text-center">{{ line_item.variant.title }}</span>
             <span class="x:text-center">{{ line_item.original_price | money }}</span>
-            <div class="x:text-center x:flex x:items-center x:gap-2">
+            <div class="x:text-center x:flex x:items-center x:gap-2 x:justify-center">
               <i 
-                class="x:flex x:items-center x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control" 
+                class="x:flex x:items-center x:justify-center x:w-8 x:h-8 x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control" 
                 hidden
                 onclick="const span = this.parentElement.querySelector('.quantity-display'); const currentQty = parseInt(span.textContent); if (currentQty > {{ line_item.variant.quantity_rule.min }}) { const newQty = currentQty - {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty); }"
               >
@@ -84,7 +84,7 @@
                 {{- line_item.quantity -}}
               </span>
               <i 
-                class="x:flex x:items-center x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control" 
+                 class="x:flex x:items-center x:justify-center x:w-8 x:h-8 x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control"
                 hidden
                 onclick="const span = this.parentElement.querySelector('.quantity-display'); const currentQty = parseInt(span.textContent); {% if max_quantity != null %}if (currentQty < {{ max_quantity }}) { const newQty = currentQty + {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty); }{% else %}const newQty = currentQty + {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty);{% endif %}"
               >
