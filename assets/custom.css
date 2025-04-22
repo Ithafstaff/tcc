@@ -303,3 +303,7 @@
   color: #000;
   border: none !important;
 }
+.Size .block-swatch::before {
+   content: "";
+  border: none;
+}
