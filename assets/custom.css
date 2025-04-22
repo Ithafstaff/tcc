@@ -313,3 +313,8 @@
    content: "";
   box-shadow: none;
 }
+
+.variant-picker__option-values.Size {
+  display: flex;
+  flex-direction: column;
+}
