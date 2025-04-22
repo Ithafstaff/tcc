@@ -12,103 +12,165 @@
     </div>
   </div>
 {%- else -%}
-<section class="x:border-t-2">
-  <div class="container x:flex x:flex-col x:py-10">
-    <div class="x:flex x:items-center x:flex-col x:gap-3">
-      <h1 class="x:uppercase x:font-normal">your shopping cart: {{ cart.item_count }} items</h1>
-      <span>Review your items and save big — with curbside pickup now available at checkout!</span>
-      {% comment %} PROGRESS LABEL {% endcomment %}
-      <div class="x:flex x:items-center x:gap-3 x:justify-center x:text-[#222222]/50">
-        <span class="x:uppercase x:underline">cart</span>
-        {%- render 'icon' with 'arrow-right' -%}
-        <span class="x:uppercase">checkout</span>
-        {%- render 'icon' with 'arrow-right' -%}
-        <span class="x:uppercase">confirmation</span>
-      </div>
-    </div>
-
-    {% comment %} ITEM GRID {% endcomment %}
-    <div class="x:flex x:flex-col x:gap-3 x:border-b-2 x:py-10">
-      {% comment %} GRID HEADER {% endcomment %}
-      <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_4rem] x:py-5 x:px-2 x:border-b-2">
-        <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
-        <span class="x:uppercase">all items</span>
-        <span class="x:uppercase x:text-center">product</span>
-        <span class="x:uppercase x:text-center">variation</span>
-        <span class="x:uppercase x:text-center">unit price</span>
-        <span class="x:uppercase x:text-center">quantity</span>
-        <span class="x:uppercase x:text-center">total price</span>
-        <span class="x:uppercase x:text-center">actions</span>
+  <section class="x:border-t-2">
+    <div class="container x:flex x:flex-col x:py-10">
+      <div class="x:flex x:items-center x:flex-col x:gap-3">
+        <h1 class="x:uppercase x:font-normal">your shopping cart: {{ cart.item_count }} items</h1>
+        <span>Review your items and save big — with curbside pickup now available at checkout!</span>
+        {% comment %} PROGRESS LABEL {% endcomment %}
+        <div class="x:flex x:items-center x:gap-3 x:justify-center x:text-[#222222]/50">
+          <span class="x:uppercase x:underline">cart</span>
+          {%- render 'icon' with 'arrow-right' -%}
+          <span class="x:uppercase">checkout</span>
+          {%- render 'icon' with 'arrow-right' -%}
+          <span class="x:uppercase">confirmation</span>
+        </div>
       </div>
 
-      {% comment %} GRID ROWS {% endcomment %}
-      {%- for line_item in cart.items -%}
-        <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:bg-[#222222]/5 x:py-4 x:px-5">
+      {% comment %} ITEM GRID {% endcomment %}
+      <div class="x:flex x:flex-col x:gap-3 x:border-b-2 x:py-10">
+        {% comment %} GRID HEADER {% endcomment %}
+        <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_4rem] x:py-5 x:px-2 x:border-b-2">
           <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
-          <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]">
-            {% if line_item.image %}
-              <img src="{{ line_item.image | image_url: width: 100 }}" alt="{{ line_item.title | escape }}" class="x:w-full x:h-full x:object-cover" width="100" height="100">
-            {% endif %}
-          </div>
-          <span>{{ line_item.title }}</span>
-          <span class="x:text-center">{{ line_item.variant.title }}</span>
-          <span class="x:text-center">{{ line_item.original_price | money }}</span>
-          <span class="x:text-center">
-            <input type="number" class="x:w-16 x:text-center" value="{{ line_item.quantity }}" min="1" data-line-key="{{ line_item.key }}">
-          </span>
-          <span class="x:text-center">{{ line_item.final_line_price | money }}</span>
-          <div class="x:flex x:flex-col x:gap-3 x:max-w-[9rem]">
-            <button class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm">
-              update item
-            </button>
-            <a href="{{ line_item.url_to_remove }}" class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm">
-              remove item
-            </a>
-            <button class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm">
-              find similar
-            </button>
-          </div>
-        </div>
-      {%- endfor -%}
-
-      <div class="x:flex x:justify-between">
-        <div class="x:flex x:flex-col x:justify-between">
-          <div class="x:flex x:items-center x:gap-3">
-            <label class="x:uppercase x:font-medium">selected:</label>
-            <span class="x:uppercase x:text-4xl x:font-medium">{{ cart.item_count }} items</span>
-          </div>
-
-          <div class="x:flex x:gap-3">
-            <form action="{{ routes.cart_clear_url }}" method="POST">
-              <button type="submit" class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap">
-                remove all items
-              </button>
-            </form>
-            <button class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap">
-              move to wishlist
-            </button>
-          </div>
+          <span class="x:uppercase">all items</span>
+          <span class="x:uppercase x:text-center">product</span>
+          <span class="x:uppercase x:text-center">variation</span>
+          <span class="x:uppercase x:text-center">unit price</span>
+          <span class="x:uppercase x:text-center">quantity</span>
+          <span class="x:uppercase x:text-center">total price</span>
+          <span class="x:uppercase x:text-center">actions</span>
         </div>
 
-        <div class="x:flex x:flex-col x:items-center x:gap-3">
-          <div class="x:flex x:items-center x:gap-3">
-            <label class="x:uppercase x:font-medium">total:</label>
-            <span class="x:uppercase x:text-4xl x:font-medium">{{ cart.total_price | money }}</span>
+        {% comment %} GRID ROWS {% endcomment %}
+        {%- for line_item in cart.items -%}
+          {% liquid
+            assign max_quantity = null
+
+            if line_item.variant.inventory_management != blank and line_item.variant.inventory_policy == 'deny'
+              assign current_quantity_for_variant = cart | item_count_for_variant: line_item.variant.id
+              assign max_quantity = line_item.variant.inventory_quantity | minus: current_quantity_for_variant | plus: line_item.quantity
+            endif
+
+            if line_item.variant.quantity_rule.max != null
+              assign max_quantity = max_quantity | default: 999999 | at_most: line_item.variant.quantity_rule.max
+            endif
+          %}
+          <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:bg-[#222222]/5 x:py-3 x:px-5">
+            <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
+            <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]">
+              {% if line_item.image %}
+                <img
+                  src="{{ line_item.image | image_url: width: 100 }}"
+                  alt="{{ line_item.title | escape }}"
+                  class="x:w-full x:h-full x:object-cover"
+                  width="100"
+                  height="100"
+                >
+              {% endif %}
+            </div>
+            <span>{{ line_item.title }}</span>
+
+            <span class="x:text-center">{{ line_item.variant.title }}</span>
+            <span class="x:text-center">{{ line_item.original_price | money }}</span>
+            <div class="x:text-center x:flex x:items-center x:gap-2">
+              <i 
+                class="x:flex x:items-center x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control" 
+                hidden
+                onclick="const span = this.parentElement.querySelector('.quantity-display'); const currentQty = parseInt(span.textContent); if (currentQty > {{ line_item.variant.quantity_rule.min }}) { const newQty = currentQty - {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty); }"
+              >
+                {%- render 'icon', icon: 'minus' -%}
+              </i>
+              <span class="x:flex x:items-center x:justify-center x:w-8 quantity-display" data-line-key="{{ line_item.key }}">
+                {{- line_item.quantity -}}
+              </span>
+              <i 
+                class="x:flex x:items-center x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control" 
+                hidden
+                onclick="const span = this.parentElement.querySelector('.quantity-display'); const currentQty = parseInt(span.textContent); {% if max_quantity != null %}if (currentQty < {{ max_quantity }}) { const newQty = currentQty + {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty); }{% else %}const newQty = currentQty + {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty);{% endif %}"
+              >
+                {%- render 'icon', icon: 'plus' -%}
+              </i>
+            </div>
+            <span class="x:text-center">{{ line_item.final_line_price | money }}</span>
+            <div class="x:flex x:flex-col x:gap-3 x:max-w-[9rem]">
+              <button
+                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm update-btn"
+                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.removeAttribute('hidden')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.cancel-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.save-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.find-similar-btn').setAttribute('hidden', '');"
+              >
+                update item
+              </button>
+              <button
+                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm save-btn"
+                hidden
+                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.cancel-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden');"
+              >
+                update
+              </button>
+              <button
+                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm cancel-btn"
+                hidden
+                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.save-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden');"
+              >
+                cancel
+              </button>
+              <a
+                href="{{ line_item.url_to_remove }}"
+                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm remove-btn"
+              >
+                remove item
+              </a>
+              <button class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm find-similar-btn">
+                find similar
+              </button>
+            </div>
+          </div>
+        {%- endfor -%}
+
+        <div class="x:flex x:justify-between">
+          <div class="x:flex x:flex-col x:justify-between">
+            <div class="x:flex x:items-center x:gap-3">
+              <label class="x:uppercase x:font-medium">selected:</label>
+              <span class="x:uppercase x:text-4xl x:font-medium">{{ cart.item_count }} items</span>
+            </div>
+
+            <div class="x:flex x:gap-3">
+              <form action="{{ routes.cart_clear_url }}" method="POST">
+                <button
+                  type="submit"
+                  class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
+                >
+                  remove all items
+                </button>
+              </form>
+              <button class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap">
+                move to wishlist
+              </button>
+            </div>
           </div>
 
-          <div class="x:flex x:flex-col">
-            <span class="x:text-xs x:text-[#222222]/50">Tax will be calculated at checkout</span>
-            <form action="{{ routes.cart_url }}" method="POST">
-              <button type="submit" name="checkout" class="x:w-full x:border x:border-[#222222] x:text-[#f0f0f0] x:bg-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#f0f0f0] x:hover:text-[#222222] x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap x:text-center">
-                checkout now
-              </button>
-            </form>
+          <div class="x:flex x:flex-col x:items-center x:gap-3">
+            <div class="x:flex x:items-center x:gap-3">
+              <label class="x:uppercase x:font-medium">total:</label>
+              <span class="x:uppercase x:text-4xl x:font-medium">{{ cart.total_price | money }}</span>
+            </div>
+
+            <div class="x:flex x:flex-col">
+              <span class="x:text-xs x:text-[#222222]/50">Tax will be calculated at checkout</span>
+              <form action="{{ routes.cart_url }}" method="POST">
+                <button
+                  type="submit"
+                  name="checkout"
+                  class="x:w-full x:border x:border-[#222222] x:text-[#f0f0f0] x:bg-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#f0f0f0] x:hover:text-[#222222] x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap x:text-center"
+                >
+                  checkout now
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 {%- endif -%}
 
 {% schema %}
@@ -123,4 +185,53 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}
+
+<script>
+  async function updateCartItemQuantity(lineKey, quantity) {
+    try {
+      const response = await fetch('/cart/change.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: lineKey,
+          quantity: quantity,
+        }),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to update cart');
+      }
+      
+      const cart = await response.json();
+      
+      // Update the total price display
+      const totalPriceElement = document.querySelector('.cart-total');
+      if (totalPriceElement) {
+        totalPriceElement.textContent = cart.total_price;
+      }
+      
+      // Update the item count
+      const itemCountElement = document.querySelector('.cart-count');
+      if (itemCountElement) {
+        itemCountElement.textContent = cart.item_count;
+      }
+      
+      // Update the line item price
+      const lineItem = cart.items.find((item) => item.key === lineKey);
+      if (lineItem) {
+        const lineItemPrice = document
+          .querySelector(`[data-line-key="${lineKey}"]`)
+          .closest('.x\\:grid')
+          .querySelector('.line-item-price');
+        if (lineItemPrice) {
+          lineItemPrice.textContent = lineItem.final_line_price;
+        }
+      }
+    } catch (error) {
+      console.error('Error updating cart:', error);
+    }
+  }
+</script>

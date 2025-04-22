@@ -569,23 +569,8 @@
   .x\:z-\[1\] {
     z-index: 1 !important;
   }
-  .x\:container {
-    width: 100% !important;
-    @media (width >= 990px) {
-      max-width: 990px !important;
-    }
-    @media (width >= 1280px) {
-      max-width: 1280px !important;
-    }
-    @media (width >= 40rem) {
-      max-width: 40rem !important;
-    }
-    @media (width >= 80rem) {
-      max-width: 80rem !important;
-    }
-    @media (width >= 96rem) {
-      max-width: 96rem !important;
-    }
+  .x\:z-\[99999999\] {
+    z-index: 99999999 !important;
   }
   .x\:mx-auto {
     margin-inline: auto !important;
@@ -601,6 +586,9 @@
   }
   .x\:mt-8 {
     margin-top: calc(var(--x-spacing) * 8) !important;
+  }
+  .x\:mb-5 {
+    margin-bottom: calc(var(--x-spacing) * 5) !important;
   }
   .x\:mb-\[6rem\] {
     margin-bottom: 6rem !important;
@@ -626,8 +614,20 @@
   .x\:h-0\.5 {
     height: calc(var(--x-spacing) * 0.5) !important;
   }
+  .x\:h-2 {
+    height: calc(var(--x-spacing) * 2) !important;
+  }
+  .x\:h-5 {
+    height: calc(var(--x-spacing) * 5) !important;
+  }
   .x\:h-6 {
     height: calc(var(--x-spacing) * 6) !important;
+  }
+  .x\:h-7 {
+    height: calc(var(--x-spacing) * 7) !important;
+  }
+  .x\:h-8 {
+    height: calc(var(--x-spacing) * 8) !important;
   }
   .x\:h-10 {
     height: calc(var(--x-spacing) * 10) !important;
@@ -677,8 +677,20 @@
   .x\:w-0 {
     width: calc(var(--x-spacing) * 0) !important;
   }
+  .x\:w-2 {
+    width: calc(var(--x-spacing) * 2) !important;
+  }
+  .x\:w-5 {
+    width: calc(var(--x-spacing) * 5) !important;
+  }
   .x\:w-6 {
     width: calc(var(--x-spacing) * 6) !important;
+  }
+  .x\:w-7 {
+    width: calc(var(--x-spacing) * 7) !important;
+  }
+  .x\:w-8 {
+    width: calc(var(--x-spacing) * 8) !important;
   }
   .x\:w-10 {
     width: calc(var(--x-spacing) * 10) !important;
@@ -701,14 +713,14 @@
   .x\:w-\[21\.875rem\] {
     width: 21.875rem !important;
   }
+  .x\:w-\[70rem\] {
+    width: 70rem !important;
+  }
   .x\:w-\[350px\] {
     width: 350px !important;
   }
   .x\:w-\[35rem\] {
     width: 35rem !important;
-  }
-  .x\:w-\[70rem\] {
-    width: 70rem !important;
   }
   .x\:w-\[calc\(33\.333\%-1\.5rem\)\] {
     width: calc(33.333% - 1.5rem) !important;
@@ -752,6 +764,9 @@
   .x\:-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1/2 * 100%) * -1) !important;
     translate: var(--tw-translate-x) var(--tw-translate-y) !important;
+  }
+  .x\:cursor-pointer {
+    cursor: pointer !important;
   }
   .x\:resize-none {
     resize: none !important;
@@ -887,6 +902,9 @@
   .x\:border-white {
     border-color: var(--x-color-white) !important;
   }
+  .x\:bg-\[\#4d4e4e\] {
+    background-color: #4d4e4e !important;
+  }
   .x\:bg-\[\#222222\] {
     background-color: #222222 !important;
   }
@@ -895,6 +913,12 @@
   }
   .x\:bg-\[\#222\]\/70 {
     background-color: color-mix(in oklab, #222 70%, transparent) !important;
+  }
+  .x\:bg-\[\#677682\] {
+    background-color: #677682 !important;
+  }
+  .x\:bg-\[\#eeaf4d\] {
+    background-color: #eeaf4d !important;
   }
   .x\:bg-black {
     background-color: var(--x-color-black) !important;
@@ -907,9 +931,6 @@
   }
   .x\:bg-gray-400 {
     background-color: var(--x-color-gray-400) !important;
-  }
-  .x\:bg-gray-500 {
-    background-color: var(--x-color-gray-500) !important;
   }
   .x\:bg-white {
     background-color: var(--x-color-white) !important;
@@ -925,6 +946,9 @@
   }
   .x\:object-cover {
     object-fit: cover !important;
+  }
+  .x\:p-2 {
+    padding: calc(var(--x-spacing) * 2) !important;
   }
   .x\:p-3 {
     padding: calc(var(--x-spacing) * 3) !important;
@@ -973,6 +997,9 @@
   }
   .x\:py-2 {
     padding-block: calc(var(--x-spacing) * 2) !important;
+  }
+  .x\:py-3 {
+    padding-block: calc(var(--x-spacing) * 3) !important;
   }
   .x\:py-4 {
     padding-block: calc(var(--x-spacing) * 4) !important;
@@ -1125,6 +1152,9 @@
   }
   .x\:text-\[\#222\] {
     color: #222 !important;
+  }
+  .x\:text-\[\#d2d2d2\] {
+    color: #d2d2d2 !important;
   }
   .x\:text-\[\#f0f0f0\] {
     color: #f0f0f0 !important;
