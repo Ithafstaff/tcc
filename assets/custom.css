@@ -291,10 +291,7 @@
 }
 
 .Size .custom-variant__inputs {
-  width: 25px !important;
-  height: 25px !important;
-  clip: unset !important;
-  position: relative !important;
+  display: none;
 }
 
 .Size .custom-variant__inputs:checked + * {
