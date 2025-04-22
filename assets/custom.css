@@ -324,17 +324,8 @@
   border-radius: 0;
 }
 
-.Size .block-swatch:checked::before {
+.Size input[type="radio"]:checked + .block-swatch::before {
    content: "r";
-   box-shadow: none;
-  width: 24px;
-  height: 24px;
-  border: 1px solid;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  border-radius: 0;
 }
 
 .variant-picker__option-values.Size {
