@@ -297,7 +297,7 @@
   position: relative !important;
 }
 
-.Size .custom-variant__inputs:checked {
+.Size .custom-variant__inputs:checked span {
   font-weight: 700;
 }
 
