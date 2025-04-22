@@ -101,24 +101,60 @@
             <div class="x:flex x:flex-col x:gap-3 x:max-w-[9rem]">
               <button
                 class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm update-btn"
-                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.removeAttribute('hidden')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.cancel-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.save-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.find-similar-btn').setAttribute('hidden', ''); this.closest('.cart-item-row').classList.add('editing');"
+                onclick="
+                  const quantitySpan = this.closest('.x\\:grid').querySelector('.quantity-display');
+                  quantitySpan.setAttribute('data-original-qty', quantitySpan.textContent.trim());
+                  
+                  this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.removeAttribute('hidden'));
+                  this.setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.cancel-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.save-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.remove-btn').setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.find-similar-btn').setAttribute('hidden', '');
+                  this.closest('.cart-item-row').classList.add('editing');
+                "
               >
                 update item
               </button>
               <button
                 class="x:uppercase x:border-2 x:py-1 x:px-2 x:text-center x:text-[#222222] x:bg-[#f0f0f0] x:hover:bg-transparent x:hover:border-[#f0f0f0] x:hover:text-[#f0f0f0] x:text-sm save-btn"
                 hidden
-                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.cancel-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden'); this.closest('.cart-item-row').classList.remove('editing');"
+                onclick="
+                  this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', ''));
+                  this.setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.cancel-btn').setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden');
+                  this.closest('.cart-item-row').classList.remove('editing');
+                  location.reload();
+                "
               >
                 update
               </button>
+
               <button
                 class="x:uppercase x:border-2 x:border-[#f0f0f0] x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-[#f0f0f0] x:text-sm cancel-btn"
                 hidden
-                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.save-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden'); this.closest('.cart-item-row').classList.remove('editing');"
+                onclick="
+                  const quantitySpan = this.closest('.x\\:grid').querySelector('.quantity-display');
+                  const originalQty = quantitySpan.getAttribute('data-original-qty');
+                  if (originalQty !== null) {
+                    quantitySpan.textContent = originalQty;
+                  }
+              
+                  this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', ''));
+                  this.setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.save-btn').setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden');
+                  this.closest('.cart-item-row').classList.remove('editing');
+                "
               >
                 cancel
               </button>
+              
               <a
                 href="{{ line_item.url_to_remove }}"
                 class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm remove-btn"
