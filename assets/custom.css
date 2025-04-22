@@ -282,3 +282,10 @@
     background: inherit;
     bottom: -10px !important;
 }
+
+.product-info__text {
+  font-family: "Alata", sans-serif !important;
+  font-size: 14px;
+  font-weight: 300;
+  color: #000;
+}
