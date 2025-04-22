@@ -134,14 +134,13 @@
             </div>
 
             <div class="x:flex x:gap-3">
-              <form action="{{ routes.cart_clear_url }}" method="POST">
-                <button
-                  type="submit"
-                  class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
-                >
-                  remove all items
-                </button>
-              </form>
+              <button
+                type="button"
+                class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
+                onclick="document.getElementById('remove-all-modal').classList.remove('x:hidden')"
+              >
+                remove all items
+              </button>
               <button class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap">
                 move to wishlist
               </button>
@@ -172,6 +171,8 @@
     </div>
   </section>
 {%- endif -%}
+
+{% render 'custom-cart-remove-all' %}
 
 {% schema %}
 {

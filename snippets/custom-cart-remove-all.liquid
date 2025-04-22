@@ -1,0 +1,29 @@
+<section class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-50" id="remove-all-modal">
+    <div class="x:w-[30rem] x:h-[20rem] x:bg-white x:p-8 x:flex x:flex-col x:justify-between x:relative">
+        <i class="x:justify-end x:flex">
+            {%- render 'icon', icon: 'close' -%}
+        </i>
+        <div class="x:flex x:flex-col x:gap-4 x:items-center">
+            <i class="x:text-xl">
+                {%- render 'icon', icon: 'trash' -%}
+            </i>
+            <p class="x:text-center">Are you sure you want to remove all items from your shopping cart?</p>
+        </div>
+        <div class="x:flex x:gap-4 x:justify-center">
+            <button 
+                class="x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
+                onclick="document.getElementById('remove-all-modal').classList.add('x:hidden')"
+            >
+                no, back to cart
+            </button>
+            <form action="{{ routes.cart_clear_url }}" method="POST">
+                <button 
+                    type="submit"
+                    class="x:border x:border-[#222222] x:text-[#f0f0f0] x:bg-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#f0f0f0] x:hover:text-[#222222] x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
+                >
+                    yes, remove all
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

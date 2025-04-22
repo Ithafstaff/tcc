@@ -524,8 +524,17 @@
   .x\:absolute {
     position: absolute !important;
   }
+  .x\:fixed {
+    position: fixed !important;
+  }
   .x\:relative {
     position: relative !important;
+  }
+  .x\:inset-0 {
+    inset: calc(var(--x-spacing) * 0) !important;
+  }
+  .x\:top-0 {
+    top: calc(var(--x-spacing) * 0) !important;
   }
   .x\:top-1\/2 {
     top: calc(1/2 * 100%) !important;
@@ -650,6 +659,9 @@
   .x\:h-\[20rem\] {
     height: 20rem !important;
   }
+  .x\:h-\[30rem\] {
+    height: 30rem !important;
+  }
   .x\:h-\[50vh\] {
     height: 50vh !important;
   }
@@ -712,6 +724,9 @@
   }
   .x\:w-\[21\.875rem\] {
     width: 21.875rem !important;
+  }
+  .x\:w-\[30rem\] {
+    width: 30rem !important;
   }
   .x\:w-\[70rem\] {
     width: 70rem !important;
@@ -795,6 +810,9 @@
   .x\:items-center {
     align-items: center !important;
   }
+  .x\:items-end {
+    align-items: flex-end !important;
+  }
   .x\:items-start {
     align-items: flex-start !important;
   }
@@ -803,6 +821,9 @@
   }
   .x\:justify-center {
     justify-content: center !important;
+  }
+  .x\:justify-end {
+    justify-content: flex-end !important;
   }
   .x\:gap-1 {
     gap: calc(var(--x-spacing) * 1) !important;
@@ -962,6 +983,9 @@
   .x\:p-6 {
     padding: calc(var(--x-spacing) * 6) !important;
   }
+  .x\:p-8 {
+    padding: calc(var(--x-spacing) * 8) !important;
+  }
   .x\:p-10 {
     padding: calc(var(--x-spacing) * 10) !important;
   }
@@ -1051,6 +1075,10 @@
   }
   .x\:font-serif {
     font-family: var(--x-font-serif) !important;
+  }
+  .x\:text-2xl {
+    font-size: var(--x-text-2xl) !important;
+    line-height: var(--tw-leading, var(--x-text-2xl--line-height)) !important;
   }
   .x\:text-3xl {
     font-size: var(--x-text-3xl) !important;
