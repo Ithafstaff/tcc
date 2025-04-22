@@ -289,3 +289,7 @@
   font-weight: 300;
   color: #000;
 }
+
+.Size .sr-only {
+  border: 1px solid red
+}
