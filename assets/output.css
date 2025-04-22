@@ -941,6 +941,9 @@
   .x\:bg-\[\#eeaf4d\] {
     background-color: #eeaf4d !important;
   }
+  .x\:bg-\[\#f8f8f8\] {
+    background-color: #f8f8f8 !important;
+  }
   .x\:bg-black {
     background-color: var(--x-color-black) !important;
   }
