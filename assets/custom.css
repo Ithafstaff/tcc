@@ -280,7 +280,7 @@
     width: 100%;
     height: 2px;
     background:  var(--swatch-background);;
-    bottom: -10px !important;
+    bottom: -6px !important;
 }
 
 .product-info__text {
