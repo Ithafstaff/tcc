@@ -326,6 +326,7 @@
 
 .Size input[type="radio"]:checked + .block-swatch::before {
    content: "\2713";
+    color: green;
 }
 
 .variant-picker__option-values.Size {
