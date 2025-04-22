@@ -288,7 +288,6 @@
   font-size: 14px;
   font-weight: 300;
   color: #000;
-  line-height: 20px;
 }
 
 .Size .custom-variant__inputs {
@@ -305,6 +304,7 @@
   font-weight: 400;
   color: #000;
   border: none !important;
+  line-height: 20px;
 }
 
 .Size .block-swatch::before {
