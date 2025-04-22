@@ -312,7 +312,7 @@
 }
 
 .Size .block-swatch::before {
-   content: "";
+   content: "res";
    box-shadow: none;
   width: 24px;
   height: 24px;
@@ -323,7 +323,7 @@
   opacity: 1;
   border-radius: 0;
 }
-.Size .block-swatch:checked::before {
+.Size .block-swatch::before checked {
    content: "test";
 }
 
