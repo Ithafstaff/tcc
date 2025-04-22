@@ -56,7 +56,7 @@
             endif
           %}
           <div
-            class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:py-3 x:px-5 cart-item-row"
+            class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:py-3 x:px-5 cart-item-row x:h-[8.75rem]"
             style="background-color: #f8f8f8;"
           >
             <input type="checkbox" checked class="x:h-6 x:w-6" style="accent-color: #212222;">
@@ -106,14 +106,14 @@
                 update item
               </button>
               <button
-                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm save-btn"
+                class="x:uppercase x:border-2 x:py-1 x:px-2 x:text-center x:text-[#222222] x:bg-[#f0f0f0] x:hover:bg-transparent x:hover:border-[#f0f0f0] x:hover:text-[#f0f0f0] x:text-sm save-btn"
                 hidden
                 onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.cancel-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden'); this.closest('.cart-item-row').classList.remove('editing');"
               >
                 update
               </button>
               <button
-                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm cancel-btn"
+                class="x:uppercase x:border-2 x:border-[#f0f0f0] x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-[#f0f0f0] x:text-sm cancel-btn"
                 hidden
                 onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.save-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden'); this.closest('.cart-item-row').classList.remove('editing');"
               >
