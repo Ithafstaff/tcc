@@ -31,7 +31,7 @@
       <div class="x:flex x:flex-col x:gap-3 x:border-b-2 x:py-10">
         {% comment %} GRID HEADER {% endcomment %}
         <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_4rem] x:py-5 x:px-2 x:border-b-2">
-          <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
+          <input type="checkbox" id="select-all" class="x:accent-black x:h-6 x:w-6">
           <span class="x:uppercase">all items</span>
           <span class="x:uppercase x:text-center">product</span>
           <span class="x:uppercase x:text-center">variation</span>
@@ -59,7 +59,7 @@
             class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:py-3 x:px-5 cart-item-row x:h-[8.75rem]"
             style="background-color: #f8f8f8;"
           >
-            <input type="checkbox" checked class="x:h-6 x:w-6" style="accent-color: #212222;">
+            <input type="checkbox" class="item-checkbox x:h-6 x:w-6" style="accent-color: #212222;" checked>
             <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]">
               {% if line_item.image %}
                 <img
@@ -104,7 +104,7 @@
                 onclick="
                   const quantitySpan = this.closest('.x\\:grid').querySelector('.quantity-display');
                   quantitySpan.setAttribute('data-original-qty', quantitySpan.textContent.trim());
-                  
+
                   this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.removeAttribute('hidden'));
                   this.setAttribute('hidden', '');
                   this.closest('.x\\:flex').querySelector('.cancel-btn').removeAttribute('hidden');
@@ -142,7 +142,7 @@
                   if (originalQty !== null) {
                     quantitySpan.textContent = originalQty;
                   }
-              
+
                   this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', ''));
                   this.setAttribute('hidden', '');
                   this.closest('.x\\:flex').querySelector('.save-btn').setAttribute('hidden', '');
@@ -154,7 +154,7 @@
               >
                 cancel
               </button>
-              
+
               <a
                 href="{{ line_item.url_to_remove }}"
                 class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm remove-btn"
@@ -274,6 +274,17 @@
       console.error('Error updating cart:', error);
     }
   }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const selectAllCheckbox = document.getElementById('select-all');
+    const itemCheckboxes = document.querySelectorAll('.item-checkbox');
+
+    selectAllCheckbox.addEventListener('change', function () {
+      itemCheckboxes.forEach((checkbox) => {
+        checkbox.checked = selectAllCheckbox.checked;
+      });
+    });
+  });
 </script>
 
 <style>
