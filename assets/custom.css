@@ -325,7 +325,7 @@
 }
 
 .Size input[type="radio"]:checked + .block-swatch::before {
-   content: "r";
+   content: "\2713";
 }
 
 .variant-picker__option-values.Size {
