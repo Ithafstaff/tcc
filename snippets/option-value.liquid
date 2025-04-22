@@ -146,7 +146,7 @@ Color swatch specific parameters:
         {{- image | image_url: width: image.width | image_tag: sizes: '60px', widths: '60,120', class: 'object-cover' -}}
       </{{ option_value_tag }}>
     {%- else -%}
-      <{{ option_value_tag }} class="block-swatch test1 {% if disabled %}is-disabled{% endif %} {% if selected and option_value_tag == 'a' %}is-selected{% endif %}" for="{{ id | escape }}" {{ attributes }}>
+      <{{ option_value_tag }} class="block-swatch {% if disabled %}is-disabled{% endif %} {% if selected and option_value_tag == 'a' %}is-selected{% endif %}" for="{{ id | escape }}" {{ attributes }}>
         {{ label | default: value }}
       </{{ option_value_tag }}>
     {%- endif -%}
@@ -154,7 +154,7 @@ Color swatch specific parameters:
   {%- when 'block' -%}
     {%- assign white_label_list = 'general.label.white' | t | replace: ', ', ',' | downcase | split: ',' -%}
 
-    <{{ option_value_tag }} class="block-swatch test2 {% if disabled %}is-disabled{% endif %} {% if selected and option_value_tag == 'a' %}is-selected{% endif %}" {{ attributes }}>
+    <{{ option_value_tag }} class="block-swatch {% if disabled %}is-disabled{% endif %} {% if selected and option_value_tag == 'a' %}is-selected{% endif %}" {{ attributes }}>
       {%- if show_swatch -%}
         <span class="block-swatch__color {% if white_label_list contains downcase_label %}ring-inset{% endif %}" style="{{ swatch_style }}"></span>
       {%- endif -%}
