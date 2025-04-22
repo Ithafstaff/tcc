@@ -290,9 +290,9 @@
   color: #000;
 }
 
-.Size .sr-only {
-    /* border: 1px solid red;
-    width: 25px;
-    height: 25px;
-      clip: unset; */
+.Size .custom-variant__inputs {
+    width: 25px !important;
+    height: 25px !important;
+    clip: unset !important;
+  position: relative !important;
 }
