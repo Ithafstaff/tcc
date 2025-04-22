@@ -291,8 +291,14 @@
 }
 
 .Size .custom-variant__inputs {
-    width: 25px !important;
-    height: 25px !important;
-    clip: unset !important;
+  width: 25px !important;
+  height: 25px !important;
+  clip: unset !important;
   position: relative !important;
+}
+.Size .block-swatch {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000; 
 }
