@@ -305,6 +305,7 @@
   color: #000;
   border: none !important;
   line-height: 20px;
+  height: unset;
 }
 
 .Size .block-swatch::before {
