@@ -55,7 +55,10 @@
               assign max_quantity = max_quantity | default: 999999 | at_most: line_item.variant.quantity_rule.max
             endif
           %}
-          <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:bg-[#f8f8f8] x:py-3 x:px-5">
+          <div
+            class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:py-3 x:px-5 cart-item-row"
+            style="background-color: #f8f8f8;"
+          >
             <input type="checkbox" checked class="x:accent-black x:h-6 x:w-6">
             <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]">
               {% if line_item.image %}
@@ -73,18 +76,21 @@
             <span class="x:text-center">{{ line_item.variant.title }}</span>
             <span class="x:text-center">{{ line_item.original_price | money }}</span>
             <div class="x:text-center x:flex x:items-center x:gap-2 x:justify-center">
-              <i 
-                class="x:flex x:items-center x:justify-center x:w-8 x:h-8 x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control" 
+              <i
+                class="x:flex x:items-center x:justify-center x:w-8 x:h-8 x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control"
                 hidden
                 onclick="const span = this.parentElement.querySelector('.quantity-display'); const currentQty = parseInt(span.textContent); if (currentQty > {{ line_item.variant.quantity_rule.min }}) { const newQty = currentQty - {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty); }"
               >
                 {%- render 'icon', icon: 'minus' -%}
               </i>
-              <span class="x:flex x:items-center x:justify-center x:w-8 quantity-display" data-line-key="{{ line_item.key }}">
+              <span
+                class="x:flex x:items-center x:justify-center x:w-8 quantity-display"
+                data-line-key="{{ line_item.key }}"
+              >
                 {{- line_item.quantity -}}
               </span>
-              <i 
-                 class="x:flex x:items-center x:justify-center x:w-8 x:h-8 x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control"
+              <i
+                class="x:flex x:items-center x:justify-center x:w-8 x:h-8 x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control"
                 hidden
                 onclick="const span = this.parentElement.querySelector('.quantity-display'); const currentQty = parseInt(span.textContent); {% if max_quantity != null %}if (currentQty < {{ max_quantity }}) { const newQty = currentQty + {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty); }{% else %}const newQty = currentQty + {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty);{% endif %}"
               >
@@ -95,21 +101,21 @@
             <div class="x:flex x:flex-col x:gap-3 x:max-w-[9rem]">
               <button
                 class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm update-btn"
-                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.removeAttribute('hidden')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.cancel-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.save-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.find-similar-btn').setAttribute('hidden', ''); this.closest('.x\\:grid').style.backgroundColor = '#212222';"
+                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.removeAttribute('hidden')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.cancel-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.save-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.find-similar-btn').setAttribute('hidden', ''); this.closest('.cart-item-row').classList.add('editing');"
               >
                 update item
               </button>
               <button
                 class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm save-btn"
                 hidden
-                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.cancel-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden'); this.closest('.x\\:grid').style.backgroundColor = '#22222205';"
+                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.cancel-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden'); this.closest('.cart-item-row').classList.remove('editing');"
               >
                 update
               </button>
               <button
                 class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm cancel-btn"
                 hidden
-                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.save-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden'); this.closest('.x\\:grid').style.backgroundColor = '#22222205';"
+                onclick="this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', '')); this.setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.save-btn').setAttribute('hidden', ''); this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden'); this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden'); this.closest('.cart-item-row').classList.remove('editing');"
               >
                 cancel
               </button>
@@ -201,25 +207,25 @@
           quantity: quantity,
         }),
       });
-      
+
       if (!response.ok) {
         throw new Error('Failed to update cart');
       }
-      
+
       const cart = await response.json();
-      
+
       // Update the total price display
       const totalPriceElement = document.querySelector('.cart-total');
       if (totalPriceElement) {
         totalPriceElement.textContent = cart.total_price;
       }
-      
+
       // Update the item count
       const itemCountElement = document.querySelector('.cart-count');
       if (itemCountElement) {
         itemCountElement.textContent = cart.item_count;
       }
-      
+
       // Update the line item price
       const lineItem = cart.items.find((item) => item.key === lineKey);
       if (lineItem) {
@@ -236,3 +242,10 @@
     }
   }
 </script>
+
+<style>
+  .cart-item-row.editing {
+    background-color: #212222 !important;
+    color: #f0f0f0 !important;
+  }
+</style>
