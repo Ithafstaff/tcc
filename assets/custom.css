@@ -306,6 +306,7 @@
   border: none !important;
   line-height: 20px;
   height: unset;
+  width: fit-content;
 }
 
 .Size .block-swatch::before {
@@ -316,4 +317,5 @@
 .variant-picker__option-values.Size {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
