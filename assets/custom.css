@@ -305,5 +305,5 @@
 }
 .Size .block-swatch::before {
    content: "";
-  border: none;
+  box-shadow: : none;
 }
