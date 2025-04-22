@@ -325,8 +325,12 @@
 }
 
 .Size input[type="radio"]:checked + .block-swatch::before {
-   content: "\2714";
-    color: green;
+  content: "\2714";
+  color: #fff;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .variant-picker__option-values.Size {
