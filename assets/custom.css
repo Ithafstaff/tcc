@@ -319,7 +319,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  opaticy: 1 !important;
+  opacity: 1;
 }
 
 .variant-picker__option-values.Size {
