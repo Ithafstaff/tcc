@@ -308,6 +308,7 @@
   height: unset;
   width: fit-content;
   position: relative;
+  padding-left: 10px;
 }
 
 .Size .block-swatch::before {
