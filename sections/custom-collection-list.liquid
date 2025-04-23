@@ -59,7 +59,9 @@ LIQUID
           
           </div>
           
-          <p class="x:text-center x:mt-4 x:text-lg x:font-semibold">{{ block.settings.title | default: collection.title }}</p>
+         <p style="font-family: 'Alata', sans-serif;" class="x:text-center x:mt-4 x:text-lg x:font-semibold">
+          {{ block.settings.title | default: collection.title }}
+         </p>
         </a>
       {%- endfor -%}
     </div>
