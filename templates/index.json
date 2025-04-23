@@ -11,6 +11,7 @@
   "sections": {
     "image_with_text_overlay_YVqTtY": {
       "type": "image-with-text-overlay",
+      "disabled": true,
       "settings": {
         "full_width": true,
         "allow_transparent_header": true,
@@ -33,6 +34,7 @@
         },
         "heading_UHQwxp": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "text": "Video",
             "heading_tag": "h1"
@@ -43,13 +45,12 @@
         "play_BqAzjj",
         "heading_UHQwxp"
       ],
-      "disabled": true,
       "settings": {
         "full_width": true,
         "allow_transparent_header": true,
         "autoplay": true,
-        "video_size": "lg",
-        "video": "shopify://files/videos/TEST VIDEO.mp4",
+        "video_size": "auto",
+        "video": "shopify://files/videos/1.mp4",
         "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "text_color": "#ffffff",
         "overlay_color": "#000000",
