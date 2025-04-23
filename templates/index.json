@@ -258,7 +258,7 @@
         "heading_EA9yx8"
       ],
       "custom_css": [
-        "p {font-size: 32px; font-family: \"Alata\", sans-serif;}"
+        "p {font-size: 48px; font-family: \"Alata\", sans-serif; letter-spacing: 1px;}"
       ],
       "settings": {
         "full_width": true,
