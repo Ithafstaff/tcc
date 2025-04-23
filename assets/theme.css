@@ -20,6 +20,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('{{ 'Poppins-Regular.woff' | asset_url }}') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
   tab-size: 4;
