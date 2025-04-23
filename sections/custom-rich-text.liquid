@@ -14,6 +14,7 @@
     <div class="x:flex x:gap-6 x:pt-[25px] {% if button_count == 1 %}x:justify-center{% endif %}">
       {% for block in section.blocks %}
         <a href="{{ block.settings.url | default: '#' }}" 
+           style="font-family: 'Alata', sans-serif;"
            class="x:border x:border-white x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[350px] x:h-[60px]">
           {{ block.settings.text | default: 'Button' }}
         </a>
