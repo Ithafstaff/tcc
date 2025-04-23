@@ -49,8 +49,10 @@ LIQUID
                 <span>No Image Available</span>
               {%- endif -%}
             </div>
-            <p class="x:text-center x:mt-4 x:text-lg x:font-semibold">{{ product.title }}</p>
-            <p class="x:text-center x:text-sm x:text-gray-500">{{ product.price | money }}</p>
+            <p style="font-family: 'Poppins', sans-serif;" class="x:text-center x:mt-4 x:text-lg x:font-semibold">
+              {{ product.title }}
+            </p>
+            <!-- <p class="x:text-center x:text-sm x:text-gray-500">{{ product.price | money }}</p> -->
           </a>
           {%- assign product_count = product_count | plus: 1 -%}
         {%- endif -%}
