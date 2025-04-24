@@ -27,10 +27,21 @@
     "main": {
       "type": "custom-sign-up",
       "settings": {}
+    },
+    "custom_shipping_section_8VNiLi": {
+      "type": "custom-shipping-section",
+      "name": "Custom Shipping Section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
     }
   },
   "order": [
     "image_with_text_overlay_E4UgeR",
-    "main"
+    "main",
+    "custom_shipping_section_8VNiLi"
   ]
 }
