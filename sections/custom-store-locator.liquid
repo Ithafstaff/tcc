@@ -79,9 +79,9 @@
 
         <div class="x:flex x:flex-col x:gap-2 x:justify-between">
           <p>
-            Nestled in one of Brooklyn’s busiest shopping districts, our Boro Park store offers a wide variety of bed
+            Nestled in one of Brooklyn's busiest shopping districts, our Boro Park store offers a wide variety of bed
             linens, crystal items, tablecloths, party goods, flatware, toys, and more. Discover unbeatable closeout
-            prices on high-quality items you won’t find anywhere else.
+            prices on high-quality items you won't find anywhere else.
           </p>
         </div>
       </div>
@@ -114,10 +114,10 @@
     // Initialize the map
     var map = L.map('map').setView([40.637516661474045, -73.99037491120228], 14);
 
-    // Add OpenStreetMap tile layer
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // Add dark mode tile layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     }).addTo(map);
 
     // Keep a record of your markers
