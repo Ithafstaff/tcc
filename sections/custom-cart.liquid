@@ -30,7 +30,7 @@
       {% comment %} ITEM GRID {% endcomment %}
       <div class="x:flex x:flex-col x:gap-3 x:border-b-2 x:py-10">
         {% comment %} GRID HEADER {% endcomment %}
-        <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_4rem] x:py-5 x:px-2 x:border-b-2">
+        <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)] x:py-5 x:px-2 x:border-b-2">
           <input type="checkbox" id="select-all" class="x:accent-black x:h-6 x:w-6">
           <span class="x:uppercase">all items</span>
           <span class="x:uppercase x:text-center">product</span>
@@ -56,9 +56,9 @@
             endif
           %}
           <div
-            class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)_1rem] x:items-center x:py-3 x:px-5 cart-item-row x:h-[8.75rem]"
-            style="background-color: #f8f8f8;"
-          >
+            class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)] x:grid-rows-[auto_1fr] x:items-center x:py-3 x:px-5 cart-item-row x:h-auto"
+            style="background-color: #f8f8f8;">
+            {% comment %} FIRST ROW {% endcomment %}
             <input type="checkbox" class="item-checkbox x:h-6 x:w-6" style="accent-color: #212222;" checked>
             <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]">
               {% if line_item.image %}
@@ -72,7 +72,6 @@
               {% endif %}
             </div>
             <span>{{ line_item.title }}</span>
-
             <span class="x:text-center">{{ line_item.variant.title }}</span>
             <span class="x:text-center">{{ line_item.original_price | money }}</span>
             <div class="x:text-center x:flex x:items-center x:gap-2 x:justify-center">
@@ -98,7 +97,7 @@
               </i>
             </div>
             <span class="x:text-center">{{ line_item.final_line_price | money }}</span>
-            <div class="x:flex x:flex-col x:gap-3 x:max-w-[9rem]">
+            <div class="x:flex x:flex-col x:gap-3 x:py-5">
               <button
                 class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm update-btn"
                 onclick="
@@ -158,12 +157,97 @@
               <a
                 href="{{ line_item.url_to_remove }}"
                 class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm remove-btn"
+                onclick="
+                  event.preventDefault();
+                  const modal = document.getElementById('remove-item-modal-{{ line_item.key }}');
+                  modal.classList.remove('x:hidden');
+                "
               >
                 remove item
               </a>
-              <button class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm find-similar-btn">
+
+              <section
+                class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-50"
+                id="remove-item-modal-{{ line_item.key }}"
+              >
+                <div class="x:w-[30rem] x:h-[20rem] x:bg-white x:p-8 x:flex x:flex-col x:justify-between x:relative">
+                  <i class="x:justify-end x:flex" onclick="document.getElementById('remove-item-modal-{{ line_item.key }}').classList.add('x:hidden')">
+                    <span class="x:cursor-pointer">
+                      {%- render 'icon', icon: 'close' -%}
+                    </span>
+                  </i>
+                  <div class="x:flex x:flex-col x:gap-4 x:items-center">
+                    <i class="x:text-xl">
+                      {%- render 'icon', icon: 'trash' -%}
+                    </i>
+                    <p class="x:text-center">Are you sure you want to remove "{{ line_item.title }}" from your shopping cart?</p>
+                  </div>
+                  <div class="x:flex x:gap-4 x:justify-center">
+                    <button
+                      class="x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
+                      onclick="document.getElementById('remove-item-modal-{{ line_item.key }}').classList.add('x:hidden')"
+                    >
+                      no, back to cart
+                    </button>
+                    <a
+                      href="{{ line_item.url_to_remove }}"
+                      class="x:border x:border-[#222222] x:text-[#f0f0f0] x:bg-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#f0f0f0] x:hover:text-[#222222] x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
+                    >
+                      yes, remove item
+                    </a>
+                  </div>
+                </div>
+              </section>
+
+              <button 
+                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm find-similar-btn"
+                onclick="
+                  const secondRow = this.closest('.cart-item-row').querySelector('.x\\:row-start-2');
+                  const isHidden = secondRow.hasAttribute('hidden');
+                  
+                  if (isHidden) {
+                    secondRow.removeAttribute('hidden');
+                    this.textContent = 'cancel';
+                  } else {
+                    secondRow.setAttribute('hidden', '');
+                    this.textContent = 'find similar';
+                  }
+                "
+              >
                 find similar
               </button>
+            </div>
+
+            {% comment %} SECOND ROW {% endcomment %}
+            <div class="x:flex x:flex-col x:gap-3 x:w-full x:col-span-9 x:row-start-2" hidden>
+              <div class="x:flex x:justify-end">
+                <div class="x:flex x:items-center x:gap-3">
+                  <button
+                    onclick="this.closest('.x\\:flex').nextElementSibling.scrollBy({ left: -300, behavior: 'smooth' })"
+                    class="x:border-[#222222] x:border-2 x:px-3 x:py-2 x:hover:bg-[#222222] x:hover:text-[#f0f0f0] x:transition-all x:duration-300"
+                  >
+                    {% render 'icon', icon: 'chevron-left' %}
+                  </button>
+                  <button
+                    onclick="this.closest('.x\\:flex').nextElementSibling.scrollBy({ left: 300, behavior: 'smooth' })"
+                    class="x:border-[#222222] x:border-2 x:px-3 x:py-2 x:hover:bg-[#222222] x:hover:text-[#f0f0f0] x:transition-all x:duration-300"
+                  >
+                    {% render 'icon', icon: 'chevron-right' %}
+                  </button>
+                </div>
+              </div>
+
+              <div class="x:flex x:overflow-x-scroll x:gap-3 x:scroll-smooth x:w-full x:snap-x x:snap-mandatory x:scrollbar-hide x:pb-4">
+                {% for i in (1..8) %}
+                  <div class="x:flex x:flex-col x:gap-3 x:w-[12.5rem] x:flex-shrink-0 x:snap-center">
+                    <div class="x:h-[12.75rem] x:bg-gray-300"></div>
+                    <div class="x:flex x:flex-col x:gap-1">
+                      <span>Fancy Square White Plastic Serving Bowl</span>
+                      <span>$2.69</span>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
             </div>
           </div>
         {%- endfor -%}
