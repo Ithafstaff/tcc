@@ -288,7 +288,14 @@ the underlying logic of the menu.
           
           {%- if shop.customer_accounts_enabled -%}
             <li>
-              <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="hidden tap-area sm:block">
+              <a 
+                href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" 
+                class="hidden tap-area sm:block"
+                onclick="
+                  event.preventDefault();
+                  document.getElementById('login-modal').classList.remove('x:hidden');
+                "
+              >
                 <span class="sr-only">{% if customer %}{{ 'header.general.account' | t }}{% else %}{{ 'header.general.login' | t }}{% endif %}</span>
                 {%- render 'icon' with 'account' -%}
               </a>
@@ -776,3 +783,5 @@ the underlying logic of the menu.
   ]
 }
 {% endschema %}
+
+{% render 'custom-login-modal' %}

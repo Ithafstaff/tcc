@@ -536,14 +536,23 @@
   .x\:top-1\/2 {
     top: calc(1/2 * 100%) !important;
   }
+  .x\:top-5 {
+    top: calc(var(--x-spacing) * 5) !important;
+  }
   .x\:right-0 {
     right: calc(var(--x-spacing) * 0) !important;
+  }
+  .x\:right-2 {
+    right: calc(var(--x-spacing) * 2) !important;
   }
   .x\:right-3 {
     right: calc(var(--x-spacing) * 3) !important;
   }
   .x\:right-4 {
     right: calc(var(--x-spacing) * 4) !important;
+  }
+  .x\:right-5 {
+    right: calc(var(--x-spacing) * 5) !important;
   }
   .x\:bottom-0 {
     bottom: calc(var(--x-spacing) * 0) !important;
