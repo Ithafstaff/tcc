@@ -281,77 +281,10 @@
       "name": "Image Trio",
       "settings": {}
     },
-    "custom_collection_list_cX9gHh": {
-      "type": "custom-collection-list",
-      "blocks": {
-        "collection_dfBrGq": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg_2.png",
-            "title": "SHOP DINNERWARE",
-            "url": ""
-          }
-        },
-        "collection_CfzBhi": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg.png",
-            "title": "SHOP TOWELS",
-            "url": ""
-          }
-        },
-        "collection_aXHgYY": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg_1.png",
-            "title": "SHOP JUDAICA",
-            "url": ""
-          }
-        },
-        "collection_ixfEwr": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "url": ""
-          }
-        },
-        "collection_rBaVLW": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "url": ""
-          }
-        },
-        "collection_8QVrFD": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_dfBrGq",
-        "collection_CfzBhi",
-        "collection_aXHgYY",
-        "collection_ixfEwr",
-        "collection_rBaVLW",
-        "collection_8QVrFD"
-      ],
-      "settings": {
-        "title": ""
-      }
-    },
-    "rich_text_MaTfnB": {
+    "rich_text_iwTdFr": {
       "type": "rich-text",
       "blocks": {
-        "heading_EA9yx8": {
+        "heading_74VdiT": {
           "type": "heading",
           "settings": {
             "text": "SPECIAL OFFERS JUST FOR YOU",
@@ -362,10 +295,7 @@
         }
       },
       "block_order": [
-        "heading_EA9yx8"
-      ],
-      "custom_css": [
-        "p {font-size: 42px; font-family: \"Alata\", sans-serif; letter-spacing: 1px;}"
+        "heading_74VdiT"
       ],
       "settings": {
         "full_width": true,
@@ -374,6 +304,32 @@
         "background": "",
         "background_gradient": "",
         "text_color": ""
+      }
+    },
+    "custom_drawer_banner_EmtM96": {
+      "type": "custom-drawer-banner",
+      "settings": {
+        "image": "shopify://shop_images/Judaica.png",
+        "collection": ""
+      }
+    },
+    "custom_rich_text_white_gztrVC": {
+      "type": "custom-rich-text_white",
+      "blocks": {
+        "button_Adrajz": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP COLLECTION",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "button_Adrajz"
+      ],
+      "settings": {
+        "heading": "DESIGNED TO REFLECT ELEGANCE",
+        "subheading": "Designed to blend into any space and stand out all at once"
       }
     },
     "custom_collection_products_gXXUyr": {
@@ -414,72 +370,41 @@
         "collection": ""
       }
     },
-    "custom_collection_list_BM4xFb": {
-      "type": "custom-collection-list",
+    "custom_image_grid_cp3UCy": {
+      "type": "custom-image-grid",
       "blocks": {
-        "collection_craFjr": {
-          "type": "collection",
+        "image_9dpVtE": {
+          "type": "image",
           "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg_2.png",
-            "title": "SHOP DINNERWARE",
-            "url": ""
-          }
-        },
-        "collection_hRGGGp": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg.png",
-            "title": "SHOP TOWELS",
-            "url": ""
-          }
-        },
-        "collection_qBmJXT": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg_1.png",
-            "title": "SHOP JUDAICA",
-            "url": ""
-          }
-        },
-        "collection_tgec44": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
             "title": "",
-            "url": ""
+            "url": "",
+            "button_text": "view product"
           }
         },
-        "collection_7BX98p": {
-          "type": "collection",
+        "image_APe97x": {
+          "type": "image",
           "settings": {
-            "collection": "",
             "title": "",
-            "url": ""
+            "url": "",
+            "button_text": "view product"
           }
         },
-        "collection_Lb9bHt": {
-          "type": "collection",
+        "image_tq6naL": {
+          "type": "image",
           "settings": {
-            "collection": "",
             "title": "",
-            "url": ""
+            "url": "",
+            "button_text": "view product"
           }
         }
       },
       "block_order": [
-        "collection_craFjr",
-        "collection_hRGGGp",
-        "collection_qBmJXT",
-        "collection_tgec44",
-        "collection_7BX98p",
-        "collection_Lb9bHt"
+        "image_9dpVtE",
+        "image_APe97x",
+        "image_tq6naL"
       ],
-      "settings": {
-        "title": ""
-      }
+      "name": "Image Trio",
+      "settings": {}
     },
     "custom_rich_text_white_pJ6T83": {
       "type": "custom-rich-text_white",
@@ -579,11 +504,12 @@
     "custom_collection_products_TPa6kD",
     "custom_drawer_banner_e9xLj7",
     "custom_image_grid_kr7aCj",
-    "custom_collection_list_cX9gHh",
-    "rich_text_MaTfnB",
+    "rich_text_iwTdFr",
+    "custom_drawer_banner_EmtM96",
+    "custom_rich_text_white_gztrVC",
     "custom_collection_products_gXXUyr",
     "custom_drawer_banner_pUz7df",
-    "custom_collection_list_BM4xFb",
+    "custom_image_grid_cp3UCy",
     "custom_rich_text_white_pJ6T83",
     "custom_drawer_banner_NweafM",
     "custom_rich_text_white_GCaAey",
