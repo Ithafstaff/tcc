@@ -35,7 +35,7 @@
         "text_PKMC9i": {
           "type": "richtext",
           "settings": {
-            "customText": "No matter what event you're planning, you can find closeout deals on the party supplies you need with The Closeout Connection"
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
           }
         }
       },
@@ -46,7 +46,7 @@
       ],
       "settings": {
         "full_width": true,
-        "allow_transparent_header": true,
+        "allow_transparent_header": false,
         "enable_parallax": false,
         "image_size": "auto",
         "image": "shopify://shop_images/Plastic_Dinnerware-1_b7a3a444-55c0-4d4d-b04a-09ad2005de04.png",
