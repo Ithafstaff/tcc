@@ -236,7 +236,7 @@ the underlying logic of the menu.
       --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
-      <div class="header__secondary-nav test">
+      <div class="header__secondary-nav">
         {%- if section.settings.header != 'drawer' and section.settings.secondary_menu.links.size > 0 -%}
           <nav class="header__link-list" role="navigation">
             <ul class="contents">
@@ -263,7 +263,7 @@ the underlying logic of the menu.
           {%- endif -%}
 
           <li>
-            <div class="x:relative x:w-full x:focus-within:icon-visible">
+            <div class="x:relative x:w-full x:focus-within:icon-visible test">
               <a
                 href="{{ routes.search_url }}"
                 class="x:flex x:items-center x:w-full x:border x:border-black x:px-4 x:py-1 x:mx-10 x:focus-within:ring-black"
