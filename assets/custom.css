@@ -7,7 +7,7 @@
 }
 
 .custom-search__bar {
-  min-width: 221px;
+  max-width: 221px;
   height: 25px;
 }
 
