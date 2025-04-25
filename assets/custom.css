@@ -11,7 +11,7 @@
   height: 25px;
 }
 
-.custom-search__bar a {
+.custom-search__bar-wrap a {
   padding: 0 8px;
   font-family: "Alata", sans-serif !important;
   font-weight: 400;
