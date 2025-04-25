@@ -242,6 +242,45 @@
         "collection": ""
       }
     },
+    "custom_image_grid_kr7aCj": {
+      "type": "custom-image-grid",
+      "blocks": {
+        "image_f6GMPQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Image_fullImg_f2d57c0b-2882-486b-b455-4e6f5e11dbe1.png",
+            "title": "",
+            "url": "",
+            "button_text": "view product"
+          }
+        },
+        "image_yFjznz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Div_pla-slide_1_0cec8dc0-f0cb-4639-a23f-77e2a67f89f7.png",
+            "title": "",
+            "url": "",
+            "button_text": "view product"
+          }
+        },
+        "image_gCwtWB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Img_product-1.png",
+            "title": "",
+            "url": "",
+            "button_text": "view product"
+          }
+        }
+      },
+      "block_order": [
+        "image_f6GMPQ",
+        "image_yFjznz",
+        "image_gCwtWB"
+      ],
+      "name": "Image Trio",
+      "settings": {}
+    },
     "custom_collection_list_cX9gHh": {
       "type": "custom-collection-list",
       "blocks": {
@@ -539,6 +578,7 @@
     "custom_rich_text_white_qqai8x",
     "custom_collection_products_TPa6kD",
     "custom_drawer_banner_e9xLj7",
+    "custom_image_grid_kr7aCj",
     "custom_collection_list_cX9gHh",
     "rich_text_MaTfnB",
     "custom_collection_products_gXXUyr",
