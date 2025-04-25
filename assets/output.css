@@ -1306,6 +1306,14 @@
       }
     }
   }
+  .x\:hover\:border {
+    &:hover {
+      @media (hover: hover) {
+        border-style: var(--tw-border-style) !important;
+        border-width: 1px !important;
+      }
+    }
+  }
   .x\:hover\:border-2 {
     &:hover {
       @media (hover: hover) {
@@ -1325,6 +1333,13 @@
     &:hover {
       @media (hover: hover) {
         border-color: #f0f0f0 !important;
+      }
+    }
+  }
+  .x\:hover\:border-white {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--x-color-white) !important;
       }
     }
   }
