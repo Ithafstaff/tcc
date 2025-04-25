@@ -348,6 +348,10 @@
   align-items: center;
 }
 
+.variant-picker__option-values.Color {
+  padding-top: 10px;
+}
+
 .variant-picker__option-values.Size {
   display: flex;
   flex-direction: column;
