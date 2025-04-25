@@ -611,6 +611,12 @@
   .x\:mt-8 {
     margin-top: calc(var(--x-spacing) * 8) !important;
   }
+  .x\:mb-10 {
+    margin-bottom: calc(var(--x-spacing) * 10) !important;
+  }
+  .x\:mb-20 {
+    margin-bottom: calc(var(--x-spacing) * 20) !important;
+  }
   .x\:mb-\[6rem\] {
     margin-bottom: 6rem !important;
   }
