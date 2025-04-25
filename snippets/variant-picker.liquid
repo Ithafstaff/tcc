@@ -60,6 +60,7 @@ Supported variables
       %}
 
       <fieldset class="variant-picker__option">
+        {%- if hide_size_chart != true and block.settings.size_chart_page != blank and size_label_list contains option_downcase -%}
         <div class="variant-picker__option-info">
           
           {% comment %}
@@ -69,7 +70,7 @@ Supported variables
             </div>
           {% endcomment %}
 
-          {%- if hide_size_chart != true and block.settings.size_chart_page != blank and size_label_list contains option_downcase -%}
+          
             {%- capture drawer_id -%}size-chart-{{ option.position }}-{{ form_id }}{%- endcapture -%}
 
             <button type="button" class="text-sm text-subdued" aria-controls="{{ drawer_id | escape }}" aria-expanded="false">
@@ -83,8 +84,9 @@ Supported variables
                 {{- block.settings.size_chart_page.content -}}
               </div>
             </x-drawer>
-          {%- endif -%}
+          
         </div>
+        {%- endif -%}
 
         {%- if resolved_option_selector_style == 'dropdown' -%}
           {%- capture popover_id -%}popover-variant-picker-{{ section.id }}-{{ product.id }}-{{ option.position }}{%- endcapture -%}
