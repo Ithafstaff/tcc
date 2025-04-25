@@ -23,7 +23,7 @@ Supported variables
 {%- assign variant_image_options = block.settings.variant_image_options | replace: ', ', ',' | downcase | split: ',' -%}
 
 {%- unless product.has_only_default_variant -%}
-  <variant-picker class="variant-picker" section-id="{{ section.id }}" handle="{{ product.handle }}" form-id="{{ form_id }}" {% if update_url %}update-url{% endif %}>
+  <variant-picker class="variant-picker  test" section-id="{{ section.id }}" handle="{{ product.handle }}" form-id="{{ form_id }}" {% if update_url %}update-url{% endif %}>
     {%- comment -%}
     The variant data is outputted as a JSON, which allows the theme to emit an event with the data when the variant changes. This must not be removed.
     {%- endcomment -%}
