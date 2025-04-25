@@ -15,6 +15,14 @@ Supported variables
 * context: the context of the product info. Can be "main_product", "featured_product" or "quick_buy"
 {%- endcomment -%}
 
+
+<style>
+  .custom-product-info__block-item {
+    margin: 0 !important;
+  }
+</style>
+
+
 <safe-sticky class="product-info custom-product__info">
   {%- assign inside_block_group_context = false -%}
   {%- assign current_block_group_name = '' -%}
