@@ -230,6 +230,7 @@
         "product_3V8HQN",
         "product_GBEr6W"
       ],
+      "disabled": true,
       "settings": {
         "title": ""
       }
@@ -308,6 +309,72 @@
         "title": ""
       }
     },
+    "rich_text_MaTfnB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EA9yx8": {
+          "type": "heading",
+          "settings": {
+            "text": "SPECIAL OFFERS JUST FOR YOU",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_EA9yx8"
+      ],
+      "custom_css": [
+        "p {font-size: 42px; font-family: \"Alata\", sans-serif; letter-spacing: 1px;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "custom_collection_products_gXXUyr": {
+      "type": "custom-collection-products",
+      "blocks": {
+        "product_RjF4gD": {
+          "type": "product",
+          "settings": {
+            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
+          }
+        },
+        "product_KbrCpc": {
+          "type": "product",
+          "settings": {
+            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
+          }
+        },
+        "product_NMDFmn": {
+          "type": "product",
+          "settings": {
+            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
+          }
+        }
+      },
+      "block_order": [
+        "product_RjF4gD",
+        "product_KbrCpc",
+        "product_NMDFmn"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "custom_drawer_banner_pUz7df": {
+      "type": "custom-drawer-banner",
+      "settings": {
+        "image": "shopify://shop_images/Dining.png",
+        "collection": ""
+      }
+    },
     "custom_collection_list_BM4xFb": {
       "type": "custom-collection-list",
       "blocks": {
@@ -373,72 +440,6 @@
       ],
       "settings": {
         "title": ""
-      }
-    },
-    "rich_text_MaTfnB": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_EA9yx8": {
-          "type": "heading",
-          "settings": {
-            "text": "SPECIAL OFFERS JUST FOR YOU",
-            "heading_tag": "h2",
-            "text_color": "",
-            "gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_EA9yx8"
-      ],
-      "custom_css": [
-        "p {font-size: 42px; font-family: \"Alata\", sans-serif; letter-spacing: 1px;}"
-      ],
-      "settings": {
-        "full_width": true,
-        "content_width": "small",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
-    "custom_collection_products_gXXUyr": {
-      "type": "custom-collection-products",
-      "blocks": {
-        "product_RjF4gD": {
-          "type": "product",
-          "settings": {
-            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
-          }
-        },
-        "product_KbrCpc": {
-          "type": "product",
-          "settings": {
-            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
-          }
-        },
-        "product_NMDFmn": {
-          "type": "product",
-          "settings": {
-            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
-          }
-        }
-      },
-      "block_order": [
-        "product_RjF4gD",
-        "product_KbrCpc",
-        "product_NMDFmn"
-      ],
-      "settings": {
-        "title": ""
-      }
-    },
-    "custom_drawer_banner_pUz7df": {
-      "type": "custom-drawer-banner",
-      "settings": {
-        "image": "shopify://shop_images/Dining.png",
-        "collection": ""
       }
     },
     "custom_rich_text_white_pJ6T83": {
