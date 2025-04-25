@@ -158,73 +158,6 @@
         "collection": "test"
       }
     },
-    "custom_collection_list_cX9gHh": {
-      "type": "custom-collection-list",
-      "blocks": {
-        "collection_dfBrGq": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg_2.png",
-            "title": "SHOP DINNERWARE",
-            "url": ""
-          }
-        },
-        "collection_CfzBhi": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg.png",
-            "title": "SHOP TOWELS",
-            "url": ""
-          }
-        },
-        "collection_aXHgYY": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg_1.png",
-            "title": "SHOP JUDAICA",
-            "url": ""
-          }
-        },
-        "collection_ixfEwr": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "url": ""
-          }
-        },
-        "collection_rBaVLW": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "url": ""
-          }
-        },
-        "collection_8QVrFD": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_dfBrGq",
-        "collection_CfzBhi",
-        "collection_aXHgYY",
-        "collection_ixfEwr",
-        "collection_rBaVLW",
-        "collection_8QVrFD"
-      ],
-      "settings": {
-        "title": "4 products in here - less spacing"
-      }
-    },
     "custom_rich_text_white_fz6trn": {
       "type": "custom-rich-text_white",
       "blocks": {
@@ -306,6 +239,140 @@
       "settings": {
         "image": "shopify://shop_images/Plastic_Dinnerware-2.jpg",
         "collection": ""
+      }
+    },
+    "custom_collection_list_cX9gHh": {
+      "type": "custom-collection-list",
+      "blocks": {
+        "collection_dfBrGq": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg_2.png",
+            "title": "SHOP DINNERWARE",
+            "url": ""
+          }
+        },
+        "collection_CfzBhi": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg.png",
+            "title": "SHOP TOWELS",
+            "url": ""
+          }
+        },
+        "collection_aXHgYY": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg_1.png",
+            "title": "SHOP JUDAICA",
+            "url": ""
+          }
+        },
+        "collection_ixfEwr": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_rBaVLW": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_8QVrFD": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_dfBrGq",
+        "collection_CfzBhi",
+        "collection_aXHgYY",
+        "collection_ixfEwr",
+        "collection_rBaVLW",
+        "collection_8QVrFD"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "custom_collection_list_BM4xFb": {
+      "type": "custom-collection-list",
+      "blocks": {
+        "collection_craFjr": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg_2.png",
+            "title": "SHOP DINNERWARE",
+            "url": ""
+          }
+        },
+        "collection_hRGGGp": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg.png",
+            "title": "SHOP TOWELS",
+            "url": ""
+          }
+        },
+        "collection_qBmJXT": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg_1.png",
+            "title": "SHOP JUDAICA",
+            "url": ""
+          }
+        },
+        "collection_tgec44": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_7BX98p": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_Lb9bHt": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_craFjr",
+        "collection_hRGGGp",
+        "collection_qBmJXT",
+        "collection_tgec44",
+        "collection_7BX98p",
+        "collection_Lb9bHt"
+      ],
+      "settings": {
+        "title": ""
       }
     },
     "rich_text_MaTfnB": {
@@ -466,15 +533,16 @@
     "collection-list",
     "rich_text_EK3hAN",
     "drawer_banner",
-    "custom_collection_list_cX9gHh",
     "custom_rich_text_white_fz6trn",
     "custom_drawer_banner_nKGchn",
     "custom_rich_text_white_qqai8x",
     "custom_collection_products_TPa6kD",
     "custom_drawer_banner_e9xLj7",
+    "custom_collection_list_cX9gHh",
     "rich_text_MaTfnB",
     "custom_collection_products_gXXUyr",
     "custom_drawer_banner_pUz7df",
+    "custom_collection_list_BM4xFb",
     "custom_rich_text_white_pJ6T83",
     "custom_drawer_banner_NweafM",
     "custom_rich_text_white_GCaAey",
