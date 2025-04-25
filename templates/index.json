@@ -50,7 +50,7 @@
         "allow_transparent_header": true,
         "autoplay": true,
         "video_size": "lg",
-        "video": "shopify://files/videos/1.mp4",
+        "video": "shopify://files/videos/6.mp4",
         "external_video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "text_color": "#ffffff",
         "overlay_color": "#000000",
@@ -156,6 +156,73 @@
       "settings": {
         "image": "shopify://shop_images/Bedding.jpg",
         "collection": "test"
+      }
+    },
+    "custom_collection_list_cX9gHh": {
+      "type": "custom-collection-list",
+      "blocks": {
+        "collection_dfBrGq": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg_2.png",
+            "title": "SHOP DINNERWARE",
+            "url": ""
+          }
+        },
+        "collection_CfzBhi": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg.png",
+            "title": "SHOP TOWELS",
+            "url": ""
+          }
+        },
+        "collection_aXHgYY": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Image_fullImg_1.png",
+            "title": "SHOP JUDAICA",
+            "url": ""
+          }
+        },
+        "collection_ixfEwr": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_rBaVLW": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        },
+        "collection_8QVrFD": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_dfBrGq",
+        "collection_CfzBhi",
+        "collection_aXHgYY",
+        "collection_ixfEwr",
+        "collection_rBaVLW",
+        "collection_8QVrFD"
+      ],
+      "settings": {
+        "title": "4 products in here - less spacing"
       }
     },
     "custom_rich_text_white_fz6trn": {
@@ -399,6 +466,7 @@
     "collection-list",
     "rich_text_EK3hAN",
     "drawer_banner",
+    "custom_collection_list_cX9gHh",
     "custom_rich_text_white_fz6trn",
     "custom_drawer_banner_nKGchn",
     "custom_rich_text_white_qqai8x",

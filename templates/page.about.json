@@ -35,7 +35,7 @@
         "text_PKMC9i": {
           "type": "richtext",
           "settings": {
-            "customText": "No matter what event you're planning, you can find closeout deals on the party supplies you need with The Closeout Connection"
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
           }
         }
       },
