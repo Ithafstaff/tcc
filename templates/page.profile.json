@@ -44,6 +44,7 @@
         "heading_j7RACP",
         "text_PKMC9i"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "allow_transparent_header": true,
@@ -59,6 +60,7 @@
     },
     "image_col_with_text_YWzRkU": {
       "type": "image-col-with-text",
+      "disabled": true,
       "settings": {
         "id_header": "Discount Party Supply Store",
         "id_desc-txt": "Whether you work as a party planner or you're a bride-to-be vetting wedding party supplies, we've got the best supplies at the best prices for you.",
@@ -69,6 +71,7 @@
     },
     "image_col_with_text_7w7Gij": {
       "type": "image-col-with-text",
+      "disabled": true,
       "settings": {
         "id_header": "Stylish, Elegant, and Affordable Party Goods",
         "id_desc-txt": "The Closeout Connection is proud to offer supplies that are stylish, elegant, and still affordable. Our selection of party goods and specialty holiday items is second to none. We offer a wide selection of items including machine-washable tablecloths, high-end glassware, and much more, so you can create a stylish atmosphere for your guests.",
@@ -80,6 +83,7 @@
     },
     "image_col_with_text_BXcBDd": {
       "type": "image-col-with-text",
+      "disabled": true,
       "settings": {
         "id_header": "Quality Without Compromise",
         "id_desc-txt": "When you need high-quality products for your event or home, The Closeout Connection is your one-stop destination. We help you save without sacrificing quality. Our products are designed to impress your guests and create memorable experiences, all while staying within your budget.",
@@ -90,6 +94,7 @@
     },
     "get_in_touch_ecWGJb": {
       "type": "get-in-touch",
+      "disabled": true,
       "settings": {
         "id_btn1": "VISIT OUR STORES",
         "id_id_btn1-link": "#",
