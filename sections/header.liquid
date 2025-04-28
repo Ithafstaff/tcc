@@ -12,7 +12,7 @@ the underlying logic of the menu.
 {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
   {%- assign will_show_locale_selector = true -%}
 {%- endif -%}
-
+ 
 <style>
   :root {
     --sticky-header-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
