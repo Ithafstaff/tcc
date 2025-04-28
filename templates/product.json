@@ -35,10 +35,6 @@
             "heading_tag": "h2"
           }
         },
-        "tydal_reviews_star_rating_ADDDb3": {
-          "type": "shopify://apps/tydal-reviews/blocks/star-rating/5f785e18-66cc-4519-8181-565d1cce1705",
-          "settings": {}
-        },
         "badges": {
           "type": "badges",
           "settings": {}
@@ -109,7 +105,6 @@
       "block_order": [
         "vendor",
         "title",
-        "tydal_reviews_star_rating_ADDDb3",
         "badges",
         "price",
         "text_cedcxt",
