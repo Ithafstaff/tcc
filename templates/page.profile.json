@@ -16,6 +16,19 @@
         "content_width": "80ch"
       }
     },
+    "custom_liquid_P3DFe4": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% render 'profile-page' %}",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "custom_shipping_section_DaRzrX": {
       "type": "custom-shipping-section",
       "settings": {
@@ -28,6 +41,7 @@
   },
   "order": [
     "main",
+    "custom_liquid_P3DFe4",
     "custom_shipping_section_DaRzrX"
   ]
 }
