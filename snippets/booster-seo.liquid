@@ -243,7 +243,16 @@ Organization and Website Schema Markup
       "image": "https:{{ 'logo.png' | asset_url }}",
       "logo": "https:{{ 'logo.png' | asset_url }}",
     {%- endunless -%}
-    "sameAs": ["{{ booster_config.same_as | join: '", "'}}"]
+    "sameAs": ["{{ booster_config.same_as | join: '", "'}}"],
+    "telephone": "{{ shop.phone }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ shop.address.street }}",
+      "addressLocality": "{{ shop.address.city }}",
+      "addressRegion": "{{ shop.address.province }}",
+      "postalCode": "{{ shop.address.zip }}",
+      "addressCountry": "{{ shop.address.country }}"
+    }
   }
 </script>
 {%- endif -%}
