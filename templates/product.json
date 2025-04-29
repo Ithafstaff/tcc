@@ -191,9 +191,7 @@
         "judge_me_reviews_all_reviews_text_nhLe6Y",
         "judge_me_reviews_review_widget_XRTqtE"
       ],
-      "custom_css": [
-        ".sectionsection-blends {}"
-      ],
+      "custom_css": [],
       "settings": {
         "full_width": false,
         "remove_vertical_spacing": false,
