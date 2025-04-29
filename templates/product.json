@@ -174,6 +174,26 @@
         "text_color": ""
       }
     },
+    "174593330128df7416": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_XRTqtE": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_XRTqtE"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "featured_collection_x3HbxJ": {
       "type": "featured-collection",
       "custom_css": [
@@ -279,6 +299,7 @@
     "main",
     "related-products",
     "custom_liquid_BWRTar",
+    "174593330128df7416",
     "featured_collection_x3HbxJ",
     "custom_collection_list_4GN478",
     "custom_shipping_section_NnmfF6"
