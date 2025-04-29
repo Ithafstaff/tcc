@@ -381,3 +381,12 @@
 .custom-product-info__block-item {
   margin: 0;
 }
+
+
+/* start of custom review style */
+.jdgm-widget.jdgm-widget {
+    max-width: 1356px;
+    margin: 0 auto;
+}
+
+
