@@ -174,26 +174,6 @@
         "text_color": ""
       }
     },
-    "174526499773fcfc9c": {
-      "type": "apps",
-      "blocks": {
-        "tydal_reviews_reviews_widget_jnkzbg": {
-          "type": "shopify://apps/tydal-reviews/blocks/reviews-widget/5f785e18-66cc-4519-8181-565d1cce1705",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "tydal_reviews_reviews_widget_jnkzbg"
-      ],
-      "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": false,
-        "remove_horizontal_spacing": false,
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
     "featured_collection_x3HbxJ": {
       "type": "featured-collection",
       "custom_css": [
@@ -299,7 +279,6 @@
     "main",
     "related-products",
     "custom_liquid_BWRTar",
-    "174526499773fcfc9c",
     "featured_collection_x3HbxJ",
     "custom_collection_list_4GN478",
     "custom_shipping_section_NnmfF6"
