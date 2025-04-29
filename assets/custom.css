@@ -342,7 +342,7 @@
   position: relative;
   padding-left: 34px;
 }
-
+ 
 .Size .block-swatch::before {
    content: "";
    box-shadow: none;
