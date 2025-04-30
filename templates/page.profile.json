@@ -23,7 +23,7 @@
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "liquid": "{% render 'profile-sub-page' %}",
+        "liquid": "{% render 'profile-page' %}",
         "background": "",
         "background_gradient": "",
         "text_color": ""
