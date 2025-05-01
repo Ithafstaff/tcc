@@ -1,0 +1,519 @@
+<style>
+
+  .profile {
+    padding: 0 50px;
+    font-family: "Alata", sans-serif !important;
+    color: #222222;
+  }
+
+  .profile__container {
+    max-width: 1356px;
+    border-top: 1px solid rgba(34, 34, 34, 0.5);
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .profile__col-left {
+    /* border: 1px solid red; */
+    min-width: 240px;
+    padding: 0 15px;
+  }
+
+  .profile__col-right {
+    /* border: 1px solid blue; */
+  }
+
+  .profile__info-block {
+    display: flex;
+    gap: 18px;
+    padding: 27px 0  25px;
+  }
+
+  .profile__menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .profile__menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .profile__menu-item {
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+  }
+
+  .profile__menu-item:hover {
+    color: rgba(34, 34, 34, 0.5);
+  }
+
+  .profile__image-block {
+    min-width: 50px;
+    height: 50px;
+    border: 1px solid #222222;
+    overflow: hidden;
+  }
+
+  .profile__info-desc {
+    font-size: 10px;
+    display: block;
+    color: rgba(34, 34, 34, 0.5);
+  }
+  .profile__info-desc--name {
+    font-size: 14px;
+    display: block;
+    text-transform: capitalize;
+  }
+
+  .profile__order-heading-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 44px 40px 37px 13px ;
+  }
+
+  .profile__order-heading {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  .profile__order-container {
+    margin: 0 30px 0 10px;
+    padding: 0 35px 0 30px;
+    border: 1px solid rgba(34, 34, 34, 0.5);
+    box-shadow: 0px 1px 5px rgba(34, 34, 34, 0.2);
+  }
+
+  .profile__order-block {
+    padding: 17px 0 18px;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.2);
+  }
+
+  .profile__order-block-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding: 0;
+  }
+
+  .profile__order-block-item {
+    /* border: 1px solid green; */
+    list-style: none;
+    display: flex;
+    gap: 16px;
+  }
+
+  .profile__order-button-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+  }
+
+  .profile__order-img-wrap {
+    min-width: 100px;
+    height: 100px;
+    /* border: 1px solid; */
+  }
+
+  .profile__order-cat-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .profile__order-cat-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 30px 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .profile__order-cat-link:hover {
+    border-bottom: 1px solid #222222;
+  }
+
+  .profile__order-cat-link--active {
+    border-bottom: 1px solid #222222;
+  }
+
+  .profile__order-button-wrap {
+    display: flex;
+    gap: 8px;
+  }
+
+  .profile__order-btn-link {
+    width: 130px;
+    height: 45px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #000;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-top: 5px;
+  }
+
+  .profile__order-btn-link:hover {
+    color: #000;
+    background-color: #fff;
+  }
+
+  .profile__order-btn-link--white {
+    color: #000;
+    background-color: #fff;
+  }
+
+  .profile__order-desc-wrap span {
+    display: block;
+  }
+
+  .profile__order-filer {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: rgba(34, 34, 34, 0.5);
+  }
+
+  .profile__order-date-wrap {
+    display: flex;
+  }
+  
+  .profile__order-date-wrap span {
+    font-size: 12px;
+    color: rgba(34, 34, 34, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+  }
+
+  .profile__order-date {
+    padding-right: 10px;
+    border-right: 1px solid rgba(34, 34, 34, 0.5);
+  }
+  .profile__order-status {
+    padding-left: 10px;
+  }
+
+  .profile__order-item-name {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .profile__order-item-variant,
+  .profile__order-item-qty,
+  .profile__order-item-price {
+    font-family: "Poppins", sans-serif !important;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .profile__order-item-sub {
+    font-size: 8px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    color: #FF2C2C;
+    padding: 0 5px;
+    border: 1px solid #FF2C2C;
+    width: fit-content;
+    text-transform: uppercase;
+  }
+
+  .profile__order-ttl-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .profile__order-ttl-txt {
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-right: 10px;
+    letter-spacing: 1px;
+  }
+
+  .profile__order-ttl-price {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+
+
+
+    /* 
+    font-family: "Alata", sans-serif !important;
+    font-family: "Poppins", sans-serif !important;
+    */
+</style>
+
+
+<div class="profile">
+  <div class="profile__container">
+    <div class="profile__col-left">
+      <div class="profile__info-block">
+        <div class="profile__image-block">
+          <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393" alt="" class="profile__profile-picture">
+        </div>
+        <div class="profile__info-block-wrap">
+          <span class="profile__info-desc profile__info-desc--name">yuji Sokolov</span>
+          <span class="profile__info-desc">(718) 555-0198</span>
+          <span class="profile__info-desc">Yuji@domain.com</span>
+        </div>
+      </div>
+      <div class="profile__menu-container">
+        <ul class="profile__menu-list">
+          <li class="profile__menu-item">
+            <a href="#">My Orders</a>
+            </li>
+          <li class="profile__menu-item">
+            <a href="#">My Subscriptions</a>
+          </li>
+          <li class="profile__menu-item">
+            <a href="#">My Vouchers</a>
+          </li>
+        </ul>
+        <ul class="profile__menu-list">
+          <li class="profile__menu-item">
+            <a href="#">My Account</a>
+          </li>
+          <li class="profile__menu-item">
+            <a href="#">My Favorites</a>
+          </li>
+          <li class="profile__menu-item">
+            <a href="#">My Wishlist</a>
+          </li>
+        </ul>
+        <ul class="profile__menu-list">
+          <li class="profile__menu-item">
+            <a href="#">policies</a>
+          </li>
+          <li class="profile__menu-item">
+            <a href="#">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="profile__col-right">
+      <div class="profile__order-heading-wrap">
+        <h2 class="profile__order-heading">My Orders</h2>
+        <div class="profile__order-filer">
+          <select>
+            <option>5–10 ITEMS</option>
+            <option>10–20 ITEMS</option>
+            <option>20–30 ITEMS</option>
+          </select>
+        </div>
+      </div>
+      <div class="profile__order-container">
+        <div class="profile__order-cat-wrap">
+          <a href="#" class="profile__order-cat-link profile__order-cat-link--active">all</a>
+          <a href="#" class="profile__order-cat-link">pending</a>
+          <a href="#" class="profile__order-cat-link">processing</a>
+          <a href="#" class="profile__order-cat-link">shipped</a>
+          <a href="#" class="profile__order-cat-link">received</a>
+          <a href="#" class="profile__order-cat-link">cancelled</a>
+          <a href="#" class="profile__order-cat-link">returned</a>
+        </div>
+        <div class="profile__order-wrap">
+          <div class="profile__order-block">
+            <div class="profile__order-date-wrap">
+              <span class="profile__order-date">April 22, 2025</span>
+              <span class="profile__order-status">pending: incomplete payment</span>
+            </div>
+            <ul class="profile__order-block-list">
+              <li class="profile__order-block-item">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
+                  <span class="profile__order-item-variant">Gold 10" Dinner Plate</span>
+                  <span class="profile__order-item-qty">6 pieces</span>
+                  <span class="profile__order-item-price">$43.94</span>
+                  <span class="profile__order-item-sub">Monthly Subscription</span>
+                </div>
+              </li>
+              <li class="profile__order-block-item">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_1.png?v=1746022483" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</span>
+                  <span class="profile__order-item-variant">Gold</span>
+                  <span class="profile__order-item-qty">2 pieces</span>
+                  <span class="profile__order-item-price">$53.98</span>
+                  <!-- <span class="profile__order-item-sub"></span> -->
+                </div>
+              </li>
+              <li class="profile__order-block-item">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img.png?v=1746022482" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Decorative Crystal Butterfly Figurine</span>
+                  <span class="profile__order-item-variant">Blue</span>
+                  <span class="profile__order-item-qty">1 Piece</span>
+                  <span class="profile__order-item-price">$19.99</span>
+                  <!-- <span class="profile__order-item-sub"></span> -->
+                </div>
+              </li>
+            </ul>
+            <div class="profile__order-button-container">
+              <div class="profile__order-button-wrap">
+                <a href="#" class="profile__order-btn-link">pay now</a>
+                <!-- <a href="#" class="profile__order-btn-link">track order</a>
+                <a href="#" class="profile__order-btn-link">order again</a>
+                <a href="#" class="profile__order-btn-link profile__order-btn-link--white">add review</a> -->
+                <a href="#" class="profile__order-btn-link profile__order-btn-link--white">contact us</a>
+              </div>
+              <div class="profile__order-ttl-wrap">
+                <span class="profile__order-ttl-txt">order total: </span>
+                <span class="profile__order-ttl-price">$117.91</span>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="profile__order-block">
+            <div class="profile__order-date-wrap">
+              <span class="profile__order-date">April 22, 2025</span>
+              <span class="profile__order-status">pending: incomplete payment</span>
+            </div>
+            <ul class="profile__order-block-list">
+              <li class="profile__order-block-item">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
+                  <span class="profile__order-item-variant">Gold 10" Dinner Plate</span>
+                  <span class="profile__order-item-qty">6 pieces</span>
+                  <span class="profile__order-item-price">$43.94</span>
+                  <span class="profile__order-item-sub">Monthly Subscription</span>
+                </div>
+              </li>
+              <li class="profile__order-block-item">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_1.png?v=1746022483" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</span>
+                  <span class="profile__order-item-variant">Gold</span>
+                  <span class="profile__order-item-qty">2 pieces</span>
+                  <span class="profile__order-item-price">$53.98</span>
+                  <!-- <span class="profile__order-item-sub"></span> -->
+                </div>
+              </li>
+              <li class="profile__order-block-item">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img.png?v=1746022482" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Decorative Crystal Butterfly Figurine</span>
+                  <span class="profile__order-item-variant">Blue</span>
+                  <span class="profile__order-item-qty">1 Piece</span>
+                  <span class="profile__order-item-price">$19.99</span>
+                  <!-- <span class="profile__order-item-sub"></span> -->
+                </div>
+              </li>
+            </ul>
+            <div class="profile__order-button-container">
+              <div class="profile__order-button-wrap">
+                <a href="#" class="profile__order-btn-link">pay now</a>
+                <!-- <a href="#" class="profile__order-btn-link">track order</a>
+                <a href="#" class="profile__order-btn-link">order again</a>
+                <a href="#" class="profile__order-btn-link profile__order-btn-link--white">add review</a> -->
+                <a href="#" class="profile__order-btn-link profile__order-btn-link--white">contact us</a>
+              </div>
+              <div class="profile__order-ttl-wrap">
+                <span class="profile__order-ttl-txt">order total: </span>
+                <span class="profile__order-ttl-price">$117.91</span>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="profile__order-block">
+            <div class="profile__order-date-wrap">
+              <span class="profile__order-date">April 22, 2025</span>
+              <span class="profile__order-status">pending: incomplete payment</span>
+            </div>
+            <ul class="profile__order-block-list">
+              <li class="profile__order-block-item">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
+                  <span class="profile__order-item-variant">Gold 10" Dinner Plate</span>
+                  <span class="profile__order-item-qty">6 pieces</span>
+                  <span class="profile__order-item-price">$43.94</span>
+                  <span class="profile__order-item-sub">Monthly Subscription</span>
+                </div>
+              </li>
+              <li class="profile__order-block-item">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_1.png?v=1746022483" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</span>
+                  <span class="profile__order-item-variant">Gold</span>
+                  <span class="profile__order-item-qty">2 pieces</span>
+                  <span class="profile__order-item-price">$53.98</span>
+                  <!-- <span class="profile__order-item-sub"></span> -->
+                </div>
+              </li>
+              <li class="profile__order-block-item">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img.png?v=1746022482" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Decorative Crystal Butterfly Figurine</span>
+                  <span class="profile__order-item-variant">Blue</span>
+                  <span class="profile__order-item-qty">1 Piece</span>
+                  <span class="profile__order-item-price">$19.99</span>
+                  <!-- <span class="profile__order-item-sub"></span> -->
+                </div>
+              </li>
+            </ul>
+            <div class="profile__order-button-container">
+              <div class="profile__order-button-wrap">
+                <a href="#" class="profile__order-btn-link">pay now</a>
+                <!-- <a href="#" class="profile__order-btn-link">track order</a>
+                <a href="#" class="profile__order-btn-link">order again</a>
+                <a href="#" class="profile__order-btn-link profile__order-btn-link--white">add review</a> -->
+                <a href="#" class="profile__order-btn-link profile__order-btn-link--white">contact us</a>
+              </div>
+              <div class="profile__order-ttl-wrap">
+                <span class="profile__order-ttl-txt">order total: </span>
+                <span class="profile__order-ttl-price">$117.91</span>
+              </div>
+            </div>
+            
+          </div>
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
