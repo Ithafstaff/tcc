@@ -18,6 +18,9 @@
     },
     "custom_liquid_P3DFe4": {
       "type": "custom-liquid",
+      "custom_css": [
+        ".section-blends section-full {padding: 0 3%;}"
+      ],
       "name": "Custom Liquid",
       "settings": {
         "full_width": true,
