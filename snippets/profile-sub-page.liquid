@@ -1,41 +1,41 @@
 <style>
 
-  .profile {
+  .profile-sub {
     padding: 0 50px;
     font-family: "Alata", sans-serif !important;
     color: #222222;
   }
 
-  .profile__container {
+  .profile-sub__container {
     max-width: 1356px;
     border-top: 1px solid rgba(34, 34, 34, 0.5);
     margin: 0 auto;
     display: flex;
   }
 
-  .profile__col-left {
+  .profile-sub__col-left {
     /* border: 1px solid red; */
     min-width: 240px;
     padding: 0 15px;
   }
 
-  .profile__col-right {
+  .profile-sub__col-right {
     /* border: 1px solid blue; */
   }
 
-  .profile__info-block {
+  .profile-sub__info-block {
     display: flex;
     gap: 18px;
     padding: 27px 0  25px;
   }
 
-  .profile__menu-container {
+  .profile-sub__menu-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
   }
 
-  .profile__menu-list {
+  .profile-sub__menu-list {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -44,96 +44,92 @@
     gap: 10px;
   }
 
-  .profile__menu-item {
+  .profile-sub__menu-item {
     text-transform: capitalize;
     transition: all 0.3s ease;
   }
 
-  .profile__menu-item:hover {
+  .profile-sub__menu-item:hover {
     color: rgba(34, 34, 34, 0.5);
   }
 
-  .profile__image-block {
+  .profile-sub__image-block {
     min-width: 50px;
     height: 50px;
     border: 1px solid #222222;
     overflow: hidden;
   }
 
-  .profile__info-desc {
+  .profile-sub__info-desc {
     font-size: 10px;
     display: block;
     color: rgba(34, 34, 34, 0.5);
   }
-  .profile__info-desc--name {
+  .profile-sub__info-desc--name {
     font-size: 14px;
     display: block;
     text-transform: capitalize;
   }
 
-  .profile__order-heading-wrap {
+  .profile-sub__order-heading-wrap {
     display: flex;
     justify-content: space-between;
     padding: 44px 40px 37px 13px ;
   }
 
-  .profile__order-heading {
+  .profile-sub__order-heading {
     font-size: 30px;
     font-weight: 400;
     line-height: 20px;
   }
 
-  .profile__order-container {
+  .profile-sub__order-container {
     margin: 0 30px 0 10px;
     padding: 0 35px 0 30px;
     border: 1px solid rgba(34, 34, 34, 0.5);
     box-shadow: 0px 1px 5px rgba(34, 34, 34, 0.2);
   }
 
-  .profile__order-block {
+  .profile-sub__order-block {
     padding: 17px 0 18px;
   }
 
-  .profile__order-block:not(:first-child) {
+  .profile-sub__order-block:not(:first-child) {
     border-top : 1px solid rgba(34, 34, 34, 0.2);
   }
 
-  .profile__order-block-list {
+  .profile-sub__order-block-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 22px;
     padding: 0;
   }
 
-  .profile__order-block-item {
+  .profile-sub__order-block-item {
     /* border: 1px solid green; */
     list-style: none;
     display: flex;
     gap: 16px;
   }
 
-  .profile__order-button-container {
+  .profile-sub__order-button-container {
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
   }
 
-  .profile__order-button-container--pt12  {
-    padding-top: 12px;
-  }
-
-  .profile__order-img-wrap {
+  .profile-sub__order-img-wrap {
     min-width: 100px;
     height: 100px;
     /* border: 1px solid; */
   }
 
-  .profile__order-cat-wrap {
+  .profile-sub__order-cat-wrap {
     display: flex;
     justify-content: space-between;
   }
 
-  .profile__order-cat-link {
+  .profile-sub__order-cat-link {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 14px;
@@ -141,20 +137,20 @@
     transition: all 0.3s ease;
   }
   
-  .profile__order-cat-link:hover {
+  .profile-sub__order-cat-link:hover {
     border-bottom: 1px solid #222222;
   }
 
-  .profile__order-cat-link--active {
+  .profile-sub__order-cat-link--active {
     border-bottom: 1px solid #222222;
   }
 
-  .profile__order-button-wrap {
+  .profile-sub__order-button-wrap {
     display: flex;
     gap: 8px;
   }
 
-  .profile__order-btn-link {
+  .profile-sub__order-btn-link {
     width: 130px;
     height: 45px;
     text-decoration: none;
@@ -171,37 +167,37 @@
     padding-top: 5px;
   }
 
-  .profile__order-btn-link--sub {
+  .profile-sub__order-btn-link--sub {
     width: fit-content;
     padding: 10px 20px;
   }
 
-  .profile__order-btn-link:hover {
+  .profile-sub__order-btn-link:hover {
     color: #000;
     background-color: #fff;
   }
 
-  .profile__order-btn-link--white {
+  .profile-sub__order-btn-link--white {
     color: #000;
     background-color: #fff;
   }
 
-  .profile__order-desc-wrap span {
+  .profile-sub__order-desc-wrap span {
     display: block;
   }
 
-  .profile__order-filer {
+  .profile-sub__order-filer {
     display: flex;
     align-items: center;
     font-size: 10px;
     color: rgba(34, 34, 34, 0.5);
   }
 
-  .profile__order-date-wrap {
+  .profile-sub__order-date-wrap {
     display: flex;
   }
   
-  .profile__order-date-wrap span {
+  .profile-sub__order-date-wrap span {
     font-size: 12px;
     color: rgba(34, 34, 34, 0.5);
     text-transform: uppercase;
@@ -210,29 +206,29 @@
     display: flex;
   }
 
-  .profile__order-date {
+  .profile-sub__order-date {
     padding-right: 10px;
     border-right: 1px solid rgba(34, 34, 34, 0.5);
   }
-  .profile__order-status {
+  .profile-sub__order-status {
     padding-left: 10px;
   }
 
-  .profile__order-item-name {
+  .profile-sub__order-item-name {
     font-size: 14px;
     line-height: 20px;
   }
 
-  .profile__order-item-variant,
-  .profile__order-item-qty,
-  .profile__order-item-price,
-  .profile__order-item-sub-note {
+  .profile-sub__order-item-variant,
+  .profile-sub__order-item-qty,
+  .profile-sub__order-item-price,
+  .profile-sub__order-item-sub-note {
     font-family: "Poppins", sans-serif !important;
     font-size: 12px;
     line-height: 20px;
   }
 
-  .profile__order-item-sub {
+  .profile-sub__order-item-sub {
     font-size: 8px;
     letter-spacing: 1px;
     line-height: 20px;
@@ -243,19 +239,19 @@
     text-transform: uppercase;
   }
 
-  .profile__order-ttl-wrap {
+  .profile-sub__order-ttl-wrap {
     display: flex;
     align-items: center;
   }
 
-  .profile__order-ttl-txt {
+  .profile-sub__order-ttl-txt {
     font-size: 14px;
     text-transform: uppercase;
     padding-right: 10px;
     letter-spacing: 1px;
   }
 
-  .profile__order-ttl-price {
+  .profile-sub__order-ttl-price {
     font-size: 24px;
     letter-spacing: 1px;
   }
@@ -269,57 +265,57 @@
 </style>
 
 
-<div class="profile">
-  <div class="profile__container">
-    <div class="profile__col-left">
-      <div class="profile__info-block">
-        <div class="profile__image-block">
-          <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393" alt="" class="profile__profile-picture">
+<div class="profile-sub">
+  <div class="profile-sub__container">
+    <div class="profile-sub__col-left">
+      <div class="profile-sub__info-block">
+        <div class="profile-sub__image-block">
+          <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393" alt="" class="profile-sub__profile-picture">
         </div>
-        <div class="profile__info-block-wrap">
-          <span class="profile__info-desc profile__info-desc--name">yuji Sokolov</span>
-          <span class="profile__info-desc">(718) 555-0198</span>
-          <span class="profile__info-desc">Yuji@domain.com</span>
+        <div class="profile-sub__info-block-wrap">
+          <span class="profile-sub__info-desc profile-sub__info-desc--name">yuji Sokolov</span>
+          <span class="profile-sub__info-desc">(718) 555-0198</span>
+          <span class="profile-sub__info-desc">Yuji@domain.com</span>
         </div>
       </div>
-      <div class="profile__menu-container">
-        <ul class="profile__menu-list">
-          <li class="profile__menu-item">
+      <div class="profile-sub__menu-container">
+        <ul class="profile-sub__menu-list">
+          <li class="profile-sub__menu-item">
             <a href="#">My Orders</a>
             </li>
-          <li class="profile__menu-item">
+          <li class="profile-sub__menu-item">
             <a href="#">My Subscriptions</a>
           </li>
-          <li class="profile__menu-item">
+          <li class="profile-sub__menu-item">
             <a href="#">My Vouchers</a>
           </li>
         </ul>
-        <ul class="profile__menu-list">
-          <li class="profile__menu-item">
+        <ul class="profile-sub__menu-list">
+          <li class="profile-sub__menu-item">
             <a href="#">My Account</a>
           </li>
-          <li class="profile__menu-item">
+          <li class="profile-sub__menu-item">
             <a href="#">My Favorites</a>
           </li>
-          <li class="profile__menu-item">
+          <li class="profile-sub__menu-item">
             <a href="#">My Wishlist</a>
           </li>
         </ul>
-        <ul class="profile__menu-list">
-          <li class="profile__menu-item">
+        <ul class="profile-sub__menu-list">
+          <li class="profile-sub__menu-item">
             <a href="#">policies</a>
           </li>
-          <li class="profile__menu-item">
+          <li class="profile-sub__menu-item">
             <a href="#">Sign Out</a>
           </li>
         </ul>
       </div>
     </div>
 
-    <div class="profile__col-right">
-      <div class="profile__order-heading-wrap">
-        <h2 class="profile__order-heading">My Subscriptions</h2>
-        <div class="profile__order-filer">
+    <div class="profile-sub__col-right">
+      <div class="profile-sub__order-heading-wrap">
+        <h2 class="profile-sub__order-heading">My Subscriptions</h2>
+        <div class="profile-sub__order-filer">
           <select>
             <option>5–10 ITEMS</option>
             <option>10–20 ITEMS</option>
@@ -327,105 +323,105 @@
           </select>
         </div>
       </div>
-      <div class="profile__order-container">
-        <div class="profile__order-cat-wrap">
-          <a href="#" class="profile__order-cat-link profile__order-cat-link--active">all</a>
-          <a href="#" class="profile__order-cat-link">weekly</a>
-          <a href="#" class="profile__order-cat-link">monthly</a>
-          <a href="#" class="profile__order-cat-link">annually</a>
-          <a href="#" class="profile__order-cat-link">received</a>
-          <a href="#" class="profile__order-cat-link">cancelled</a>
-          <a href="#" class="profile__order-cat-link">returned</a>
+      <div class="profile-sub__order-container">
+        <div class="profile-sub__order-cat-wrap">
+          <a href="#" class="profile-sub__order-cat-link profile-sub__order-cat-link--active">all</a>
+          <a href="#" class="profile-sub__order-cat-link">weekly</a>
+          <a href="#" class="profile-sub__order-cat-link">monthly</a>
+          <a href="#" class="profile-sub__order-cat-link">annually</a>
+          <a href="#" class="profile-sub__order-cat-link">received</a>
+          <a href="#" class="profile-sub__order-cat-link">cancelled</a>
+          <a href="#" class="profile-sub__order-cat-link">returned</a>
         </div>
-        <div class="profile__order-wrap">
-          <div class="profile__order-block">
-            <div class="profile__order-date-wrap">
-              <span class="profile__order-date">April 22, 2025</span>
-              <span class="profile__order-status">pending: incomplete payment</span>
+        <div class="profile-sub__order-wrap">
+          <div class="profile-sub__order-block">
+            <div class="profile-sub__order-date-wrap">
+              <span class="profile-sub__order-date">April 22, 2025</span>
+              <span class="profile-sub__order-status">pending: incomplete payment</span>
             </div>
-            <ul class="profile__order-block-list">
-              <li class="profile__order-block-item">
-                <div class="profile__order-img-wrap">
-                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile__order-img">
+            <ul class="profile-sub__order-block-list">
+              <li class="profile-sub__order-block-item">
+                <div class="profile-sub__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile-sub__order-img">
                 </div>
-                <div class="profile__order-desc-wrap">
-                  <span class="profile__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
-                  <span class="profile__order-item-variant">Gold 10" Dinner Plate</span>
-                  <span class="profile__order-item-qty">6 pieces</span>
-                  <span class="profile__order-item-price">$43.94</span>
-                  <span class="profile__order-item-sub-note">Ships out every 22nd of the month</span>
+                <div class="profile-sub__order-desc-wrap">
+                  <span class="profile-sub__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
+                  <span class="profile-sub__order-item-variant">Gold 10" Dinner Plate</span>
+                  <span class="profile-sub__order-item-qty">6 pieces</span>
+                  <span class="profile-sub__order-item-price">$43.94</span>
+                  <span class="profile-sub__order-item-sub-note">Ships out every 22nd of the month</span>
                 </div>
               </li>
             </ul>
-            <div class="profile__order-button-container">
-              <div class="profile__order-button-wrap">
-                <a href="#" class="profile__order-btn-link profile__order-btn-link--sub">manage subscription</a>
+            <div class="profile-sub__order-button-container">
+              <div class="profile-sub__order-button-wrap">
+                <a href="#" class="profile-sub__order-btn-link profile-sub__order-btn-link--sub">manage subscription</a>
               </div>
-              <div class="profile__order-ttl-wrap">
-                <span class="profile__order-ttl-txt">order total: </span>
-                <span class="profile__order-ttl-price">$117.91</span>
+              <div class="profile-sub__order-ttl-wrap">
+                <span class="profile-sub__order-ttl-txt">order total: </span>
+                <span class="profile-sub__order-ttl-price">$117.91</span>
               </div>
             </div>
           </div>
 
           
-          <div class="profile__order-block">
-            <div class="profile__order-date-wrap">
-              <span class="profile__order-date">April 22, 2025</span>
-              <span class="profile__order-status">pending: incomplete payment</span>
+          <div class="profile-sub__order-block">
+            <div class="profile-sub__order-date-wrap">
+              <span class="profile-sub__order-date">April 22, 2025</span>
+              <span class="profile-sub__order-status">pending: incomplete payment</span>
             </div>
-            <ul class="profile__order-block-list">
-              <li class="profile__order-block-item">
-                <div class="profile__order-img-wrap">
-                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile__order-img">
+            <ul class="profile-sub__order-block-list">
+              <li class="profile-sub__order-block-item">
+                <div class="profile-sub__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile-sub__order-img">
                 </div>
-                <div class="profile__order-desc-wrap">
-                  <span class="profile__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
-                  <span class="profile__order-item-variant">Gold 10" Dinner Plate</span>
-                  <span class="profile__order-item-qty">6 pieces</span>
-                  <span class="profile__order-item-price">$43.94</span>
-                  <span class="profile__order-item-sub-note">Ships out every 22nd of the month</span>
+                <div class="profile-sub__order-desc-wrap">
+                  <span class="profile-sub__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
+                  <span class="profile-sub__order-item-variant">Gold 10" Dinner Plate</span>
+                  <span class="profile-sub__order-item-qty">6 pieces</span>
+                  <span class="profile-sub__order-item-price">$43.94</span>
+                  <span class="profile-sub__order-item-sub-note">Ships out every 22nd of the month</span>
                 </div>
               </li>
             </ul>
-            <div class="profile__order-button-container">
-              <div class="profile__order-button-wrap">
-                <a href="#" class="profile__order-btn-link profile__order-btn-link--sub">manage subscription</a>
+            <div class="profile-sub__order-button-container">
+              <div class="profile-sub__order-button-wrap">
+                <a href="#" class="profile-sub__order-btn-link profile-sub__order-btn-link--sub">manage subscription</a>
               </div>
-              <div class="profile__order-ttl-wrap">
-                <span class="profile__order-ttl-txt">order total: </span>
-                <span class="profile__order-ttl-price">$117.91</span>
+              <div class="profile-sub__order-ttl-wrap">
+                <span class="profile-sub__order-ttl-txt">order total: </span>
+                <span class="profile-sub__order-ttl-price">$117.91</span>
               </div>
             </div>
           </div>
 
           
-          <div class="profile__order-block">
-            <div class="profile__order-date-wrap">
-              <span class="profile__order-date">April 22, 2025</span>
-              <span class="profile__order-status">pending: incomplete payment</span>
+          <div class="profile-sub__order-block">
+            <div class="profile-sub__order-date-wrap">
+              <span class="profile-sub__order-date">April 22, 2025</span>
+              <span class="profile-sub__order-status">pending: incomplete payment</span>
             </div>
-            <ul class="profile__order-block-list">
-              <li class="profile__order-block-item">
-                <div class="profile__order-img-wrap">
-                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile__order-img">
+            <ul class="profile-sub__order-block-list">
+              <li class="profile-sub__order-block-item">
+                <div class="profile-sub__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile-sub__order-img">
                 </div>
-                <div class="profile__order-desc-wrap">
-                  <span class="profile__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
-                  <span class="profile__order-item-variant">Gold 10" Dinner Plate</span>
-                  <span class="profile__order-item-qty">6 pieces</span>
-                  <span class="profile__order-item-price">$43.94</span>
-                  <span class="profile__order-item-sub-note">Ships out every 22nd of the month</span>
+                <div class="profile-sub__order-desc-wrap">
+                  <span class="profile-sub__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
+                  <span class="profile-sub__order-item-variant">Gold 10" Dinner Plate</span>
+                  <span class="profile-sub__order-item-qty">6 pieces</span>
+                  <span class="profile-sub__order-item-price">$43.94</span>
+                  <span class="profile-sub__order-item-sub-note">Ships out every 22nd of the month</span>
                 </div>
               </li>
             </ul>
-            <div class="profile__order-button-container">
-              <div class="profile__order-button-wrap">
-                <a href="#" class="profile__order-btn-link profile__order-btn-link--sub">manage subscription</a>
+            <div class="profile-sub__order-button-container">
+              <div class="profile-sub__order-button-wrap">
+                <a href="#" class="profile-sub__order-btn-link profile-sub__order-btn-link--sub">manage subscription</a>
               </div>
-              <div class="profile__order-ttl-wrap">
-                <span class="profile__order-ttl-txt">order total: </span>
-                <span class="profile__order-ttl-price">$117.91</span>
+              <div class="profile-sub__order-ttl-wrap">
+                <span class="profile-sub__order-ttl-txt">order total: </span>
+                <span class="profile-sub__order-ttl-price">$117.91</span>
               </div>
             </div>
           </div>
