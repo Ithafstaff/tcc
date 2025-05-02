@@ -199,7 +199,7 @@
         "full_width": false,
         "remove_vertical_spacing": true,
         "remove_horizontal_spacing": true,
-        "liquid": "{%- if product.metafields.custom.show_inclusions == true -%}\n  {% for variant in product.variants %}\n    {% assign inclusion = variant.metafields.custom.inclusions.value %}\n    {% if inclusion != blank %}\n      <div class=\"x-mb-4\">\n        <p class=\"x-font-semibold x-text-[18px]\">{{ variant.title }}</p>\n        <div class=\"x-text-[16px] x-text-gray-700 x-whitespace-pre-line\">\n          {{ inclusion | escape | newline_to_br }}\n        </div>\n      </div>\n    {% endif %}\n  {% endfor %}\n{%- endif -%}",
+        "liquid": "{% render 'product-description' %}",
         "background": "",
         "background_gradient": "",
         "text_color": ""
