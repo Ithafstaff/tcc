@@ -28,7 +28,8 @@
     {% endfor %}
   </div>
 
-  <div id="faq-list" style="display: flex; flex-direction: column; gap: 1rem;">
+  <div id="faq-list" style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto;">
+
     {% for block in section.blocks %}
       <div class="faq-item"
            data-category="{{ block.settings.category | escape }}"

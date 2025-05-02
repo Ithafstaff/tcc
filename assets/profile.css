@@ -145,6 +145,11 @@
   justify-content: center;
 }
 
+.profile__account-info-icon {
+  width: 32px;
+  height: 32px;
+}
+
 
 
 
