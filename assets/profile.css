@@ -26,4 +26,5 @@
 .profile__account-address-item {
   width: 100%;
   height: 63px;
+  font-family: "Poppins", sans-serif !important;
 }
