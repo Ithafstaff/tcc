@@ -102,7 +102,7 @@
       "settings": {
         "heading": "Frequently Asked Questions",
         "subheading": "Find quick answers to common questions about your order, shipping, returns, and more.",
-        "faq_categories": "Orders,Returns,Pick-up,Payment"
+        "faq_categories": "Orders,Returns,Pick-up,Payment,Subscriptions"
       }
     },
     "custom_shipping_section_bUiVrr": {
