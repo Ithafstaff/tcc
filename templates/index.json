@@ -301,6 +301,7 @@
         "full_width": true,
         "content_width": "small",
         "text_position": "center",
+        "vertical_alignment": "center",
         "background": "",
         "background_gradient": "",
         "text_color": ""
