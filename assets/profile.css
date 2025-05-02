@@ -106,6 +106,10 @@
   padding-left: 57px;
 }
 
+.row-flex {
+  flex-direction: row;
+}
+
 
 
 
