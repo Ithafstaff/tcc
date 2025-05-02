@@ -92,6 +92,7 @@
   flex-direction: column;
   max-width: 227px;
   width: 100%;
+  padding-left: 57px;
 }
 
 .profile__account-row-block label {
