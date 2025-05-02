@@ -27,28 +27,50 @@
   font-style: normal;
 }
 
-/* Default: white text/icons on homepage */
-.homepage-header .header-hover-group a,
-.homepage-header .header-hover-group svg,
-.homepage-header .header-hover-group input,
-.homepage-header .header-hover-group span,
-.homepage-header .header-hover-group .reversed-link {
+/* Default: White text/icons on homepage */
+.homepage-header .header__main-nav a,
+.homepage-header .header__main-nav svg,
+.homepage-header .header__main-nav input,
+.homepage-header .header__main-nav span,
+.homepage-header .header__main-nav .reversed-link,
+.homepage-header .header__secondary-nav a,
+.homepage-header .header__secondary-nav svg,
+.homepage-header .header__secondary-nav input,
+.homepage-header .header__secondary-nav span,
+.homepage-header .header__secondary-nav .reversed-link {
   color: white;
   fill: white;
   border-color: white;
   transition: all 0.3s ease;
 }
 
-/* Hover anywhere on group: turn all black */
-.homepage-header .header-hover-group:hover a,
-.homepage-header .header-hover-group:hover svg,
-.homepage-header .header-hover-group:hover input,
-.homepage-header .header-hover-group:hover span,
-.homepage-header .header-hover-group:hover .reversed-link {
+/* When hovering on either nav block, turn everything black */
+.homepage-header .header__main-nav:hover a,
+.homepage-header .header__main-nav:hover svg,
+.homepage-header .header__main-nav:hover input,
+.homepage-header .header__main-nav:hover span,
+.homepage-header .header__main-nav:hover .reversed-link,
+.homepage-header .header__secondary-nav:hover a,
+.homepage-header .header__secondary-nav:hover svg,
+.homepage-header .header__secondary-nav:hover input,
+.homepage-header .header__secondary-nav:hover span,
+.homepage-header .header__secondary-nav:hover .reversed-link {
   color: black;
   fill: black;
   border-color: black;
 }
+
+/* Optional: placeholder text */
+.homepage-header .header__main-nav input::placeholder,
+.homepage-header .header__secondary-nav input::placeholder {
+  color: white;
+}
+
+.homepage-header .header__main-nav:hover input::placeholder,
+.homepage-header .header__secondary-nav:hover input::placeholder {
+  color: black;
+}
+
 
 html {
   -webkit-text-size-adjust: 100%;
