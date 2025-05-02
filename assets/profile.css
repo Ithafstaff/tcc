@@ -94,7 +94,11 @@
   width: 100%;
 }
 
-
+.profile__account-row-block label {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 12px;
+  color: rgba(32, 32, 32, 0.5);
+}
 
 
 
