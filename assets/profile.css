@@ -8,6 +8,8 @@
   text-transform: uppercase;
   position: relative;
   margin: 40px 0;
+  letter-spacing: 1px;
+  font-size: 16px;
 }
 
 .profile__account-btn-add::after {
