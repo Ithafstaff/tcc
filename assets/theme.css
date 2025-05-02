@@ -27,6 +27,26 @@
   font-style: normal;
 }
 
+/* Force white by default for all menu links (incl. 'Catalog') */
+.homepage-header summary.link-faded-reverse,
+.homepage-header summary.link-faded-reverse svg,
+.homepage-header summary.text-with-icon,
+.homepage-header button.text-with-icon {
+  color: white;
+  fill: white;
+  border-color: white;
+}
+
+/* On hover over the nav, turn black */
+.homepage-header .header__main-nav:hover summary.link-faded-reverse,
+.homepage-header .header__main-nav:hover summary.link-faded-reverse svg,
+.homepage-header .header__main-nav:hover summary.text-with-icon,
+.homepage-header .header__main-nav:hover button.text-with-icon {
+  color: black;
+  fill: black;
+  border-color: black;
+}
+
 /* Default: White text/icons on homepage */
 .homepage-header .header__main-nav a,
 .homepage-header .header__main-nav svg,
