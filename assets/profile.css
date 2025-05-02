@@ -32,3 +32,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.profile__account-btn-wrap {
+  display: flex;
+  flex-direction: column
+}
