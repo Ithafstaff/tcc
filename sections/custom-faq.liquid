@@ -7,7 +7,7 @@
   </div>
 
   {% assign faq_categories_array = section.settings.faq_categories | split: ',' %}
-  <div id="faq-categories" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+  <div id="faq-categories" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem; max-width: 400px;">
     {% for category in faq_categories_array %}
       {% assign cat_clean = category | strip %}
       <button
