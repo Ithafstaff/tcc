@@ -112,7 +112,11 @@
 }
 
 .profile__account-info-row input:placeholder {
+  font-family: "Poppins", sans-serif !important;
   color: #222;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 
