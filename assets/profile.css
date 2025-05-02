@@ -8,6 +8,7 @@
   padding: 18px 55px 18px 20px;
   text-transform: uppercase;
   position: relative;
+  margin: 40px 0;
 }
 
 .profile__account-btn-add::after {
@@ -21,5 +22,4 @@
   top: 50%;
   right: 25px;
   transform: translateY(-50%);
-  margin: 40px 0;
 }
