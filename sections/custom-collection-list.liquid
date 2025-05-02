@@ -26,28 +26,27 @@ LIQUID
   </p>
     <!-- Navigation Buttons -->
     <div class="x:flex x:gap-4">
-      <!-- Back Button -->
       <button
         is="prev-button"
-        class="prev-button x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 disabled:x:opacity-30 disabled:x:cursor-not-allowed"
+        class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center 
+               x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 
+               disabled:x:opacity-30 disabled:x:cursor-not-allowed"
         aria-controls="scroll-area-{{ section.id }}"
       >
-        <span style="display: flex;">
-          {%- render 'icon' with 'chevron-left' -%}
-        </span>
+        {%- render 'icon' with 'chevron-left' -%}
       </button>
     
-      <!-- Forward Button -->
       <button
         is="next-button"
-        class="next-button x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 disabled:x:opacity-30 disabled:x:cursor-not-allowed"
+        class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center 
+               x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 
+               disabled:x:opacity-30 disabled:x:cursor-not-allowed"
         aria-controls="scroll-area-{{ section.id }}"
       >
-        <span style="display: flex;">
-          {%- render 'icon' with 'chevron-right' -%}
-        </span>
+        {%- render 'icon' with 'chevron-right' -%}
       </button>
     </div>
+
   </div>
 
   <!-- Collection List Section with Scrollable Carousel -->
@@ -88,43 +87,47 @@ LIQUID
     const nextButton = document.querySelector('button[is="next-button"]');
 
     function updateButtonStates() {
-      const maxScroll = scrollArea.scrollWidth - scrollArea.clientWidth;
+      const maxScrollLeft = scrollArea.scrollWidth - scrollArea.clientWidth;
 
       // Handle prev button
       if (scrollArea.scrollLeft <= 0) {
-        prevButton.setAttribute('disabled', 'true');
-        prevButton.querySelector('svg').style.fill = '#9ca3af'; // gray-400
+        prevButton.disabled = true;
       } else {
-        prevButton.removeAttribute('disabled');
-        prevButton.querySelector('svg').style.fill = '#000000'; // black
+        prevButton.disabled = false;
       }
 
       // Handle next button
-      if (scrollArea.scrollLeft >= maxScroll - 1) {
-        nextButton.setAttribute('disabled', 'true');
-        nextButton.querySelector('svg').style.fill = '#9ca3af';
+      if (scrollArea.scrollLeft >= maxScrollLeft - 1) {
+        nextButton.disabled = true;
       } else {
-        nextButton.removeAttribute('disabled');
-        nextButton.querySelector('svg').style.fill = '#000000';
+        nextButton.disabled = false;
       }
     }
 
     function scrollCollections(direction) {
-      const cardWidth = scrollArea.querySelector('.collection-card').offsetWidth + 24;
+      const card = scrollArea.querySelector('.collection-card');
+      if (!card) return;
+
+      const cardWidth = card.offsetWidth + 24;
       scrollArea.scrollBy({
         left: cardWidth * direction,
         behavior: 'smooth'
       });
+
+      // Delay state update slightly to let scroll happen
       setTimeout(updateButtonStates, 300);
     }
 
+    // Event listeners
     prevButton.addEventListener('click', () => scrollCollections(-1));
     nextButton.addEventListener('click', () => scrollCollections(1));
     scrollArea.addEventListener('scroll', updateButtonStates);
 
-    updateButtonStates(); // Initial state
+    // Initial state check
+    updateButtonStates();
   });
 </script>
+
 
 
 
