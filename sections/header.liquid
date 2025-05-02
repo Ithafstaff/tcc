@@ -266,9 +266,10 @@ the underlying logic of the menu.
             <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
               <a
                 href="{{ routes.search_url }}"
-                class="x:flex x:items-center x:w-full x:border x:border-white x:px-4 x:mx-10 x:focus-within:ring-black"
+                class="x:flex x:items-center x:w-full x:border {% if request.page_type == 'index' %}x:border-white{% else %}x:border-black{% endif %} x:px-4 x:mx-10"
                 aria-controls="search-drawer" style="margin: 0 !important;"
               >
+
                 <input
                   type="text"
                   class="x:w-full x:placeholder-white x:outline-none"
