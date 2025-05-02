@@ -68,4 +68,5 @@
   text-decoration: underline;
   line-height: 20px;
   cursor: pointer;
+  text-align: end;
 }
