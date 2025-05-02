@@ -75,7 +75,7 @@
             "collection": "",
             "image": "shopify://shop_images/Image_fullImg.png",
             "title": "SHOP TOWELS",
-            "url": ""
+            "url": "shopify://collections/all-collections"
           }
         },
         "collection-2": {
@@ -84,7 +84,7 @@
             "collection": "",
             "image": "shopify://shop_images/Image_fullImg_1.png",
             "title": "SHOP JUDAICA",
-            "url": ""
+            "url": "shopify://collections"
           }
         },
         "collection_bR7fGU": {
