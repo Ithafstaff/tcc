@@ -128,7 +128,7 @@
   </div>
 
   {% comment %} FAQ SECTION {% endcomment %}
-  <div class="container x:border-t-2 x:w-full">
+  <!-- <div class="container x:border-t-2 x:w-full">
     <div class="section x:flex x:flex-col x:gap-5">
       {% comment %} FAQ HEADER {% endcomment %}
       <div class="x:flex x:justify-center x:flex-col x:items-center x:mb-[6rem]">
@@ -203,7 +203,35 @@
         </div>
       </div>
     </div>
+  </div> -->
+<div class="container x:border-t-2 x:w-full">
+  <div class="section x:flex x:flex-col x:gap-5">
+    {% comment %} FAQ HEADER {% endcomment %}
+    <div class="x:flex x:justify-center x:flex-col x:items-center x:mb-[6rem]">
+      <h1 class="x:uppercase">frequently asked questions</h1>
+      <span>Find quick answers to common questions about your order, shipping, returns, and more.</span>
+    </div>
+
+    {% comment %} FAQ TOGGLE LIST {% endcomment %}
+    <div class="x:flex x:flex-col x:gap-5" id="faq-list">
+      {% for block in section.blocks %}
+        <div class="faq-item x:border-2 x:border-black x:px-3 x:py-4 x:transition-all x:duration-300">
+          <button type="button" class="faq-toggle x:flex x:justify-between x:items-center x:w-full x:group x:hover:cursor-pointer" aria-expanded="false">
+            <label class="x:group-hover:ml-5 x:transition-all x:duration-300 x:font-medium">
+              {{ block.settings.question }}
+            </label>
+            <i class="faq-icon x:transition-transform x:duration-300">
+              {%- render 'icon' with 'plus' -%}
+            </i>
+          </button>
+          <div class="faq-answer x-mt-2 x-hidden">
+            <p>{{ block.settings.answer }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
+</div>
 
   {% comment %} BOTTOM BANNER {% endcomment %}
   <div class="x:h-[7rem] x:bg-[#222222] x:w-full x:flex x:justify-center x:items-center x:gap-10 x:text-white">
@@ -218,6 +246,67 @@
   </div>
 </section>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".faq-toggle").forEach(function (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        const parent = toggleBtn.closest(".faq-item");
+        const answer = parent.querySelector(".faq-answer");
+        const icon = toggleBtn.querySelector(".faq-icon");
+        const isOpen = answer.classList.contains("x-hidden") === false;
+
+        if (isOpen) {
+          answer.classList.add("x-hidden");
+          icon.innerHTML = `{%- render 'icon' with 'plus' -%}`;
+        } else {
+          answer.classList.remove("x-hidden");
+          icon.innerHTML = `{%- render 'icon' with 'minus' -%}`;
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Section",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I place an order?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "You can place an order by adding items to your cart and proceeding to checkout."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dynamic FAQ",
+      "blocks": [
+        {
+          "type": "faq_item"
+        },
+        {
+          "type": "faq_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
 
 {% comment %} <script>
     $(document).ready(function () {
