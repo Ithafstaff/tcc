@@ -5,7 +5,20 @@
       <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/fluent-mdl2_product.png?v=1744210702">
       <h3 class="custom-product__desc-title">Product Description</h3>
     </div>
-    <p class="custom-product__desc-txt">Organic cotton blend fabric. Ribbed neckline – 95% cotton, 5% elastane. Made in Portugal.</p>
+    <p class="custom-product__desc-txt">
+      {%- if product.metafields.custom.show_inclusions == true -%}
+        {% assign variant = product.selected_or_first_available_variant %}
+        {% assign inclusion_text = variant.metafields.custom.inclusions.value %}
+
+        {% if inclusion_text != blank %}
+          {{ inclusion_text | newline_to_br }}
+        {% else %}
+          Organic cotton blend fabric. Ribbed neckline – 95% cotton, 5% elastane. Made in Portugal.
+        {% endif %}
+      {%- else -%}
+        Organic cotton blend fabric. Ribbed neckline – 95% cotton, 5% elastane. Made in Portugal.
+      {%- endif -%}
+    </p>
   </div>
 
   <!-- Item 2: Product Care -->
