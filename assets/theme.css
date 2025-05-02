@@ -27,14 +27,16 @@
   font-style: normal;
 }
 
+/* Default state: all links are white */
 .homepage-header .header__link-list a,
 .homepage-header .link-faded-reverse {
   color: white;
   transition: color 0.3s ease;
 }
 
-.homepage-header .header__link-list a:hover,
-.homepage-header .link-faded-reverse:hover {
+/* Group hover: when any link is hovered, turn all black */
+.homepage-header .header__link-list:hover a,
+.homepage-header .header__link-list:hover .link-faded-reverse {
   color: black;
 }
 
