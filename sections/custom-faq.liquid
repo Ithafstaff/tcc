@@ -7,13 +7,14 @@
   </div>
 
   {% assign faq_categories_array = section.settings.faq_categories | split: ',' %}
-  <div id="faq-categories" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem; max-width: 400px;">
+  <div id="faq-categories" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
     {% for category in faq_categories_array %}
       {% assign cat_clean = category | strip %}
       <button
         data-category="{{ cat_clean | escape }}"
         class="faq-category-button {% if forloop.first %}active{% endif %}"
         style="
+          width: 200px;
           border: 1px solid black;
           color: {% if forloop.first %}white{% else %}black{% endif %};
           background-color: {% if forloop.first %}black{% else %}white{% endif %};
