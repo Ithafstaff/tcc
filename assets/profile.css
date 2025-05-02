@@ -85,7 +85,11 @@
 
 .profile__account-info-row {
   display: flex;
-  
+}
+
+.profile__account-row-block {
+  display: flex;
+  flex-direction: column;
 }
 
 
