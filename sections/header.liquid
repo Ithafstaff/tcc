@@ -264,17 +264,16 @@ the underlying logic of the menu.
 
           <li class="custom-search__bar-list">
             <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
-              <a
+             <a
                 href="{{ routes.search_url }}"
-                class="x:flex x:items-center x:w-full x:border search-link x:px-4 x:mx-10"
+                class="x:flex x:items-center x:w-full x:border x:border-black x:px-4 x:mx-10 x:focus-within:ring-black"
                 aria-controls="search-drawer" style="margin: 0 !important;"
               >
                 <input
                   type="text"
-                  class="x:w-full search-input x:outline-none"
+                  class="x:w-full x:placeholder-black x:outline-none"
                   placeholder="What are you looking for?"
                 />
-
                 <span class="sr-only">{{ 'header.general.search' | t }}</span>
           
                 <!-- Icon: shown only on focus using JS or utility class toggle -->
