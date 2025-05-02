@@ -30,6 +30,12 @@
 .homepage-header .header__link-list a,
 .homepage-header .link-faded-reverse {
   color: white;
+  transition: color 0.3s ease;
+}
+
+.homepage-header .header__link-list a:hover,
+.homepage-header .link-faded-reverse:hover {
+  color: black;
 }
 
 
