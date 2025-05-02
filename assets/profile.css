@@ -50,4 +50,6 @@
   letter-spacing: 1px;
   color: rgba(32, 32, 32, 0.5);
   text-decoration: underline;
+  line-height: 20px;
+  cursor: pointer;
 }
