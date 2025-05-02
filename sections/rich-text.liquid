@@ -120,18 +120,20 @@
       </div>
     {%- endif -%}
 
-<div class="{% if blocks_before_divider != blank and blocks_after_divider != blank %}md:hidden{% endif %}">
-  <div class="flex flex-col justify-{{ section.settings.vertical_alignment }} min-h-[300px]">
-    <div class="rich-text justify-{{ text_position }}">
-      <div class="rich-text__wrapper">
-        <div class="prose justify-items-{{ text_position }} text-{{ text_position }}">
-          {{- blocks_before_divider -}}
-          {{- blocks_after_divider -}}
-        </div>
+<div
+  class="{% if blocks_before_divider != blank and blocks_after_divider != blank %}md:hidden{% endif %}"
+  style="display: flex; flex-direction: column; justify-content: {{ section.settings.vertical_alignment }}; min-height: 400px;"
+>
+  <div class="rich-text justify-{{ text_position }}">
+    <div class="rich-text__wrapper">
+      <div class="prose justify-items-{{ text_position }} text-{{ text_position }}">
+        {{- blocks_before_divider -}}
+        {{- blocks_after_divider -}}
       </div>
     </div>
   </div>
 </div>
+
 
   </div>
 {%- endif -%}
