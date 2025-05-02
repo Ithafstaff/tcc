@@ -75,17 +75,48 @@ LIQUID
     const nextButton = document.querySelector('button[is="next-button"]');
 
     function scrollCollections(direction) {
-      const cardWidth = scrollArea.querySelector('.collection-card').offsetWidth + 24; 
+      const cardWidth = scrollArea.querySelector('.collection-card').offsetWidth + 24;
       scrollArea.scrollBy({
         left: cardWidth * direction,
         behavior: 'smooth'
       });
     }
 
-    prevButton.addEventListener('click', () => scrollCollections(-1));
-    nextButton.addEventListener('click', () => scrollCollections(1));
+    function updateButtonStates() {
+      const maxScroll = scrollArea.scrollWidth - scrollArea.clientWidth;
+
+      // Disable prev button if at the start
+      if (scrollArea.scrollLeft <= 0) {
+        prevButton.setAttribute('disabled', 'true');
+      } else {
+        prevButton.removeAttribute('disabled');
+      }
+
+      // Disable next button if at the end
+      if (scrollArea.scrollLeft >= maxScroll - 1) {
+        nextButton.setAttribute('disabled', 'true');
+      } else {
+        nextButton.removeAttribute('disabled');
+      }
+    }
+
+    prevButton.addEventListener('click', () => {
+      scrollCollections(-1);
+      setTimeout(updateButtonStates, 300);
+    });
+
+    nextButton.addEventListener('click', () => {
+      scrollCollections(1);
+      setTimeout(updateButtonStates, 300);
+    });
+
+    scrollArea.addEventListener('scroll', updateButtonStates);
+
+    // Initial check
+    updateButtonStates();
   });
 </script>
+
 
 
 {% schema %}
