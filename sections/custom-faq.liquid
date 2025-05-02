@@ -1,6 +1,106 @@
+{% comment %} DYNAMIC FAQ WITH CATEGORY FILTER {% endcomment %}
+
+<div class="x:flex x:flex-col x:gap-5 container x:border-t-2 x:w-full">
+  <div class="x:flex x:justify-center x:flex-col x:items-center x:mb-[6rem]">
+    <h1 class="x:uppercase">Frequently Asked Questions</h1>
+    <span>Find quick answers to common questions about your order, shipping, returns, and more.</span>
+  </div>
+
+  <div class="x:flex x:flex-wrap x:justify-center x:gap-4 x:mb-8" id="faq-categories">
+    {% assign all_categories = section.blocks | map: 'settings' | map: 'category' | uniq %}
+    {% for category in all_categories %}
+      <button data-category="{{ category | escape }}" class="faq-filter-btn x:border x:border-black x:text-black x:text-lg x:px-4 x:py-2 x-uppercase x:hover:bg-black x:hover:text-white x:transition">
+        {{ category }}
+      </button>
+    {% endfor %}
+  </div>
+
+  <div class="x:flex x:flex-col x:gap-5" id="faq-list">
+    {% for block in section.blocks %}
+      <div class="faq-item x-border-2 x-border-black x-px-3 x-py-4 x-transition-all x-duration-300" data-category="{{ block.settings.category | escape }}">
+        <button type="button" class="faq-toggle x:flex x:justify-between x:items-center x:w-full x-group x:hover:cursor-pointer" aria-expanded="false">
+          <label class="x-group-hover:ml-5 x-transition-all x-duration-300 x-font-medium">
+            {{ block.settings.question }}
+          </label>
+          <i class="faq-icon x-transition-transform x-duration-300">
+            {%- render 'icon' with 'plus' -%}
+          </i>
+        </button>
+        <div class="faq-answer x-mt-2 x-hidden">
+          <p>{{ block.settings.answer }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButtons = document.querySelectorAll(".faq-toggle");
+    const categoryButtons = document.querySelectorAll(".faq-filter-btn");
+
+    toggleButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        const answer = item.querySelector(".faq-answer");
+        const icon = btn.querySelector(".faq-icon");
+        const isOpen = !answer.classList.contains("x-hidden");
+
+        answer.classList.toggle("x-hidden", isOpen);
+        icon.innerHTML = `{%- render 'icon' with '${isOpen ? 'plus' : 'minus'}' -%}`;
+      });
+    });
+
+    categoryButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const category = btn.getAttribute("data-category");
+        document.querySelectorAll(".faq-item").forEach(item => {
+          item.style.display = item.dataset.category === category ? 'block' : 'none';
+        });
+      });
+    });
+  });
+</script>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Custom FAQ",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category",
+          "default": "Orders"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I place an order?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "You can place an order by adding items to your cart and proceeding to checkout."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom FAQ",
+      "blocks": [
+        { "type": "faq_item" },
+        { "type": "faq_item" }
+      ]
+    }
+  ]
+}
 {% endschema %}
