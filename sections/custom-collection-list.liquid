@@ -29,10 +29,10 @@ LIQUID
       <!-- Back Button -->
       <button
         is="prev-button"
-        class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 disabled:x:opacity-30 disabled:x:cursor-not-allowed"
+        class="prev-button x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 disabled:x:opacity-30 disabled:x:cursor-not-allowed"
         aria-controls="scroll-area-{{ section.id }}"
       >
-        <span class="x:text-black disabled:x:text-gray-400">
+        <span style="display: flex;">
           {%- render 'icon' with 'chevron-left' -%}
         </span>
       </button>
@@ -40,10 +40,10 @@ LIQUID
       <!-- Forward Button -->
       <button
         is="next-button"
-        class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 disabled:x:opacity-30 disabled:x:cursor-not-allowed"
+        class="next-button x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 disabled:x:opacity-30 disabled:x:cursor-not-allowed"
         aria-controls="scroll-area-{{ section.id }}"
       >
-        <span class="x:text-black disabled:x:text-gray-400">
+        <span style="display: flex;">
           {%- render 'icon' with 'chevron-right' -%}
         </span>
       </button>
@@ -87,48 +87,45 @@ LIQUID
     const prevButton = document.querySelector('button[is="prev-button"]');
     const nextButton = document.querySelector('button[is="next-button"]');
 
+    function updateButtonStates() {
+      const maxScroll = scrollArea.scrollWidth - scrollArea.clientWidth;
+
+      // Handle prev button
+      if (scrollArea.scrollLeft <= 0) {
+        prevButton.setAttribute('disabled', 'true');
+        prevButton.querySelector('svg').style.fill = '#9ca3af'; // gray-400
+      } else {
+        prevButton.removeAttribute('disabled');
+        prevButton.querySelector('svg').style.fill = '#000000'; // black
+      }
+
+      // Handle next button
+      if (scrollArea.scrollLeft >= maxScroll - 1) {
+        nextButton.setAttribute('disabled', 'true');
+        nextButton.querySelector('svg').style.fill = '#9ca3af';
+      } else {
+        nextButton.removeAttribute('disabled');
+        nextButton.querySelector('svg').style.fill = '#000000';
+      }
+    }
+
     function scrollCollections(direction) {
       const cardWidth = scrollArea.querySelector('.collection-card').offsetWidth + 24;
       scrollArea.scrollBy({
         left: cardWidth * direction,
         behavior: 'smooth'
       });
+      setTimeout(updateButtonStates, 300);
     }
 
-    function updateButtonStates() {
-      const maxScroll = scrollArea.scrollWidth - scrollArea.clientWidth;
-
-      // Disable prev button if at the start
-      if (scrollArea.scrollLeft <= 0) {
-        prevButton.setAttribute('disabled', 'true');
-      } else {
-        prevButton.removeAttribute('disabled');
-      }
-
-      // Disable next button if at the end
-      if (scrollArea.scrollLeft >= maxScroll - 1) {
-        nextButton.setAttribute('disabled', 'true');
-      } else {
-        nextButton.removeAttribute('disabled');
-      }
-    }
-
-    prevButton.addEventListener('click', () => {
-      scrollCollections(-1);
-      setTimeout(updateButtonStates, 300);
-    });
-
-    nextButton.addEventListener('click', () => {
-      scrollCollections(1);
-      setTimeout(updateButtonStates, 300);
-    });
-
+    prevButton.addEventListener('click', () => scrollCollections(-1));
+    nextButton.addEventListener('click', () => scrollCollections(1));
     scrollArea.addEventListener('scroll', updateButtonStates);
 
-    // Initial check
-    updateButtonStates();
+    updateButtonStates(); // Initial state
   });
 </script>
+
 
 
 
