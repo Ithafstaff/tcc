@@ -101,6 +101,9 @@
   color: rgba(32, 32, 32, 0.5);
 }
 
+.profile__account-info-row {
+  padding-left: 57px;
+}
 
 
 
