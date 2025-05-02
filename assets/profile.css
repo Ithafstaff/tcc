@@ -107,6 +107,7 @@
 }
 
 .row-flex {
+  padding-left: 0;
   flex-direction: row;
 }
 
