@@ -204,35 +204,40 @@
       </div>
     </div>
   </div> -->
-<div class="container x:border-t-2 x:w-full">
-  <div class="section x:flex x:flex-col x:gap-5">
-    {% comment %} FAQ HEADER {% endcomment %}
-    <div class="x:flex x:justify-center x:flex-col x:items-center x:mb-[6rem]">
-      <h1 class="x:uppercase">frequently asked questions</h1>
-      <span>Find quick answers to common questions about your order, shipping, returns, and more.</span>
-    </div>
+<div class="x:flex x:flex-col x:gap-8">
+  <!-- Tab Buttons -->
+  <div class="x:flex x:flex-wrap x:justify-start x:gap-4">
+    {% assign categories = section.blocks | map: 'settings.category' | uniq %}
+    <button class="faq-tab x-border x-border-black x-px-6 x-py-2 x-uppercase x-font-medium x-transition-all x-duration-300" data-category="all">All</button>
+    {% for category in categories %}
+      {% if category != blank %}
+        <button class="faq-tab x-border x-border-black x-px-6 x-py-2 x-uppercase x-font-medium x-transition-all x-duration-300" data-category="{{ category | escape }}">
+          {{ category }}
+        </button>
+      {% endif %}
+    {% endfor %}
+  </div>
 
-    {% comment %} FAQ TOGGLE LIST {% endcomment %}
-    <div class="x:flex x:flex-col x:gap-5" id="faq-list">
-      {% for block in section.blocks %}
-        <div class="faq-item x:border-2 x:border-black x:px-3 x:py-4 x:transition-all x:duration-300">
-          <button type="button" class="faq-toggle x:flex x:justify-between x:items-center x:w-full x:group x:hover:cursor-pointer" aria-expanded="false">
-            <label class="x:group-hover:ml-5 x:transition-all x:duration-300 x:font-medium">
-              {{ block.settings.question }}
-            </label>
-            <i class="faq-icon x:transition-transform x:duration-300">
-              {%- render 'icon' with 'plus' -%}
-            </i>
-          </button>
-          <div class="faq-answer x-mt-2 x-hidden">
-            <p>{{ block.settings.answer }}</p>
-          </div>
+  <!-- FAQ List -->
+  <div class="x:flex x:flex-col x:gap-5" id="faq-list">
+    {% for block in section.blocks %}
+      <div class="faq-item x-border-2 x-border-black x-px-3 x-py-4 x-transition-all x-duration-300" data-category="{{ block.settings.category | escape }}">
+        <button type="button" class="faq-toggle x-flex x-justify-between x-items-center x-w-full x-group x-hover:cursor-pointer" aria-expanded="false">
+          <label class="x-group-hover:ml-5 x-transition-all x-duration-300 x-font-medium">
+            {{ block.settings.question }}
+          </label>
+          <i class="faq-icon x-transition-transform x-duration-300">
+            {%- render 'icon' with 'plus' -%}
+          </i>
+        </button>
+        <div class="faq-answer x-mt-2 x-hidden">
+          <p>{{ block.settings.answer }}</p>
         </div>
-      {% endfor %}
-    </div>
+      </div>
+    {% endfor %}
   </div>
 </div>
-
+  
   {% comment %} BOTTOM BANNER {% endcomment %}
   <div class="x:h-[7rem] x:bg-[#222222] x:w-full x:flex x:justify-center x:items-center x:gap-10 x:text-white">
     <div class="x:flex x:flex-col">
@@ -253,7 +258,7 @@
         const parent = toggleBtn.closest(".faq-item");
         const answer = parent.querySelector(".faq-answer");
         const icon = toggleBtn.querySelector(".faq-icon");
-        const isOpen = answer.classList.contains("x-hidden") === false;
+        const isOpen = !answer.classList.contains("x-hidden");
 
         if (isOpen) {
           answer.classList.add("x-hidden");
@@ -262,6 +267,19 @@
           answer.classList.remove("x-hidden");
           icon.innerHTML = `{%- render 'icon' with 'minus' -%}`;
         }
+      });
+    });
+
+    document.querySelectorAll(".faq-tab").forEach(function (tabBtn) {
+      tabBtn.addEventListener("click", function () {
+        const category = tabBtn.dataset.category;
+        document.querySelectorAll(".faq-item").forEach(function (item) {
+          if (category === "all" || item.dataset.category === category) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
       });
     });
   });
@@ -279,6 +297,12 @@
       "settings": [
         {
           "type": "text",
+          "id": "category",
+          "label": "Category (e.g., Orders, Returns)",
+          "default": "General"
+        },
+        {
+          "type": "text",
           "id": "question",
           "label": "Question",
           "default": "How do I place an order?"
@@ -294,7 +318,7 @@
   ],
   "presets": [
     {
-      "name": "Dynamic FAQ",
+      "name": "Dynamic FAQ with Categories",
       "blocks": [
         {
           "type": "faq_item"
