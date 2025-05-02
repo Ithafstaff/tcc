@@ -11,12 +11,6 @@ the underlying logic of the menu.
 
 {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
   {%- assign will_show_locale_selector = true -%}
-
-    {%- if request.page_type == 'index' -%}
-    --header-text-color: #ffffff;
-    {%- else -%}
-      --header-text-color: #000000;
-    {%- endif -%}
 {%- endif -%}
  
 <style>
