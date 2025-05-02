@@ -120,7 +120,9 @@
       </div>
     {%- endif -%}
 
-   <div class="rich-text justify-{{ text_position }} items-{{ section.settings.vertical_alignment }} flex flex-col {% if blocks_before_divider != blank and blocks_after_divider != blank %}md:hidden{% endif %}">
+<div class="{% if blocks_before_divider != blank and blocks_after_divider != blank %}md:hidden{% endif %}">
+  <div class="flex flex-col justify-{{ section.settings.vertical_alignment }} min-h-[300px]">
+    <div class="rich-text justify-{{ text_position }}">
       <div class="rich-text__wrapper">
         <div class="prose justify-items-{{ text_position }} text-{{ text_position }}">
           {{- blocks_before_divider -}}
@@ -128,6 +130,9 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
   </div>
 {%- endif -%}
 
