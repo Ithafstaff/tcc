@@ -1,17 +1,39 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "main": {
-            "type": "main-page",
-            "disabled": true,
-            "settings": {}
-        },
-        "contact": {
-            "type": "custom-contact",
-            "settings": {}
-        }
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
     },
-    "order": [
-        "main",
-        "contact"
-    ]
+    "contact": {
+      "type": "custom-contact",
+      "settings": {}
+    },
+    "custom_shipping_section_bUiVrr": {
+      "type": "custom-shipping-section",
+      "name": "Custom Shipping Section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact",
+    "custom_shipping_section_bUiVrr"
+  ]
 }
