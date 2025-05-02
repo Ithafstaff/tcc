@@ -111,6 +111,10 @@
   color: #222;
 }
 
+.profile__account-info-row input:placeholder {
+  color: #222;
+}
+
 
 .row-flex {
   padding-left: 0;
