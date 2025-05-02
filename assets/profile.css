@@ -85,7 +85,7 @@
 
 .profile__account-info-row {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
   padding-left: 57px;
 }
 
