@@ -78,6 +78,14 @@
             "question": "Pick-up test?",
             "answer": "You can place an order by adding items to your cart and proceeding to checkout."
           }
+        },
+        "faq_item_ADjTqV": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Payment",
+            "question": "Payment test?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
         }
       },
       "block_order": [
@@ -87,7 +95,8 @@
         "faq_item_nLGaJm",
         "faq_item_FQHEtn",
         "faq_item_rDRKgh",
-        "faq_item_4UnQhQ"
+        "faq_item_4UnQhQ",
+        "faq_item_ADjTqV"
       ],
       "name": "Custom FAQ",
       "settings": {
