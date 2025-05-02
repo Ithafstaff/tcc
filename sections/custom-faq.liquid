@@ -1,28 +1,28 @@
 {% comment %} DYNAMIC FAQ WITH CATEGORY FILTER {% endcomment %}
 
-<div style="display: flex; flex-direction: column; gap: 1.25rem; width: 100%; border-top: 2px solid #000; padding-top: 2rem;">
-  <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 6rem; text-align: center;">
-    <h1 style="text-transform: uppercase;">Frequently Asked Questions</h1>
-    <span>Find quick answers to common questions about your order, shipping, returns, and more.</span>
+<div style="width: 100%; border-top: 2px solid black; padding: 2rem 0;">
+  <div style="text-align: center; margin-bottom: 3rem;">
+    <h1 style="text-transform: uppercase;">{{ section.settings.heading }}</h1>
+    <span>{{ section.settings.subheading }}</span>
   </div>
 
-  {% assign categories = section.blocks | map: 'settings' | map: 'category' | uniq %}
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;" id="faq-categories">
-    {% for category in categories %}
-      <button data-category="{{ category | escape }}" style="border: 1px solid black; color: black; padding: 0.5rem 1rem; text-transform: uppercase; font-size: 1rem; background: none; cursor: pointer; transition: background 0.3s, color 0.3s;">
-        {{ category }}
+  {% assign faq_categories_array = section.settings.faq_categories | split: ',' %}
+  <div id="faq-categories" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+    {% for category in faq_categories_array %}
+      <button data-category="{{ category | strip | escape }}" style="border: 1px solid black; color: black; font-size: 1rem; padding: 0.5rem 1rem; text-transform: uppercase; cursor: pointer; background: white;">
+        {{ category | strip }}
       </button>
     {% endfor %}
   </div>
 
-  <div id="faq-list">
+  <div id="faq-list" style="display: flex; flex-direction: column; gap: 1rem;">
     {% for block in section.blocks %}
-      <div class="faq-item" data-category="{{ block.settings.category | escape }}" style="border: 2px solid black; padding: 1rem; margin-bottom: 1rem; transition: all 0.3s ease;">
-        <button type="button" class="faq-toggle" style="display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: none; font-size: 1rem; cursor: pointer;">
-          <span style="font-weight: 500;">{{ block.settings.question }}</span>
-          <span class="faq-icon">+</span>
+      <div class="faq-item" data-category="{{ block.settings.category | escape }}" style="border: 2px solid black; padding: 1rem; transition: all 0.3s ease;">
+        <button type="button" class="faq-toggle" style="display: flex; justify-content: space-between; align-items: center; width: 100%; cursor: pointer;" aria-expanded="false">
+          <label style="font-weight: 500;">{{ block.settings.question }}</label>
+          <i class="faq-icon">+</i>
         </button>
-        <div class="faq-answer" style="display: none; margin-top: 0.5rem;">
+        <div class="faq-answer" style="margin-top: 0.5rem; display: none;">
           <p>{{ block.settings.answer }}</p>
         </div>
       </div>
@@ -33,25 +33,25 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const toggleButtons = document.querySelectorAll(".faq-toggle");
-    const categoryButtons = document.querySelectorAll("[data-category]");
+    const categoryButtons = document.querySelectorAll("#faq-categories button");
 
     toggleButtons.forEach(btn => {
       btn.addEventListener("click", () => {
         const item = btn.closest(".faq-item");
         const answer = item.querySelector(".faq-answer");
         const icon = btn.querySelector(".faq-icon");
-        const isOpen = answer.style.display === "block";
+        const isOpen = answer.style.display === 'block';
 
-        answer.style.display = isOpen ? "none" : "block";
-        icon.textContent = isOpen ? "+" : "−";
+        answer.style.display = isOpen ? 'none' : 'block';
+        icon.textContent = isOpen ? '+' : '−';
       });
     });
 
     categoryButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        const category = btn.getAttribute("data-category");
+        const selectedCategory = btn.dataset.category;
         document.querySelectorAll(".faq-item").forEach(item => {
-          item.style.display = item.getAttribute("data-category") === category ? 'block' : 'none';
+          item.style.display = item.dataset.category === selectedCategory ? 'block' : 'none';
         });
       });
     });
@@ -62,7 +62,26 @@
 {
   "name": "Custom FAQ",
   "tag": "section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Find quick answers to common questions about your order, shipping, returns, and more."
+    },
+    {
+      "type": "textarea",
+      "id": "faq_categories",
+      "label": "FAQ Categories (comma separated)",
+      "default": "Orders,Returns,Pick-up,Payment"
+    }
+  ],
   "blocks": [
     {
       "type": "faq_item",
@@ -92,6 +111,7 @@
   "presets": [
     {
       "name": "Custom FAQ",
+      "settings": {},
       "blocks": [
         { "type": "faq_item" },
         { "type": "faq_item" }
