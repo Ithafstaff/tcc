@@ -129,6 +129,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 470px;
+  width: 100%;
 }
 
 .profile__account-btn-submit {
@@ -136,6 +138,7 @@
   font-size: 20px;
   color: #fff;
   background-color: #222 !important;
+  width: 100%;
 }
 
 

@@ -20,6 +20,37 @@
       "type": "custom-contact",
       "settings": {}
     },
+    "custom_faq_iCLJAW": {
+      "type": "custom-faq",
+      "blocks": {
+        "faq_item_VWFAiB": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders",
+            "question": "How do I place an order?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        },
+        "faq_item_JXK9HW": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders",
+            "question": "How do I place an order?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_VWFAiB",
+        "faq_item_JXK9HW"
+      ],
+      "name": "Custom FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "subheading": "Find quick answers to common questions about your order, shipping, returns, and more.",
+        "faq_categories": "Orders,Returns,Pick-up,Payment"
+      }
+    },
     "custom_shipping_section_bUiVrr": {
       "type": "custom-shipping-section",
       "name": "Custom Shipping Section",
@@ -34,6 +65,7 @@
   "order": [
     "main",
     "contact",
+    "custom_faq_iCLJAW",
     "custom_shipping_section_bUiVrr"
   ]
 }
