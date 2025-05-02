@@ -90,6 +90,7 @@
 .profile__account-row-block {
   display: flex;
   flex-direction: column;
+  max-width: 227px;
 }
 
 
