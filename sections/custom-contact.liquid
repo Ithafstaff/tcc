@@ -204,25 +204,24 @@
       </div>
     </div>
   </div> -->
-<div class="x:flex x:flex-col x:gap-8">
-  <!-- Tab Buttons -->
-  <div class="x:flex x:flex-wrap x:justify-start x:gap-4">
+<div class="x:flex x:flex-col x:gap-5" id="faq-wrapper">
+  <!-- Category Buttons -->
+  <div class="x:flex x:flex-wrap x:gap-4 x:justify-center x:mb-6" id="faq-categories">
     {% assign categories = section.blocks | map: 'settings.category' | uniq %}
-    <button class="faq-tab x-border x-border-black x-px-6 x-py-2 x-uppercase x-font-medium x-transition-all x-duration-300" data-category="all">All</button>
-    {% for category in categories %}
-      {% if category != blank %}
-        <button class="faq-tab x-border x-border-black x-px-6 x-py-2 x-uppercase x-font-medium x-transition-all x-duration-300" data-category="{{ category | escape }}">
-          {{ category }}
+    {% for cat in categories %}
+      {% if cat != blank %}
+        <button type="button" class="faq-category-btn x:border x:border-black x-text-black x-text-lg x-tracking-wider x-px-6 x-py-2 x-uppercase" data-category="{{ cat | handle }}">
+          {{ cat }}
         </button>
       {% endif %}
     {% endfor %}
   </div>
 
-  <!-- FAQ List -->
+  <!-- FAQ Items -->
   <div class="x:flex x:flex-col x:gap-5" id="faq-list">
     {% for block in section.blocks %}
-      <div class="faq-item x-border-2 x-border-black x-px-3 x-py-4 x-transition-all x-duration-300" data-category="{{ block.settings.category | escape }}">
-        <button type="button" class="faq-toggle x-flex x-justify-between x-items-center x-w-full x-group x-hover:cursor-pointer" aria-expanded="false">
+      <div class="faq-item x-border-2 x-border-black x-px-3 x-py-4 x-transition-all x-duration-300" data-category="{{ block.settings.category | handle }}">
+        <button type="button" class="faq-toggle x:flex x:justify-between x:items-center x:w-full x:group x:hover:cursor-pointer" aria-expanded="false">
           <label class="x-group-hover:ml-5 x-transition-all x-duration-300 x-font-medium">
             {{ block.settings.question }}
           </label>
