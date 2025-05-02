@@ -252,6 +252,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Toggle FAQs
     document.querySelectorAll(".faq-toggle").forEach(function (toggleBtn) {
       toggleBtn.addEventListener("click", function () {
         const parent = toggleBtn.closest(".faq-item");
@@ -269,11 +270,15 @@
       });
     });
 
-    document.querySelectorAll(".faq-tab").forEach(function (tabBtn) {
-      tabBtn.addEventListener("click", function () {
-        const category = tabBtn.dataset.category;
-        document.querySelectorAll(".faq-item").forEach(function (item) {
-          if (category === "all" || item.dataset.category === category) {
+    // Filter by category
+    const allFaqItems = document.querySelectorAll(".faq-item");
+    const buttons = document.querySelectorAll(".faq-category-btn");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const category = button.dataset.category;
+        allFaqItems.forEach(item => {
+          if (item.dataset.category === category) {
             item.style.display = "block";
           } else {
             item.style.display = "none";
@@ -297,7 +302,7 @@
         {
           "type": "text",
           "id": "category",
-          "label": "Category (e.g., Orders, Returns)",
+          "label": "Category",
           "default": "General"
         },
         {
@@ -330,6 +335,7 @@
   ]
 }
 {% endschema %}
+
 
 {% comment %} <script>
     $(document).ready(function () {
