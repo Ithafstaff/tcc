@@ -57,6 +57,7 @@
         const item = btn.closest(".faq-item");
         const answer = item.querySelector(".faq-answer");
         const icon = btn.querySelector(".faq-icon");
+        const label = btn.querySelector("label");
         const isOpen = answer.style.display === 'block';
 
         answer.style.display = isOpen ? 'none' : 'block';
