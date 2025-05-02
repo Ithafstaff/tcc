@@ -27,6 +27,12 @@
   font-style: normal;
 }
 
+.homepage-header .header__link-list a,
+.homepage-header .link-faded-reverse {
+  color: white;
+}
+
+
 html {
   -webkit-text-size-adjust: 100%;
   tab-size: 4;
