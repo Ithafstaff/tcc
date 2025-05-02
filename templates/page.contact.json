@@ -70,6 +70,14 @@
             "question": "Return test",
             "answer": "You can place an order by adding items to your cart and proceeding to checkout."
           }
+        },
+        "faq_item_4UnQhQ": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Pick-up",
+            "question": "Pick-up test?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
         }
       },
       "block_order": [
@@ -78,7 +86,8 @@
         "faq_item_z77L6c",
         "faq_item_nLGaJm",
         "faq_item_FQHEtn",
-        "faq_item_rDRKgh"
+        "faq_item_rDRKgh",
+        "faq_item_4UnQhQ"
       ],
       "name": "Custom FAQ",
       "settings": {
