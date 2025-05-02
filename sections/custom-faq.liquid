@@ -1,28 +1,28 @@
-{% comment %} DYNAMIC FAQ WITH CATEGORY FILTER (INLINE CSS) {% endcomment %}
+{% comment %} DYNAMIC FAQ WITH CATEGORY FILTER {% endcomment %}
 
-<div style="display: flex; flex-direction: column; gap: 20px; border-top: 2px solid black; width: 100%; max-width: 1200px; margin: 0 auto;">
-  <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 6rem;">
+<div style="display: flex; flex-direction: column; gap: 1.25rem; width: 100%; border-top: 2px solid #000; padding-top: 2rem;">
+  <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 6rem; text-align: center;">
     <h1 style="text-transform: uppercase;">Frequently Asked Questions</h1>
     <span>Find quick answers to common questions about your order, shipping, returns, and more.</span>
   </div>
 
-  <div id="faq-categories" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-    {% assign all_categories = section.blocks | map: 'settings' | map: 'category' | uniq %}
-    {% for category in all_categories %}
-      <button data-category="{{ category | escape }}" class="faq-filter-btn" style="border: 1px solid black; color: black; font-size: 1rem; padding: 0.5rem 1rem; text-transform: uppercase; cursor: pointer; background: transparent; transition: all 0.3s;">
+  {% assign categories = section.blocks | map: 'settings' | map: 'category' | uniq %}
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;" id="faq-categories">
+    {% for category in categories %}
+      <button data-category="{{ category | escape }}" style="border: 1px solid black; color: black; padding: 0.5rem 1rem; text-transform: uppercase; font-size: 1rem; background: none; cursor: pointer; transition: background 0.3s, color 0.3s;">
         {{ category }}
       </button>
     {% endfor %}
   </div>
 
-  <div id="faq-list" style="display: flex; flex-direction: column; gap: 1.25rem;">
+  <div id="faq-list">
     {% for block in section.blocks %}
-      <div class="faq-item" data-category="{{ block.settings.category | escape }}" style="border: 2px solid black; padding: 1rem; transition: all 0.3s;">
-        <button type="button" class="faq-toggle" aria-expanded="false" style="display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: none; padding: 0; cursor: pointer;">
-          <label style="font-weight: 500;">{{ block.settings.question }}</label>
-          <span class="faq-icon">{%- render 'icon' with 'plus' -%}</span>
+      <div class="faq-item" data-category="{{ block.settings.category | escape }}" style="border: 2px solid black; padding: 1rem; margin-bottom: 1rem; transition: all 0.3s ease;">
+        <button type="button" class="faq-toggle" style="display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: none; font-size: 1rem; cursor: pointer;">
+          <span style="font-weight: 500;">{{ block.settings.question }}</span>
+          <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer" style="margin-top: 0.5rem; display: none;">
+        <div class="faq-answer" style="display: none; margin-top: 0.5rem;">
           <p>{{ block.settings.answer }}</p>
         </div>
       </div>
@@ -33,17 +33,17 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const toggleButtons = document.querySelectorAll(".faq-toggle");
-    const categoryButtons = document.querySelectorAll(".faq-filter-btn");
+    const categoryButtons = document.querySelectorAll("[data-category]");
 
     toggleButtons.forEach(btn => {
       btn.addEventListener("click", () => {
         const item = btn.closest(".faq-item");
         const answer = item.querySelector(".faq-answer");
         const icon = btn.querySelector(".faq-icon");
-        const isOpen = answer.style.display === 'block';
+        const isOpen = answer.style.display === "block";
 
-        answer.style.display = isOpen ? 'none' : 'block';
-        icon.innerHTML = `{%- render 'icon' with '${isOpen ? 'plus' : 'minus'}' -%}`;
+        answer.style.display = isOpen ? "none" : "block";
+        icon.textContent = isOpen ? "+" : "−";
       });
     });
 
@@ -51,7 +51,7 @@
       btn.addEventListener("click", () => {
         const category = btn.getAttribute("data-category");
         document.querySelectorAll(".faq-item").forEach(item => {
-          item.style.display = item.dataset.category === category ? 'block' : 'none';
+          item.style.display = item.getAttribute("data-category") === category ? 'block' : 'none';
         });
       });
     });
