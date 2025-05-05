@@ -65,7 +65,7 @@
           "settings": {
             "collection": "",
             "image": "shopify://shop_images/Image_fullImg_2.png",
-            "title": "SHOP DINNERWARE",
+            "title": "SHOP TABLECLOTHS",
             "url": "shopify://collections/all-collections"
           }
         },
@@ -74,7 +74,7 @@
           "settings": {
             "collection": "",
             "image": "shopify://shop_images/Image_fullImg.png",
-            "title": "SHOP TOWELS",
+            "title": "SHOP LINENS",
             "url": "shopify://collections/all-collections"
           }
         },
@@ -83,7 +83,7 @@
           "settings": {
             "collection": "",
             "image": "shopify://shop_images/Image_fullImg_1.png",
-            "title": "SHOP JUDAICA",
+            "title": "SHOP PLASTIC DINNERWARE",
             "url": "shopify://collections"
           }
         },
@@ -158,6 +158,68 @@
         "collection": "test"
       }
     },
+    "custom_collection_products_dkYzhr": {
+      "type": "custom-collection-products",
+      "blocks": {
+        "product_LEnQzp": {
+          "type": "product",
+          "settings": {
+            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
+          }
+        },
+        "product_xhEnta": {
+          "type": "product",
+          "settings": {
+            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
+          }
+        },
+        "product_iRE4er": {
+          "type": "product",
+          "settings": {
+            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
+          }
+        }
+      },
+      "block_order": [
+        "product_LEnQzp",
+        "product_xhEnta",
+        "product_iRE4er"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "custom_collection_products_gCxwVX": {
+      "type": "custom-collection-products",
+      "blocks": {
+        "product_Qgeie6": {
+          "type": "product",
+          "settings": {
+            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
+          }
+        },
+        "product_R9A4C9": {
+          "type": "product",
+          "settings": {
+            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
+          }
+        },
+        "product_Hr7RcR": {
+          "type": "product",
+          "settings": {
+            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
+          }
+        }
+      },
+      "block_order": [
+        "product_Qgeie6",
+        "product_R9A4C9",
+        "product_Hr7RcR"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
     "custom_rich_text_white_fz6trn": {
       "type": "custom-rich-text_white",
       "blocks": {
@@ -203,22 +265,29 @@
         "subheading": "Designed to blend into any space and stand out all at once"
       }
     },
-    "custom_collection_products_TPa6kD": {
+    "custom_drawer_banner_e9xLj7": {
+      "type": "custom-drawer-banner",
+      "settings": {
+        "image": "shopify://shop_images/Plastic_Dinnerware-2.jpg",
+        "collection": ""
+      }
+    },
+    "custom_collection_products_XmhK7E": {
       "type": "custom-collection-products",
       "blocks": {
-        "product_UgR38e": {
+        "product_JhVgCM": {
           "type": "product",
           "settings": {
-            "product": "superior-linen-bears-in-umbrellas-blue-6pc-twin-bedding-set"
+            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
           }
         },
-        "product_3V8HQN": {
+        "product_3bLx9U": {
           "type": "product",
           "settings": {
-            "product": "superior-linen-bicycles-and-balls-6pc-twin-bedding-set"
+            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
           }
         },
-        "product_GBEr6W": {
+        "product_gzbhBq": {
           "type": "product",
           "settings": {
             "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
@@ -226,20 +295,12 @@
         }
       },
       "block_order": [
-        "product_UgR38e",
-        "product_3V8HQN",
-        "product_GBEr6W"
+        "product_JhVgCM",
+        "product_3bLx9U",
+        "product_gzbhBq"
       ],
-      "disabled": true,
       "settings": {
         "title": ""
-      }
-    },
-    "custom_drawer_banner_e9xLj7": {
-      "type": "custom-drawer-banner",
-      "settings": {
-        "image": "shopify://shop_images/Plastic_Dinnerware-2.jpg",
-        "collection": ""
       }
     },
     "custom_image_grid_kr7aCj": {
@@ -278,6 +339,7 @@
         "image_yFjznz",
         "image_gCwtWB"
       ],
+      "disabled": true,
       "name": "Image Trio",
       "settings": {}
     },
@@ -314,25 +376,6 @@
         "collection": ""
       }
     },
-    "custom_rich_text_white_gztrVC": {
-      "type": "custom-rich-text_white",
-      "blocks": {
-        "button_Adrajz": {
-          "type": "button",
-          "settings": {
-            "text": "SHOP COLLECTION",
-            "url": "shopify://collections"
-          }
-        }
-      },
-      "block_order": [
-        "button_Adrajz"
-      ],
-      "settings": {
-        "heading": "DESIGNED TO REFLECT ELEGANCE",
-        "subheading": "Designed to blend into any space and stand out all at once"
-      }
-    },
     "custom_collection_products_gXXUyr": {
       "type": "custom-collection-products",
       "blocks": {
@@ -364,6 +407,25 @@
         "title": ""
       }
     },
+    "custom_rich_text_white_gztrVC": {
+      "type": "custom-rich-text_white",
+      "blocks": {
+        "button_Adrajz": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP COLLECTION",
+            "url": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "button_Adrajz"
+      ],
+      "settings": {
+        "heading": "DESIGNED TO REFLECT ELEGANCE",
+        "subheading": "Designed to blend into any space and stand out all at once"
+      }
+    },
     "custom_drawer_banner_pUz7df": {
       "type": "custom-drawer-banner",
       "settings": {
@@ -371,41 +433,36 @@
         "collection": ""
       }
     },
-    "custom_image_grid_cp3UCy": {
-      "type": "custom-image-grid",
+    "custom_collection_products_VWjrPX": {
+      "type": "custom-collection-products",
       "blocks": {
-        "image_9dpVtE": {
-          "type": "image",
+        "product_YtUqkJ": {
+          "type": "product",
           "settings": {
-            "title": "",
-            "url": "",
-            "button_text": "view product"
+            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
           }
         },
-        "image_APe97x": {
-          "type": "image",
+        "product_qpEKmj": {
+          "type": "product",
           "settings": {
-            "title": "",
-            "url": "",
-            "button_text": "view product"
+            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
           }
         },
-        "image_tq6naL": {
-          "type": "image",
+        "product_GPt94N": {
+          "type": "product",
           "settings": {
-            "title": "",
-            "url": "",
-            "button_text": "view product"
+            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
           }
         }
       },
       "block_order": [
-        "image_9dpVtE",
-        "image_APe97x",
-        "image_tq6naL"
+        "product_YtUqkJ",
+        "product_qpEKmj",
+        "product_GPt94N"
       ],
-      "name": "Image Trio",
-      "settings": {}
+      "settings": {
+        "title": ""
+      }
     },
     "custom_rich_text_white_pJ6T83": {
       "type": "custom-rich-text_white",
@@ -431,25 +488,6 @@
       "settings": {
         "image": "shopify://shop_images/Lucite-1.png",
         "collection": ""
-      }
-    },
-    "custom_rich_text_white_GCaAey": {
-      "type": "custom-rich-text_white",
-      "blocks": {
-        "button_zz6wbT": {
-          "type": "button",
-          "settings": {
-            "text": "SHOP COLLECTION",
-            "url": "shopify://collections"
-          }
-        }
-      },
-      "block_order": [
-        "button_zz6wbT"
-      ],
-      "settings": {
-        "heading": "SLEEK SOPHISTICATION FOR EVERYDAY USE",
-        "subheading": "Timeless lucite pieces that elevate your home with clarity, grace, and understated luxury"
       }
     },
     "custom_collection_products_x6DChT": {
@@ -483,6 +521,25 @@
         "title": ""
       }
     },
+    "custom_rich_text_white_GCaAey": {
+      "type": "custom-rich-text_white",
+      "blocks": {
+        "button_zz6wbT": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP COLLECTION",
+            "url": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "button_zz6wbT"
+      ],
+      "settings": {
+        "heading": "SLEEK SOPHISTICATION FOR EVERYDAY USE",
+        "subheading": "Timeless lucite pieces that elevate your home with clarity, grace, and understated luxury"
+      }
+    },
     "custom_shipping_section_QJdWUJ": {
       "type": "custom-shipping-section",
       "settings": {
@@ -499,22 +556,24 @@
     "collection-list",
     "rich_text_EK3hAN",
     "drawer_banner",
+    "custom_collection_products_dkYzhr",
     "custom_rich_text_white_fz6trn",
     "custom_drawer_banner_nKGchn",
+    "custom_collection_products_gCxwVX",
     "custom_rich_text_white_qqai8x",
-    "custom_collection_products_TPa6kD",
     "custom_drawer_banner_e9xLj7",
+    "custom_collection_products_XmhK7E",
     "custom_image_grid_kr7aCj",
     "rich_text_iwTdFr",
     "custom_drawer_banner_EmtM96",
-    "custom_rich_text_white_gztrVC",
     "custom_collection_products_gXXUyr",
+    "custom_rich_text_white_gztrVC",
     "custom_drawer_banner_pUz7df",
-    "custom_image_grid_cp3UCy",
+    "custom_collection_products_VWjrPX",
     "custom_rich_text_white_pJ6T83",
     "custom_drawer_banner_NweafM",
-    "custom_rich_text_white_GCaAey",
     "custom_collection_products_x6DChT",
+    "custom_rich_text_white_GCaAey",
     "custom_shipping_section_QJdWUJ"
   ]
 }
