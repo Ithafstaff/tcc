@@ -63,9 +63,9 @@
   grid-row: span 2;
 }
 
-.li-pair:nth-child(4) li:nth-child(2) {
+/* .li-pair:nth-child(4) li:nth-child(2) {
   display: none;
-}
+} */
 
 .li-pair {
   display: flex;
