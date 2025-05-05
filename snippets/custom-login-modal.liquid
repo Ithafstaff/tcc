@@ -190,3 +190,23 @@
   </div>
       {% endform %}
 </section>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const signupPasswordInput = document.getElementById("signup-password");
+    const signupToggleIcon = document.getElementById("toggle-signup-password");
+
+    if (signupPasswordInput && signupToggleIcon) {
+      signupToggleIcon.addEventListener("click", function () {
+        const isHidden = signupPasswordInput.type === "password";
+        signupPasswordInput.type = isHidden ? "text" : "password";
+
+        // Optional: Swap icon if you use different ones for open/closed eye
+        this.innerHTML = isHidden
+          ? `{% render 'icon' with 'eye' %}`
+          : `{% render 'icon' with 'eye-off' %}`;
+      });
+    }
+  });
+</script>
