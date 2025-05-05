@@ -107,7 +107,14 @@
     </button>
   </div>
 </section>
-
+<style>
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+</style>
 {% comment %} MAP NAVIGATION SCRIPT {% endcomment %}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
