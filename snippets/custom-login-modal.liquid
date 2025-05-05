@@ -150,6 +150,7 @@
 
         <div class="x:relative x:group x:w-full">
           <input
+            id="signup-password"
             name="customer[password]"
             type="password"
             required
@@ -159,10 +160,14 @@
           <div class="x:absolute x:left-3 x:top-1/2 x:-translate-y-1/2">
             {%- render 'icon' with 'picto-lock' -%}
           </div>
-          <div class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2">
+          <div
+            id="toggle-signup-password"
+            class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer"
+          >
             {%- render 'icon' with 'eye-off' -%}
           </div>
         </div>
+
 
         <button type="submit" class="x:w-full x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:h-[3.75rem] x:uppercase">
           create account
