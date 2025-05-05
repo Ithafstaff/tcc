@@ -40,16 +40,22 @@
 
         <div class="x:relative x:group x:w-full">
           <input
+            id="login-password"
             name="customer[password]"
             type="password"
             required
             placeholder="Password"
             class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
           >
+        
           <div class="x:absolute x:left-3 x:top-1/2 x:-translate-y-1/2">
             {%- render 'icon' with 'picto-lock' -%}
           </div>
-          <div class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2">
+        
+          <div
+            id="toggle-login-password"
+            class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer"
+          >
             {%- render 'icon' with 'eye-off' -%}
           </div>
         </div>
