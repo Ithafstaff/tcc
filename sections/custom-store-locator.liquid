@@ -119,7 +119,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Initialize the map
-    var map = L.map('map').setView([40.637516661474045, -73.99037491120228], 21);
+    var map = L.map('map').setView([40.637516661474045, -73.99037491120228], 18);
 
     // Add OpenStreetMap tile layer
      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -151,7 +151,7 @@
         const lng = parseFloat(button.getAttribute('data-lng'));
 
         if (!isNaN(lat) && !isNaN(lng)) {
-          map.setView([lat, lng], 14, { animate: true });
+          map.setView([lat, lng], 18, { animate: true });
 
           setTimeout(() => {
             const locName = locations[index].name;
