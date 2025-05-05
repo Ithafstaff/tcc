@@ -170,10 +170,15 @@
           <div class="x:absolute x:left-3 x:top-1/2 x:-translate-y-1/2">
             {%- render 'icon' with 'picto-lock' -%}
           </div>
-          <div id="toggle-signup-password" class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer" data-visible="false">
+          <div
+            id="toggle-signup-password"
+            class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer"
+            data-visible="false"
+          >
             <span class="eye-icon">{%- render 'icon' with 'eye' -%}</span>
             <span class="eye-off-icon" style="display: none;">{%- render 'icon' with 'eye-off' -%}</span>
           </div>
+
 
         </div>
 
@@ -200,7 +205,6 @@
       {% endform %}
 </section>
 
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     function setupPasswordToggle(inputId, toggleId) {
@@ -209,16 +213,17 @@
       const eyeIcon = toggle.querySelector(".eye-icon");
       const eyeOffIcon = toggle.querySelector(".eye-off-icon");
 
-      if (input && toggle) {
+      if (input && toggle && eyeIcon && eyeOffIcon) {
         toggle.addEventListener("click", function () {
-          const visible = toggle.getAttribute("data-visible") === "true";
+          const isVisible = toggle.getAttribute("data-visible") === "true";
+          toggle.setAttribute("data-visible", !isVisible);
 
-          input.type = visible ? "password" : "text";
-          toggle.setAttribute("data-visible", !visible);
+          // Toggle input type
+          input.type = isVisible ? "password" : "text";
 
-          // Toggle icon visibility
-          eyeIcon.style.display = visible ? "inline" : "none";
-          eyeOffIcon.style.display = visible ? "none" : "inline";
+          // Toggle icons
+          eyeIcon.style.display = isVisible ? "inline-block" : "none";
+          eyeOffIcon.style.display = isVisible ? "none" : "inline-block";
         });
       }
     }
@@ -227,6 +232,3 @@
     setupPasswordToggle("signup-password", "toggle-signup-password");
   });
 </script>
-
-
-
