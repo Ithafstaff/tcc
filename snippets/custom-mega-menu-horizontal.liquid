@@ -69,26 +69,32 @@
 {%- endfor -%}
 
 <script>
-  // Get all .li-pair elements
   const liPairs = document.querySelectorAll('.li-pair');
 
-  // Make sure there are at least 6 elements
-  if (liPairs.length >= 6) {
-    // Create the new wrapper div
-    const wrapper = document.createElement('div');
-    wrapper.className = 'wrapper';
+  const wrapPair = (startIndex) => {
+    if (liPairs.length > startIndex + 1) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'wrapper';
 
-    // Get the 5th and 6th .li-pair
-    const fifth = liPairs[4];
-    const sixth = liPairs[5];
+      const first = liPairs[startIndex];
+      const second = liPairs[startIndex + 1];
 
-    // Insert the wrapper before the 5th .li-pair
-    fifth.parentNode.insertBefore(wrapper, fifth);
+      // Insert wrapper before the first of the pair
+      first.parentNode.insertBefore(wrapper, first);
 
-    // Move the 5th and 6th into the wrapper
-    wrapper.appendChild(fifth);
-    wrapper.appendChild(sixth);
-  }
+      // Move both into the wrapper
+      wrapper.appendChild(first);
+      wrapper.appendChild(second);
+    }
+  };
+
+  // Wrap 5th & 6th (index 4 & 5)
+  wrapPair(4);
+
+  // Wrap 7th & 8th (index 6 & 7 — but these indexes shift after wrapping)
+  // So we must re-select the elements after the first wrap
+  const updatedLiPairs = document.querySelectorAll('.li-pair');
+  wrapPair(6); // Still safe since new wrappers are separate from .li-pair
 </script>
 
 
