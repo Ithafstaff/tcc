@@ -45,13 +45,7 @@
       
     
 {%- for sub_link in link.links -%}
-  {%- assign i = forloop.index0 -%}
-  {%- assign mod = i | modulo: 2 -%}
-
-  {%- if mod == 0 -%}
-    <div class="li-pair"> <!-- OPEN wrapper every 2 items -->
-  {%- endif -%}
-
+  <div class="li-pair"> <!-- Each link in its own wrapper -->
     <li class="v-stack gap-4 justify-items-start">
       <a {% if sub_link.url != '#' %}href="{{ sub_link.url }}"{% endif %} class="{% if mega_menu_block.settings.submenu_style == 'bold_heading' %}h5{% endif %}" {% if sub_link.current %}aria-current="page"{% endif %}>
         <span {% if sub_link.url != '#' %}class="{% if mega_menu_block.settings.submenu_style == 'bold_text' %}link-faded{% else %}reversed-link hover:show{% endif %}"{% endif %}>
@@ -71,12 +65,9 @@
         </ul>
       {%- endif -%}
     </li>
-
-  {%- if mod == 1 or forloop.last -%}
-    </div> <!-- CLOSE wrapper after 2 items or at end -->
-  {%- endif -%}
-
+  </div>
 {%- endfor -%}
+
 
 
       
