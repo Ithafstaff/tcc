@@ -200,6 +200,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // SIGNUP PASSWORD TOGGLE
     const signupPasswordInput = document.getElementById("signup-password");
     const signupToggleIcon = document.getElementById("toggle-signup-password");
 
@@ -207,8 +208,20 @@
       signupToggleIcon.addEventListener("click", function () {
         const isHidden = signupPasswordInput.type === "password";
         signupPasswordInput.type = isHidden ? "text" : "password";
+        this.innerHTML = isHidden
+          ? `{% render 'icon' with 'eye' %}`
+          : `{% render 'icon' with 'eye-off' %}`;
+      });
+    }
 
-        // Optional: Swap icon if you use different ones for open/closed eye
+    // LOGIN PASSWORD TOGGLE
+    const loginPasswordInput = document.getElementById("login-password");
+    const loginToggleIcon = document.getElementById("toggle-login-password");
+
+    if (loginPasswordInput && loginToggleIcon) {
+      loginToggleIcon.addEventListener("click", function () {
+        const isHidden = loginPasswordInput.type === "password";
+        loginPasswordInput.type = isHidden ? "text" : "password";
         this.innerHTML = isHidden
           ? `{% render 'icon' with 'eye' %}`
           : `{% render 'icon' with 'eye-off' %}`;
@@ -216,3 +229,4 @@
     }
   });
 </script>
+
