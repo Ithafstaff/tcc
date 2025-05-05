@@ -68,6 +68,30 @@
   </div>
 {%- endfor -%}
 
+<script>
+  // Get all .li-pair elements
+  const liPairs = document.querySelectorAll('.li-pair');
+
+  // Make sure there are at least 6 elements
+  if (liPairs.length >= 6) {
+    // Create the new wrapper div
+    const wrapper = document.createElement('div');
+    wrapper.className = 'wrapper';
+
+    // Get the 5th and 6th .li-pair
+    const fifth = liPairs[4];
+    const sixth = liPairs[5];
+
+    // Insert the wrapper before the 5th .li-pair
+    fifth.parentNode.insertBefore(wrapper, fifth);
+
+    // Move the 5th and 6th into the wrapper
+    wrapper.appendChild(fifth);
+    wrapper.appendChild(sixth);
+  }
+</script>
+
+
 
 
       
