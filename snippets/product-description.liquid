@@ -6,7 +6,7 @@
       <h3 class="custom-product__desc-title">Product Description</h3>
     </div>
     <div class="custom-product__desc-txt">
-      {{ product.description }}
+       {{ product.description | strip_html }}
     </div>
 
   </div>
