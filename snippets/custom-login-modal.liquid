@@ -52,12 +52,11 @@
             {%- render 'icon' with 'picto-lock' -%}
           </div>
         
-          <div
-            id="toggle-login-password"
-            class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer"
-          >
-            {%- render 'icon' with 'eye-off' -%}
+          <div id="toggle-login-password" class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer" data-visible="false">
+            <span class="eye-icon">{%- render 'icon' with 'eye' -%}</span>
+            <span class="eye-off-icon" style="display: none;">{%- render 'icon' with 'eye-off' -%}</span>
           </div>
+
         </div>
 
         <a href="/account/recover">Forgot Password?</a>
@@ -166,12 +165,11 @@
           <div class="x:absolute x:left-3 x:top-1/2 x:-translate-y-1/2">
             {%- render 'icon' with 'picto-lock' -%}
           </div>
-          <div
-            id="toggle-signup-password"
-            class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer"
-          >
-            {%- render 'icon' with 'eye-off' -%}
+          <div id="toggle-signup-password" class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer" data-visible="false">
+            <span class="eye-icon">{%- render 'icon' with 'eye' -%}</span>
+            <span class="eye-off-icon" style="display: none;">{%- render 'icon' with 'eye-off' -%}</span>
           </div>
+
         </div>
 
 
@@ -203,25 +201,27 @@
     function setupPasswordToggle(inputId, toggleId) {
       const input = document.getElementById(inputId);
       const toggle = document.getElementById(toggleId);
+      const eyeIcon = toggle.querySelector(".eye-icon");
+      const eyeOffIcon = toggle.querySelector(".eye-off-icon");
 
       if (input && toggle) {
         toggle.addEventListener("click", function () {
           const visible = toggle.getAttribute("data-visible") === "true";
+
           input.type = visible ? "password" : "text";
           toggle.setAttribute("data-visible", !visible);
 
-          // Swap icon
-          toggle.innerHTML = visible
-            ? `{% render 'icon' with 'eye-off' %}`
-            : `{% render 'icon' with 'eye' %}`;
+          // Toggle icon visibility
+          eyeIcon.style.display = visible ? "inline" : "none";
+          eyeOffIcon.style.display = visible ? "none" : "inline";
         });
       }
     }
 
-    // Apply for both login and signup
     setupPasswordToggle("login-password", "toggle-login-password");
     setupPasswordToggle("signup-password", "toggle-signup-password");
   });
 </script>
+
 
 
