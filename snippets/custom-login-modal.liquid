@@ -2,6 +2,7 @@
   class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-50" 
   id="login-modal"
 >
+  {% form 'customer_login' %}
   <div class="x:w-[50rem] x:bg-white x:p-10 x:flex x:flex-col x:gap-5 x:items-center x:relative">
     <i class="x:absolute x:right-5 x:top-5 x:cursor-pointer" onclick="document.getElementById('login-modal').classList.add('x:hidden')">
       <span class="x:cursor-pointer">
@@ -14,7 +15,7 @@
       <span>Welcome back! Access your orders, wishlist, and more</span>
     </div>
     
-  {% form 'customer_login' %}
+
 
     <div class="x:flex x:flex-col x:gap-5 x:w-[70%]">
       <div class="x:relative x:group x:w-full">
@@ -56,8 +57,9 @@
         document.querySelector('#signup-modal').classList.remove('x:hidden');
       ">Don't have an account? create one</a>
     </div>
-    {% endform %}
+
   </div>
+      {% endform %}
 </section> 
 
 <section 
