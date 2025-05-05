@@ -69,15 +69,6 @@
             "url": "shopify://collections/all-collections"
           }
         },
-        "collection_GpwWda": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Bedding.png",
-            "title": "SHOP LINENS",
-            "url": "shopify://collections/all-collections"
-          }
-        },
         "collection-2": {
           "type": "collection",
           "settings": {
@@ -85,6 +76,15 @@
             "image": "shopify://shop_images/Image_fullImg_2.png",
             "title": "SHOP PLASTIC DINNERWARE",
             "url": "shopify://collections"
+          }
+        },
+        "collection_GpwWda": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Bedding.png",
+            "title": "SHOP LINENS",
+            "url": "shopify://collections/all-collections"
           }
         },
         "collection_bR7fGU": {
@@ -114,8 +114,8 @@
       },
       "block_order": [
         "collection-1",
-        "collection_GpwWda",
         "collection-2",
+        "collection_GpwWda",
         "collection_bR7fGU",
         "collection-3",
         "collection_Qg49He"
