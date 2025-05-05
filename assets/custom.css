@@ -39,7 +39,7 @@
 /* start of custom mega menu layout */
 .mega-menu__nav {
   display: grid !important;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .mega-menu__nav a {
