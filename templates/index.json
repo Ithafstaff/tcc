@@ -151,11 +151,11 @@
         "subheading": "Timeless pieces for meaningful moments"
       }
     },
-    "drawer_banner": {
+    "custom_drawer_banner_nKGchn": {
       "type": "custom-drawer-banner",
       "settings": {
-        "image": "shopify://shop_images/Bedding.jpg",
-        "collection": "test"
+        "image": "shopify://shop_images/Tablecloths.jpg",
+        "collection": ""
       }
     },
     "custom_collection_products_dkYzhr": {
@@ -164,19 +164,19 @@
         "product_LEnQzp": {
           "type": "product",
           "settings": {
-            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
+            "product": "white-tablecloth-by-vanessa"
           }
         },
         "product_xhEnta": {
           "type": "product",
           "settings": {
-            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
+            "product": "gold-tablecloth-by-audrey"
           }
         },
         "product_iRE4er": {
           "type": "product",
           "settings": {
-            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
+            "product": "gray-silver-faux-leather-tablecloth-by-torrance-sandy"
           }
         }
       },
@@ -208,11 +208,11 @@
         "subheading": "Floral bedding designed for comfort, crafted for beauty — turn every morning into a moment"
       }
     },
-    "custom_drawer_banner_nKGchn": {
+    "drawer_banner": {
       "type": "custom-drawer-banner",
       "settings": {
-        "image": "shopify://shop_images/Judaica.png",
-        "collection": ""
+        "image": "shopify://shop_images/Bedding.jpg",
+        "collection": "test"
       }
     },
     "custom_collection_products_gCxwVX": {
@@ -278,19 +278,19 @@
         "product_JhVgCM": {
           "type": "product",
           "settings": {
-            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
+            "product": "6oz-disposable-plastic-bowls-240-count-1-case-by-simcha-collection"
           }
         },
         "product_3bLx9U": {
           "type": "product",
           "settings": {
-            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
+            "product": "black-gold-oval-serving-tray-by-decor-whisk-collection"
           }
         },
         "product_gzbhBq": {
           "type": "product",
           "settings": {
-            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
+            "product": "decor-mini-curved-square-bowl-mini-collection-by-mini-collection"
           }
         }
       },
@@ -555,10 +555,10 @@
     "video_UmP9qt",
     "collection-list",
     "rich_text_EK3hAN",
-    "drawer_banner",
+    "custom_drawer_banner_nKGchn",
     "custom_collection_products_dkYzhr",
     "custom_rich_text_white_fz6trn",
-    "custom_drawer_banner_nKGchn",
+    "drawer_banner",
     "custom_collection_products_gCxwVX",
     "custom_rich_text_white_qqai8x",
     "custom_drawer_banner_e9xLj7",
