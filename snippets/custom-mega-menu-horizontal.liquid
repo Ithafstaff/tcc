@@ -44,40 +44,29 @@
     <ul class="mega-menu__nav custom-mega-menu__nav" role="list">
       
     
-{%- assign total = link.links.size -%}
-{%- assign skip_next = false -%}
-
 {%- for sub_link in link.links -%}
-  {%- if skip_next -%}
-    {%- assign skip_next = false -%}
-    {%- continue -%}
-  {%- endif -%}
+  <div class="li-pair"> <!-- Each link in its own wrapper -->
+    <li class="v-stack gap-4 justify-items-start">
+      <a {% if sub_link.url != '#' %}href="{{ sub_link.url }}"{% endif %} class="{% if mega_menu_block.settings.submenu_style == 'bold_heading' %}h5{% endif %}" {% if sub_link.current %}aria-current="page"{% endif %}>
+        <span {% if sub_link.url != '#' %}class="{% if mega_menu_block.settings.submenu_style == 'bold_text' %}link-faded{% else %}reversed-link hover:show{% endif %}"{% endif %}>
+          {{- sub_link.title -}}
+        </span>
+      </a>
 
-  {%- assign i = forloop.index0 -%}
-
-  {%- if i == total - 2 and total > 1 -%}
-    <div class="li-pair">
-      <!-- Render second-to-last item -->
-      <li class="v-stack">
-        <a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
-      </li>
-
-      <!-- Render last item -->
-      <li class="v-stack">
-        <a href="{{ link.links[i | plus: 1].url }}">{{ link.links[i | plus: 1].title }}</a>
-      </li>
-    </div>
-
-    {%- assign skip_next = true -%}
-  {%- else -%}
-    <div class="li-pair">
-      <li class="v-stack">
-        <a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
-      </li>
-    </div>
-  {%- endif -%}
+      {%- if sub_link.levels > 0 -%}
+        <ul class="v-stack gap-2 justify-items-start" role="list">
+          {%- for sub_sub_link in sub_link.links -%}
+            <li>
+              <a href="{{ sub_sub_link.url }}" class="{% if mega_menu_block.settings.submenu_style == 'bold_text' %}h5{% else %}link-faded{% endif %}">
+                <span {% if mega_menu_block.settings.submenu_style == 'bold_text' %}class="reversed-link hover:show"{% endif %}>{{- sub_sub_link.title -}}</span>
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </li>
+  </div>
 {%- endfor -%}
-
 
 
 
