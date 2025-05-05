@@ -16,11 +16,7 @@
     
   {% form 'customer_login' %}
 
-    {% if form.errors %}
-          <div class="x:text-red-600 x:text-sm">
-            {{ form.errors | default_errors }}
-          </div>
-    {% endif %}
+
     
     <div class="x:flex x:flex-col x:gap-5 x:w-[70%]">
       <div class="x:relative x:group x:w-full">
