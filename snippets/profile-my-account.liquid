@@ -437,16 +437,24 @@
 
 
 
-  //   const toggle = document.getElementById("togglePassword");
-  // const password = document.getElementById("password");
+const toggle = document.getElementById("togglePassword");
+const password = document.getElementById("password");
 
-  // toggle.addEventListener("click", function () {
-  //   const type = password.getAttribute("type") === "password" ? "text" : "password";
-  //   password.setAttribute("type", type);
-    
-  //   // Toggle icon if desired
-  //   this.textContent = type === "password" ? "👁" : "🙈";
-  // });
+toggle.addEventListener("click", function () {
+  const type = password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+
+  // Change background image based on password visibility
+  this.style.backgroundImage = type === "password"
+    ? "url('https://cdn.shopify.com/s/files/1/0723/0839/2168/files/show.png?v=1746473942')"
+    : "url('https://cdn.shopify.com/s/files/1/0723/0839/2168/files/hide.png?v=1746473941')";
+
+  // Optional: adjust background size and positioning
+  this.style.backgroundRepeat = "no-repeat";
+  this.style.backgroundSize = "contain";
+  this.style.backgroundPosition = "center";
+});
+
 
   
 </script>
