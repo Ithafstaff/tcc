@@ -200,33 +200,28 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // SIGNUP PASSWORD TOGGLE
-    const signupPasswordInput = document.getElementById("signup-password");
-    const signupToggleIcon = document.getElementById("toggle-signup-password");
+    function setupPasswordToggle(inputId, toggleId) {
+      const input = document.getElementById(inputId);
+      const toggle = document.getElementById(toggleId);
 
-    if (signupPasswordInput && signupToggleIcon) {
-      signupToggleIcon.addEventListener("click", function () {
-        const isHidden = signupPasswordInput.type === "password";
-        signupPasswordInput.type = isHidden ? "text" : "password";
-        this.innerHTML = isHidden
-          ? `{% render 'icon' with 'eye' %}`
-          : `{% render 'icon' with 'eye-off' %}`;
-      });
+      if (input && toggle) {
+        toggle.addEventListener("click", function () {
+          const visible = toggle.getAttribute("data-visible") === "true";
+          input.type = visible ? "password" : "text";
+          toggle.setAttribute("data-visible", !visible);
+
+          // Swap icon
+          toggle.innerHTML = visible
+            ? `{% render 'icon' with 'eye-off' %}`
+            : `{% render 'icon' with 'eye' %}`;
+        });
+      }
     }
 
-    // LOGIN PASSWORD TOGGLE
-    const loginPasswordInput = document.getElementById("login-password");
-    const loginToggleIcon = document.getElementById("toggle-login-password");
-
-    if (loginPasswordInput && loginToggleIcon) {
-      loginToggleIcon.addEventListener("click", function () {
-        const isHidden = loginPasswordInput.type === "password";
-        loginPasswordInput.type = isHidden ? "text" : "password";
-        this.innerHTML = isHidden
-          ? `{% render 'icon' with 'eye' %}`
-          : `{% render 'icon' with 'eye-off' %}`;
-      });
-    }
+    // Apply for both login and signup
+    setupPasswordToggle("login-password", "toggle-login-password");
+    setupPasswordToggle("signup-password", "toggle-signup-password");
   });
 </script>
+
 
