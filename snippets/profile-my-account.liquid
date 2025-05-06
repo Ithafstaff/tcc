@@ -442,45 +442,52 @@
             </form>
           </div> -->
             
-          <div class="profile__account-info-block">
-             <form class="profile__account-info-container">
-              <div class="profile__account-info-row row-flex">
-                <div class="profile__account-row-block">
-                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
-                  <label for="first-name">First Name</label>
-                  <input type="text" id="first-name" name="first-name" placeholder="Yuji">
+          {% if customer %}
+            <div class="profile__account-info-block">
+              <form class="profile__account-info-container" method="post" action="/account">
+                <div class="profile__account-info-row row-flex">
+                  <div class="profile__account-row-block">
+                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="customer[first_name]" value="{{ customer.first_name }}" placeholder="First Name">
+                  </div>
+                  <div class="profile__account-row-block">
+                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="customer[last_name]" value="{{ customer.last_name }}" placeholder="Last Name">
+                  </div>
                 </div>
-                <div class="profile__account-row-block">
-                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
-                  <label for="last-name">Last Name</label>
-                  <input type="text" id="last-name" name="last-name" placeholder="Sokolov">
+            
+                <div class="profile__account-info-row">
+                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_3.svg?v=1746218281">
+                  <label for="dob">Date of Birth</label>
+                  <input type="text" id="dob" name="customer[note][dob]" value="{{ customer.note.dob }}" placeholder="MM/DD/YYYY">
                 </div>
-              </div>
-              <div class="profile__account-info-row">
-                <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_3.svg?v=1746218281">
-                <label for="dob">Date of Birth</label>
-                <input type="text" id="dob" name="dob" placeholder="11/23/1990">
-              </div>
-              <div class="profile__account-info-row">
-                <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/mdi-light_phone.svg?v=1746218281">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="(718) 555-0198">
-              </div>
-              <div class="profile__account-info-row">
-                <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/stash_person-light.svg?v=1746218418">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Yuji@DOMAIN.COM">
-              </div>
-              <div class="profile__account-info-row">
-                <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/circum_lock.svg?v=1746218282">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="********************">
-                <span id="togglePassword" class="toggle-eye"></span>
-              </div>
+            
+                <div class="profile__account-info-row">
+                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/mdi-light_phone.svg?v=1746218281">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="customer[phone]" value="{{ customer.phone }}" placeholder="Phone Number">
+                </div>
+            
+                <div class="profile__account-info-row">
+                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/stash_person-light.svg?v=1746218418">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="customer[email]" value="{{ customer.email }}" placeholder="Email">
+                </div>
+            
+                <div class="profile__account-info-row">
+                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/circum_lock.svg?v=1746218282">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="customer[password]" placeholder="New Password">
+                  <span id="togglePassword" class="toggle-eye"></span>
+                </div>
+            
+                <button class="profile__account-btn-submit" type="submit">Update Account Information</button>
+              </form>
+            </div>
+          {% endif %}
 
-              <button class="profile__account-btn-submit" type="submit">update account information</button>
-            </form>
-          </div>
 
             
           <div class="profile__account-pic-block">
