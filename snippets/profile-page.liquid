@@ -268,11 +268,19 @@
         <div class="profile__image-block">
           <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393" alt="" class="profile__profile-picture">
         </div>
-        <div class="profile__info-block-wrap">
-          <span class="profile__info-desc profile__info-desc--name">yuji Sokolov</span>
-          <span class="profile__info-desc">(718) 555-0198</span>
-          <span class="profile__info-desc">Yuji@domain.com</span>
-        </div>
+        {% if customer %}
+          <div class="profile__info-block-wrap">
+            <span class="profile__info-desc profile__info-desc--name">
+              {{ customer.first_name }} {{ customer.last_name }}
+            </span>
+            <span class="profile__info-desc">
+              {{ customer.phone }}
+            </span>
+            <span class="profile__info-desc">
+              {{ customer.email }}
+            </span>
+          </div>
+        {% endif %}
       </div>
       <div class="profile__menu-container">
         <ul class="profile__menu-list">
