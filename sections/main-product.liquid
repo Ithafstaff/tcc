@@ -5,6 +5,9 @@
     --product-grid: auto / minmax(0, 1fr);
     --product-gallery-media-list-grid: auto / auto-flow {% if section.settings.mobile_carousel_control == 'free_scroll' %}{% if section.settings.mobile_media_size == 'expanded' %}84vw{% else %}73vw{% endif %}{% else %}100%{% endif %};
     --product-gallery-media-list-gap: {% if section.settings.mobile_media_size == 'expanded' %}var(--spacing-0-5){% else %}var(--grid-gutter){% endif %};
+        --section-spacing-inline: 0px !important;
+    --context-section-spacing-inline: 0px !important;
+    --calculated-section-spacing-inline: 0px !important;
   }
 
   @media screen and (max-width: 999px) {
