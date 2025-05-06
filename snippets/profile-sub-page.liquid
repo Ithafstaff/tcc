@@ -279,19 +279,18 @@
           <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393" alt="" class="profile-sub__profile-picture">
         </div>
         {% if customer %}
-          <div class="profile__info-block-wrap">
-            <span class="profile__info-desc profile__info-desc--name">
+          <div class="profile-sub__info-block-wrap">
+            <span class="profile-sub__info-desc profile-sub__info-desc--name">
               {{ customer.first_name }} {{ customer.last_name }}
             </span>
-            <span class="profile__info-desc">
+            <span class="profile-sub__info-desc">
               {{ customer.phone }}
             </span>
-            <span class="profile__info-desc">
+            <span class="profile-sub__info-desc">
               {{ customer.email }}
             </span>
           </div>
         {% endif %}
-      </div>
       <div class="profile-sub__menu-container">
         <ul class="profile-sub__menu-list">
           <li class="profile-sub__menu-item">
