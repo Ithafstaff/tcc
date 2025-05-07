@@ -334,7 +334,7 @@
       <div class="profile-sub__order-container">
         <div class="custom-multi-col__col-wrap">
             {% assign custom_collection = collections[block.settings.id_link.handle] %}
-            {% if custom_collection.products_count > 0 %}
+            {% if custom_collection.products_count | plus: 0 > 0 %}
               {% for product in custom_collection.products limit: 5 %}
                 <div class="custom-multi-col__item-box">
                   <div class="custom-multi-col__item-img-box">
