@@ -35,6 +35,12 @@
             "heading_tag": "h2"
           }
         },
+        "liquid_3darrU": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "custom.sub_title"
+          }
+        },
         "badges": {
           "type": "badges",
           "settings": {}
@@ -139,6 +145,7 @@
       "block_order": [
         "vendor",
         "title",
+        "liquid_3darrU",
         "badges",
         "price",
         "judge_me_reviews_preview_badge_dCPARp",
