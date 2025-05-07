@@ -614,6 +614,17 @@
       });
     });
   });
+    function selectSwatch(selected) {
+    // Remove bottom bar from all
+    document.querySelectorAll('#swatch-container .swatch').forEach(swatch => {
+      swatch.classList.remove('active');
+      swatch.innerHTML = '';
+    });
+
+    // Mark clicked one as active
+    selected.classList.add('active');
+    selected.innerHTML = `<div style="position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: ${selected.style.backgroundColor};"></div>`;
+  }
 </script>
 
 
