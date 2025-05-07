@@ -330,60 +330,19 @@
           </select>
         </div>
       </div>
-      <div class="profile-sub__order-container x:pt-[20px]">
-       <div class="x:container x:mx-auto x:px-4">
-  <div class="x:grid x:grid-cols-1 sm:x:grid-cols-2 md:x:grid-cols-3 lg:x:grid-cols-4 x:gap-x-[20px] x:gap-y-[40px] x:pt-6">
-    
-    <!-- ITEM START -->
-    <div class="x:flex x:flex-col">
       
-      <!-- IMAGE BOX WITH BADGE + WISHLIST -->
-      <div class="x:relative x:w-full x:h-[260px] x:mb-3">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532"
-          class="x:w-full x:h-full x:object-cover"
-          loading="lazy"
-        />
-        <span class="x:absolute x:top-2 x:left-2 x:bg-white x:text-[10px] x:px-2 x:py-[2px] x:uppercase x:tracking-widest x:text-black x:font-semibold">
-          Best Seller
-        </span>
-        <button class="x:absolute x:top-2 x:right-2">❤️</button>
+      <div class="profile-sub__order-container x:pt-[20px]">
+        <div class="x:grid x:grid-cols-1 sm:x:grid-cols-2 md:x:grid-cols-3 lg:x:grid-cols-4 x:gap-5">
+      
+          {% for i in (1..8) %}
+            <div class="x:bg-gray-100 x:h-[300px] x:flex x:items-center x:justify-center x:text-gray-600">
+              Card {{ i }}
+            </div>
+          {% endfor %}
+      
+        </div>
       </div>
 
-      <!-- SWATCHES -->
-      <div class="x:flex x:gap-1 x:mb-2">
-        <span class="x:w-[20px] x:h-[20px] x:rounded-full x:bg-[#d1bb9f]">&nbsp;</span>
-        <span class="x:w-[20px] x:h-[20px] x:rounded-full x:bg-[#cdcdcd]">&nbsp;</span>
-      </div>
-
-      <!-- CATEGORY -->
-      <span class="x:text-[12px] x:uppercase x:tracking-wide x:text-gray-500 x:mb-[6px]">Tabletop</span>
-
-      <!-- TITLE -->
-      <h3 class="x:text-[13px] x:font-semibold x:text-black x:leading-5 x:mb-[6px]">
-        Invigo Living Glass Tray with Gold Rim RJ1138 – 023G
-      </h3>
-
-      <!-- PRICE -->
-      <span class="x:text-[13px] x:text-black x:mb-[10px]">$5.99</span>
-
-      <!-- LOGO + ICONS -->
-      <div class="x:flex x:items-center x:gap-3">
-        <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" class="x:w-[20px]" />
-        <button class="x:text-[14px]">🛒</button>
-        <button class="x:text-[14px]">♡</button>
-      </div>
-
-    </div>
-    <!-- END ITEM -->
-
-    <!-- You can duplicate the ITEM START block above to test 8 total items -->
-    
-  </div>
-</div>
-
-
-      </div>
 
 
     </div>
