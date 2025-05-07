@@ -23,7 +23,7 @@
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "liquid": "{% render 'profile-my-account' %}",
+        "liquid": "{% render 'profile-my-wishlist' %}",
         "background": "",
         "background_gradient": "",
         "text_color": ""
