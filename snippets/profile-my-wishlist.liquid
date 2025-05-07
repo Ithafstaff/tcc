@@ -262,184 +262,6 @@
     letter-spacing: 1px;
   }
 
-  .custom-multi-col__container {
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-    max-width: 1368px;
-    margin: 0 auto 47px;
-    color: #222;
-  }
-
-  .custom-multi-col__banner-block {
-    display: flex;
-  }
-
-  .custom-multi-col__col-wrap {
-    display: flex;
-    gap: 17px;
-  }
-
-  .custom-multi-col__banner-desc-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: rgba(34, 34, 34, 0.03);
-  }
-
-  .custom-multi-col__item-box {
-    display: flex;
-    flex-direction: column;
-    max-width: 260px;
-    width: 100%;
-  }
-
-  .custom-multi-col__heading {
-    font-size: 22px;
-    font-family: "Alata", sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 66px;
-  }
-  .custom-multi-col__desc {
-    font-size: 16px;
-    font-family: "Poppins", sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 20px;
-  }
-
-  .custom-multi-col__img-box {
-    min-width: 63.23%;
-    height: 460px;
-  }
-  
-  .custom-multi-col__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .custom-multi-col__banner-desc-wrap {
-    padding: 46px;
-  }
-
-  .custom-multi-col__swatch-wrap {
-    margin-top: 29px;
-    display: flex;
-    gap: 6px;
-  }
-  
-  .custom-multi-col__swatch-wrap span {
-    display: flex;
-    width: 26px;
-    height: 26px;
-    position: relative;
-  }
-
-  .custom-multi-col__swatch-wrap span:nth-child(1) {
-    background: #EEAF4D;
-  }
-
-  .custom-multi-col__swatch-wrap span:nth-child(1)::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: inherit;
-  }
-
-  .custom-multi-col__swatch-wrap span:nth-child(2) {
-    background: #E5C090;
-  }
-
-  .custom-multi-col__swatch-wrap span:nth-child(3) {
-    background: #A57C52;
-  }
-
-  .custom-multi-col__swatch-wrap span:nth-child(4) {
-    background: #CDCDCD;
-  }
-
-  .custom-multi-col__swatch-wrap span:nth-child(5) {
-    background: #D1BB9F;
-  }
-
-    .custom-multi-col__swatch-wrap p {
-      font-family: "Alata", sans-serif !important;
-      font-size: 10px;
-      letter-spacing: 1px;
-      color: rgba(34, 34, 34, 0.5);
-      display: flex;
-      align-items: center;
-    }
-
-  .custom-multi-col__button {
-    font-size: 14px;
-    font-family: "Alata", sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 66px;
-    text-align: center;
-    color: #222;
-    border: 1px solid #000;
-    padding: 0 40px;
-    margin-top: 40px;
-    text-transform: uppercase;
-  }
-
-  .custom-multi-col__item-name {
-    font-size: 14px;
-    font-family: "Alata", sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-    /* line-height: 66px; */
-    color: #222;
-    margin: 5px 0 15px;
-  }
-  .custom-multi-col__item-desc {
-    font-size: 14px;
-    font-family: "Poppins", sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 20px;
-  }
-  .custom-multi-col__item-price {
-    font-size: 14px;
-    font-family: "Poppins", sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 20px;
-    margin: 8px 0;
-  }
-
-  .custom-multi-col__item-cert {
-    width: 25px;
-    margin-top: 8px;
-  }
-
-  .custom-multi-col__item-img-box {
-    width: 100%;
-    height: 260px;
-  }
-
-  .custom-multi-col__item-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .custom-multi-col__item-swatch-wrap {
-    margin-top: 7px;
-  }
-
-.custom-multi-col__item-box {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 10px;
-}
 
 
     /* 
@@ -511,16 +333,32 @@
       <div class="profile-sub__order-container x:pt-[20px]" style="padding-bottom: 20px;">
         <div class="x:grid x:grid-cols-1 sm:x:grid-cols-2 md:x:grid-cols-3 lg:x:grid-cols-4 x:gap-x-[20px] x:gap-y-[30px]">
           <!-- ITEM START -->
-          <div class="custom-multi-col__item-box">
-            <div class="custom-multi-col__item-img-box">
-              <img class="custom-multi-col__item-img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" width="100%" loading="lazy" />
+            <div style="display: flex; flex-direction: column; max-width: 260px; width: 100%; padding-bottom: 10px;">
+              <div style="width: 100%; height: 260px;">
+                <img 
+                  src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532"
+                  style="width: 100%; height: 100%; object-fit: cover;"
+                  loading="lazy"
+                />
+              </div>
+              <div style="margin-top: 7px;">
+                <span style="font-family: 'Alata', sans-serif; font-size: 10px; letter-spacing: 1px; color: rgba(34,34,34,0.5);">swatch test</span>
+              </div>
+              <h3 style="font-size: 14px; font-family: 'Alata', sans-serif; font-weight: 400; letter-spacing: 1px; color: #222; margin: 5px 0 15px;">
+                Sample Product Title
+              </h3>
+              <p style="font-size: 14px; font-family: 'Poppins', sans-serif; font-weight: 400; letter-spacing: 1px; line-height: 20px;">
+                This is a sample product description to test layout and styling.
+              </p>
+              <span style="font-size: 14px; font-family: 'Poppins', sans-serif; font-weight: 400; letter-spacing: 1px; line-height: 20px; margin: 8px 0;">
+                $25.00
+              </span>
+              <img 
+                src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331"
+                style="width: 25px; margin-top: 8px;"
+              />
             </div>
-            <div class="custom-multi-col__item-swatch-wrap"><span>swatch test</span></div>
-            <h3 class="custom-multi-col__item-name">Sample Product Title</h3>
-            <p class="custom-multi-col__item-desc">This is a sample product description to test layout and styling.</p>
-            <span class="custom-multi-col__item-price">$25.00</span>
-            <img class="custom-multi-col__item-cert" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" />
-          </div>
+
           <!-- Repeat for 8 items -->
           <!-- ... -->
         </div>
