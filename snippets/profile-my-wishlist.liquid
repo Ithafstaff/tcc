@@ -331,17 +331,19 @@
         </div>
       </div>
       
-      <div class="profile-sub__order-container x:pt-[20px]">
-        <div class="x:grid x:grid-cols-1 sm:x:grid-cols-2 md:x:grid-cols-3 lg:x:grid-cols-4 x:gap-5">
-      
-          {% for i in (1..8) %}
-            <div class="x:bg-gray-100 x:h-[300px] x:flex x:items-center x:justify-center x:text-gray-600">
-              Card {{ i }}
-            </div>
-          {% endfor %}
-      
-        </div>
-      </div>
+<div class="profile-sub__order-container" style="padding-top: 20px;">
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+    <div style="background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center;">Card 1</div>
+    <div style="background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center;">Card 2</div>
+    <div style="background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center;">Card 3</div>
+    <div style="background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center;">Card 4</div>
+    <div style="background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center;">Card 5</div>
+    <div style="background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center;">Card 6</div>
+    <div style="background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center;">Card 7</div>
+    <div style="background: #f0f0f0; height: 200px; display: flex; align-items: center; justify-content: center;">Card 8</div>
+  </div>
+</div>
+
 
 
 
