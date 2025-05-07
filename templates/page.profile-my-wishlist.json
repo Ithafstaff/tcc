@@ -11,10 +11,37 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "custom_liquid_P3DFe4": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% render 'profile-my-account' %}",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "custom_shipping_section_DaRzrX": {
+      "type": "custom-shipping-section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_liquid_P3DFe4",
+    "custom_shipping_section_DaRzrX"
   ]
 }
