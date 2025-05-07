@@ -332,28 +332,18 @@
         </div>
       </div>
       <div class="profile-sub__order-container">
-        <div class="custom-multi-col__col-wrap">
-            {% assign custom_collection = collections[block.settings.id_link.handle] %}
-            {% assign product_count = custom_collection.products_count | plus: 0 %}
-              {% if product_count > 0 %}
-              {% for product in custom_collection.products limit: 5 %}
-                <div class="custom-multi-col__item-box">
-                  <div class="custom-multi-col__item-img-box">
-                    <img class="custom-multi-col__item-img" src="{{ product.featured_image | img_url: 'medium' }}" width="100%" loading="lazy" />
-                  </div>
-                  <div class="custom-multi-col__item-swatch-wrap">
-                    <span>swatch test</span>
-                  </div>
-                  <h3 class="custom-multi-col__item-name">{{ product.title }}</h3>
-                  <p class="custom-multi-col__item-desc">{{ product.description | strip_html | truncatewords: 10 }}</p>
-                  <span class="custom-multi-col__item-price">
-                    {{ product.price | money }}
-                  </span>
-                  <img class="custom-multi-col__item-cert" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" />
-                </div>
-              {% endfor %}
-            {% endif %}
+        <div class="custom-multi-col__item-box">
+          <div class="custom-multi-col__item-img-box">
+            <img class="custom-multi-col__item-img" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/products/sample-product.jpg?v=123456" width="100%" loading="lazy" />
           </div>
+          <div class="custom-multi-col__item-swatch-wrap">
+            <span>swatch test</span>
+          </div>
+          <h3 class="custom-multi-col__item-name">Sample Product Title</h3>
+          <p class="custom-multi-col__item-desc">This is a sample product description to test layout and styling.</p>
+          <span class="custom-multi-col__item-price">$25.00</span>
+          <img class="custom-multi-col__item-cert" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" />
+        </div>
         <div class="profile-sub__order-wrap">
           <div class="profile-sub__order-block">
             <div class="profile-sub__order-date-wrap">
