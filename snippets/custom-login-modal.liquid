@@ -2,7 +2,8 @@
   class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-50" 
   id="login-modal"
 >
- {% form 'customer_login', return_to: '/pages/profile' %}
+{% form 'customer_login' %}
+  <input type="hidden" name="return_to" value="/pages/profile">
       <div class="x:w-[50rem] x:bg-white x:p-10 x:flex x:flex-col x:gap-5 x:items-center x:relative">
         <i class="x:absolute x:right-5 x:top-5 x:cursor-pointer" onclick="document.getElementById('login-modal').classList.add('x:hidden')">
           <span class="x:cursor-pointer">
