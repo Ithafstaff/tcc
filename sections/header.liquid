@@ -289,7 +289,7 @@ the underlying logic of the menu.
           {%- if shop.customer_accounts_enabled -%}
             <li>
               <a 
-                href="{% if customer %}/pages/profile{% else %}{{ routes.account_login_url }}{% endif %}" 
+                href="{% if customer %}/pages/profile{% else %}#{% endif %}" 
                 class="hidden tap-area sm:block"
                 {% unless customer %}
                   onclick="
