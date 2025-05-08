@@ -490,7 +490,20 @@
           
                 <!-- Right: Action Buttons -->
                 <div style="text-align: right;">
-                  <a href="/account/addresses/{{ address.id }}" data-address-id="{{ address.id }}" style="font-size: 11px; text-transform: uppercase; color: #000; display: block; margin-bottom: 4px;">Edit</a>
+                  <button 
+                    class="edit-address-button" 
+                    data-id="{{ address.id }}"
+                    data-address1="{{ address.address1 }}"
+                    data-address2="{{ address.address2 }}"
+                    data-city="{{ address.city }}"
+                    data-province="{{ address.province }}"
+                    data-zip="{{ address.zip }}"
+                    data-country="{{ address.country }}"
+                    data-default="{{ address == customer.default_address }}"
+                    style="font-size: 11px; text-transform: uppercase; color: #000; display: block; margin-bottom: 4px; background: none; border: none; cursor: pointer;">
+                    Edit
+                  </button>
+
                   <form class="delete-address-form" method="post" action="/account/addresses/{{ address.id }}" style="margin: 0;">
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit" style="font-size: 11px; text-transform: uppercase; color: #000; background: none; border: none; cursor: pointer;">Delete</button>
@@ -546,15 +559,7 @@
             </div>
           </div>
         </div>
-       
 
-
-
-
-
-
-        
-        
         <div id="deletion-section" class="profile__account-wrap hide">
           <p>Request to delete your account will go here.</p>
         </div>
