@@ -603,50 +603,67 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll(".profile__order-cat-link");
     const tabs = {
       "profile-tab": "profile-section",
       "addresses-tab": "addresses-section",
       "deletion-tab": "deletion-section"
     };
 
+    function activateTab(tabId) {
+      // Remove active class from all links
+      document.querySelectorAll(".profile__order-cat-link").forEach(link =>
+        link.classList.remove("profile__order-cat-link--active")
+      );
+
+      // Hide all tab sections
+      Object.values(tabs).forEach(sectionId =>
+        document.getElementById(sectionId).classList.add("hide")
+      );
+
+      // Show selected section and highlight tab
+      document.getElementById(tabId).classList.add("profile__order-cat-link--active");
+      document.getElementById(tabs[tabId]).classList.remove("hide");
+    }
+
+    // Initial tab from hash
+    const hash = window.location.hash;
+    if (hash === "#addresses") {
+      activateTab("addresses-tab");
+    } else if (hash === "#deletion") {
+      activateTab("deletion-tab");
+    } else {
+      activateTab("profile-tab"); // default
+    }
+
+    // Handle tab clicks
     Object.keys(tabs).forEach(tabId => {
       document.getElementById(tabId).addEventListener("click", function (e) {
         e.preventDefault();
-    
-        // Toggle active tab styling
-        document.querySelectorAll(".profile__order-cat-link").forEach(link =>
-          link.classList.remove("profile__order-cat-link--active")
-        );
-        this.classList.add("profile__order-cat-link--active");
-    
-        // Show corresponding section, hide others
-        Object.values(tabs).forEach(sectionId =>
-          document.getElementById(sectionId).classList.add("hide")
-        );
-        document.getElementById(tabs[tabId]).classList.remove("hide");
+        activateTab(tabId);
       });
     });
   });
 
-    const toggle = document.getElementById("togglePassword");
-    const password = document.getElementById("password");
-  
+  // Toggle password visibility
+  const toggle = document.getElementById("togglePassword");
+  const password = document.getElementById("password");
+
+  if (toggle && password) {
     toggle.addEventListener("click", function () {
       const type = password.getAttribute("type") === "password" ? "text" : "password";
       password.setAttribute("type", type);
-      
-      // Toggle icon if desired
-  this.style.backgroundImage = type === "password"
-      ? "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/hide.png?v=1746473941)"
-      : "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/show.png?v=1746473942)";
+      this.style.backgroundImage = type === "password"
+        ? "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/hide.png?v=1746473941)"
+        : "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/show.png?v=1746473942)";
     });
+  }
 
-    function closeAddressModal() {
+  function closeAddressModal() {
     document.getElementById('addressModal').style.display = 'none';
   }
-  
-   document.getElementById('add-address-form').addEventListener('submit', function(e) {
+
+  // Address form submission via fetch
+  document.getElementById('add-address-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const form = e.target;
@@ -655,18 +672,15 @@
     fetch('/account/addresses', {
       method: 'POST',
       body: formData,
-      headers: {
-        'Accept': 'text/html',
-      },
+      headers: { 'Accept': 'text/html' }
     })
-    .then(response => {
-      if (response.ok) {
-        window.location.href = '/pages/profile-my-account#addresses';
-      } else {
-        alert('Failed to add address.');
-      }
-    })
-    .catch(() => alert('Error submitting address.'));
+      .then(response => {
+        if (response.ok) {
+          window.location.href = '/pages/profile-my-account#addresses';
+        } else {
+          alert('Failed to add address.');
+        }
+      })
+      .catch(() => alert('Error submitting address.'));
   });
 </script>
-  
