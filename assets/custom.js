@@ -67,7 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
           if (selectedMedia) {
             let selectedImg = selectedMedia.querySelector('img');
             if (selectedImg) {
-              selectedImg.src = img.srcset;
+              selectedImg.src = img.src;
+              selectedImg.srcset = img.src;
             }
           }
 
