@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
 (function () {
   const THUMB_CLASS = 'custom-product__gallery-thumbnail';
+  const MEDIA_CLASS = 'custom-product__gallery-media';
   const ACTIVE_CLASS = 'thumb--hovered';
   const BORDER_STYLE = '1px solid #000';
 
@@ -41,29 +43,38 @@ document.addEventListener('DOMContentLoaded', function () {
     if (el.dataset.thumbBound) return;
 
     el.addEventListener('mouseenter', () => {
-      // Get all current thumbnails
       const allThumbs = Array.from(document.querySelectorAll('.' + THUMB_CLASS));
+      const index = allThumbs.indexOf(el); // 0-based index
 
-      // Find the index of the hovered element
-      const index = allThumbs.indexOf(el);
-
-      // Clear previous border class
+      // Remove border from all
       allThumbs.forEach(node => node.classList.remove(ACTIVE_CLASS));
 
       // Add border to current
       el.classList.add(ACTIVE_CLASS);
 
-      // Log the 1-based index (e.g., 5 for fifth thumbnail)
-      console.log(`Hovered thumbnail number: ${index + 1}`);
+      // Get corresponding media element based on index
+      const mediaList = document.querySelectorAll('.' + MEDIA_CLASS);
+      const targetMedia = mediaList[index];
+
+      if (targetMedia) {
+        const img = targetMedia.querySelector('img');
+        if (img && img.src) {
+          console.log(`Hovered image src: ${img.src}`);
+        } else {
+          console.log(`No image found in media item ${index + 1}`);
+        }
+      } else {
+        console.log(`No media item at position ${index + 1}`);
+      }
     });
 
     el.dataset.thumbBound = 'true';
   }
 
-  // Bind all current thumbnails
+  // Attach listeners to existing thumbs
   document.querySelectorAll('.' + THUMB_CLASS).forEach(attachHover);
 
-  // Handle dynamically added thumbnails
+  // Watch for dynamically added thumbs
   const observer = new MutationObserver(mutations => {
     for (const m of mutations) {
       m.addedNodes.forEach(node => {
@@ -77,5 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   observer.observe(document.body, { childList: true, subtree: true });
 })();
+
 
 
