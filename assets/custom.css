@@ -408,4 +408,4 @@
     margin: 0 auto;
 }
 
-
+.custom-product__gallery-thumbnail:hover { border:1px solid #000; }
