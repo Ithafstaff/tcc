@@ -606,6 +606,33 @@
         activateTab(tabId);
       });
     });
+      const addressForm = document.getElementById("add-address-form");
+    if (addressForm) {
+      addressForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(addressForm);
+
+        fetch("/account/addresses", {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "text/html" }
+        })
+        .then(response => {
+          if (response.ok) {
+            // Close the modal
+            document.getElementById("add-address-modal").style.display = "none";
+
+            // Redirect after short delay to ensure the address is saved
+            setTimeout(() => {
+              window.location.href = "/pages/profile-my-account#addresses";
+            }, 1000);
+          } else {
+            alert("Failed to add address.");
+          }
+        })
+        .catch(() => alert("Error submitting address."));
+      });
+    }
   });
 
   // Toggle password visibility
