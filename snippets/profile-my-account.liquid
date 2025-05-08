@@ -619,8 +619,8 @@
         })
         .then(response => {
           if (response.ok) {
-            document.getElementById("add-address-modal").style.display = "none";
-            window.location.href = "/pages/profile-my-account#addresses";
+               document.getElementById("add-address-modal").style.display = "none";
+              location.reload();
           } else {
             alert("Failed to add address.");
           }
@@ -664,7 +664,7 @@
       })
       .then(response => {
         if (response.ok) {
-            window.location.href = "/pages/profile-my-account#addresses";
+           location.reload();
         } else {
           alert("Failed to delete address.");
         }
