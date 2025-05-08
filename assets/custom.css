@@ -173,6 +173,7 @@
   font-style: normal !important;
   color: #000;
   margin-bottom: 15px;
+  display: block;
 }
 
 .custom-product__info-quantity-wrap {

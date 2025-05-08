@@ -499,7 +499,7 @@
                       data-province="{{ address.province }}"
                       data-zip="{{ address.zip }}"
                       data-country="{{ address.country }}"
-                      data-default="{{ address.id == customer.default_address.id }}"
+                     data-default="{% if address.id == customer.default_address.id %}true{% else %}false{% endif %}"
                       style="font-size: 11px; text-transform: uppercase; color: #000; display: block; margin-bottom: 4px; background: none; border: none; cursor: pointer;">
                       Edit
                     </button>
