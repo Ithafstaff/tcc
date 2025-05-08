@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log(`Hovered image src: ${img.src}`);
           console.log('index: ' + (index+1));
           
-          let isSelected = document.querySelectorAll('.' + MEDIA_CLASS + '.is-selected' + " img");
-          isSelected.src=img.src;
+          let isSelected = document.querySelectorAll('.' + MEDIA_CLASS + '.is-selected img');
+          isSelected.src = img.src;
 
           
         } else {
