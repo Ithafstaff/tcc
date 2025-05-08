@@ -501,52 +501,88 @@
         
                           <!-- ADDRESS SECTION -->
         <!-- Add Address Button -->
-<button onclick="document.getElementById('add-address-modal').style.display='flex'" style="padding: 10px 20px; background-color: #000; color: #fff; border: none; cursor: pointer; font-size: 12px; text-transform: uppercase;">
-  ADD NEW ADDRESS
-</button>
+        <button onclick="document.getElementById('add-address-modal').style.display='flex'" style="padding: 10px 20px; background-color: #000; color: #fff; border: none; cursor: pointer; font-size: 12px; text-transform: uppercase;">
+          ADD NEW ADDRESS
+        </button>
+        
+                <!-- Address List -->
+        <ul style="list-style: none; padding: 0; margin-top: 30px;">
+          {% for address in customer.addresses %}
+            <li style="display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid #ddd;">
+              
+              <!-- Left: Address Details -->
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <!-- Location Icon -->
+                <svg style="width: 16px; height: 16px; fill: #000;" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                </svg>
+                <span style="font-size: 13px; font-family: 'Poppins', sans-serif; color: #000;">
+                  {{ address.address1 }},
+                  {% if address.address2 != blank %}{{ address.address2 }},{% endif %}
+                  {{ address.city }}, {{ address.province }}, {{ address.zip }}, {{ address.country }}
+                </span>
+        
+                {% if address == customer.default_address %}
+                  <span style="font-size: 10px; text-transform: uppercase; border: 1px solid #888; padding: 2px 6px; margin-left: 10px;">Default</span>
+                {% endif %}
+              </div>
+        
+              <!-- Right: Action Buttons -->
+              <div style="text-align: right;">
+                <a href="/account/addresses/{{ address.id }}" data-address-id="{{ address.id }}" style="font-size: 11px; text-transform: uppercase; color: #000; display: block; margin-bottom: 4px;">Edit</a>
+                <form method="post" action="/account/addresses/{{ address.id }}" style="margin: 0;">
+                  <input type="hidden" name="_method" value="delete">
+                  <button type="submit" style="font-size: 11px; text-transform: uppercase; color: #000; background: none; border: none; cursor: pointer;">Delete</button>
+                </form>
+              </div>
+        
+            </li>
+          {% endfor %}
+        </ul>
 
-<!-- Modal Overlay -->
-<div id="add-address-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 999;">
-  <div style="background: #fff; padding: 30px; max-width: 600px; width: 100%; box-sizing: border-box; position: relative;">
-
-    <!-- Modal Heading -->
-    <h2 style="text-align: center; margin-top: 0; margin-bottom: 30px; font-family: 'Alata', sans-serif;">DELIVERY ADDRESS</h2>
-
-    <!-- Form -->
-    <form method="post" action="/account/addresses" accept-charset="UTF-8">
-      <input type="hidden" name="form_type" value="customer_address">
-      <input type="hidden" name="utf8" value="✓">
-
-      <!-- Address -->
-      <div style="margin-bottom: 20px;">
-        <input type="text" name="address[address1]" placeholder="Street Address" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-      </div>
-
-      <!-- 2 Column Fields -->
-      <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-        <input type="text" name="address[city]" placeholder="City" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-        <input type="text" name="address[province]" placeholder="State" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-      </div>
-
-      <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-        <input type="text" name="address[zip]" placeholder="ZIP Code" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-        <input type="text" name="address[country]" placeholder="Country" value="United States" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-      </div>
-
-      <!-- Checkbox -->
-      <label style="display: flex; align-items: center; margin-bottom: 20px; font-size: 13px;">
-        <input type="checkbox" name="address[default]" value="1" style="margin-right: 10px; width: 16px; height: 16px;"> 
-        Set As Default Address
-      </label>
-
-      <!-- Buttons -->
-      <div style="display: flex; gap: 10px;">
-        <button type="button" onclick="document.getElementById('add-address-modal').style.display='none'" style="flex: 1; padding: 14px; background: #fff; border: 1px solid #000; font-size: 13px; cursor: pointer;">CANCEL</button>
-        <button type="submit" style="flex: 1; padding: 14px; background: #000; color: #fff; border: none; font-size: 13px; cursor: pointer;">SAVE</button>
-      </div>
-    </form>
-  </div>
-</div>
+        
+        <!-- Modal Overlay -->
+        <div id="add-address-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 999;">
+          <div style="background: #fff; padding: 30px; max-width: 600px; width: 100%; box-sizing: border-box; position: relative;">
+        
+            <!-- Modal Heading -->
+            <h2 style="text-align: center; margin-top: 0; margin-bottom: 30px; font-family: 'Alata', sans-serif;">DELIVERY ADDRESS</h2>
+        
+            <!-- Form -->
+            <form method="post" action="/account/addresses" accept-charset="UTF-8">
+              <input type="hidden" name="form_type" value="customer_address">
+              <input type="hidden" name="utf8" value="✓">
+        
+              <!-- Address -->
+              <div style="margin-bottom: 20px;">
+                <input type="text" name="address[address1]" placeholder="Street Address" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+              </div>
+        
+              <!-- 2 Column Fields -->
+              <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input type="text" name="address[city]" placeholder="City" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                <input type="text" name="address[province]" placeholder="State" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+              </div>
+        
+              <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input type="text" name="address[zip]" placeholder="ZIP Code" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                <input type="text" name="address[country]" placeholder="Country" value="United States" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+              </div>
+        
+              <!-- Checkbox -->
+              <label style="display: flex; align-items: center; margin-bottom: 20px; font-size: 13px;">
+                <input type="checkbox" name="address[default]" value="1" style="margin-right: 10px; width: 16px; height: 16px;"> 
+                Set As Default Address
+              </label>
+        
+              <!-- Buttons -->
+              <div style="display: flex; gap: 10px;">
+                <button type="button" onclick="document.getElementById('add-address-modal').style.display='none'" style="flex: 1; padding: 14px; background: #fff; border: 1px solid #000; font-size: 13px; cursor: pointer;">CANCEL</button>
+                <button type="submit" style="flex: 1; padding: 14px; background: #000; color: #fff; border: none; font-size: 13px; cursor: pointer;">SAVE</button>
+              </div>
+            </form>
+          </div>
+        </div>
 
 
 
