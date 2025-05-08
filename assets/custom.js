@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-          
+      
           if (selectedMedia) {
             let selectedImg = selectedMedia.querySelector('img');
             if (selectedImg) {
