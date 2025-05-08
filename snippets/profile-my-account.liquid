@@ -610,21 +610,32 @@
       "deletion-tab": "deletion-section"
     };
 
+   // Function to activate a tab
+    function activateTab(tabId) {
+      Object.values(tabs).forEach(sectionId =>
+        document.getElementById(sectionId).classList.add("hide")
+      );
+      document.getElementById(tabs[tabId]).classList.remove("hide");
+  
+      document.querySelectorAll(".profile__order-cat-link").forEach(link =>
+        link.classList.remove("profile__order-cat-link--active")
+      );
+      document.getElementById(tabId).classList.add("profile__order-cat-link--active");
+    }
+  
+    // Check if URL has hash and open correct tab
+    const hash = window.location.hash;
+    if (hash === "#addresses") {
+      activateTab("addresses-tab");
+    } else {
+      activateTab("profile-tab"); // default
+    }
+  
+    // Handle clicks
     Object.keys(tabs).forEach(tabId => {
       document.getElementById(tabId).addEventListener("click", function (e) {
         e.preventDefault();
-    
-        // Toggle active tab styling
-        document.querySelectorAll(".profile__order-cat-link").forEach(link =>
-          link.classList.remove("profile__order-cat-link--active")
-        );
-        this.classList.add("profile__order-cat-link--active");
-    
-        // Show corresponding section, hide others
-        Object.values(tabs).forEach(sectionId =>
-          document.getElementById(sectionId).classList.add("hide")
-        );
-        document.getElementById(tabs[tabId]).classList.remove("hide");
+        activateTab(tabId);
       });
     });
   });
@@ -661,7 +672,7 @@
     })
     .then(response => {
       if (response.ok) {
-        window.location.href = '/pages/profile-my-account';
+        window.location.href = '/pages/profile-my-account#addresses';
       } else {
         alert('Failed to add address.');
       }
