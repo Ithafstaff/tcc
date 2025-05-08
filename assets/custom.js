@@ -22,4 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+// this script is for product carousel image when hovering
+
+
 
