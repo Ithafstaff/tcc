@@ -591,14 +591,15 @@
 
     // Initial tab from hash
     const hash = window.location.hash;
-    if (hash === "#addresses") {
+    if (hash === "#addresses-tab") {
       activateTab("addresses-tab");
-    } else if (hash === "#deletion") {
+    } else if (hash === "#deletion-tab") {
       activateTab("deletion-tab");
     } else {
       window.location.hash = "#profile-tab"; // set default hash
       activateTab("profile-tab");
     }
+
 
     // Handle tab clicks
     Object.keys(tabs).forEach(tabId => {
