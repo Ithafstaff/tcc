@@ -608,7 +608,8 @@
         activateTab(tabId);
       });
     });
-      const addressForm = document.getElementById("add-address-form");
+    
+    const addressForm = document.getElementById("add-address-form");
     if (addressForm) {
       addressForm.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -621,8 +622,8 @@
         })
         .then(response => {
           if (response.ok) {
-               document.getElementById("add-address-modal").style.display = "none";
-              location.reload();
+            window.location.hash = "#addresses-tab";
+            location.reload();
           } else {
             alert("Failed to add address.");
           }
