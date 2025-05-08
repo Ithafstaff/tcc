@@ -721,7 +721,42 @@
       .catch(() => alert("Error deleting address."));
     });
   });
+document.querySelectorAll('.edit-address-button').forEach(button => {
+  button.addEventListener('click', () => {
+    document.getElementById('edit-address-id').value = button.dataset.id;
+    document.getElementById('edit-address1').value = button.dataset.address1 || '';
+    document.getElementById('edit-city').value = button.dataset.city || '';
+    document.getElementById('edit-province').value = button.dataset.province || '';
+    document.getElementById('edit-zip').value = button.dataset.zip || '';
+    document.getElementById('edit-country').value = button.dataset.country || '';
+    document.getElementById('edit-default').checked = button.dataset.default === "true";
 
+    document.getElementById('edit-address-modal').style.display = 'flex';
+  });
+});
+const editForm = document.getElementById("edit-address-form");
+if (editForm) {
+  editForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const id = document.getElementById('edit-address-id').value;
+    const formData = new FormData(editForm);
+
+    fetch(`/account/addresses/${id}`, {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "text/html" }
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.hash = "#addresses-tab";
+        setTimeout(() => location.reload(), 100);
+      } else {
+        alert("Failed to update address.");
+      }
+    })
+    .catch(() => alert("Error updating address."));
+  });
+}
 
 
 </script>
