@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (img && img.src) {
           console.log(`Hovered image src: ${img.src}`);
           console.log('index: ' + (index+1));
+          
         } else {
           console.log(`No image found in media item ${index + 1}`);
         }
