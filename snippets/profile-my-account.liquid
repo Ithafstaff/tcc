@@ -619,13 +619,8 @@
         })
         .then(response => {
           if (response.ok) {
-            // Close the modal
             document.getElementById("add-address-modal").style.display = "none";
-
-            // Redirect after short delay to ensure the address is saved
-            setTimeout(() => {
-              window.location.href = "/pages/profile-my-account#addresses";
-            }, 500);
+            window.location.href = "/pages/profile-my-account#addresses";
           } else {
             alert("Failed to add address.");
           }
@@ -669,9 +664,7 @@
       })
       .then(response => {
         if (response.ok) {
-          setTimeout(() => {
             window.location.href = "/pages/profile-my-account#addresses";
-          }, 500);
         } else {
           alert("Failed to delete address.");
         }
