@@ -500,75 +500,82 @@
         </div>
         
                           <!-- ADDRESS SECTION -->
-        <div id="addresses-section" class="profile__account-wrap hide">
-          <button class="profile__account-btn-add">add new address</button>
+        <!-- Add Address Button -->
+        <button onclick="document.getElementById('add-address-modal').style.display='flex'" style="text-transform: uppercase; border: 1px solid #222; padding: 10px 20px; font-size: 12px; cursor: pointer; background: #fff; color: #222;">
+          Add New Address
+        </button>
         
-          <ul class="profile__account-address-wrap">
-            {% for address in customer.addresses %}
-              <li class="profile__account-address-item {% if address == customer.default_address %}default{% endif %}">
-                {{ address.address1 }},
-                {% if address.address2 %}{{ address.address2 }},{% endif %}
-                {{ address.city }}, {{ address.province_code }} {{ address.zip }}, {{ address.country }}
-                
-                <div class="profile__account-btn-wrap">
-                  <span class="profile__account-btn-mod btn-edit" data-address-id="{{ address.id }}">EDIT</span>
-                  <span class="profile__account-btn-mod btn-del" data-address-id="{{ address.id }}">DELETE</span>
-                </div>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-        <!-- MODAL OVERLAY -->
-        <div id="addressModal" style="display: none; position: fixed; top: 0; left: 0; 
-             width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; 
-             justify-content: center; align-items: center;">
+        <!-- Modal Overlay -->
+        <div id="add-address-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 1000;">
+          <!-- Modal Content -->
+          <div style="background: #fff; padding: 30px; width: 90%; max-width: 500px; box-sizing: border-box; position: relative;">
+            
+            <h3 style="margin-top: 0; font-size: 20px; margin-bottom: 20px;">Add New Address</h3>
+            
+            <!-- Close Button -->
+            <button onclick="document.getElementById('add-address-modal').style.display='none'" style="position: absolute; top: 10px; right: 10px; font-size: 16px; background: none; border: none; cursor: pointer;">✕</button>
+            
+            <form method="post" action="/account/addresses" accept-charset="UTF-8">
+              <input type="hidden" name="form_type" value="customer_address">
+              <input type="hidden" name="utf8" value="✓">
         
-          <!-- MODAL BOX -->
-          <div style="background: #fff; padding: 40px; width: 600px; max-width: 90%; box-shadow: 0 2px 10px rgba(0,0,0,0.2); font-family: 'Alata', sans-serif;">
-            <h2 style="text-align: center; margin-bottom: 20px;">DELIVERY ADDRESS</h2>
+              <!-- First Name -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">First Name</label>
+              <input type="text" name="address[first_name]" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;">
         
-            <div style="margin-bottom: 15px;">
-              <label for="street" style="font-size: 12px;">Street Address</label>
-              <input id="street" type="text" style="width: 100%; padding: 10px; border: 1px solid #000;">
-            </div>
+              <!-- Last Name -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">Last Name</label>
+              <input type="text" name="address[last_name]" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;">
         
-            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-              <div style="flex: 1;">
-                <label for="city" style="font-size: 12px;">City</label>
-                <input id="city" type="text" style="width: 100%; padding: 10px; border: 1px solid #000;">
-              </div>
-              <div style="flex: 1;">
-                <label for="state" style="font-size: 12px;">State</label>
-                <input id="state" type="text" style="width: 100%; padding: 10px; border: 1px solid #000;">
-              </div>
-            </div>
+              <!-- Company -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">Company</label>
+              <input type="text" name="address[company]" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;">
         
-            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-              <div style="flex: 1;">
-                <label for="zip" style="font-size: 12px;">ZIP Code</label>
-                <input id="zip" type="text" style="width: 100%; padding: 10px; border: 1px solid #000;">
-              </div>
-              <div style="flex: 1;">
-                <label for="country" style="font-size: 12px;">Country</label>
-                <input id="country" type="text" style="width: 100%; padding: 10px; border: 1px solid #000;" value="United States">
-              </div>
-            </div>
+              <!-- Address 1 -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">Address</label>
+              <input type="text" name="address[address1]" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;">
         
-            <div style="margin-bottom: 20px;">
-              <label style="font-size: 12px;">
-                <input type="checkbox" style="margin-right: 5px;"> Set As Default Address
+              <!-- Address 2 -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">Apartment, suite, etc.</label>
+              <input type="text" name="address[address2]" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;">
+        
+              <!-- City -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">City</label>
+              <input type="text" name="address[city]" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;">
+        
+              <!-- Country -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">Country</label>
+              <select name="address[country]" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;">
+                {{ country_option_tags }}
+              </select>
+        
+              <!-- Province -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">Province</label>
+              <select name="address[province]" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;">
+                {{ province_option_tags }}
+              </select>
+        
+              <!-- Zip -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">Postal/ZIP Code</label>
+              <input type="text" name="address[zip]" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc;">
+        
+              <!-- Phone -->
+              <label style="display: block; margin-bottom: 5px; font-size: 12px;">Phone</label>
+              <input type="tel" name="address[phone]" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc;">
+        
+              <!-- Set as default -->
+              <label style="display: flex; align-items: center; font-size: 12px; margin-bottom: 20px;">
+                <input type="checkbox" name="address[default]" value="1" style="margin-right: 10px;"> Set as default address
               </label>
-            </div>
         
-            <div style="display: flex; gap: 10px;">
-              <button onclick="closeAddressModal()" style="flex: 1; padding: 10px; border: 1px solid #000;">Cancel</button>
-              <button style="flex: 1; padding: 10px; border: 1px solid #000; background: #000; color: #fff;">Save</button>
-            </div>
+              <!-- Submit Button -->
+              <button type="submit" style="padding: 12px 20px; background: #222; color: white; border: none; font-size: 14px; cursor: pointer; width: 100%;">
+                Save Address
+              </button>
+            </form>
           </div>
         </div>
-        
-        <!-- TRIGGER BUTTON (for testing) -->
-        <button onclick="document.getElementById('addressModal').style.display='flex'">Open Modal</button>
+
 
 
 
@@ -613,20 +620,18 @@
     });
   });
 
-
-
     const toggle = document.getElementById("togglePassword");
-  const password = document.getElementById("password");
-
-  toggle.addEventListener("click", function () {
-    const type = password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    
-    // Toggle icon if desired
-this.style.backgroundImage = type === "password"
-    ? "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/hide.png?v=1746473941)"
-    : "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/show.png?v=1746473942)";
-  });
+    const password = document.getElementById("password");
+  
+    toggle.addEventListener("click", function () {
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+      
+      // Toggle icon if desired
+  this.style.backgroundImage = type === "password"
+      ? "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/hide.png?v=1746473941)"
+      : "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/show.png?v=1746473942)";
+    });
 
     function closeAddressModal() {
     document.getElementById('addressModal').style.display = 'none';
