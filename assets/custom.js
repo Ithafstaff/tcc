@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const THUMB_CLASS = 'custom-product__gallery-thumbnail';
   const MEDIA_CLASS = 'custom-product__gallery-media';
   const ACTIVE_CLASS = 'thumb--hovered';
-  const BORDER_STYLE = '1px solid #000';
+  // const BORDER_STYLE = '1px solid #000';
 
   const style = document.createElement('style');
   style.textContent = `
