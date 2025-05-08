@@ -549,7 +549,7 @@
             <h2 style="text-align: center; margin-top: 0; margin-bottom: 30px; font-family: 'Alata', sans-serif;">DELIVERY ADDRESS</h2>
         
             <!-- Form -->
-            <form method="post" action="/account/addresses" accept-charset="UTF-8">
+            <form id="add-address-form" accept-charset="UTF-8">
               <input type="hidden" name="form_type" value="customer_address">
               <input type="hidden" name="utf8" value="✓">
         
@@ -645,5 +645,28 @@
     function closeAddressModal() {
     document.getElementById('addressModal').style.display = 'none';
   }
+  
+   document.getElementById('add-address-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch('/account/addresses', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'text/html',
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = '/pages/profile-my-account';
+      } else {
+        alert('Failed to add address.');
+      }
+    })
+    .catch(() => alert('Error submitting address.'));
+  });
 </script>
   
