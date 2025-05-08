@@ -596,13 +596,15 @@
     } else if (hash === "#deletion") {
       activateTab("deletion-tab");
     } else {
-      activateTab("profile-tab"); // default
+      window.location.hash = "#profile-tab"; // set default hash
+      activateTab("profile-tab");
     }
 
     // Handle tab clicks
     Object.keys(tabs).forEach(tabId => {
       document.getElementById(tabId).addEventListener("click", function (e) {
         e.preventDefault();
+        window.location.hash = `#${tabId}`; // update the hash
         activateTab(tabId);
       });
     });
