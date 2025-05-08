@@ -1,3 +1,4 @@
+// this script is for rendering product price
 document.addEventListener('DOMContentLoaded', function () {
   const renderPrice = document.getElementById('renderPrice');
 
@@ -19,3 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initial price display
   updatePrice();
 });
+
+
+
