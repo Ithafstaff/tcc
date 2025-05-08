@@ -389,13 +389,13 @@
         <h2 class="profile__order-heading">Account</h2>
       </div>
       <div class="profile__order-container">
-        <div class="profile__order-cat-wrap flex-start">
-          <a href="#" class="profile__order-cat-link profile__order-cat-link--active">PROFILE</a>
-          <a href="#" class="profile__order-cat-link">addresses</a>
-          <a href="#" class="profile__order-cat-link">account deletion</a>
-        </div>
+      <div class="profile__order-cat-wrap flex-start">
+        <a href="#" id="profile-tab" class="profile__order-cat-link profile__order-cat-link--active">PROFILE</a>
+        <a href="#" id="addresses-tab" class="profile__order-cat-link">ADDRESSES</a>
+        <a href="#" id="deletion-tab" class="profile__order-cat-link">ACCOUNT DELETION</a>
+      </div>
         
-        <div class="profile__account-wrap">
+        <div id="profile-section" class="profile__account-wrap">
           <h3 class="profile__account-heading">Manage and protect your account</h3>
           <div class="profile__account-info-wrap">
             
@@ -499,7 +499,7 @@
           </div>
         </div>
         
-        <div class="profile__account-wrap">
+        <div id="addresses-section" class="profile__account-wrap hide">
           <button class="profile__account-btn-add">add new address</button>
           <ul class="profile__account-address-wrap">
             <li class="profile__account-address-item default">
@@ -535,6 +535,30 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll(".profile__order-cat-link");
+    const tabs = {
+      "profile-tab": "profile-section",
+      "addresses-tab": "addresses-section",
+      "deletion-tab": "deletion-section"
+    };
+
+    Object.keys(tabs).forEach(tabId => {
+      document.getElementById(tabId).addEventListener("click", function (e) {
+        e.preventDefault();
+    
+        // Toggle active tab styling
+        document.querySelectorAll(".profile__order-cat-link").forEach(link =>
+          link.classList.remove("profile__order-cat-link--active")
+        );
+        this.classList.add("profile__order-cat-link--active");
+    
+        // Show corresponding section, hide others
+        Object.values(tabs).forEach(sectionId =>
+          document.getElementById(sectionId).classList.add("hide")
+        );
+        document.getElementById(tabs[tabId]).classList.remove("hide");
+      });
+    });
+
 
     links.forEach(link => {
       link.addEventListener("click", function (e) {
