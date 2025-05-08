@@ -63,7 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log('index: ' + (index+1));
           
          let selectedMedia = document.querySelector('.' + MEDIA_CLASS + '.is-selected');
-      
+
+
+
+          
           if (selectedMedia) {
             let selectedImg = selectedMedia.querySelector('img');
             if (selectedImg) {
@@ -72,6 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           }
 
+    
+          
           
         } else {
           console.log(`No image found in media item ${index + 1}`);
