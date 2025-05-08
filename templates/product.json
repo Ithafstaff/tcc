@@ -38,7 +38,7 @@
         "liquid_3darrU": {
           "type": "liquid",
           "settings": {
-            "liquid": "custom.sub_title"
+            "liquid": "{% render 'product-sub-title' %}"
           }
         },
         "badges": {
