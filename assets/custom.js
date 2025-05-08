@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const img = targetMedia.querySelector('img');
         if (img && img.src) {
           console.log(`Hovered image src: ${img.src}`);
+          console.log('index: ' + index);
         } else {
           console.log(`No image found in media item ${index + 1}`);
         }
