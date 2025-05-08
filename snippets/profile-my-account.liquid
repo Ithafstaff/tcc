@@ -399,84 +399,51 @@
           <h3 class="profile__account-heading">Manage and protect your account</h3>
           <div class="profile__account-info-wrap">
             
-         {% if customer %}
+          {% if customer %}
             <div class="profile__account-info-block">
               <form class="profile__account-info-container" method="post" action="/account">
-                
-                <!-- First and Last Name -->
-                <div class="form-row two-column">
-                  <div class="form-group">
-                    <label>
-                      <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281" alt="">
-                      First Name
-                    </label>
-                    <input type="text" name="customer[first_name]" value="{{ customer.first_name }}" placeholder="First Name">
+                <div class="profile__account-info-row row-flex">
+                  <div class="profile__account-row-block">
+                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="customer[first_name]" value="{{ customer.first_name }}" placeholder="First Name">
                   </div>
-                  <div class="form-group">
-                    <label>
-                      <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281" alt="">
-                      Last Name
-                    </label>
-                    <input type="text" name="customer[last_name]" value="{{ customer.last_name }}" placeholder="Last Name">
+                  <div class="profile__account-row-block">
+                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="customer[last_name]" value="{{ customer.last_name }}" placeholder="Last Name">
                   </div>
                 </div>
             
-                <!-- DOB -->
-                <div class="form-group full">
-                  <label>
-                    <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_3.svg?v=1746218281" alt="">
-                    Date of Birth
-                  </label>
-                  <input type="text" name="customer[note][dob]" value="{{ customer.note.dob }}" placeholder="MM / DD / YYYY">
+                <div class="profile__account-info-row">
+                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_3.svg?v=1746218281">
+                  <label for="dob">Date of Birth</label>
+                  <input type="text" id="dob" name="customer[note][dob]" value="{{ customer.note.dob }}" placeholder="MM/DD/YYYY">
                 </div>
             
-                <!-- Phone -->
-                <div class="form-group full">
-                  <label>
-                    <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/mdi-light_phone.svg?v=1746218281" alt="">
-                    Phone Number
-                  </label>
-                  <input type="tel" name="customer[phone]" value="{{ customer.phone }}" placeholder="Phone Number">
+                <div class="profile__account-info-row">
+                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/mdi-light_phone.svg?v=1746218281">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="customer[phone]" value="{{ customer.phone }}" placeholder="Phone Number">
                 </div>
             
-                <!-- Email -->
-                <div class="form-group full">
-                  <label>
-                    <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/stash_person-light.svg?v=1746218418" alt="">
-                    Email
-                  </label>
-                  <input type="email" name="customer[email]" value="{{ customer.email }}" placeholder="Email">
+                <div class="profile__account-info-row">
+                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/stash_person-light.svg?v=1746218418">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="customer[email]" value="{{ customer.email }}" placeholder="Email">
                 </div>
             
-                <!-- Password -->
-                <div class="form-group full password-field">
-                  <label>
-                    <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/circum_lock.svg?v=1746218282" alt="">
-                    Password
-                  </label>
-                  <input type="password" name="customer[password]" id="password" placeholder="New Password">
-                  <span class="toggle-eye" onclick="togglePassword('password', this)"></span>
+                <div class="profile__account-info-row">
+                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/circum_lock.svg?v=1746218282">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="customer[password]" placeholder="New Password">
+                  <span id="togglePassword" class="toggle-eye"></span>
                 </div>
             
-                <!-- Confirm Password -->
-                <div class="form-group full password-field">
-                  <label>
-                    <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/circum_lock.svg?v=1746218282" alt="">
-                    Confirm New Password
-                  </label>
-                  <input type="password" id="confirm-password" placeholder="Confirm New Password">
-                  <span class="toggle-eye" onclick="togglePassword('confirm-password', this)"></span>
-                </div>
-            
-                <!-- Buttons -->
-                <div class="form-row actions">
-                  <button type="reset" class="cancel-btn">Cancel</button>
-                  <button type="submit" class="save-btn">Save</button>
-                </div>
+                <button class="profile__account-btn-submit" type="submit">Update Account Information</button>
               </form>
             </div>
-            {% endif %}
-
+          {% endif %}
 
 
             
@@ -712,12 +679,19 @@
     }
   });
 
-function togglePassword(fieldId, icon) {
-  const input = document.getElementById(fieldId);
-  const type = input.getAttribute("type") === "password" ? "text" : "password";
-  input.setAttribute("type", type);
-  icon.classList.toggle("show");
-}
+  // Toggle password visibility
+  const toggle = document.getElementById("togglePassword");
+  const password = document.getElementById("password");
+
+  if (toggle && password) {
+    toggle.addEventListener("click", function () {
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+      this.style.backgroundImage = type === "password"
+        ? "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/hide.png?v=1746473941)"
+        : "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/show.png?v=1746473942)";
+    });
+  }
 
   function closeAddressModal() {
     document.getElementById('addressModal').style.display = 'none';
