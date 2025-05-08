@@ -623,7 +623,7 @@
         .then(response => {
           if (response.ok) {
             window.location.hash = "#addresses-tab";
-            location.reload();
+            setTimeout(() => location.reload(), 100); 
           } else {
             alert("Failed to add address.");
           }
