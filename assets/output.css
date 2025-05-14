@@ -587,9 +587,6 @@
   .x\:h-12 {
     height: calc(var(--x-spacing) * 12) !important;
   }
-  .x\:h-\[32rem\] {
-    height: 32rem !important;
-  }
   .x\:h-\[60px\] {
     height: 60px !important;
   }
@@ -613,9 +610,6 @@
   }
   .x\:w-12 {
     width: calc(var(--x-spacing) * 12) !important;
-  }
-  .x\:w-\[32rem\] {
-    width: 32rem !important;
   }
   .x\:w-\[350px\] {
     width: 350px !important;
@@ -658,9 +652,6 @@
   }
   .x\:gap-2 {
     gap: calc(var(--x-spacing) * 2) !important;
-  }
-  .x\:gap-3 {
-    gap: calc(var(--x-spacing) * 3) !important;
   }
   .x\:gap-4 {
     gap: calc(var(--x-spacing) * 4) !important;
@@ -738,9 +729,6 @@
   }
   .x\:bg-gray-300 {
     background-color: var(--x-color-gray-300) !important;
-  }
-  .x\:bg-gray-400 {
-    background-color: var(--x-color-gray-400) !important;
   }
   .x\:bg-white {
     background-color: var(--x-color-white) !important;
@@ -862,10 +850,6 @@
   .x\:font-bold {
     --tw-font-weight: var(--x-font-weight-bold) !important;
     font-weight: var(--x-font-weight-bold) !important;
-  }
-  .x\:font-medium {
-    --tw-font-weight: var(--x-font-weight-medium) !important;
-    font-weight: var(--x-font-weight-medium) !important;
   }
   .x\:font-normal {
     --tw-font-weight: var(--x-font-weight-normal) !important;
