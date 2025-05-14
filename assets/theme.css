@@ -101,20 +101,13 @@
 
 @media screen and (min-width: 1024px) {
   html {
-    transform: scale(0.75);
-    transform-origin: top center;
-    width: 133.33%;
-    height: 133.33%;
-    overflow-x: hidden;
-    position: fixed;
+    font-size: 14px; /* default is 16px */
   }
 
-  body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
+  .page-width, .container, .site-wrapper {
+    max-width: 1200px !important; /* or a smaller width */
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
