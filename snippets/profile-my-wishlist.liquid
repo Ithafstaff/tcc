@@ -332,422 +332,12 @@
       </div>
       
 <div class="profile-sub__order-container" style="padding-top: 20px; padding-bottom: 20px;">
-  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-    <div style="width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;">
-      <!-- Image (250x250) with Heart -->
-      <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
-        <img 
-          src="{{ 'test_img1.png' | asset_url }}" 
-          alt="Product" 
-          style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
-        />
-        <!-- Heart Icon -->
-        <img 
-          src="{{ 'heart_black.png' | asset_url }}" 
-          alt="Wishlist" 
-          style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-        />
-      </div>
-    
-      <!-- Variant Swatches -->
-      <div style="display: flex; gap: 6px;">
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
-      </div>
-    
-      <!-- Category and Cart -->
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
-        <span>Tabletop</span>
-        <img src="{{ 'bx_cart.png' | asset_url }}" alt="Add to Cart" style="width: 16px; height: 16px;" />
-      </div>
-    
-      <!-- Title -->
-      <div style="font-size: 14px; margin: 0;">Invigo Living Glass Tray with Gold Rim</div>
-    
-      <!-- Price -->
-      <span style="font-size: 13px; color: #000;">$5.99</span>
-    
-      <!-- Certifications -->
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" 
-          style="width: 20px;" 
-        />
-      </div>
-    </div>
-    <div style="width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;">
-      <!-- Image (250x250) with Heart -->
-      <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
-        <img 
-          src="{{ 'test_img1.png' | asset_url }}" 
-          alt="Product" 
-          style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
-        />
-    
-        <!-- Heart Icon -->
-        <img 
-          src="{{ 'heart_black.png' | asset_url }}" 
-          alt="Wishlist" 
-          style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-        />
-      </div>
-    
-      <!-- Variant Swatches -->
-      <div style="display: flex; gap: 6px;">
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
-      </div>
-    
-      <!-- Category and Cart -->
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
-        <span>Tabletop</span>
-        <img src="{{ 'bx_cart.png' | asset_url }}" alt="Add to Cart" style="width: 16px; height: 16px;" />
-      </div>
-    
-      <!-- Title -->
-      <div style="font-size: 14px; margin: 0;">Invigo Living Glass Tray with Gold Rim</div>
-    
-      <!-- Price -->
-      <span style="font-size: 13px; color: #000;">$5.99</span>
-    
-      <!-- Certifications -->
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" 
-          style="width: 20px;" 
-        />
-      </div>
-    </div>
-    <div style="width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;">
-      <!-- Image (250x250) with Heart -->
-      <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
-        <img 
-          src="{{ 'test_img1.png' | asset_url }}" 
-          alt="Product" 
-          style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
-        />
-    
-        <!-- Heart Icon -->
-        <img 
-          src="{{ 'heart_black.png' | asset_url }}" 
-          alt="Wishlist" 
-          style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-        />
-      </div>
-    
-      <!-- Variant Swatches -->
-      <div style="display: flex; gap: 6px;">
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
-      </div>
-    
-      <!-- Category and Cart -->
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
-        <span>Tabletop</span>
-        <img src="{{ 'bx_cart.png' | asset_url }}" alt="Add to Cart" style="width: 16px; height: 16px;" />
-      </div>
-    
-      <!-- Title -->
-      <div style="font-size: 14px; margin: 0;">Invigo Living Glass Tray with Gold Rim</div>
-    
-      <!-- Price -->
-      <span style="font-size: 13px; color: #000;">$5.99</span>
-    
-      <!-- Certifications -->
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" 
-          style="width: 20px;" 
-        />
-      </div>
-    </div>
-    <div style="width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;">
-      <!-- Image (250x250) with Heart -->
-      <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
-        <img 
-          src="{{ 'test_img1.png' | asset_url }}" 
-          alt="Product" 
-          style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
-        />
-    
-        <!-- Heart Icon -->
-        <img 
-          src="{{ 'heart_black.png' | asset_url }}" 
-          alt="Wishlist" 
-          style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-        />
-      </div>
-    
-      <!-- Variant Swatches -->
-      <div style="display: flex; gap: 6px;">
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
-      </div>
-    
-      <!-- Category and Cart -->
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
-        <span>Tabletop</span>
-        <img src="{{ 'bx_cart.png' | asset_url }}" alt="Add to Cart" style="width: 16px; height: 16px;" />
-      </div>
-    
-      <!-- Title -->
-      <div style="font-size: 14px; margin: 0;">Invigo Living Glass Tray with Gold Rim</div>
-    
-      <!-- Price -->
-      <span style="font-size: 13px; color: #000;">$5.99</span>
-    
-      <!-- Certifications -->
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" 
-          style="width: 20px;" 
-        />
-      </div>
-    </div>
-    <div style="width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;">
-      <!-- Image (250x250) with Heart -->
-      <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
-        <img 
-          src="{{ 'test_img1.png' | asset_url }}" 
-          alt="Product" 
-          style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
-        />
-    
-        <!-- Heart Icon -->
-        <img 
-          src="{{ 'heart_black.png' | asset_url }}" 
-          alt="Wishlist" 
-          style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-        />
-      </div>
-    
-      <!-- Variant Swatches -->
-      <div style="display: flex; gap: 6px;">
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
-      </div>
-    
-      <!-- Category and Cart -->
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
-        <span>Tabletop</span>
-        <img src="{{ 'bx_cart.png' | asset_url }}" alt="Add to Cart" style="width: 16px; height: 16px;" />
-      </div>
-    
-      <!-- Title -->
-      <div style="font-size: 14px; margin: 0;">Invigo Living Glass Tray with Gold Rim</div>
-    
-      <!-- Price -->
-      <span style="font-size: 13px; color: #000;">$5.99</span>
-    
-      <!-- Certifications -->
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" 
-          style="width: 20px;" 
-        />
-      </div>
-    </div>
-    <div style="width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;">
-      <!-- Image (250x250) with Heart -->
-      <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
-        <img 
-          src="{{ 'test_img1.png' | asset_url }}" 
-          alt="Product" 
-          style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
-        />
-    
-        <!-- Heart Icon -->
-        <img 
-          src="{{ 'heart_black.png' | asset_url }}" 
-          alt="Wishlist" 
-          style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-        />
-      </div>
-    
-      <!-- Variant Swatches -->
-      <div style="display: flex; gap: 6px;">
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
-      </div>
-    
-      <!-- Category and Cart -->
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
-        <span>Tabletop</span>
-        <img src="{{ 'bx_cart.png' | asset_url }}" alt="Add to Cart" style="width: 16px; height: 16px;" />
-      </div>
-    
-      <!-- Title -->
-      <div style="font-size: 14px; margin: 0;">Invigo Living Glass Tray with Gold Rim</div>
-    
-      <!-- Price -->
-      <span style="font-size: 13px; color: #000;">$5.99</span>
-    
-      <!-- Certifications -->
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" 
-          style="width: 20px;" 
-        />
-      </div>
-    </div>
-    <div style="width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;">
-      <!-- Image (250x250) with Heart -->
-      <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
-        <img 
-          src="{{ 'test_img1.png' | asset_url }}" 
-          alt="Product" 
-          style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
-        />
-    
-        <!-- Heart Icon -->
-        <img 
-          src="{{ 'heart_black.png' | asset_url }}" 
-          alt="Wishlist" 
-          style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-        />
-      </div>
-    
-      <!-- Variant Swatches -->
-      <div style="display: flex; gap: 6px;">
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
-      </div>
-    
-      <!-- Category and Cart -->
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
-        <span>Tabletop</span>
-        <img src="{{ 'bx_cart.png' | asset_url }}" alt="Add to Cart" style="width: 16px; height: 16px;" />
-      </div>
-    
-      <!-- Title -->
-      <div style="font-size: 14px; margin: 0;">Invigo Living Glass Tray with Gold Rim</div>
-    
-      <!-- Price -->
-      <span style="font-size: 13px; color: #000;">$5.99</span>
-    
-      <!-- Certifications -->
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" 
-          style="width: 20px;" 
-        />
-      </div>
-    </div>
-    <div style="width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;">
-      <!-- Image (250x250) with Heart -->
-      <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
-        <img 
-          src="{{ 'test_img1.png' | asset_url }}" 
-          alt="Product" 
-          style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
-        />
-    
-        <!-- Heart Icon -->
-        <img 
-          src="{{ 'heart_black.png' | asset_url }}" 
-          alt="Wishlist" 
-          style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-        />
-      </div>
-    
-      <!-- Variant Swatches -->
-      <div style="display: flex; gap: 6px;">
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
-      </div>
-    
-      <!-- Category and Cart -->
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
-        <span>Tabletop</span>
-        <img src="{{ 'bx_cart.png' | asset_url }}" alt="Add to Cart" style="width: 16px; height: 16px;" />
-      </div>
-    
-      <!-- Title -->
-      <div style="font-size: 14px; margin: 0;">Invigo Living Glass Tray with Gold Rim</div>
-    
-      <!-- Price -->
-      <span style="font-size: 13px; color: #000;">$5.99</span>
-    
-      <!-- Certifications -->
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <img 
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" 
-          style="width: 20px;" 
-        />
-      </div>
-    </div>
+  <div id="wishlist-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+    <!-- Dynamic wishlist items will be inserted here -->
+  </div>
+  <div id="empty-wishlist-message" style="text-align: center; padding: 50px 0; display: none;">
+    <p style="font-size: 16px;">Your wishlist is empty. Browse our collections and add items you love!</p>
+    <a href="/collections/all" class="profile-sub__order-btn-link" style="margin: 20px auto; display: inline-block;">SHOP NOW</a>
   </div>
 </div>
 
@@ -773,7 +363,11 @@
         this.classList.add("profile-sub__order-cat-link--active");
       });
     });
+    
+    // Render wishlist items
+    renderWishlistItems();
   });
+  
   function selectSwatch(el) {
     const container = el.parentElement;
 
@@ -792,6 +386,127 @@
       selectSwatch(el);
     });
   });
+  
+  // Function to render wishlist items from localStorage
+  function renderWishlistItems() {
+    const wishlistGrid = document.getElementById('wishlist-grid');
+    const emptyWishlistMessage = document.getElementById('empty-wishlist-message');
+    
+    // Get wishlist from localStorage
+    let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+    
+    if (wishlist.length === 0) {
+      // Show empty wishlist message
+      wishlistGrid.style.display = 'none';
+      emptyWishlistMessage.style.display = 'block';
+      return;
+    }
+    
+    // Hide empty message and show grid
+    wishlistGrid.style.display = 'grid';
+    emptyWishlistMessage.style.display = 'none';
+    
+    // Clear existing items
+    wishlistGrid.innerHTML = '';
+    
+    // Add each wishlist item to the grid
+    wishlist.forEach(item => {
+      const productCard = document.createElement('div');
+      productCard.style = "width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;";
+      
+      // Create image container with heart icon
+      let imageUrl = item.image || "{{ 'product-placeholder.png' | asset_url }}";
+      
+      productCard.innerHTML = `
+        <!-- Image (250x250) with Heart -->
+        <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
+          <img 
+            src="${imageUrl}" 
+            alt="${item.title}" 
+            style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
+          />
+          <!-- Heart Icon -->
+          <img 
+            src="{{ 'heart_black.png' | asset_url }}" 
+            alt="Wishlist" 
+            style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
+            data-product-id="${item.id}"
+            onclick="removeFromWishlist('${item.id}')"
+          />
+        </div>
+        
+        <!-- Category and Cart -->
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
+          <span>${item.category || 'Product'}</span>
+          <img 
+            src="{{ 'bx_cart.png' | asset_url }}" 
+            alt="Add to Cart" 
+            style="width: 16px; height: 16px; cursor: pointer;" 
+            onclick="addToCart('${item.id}')"
+          />
+        </div>
+        
+        <!-- Title -->
+        <div style="font-size: 14px; margin: 0;">${item.title}</div>
+        
+        <!-- Price -->
+        <span style="font-size: 13px; color: #000;">${item.price || ''}</span>
+        
+        <!-- View Product Button -->
+        <a href="${item.url || '/products/' + item.handle}" class="profile-sub__order-btn-link profile-sub__order-btn-link--white" style="width: auto; font-size: 12px; margin-top: auto;">VIEW PRODUCT</a>
+      `;
+      
+      wishlistGrid.appendChild(productCard);
+    });
+  }
+  
+  // Function to remove item from wishlist
+  function removeFromWishlist(productId) {
+    let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+    
+    // Find the index of the item to remove
+    const itemIndex = wishlist.findIndex(item => item.id === productId);
+    
+    if (itemIndex !== -1) {
+      // Remove the item from the wishlist array
+      wishlist.splice(itemIndex, 1);
+      
+      // Save the updated wishlist back to localStorage
+      localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
+      
+      // Dispatch event
+      document.dispatchEvent(new CustomEvent('wishlist:updated', { 
+        detail: { wishlist: wishlist }
+      }));
+      
+      // Re-render the wishlist
+      renderWishlistItems();
+    }
+  }
+  
+  // Function to add item to cart
+  function addToCart(productId) {
+    // Add to cart functionality using Shopify AJAX API
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: productId,
+        quantity: 1
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Show success message or update cart drawer
+      alert('Item added to cart');
+    })
+    .catch(error => {
+      console.error('Error adding to cart:', error);
+      alert('Could not add item to cart. Please try again.');
+    });
+  }
 </script>
 
 

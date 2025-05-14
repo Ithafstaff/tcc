@@ -596,9 +596,6 @@
   .x\:mx-auto {
     margin-inline: auto !important;
   }
-  .x\:my-5 {
-    margin-block: calc(var(--x-spacing) * 5) !important;
-  }
   .x\:mt-2 {
     margin-top: calc(var(--x-spacing) * 2) !important;
   }
@@ -734,11 +731,8 @@
   .x\:w-\[32rem\] {
     width: 32rem !important;
   }
-  .x\:w-\[70\%\] {
-    width: 70% !important;
-  }
-  .x\:w-\[70rem\] {
-    width: 70rem !important;
+  .x\:w-\[50rem\] {
+    width: 50rem !important;
   }
   .x\:w-\[350px\] {
     width: 350px !important;
@@ -746,8 +740,11 @@
   .x\:w-\[35rem\] {
     width: 35rem !important;
   }
-  .x\:w-\[50rem\] {
-    width: 50rem !important;
+  .x\:w-\[70\%\] {
+    width: 70% !important;
+  }
+  .x\:w-\[70rem\] {
+    width: 70rem !important;
   }
   .x\:w-\[calc\(33\.333\%-1\.5rem\)\] {
     width: calc(33.333% - 1.5rem) !important;
@@ -1022,9 +1019,6 @@
   .x\:px-\[10\.5px\] {
     padding-inline: 10.5px !important;
   }
-  .x\:px-\[20px\] {
-    padding-inline: 20px !important;
-  }
   .x\:py-1 {
     padding-block: calc(var(--x-spacing) * 1) !important;
   }
@@ -1033,9 +1027,6 @@
   }
   .x\:py-3 {
     padding-block: calc(var(--x-spacing) * 3) !important;
-  }
-  .x\:py-4 {
-    padding-block: calc(var(--x-spacing) * 4) !important;
   }
   .x\:py-5 {
     padding-block: calc(var(--x-spacing) * 5) !important;
@@ -1219,11 +1210,6 @@
   .x\:underline-offset-4 {
     text-underline-offset: 4px !important;
   }
-  .x\:placeholder-black {
-    &::placeholder {
-      color: var(--x-color-black) !important;
-    }
-  }
   .x\:accent-black {
     accent-color: var(--x-color-black) !important;
   }
@@ -1268,27 +1254,10 @@
       }
     }
   }
-  .x\:group-hover\:ml-5 {
-    &:is(:where(.x\:group):hover *) {
-      @media (hover: hover) {
-        margin-left: calc(var(--x-spacing) * 5) !important;
-      }
-    }
-  }
   .x\:group-hover\:w-full {
     &:is(:where(.x\:group):hover *) {
       @media (hover: hover) {
         width: 100% !important;
-      }
-    }
-  }
-  .x\:group-hover\:scale-125 {
-    &:is(:where(.x\:group):hover *) {
-      @media (hover: hover) {
-        --tw-scale-x: 125% !important;
-        --tw-scale-y: 125% !important;
-        --tw-scale-z: 125% !important;
-        scale: var(--tw-scale-x) var(--tw-scale-y) !important;
       }
     }
   }
@@ -1297,11 +1266,6 @@
       @media (hover: hover) {
         opacity: 70% !important;
       }
-    }
-  }
-  .x\:focus-within\:ring-black {
-    &:focus-within {
-      --tw-ring-color: var(--x-color-black) !important;
     }
   }
   .x\:hover\:scale-110 {
@@ -1431,11 +1395,6 @@
       display: none !important;
     }
   }
-  .x\:md\:w-\[820px\] {
-    @media (width >= 990px) {
-      width: 820px !important;
-    }
-  }
   .x\:md\:space-y-\[5px\] {
     @media (width >= 990px) {
       :where(& > :not(:last-child)) {
@@ -1492,11 +1451,6 @@
       aspect-ratio: auto !important;
     }
   }
-  .x\:lg\:w-full {
-    @media (width >= 1280px) {
-      width: 100% !important;
-    }
-  }
   .x\:lg\:max-w-\[1600px\] {
     @media (width >= 1280px) {
       max-width: 1600px !important;
@@ -1505,11 +1459,6 @@
   .x\:lg\:max-w-\[1650px\] {
     @media (width >= 1280px) {
       max-width: 1650px !important;
-    }
-  }
-  .x\:lg\:px-\[48px\] {
-    @media (width >= 1280px) {
-      padding-inline: 48px !important;
     }
   }
   .x\:lg\:pr-\[0px\] {
