@@ -355,7 +355,7 @@
 
 <!-- Quick Add Modal -->
 <div id="quick-add-modal" class="x:fixed x:inset-0 x:bg-black/50 x:z-50 x:hidden x:items-center x:justify-center">
-  <div class="x:bg-white x:p-10 x:rounded x:min-w-2xl x:relative x:min-h-[90vh] x:overflow-y-auto">
+  <div class="x:bg-white x:p-10 x:rounded x:min-w-2xl x:relative x:overflow-y-auto">
     <button
       id="close-modal"
       class="x:absolute x:top-4 x:right-4 x:text-black x:text-xl x:font-bold x:hover:text-gray-500"
@@ -364,7 +364,7 @@
     </button>
 
     <div class="x:flex x:flex-col x:gap-4">
-      <h3 id="modal-product-title" class="x:text-xl x:font-medium"></h3>
+      <h3 id="modal-product-title" class="x:text-3xl x:font-medium"></h3>
 
       <div class="x:flex x:items-start x:gap-4">
         <img
@@ -462,8 +462,8 @@
           <span id="modal-product-quantity" class="x:w-12 x:text-center x:py-1">1</span>
           <button id="increase-qty" class="x:px-2 x:py-1 x:text-lg x:font-medium">+</button>
         </div>
-
-        <p id="modal-product-price" class="x:text-lg"></p>
+    
+        <p id="modal-product-price" class="x:text-lg x:font-medium"></p>
       </div>
 
       <div class="x:flex x:flex-col x:gap-2 x:mt-4">
@@ -559,6 +559,12 @@
       modalImage.src = product.image || '{{ "test_img1.png" | asset_url }}';
       modalImage.alt = product.title;
       
+      // Set price
+      const modalPrice = document.getElementById('modal-product-price');
+      if (modalPrice) {
+        modalPrice.textContent = product.price || '$5.99';
+      }
+      
       // Show modal
       modal.classList.remove('x:hidden');
       modal.classList.add('x:flex');
@@ -572,9 +578,11 @@
       // Format price if available
       let formattedPrice = '';
       if (item.price) {
-        formattedPrice = item.price;
+        formattedPrice = typeof item.price === 'number' ? `$${item.price.toFixed(2)}` : item.price;
       } else if (item.priceText) {
         formattedPrice = item.priceText;
+      } else if (item.compare_at_price) {
+        formattedPrice = typeof item.compare_at_price === 'number' ? `$${item.compare_at_price.toFixed(2)}` : item.compare_at_price;
       } else {
         formattedPrice = '$5.99'; // Default placeholder price
       }
@@ -628,7 +636,7 @@
           <div class="x:text-base x:font-light">${item.title}</div>
         
           <!-- Price -->
-          <span>${formattedPrice}</span>
+          <span class="x:text-base">${formattedPrice}</span>
         
           <!-- Certifications -->
           {% render 'icon', icon: 'certificate' %}
