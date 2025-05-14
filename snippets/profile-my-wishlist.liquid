@@ -353,6 +353,48 @@
   </div>
 </div>
 
+<!-- Quick Add Modal -->
+<div id="quick-add-modal" class="x:fixed x:inset-0 x:bg-black/50 x:z-50 x:hidden x:items-center x:justify-center">
+  <div class="x:bg-white x:p-6 x:rounded x:max-w-md x:w-full x:relative x:max-h-[90vh] x:overflow-y-auto">
+    <button id="close-modal" class="x:absolute x:top-4 x:right-4 x:text-black x:text-xl x:font-bold x:hover:text-gray-500">&times;</button>
+    
+    <div class="x:flex x:flex-col x:gap-4">
+      <h3 id="modal-product-title" class="x:text-xl x:font-medium"></h3>
+      
+      <div class="x:flex x:items-start x:gap-4">
+        <img id="modal-product-image" class="x:w-24 x:h-24 x:object-cover" src="" alt="Product image" width="96" height="96">
+        
+        <div class="x:flex x:flex-col x:gap-2 x:flex-grow">
+          <p id="modal-product-price" class="x:text-lg"></p>
+          
+          <div class="x:mt-2">
+            <label class="x:block x:mb-1 x:text-sm x:font-medium">Variants</label>
+            <select id="modal-product-variants" class="x:w-full x:border x:border-gray-300 x:p-2 x:rounded">
+              <option value="">Select Variant</option>
+              <!-- Variants will be added dynamically -->
+            </select>
+          </div>
+          
+          <div class="x:mt-2">
+            <label class="x:block x:mb-1 x:text-sm x:font-medium">Quantity</label>
+            <div class="x:flex x:items-center x:border x:border-gray-300 x:rounded x:w-24">
+              <button id="decrease-qty" class="x:px-2 x:py-1 x:text-lg x:font-medium">-</button>
+              <input id="modal-product-quantity" type="number" value="1" min="1" class="x:w-12 x:text-center x:border-none x:focus:outline-none">
+              <button id="increase-qty" class="x:px-2 x:py-1 x:text-lg x:font-medium">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="x:flex x:flex-col x:gap-2 x:mt-4">
+        <button id="modal-add-to-cart" class="profile-sub__order-btn-link">ADD TO CART</button>
+        <button id="modal-add-to-wishlist" class="profile-sub__order-btn-link profile-sub__order-btn-link--white">ADD TO WISHLIST</button>
+        <button id="modal-subscribe" class="profile-sub__order-btn-link profile-sub__order-btn-link--white">SUBSCRIBE AND SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll(".profile-sub__order-cat-link");
@@ -376,6 +418,121 @@
     document.addEventListener('wishlist:updated', function(event) {
       renderWishlistItems();
     });
+
+    // Modal elements
+    const modal = document.getElementById('quick-add-modal');
+    const closeModal = document.getElementById('close-modal');
+    const modalTitle = document.getElementById('modal-product-title');
+    const modalImage = document.getElementById('modal-product-image');
+    const modalPrice = document.getElementById('modal-product-price');
+    const modalVariants = document.getElementById('modal-product-variants');
+    const modalQuantity = document.getElementById('modal-product-quantity');
+    const decreaseQty = document.getElementById('decrease-qty');
+    const increaseQty = document.getElementById('increase-qty');
+    const modalAddToCart = document.getElementById('modal-add-to-cart');
+    const modalAddToWishlist = document.getElementById('modal-add-to-wishlist');
+    const modalSubscribe = document.getElementById('modal-subscribe');
+    
+    let currentProduct = null;
+    
+    // Ensure modal is hidden initially
+    if (modal) {
+      modal.style.display = 'none';
+      modal.classList.remove('x:flex');
+      modal.classList.add('x:hidden');
+    }
+    
+    // Close modal when clicking the close button or outside the modal
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('x:flex');
+      modal.classList.add('x:hidden');
+      modal.style.display = 'none';
+    });
+    
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('x:flex');
+        modal.classList.add('x:hidden');
+        modal.style.display = 'none';
+      }
+    });
+    
+    // Quantity controls
+    decreaseQty.addEventListener('click', () => {
+      const qty = parseInt(modalQuantity.value);
+      if (qty > 1) {
+        modalQuantity.value = qty - 1;
+      }
+    });
+    
+    increaseQty.addEventListener('click', () => {
+      const qty = parseInt(modalQuantity.value);
+      modalQuantity.value = qty + 1;
+    });
+    
+    // Modal action buttons
+    modalAddToCart.addEventListener('click', () => {
+      if (!currentProduct) return;
+      
+      const variantId = modalVariants.value || currentProduct.id;
+      const quantity = parseInt(modalQuantity.value);
+      
+      addToCart(variantId, quantity);
+      modal.classList.remove('x:flex');
+      modal.classList.add('x:hidden');
+      modal.style.display = 'none';
+    });
+    
+    modalAddToWishlist.addEventListener('click', () => {
+      if (!currentProduct) return;
+      // Already in wishlist, just close modal
+      modal.classList.remove('x:flex');
+      modal.classList.add('x:hidden');
+      modal.style.display = 'none';
+    });
+    
+    modalSubscribe.addEventListener('click', () => {
+      if (!currentProduct) return;
+      
+      const variantId = modalVariants.value || currentProduct.id;
+      // Implement subscription logic or redirect to subscription page
+      window.location.href = `/products/${currentProduct.handle}?variant=${variantId}&subscribe=true`;
+      modal.classList.remove('x:flex');
+      modal.classList.add('x:hidden');
+      modal.style.display = 'none';
+    });
+    
+    function openProductModal(product) {
+      currentProduct = product;
+      
+      // Set modal content
+      modalTitle.textContent = product.title;
+      modalImage.src = product.image;
+      modalPrice.textContent = product.price || '$5.99';
+      
+      // Reset variants and quantity
+      modalVariants.innerHTML = '<option value="">Select Variant</option>';
+      modalQuantity.value = 1;
+      
+      // Add variants if available
+      if (product.variants && product.variants.length > 0) {
+        product.variants.forEach(variant => {
+          const option = document.createElement('option');
+          option.value = variant.id;
+          option.textContent = variant.title;
+          modalVariants.appendChild(option);
+        });
+        modalVariants.parentElement.style.display = 'block';
+      } else {
+        // Hide variants dropdown if no variants
+        modalVariants.parentElement.style.display = 'none';
+      }
+      
+      // Show modal
+      modal.classList.remove('x:hidden');
+      modal.classList.add('x:flex');
+      modal.style.display = 'flex';
+    }
   });
   
   function renderWishlistItems() {
@@ -399,6 +556,19 @@
     wishlist.forEach(item => {
       const productCard = createProductCard(item);
       wishlistContainer.appendChild(productCard);
+    });
+
+    // Add event listeners to cart icons
+    document.querySelectorAll('.cart-icon').forEach(icon => {
+      icon.addEventListener('click', function() {
+        const productId = this.getAttribute('data-product-id');
+        const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+        const product = wishlist.find(item => item.id === productId);
+        
+        if (product) {
+          window.openProductModal(product);
+        }
+      });
     });
   }
   
@@ -457,7 +627,7 @@
         <div class="x:text-base x:flex x:justify-between x:items-center x:uppercase">
           <span>${item.productType || 'Product'}</span>
           
-          <span class="x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300">
+          <span class="x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300 cart-icon" data-product-id="${item.id}">
             {% render 'icon', icon: 'shop-cart' %}
           </span>
         </div>
@@ -475,6 +645,43 @@
     `;
     
     return cardElement;
+  }
+  
+  // Make the function available globally
+  window.openProductModal = function(product) {
+    const modal = document.getElementById('quick-add-modal');
+    const modalTitle = document.getElementById('modal-product-title');
+    const modalImage = document.getElementById('modal-product-image');
+    const modalPrice = document.getElementById('modal-product-price');
+    const modalVariants = document.getElementById('modal-product-variants');
+    
+    // Set modal content
+    modalTitle.textContent = product.title;
+    modalImage.src = product.image || '{{ 'test_img1.png' | asset_url }}';
+    modalPrice.textContent = product.price || '$5.99';
+    
+    // Reset variants and quantity
+    modalVariants.innerHTML = '<option value="">Select Variant</option>';
+    document.getElementById('modal-product-quantity').value = 1;
+    
+    // Add variants if available
+    if (product.variants && product.variants.length > 0) {
+      product.variants.forEach(variant => {
+        const option = document.createElement('option');
+        option.value = variant.id;
+        option.textContent = variant.title;
+        modalVariants.appendChild(option);
+      });
+      modalVariants.parentElement.style.display = 'block';
+    } else {
+      // Hide variants dropdown if no variants
+      modalVariants.parentElement.style.display = 'none';
+    }
+    
+    // Show modal
+    modal.classList.remove('x:hidden');
+    modal.classList.add('x:flex');
+    modal.style.display = 'flex';
   }
   
   function selectSwatch(el) {
@@ -509,12 +716,12 @@
     }
   }
   
-  function addToCart(productId) {
+  function addToCart(productId, quantity = 1) {
     // Add to cart functionality
     let formData = {
       'items': [{
         'id': productId,
-        'quantity': 1
+        'quantity': quantity
       }]
     };
     
