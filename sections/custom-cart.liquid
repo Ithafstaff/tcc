@@ -1,0 +1,383 @@
+{%- if cart.item_count == 0 -%}
+  <div class="empty-state">
+    <div class="empty-state__icon-wrapper">
+      {%- render 'icon' with 'cart', width: 32, height: 32, stroke_width: 1 -%}
+      <span class="count-bubble count-bubble--lg">0</span>
+    </div>
+
+    <div class="prose">
+      <p class="h4">{{ 'cart.general.empty' | t }}</p>
+      {%- assign button_content = 'cart.general.continue_shopping' | t -%}
+      {%- render 'button', href: settings.cart_empty_button_link, size: 'xl', content: button_content -%}
+    </div>
+  </div>
+{%- else -%}
+  <section class="x:border-t-2">
+    <div class="container x:flex x:flex-col x:py-10">
+      <div class="x:flex x:items-center x:flex-col x:gap-3">
+        <h1 class="x:uppercase x:font-normal">your shopping cart: {{ cart.item_count }} items</h1>
+        <span>Review your items and save big — with curbside pickup now available at checkout!</span>
+        {% comment %} PROGRESS LABEL {% endcomment %}
+        <div class="x:flex x:items-center x:gap-3 x:justify-center x:text-[#222222]/50">
+          <span class="x:uppercase x:underline">cart</span>
+          {%- render 'icon' with 'arrow-right' -%}
+          <span class="x:uppercase">checkout</span>
+          {%- render 'icon' with 'arrow-right' -%}
+          <span class="x:uppercase">confirmation</span>
+        </div>
+      </div>
+
+      {% comment %} ITEM GRID {% endcomment %}
+      <div class="x:flex x:flex-col x:gap-3 x:border-b-2 x:py-10">
+        {% comment %} GRID HEADER {% endcomment %}
+        <div class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)] x:py-5 x:px-2 x:border-b-2">
+          <input type="checkbox" id="select-all" class="x:accent-black x:h-6 x:w-6">
+          <span class="x:uppercase">all items</span>
+          <span class="x:uppercase x:text-center">product</span>
+          <span class="x:uppercase x:text-center">variation</span>
+          <span class="x:uppercase x:text-center">unit price</span>
+          <span class="x:uppercase x:text-center">quantity</span>
+          <span class="x:uppercase x:text-center">total price</span>
+          <span class="x:uppercase x:text-center">actions</span>
+        </div>
+
+        {% comment %} GRID ROWS {% endcomment %}
+        {%- for line_item in cart.items -%}
+          {% liquid
+            assign max_quantity = null
+
+            if line_item.variant.inventory_management != blank and line_item.variant.inventory_policy == 'deny'
+              assign current_quantity_for_variant = cart | item_count_for_variant: line_item.variant.id
+              assign max_quantity = line_item.variant.inventory_quantity | minus: current_quantity_for_variant | plus: line_item.quantity
+            endif
+
+            if line_item.variant.quantity_rule.max != null
+              assign max_quantity = max_quantity | default: 999999 | at_most: line_item.variant.quantity_rule.max
+            endif
+          %}
+          <div
+            class="x:grid x:grid-cols-[5rem_10rem_repeat(6,_1fr)] x:grid-rows-[auto_1fr] x:items-center x:py-3 x:px-5 cart-item-row x:h-auto"
+            style="background-color: #f8f8f8;">
+            {% comment %} FIRST ROW {% endcomment %}
+            <input type="checkbox" class="item-checkbox x:h-6 x:w-6" style="accent-color: #212222;" checked>
+            <div class="x:bg-gray-400 x:h-[6.25rem] x:w-[6.25rem]">
+              {% if line_item.image %}
+                <img
+                  src="{{ line_item.image | image_url: width: 100 }}"
+                  alt="{{ line_item.title | escape }}"
+                  class="x:w-full x:h-full x:object-cover"
+                  width="100"
+                  height="100"
+                >
+              {% endif %}
+            </div>
+            <span>{{ line_item.title }}</span>
+            <span class="x:text-center">{{ line_item.variant.title }}</span>
+            <span class="x:text-center">{{ line_item.original_price | money }}</span>
+            <div class="x:text-center x:flex x:items-center x:gap-2 x:justify-center">
+              <i
+                class="x:flex x:items-center x:justify-center x:w-8 x:h-8 x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control"
+                hidden
+                onclick="const span = this.parentElement.querySelector('.quantity-display'); const currentQty = parseInt(span.textContent); if (currentQty > {{ line_item.variant.quantity_rule.min }}) { const newQty = currentQty - {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty); }"
+              >
+                {%- render 'icon', icon: 'minus' -%}
+              </i>
+              <span
+                class="x:flex x:items-center x:justify-center x:w-8 quantity-display"
+                data-line-key="{{ line_item.key }}"
+              >
+                {{- line_item.quantity -}}
+              </span>
+              <i
+                class="x:flex x:items-center x:justify-center x:w-8 x:h-8 x:p-3 x:bg-[#4d4e4e] x:text-[#d2d2d2] x:cursor-pointer quantity-control"
+                hidden
+                onclick="const span = this.parentElement.querySelector('.quantity-display'); const currentQty = parseInt(span.textContent); {% if max_quantity != null %}if (currentQty < {{ max_quantity }}) { const newQty = currentQty + {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty); }{% else %}const newQty = currentQty + {{ line_item.variant.quantity_rule.increment }}; span.textContent = newQty; updateCartItemQuantity('{{ line_item.key }}', newQty);{% endif %}"
+              >
+                {%- render 'icon', icon: 'plus' -%}
+              </i>
+            </div>
+            <span class="x:text-center">{{ line_item.final_line_price | money }}</span>
+            <div class="x:flex x:flex-col x:gap-3 x:py-5">
+              <button
+                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm update-btn"
+                onclick="
+                  const quantitySpan = this.closest('.x\\:grid').querySelector('.quantity-display');
+                  quantitySpan.setAttribute('data-original-qty', quantitySpan.textContent.trim());
+
+                  this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.removeAttribute('hidden'));
+                  this.setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.cancel-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.save-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.remove-btn').setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.find-similar-btn').setAttribute('hidden', '');
+                  this.closest('.cart-item-row').classList.add('editing');
+                "
+              >
+                update item
+              </button>
+              <button
+                class="x:uppercase x:border-2 x:py-1 x:px-2 x:text-center x:text-[#222222] x:bg-[#f0f0f0] x:hover:bg-transparent x:hover:border-[#f0f0f0] x:hover:text-[#f0f0f0] x:text-sm save-btn"
+                hidden
+                onclick="
+                  this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', ''));
+                  this.setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.cancel-btn').setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden');
+                  this.closest('.cart-item-row').classList.remove('editing');
+                  location.reload();
+                "
+              >
+                update
+              </button>
+
+              <button
+                class="x:uppercase x:border-2 x:border-[#f0f0f0] x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-[#f0f0f0] x:text-sm cancel-btn"
+                hidden
+                onclick="
+                  const quantitySpan = this.closest('.x\\:grid').querySelector('.quantity-display');
+                  const originalQty = quantitySpan.getAttribute('data-original-qty');
+                  if (originalQty !== null) {
+                    quantitySpan.textContent = originalQty;
+                  }
+
+                  this.closest('.x\\:grid').querySelectorAll('.quantity-control').forEach(el => el.setAttribute('hidden', ''));
+                  this.setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.save-btn').setAttribute('hidden', '');
+                  this.closest('.x\\:flex').querySelector('.update-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.remove-btn').removeAttribute('hidden');
+                  this.closest('.x\\:flex').querySelector('.find-similar-btn').removeAttribute('hidden');
+                  this.closest('.cart-item-row').classList.remove('editing');
+                "
+              >
+                cancel
+              </button>
+
+              <a
+                href="{{ line_item.url_to_remove }}"
+                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm remove-btn"
+                onclick="
+                  event.preventDefault();
+                  const modal = document.getElementById('remove-item-modal-{{ line_item.key }}');
+                  modal.classList.remove('x:hidden');
+                "
+              >
+                remove item
+              </a>
+
+              <section
+                class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-50"
+                id="remove-item-modal-{{ line_item.key }}"
+              >
+                <div class="x:w-[30rem] x:h-[20rem] x:bg-white x:p-8 x:flex x:flex-col x:justify-between x:relative">
+                  <i class="x:justify-end x:flex" onclick="document.getElementById('remove-item-modal-{{ line_item.key }}').classList.add('x:hidden')">
+                    <span class="x:cursor-pointer">
+                      {%- render 'icon', icon: 'close' -%}
+                    </span>
+                  </i>
+                  <div class="x:flex x:flex-col x:gap-4 x:items-center">
+                    <i class="x:text-xl">
+                      {%- render 'icon', icon: 'trash' -%}
+                    </i>
+                    <p class="x:text-center">Are you sure you want to remove "{{ line_item.title }}" from your shopping cart?</p>
+                  </div>
+                  <div class="x:flex x:gap-4 x:justify-center">
+                    <button
+                      class="x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
+                      onclick="document.getElementById('remove-item-modal-{{ line_item.key }}').classList.add('x:hidden')"
+                    >
+                      no, back to cart
+                    </button>
+                    <a
+                      href="{{ line_item.url_to_remove }}"
+                      class="x:border x:border-[#222222] x:text-[#f0f0f0] x:bg-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#f0f0f0] x:hover:text-[#222222] x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
+                    >
+                      yes, remove item
+                    </a>
+                  </div>
+                </div>
+              </section>
+
+              <button 
+                class="x:uppercase x:border-2 x:hover:border-[#222222] x:py-1 x:px-2 x:text-center x:text-[#f0f0f0] x:bg-[#222222] x:hover:text-[#222222] x:hover:bg-transparent x:text-sm find-similar-btn"
+                onclick="
+                  const secondRow = this.closest('.cart-item-row').querySelector('.x\\:row-start-2');
+                  const isHidden = secondRow.hasAttribute('hidden');
+                  
+                  if (isHidden) {
+                    secondRow.removeAttribute('hidden');
+                    this.textContent = 'cancel';
+                  } else {
+                    secondRow.setAttribute('hidden', '');
+                    this.textContent = 'find similar';
+                  }
+                "
+              >
+                find similar
+              </button>
+            </div>
+
+            {% comment %} SECOND ROW {% endcomment %}
+            <div class="x:flex x:flex-col x:gap-3 x:w-full x:col-span-9 x:row-start-2" hidden>
+              <div class="x:flex x:justify-end">
+                <div class="x:flex x:items-center x:gap-3">
+                  <button
+                    onclick="this.closest('.x\\:flex').nextElementSibling.scrollBy({ left: -300, behavior: 'smooth' })"
+                    class="x:border-[#222222] x:border-2 x:px-3 x:py-2 x:hover:bg-[#222222] x:hover:text-[#f0f0f0] x:transition-all x:duration-300"
+                  >
+                    {% render 'icon', icon: 'chevron-left' %}
+                  </button>
+                  <button
+                    onclick="this.closest('.x\\:flex').nextElementSibling.scrollBy({ left: 300, behavior: 'smooth' })"
+                    class="x:border-[#222222] x:border-2 x:px-3 x:py-2 x:hover:bg-[#222222] x:hover:text-[#f0f0f0] x:transition-all x:duration-300"
+                  >
+                    {% render 'icon', icon: 'chevron-right' %}
+                  </button>
+                </div>
+              </div>
+
+              <div class="x:flex x:overflow-x-scroll x:gap-3 x:scroll-smooth x:w-full x:snap-x x:snap-mandatory x:scrollbar-hide x:pb-4">
+                {% for i in (1..8) %}
+                  <div class="x:flex x:flex-col x:gap-3 x:w-[12.5rem] x:flex-shrink-0 x:snap-center">
+                    <div class="x:h-[12.75rem] x:bg-gray-300"></div>
+                    <div class="x:flex x:flex-col x:gap-1">
+                      <span>Fancy Square White Plastic Serving Bowl</span>
+                      <span>$2.69</span>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+
+        <div class="x:flex x:justify-between">
+          <div class="x:flex x:flex-col x:justify-between">
+            <div class="x:flex x:items-center x:gap-3">
+              <label class="x:uppercase x:font-medium">selected:</label>
+              <span class="x:uppercase x:text-4xl x:font-medium">{{ cart.item_count }} items</span>
+            </div>
+
+            <div class="x:flex x:gap-3">
+              <button
+                type="button"
+                class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap"
+                onclick="document.getElementById('remove-all-modal').classList.remove('x:hidden')"
+              >
+                remove all items
+              </button>
+              <button class="x:w-full x:border x:border-[#222222] x:text-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#222222] x:hover:text-white x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap">
+                move to wishlist
+              </button>
+            </div>
+          </div>
+
+          <div class="x:flex x:flex-col x:items-center x:gap-3">
+            <div class="x:flex x:items-center x:gap-3">
+              <label class="x:uppercase x:font-medium">total:</label>
+              <span class="x:uppercase x:text-4xl x:font-medium">{{ cart.total_price | money }}</span>
+            </div>
+
+            <div class="x:flex x:flex-col">
+              <span class="x:text-xs x:text-[#222222]/50">Tax will be calculated at checkout</span>
+              <form action="{{ routes.cart_url }}" method="POST">
+                <button
+                  type="submit"
+                  name="checkout"
+                  class="x:w-full x:border x:border-[#222222] x:text-[#f0f0f0] x:bg-[#222222] x:tracking-wider x:items-center x:justify-center x:hover:bg-[#f0f0f0] x:hover:text-[#222222] x:transition x:py-2 x:px-3 x:uppercase x:text-nowrap x:text-center"
+                >
+                  checkout now
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% render 'custom-cart-remove-all' %}
+
+{% schema %}
+{
+  "name": "Custom Cart",
+  "class": "shopify-section--custom-cart",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Custom Cart"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  async function updateCartItemQuantity(lineKey, quantity) {
+    try {
+      const response = await fetch('/cart/change.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: lineKey,
+          quantity: quantity,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update cart');
+      }
+
+      const cart = await response.json();
+
+      const totalPriceElement = document.querySelector('.cart-total');
+      if (totalPriceElement) {
+        totalPriceElement.textContent = cart.total_price;
+      }
+
+      const itemCountElement = document.querySelector('.cart-count');
+      if (itemCountElement) {
+        itemCountElement.textContent = cart.item_count;
+      }
+
+      const lineItem = cart.items.find((item) => item.key === lineKey);
+      if (lineItem) {
+        const lineItemPrice = document
+          .querySelector(`[data-line-key="${lineKey}"]`)
+          .closest('.x\\:grid')
+          .querySelector('.line-item-price');
+        if (lineItemPrice) {
+          lineItemPrice.textContent = lineItem.final_line_price;
+        }
+      }
+    } catch (error) {
+      console.error('Error updating cart:', error);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const selectAllCheckbox = document.getElementById('select-all');
+    const itemCheckboxes = document.querySelectorAll('.item-checkbox');
+
+    selectAllCheckbox.addEventListener('change', function () {
+      itemCheckboxes.forEach((checkbox) => {
+        checkbox.checked = selectAllCheckbox.checked;
+      });
+    });
+  });
+</script>
+
+<style>
+  .cart-item-row.editing {
+    background-color: #212222 !important;
+    color: #f0f0f0 !important;
+  }
+
+  .cart-item-row.editing > input {
+    accent-color: #f0f0f0 !important;
+  }
+</style>

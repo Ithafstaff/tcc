@@ -1,0 +1,58 @@
+<section class="x:flex x:flex-col x:items-center x:border-t-2">
+  <div class="container x:w-[50rem] x:flex x:flex-col x:gap-5 x:py-10 x:items-center">
+    <div class="x:flex x:flex-col x:items-center">
+      <h1 class="x:uppercase x:font-normal">account sign in</h1>
+      <span>Welcome back! Access your orders, wishlist, and more</span>
+    </div>
+
+    {% form 'customer_login' %}
+      <div class="x:flex x:flex-col x:gap-5 x:w-[70%]">
+        {% if form.errors %}
+          <div class="x:text-red-600 x:text-sm">
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <div class="x:relative x:group x:w-full">
+          <input
+            type="email"
+            name="customer[email]"
+            required
+            placeholder="Email"
+            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+          >
+          <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+            <i>{%- render 'icon' with 'email' -%}</i>
+          </div>
+        </div>
+
+        <div class="x:relative x:group x:w-full">
+          <input
+            type="password"
+            name="customer[password]"
+            required
+            placeholder="Password"
+            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+          >
+          <div class="x:absolute x:left-3 x:top-1/2 x:-translate-y-1/2">
+            {%- render 'icon' with 'picto-lock' -%}
+          </div>
+          <div class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2">
+            {%- render 'icon' with 'eye-off' -%}
+          </div>
+        </div>
+
+        <a href="/account/recover" class="x:text-sm">Forgot Password?</a>
+
+        <button
+          type="submit"
+          class="x:w-full x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:h-[3.75rem] x:uppercase"
+        >
+          sign in
+        </button>
+
+        <a href="/account/register" class="x:text-center">Don’t have an account? create one</a>
+      </div>
+    {% endform %}
+  </div>
+</section>

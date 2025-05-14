@@ -1,4 +1,10 @@
-{%- assign newsletter_block = section.blocks | where: 'type', 'newsletter' | first -%}
+{%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
+  {%- assign will_show_country_selector = true -%}
+{%- endif -%}
+
+{%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
+  {%- assign will_show_locale_selector = true -%}
+{%- endif -%}
 
 {%- if section.blocks.size > 3 -%}
 <style>
@@ -24,7 +30,7 @@
       {%- endcomment -%}
 
       {%- if section.blocks.size > 0 -%}
-        <div class="footer__block-list empty:hidden">
+        <div class="footer__block-list empty:hidden x:flex x:justify-between">
 
     
 
@@ -39,13 +45,18 @@
 
               {%- when 'text' -%}
                 {%- if block.settings.title != blank or block.settings.content != blank or shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
-                  <div class="footer__block footer__block--text" {{ block.shopify_attributes }}>
+                  <div class="footer__block footer__block--text x:w-md" {{ block.shopify_attributes }}>
                     {%- if block.settings.title != blank -%}
-                      <p class="bold x:tracking-widest">{{ block.settings.title | escape }}</p>
+                      <div class="x:flex x:items-center x:gap-3">
+                        {%- if block.settings.icon != blank -%}
+                          {%- render 'icon', icon: block.settings.icon -%}
+                        {%- endif -%}
+                        <p class="bold x:tracking-widest">{{ block.settings.title | escape }}</p>
+                      </div>
                     {%- endif -%}
 
                     {%- if block.settings.content != blank -%}
-                      <div class="prose text-subdued">
+                      <div class="prose text-subdued x:basis-3 x:max-w-96">
                         {{- block.settings.content -}}
                       </div>
                     {%- endif -%}
@@ -124,13 +135,9 @@
          <div class="footer__block footer__block--text">
             <p class="bold x:tracking-widest">HELP</p>
             <ul class="x:gap-2 x:flex x:flex-col">
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">customer service</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">account</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">return policy</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">shipping information</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">product recalls</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">email & text preferences</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">sign up for texts</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="/pages/contact">customer service</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="/pages/contact">return policy</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="/pages/contact">shipping information</a></li>
             </ul>
           </div> 
 
@@ -138,17 +145,13 @@
           <div class="footer__block footer__block--text">
             <p class="bold x:tracking-widest">RESOURCES</p>
             <ul class="x:gap-2 x:flex x:flex-col">
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">free design services</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">gift registry</a></li>
+              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">sign up for texts</a></li>
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">gift cards</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">catalogs</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">trade program</a></li>
-              <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">contract grade furniture</a></li>
             </ul>
           </div>
 
           {% comment %} OUR COMPANY COLUMN {% endcomment %}
-          <div class="footer__block footer__block--text">
+          <!-- <div class="footer__block footer__block--text">
             <p class="bold x:tracking-widest">OUR COMPANY</p>
             <ul class="x:gap-2 x:flex x:flex-col">
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">free design services</a></li>
@@ -156,20 +159,53 @@
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">gift cards</a></li>
               <li class="x:uppercase"><a class="x:hover:underline x:underline-offset-4" href="#">catalogs</a></li>
             </ul>
-          </div>
+          </div> -->
 
           {% comment %} TAG POSTS COLUMN {% endcomment %}
-          <div class="footer__block footer__block--text">
+          <div class="footer__block footer__block--text x:flex x:flex-col">
             <p class="bold x:tracking-widest">TAG US IN YOUR POST</p>
-            <ul class="x:grid x:grid-cols-4">
-              <li>logo</li>
-              <li>logo</li>
-              <li>logo</li>
-              <li>logo</li>
+            <ul class="x:flex x:justify-between x:w-52">
+              <li>
+                {%- render 'icon' with 'instagram', class: 'ig' -%}
+              </li>
+              <li>
+                {%- render 'icon' with 'tiktok', class: 'tiktok' -%}
+              </li>
+              <li>
+                {%- render 'icon' with 'pinterest', class: 'pinterest' -%}
+              </li>
+              <li>
+                {%- render 'icon' with 'youtube', class: 'youtube' -%}
+              </li>
+              <li>
+                {%- render 'icon' with 'facebook', class: 'facebook' -%}
+              </li>
               
             </ul>
 
-            <p>logo</p>
+            {%- capture logo_content -%}
+              {%- if section.settings.logo -%}
+                {%- capture sizes -%}{{ section.settings.logo_max_width }}px{%- endcapture -%}
+                {%- capture widths -%}{{ section.settings.logo_max_width | times: 2 | at_most: section.settings.logo.width }}, {{ section.settings.logo_max_width | times: 3 | at_most: section.settings.logo.width }}{%- endcapture -%}
+                <span class="sr-only">{{ shop.name }}</span>
+                {{- section.settings.logo | image_url: width: section.settings.logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image' -}}
+      
+                {%- if section.settings.transparent_logo -%}
+                  {{- section.settings.transparent_logo | image_url: width: section.settings.transparent_logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image header__logo-image--transparent' -}}
+                {%- endif -%}
+              {%- else -%}
+                <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/WhatsApp_Image_2025-04-22_at_00.20.28_e284780a-Photoroom.png?v=1745260284" width="180">
+                <!-- <span class="header__logo-text h4">{{ shop.name }}</span> -->
+              {%- endif -%}
+            {%- endcapture -%}
+      
+            {%- if request.page_type == 'index' -%}
+              <h1 class="header__logo">
+                <a href="{{ routes.root_url }}">{{ logo_content }}</a>
+              </h1>
+            {% else %}
+              <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>
+            {% endif %}
           </div>
       </div>
 

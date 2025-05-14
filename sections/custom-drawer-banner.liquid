@@ -1,153 +1,163 @@
-<section class="section section-blends section-full">
+<section class="x:mt-8 section-blends section-full">
+  <div>
     <div>
-        <div>
-            <div>
-                <sl-drawer label="" class="drawer-overview-{{ section.id }}">
-                    <div slot="label">
-                        <div
-                            class="x:absolute x:w-full x:z-[-1] x:flex x:item-center x:justify-center x:tracking-widest x:text-sm">
-                            GET THE LOOK
-                        </div>
-                        &nbsp;
-                    </div>
-                    <div id="product-container-{{ section.id }}"
-                        class="x:grid x:grid-cols-2 x:gap-x-[15px] x:gap-y-[20px] x:p-[20px] x:md:p-[40px] x:pb-[40px]">
-                        {% for product in section.settings.collection.products %}
-                        <a href="{{ product.url }}" class="x:w-full x:flex x:flex-col">
-                            <div class="x:w-full x:aspect-square x:bg-cover x:bg-center x:mb-[8px] x:md:mb-[18px]"
-                                style="background-image: url('{{ product.featured_image.src | image_url: width: product.featured_image.width }}')">
-                                &nbsp;
-                            </div>
-                            <div class="x:flex x:flex-col x:justify-between x:gap-[8px] x:flex-grow x:items-start">
-                                <div class="x:space-y-[2px] x:md:space-y-[5px]">
-                                    <p class="x:text-[12px] x:md:text-[14px] x:leading-[16px] x:md:leading-[20px]">{{ product.title }}</p>
-                                    <p class="x:text-[12px] x:leading-[18px] x:tracking-[-0.21px]">{{ product.price |
-                                        money }}</p>
-                                </div>
-                                <button
-                                    class="x:text-[#222] x:border x:border-solid x:border-black x:p-[6px] x:text-[12px] x:leading-[1.5] x:tracking-[1px] x:px-[10.5px] x:py-[3.5px] x:md:hidden">
-                                    ADD TO CART
-                                </button>
-                            </div>
-                        </a>
-                        {% endfor %}
-                    </div>
-                </sl-drawer>
-
-                <div class="x:px-[20px] x:lg:px-[48px]">
-                    <div class="x:bg-cover x:bg-no-repeat x:bg-center x:w-full x:aspect-square x:lg:aspect-[16/9] x:md:w-[820px] x:lg:w-full x:lg:max-w-[1600px] x:mx-auto x:relative"
-                        style="background-image: url('{{ section.settings.image | image_url: width: 1000 }}');">
-                        <div class="x:absolute x:bottom-[4%] x:left-[4%] x:z-[1]">
-                            <button
-                                class="drawer-button-{{ section.id }} x:bg-[#222]/70 x:text-white x:aspect-square x:flex x:items-center x:lg:aspect-auto x:justify-center x:rounded-full x:p-3 x:md:py-1 x:md:p-3 x:lg:pr-[0px]">
-                                <i class="bx bx-shopping-bag x:text-base x:md:text-xl x:leading-[0px]"></i>
-                                <p
-                                    class="animate-on-scroll x:text-base x:text-center x:text-nowrap x:hidden x:lg:block">
-                                    GET THE LOOK
-                                </p>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+      <div>
+        <sl-drawer label="" class="drawer-overview-{{ section.id }}">
+          <div slot="label">
+            <div
+              class="x:absolute x:w-full x:z-[-1] x:flex x:item-center x:justify-center x:tracking-widest x:text-sm"
+            >
+              GET THE LOOK
             </div>
+            &nbsp;
+          </div>
+          <div
+            id="product-container-{{ section.id }}"
+            class="x:grid x:grid-cols-2 x:gap-x-[15px] x:gap-y-[20px] x:p-[20px] x:md:p-[40px] x:pb-[40px]"
+          >
+            {% for product in section.settings.collection.products %}
+              <a href="{{ product.url }}" class="x:w-full x:flex x:flex-col">
+                <div
+                  class="x:w-full x:aspect-square x:bg-cover x:bg-center x:mb-[8px] x:md:mb-[18px]"
+                  style="background-image: url('{{ product.featured_image.src | image_url: width: product.featured_image.width }}')"
+                >
+                  &nbsp;
+                </div>
+                <div class="x:flex x:flex-col x:justify-between x:gap-[8px] x:flex-grow x:items-start">
+                  <div class="x:space-y-[2px] x:md:space-y-[5px]">
+                    <p class="x:text-[12px] x:md:text-[14px] x:leading-[16px] x:md:leading-[20px]">
+                      {{ product.title }}
+                    </p>
+                    <p class="x:text-[12px] x:leading-[18px] x:tracking-[-0.21px]">{{ product.price | money }}</p>
+                  </div>
+                  <button
+                    class="x:text-[#222] x:border x:border-solid x:border-black x:p-[6px] x:text-[12px] x:leading-[1.5] x:tracking-[1px] x:px-[10.5px] x:py-[3.5px] x:md:hidden"
+                  >
+                    ADD TO CART
+                  </button>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+        </sl-drawer>
+        <div style="padding-left: 40px; padding-right: 40px;">
+          <div class="x:relative x:lg:max-w-[1650px] x:overflow-hidden x:rounded">
+            <div
+              class="x:bg-cover x:bg-no-repeat x:bg-center x:w-full x:aspect-square x:lg:aspect-[16/9]"
+              style="background-image: url('{{ section.settings.image | image_url: width: 1000 }}'); max-height: 800px;"
+            >
+              <div class="x:absolute x:bottom-[4%] x:left-[4%] x:z-[1]">
+                <button
+                  class="drawer-button-{{ section.id }} x:bg-[#222]/70 x:text-white x:aspect-square x:flex x:items-center x:lg:aspect-auto x:justify-center x:rounded-full x:p-3 x:md:py-1 x:md:p-3 x:lg:pr-[0px]"
+                >
+                  <i class="bx bx-shopping-bag x:text-base x:md:text-xl x:leading-[0px]"></i>
+                  <p class="animate-on-scroll x:text-base x:text-center x:text-nowrap x:hidden x:lg:block">
+                    GET THE LOOK
+                  </p>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
-    sl-drawer.drawer-overview-{{ section.id }}::part(body) {
-        padding: 0;
-    }
+  sl-drawer.drawer-overview-{{ section.id }}::part(body) {
+      padding: 0;
+  }
 
-    sl-drawer.drawer-overview-{{ section.id }}::part(title) {
-        padding-left: 0;
-    }
+  sl-drawer.drawer-overview-{{ section.id }}::part(title) {
+      padding-left: 0;
+  }
 
-    .drawer-overview-{{ section.id }} {
-        --size: 100%;
-    }
+  .drawer-overview-{{ section.id }} {
+      --size: 100%;
+  }
 
-    @media (width >=990px) {
-        .drawer-overview-{{ section.id }} {
-            --size: 40vw;
-        }
-    }
+  @media (width >=990px) {
+      .drawer-overview-{{ section.id }} {
+          --size: 40vw;
+      }
+  }
 </style>
 
 <script>
-    $(window).on('load', function () {
-        const drawer = document.querySelector('.drawer-overview-{{ section.id }}');
-        $('button.drawer-button-{{ section.id }}').on('click', () => {
-            drawer.show();
-        });
+  $(window).on('load', function () {
+    const drawer = document.querySelector('.drawer-overview-{{ section.id }}');
+    $('button.drawer-button-{{ section.id }}').on('click', () => {
+      drawer.show();
     });
+  });
 </script>
 
 <style>
-    /* Initial state (hidden) */
-    .animate-on-scroll {
-        width: 0px;
-        padding-left: 20px;
-        opacity: 0;
-        transition: width 0.5s ease-in-out, padding-right 0.5s ease-in-out, opacity 0.5s ease-in-out;
-        overflow-x: hidden;
-    }
+  /* Initial state (hidden) */
+  .animate-on-scroll {
+    width: 0px;
+    padding-left: 20px;
+    opacity: 0;
+    transition: width 0.5s ease-in-out, padding-right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    overflow-x: hidden;
+  }
 
-    /* When the element is visible */
-    .animate-on-scroll.visible {
-        width: auto;
-        padding-right: 30px;
-        opacity: 1;
-    }
+  /* When the element is visible */
+  .animate-on-scroll.visible {
+    width: auto;
+    padding-right: 30px;
+    opacity: 1;
+  }
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const elements = document.querySelectorAll('.animate-on-scroll');
+  document.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting && entry.intersectionRatio === 1) {
-                        // Show when fully in view
-                        entry.target.classList.add('visible');
-                    } else {
-                        // Hide when out of view
-                        entry.target.classList.remove('visible');
-                    }
-                });
-            },
-            {
-                threshold: 1.0, // 100% in view to trigger
-                rootMargin: '0px 0px -50px 0px', // Add padding before the bottom edge
-            }
-        );
-
-        elements.forEach((element) => {
-            observer.observe(element);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio === 1) {
+            // Show when fully in view
+            entry.target.classList.add('visible');
+          } else {
+            // Hide when out of view
+            entry.target.classList.remove('visible');
+          }
         });
+      },
+      {
+        threshold: 1.0, // 100% in view to trigger
+        rootMargin: '0px 0px -50px 0px', // Add padding before the bottom edge
+      }
+    );
+
+    elements.forEach((element) => {
+      observer.observe(element);
     });
+  });
 </script>
 
 {% schema %}
 {
-    "name": "Drawer Banner (TCC)",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Image"
-      },
-      {
-        "type": "collection",
-        "id": "collection",
-        "label": "Collection"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Drawer Banner (TCC)"
-      }
-    ]
-  }
+  "name": "Drawer Banner (TCC)",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Drawer Banner (TCC)"
+    }
+  ]
+}
 {% endschema %}

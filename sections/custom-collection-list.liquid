@@ -17,22 +17,36 @@ LIQUID
   }
 </style>
 
-<div {% render 'section-properties' %} class="x:w-full x:h-[635px] x:bg-white x:p-6">
+<div {% render 'section-properties' %} class="x:w-full x:h-[620px] x:bg-white" style="--section-spacing-block-start: 30px; --section-spacing-block-end: 20px;">
   <!-- Header Section -->
   <div class="x:flex x:items-center x:justify-between">
     <!-- Centered Header -->
-    <h1 class="x:text-3xl x:font-bold x:text-center x:flex-grow">{{ section.settings.title | default: 'BEAUTIFUL CELEBRATIONS START HERE' }}</h1>
+  <p style="font-family: 'GFSDidot', serif;" class="x:text-4xl x:text-center x:flex-grow">
+    {{ section.settings.title | default: 'BEAUTIFUL CELEBRATIONS START HERE' }}
+  </p>
     <!-- Navigation Buttons -->
     <div class="x:flex x:gap-4">
-      <!-- Back Button -->
-      <button is="prev-button" class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300" aria-controls="scroll-area-{{ section.id }}">
+      <button
+        is="prev-button"
+        class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center 
+               x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 
+               disabled:x:opacity-30 disabled:x:cursor-not-allowed"
+        aria-controls="scroll-area-{{ section.id }}"
+      >
         {%- render 'icon' with 'chevron-left' -%}
       </button>
-      <!-- Forward Button -->
-      <button is="next-button" class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300" aria-controls="scroll-area-{{ section.id }}">
+    
+      <button
+        is="next-button"
+        class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center 
+               x:hover:border-2 x:hover:scale-110 x:transition-all x:duration-300 
+               disabled:x:opacity-30 disabled:x:cursor-not-allowed"
+        aria-controls="scroll-area-{{ section.id }}"
+      >
         {%- render 'icon' with 'chevron-right' -%}
       </button>
     </div>
+
   </div>
 
   <!-- Collection List Section with Scrollable Carousel -->
@@ -44,8 +58,8 @@ LIQUID
 
         <!-- Responsive width for 3 items per page -->
         <a {% if collection_url != blank %} href="{{ collection_url }}" {% endif %}
-           class="collection-card x:w-[calc(33.333%-1.5rem)] sm:x:w-[calc(50%-1.5rem)] lg:x:w-[calc(33.333%-1.5rem)] x:shrink-0 x:overflow-hidden x:rounded-md">
-           <div class=" x:w-full x:h-[400px] x:overflow-hidden">
+           class="collection-card x:w-[calc(33.333%-1.5rem)] sm:x:w-[calc(50%-1.5rem)] x:shrink-0 x:overflow-hidden x:rounded-md">
+           <div class=" x:w-full x:h-[500px] x:overflow-hidden">
              <!-- Bottom Overlay -->
              {% comment %} <div class="x:absolute x:bottom-0 x:left-0 x:w-full x:h-12 x:bg-black x:z-10"></div> {% endcomment %}
             {%- assign image = block.settings.image | default: collection.featured_image -%}
@@ -57,7 +71,9 @@ LIQUID
           
           </div>
           
-          <p class="x:text-center x:mt-4 x:text-lg x:font-semibold">{{ block.settings.title | default: collection.title }}</p>
+         <p style="font-family: 'GFSDidot', serif;" class="x:text-center x:mt-4 x:text-[24px] x:font-normal">
+          {{ block.settings.title | default: collection.title }}
+         </p>
         </a>
       {%- endfor -%}
     </div>
@@ -70,18 +86,50 @@ LIQUID
     const prevButton = document.querySelector('button[is="prev-button"]');
     const nextButton = document.querySelector('button[is="next-button"]');
 
+    function updateButtonStates() {
+      const maxScrollLeft = scrollArea.scrollWidth - scrollArea.clientWidth;
+
+      // Handle prev button
+      if (scrollArea.scrollLeft <= 0) {
+        prevButton.disabled = true;
+      } else {
+        prevButton.disabled = false;
+      }
+
+      // Handle next button
+      if (scrollArea.scrollLeft >= maxScrollLeft - 1) {
+        nextButton.disabled = true;
+      } else {
+        nextButton.disabled = false;
+      }
+    }
+
     function scrollCollections(direction) {
-      const cardWidth = scrollArea.querySelector('.collection-card').offsetWidth + 24; 
+      const card = scrollArea.querySelector('.collection-card');
+      if (!card) return;
+
+      const cardWidth = card.offsetWidth + 24;
       scrollArea.scrollBy({
         left: cardWidth * direction,
         behavior: 'smooth'
       });
+
+      // Delay state update slightly to let scroll happen
+      setTimeout(updateButtonStates, 300);
     }
 
+    // Event listeners
     prevButton.addEventListener('click', () => scrollCollections(-1));
     nextButton.addEventListener('click', () => scrollCollections(1));
+    scrollArea.addEventListener('scroll', updateButtonStates);
+
+    // Initial state check
+    updateButtonStates();
   });
 </script>
+
+
+
 
 
 {% schema %}

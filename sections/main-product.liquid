@@ -7,6 +7,7 @@
     --product-gallery-media-list-gap: {% if section.settings.mobile_media_size == 'expanded' %}var(--spacing-0-5){% else %}var(--grid-gutter){% endif %};
   }
 
+
   @media screen and (max-width: 999px) {
     #shopify-section-{{ section.id }} {
       --section-spacing-block-start: {% if section.settings.mobile_media_size == 'expanded' %}0px{% else %}var(--container-gutter){% endif %};
@@ -37,6 +38,8 @@
       --product-gallery-media-list-gap: var(--grid-gutter);
     }
   }
+
+
 </style>
 
 {%- capture product_form_id -%}product-form-{{ product.id }}-{{ section.id }}{%- endcapture -%}
@@ -198,7 +201,7 @@ quick buy information in a template, that will be extracted in JS, but ensure it
           "type": "checkbox",
           "id": "show_taxes_notice",
           "label": "Show taxes notice",
-          "default": false
+          "default": true
         }
       ]
     },

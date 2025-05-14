@@ -18,7 +18,7 @@ LIQUID
   }
 </style>
 
-<div {% render 'section-properties' %} class="x:w-full x:h-[635px] x:bg-white x:p-6 x:pt-[40px]">
+<div {% render 'section-properties' %} style="--section-spacing-block: 10px;" class="x:w-full x:h-[635px] x:bg-white x:p-6 x:pt-[40px]">
   <!-- Header Section -->
   <div class="x:flex x:items-center x:justify-between">
     <!-- Centered Header -->
@@ -49,8 +49,10 @@ LIQUID
                 <span>No Image Available</span>
               {%- endif -%}
             </div>
-            <p class="x:text-center x:mt-4 x:text-lg x:font-semibold">{{ product.title }}</p>
-            <p class="x:text-center x:text-sm x:text-gray-500">{{ product.price | money }}</p>
+            <p style="font-family: 'Poppins', sans-serif;" class="x:text-center x:mt-4 x:text-[16px]">
+              {{ product.title }}
+            </p>
+            <!-- <p class="x:text-center x:text-sm x:text-gray-500">{{ product.price | money }}</p> -->
           </a>
           {%- assign product_count = product_count | plus: 1 -%}
         {%- endif -%}

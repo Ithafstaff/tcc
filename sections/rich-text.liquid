@@ -7,7 +7,7 @@
     }
   </style>
 
-  <div {% render 'section-properties' %}>
+<div {% render 'section-properties' %} style="--section-spacing-block: 0px;">
     {%- assign text_position = section.settings.text_position -%}
     {%- assign blocks_before_divider = '' -%}
     {%- assign blocks_after_divider = '' -%}
@@ -120,14 +120,21 @@
       </div>
     {%- endif -%}
 
-    <div class="rich-text justify-{{ text_position }} {% if blocks_before_divider != blank and blocks_after_divider != blank %}md:hidden{% endif %}">
-      <div class="rich-text__wrapper">
-        <div class="prose justify-items-{{ text_position }} text-{{ text_position }}">
-          {{- blocks_before_divider -}}
-          {{- blocks_after_divider -}}
-        </div>
+<div
+  class="{% if blocks_before_divider != blank and blocks_after_divider != blank %}md:hidden{% endif %}"
+  style="display: flex; flex-direction: column; justify-content: {{ section.settings.vertical_alignment }}; min-height: 50px;"
+>
+  <div class="rich-text justify-{{ text_position }}">
+    <div class="rich-text__wrapper">
+      <div class="prose justify-items-{{ text_position }} text-{{ text_position }}">
+        {{- blocks_before_divider -}}
+        {{- blocks_after_divider -}}
       </div>
     </div>
+  </div>
+</div>
+
+
   </div>
 {%- endif -%}
 
@@ -186,6 +193,17 @@
       ],
       "default": "center"
     },
+    {
+  "type": "select",
+  "id": "vertical_alignment",
+  "label": "Vertical alignment",
+  "options": [
+    { "value": "start", "label": "Top" },
+    { "value": "center", "label": "Middle" },
+    { "value": "end", "label": "Bottom" }
+  ],
+  "default": "start"
+},
     {
       "type": "header",
       "content": "Colors",

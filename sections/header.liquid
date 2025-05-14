@@ -12,7 +12,7 @@ the underlying logic of the menu.
 {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
   {%- assign will_show_locale_selector = true -%}
 {%- endif -%}
-
+ 
 <style>
   :root {
     --sticky-header-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
@@ -76,7 +76,7 @@ the underlying logic of the menu.
 </style>
 
 <height-observer variable="header">
-  <store-header class="header" {% if section.settings.hide_on_scroll %}hide-on-scroll="100"{% endif %} {% if section.settings.enable_sticky %}sticky{% endif %}>
+  <store-header class="header {% if request.page_type == 'index' %}homepage-header{% endif %}" {% if section.settings.hide_on_scroll %}hide-on-scroll="100"{% endif %} {% if section.settings.enable_sticky %}sticky{% endif %}>
     <div class="header__wrapper">
       {%- comment -%}
       --------------------------------------------------------------------------------------------------------------------
@@ -132,8 +132,14 @@ the underlying logic of the menu.
                               {{- link.title -}} 
                               {% comment %} {%- render 'icon' with 'chevron-bottom' -%} {% endcomment %}
                             </summary>
-
+                           {% if link.title == 'Catalog' %}
+                             {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                            {% else %}
                            {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                            {% endif %}
+                           
+                          
+                            {% comment %} {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%} {% endcomment %}
                           </details>
                         {%- else -%}
                           <button aria-controls="navigation-drawer-{{ forloop.index }}" aria-expanded="false" class="text-with-icon gap-2.5 bold link-faded-reverse">
@@ -186,7 +192,7 @@ the underlying logic of the menu.
                       {%- endif -%}
                     {%- endif -%}
 
-                    <div class="x:h-0.5 x:w-0 x:rounded-full x:bg-black x:transition-all x:duration-300 x:group-hover:w-full"></div>
+                    <div class="x:h-0.5 x:w-0 x:rounded-full x:bg-black x:transition-all x:duration-300 x:group-hover:w-full">&nbsp;</div>
                   </li>
                 {%- endfor -%}
               </ul>
@@ -222,7 +228,7 @@ the underlying logic of the menu.
         </h1>
       {% else %}
         <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>
-      {% endif %}
+      {% endif %} 
 
       {%- comment -%}
       --------------------------------------------------------------------------------------------------------------------
@@ -256,16 +262,16 @@ the underlying logic of the menu.
             </li>
           {%- endif -%}
 
-          <li>
-            <div class="x:relative x:w-full x:focus-within:icon-visible">
+          <li class="custom-search__bar-list">
+            <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
               <a
                 href="{{ routes.search_url }}"
-                class="x:flex x:items-center x:w-full x:border x:border-black x:px-4 x:py-1 x:focus-within:ring-black"
-                aria-controls="search-drawer"
+                class="x:flex x:items-center x:w-full x:border search-bar-link x:px-4 x:mx-10"
+                aria-controls="search-drawer" style="margin: 0 !important;"
               >
                 <input
                   type="text"
-                  class="x:w-full x:placeholder-black x:outline-none"
+                  class="x:w-full search-bar-input x:outline-none"
                   placeholder="What are you looking for?"
                 />
                 <span class="sr-only">{{ 'header.general.search' | t }}</span>
@@ -282,12 +288,25 @@ the underlying logic of the menu.
           
           {%- if shop.customer_accounts_enabled -%}
             <li>
-              <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="hidden tap-area sm:block">
-                <span class="sr-only">{% if customer %}{{ 'header.general.account' | t }}{% else %}{{ 'header.general.login' | t }}{% endif %}</span>
+              <a 
+                href="{% if customer %}/pages/profile{% else %}#{% endif %}" 
+                class="hidden tap-area sm:block"
+                {% unless customer %}
+                  onclick="
+                    event.preventDefault();
+                    document.getElementById('login-modal').classList.remove('x:hidden');
+                  "
+                {% endunless %}
+              >
+                <span class="sr-only">
+                  {% if customer %}{{ 'header.general.account' | t }}{% else %}{{ 'header.general.login' | t }}{% endif %}
+                </span>
                 {%- render 'icon' with 'account' -%}
               </a>
             </li>
           {%- endif -%}
+
+
 
           <li>
             <a href="{{ routes.cart_url }}" data-no-instant class="relative block tap-area" {% if settings.cart_type != 'page' and request.page_type != 'cart' %}aria-controls="cart-drawer"{% endif %}>
@@ -304,6 +323,7 @@ the underlying logic of the menu.
           </li>
         </ul>
       </div>
+
     </div>
   </store-header>
 </height-observer>
@@ -632,6 +652,11 @@ the underlying logic of the menu.
           "label": "Heading"
         },
         {
+          "type": "collection",
+          "id": "image_btn",
+          "label": "Promo Collection",
+        },
+        {
           "type": "url",
           "id": "image_link_1",
           "label": "Link"
@@ -765,3 +790,5 @@ the underlying logic of the menu.
   ]
 }
 {% endschema %}
+
+{% render 'custom-login-modal' %}

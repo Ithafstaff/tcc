@@ -1,0 +1,227 @@
+<section 
+  class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-50" 
+  id="login-modal"
+>
+{% form 'customer_login' %}
+  <input type="hidden" name="return_to" value="/pages/profile">
+      <div class="x:w-[50rem] x:bg-white x:p-10 x:flex x:flex-col x:gap-5 x:items-center x:relative">
+        <i class="x:absolute x:right-5 x:top-5 x:cursor-pointer" onclick="document.getElementById('login-modal').classList.add('x:hidden')">
+          <span class="x:cursor-pointer">
+            {%- render 'icon', icon: 'close' -%}
+          </span>
+        </i>
+    
+        <div class="x:flex x:flex-col x:items-center">
+          <h1 class="x:uppercase x:font-normal">account sign in</h1>
+          <span>Welcome back! Access your orders, wishlist, and more</span>
+        </div>
+        
+        <div class="x:flex x:flex-col x:gap-5 x:w-[70%]">
+              {% if form.errors %}
+              <div class="x:text-red-600 x:text-sm">
+                {{ form.errors | default_errors }}
+              </div>
+            {% endif %}
+    
+            <div class="x:relative x:group x:w-full">
+              <input 
+                name="customer[email]" 
+                type="email" 
+                required 
+                placeholder="Email" 
+                class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+              >
+              <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+                <i>{%- render 'icon' with 'email' -%}</i>
+              </div>
+            </div>
+    
+            <div class="x:relative x:group x:w-full">
+              <input
+                id="login-password"
+                name="customer[password]"
+                type="password"
+                required
+                placeholder="Password"
+                class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+              >
+            
+              <div class="x:absolute x:left-3 x:top-1/2 x:-translate-y-1/2">
+                {%- render 'icon' with 'picto-lock' -%}
+              </div>
+            
+              <div
+                id="toggle-login-password"
+                class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer"
+                data-visible="false"
+              >
+                <span class="eye-icon">{%- render 'icon' with 'eye' -%}</span>
+                <span class="eye-off-icon" style="display: none;">{%- render 'icon' with 'eye-off' -%}</span>
+              </div>
+            </div>
+            <a href="/account/recover">Forgot Password?</a>
+            <button type="submit"
+              class="x:w-full x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:h-[3.75rem] x:uppercase"
+            >
+              sign in
+            </button>
+            <a class="x:text-center x:hover:underline x:hover:cursor-pointer" onclick="
+              document.getElementById('login-modal').classList.add('x:hidden');
+              document.querySelector('#signup-modal').classList.remove('x:hidden');
+            ">Don't have an account? create one</a>
+          </div>
+      </div>
+      {% endform %}
+</section>
+
+<section 
+  class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-[60]" 
+  id="signup-modal"
+>
+     {% form 'create_customer' %}
+  <div class="x:w-[50rem] x:bg-white x:p-10 x:flex x:flex-col x:gap-5 x:items-center x:relative">
+    <i class="x:absolute x:right-5 x:top-5 x:cursor-pointer" onclick="document.getElementById('signup-modal').classList.add('x:hidden')">
+      <span class="x:cursor-pointer">
+        {%- render 'icon', icon: 'close' -%}
+      </span>
+    </i>
+
+    <div class="x:flex x:flex-col x:items-center">
+      <h1 class="x:uppercase x:font-normal">create an account</h1>
+      <span>Sign up to access your order history, wishlist, and exclusive deals</span>
+    </div>
+
+ 
+      <input type="hidden" name="return_to" value="/pages/profile">
+      <div class="x:flex x:flex-col x:gap-5 x:w-[70%]">
+
+        {% if form.errors %}
+          <div class="x:text-red-600 x:text-sm">
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <div class="x:flex x:gap-5 x:w-full">
+          <div class="x:relative x:group x:w-full">
+            <input
+              name="customer[first_name]"
+              placeholder="First Name"
+              required
+              class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+            >
+            <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+              <i>{%- render 'icon' with 'user', class: 'user' -%}</i>
+            </div>
+          </div>
+
+          <div class="x:relative x:group x:w-full">
+            <input
+              name="customer[last_name]"
+              placeholder="Last Name"
+              required
+              class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+            >
+            <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+              <i>{%- render 'icon' with 'user', class: 'user' -%}</i>
+            </div>
+          </div>
+        </div>
+
+        <div class="x:relative x:group x:w-full">
+          <input
+            name="customer[phone]"
+            placeholder="Phone Number"
+            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+          >
+          <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+            <i>{%- render 'icon' with 'picto-phone' -%}</i>
+          </div>
+        </div>
+
+        <div class="x:relative x:group x:w-full">
+          <input
+            name="customer[email]"
+            type="email"
+            required
+            placeholder="Email"
+            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+          >
+          <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
+            <i>{%- render 'icon' with 'email' -%}</i>
+          </div>
+        </div>
+
+        <div class="x:relative x:group x:w-full">
+          <input
+            id="signup-password"
+            name="customer[password]"
+            type="password"
+            required
+            placeholder="Password"
+            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+          >
+          <div class="x:absolute x:left-3 x:top-1/2 x:-translate-y-1/2">
+            {%- render 'icon' with 'picto-lock' -%}
+          </div>
+          <div
+            id="toggle-signup-password"
+            class="x:absolute x:right-3 x:top-1/2 x:-translate-y-1/2 x:cursor-pointer"
+            data-visible="false"
+          >
+            <span class="eye-icon">{%- render 'icon' with 'eye' -%}</span>
+            <span class="eye-off-icon" style="display: none;">{%- render 'icon' with 'eye-off' -%}</span>
+          </div>
+
+
+        </div>
+
+
+        <button type="submit" class="x:w-full x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:h-[3.75rem] x:uppercase">
+          create account
+        </button>
+
+        <span class="x:text-center x:w-full x:text-[#222222]/50">
+          By creating an account you are agreeing to our
+          <span class="x:underline x:hover:text-black x:hover:cursor-pointer">Terms of Use</span> and
+          <span class="x:underline x:hover:text-black x:hover:cursor-pointer">Privacy Policy</span>
+        </span>
+
+        <span class="x:w-full x:text-center x:text-[#222222]/50">
+          Already have an account?
+          <a class="x:underline x:hover:text-black x:hover:cursor-pointer" onclick="
+            document.getElementById('signup-modal').classList.add('x:hidden');
+            document.getElementById('login-modal').classList.remove('x:hidden');
+          ">Sign In</a>
+        </span>
+      </div>
+  </div>
+      {% endform %}
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    function setupPasswordToggle(inputId, toggleId) {
+      const input = document.getElementById(inputId);
+      const toggle = document.getElementById(toggleId);
+      const eyeIcon = toggle.querySelector(".eye-icon");
+      const eyeOffIcon = toggle.querySelector(".eye-off-icon");
+
+      if (input && toggle && eyeIcon && eyeOffIcon) {
+        toggle.addEventListener("click", function () {
+          const isVisible = toggle.getAttribute("data-visible") === "true";
+          toggle.setAttribute("data-visible", !isVisible);
+
+          // Toggle input type
+          input.type = isVisible ? "password" : "text";
+
+          // Toggle icons
+          eyeIcon.style.display = isVisible ? "inline-block" : "none";
+          eyeOffIcon.style.display = isVisible ? "none" : "inline-block";
+        });
+      }
+    }
+
+    setupPasswordToggle("login-password", "toggle-login-password");
+    setupPasswordToggle("signup-password", "toggle-signup-password");
+  });
+</script>

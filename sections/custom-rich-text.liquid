@@ -1,8 +1,8 @@
 <div class="x:w-full x:h-[294px] x:bg-[#222222] x:text-white x:flex x:flex-col x:justify-center x:items-center x:gap-4">
     <!-- Heading Section -->
-    <h1 class="x:text-4xl x:tracking-wide x:font-serif x:pt-[5px]">
+    <p style="font-family: 'GFSDidot', serif;" class="x:text-4xl x:tracking-wide x:pt-[5px]">
       {{ section.settings.heading | default: 'LUXURY. ELEGANCE. STYLE.' }}
-    </h1>
+    </p>
   
     <!-- Subheading Section -->
     <p class="x:text-lg x:text-gray-400 x:pt-[20px]">
@@ -14,6 +14,7 @@
     <div class="x:flex x:gap-6 x:pt-[25px] {% if button_count == 1 %}x:justify-center{% endif %}">
       {% for block in section.blocks %}
         <a href="{{ block.settings.url | default: '#' }}" 
+           style="font-family: 'Alata', sans-serif;"
            class="x:border x:border-white x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[350px] x:h-[60px]">
           {{ block.settings.text | default: 'Button' }}
         </a>

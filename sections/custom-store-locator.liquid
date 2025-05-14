@@ -1,0 +1,176 @@
+<section class=" x:border-t-2">
+  <div class="container x:flex x:flex-col x:py-10">
+    {% comment %} PAGE HEADER SECTION {% endcomment %}
+    <div class="x:flex x:items-center x:flex-col">
+      <h1 class="x:uppercase">find our nearest store in your city</h1>
+      <span>Indulge in timeless pieces just around the corner</span>
+    </div>
+
+    {% comment %} PINNED LOCATION BUTTON SECTION {% endcomment %}
+    <div class="x:flex x:justify-between x:py-10">
+      <button
+        class="location-btn x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase"
+        data-lat="40.637516661474045"
+        data-lng="-73.99037491120228"
+      >
+        brooklyn borough park
+      </button>
+      <button
+        class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase"
+        data-lat="40.696809238004896"
+        data-lng="-73.95639837301532"
+      >
+        brooklyn williamsburg
+      </button>
+      <button
+        class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase"
+        data-lat="40.6208315995229"
+        data-lng="-73.72690754232822"
+      >
+        cedarhurst
+      </button>
+      <button
+        class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase"
+        data-lat="40.05914380616697"
+        data-lng="-74.2191726772517"
+      >
+        lakewood new jersey
+      </button>
+    </div>
+
+    {% comment %} MAP SECTION {% endcomment %}
+    <div class="x:flex x:w-full x:h-[50vh]">
+      {% comment %} MAP LEFT SECTION {% endcomment %}
+      <div class="x:flex x:flex-col x:w-lg x:p-4 x:justify-between">
+        <div class="x:flex x:flex-col x:h-full x:justify-center x:gap-3">
+          <div class="x:flex x:gap-3 x:items-center">
+            {%- render 'icon' with 'picto-pin', class: 'pin' -%}
+            <span class="x:capitalize">4518 13th avenue brooklyn ny 11219</span>
+          </div>
+
+          <div class="x:flex x:gap-3 x:items-center">
+            {%- render 'icon' with 'picto-phone', class: 'phone' -%}
+            <span class="x:uppercase">718-854-2595</span>
+          </div>
+          <div class="x:flex x:items-center x:gap-1">
+            <div class="x:flex x:gap-3 x:items-center">
+              {%- render 'icon' with 'picto-timer', class: 'timer' -%}
+              <label class="x:capitalize x:font-bold">Sunday:</label>
+            </div>
+            <span class="x:uppercase">10:00 am - 7:00 pm</span>
+          </div>
+
+          <div class="x:flex x:items-center x:gap-1">
+            <div class="x:flex x:gap-3 x:items-center">
+              {%- render 'icon' with 'picto-timer', class: 'timer' -%}
+              <label class="x:capitalize x:font-bold">monday to thursday:</label>
+            </div>
+            <span class="x:uppercase">10:00 am - 7:00 pm</span>
+          </div>
+
+          <div class="x:flex x:items-center x:gap-1">
+            <div class="x:flex x:gap-3 x:items-center">
+              {%- render 'icon' with 'picto-timer', class: 'timer' -%}
+              <label class="x:capitalize x:font-bold">friday:</label>
+            </div>
+            <span class="x:uppercase">10:00 am - 4:00 pm</span>
+          </div>
+        </div>
+
+        <div class="x:flex x:flex-col x:gap-2 x:justify-between">
+          <p>
+            Nestled in one of Brooklyn’s busiest shopping districts, our Boro Park store offers a wide variety of bed
+            linens, crystal items, tablecloths, party goods, flatware, toys, and more. Discover unbeatable closeout
+            prices on high-quality items you won’t find anywhere else.
+          </p>
+        </div>
+      </div>
+
+      {% comment %} MAP RIGHT SECTION {% endcomment %}
+      <div class="x:flex x:flex-1 w-f x:bg-white x:p-4">
+        <div class="x:w-full x:h-full x:rounded" id="map">
+          <!-- Map or content goes here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} BOTTOM SECTION BANNER {% endcomment %}
+  <div class="x:h-[7rem] x:bg-[#222222] x:w-full x:flex x:justify-center x:items-center x:gap-10 x:text-white">
+    <div class="x:flex x:flex-col">
+      <h2 class="x:uppercase">free shipping on orders over $200</h2>
+      <span>Get alerts about new items, sales, and more.</span>
+    </div>
+
+    <button class="x:border x:border-white x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase">
+      get started
+    </button>
+  </div>
+</section>
+<style>
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+</style>
+{% comment %} MAP NAVIGATION SCRIPT {% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the map
+    var map = L.map('map').setView([40.637516661474045, -73.99037491120228], 18);
+
+    // Add OpenStreetMap tile layer
+     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19,
+      attribution: '© <a href="https://carto.com/attributions">CARTO</a>'
+    }).addTo(map);
+
+    // Keep a record of your markers
+    const markers = {};
+
+    const locations = [
+      { lat: 40.637516661474045, lng: -73.99037491120228, name: 'Brooklyn - Borough Park' },
+      { lat: 40.696809238004896, lng: -73.95639837301532, name: 'Brooklyn - Williamsburg' },
+      { lat: 40.6208315995229, lng: -73.72690754232822, name: 'Cedarhurst' },
+      { lat: 40.05914380616697, lng: -74.2191726772517, name: 'Lakewood New Jersey' },
+    ];
+
+    // Add markers with popup
+    locations.forEach((loc) => {
+      const marker = L.marker([loc.lat, loc.lng]).addTo(map).bindPopup(`<strong>${loc.name}</strong>`);
+      markers[loc.name] = marker;
+    });
+
+    // Add click event to buttons
+    const buttons = document.querySelectorAll('.location-btn');
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        const lat = parseFloat(button.getAttribute('data-lat'));
+        const lng = parseFloat(button.getAttribute('data-lng'));
+
+        if (!isNaN(lat) && !isNaN(lng)) {
+          map.setView([lat, lng], 18, { animate: true });
+
+          setTimeout(() => {
+            const locName = locations[index].name;
+            if (markers[locName]) {
+              markers[locName].openPopup();
+            }
+          }, 300);
+
+          // Remove active class from all
+          button.classList.add('x:bg-[#222222]', 'x:text-white');
+
+          // Remove from others
+          buttons.forEach((btn) => {
+            if (btn !== button) {
+              btn.classList.remove('x:bg-[#222222]', 'x:text-white');
+            }
+          });
+        }
+      });
+    });
+  });
+</script>

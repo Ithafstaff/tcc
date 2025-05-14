@@ -1,5 +1,4 @@
 <style> 
-
   .breadcrumbs--root {
     display: flex;
     max-width: 1356px;
@@ -8,46 +7,42 @@
     margin: 0 auto;
     border-top: 1px solid rgba(0, 0, 0, 0.5);
   }
-  
+
   .breadcrumbs--root li,
   .breadcrumbs--root li a {
     font-family: "Alata", sans-serif !important;
     text-transform: uppercase;
     font-size: 12px;
     line-height: 66px;
+  }
+
+  /* All breadcrumb items except the last one: black */
+  .breadcrumbs--root li:not(:last-child),
+  .breadcrumbs--root li:not(:last-child) a {
+    color: #000;
+  }
+
+  /* Last breadcrumb item: faded */
+  .breadcrumbs--root li:last-child {
     color: rgba(0, 0, 0, 0.5);
   }
 
-  .breadcrumbs--root li {
-    /* font-size: 16px !important;
-    font-family: "Alata", sans-serif !important;
-    color: #000 !important; */
-  }
-
-  .breadcrumbs--root li:not(:last-child) {
-    position: relative;
-  }
-  
   .breadcrumbs--root li:not(:last-child)::after {
     content: '/';
     margin-left: 3px;
   }
-  
 </style>
 
-
 <ul class="breadcrumbs--root">
-   <li data-item="block-link">
-      <a href="{{ routes.root_url }}">Home</a>
-   </li>
+  <li data-item="block-link">
+    <a href="{{ routes.root_url }}">Home</a>
+  </li>
 
-   {% if request.page_type == "product" %}
-         <li data-item="block-link">
-            <a href="{{ routes.collections_url }}">
-               Product
-            </a>
-         </li>
-    {% endif %}
-      <li data-item="accent-text">{{ product.title }}</li>
+  {% if request.page_type == "product" %}
+    <li data-item="block-link">
+      <a href="{{ routes.collections_url }}">Product</a>
+    </li>
+  {% endif %}
 
+  <li data-item="accent-text">{{ product.title }}</li>
 </ul>

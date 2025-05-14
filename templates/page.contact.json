@@ -1,1 +1,134 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{}},"contact":{"type":"contact","settings":{}}},"order":["main","contact"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "contact": {
+      "type": "custom-contact",
+      "settings": {}
+    },
+    "custom_faq_iCLJAW": {
+      "type": "custom-faq",
+      "blocks": {
+        "faq_item_VWFAiB": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders",
+            "question": "How do I place an order?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        },
+        "faq_item_JXK9HW": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders",
+            "question": "Where can I track my Orders?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        },
+        "faq_item_z77L6c": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders",
+            "question": "When will my orders be processed and shipped?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        },
+        "faq_item_nLGaJm": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders",
+            "question": "Can I make changes to my order after placing it?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        },
+        "faq_item_FQHEtn": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders",
+            "question": "Are all the closeout connection products posted available in physical stores?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        },
+        "faq_item_rDRKgh": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Returns",
+            "question": "Return test",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        },
+        "faq_item_4UnQhQ": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Pick-up",
+            "question": "Pick-up test?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        },
+        "faq_item_ADjTqV": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Payment",
+            "question": "Payment test?",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        },
+        "faq_item_fw9mHV": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Subscriptions",
+            "question": "Subscriptions test",
+            "answer": "You can place an order by adding items to your cart and proceeding to checkout."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_VWFAiB",
+        "faq_item_JXK9HW",
+        "faq_item_z77L6c",
+        "faq_item_nLGaJm",
+        "faq_item_FQHEtn",
+        "faq_item_rDRKgh",
+        "faq_item_4UnQhQ",
+        "faq_item_ADjTqV",
+        "faq_item_fw9mHV"
+      ],
+      "name": "Custom FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "subheading": "Find quick answers to common questions about your order, shipping, returns, and more.",
+        "faq_categories": "Orders,Returns,Pick-up,Payment,Subscriptions"
+      }
+    },
+    "custom_shipping_section_bUiVrr": {
+      "type": "custom-shipping-section",
+      "name": "Custom Shipping Section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact",
+    "custom_faq_iCLJAW",
+    "custom_shipping_section_bUiVrr"
+  ]
+}

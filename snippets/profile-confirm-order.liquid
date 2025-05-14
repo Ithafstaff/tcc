@@ -1,0 +1,454 @@
+
+  <style>
+
+  * {
+  box-sizing: border-box;
+  }
+
+  .profile-confirm {
+    /* padding: 0 50px; */
+    font-family: "Alata", sans-serif !important;
+    color: #222222;
+  }
+
+  .profile-confirm__container {
+    max-width: 1355px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(34, 34, 34, 0.5);
+  }
+
+  .profile-confirm__header {
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 1px;
+    margin: 35px 0 0;
+    text-transform: uppercase;
+  }
+
+  .profile-confirm__header-txt {
+    display: block;
+    font-family: "Poppins", sans-serif !important;
+    font-size: 14px;
+    text-align: center;
+    line-height: 66px;
+    letter-spacing: 1px;
+  }
+
+  .profile-confirm__breadcrumbs-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .profile-confirm__breadcrumbs-item {
+    font-size: 14px;
+    color: rgba(34, 34, 34, 0.5);
+    line-height: 66px;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 1px;
+  }
+
+  .profile-confirm__breadcrumbs-item:not(:last-child)::after {
+    content: "\2794";
+    position: absolute;
+    font-size: 14px;
+    width: 15px;
+    height: 10px;
+    right: -23px;
+  }
+
+  .profile-confirm__breadcrumbs-item--active {
+    text-decoration: underline;
+  }
+
+  .profile-confirm__order-container {
+    display: flex;
+    gap: 43px;
+    margin-bottom: 160px;
+  }
+
+  .profile-confirm__order-detail-block {
+    /* border: 1px solid; */
+  }
+
+  .profile-confirm__order-detail-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.2);
+  }
+
+  .profile-confirm__order-detail-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: rgba(34, 34, 34, 0.02);
+    padding: 20px 14px;
+  }
+
+  .bg-none {
+    background-color: unset;
+    padding: 0 14px;
+  }
+
+  .profile-confirm__order-detail-row span {
+    text-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile-confirm__order-detail-row span:first-child {
+    text-align: start !important;
+    min-width: 320px;
+    display: block;
+  }
+
+  .profile__order-desc-wrap span {
+    min-width: unset !important;
+    justify-content: flex-start;
+    text-align: start !important;
+  }
+
+  .profile__order-item-name {
+    padding-right: 20px;
+  }
+
+  .profile-confirm__order-detail-label {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 5px 0 15px;
+  }
+
+  .profile-confirm__order-product-block {
+    display: flex;
+    gap: 16px;
+    min-width: 320px;
+  }
+
+  .profile-confirm__order-payment-wrap {
+    display: flex;
+    gap: 114px;
+    justify-content: space-between;
+    padding: 0 10px 0 15px;
+  }
+
+  .profile-confirm__order-receiving-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .profile-confirm__order-receiving-block label {
+    background-color: rgba(34, 34, 34, 0.02);
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 14px;
+  }
+
+  .mb8 {
+    margin-bottom: 8px;
+  }
+
+  .profile-confirm__order-payment-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .profile-confirm__order-heading {
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 66px;
+    letter-spacing: 1px;
+  }
+
+  .profile-confirm__order-payment-block label {
+    height: 65px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .profile-confirm__order-radio-wrap {
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px 20px 40px;
+    background-color: rgba(34, 34, 34, 0.02);
+  }
+
+  .profile-confirm__order-receiving-address {
+    font-family: "Poppins", sans-serif !important;
+    font-size: 11px;
+    position: relative;
+    letter-spacing: 1px;
+  }
+
+  .profile-confirm__order-receiving-address span {
+    position: relative;
+    font-family: "Alata", sans-serif !important;
+    font-size: 6px;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    width: 41px;
+    height: 11px;
+    border: 1px solid rgba(34, 34, 34, 0.5);
+    margin-left: 10px;
+    top: -2px;
+    color: rgba(34, 34, 34, 0.5);
+  }
+
+  .profile-confirm__order-receiving-btn {
+    color: rgba(34, 34, 34, 0.5);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    text-decoration: underline;
+  }
+
+
+
+  .profile-confirm__order-summary-block {
+    border: 2px solid #222222;
+    min-width: 420px;
+    padding: 14px 40px 40px;
+    height: fit-content;
+  }
+
+  .profile-confirm__summary-heading {
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 66px;
+    margin-bottom: 12px;
+  }
+
+  .profile-confirm__summary-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fw700 {
+    font-weight: 700;
+  }
+
+  .profile-confirm__summary-row span {
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+  }
+
+  .profile-confirm__summary-promo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(34, 34, 34, 0.2);
+    border-bottom: 1px solid rgba(34, 34, 34, 0.2);
+    margin-bottom: 13px;
+  }
+
+  .profile-confirm__summary-note {
+    font-family: "Poppins", sans-serif !important;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: 15px;
+  }
+  .profile-confirm__summary-note a {
+    text-decoration: underline;
+  }
+
+  .profile-confirm__summary-btn-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-confirm__recapcha {
+    margin: 44px auto 22px;
+  }
+
+  .profile-confirm__btn-submit {
+    padding: 15px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(34, 34, 34, 0.5);
+  }
+
+  .profile__order-item-variant {
+    font-family: "Poppins", sans-serif !important;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 12px;
+  }
+
+  .profile-confirm__order-product-price,
+  .profile-confirm__order-product-qty,
+  .profile-confirm__order-product-ttl {
+    font-family: "Poppins", sans-serif !important;
+    font-size: 14px;
+  }
+
+  .profile__order-img-wrap img {
+    min-width: 100px;
+    height: 100px;
+  }
+
+    .profile__order-desc-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+
+
+
+  /* color: rgba(34, 34, 34, 0.5); */
+
+
+  </style>
+
+
+  <div class="profile-confirm">
+    <div class="profile-confirm__container">
+      <h1 class="profile-confirm__header">Complete Your Order</h1>
+      <span class="profile-confirm__header-txt">Choose a receiving option, add payment, and you're all set</span>
+      <div class="profile-confirm__breadcrumbs-wrap">
+        <span class="profile-confirm__breadcrumbs-item">CART</span>
+        <span class="profile-confirm__breadcrumbs-item profile-confirm__breadcrumbs-item--active">checkout</span>
+        <span class="profile-confirm__breadcrumbs-item">confirmation</span>
+      </div>
+      <div class="profile-confirm__order-container">
+        <div class="profile-confirm__order-detail-block">
+          <div class="profile-confirm__order-detail-wrap">
+            <div class="profile-confirm__order-detail-row bg-none">
+              <span class="profile-confirm__order-detail-label">ordered products</span>
+              <span class="profile-confirm__order-detail-label">unit price</span>
+              <span class="profile-confirm__order-detail-label">quantity</span>
+              <span class="profile-confirm__order-detail-label">total price</span>
+            </div>
+            <div class="profile-confirm__order-detail-row">
+              <div class="profile-confirm__order-product-block">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Organic Hammered Plates Blue/Gold Rim-10cttle</span>
+                  <span class="profile__order-item-variant">Blue, 7.5" Salad Plate</span>
+                </div>
+              </div>
+              <span class="profile-confirm__order-product-price">$4.69</span>
+              <span class="profile-confirm__order-product-qty">3</span>
+              <span class="profile-confirm__order-product-ttl">$14.07</span>
+            </div>
+          
+            <div class="profile-confirm__order-detail-row">
+              <div class="profile-confirm__order-product-block">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Invigo Living Glass Tray with Gold Rim RJ1138 - 023G</span>
+                  <span class="profile__order-item-variant">Gold</span>
+                </div>
+              </div>
+              <span class="profile-confirm__order-product-price">$4.69</span>
+              <span class="profile-confirm__order-product-qty">3</span>
+              <span class="profile-confirm__order-product-ttl">$14.07</span>
+            </div>
+          
+            <div class="profile-confirm__order-detail-row">
+              <div class="profile-confirm__order-product-block">
+                <div class="profile__order-img-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Div_items-img_2.png?v=1746022532" alt="" class="profile__order-img">
+                </div>
+                <div class="profile__order-desc-wrap">
+                  <span class="profile__order-item-name">Decorative Crystal Butterfly Figurine</span>
+                  <span class="profile__order-item-variant">Blue</span>
+                </div>
+              </div>
+              <span class="profile-confirm__order-product-price">$4.69</span>
+              <span class="profile-confirm__order-product-qty">3</span>
+              <span class="profile-confirm__order-product-ttl">$14.07</span>
+            </div>
+          
+          </div>
+          <div class="profile-confirm__order-payment-wrap">
+            <div class="profile-confirm__order-receiving-block">
+              <span class="profile-confirm__order-heading">receiving options</span>
+              <label class="mb8">
+                <input type="radio" name="recieving-option" id="">
+                CURBSIDE PICKUP
+              </label>
+              <label>
+                <input type="radio" name="recieving-option" id="">
+                DELIVERY
+              </label>
+              <div class="profile-confirm__order-radio-wrap">
+                <span class="profile-confirm__order-receiving-address">123 West 45th Street, Apt 5C, New York, NY 10036, USA <span>DEFAULT</span></span>
+                <a href="" class="profile-confirm__order-receiving-btn">CHANGE ADDRESS</a>
+              </div>
+            </div>
+              
+             
+            <div class="profile-confirm__order-payment-block">
+              <span class="profile-confirm__order-heading">payment options</span>
+              <label>
+                <input type="radio" name="payment-option" id="">
+                <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Paypal-Logo-2022_1.png?v=1746127136">
+              </label>
+              <label>
+                <input type="radio" name="payment-option" id="">
+                <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/mastercards-new-york.png?v=1746127136">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="profile-confirm__order-summary-block">
+          <h2 class="profile-confirm__summary-heading">order summary</h2>
+          <div class="profile-confirm__summary-block">
+            <div class="profile-confirm__summary-row">
+              <span class="profile-confirm__summary-label">Merchandise:</span>
+              <span class="profile-confirm__summary-price">$88.04</span>
+            </div>
+            <div class="profile-confirm__summary-row">
+              <span class="profile-confirm__summary-label">shipping Fee:</span>
+              <span class="profile-confirm__summary-price">$0.00</span>
+            </div>
+            <div class="profile-confirm__summary-row">
+              <span class="profile-confirm__summary-label">Tax Fee:</span>
+              <span class="profile-confirm__summary-price">$8.49</span>
+            </div>
+            <div class="profile-confirm__summary-row fw700">
+              <span class="profile-confirm__summary-label">Order Total:</span>
+              <span class="profile-confirm__summary-price">$104.53</span>
+            </div>
+            <div class="profile-confirm__summary-promo">
+              <span class="profile-confirm__summary-label">Promo Code</span>
+              <span class="profile-confirm__summary-price">+</span>
+            </div>
+            <span class="profile-confirm__summary-note">By checking out, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy.</a></span>
+            <div class="profile-confirm__summary-btn-wrap">
+              <span class="profile-confirm__recapcha">reCAPCHA Here</span>
+              <a class="profile-confirm__btn-submit" href="#">place order</a>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

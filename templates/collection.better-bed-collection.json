@@ -101,11 +101,17 @@
       ],
       "settings": {
         "id_header": "EVERYDAY BEDDING SETS COLLECTION",
+        "id_sub-header": "",
         "id_content": "<p>Luxury bedding sets at unbeatable prices. Our sets include pillowcases, duvet covers, and fitted sheets for two beds. Upgrade to 8-piece sets with extra pillowcases or floral comforter covers for an elegant touch to your bedroom.<br/><br/></p>"
       }
     },
     "main": {
       "type": "main-collection",
+      "custom_css": [
+        ".container {max-width: 1385px; margin: 0 auto;}",
+        ".bg-custom {background: transparent;}",
+        ".product-card__figure img {border-radius: 0;}"
+      ],
       "settings": {
         "products_per_page": 20,
         "products_per_row_mobile": "2",

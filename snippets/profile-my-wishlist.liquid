@@ -1,0 +1,513 @@
+<style>
+
+  .profile-sub {
+    padding: 0 50px 30px;
+    font-family: "Alata", sans-serif !important;
+    color: #222222;
+  }
+  
+  .section-spacing-block,
+  .shopify-section,
+  .section {
+    padding: 0 !important;
+  }
+
+  .profile-sub__container {
+    max-width: 1356px;
+    border-top: 1px solid rgba(34, 34, 34, 0.5);
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .profile-sub__col-left {
+    /* border: 1px solid red; */
+    min-width: 240px;
+    padding: 0 15px;
+  }
+
+  .profile-sub__col-right {
+    width: 100%;
+  }
+
+  .profile-sub__info-block {
+    display: flex;
+    gap: 18px;
+    padding: 27px 0  25px;
+  }
+
+  .profile-sub__menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .profile-sub__menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .profile-sub__menu-item {
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+  }
+
+  .profile-sub__menu-item:hover {
+    color: rgba(34, 34, 34, 0.5);
+  }
+
+  .profile-sub__image-block {
+    min-width: 50px;
+    height: 50px;
+    border: 1px solid #222222;
+    overflow: hidden;
+  }
+
+  .profile-sub__info-desc {
+    font-size: 10px;
+    display: block;
+    color: rgba(34, 34, 34, 0.5);
+  }
+  .profile-sub__info-desc--name {
+    font-size: 14px;
+    display: block;
+    text-transform: capitalize;
+  }
+
+  .profile-sub__order-heading-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 44px 40px 37px 13px ;
+  }
+
+  .profile-sub__order-heading {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  .profile-sub__order-container {
+    margin: 0 30px 0 10px;
+    padding: 0 35px 0 30px;
+    border: 1px solid rgba(34, 34, 34, 0.5);
+    box-shadow: 0px 1px 5px rgba(34, 34, 34, 0.2);
+  }
+
+  .profile-sub__order-block {
+    padding: 17px 0 18px;
+  }
+
+  .profile-sub__order-block:not(:first-child) {
+    border-top : 1px solid rgba(34, 34, 34, 0.2);
+  }
+
+  .profile-sub__order-block-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding: 0;
+  }
+
+  .profile-sub__order-block-item {
+    /* border: 1px solid green; */
+    list-style: none;
+    display: flex;
+    gap: 16px;
+  }
+
+  .profile-sub__order-button-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+  }
+
+  .profile-sub__order-img-wrap {
+    min-width: 100px;
+    height: 100px;
+    /* border: 1px solid; */
+  }
+
+  .profile-sub__order-cat-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .profile-sub__order-cat-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 24px 0 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .profile-sub__order-cat-link:hover {
+    border-bottom: 1px solid #222222;
+  }
+
+  .profile-sub__order-cat-link--active {
+    border-bottom: 1px solid #222222;
+  }
+
+  .profile-sub__order-button-wrap {
+    display: flex;
+    gap: 8px;
+  }
+
+  .profile-sub__order-btn-link {
+    width: 130px;
+    height: 45px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #000;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-top: 5px;
+  }
+
+  .profile-sub__order-btn-link--sub {
+    width: fit-content;
+    padding: 10px 20px;
+  }
+
+  .profile-sub__order-btn-link:hover {
+    color: #000;
+    background-color: #fff;
+  }
+
+  .profile-sub__order-btn-link--white {
+    color: #000;
+    background-color: #fff;
+  }
+
+  .profile-sub__order-desc-wrap span {
+    display: block;
+  }
+
+  .profile-sub__order-filer {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: rgba(34, 34, 34, 0.5);
+  }
+
+  .profile-sub__order-date-wrap {
+    display: flex;
+  }
+  
+  .profile-sub__order-date-wrap span {
+    font-size: 12px;
+    color: rgba(34, 34, 34, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+  }
+
+  .profile-sub__order-date {
+    padding-right: 10px;
+    border-right: 1px solid rgba(34, 34, 34, 0.5);
+  }
+  .profile-sub__order-status {
+    padding-left: 10px;
+  }
+
+  .profile-sub__order-item-name {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .profile-sub__order-item-variant,
+  .profile-sub__order-item-qty,
+  .profile-sub__order-item-price,
+  .profile-sub__order-item-sub-note {
+    font-family: "Poppins", sans-serif !important;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .profile-sub__order-item-sub {
+    font-size: 8px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    color: #FF2C2C;
+    padding: 0 5px;
+    border: 1px solid #FF2C2C;
+    width: fit-content;
+    text-transform: uppercase;
+  }
+
+  .profile-sub__order-ttl-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .profile-sub__order-ttl-txt {
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-right: 10px;
+    letter-spacing: 1px;
+  }
+
+  .profile-sub__order-ttl-price {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+
+
+
+    /* 
+    font-family: "Alata", sans-serif !important;
+    font-family: "Poppins", sans-serif !important;
+    */
+</style>
+
+<div class="profile-sub">
+  <div class="profile-sub__container">
+    <div class="profile-sub__col-left">
+      <div class="profile-sub__info-block">
+        <div class="profile-sub__image-block">
+          <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393" alt="" class="profile-sub__profile-picture">
+        </div>
+        {% if customer %}
+          <div class="profile-sub__info-block-wrap">
+            <span class="profile-sub__info-desc profile-sub__info-desc--name" style="color: black;">
+              {{ customer.first_name }} {{ customer.last_name }}
+            </span>
+            <span class="profile-sub__info-desc">
+              {{ customer.phone }}
+            </span>
+            <span class="profile-sub__info-desc">
+              {{ customer.email }}
+            </span>
+          </div>
+        {% endif %}
+      </div>
+      <div class="profile-sub__menu-container">
+        <ul class="profile-sub__menu-list">
+          <li class="profile-sub__menu-item">
+            <a href="/pages/profile">My Orders</a>
+            </li>
+          <li class="profile-sub__menu-item">
+            <a href="/pages/profile-subscription">My Subscriptions</a>
+          </li>
+        </ul>
+        <ul class="profile-sub__menu-list">
+          <li class="profile-sub__menu-item">
+            <a href="/pages/profile-my-account">My Account</a>
+          </li>
+          <li class="profile-sub__menu-item">
+             <a href="/pages/my-wishlist">My Wishlist</a>
+          </li>
+        </ul>
+        <ul class="profile-sub__menu-list">
+          <li class="profile-sub__menu-item">
+            <a href="#">policies</a>
+          </li>
+          <li class="profile-sub__menu-item">
+            <a href="#">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="profile-sub__col-right">
+      <div class="profile-sub__order-heading-wrap">
+        <h2 class="profile-sub__order-heading">My Wishlist</h2>
+        <div class="profile-sub__order-filer">
+          <select>
+            <option>5–10 ITEMS</option>
+            <option>10–20 ITEMS</option>
+            <option>20–30 ITEMS</option>
+          </select>
+        </div>
+      </div>
+      
+<div class="profile-sub__order-container" style="padding-top: 20px; padding-bottom: 20px;">
+  <div id="wishlist-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+    <!-- Dynamic wishlist items will be inserted here -->
+  </div>
+  <div id="empty-wishlist-message" style="text-align: center; padding: 50px 0; display: none;">
+    <p style="font-size: 16px;">Your wishlist is empty. Browse our collections and add items you love!</p>
+    <a href="/collections/all" class="profile-sub__order-btn-link" style="margin: 20px auto; display: inline-block;">SHOP NOW</a>
+  </div>
+</div>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll(".profile-sub__order-cat-link");
+
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Remove active class from all links
+        links.forEach(l => l.classList.remove("profile-sub__order-cat-link--active"));
+
+        // Add active class to the clicked link
+        this.classList.add("profile-sub__order-cat-link--active");
+      });
+    });
+    
+    // Render wishlist items
+    renderWishlistItems();
+  });
+  
+  function selectSwatch(el) {
+    const container = el.parentElement;
+
+    container.querySelectorAll('.swatch').forEach(swatch => {
+      swatch.removeAttribute('data-selected');
+      swatch.innerHTML = '';
+    });
+
+    el.setAttribute('data-selected', 'true');
+    el.innerHTML = `<div style="position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: ${el.style.backgroundColor};"></div>`;
+  }
+
+  // Auto-select first swatch for each card on load
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.swatch[data-selected="true"]').forEach(el => {
+      selectSwatch(el);
+    });
+  });
+  
+  // Function to render wishlist items from localStorage
+  function renderWishlistItems() {
+    const wishlistGrid = document.getElementById('wishlist-grid');
+    const emptyWishlistMessage = document.getElementById('empty-wishlist-message');
+    
+    // Get wishlist from localStorage
+    let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+    
+    if (wishlist.length === 0) {
+      // Show empty wishlist message
+      wishlistGrid.style.display = 'none';
+      emptyWishlistMessage.style.display = 'block';
+      return;
+    }
+    
+    // Hide empty message and show grid
+    wishlistGrid.style.display = 'grid';
+    emptyWishlistMessage.style.display = 'none';
+    
+    // Clear existing items
+    wishlistGrid.innerHTML = '';
+    
+    // Add each wishlist item to the grid
+    wishlist.forEach(item => {
+      const productCard = document.createElement('div');
+      productCard.style = "width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;";
+      
+      // Create image container with heart icon
+      let imageUrl = item.image || "{{ 'product-placeholder.png' | asset_url }}";
+      
+      productCard.innerHTML = `
+        <!-- Image (250x250) with Heart -->
+        <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
+          <img 
+            src="${imageUrl}" 
+            alt="${item.title}" 
+            style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
+          />
+          <!-- Heart Icon -->
+          <img 
+            src="{{ 'heart_black.png' | asset_url }}" 
+            alt="Wishlist" 
+            style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
+            data-product-id="${item.id}"
+            onclick="removeFromWishlist('${item.id}')"
+          />
+        </div>
+        
+        <!-- Category and Cart -->
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; text-transform: uppercase;">
+          <span>${item.category || 'Product'}</span>
+          <img 
+            src="{{ 'bx_cart.png' | asset_url }}" 
+            alt="Add to Cart" 
+            style="width: 16px; height: 16px; cursor: pointer;" 
+            onclick="addToCart('${item.id}')"
+          />
+        </div>
+        
+        <!-- Title -->
+        <div style="font-size: 14px; margin: 0;">${item.title}</div>
+        
+        <!-- Price -->
+        <span style="font-size: 13px; color: #000;">${item.price || ''}</span>
+        
+        <!-- View Product Button -->
+        <a href="${item.url || '/products/' + item.handle}" class="profile-sub__order-btn-link profile-sub__order-btn-link--white" style="width: auto; font-size: 12px; margin-top: auto;">VIEW PRODUCT</a>
+      `;
+      
+      wishlistGrid.appendChild(productCard);
+    });
+  }
+  
+  // Function to remove item from wishlist
+  function removeFromWishlist(productId) {
+    let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+    
+    // Find the index of the item to remove
+    const itemIndex = wishlist.findIndex(item => item.id === productId);
+    
+    if (itemIndex !== -1) {
+      // Remove the item from the wishlist array
+      wishlist.splice(itemIndex, 1);
+      
+      // Save the updated wishlist back to localStorage
+      localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
+      
+      // Dispatch event
+      document.dispatchEvent(new CustomEvent('wishlist:updated', { 
+        detail: { wishlist: wishlist }
+      }));
+      
+      // Re-render the wishlist
+      renderWishlistItems();
+    }
+  }
+  
+  // Function to add item to cart
+  function addToCart(productId) {
+    // Add to cart functionality using Shopify AJAX API
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: productId,
+        quantity: 1
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Show success message or update cart drawer
+      alert('Item added to cart');
+    })
+    .catch(error => {
+      console.error('Error adding to cart:', error);
+      alert('Could not add item to cart. Please try again.');
+    });
+  }
+</script>
+
+
+  

@@ -1,0 +1,160 @@
+{% comment %} DYNAMIC FAQ WITH CATEGORY FILTER – Orders selected by default {% endcomment %}
+
+<div style="width: 100%; border-top: 2px solid black; padding: 2rem 0;">
+  <div style="text-align: center; margin-bottom: 3rem;">
+    <h1 style="text-transform: uppercase;">{{ section.settings.heading }}</h1>
+    <span>{{ section.settings.subheading }}</span>
+  </div>
+
+  {% assign faq_categories_array = section.settings.faq_categories | split: ',' %}
+  <div id="faq-categories" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+    {% for category in faq_categories_array %}
+      {% assign cat_clean = category | strip %}
+      <button
+        data-category="{{ cat_clean | escape }}"
+        class="faq-category-button {% if forloop.first %}active{% endif %}"
+        style="
+          width: 200px;
+          border: 1px solid black;
+          color: {% if forloop.first %}white{% else %}black{% endif %};
+          background-color: {% if forloop.first %}black{% else %}white{% endif %};
+          font-size: 1rem;
+          padding: 0.5rem 1rem;
+          text-transform: uppercase;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        "
+      >
+        {{ cat_clean }}
+      </button>
+    {% endfor %}
+  </div>
+
+  <div id="faq-list" style="display: flex; flex-direction: column; gap: 1rem; max-width: 1200px; margin: 0 auto;">
+
+    {% for block in section.blocks %}
+      <div class="faq-item"
+           data-category="{{ block.settings.category | escape }}"
+           style="border: 2px solid black; padding: 1rem; transition: all 0.3s ease; display: {% if block.settings.category == 'Orders' %}block{% else %}none{% endif %};">
+        <button type="button" class="faq-toggle" style="display: flex; justify-content: space-between; align-items: center; width: 100%; cursor: pointer;" aria-expanded="false">
+          <label style="font-weight: 500;">{{ block.settings.question }}</label>
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer" style="margin-top: 0.5rem; display: none;">
+          <p>{{ block.settings.answer }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButtons = document.querySelectorAll(".faq-toggle");
+    const categoryButtons = document.querySelectorAll(".faq-category-button");
+
+    // FAQ expand/collapse
+    toggleButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        const answer = item.querySelector(".faq-answer");
+        const icon = btn.querySelector(".faq-icon");
+        const label = btn.querySelector("label");
+        const isOpen = answer.style.display === 'block';
+
+        answer.style.display = isOpen ? 'none' : 'block';
+        icon.textContent = isOpen ? '+' : '−';
+
+        label.style.fontWeight = isOpen ? '500' : '700';
+        label.style.fontSize = isOpen ? '16px' : '18px';
+        
+      });
+    });
+
+    // Category filter
+    categoryButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const selectedCategory = btn.dataset.category;
+
+        // Toggle FAQ display
+        document.querySelectorAll(".faq-item").forEach(item => {
+          item.style.display = item.dataset.category === selectedCategory ? 'block' : 'none';
+        });
+
+        // Button active styling
+        categoryButtons.forEach(b => {
+          b.style.backgroundColor = 'white';
+          b.style.color = 'black';
+        });
+        btn.style.backgroundColor = 'black';
+        btn.style.color = 'white';
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom FAQ",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Find quick answers to common questions about your order, shipping, returns, and more."
+    },
+    {
+      "type": "textarea",
+      "id": "faq_categories",
+      "label": "FAQ Categories (comma separated)",
+      "default": "Orders,Returns,Pick-up,Payment"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category",
+          "default": "Orders"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I place an order?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "You can place an order by adding items to your cart and proceeding to checkout."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom FAQ",
+      "settings": {},
+      "blocks": [
+        { "type": "faq_item" },
+        { "type": "faq_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

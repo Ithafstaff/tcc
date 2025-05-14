@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "custom-shop-cart",
+      "settings": {}
+    },
+    "custom_image_carousel_DL3VF8": {
+      "type": "custom-image-carousel",
+      "blocks": {
+        "item_G7ANie": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Hotel_Lucern_8PC_100__Satin_Cotton_Bedding_Set_White_with_Silver_Border.png",
+            "title": "Fancy Square White Plastic Serving Bowl",
+            "price": "$884.00",
+            "old_price": "$2.69"
+          }
+        },
+        "item_4Xzfej": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Div_pla-slide_a3d2287f-6362-47a8-b93f-1ec37fad1c4c.png",
+            "title": "Fancy Square White Plastic Serving Bowl",
+            "price": "$884.00",
+            "old_price": "$2.69"
+          }
+        },
+        "item_eb3CjV": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/BetterBedCollectionBrassStripes8PCBeddingSets-300ThreadCount.jpg",
+            "title": "Fancy Square White Plastic Serving Bowl",
+            "price": "$884.00",
+            "old_price": "$2.69"
+          }
+        },
+        "item_8dR7CX": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Hotel_Collection_8PC_100__Satin_Cotton_Bedding_Set_in_Beige.png",
+            "title": "Fancy Square White Plastic Serving Bowl",
+            "price": "$884.00",
+            "old_price": "$2.69"
+          }
+        },
+        "item_x47Pap": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/SuperityLinenInterlockingPlaid6PCTwinBeddingSet.jpg",
+            "title": "Fancy Square White Plastic Serving Bowl",
+            "price": "$884.00",
+            "old_price": "$2.69"
+          }
+        },
+        "item_GhzW64": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Superity_Linen_Pokey_Polka_Pink_6PC_Twin_Bedding_Set.jpg",
+            "title": "Fancy Square White Plastic Serving Bowl",
+            "price": "$884.00",
+            "old_price": "$2.69"
+          }
+        },
+        "item_cH9Pnx": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/SuperityLinenPokeyPolkaBlue6PCTwinBeddingSet.jpg",
+            "title": "Fancy Square White Plastic Serving Bowl",
+            "price": "$884.00",
+            "old_price": "$2.69"
+          }
+        },
+        "item_GjRfGz": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/SuperityLinenCoralDrops6PCTwinBeddingSet.jpg",
+            "title": "Fancy Square White Plastic Serving Bowl",
+            "price": "$884.00",
+            "old_price": "$2.69"
+          }
+        },
+        "item_Dxx6jD": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/SuperiorLinenArtisticPeelsPink6PCTwinBeddingSet.jpg",
+            "title": "Fancy Square White Plastic Serving Bowl",
+            "price": "$884.00",
+            "old_price": "$2.69"
+          }
+        }
+      },
+      "block_order": [
+        "item_G7ANie",
+        "item_4Xzfej",
+        "item_eb3CjV",
+        "item_8dR7CX",
+        "item_x47Pap",
+        "item_GhzW64",
+        "item_cH9Pnx",
+        "item_GjRfGz",
+        "item_Dxx6jD"
+      ],
+      "settings": {
+        "heading": "you may also like"
+      }
+    },
+    "custom_shipping_section_Xezaxd": {
+      "type": "custom-shipping-section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
+    },
+    "custom_cart_Lwnxzd": {
+      "type": "custom-cart",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "custom_cart_Lwnxzd",
+    "custom_image_carousel_DL3VF8",
+    "custom_shipping_section_Xezaxd"
+  ]
+}
