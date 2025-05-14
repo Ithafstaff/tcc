@@ -375,17 +375,82 @@
           width="96"
           height="96"
         >
+      </div>
 
-        <div class="x:flex x:flex-col x:gap-2 x:flex-grow">
-          <p id="modal-product-price" class="x:text-lg"></p>
-
-          <div class="x:mt-2">
-            <label class="x:block x:mb-1 x:text-sm x:font-medium">Variants</label>
-            <select id="modal-product-variants" class="x:w-full x:border x:border-gray-300 x:p-2 x:rounded">
-              <option value="">Select Variant</option>
-              <!-- Variants will be added dynamically -->
-            </select>
+      <div class="x:flex x:flex-col x:gap-2">
+        <div class="x:flex x:items-center x:gap-3">
+          <div class="x:flex x:items-center x:gap-1">
+            <span>5.0</span>
+            <span class="x:flex x:items-center x:gap-1">
+              {% render 'icon', icon: 'rating-star' %}
+              {% render 'icon', icon: 'rating-star' %}
+              {% render 'icon', icon: 'rating-star' %}
+              {% render 'icon', icon: 'rating-star' %}
+              {% render 'icon', icon: 'rating-star' %}
+            </span>
           </div>
+
+          <span>3 reviews</span>
+        </div>
+        <span
+          >Available for <span class="x:capitalize x:underline">pickup</span> and
+          <span class="x:capitalize x:underline">delivery</span></span
+        >
+      </div>
+
+      <hr>
+
+      <div class="x:flex x:flex-col x:gap-1">
+        <div class="x:flex x:items-center x:gap-1">
+          <span>Product Code: </span>
+          <span>4014</span>
+        </div>
+        <div class="x:flex x:items-center x:gap-1">
+          {% render 'icon', icon: 'map-pin' %}
+          <span class="x:underline">See It In Person</span>
+        </div>
+      </div>
+
+      <!-- Variant Swatches (placeholder) -->
+      <div style="display: flex; gap: 6px;">
+        <div
+          class="swatch"
+          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
+          onclick="selectSwatch(this)"
+          data-selected="true"
+        ></div>
+        <div
+          class="swatch"
+          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
+          onclick="selectSwatch(this)"
+        ></div>
+      </div>
+
+      <hr>
+
+      <div class="x:flex x:flex-col x:gap-2">
+        <div class="x:flex x:items-center x:gap-1">
+          <input
+            type="checkbox"
+            class="x:h-8 x:w-8 x:appearance-none x:border x:border-gray-300 x:rounded x:checked:bg-black x:checked:border-black x:bg-center x:bg-no-repeat x:checked:bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M12.207%204.793a1%201%200%20010%201.414l-5%205a1%201%200%2001-1.414%200l-2-2a1%201%200%20011.414-1.414L6.5%209.086l4.293-4.293a1%201%200%20011.414%200z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E')]"
+          >
+          <label class="x:text-xl">10" Dinner Plage</label>
+        </div>
+
+        <div class="x:flex x:items-center x:gap-1">
+          <input
+            type="checkbox"
+            class="x:h-8 x:w-8 x:appearance-none x:border x:border-gray-300 x:rounded x:checked:bg-black x:checked:border-black x:bg-center x:bg-no-repeat x:checked:bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M12.207%204.793a1%201%200%20010%201.414l-5%205a1%201%200%2001-1.414%200l-2-2a1%201%200%20011.414-1.414L6.5%209.086l4.293-4.293a1%201%200%20011.414%200z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E')]"
+          >
+          <label class="x:text-xl">9" Dinner Plage</label>
+        </div>
+
+        <div class="x:flex x:items-center x:gap-1">
+          <input
+            type="checkbox"
+            class="x:h-8 x:w-8 x:appearance-none x:border x:border-gray-300 x:rounded x:checked:bg-black x:checked:border-black x:bg-center x:bg-no-repeat x:checked:bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M12.207%204.793a1%201%200%20010%201.414l-5%205a1%201%200%2001-1.414%200l-2-2a1%201%200%20011.414-1.414L6.5%209.086l4.293-4.293a1%201%200%20011.414%200z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E')]"
+          >
+          <label class="x:text-xl">7.5" Dinner Plage</label>
         </div>
       </div>
 
@@ -422,18 +487,6 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const links = document.querySelectorAll(".profile-sub__order-cat-link");
-
-    links.forEach(link => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        // Remove active class from all links
-        links.forEach(l => l.classList.remove("profile-sub__order-cat-link--active"));
-
-        // Add active class to the clicked link
-        this.classList.add("profile-sub__order-cat-link--active");
-      });
-    });
     
     // Render wishlist items
     renderWishlistItems();
@@ -448,16 +501,25 @@
     const closeModal = document.getElementById('close-modal');
     const modalTitle = document.getElementById('modal-product-title');
     const modalImage = document.getElementById('modal-product-image');
-    const modalPrice = document.getElementById('modal-product-price');
-    const modalVariants = document.getElementById('modal-product-variants');
-    const modalQuantity = document.getElementById('modal-product-quantity');
-    const decreaseQty = document.getElementById('decrease-qty');
-    const increaseQty = document.getElementById('increase-qty');
-    const modalAddToCart = document.getElementById('modal-add-to-cart');
-    const modalAddToWishlist = document.getElementById('modal-add-to-wishlist');
-    const modalSubscribe = document.getElementById('modal-subscribe');
     
     let currentProduct = null;
+
+    // Add click event listeners to cart icons
+    function addCartIconListeners() {
+      document.querySelectorAll('.cart-icon').forEach(icon => {
+        icon.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const productId = this.getAttribute('data-product-id');
+          const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+          const product = wishlist.find(item => item.id === productId);
+          
+          if (product) {
+            openProductModal(product);
+          }
+        });
+      });
+    }
     
     // Ensure modal is hidden initially
     if (modal) {
@@ -467,11 +529,13 @@
     }
     
     // Close modal when clicking the close button or outside the modal
-    closeModal.addEventListener('click', () => {
-      modal.classList.remove('x:flex');
-      modal.classList.add('x:hidden');
-      modal.style.display = 'none';
-    });
+    if (closeModal) {
+      closeModal.addEventListener('click', () => {
+        modal.classList.remove('x:flex');
+        modal.classList.add('x:hidden');
+        modal.style.display = 'none';
+      });
+    }
     
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
@@ -481,235 +545,140 @@
       }
     });
     
-    // Quantity controls
-    decreaseQty.addEventListener('click', () => {
-      const qtyElement = document.getElementById('modal-product-quantity');
-      const qty = parseInt(qtyElement.textContent);
-      if (qty > 1) {
-        qtyElement.textContent = qty - 1;
-      }
-    });
-    
-    increaseQty.addEventListener('click', () => {
-      const qtyElement = document.getElementById('modal-product-quantity');
-      const qty = parseInt(qtyElement.textContent);
-      qtyElement.textContent = qty + 1;
-    });
-    
-    // Modal action buttons
-    modalAddToCart.addEventListener('click', () => {
-      if (!currentProduct) return;
-      
-      const variantId = modalVariants.value || currentProduct.id;
-      const quantity = parseInt(document.getElementById('modal-product-quantity').textContent);
-      
-      addToCart(variantId, quantity);
-      modal.classList.remove('x:flex');
-      modal.classList.add('x:hidden');
-      modal.style.display = 'none';
-    });
-    
-    modalAddToWishlist.addEventListener('click', () => {
-      if (!currentProduct) return;
-      // Already in wishlist, just close modal
-      modal.classList.remove('x:flex');
-      modal.classList.add('x:hidden');
-      modal.style.display = 'none';
-    });
-    
-    modalSubscribe.addEventListener('click', () => {
-      if (!currentProduct) return;
-      
-      const variantId = modalVariants.value || currentProduct.id;
-      // Implement subscription logic or redirect to subscription page
-      window.location.href = `/products/${currentProduct.handle}?variant=${variantId}&subscribe=true`;
-      modal.classList.remove('x:flex');
-      modal.classList.add('x:hidden');
-      modal.style.display = 'none';
-    });
-    
     function openProductModal(product) {
+      if (!modal || !modalTitle || !modalImage) {
+        console.error('Modal elements not found:', { modal, modalTitle, modalImage });
+        return;
+      }
+      
       currentProduct = product;
+      console.log('Opening modal for product:', product);
       
       // Set modal content
       modalTitle.textContent = product.title;
-      modalImage.src = product.image;
-      modalPrice.textContent = product.price || '$5.99';
-      
-      // Reset variants and quantity
-      modalVariants.innerHTML = '<option value="">Select Variant</option>';
-      document.getElementById('modal-product-quantity').textContent = '1';
-      
-      // Add variants if available
-      if (product.variants && product.variants.length > 0) {
-        product.variants.forEach(variant => {
-          const option = document.createElement('option');
-          option.value = variant.id;
-          option.textContent = variant.title;
-          modalVariants.appendChild(option);
-        });
-        modalVariants.parentElement.style.display = 'block';
-      } else {
-        // Hide variants dropdown if no variants
-        modalVariants.parentElement.style.display = 'none';
-      }
+      modalImage.src = product.image || '{{ "test_img1.png" | asset_url }}';
+      modalImage.alt = product.title;
       
       // Show modal
       modal.classList.remove('x:hidden');
       modal.classList.add('x:flex');
       modal.style.display = 'flex';
     }
-  });
-  
-  function renderWishlistItems() {
-    const wishlistContainer = document.getElementById('wishlist-container');
-    const emptyWishlistMessage = document.getElementById('empty-wishlist-message');
     
-    // Get wishlist from localStorage
-    const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
-    
-    // Clear existing items
-    wishlistContainer.innerHTML = '';
-    
-    // Show empty message if wishlist is empty
-    if (wishlist.length === 0) {
-      emptyWishlistMessage.style.display = 'block';
-      wishlistContainer.appendChild(emptyWishlistMessage);
-      return;
-    }
-    
-    // Add items to container
-    wishlist.forEach(item => {
-      const productCard = createProductCard(item);
-      wishlistContainer.appendChild(productCard);
-    });
-
-    // Add event listeners to cart icons
-    document.querySelectorAll('.cart-icon').forEach(icon => {
-      icon.addEventListener('click', function() {
-        const productId = this.getAttribute('data-product-id');
-        const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
-        const product = wishlist.find(item => item.id === productId);
-        
-        if (product) {
-          window.openProductModal(product);
-        }
-      });
-    });
-  }
-  
-  function createProductCard(item) {
-    const cardElement = document.createElement('div');
-    cardElement.style = "width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;";
-    
-    // Format price if available
-    let formattedPrice = '';
-    if (item.price) {
-      formattedPrice = item.price;
-    } else if (item.priceText) {
-      formattedPrice = item.priceText;
-    } else {
-      formattedPrice = '$5.99'; // Default placeholder price
-    }
-    
-    cardElement.innerHTML = `
-      <!-- Image (250x250) with Heart -->
-      <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
-        <img 
-          src="${item.image || '{{ 'test_img1.png' | asset_url }}'}" 
-          alt="${item.title}" 
-          style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
-          width="250" 
-          height="250"
-        />
-        <!-- Heart Icon (active) -->
-        <img 
-          src="{{ 'heart_black.png' | asset_url }}" 
-          alt="Remove from Wishlist" 
-          style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-          onclick="removeFromWishlist('${item.id}')"
-          width="16"
-          height="16"
-        />
-      </div>
-    
-      <!-- Variant Swatches (placeholder) -->
-      <div style="display: flex; gap: 6px;">
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div 
-          class="swatch" 
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
-      </div>
-    
-      <!-- Category and Cart -->
-      <div class="x:flex x:flex-col x:gap-1">
-        <div class="x:text-base x:flex x:justify-between x:items-center x:uppercase">
-          <span>${item.productType || 'Product'}</span>
-          
-          <span class="x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300 cart-icon" data-product-id="${item.id}">
-            {% render 'icon', icon: 'shop-cart' %}
-          </span>
+    function createProductCard(item) {
+      const cardElement = document.createElement('div');
+      cardElement.style = "width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;";
+      
+      // Format price if available
+      let formattedPrice = '';
+      if (item.price) {
+        formattedPrice = item.price;
+      } else if (item.priceText) {
+        formattedPrice = item.priceText;
+      } else {
+        formattedPrice = '$5.99'; // Default placeholder price
+      }
+      
+      cardElement.innerHTML = `
+        <!-- Image (250x250) with Heart -->
+        <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
+          <img 
+            src="${item.image || '{{ "test_img1.png" | asset_url }}'}" 
+            alt="${item.title}" 
+            style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
+            width="250" 
+            height="250"
+          />
+          <!-- Heart Icon (active) -->
+          <img 
+            src="{{ 'heart_black.png' | asset_url }}" 
+            alt="Remove from Wishlist" 
+            style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
+            onclick="removeFromWishlist('${item.id}')"
+            width="16"
+            height="16"
+          />
         </div>
       
-        <!-- Title -->
-        <div class="x:text-base x:font-light">${item.title}</div>
+        <!-- Variant Swatches (placeholder) -->
+        <div style="display: flex; gap: 6px;">
+          <div 
+            class="swatch" 
+            style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
+            onclick="selectSwatch(this)"
+            data-selected="true"
+          ></div>
+          <div 
+            class="swatch" 
+            style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
+            onclick="selectSwatch(this)"
+          ></div>
+        </div>
       
-        <!-- Price -->
-        <span>${formattedPrice}</span>
+        <!-- Category and Cart -->
+        <div class="x:flex x:flex-col x:gap-1">
+          <div class="x:text-base x:flex x:justify-between x:items-center x:uppercase">
+            <span>${item.productType || 'Product'}</span>
+            <span class="cart-icon x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300" data-product-id="${item.id}">
+              {% render 'icon', icon: 'shop-cart' %}
+            </span>
+          </div>
+        
+          <!-- Title -->
+          <div class="x:text-base x:font-light">${item.title}</div>
+        
+          <!-- Price -->
+          <span>${formattedPrice}</span>
+        
+          <!-- Certifications -->
+          {% render 'icon', icon: 'certificate' %}
+        </div>
+      `;
       
-        <!-- Certifications -->
-        {% render 'icon', icon: 'certificate' %}
-      
-      </div>
-    `;
-    
-    return cardElement;
-  }
-  
-  // Make the function available globally
-  window.openProductModal = function(product) {
-    const modal = document.getElementById('quick-add-modal');
-    const modalTitle = document.getElementById('modal-product-title');
-    const modalImage = document.getElementById('modal-product-image');
-    const modalPrice = document.getElementById('modal-product-price');
-    const modalVariants = document.getElementById('modal-product-variants');
-    
-    // Set modal content
-    modalTitle.textContent = product.title;
-    modalImage.src = product.image || '{{ 'test_img1.png' | asset_url }}';
-    modalPrice.textContent = product.price || '$5.99';
-    
-    // Reset variants and quantity
-    modalVariants.innerHTML = '<option value="">Select Variant</option>';
-    document.getElementById('modal-product-quantity').textContent = '1';
-    
-    // Add variants if available
-    if (product.variants && product.variants.length > 0) {
-      product.variants.forEach(variant => {
-        const option = document.createElement('option');
-        option.value = variant.id;
-        option.textContent = variant.title;
-        modalVariants.appendChild(option);
-      });
-      modalVariants.parentElement.style.display = 'block';
-    } else {
-      // Hide variants dropdown if no variants
-      modalVariants.parentElement.style.display = 'none';
+      return cardElement;
     }
     
-    // Show modal
-    modal.classList.remove('x:hidden');
-    modal.classList.add('x:flex');
-    modal.style.display = 'flex';
-  }
-  
+    function renderWishlistItems() {
+      const wishlistContainer = document.getElementById('wishlist-container');
+      const emptyWishlistMessage = document.getElementById('empty-wishlist-message');
+      
+      if (!wishlistContainer) {
+        console.error('Wishlist container not found');
+        return;
+      }
+      
+      // Get wishlist from localStorage
+      const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+      console.log('Current wishlist:', wishlist);
+      
+      // Clear existing items
+      wishlistContainer.innerHTML = '';
+      
+      // Show empty message if wishlist is empty
+      if (wishlist.length === 0) {
+        if (emptyWishlistMessage) {
+          emptyWishlistMessage.style.display = 'block';
+          wishlistContainer.appendChild(emptyWishlistMessage);
+        }
+        return;
+      }
+      
+      // Add items to container
+      wishlist.forEach(item => {
+        const productCard = createProductCard(item);
+        wishlistContainer.appendChild(productCard);
+      });
+
+      // Add event listeners to cart icons after rendering
+      addCartIconListeners();
+    }
+    
+    // Make functions available globally
+    window.openProductModal = openProductModal;
+    window.removeFromWishlist = removeFromWishlist;
+    window.selectSwatch = selectSwatch;
+  });
+
   function selectSwatch(el) {
     const container = el.parentElement;
 
