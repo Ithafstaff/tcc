@@ -100,17 +100,15 @@
 
 
 @media screen and (min-width: 1024px) {
-  html {
-    font-size: 14px; /* default is 16px */
-  }
 
-  .page-width, .container, .site-wrapper {
-    max-width: 1200px !important; /* or a smaller width */
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+      body {
+        width: 200%;
+        height: 200%;
+        transform-origin: top left;
+        transform: scale(50%);
+      }
+  
 }
-
 html {
   -webkit-text-size-adjust: 100%;
   tab-size: 4;
