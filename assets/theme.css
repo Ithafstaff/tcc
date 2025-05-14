@@ -100,15 +100,12 @@
 
 
 @media screen and (min-width: 1024px) {
-
-      body {
-        width: 200%;
-        height: 200%;
-        transform-origin: top left;
-        transform: scale(80%);
-      }
-  
+  html {
+    transform: scale(0.95);
+    transform-origin: top center;
+  }
 }
+
 html {
   -webkit-text-size-adjust: 100%;
   tab-size: 4;
