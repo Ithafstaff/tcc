@@ -80,8 +80,8 @@ Supported variables
       {%- render 'button', content: button_content, type: 'submit', size: button_size, disabled: button_disabled, secondary: show_payment_button, subdued: button_disabled, background: atc_button_background, text_color: atc_button_text_color -%}
       
       <div class="custom-product__buy-button-wrap">
-        <button type="button" class="custom-product__buy-button custom-product__buy-button--white add-to-wishlist-button" data-product-id="{{ product.id }}" data-product-title="{{ product.title }}">ADD TO WISHLIST</button>
-        <button type="button" class="custom-product__buy-button custom-product__buy-button--white">SET UP SUBSCRIPTION</button>
+        <button type="button" class="custom-product__buy-button custom-product__buy-button--white">ADD TO WISHLIST</button>
+        <button type="button" class="custom-product__buy-button custom-product__buy-button--white">sUBSCRIBE AND SAVE</button>
       </div>
       
       
@@ -107,70 +107,3 @@ Supported variables
     </buy-buttons>
   </div>
 {%- endform -%}
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const wishlistButtons = document.querySelectorAll('.add-to-wishlist-button');
-    
-    // Check for existing wishlist in local storage
-    let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
-    
-    wishlistButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const productId = this.getAttribute('data-product-id');
-        const productTitle = this.getAttribute('data-product-title');
-        
-        if (!productId) {
-          console.error('No product ID found for wishlist item');
-          return;
-        }
-        
-        // Check if product is already in wishlist
-        const existingItemIndex = wishlist.findIndex(item => item.id === productId);
-        
-        if (existingItemIndex === -1) {
-          // Add to wishlist
-          wishlist.push({
-            id: productId,
-            title: productTitle,
-            dateAdded: new Date().toISOString(),
-            url: window.location.pathname,
-            image: document.querySelector('.product-gallery img')?.src || ''
-          });
-          
-          // Change button text temporarily
-          const originalText = this.textContent;
-          this.textContent = '✓ ADDED TO WISHLIST';
-          setTimeout(() => {
-            this.textContent = originalText;
-          }, 2000);
-          
-          // Save updated wishlist to local storage
-          localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
-          
-          // Dispatch event for other components
-          document.dispatchEvent(new CustomEvent('wishlist:updated', { 
-            detail: { wishlist: wishlist }
-          }));
-          
-        } else {
-          // Remove from wishlist if already added
-          wishlist.splice(existingItemIndex, 1);
-          localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
-          
-          // Change button text temporarily
-          const originalText = this.textContent;
-          this.textContent = 'REMOVED FROM WISHLIST';
-          setTimeout(() => {
-            this.textContent = originalText;
-          }, 2000);
-          
-          // Dispatch event for other components
-          document.dispatchEvent(new CustomEvent('wishlist:updated', { 
-            detail: { wishlist: wishlist }
-          }));
-        }
-      });
-    });
-  });
-</script>
