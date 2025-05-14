@@ -89,6 +89,8 @@ Supported variables
           data-product-price="{{ product.price | money_without_currency }}"
           data-product-type="{{ product.type }}"
           data-product-handle="{{ product.handle }}"
+          data-product-variants="{{ product.variants | json | escape }}"
+          data-product-options="{{ product.options_with_values | json | escape }}"
         >
           <span class="wishlist-button-text">ADD TO WISHLIST</span>
         </button>
@@ -147,7 +149,10 @@ Supported variables
           image: this.getAttribute('data-product-image'),
           price: this.getAttribute('data-product-price'),
           productType: this.getAttribute('data-product-type'),
-          handle: this.getAttribute('data-product-handle')
+          handle: this.getAttribute('data-product-handle'),
+          variants: JSON.parse(this.getAttribute('data-product-variants') || '[]'),
+          options: JSON.parse(this.getAttribute('data-product-options') || '[]'),
+          selectedOptions: {}
         };
 
         let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist') || '[]');
@@ -155,6 +160,16 @@ Supported variables
 
         if (existingIndex === -1) {
           // Add to wishlist
+          // Get currently selected variant options if any
+          const variantSelectors = document.querySelectorAll('[data-variant-selector]');
+          variantSelectors.forEach(selector => {
+            const optionName = selector.getAttribute('name');
+            const selectedValue = selector.value;
+            if (optionName && selectedValue) {
+              productData.selectedOptions[optionName] = selectedValue;
+            }
+          });
+
           wishlist.push(productData);
           localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
         } else {
