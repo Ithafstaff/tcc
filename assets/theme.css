@@ -99,7 +99,10 @@
 
 
 
-
+html {
+  transform: scale(0.95);
+  transform-origin: top center;
+}
 
 html {
   -webkit-text-size-adjust: 100%;
