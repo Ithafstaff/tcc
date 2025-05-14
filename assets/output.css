@@ -536,6 +536,9 @@
   .x\:top-1\/2 {
     top: calc(1/2 * 100%) !important;
   }
+  .x\:top-2 {
+    top: calc(var(--x-spacing) * 2) !important;
+  }
   .x\:top-4 {
     top: calc(var(--x-spacing) * 4) !important;
   }
@@ -562,6 +565,9 @@
   }
   .x\:left-0 {
     left: calc(var(--x-spacing) * 0) !important;
+  }
+  .x\:left-2 {
+    left: calc(var(--x-spacing) * 2) !important;
   }
   .x\:left-3 {
     left: calc(var(--x-spacing) * 3) !important;
