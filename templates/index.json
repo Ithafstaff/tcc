@@ -45,9 +45,7 @@
         "play_BqAzjj",
         "heading_UHQwxp"
       ],
-      "custom_css": [
-        ".section-full {padding: 0;}"
-      ],
+      "custom_css": [],
       "settings": {
         "full_width": true,
         "allow_transparent_header": true,
