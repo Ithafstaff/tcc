@@ -101,9 +101,9 @@
 
 @media screen and (min-width: 1024px) {
   html {
-    transform: scale(0.95);
+    transform: scale(0.75);
     transform-origin: top center;
-    width: 105.26%;
+    width: 133.33%;
     overflow-x: hidden;
   }
 }
