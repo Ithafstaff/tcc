@@ -713,6 +713,9 @@
   .x\:max-h-\[90vh\] {
     max-height: 90vh !important;
   }
+  .x\:min-h-\[90vh\] {
+    min-height: 90vh !important;
+  }
   .x\:w-0 {
     width: calc(var(--x-spacing) * 0) !important;
   }
@@ -791,8 +794,23 @@
   .x\:max-w-\[1300px\] {
     max-width: 1300px !important;
   }
+  .x\:max-w-lg {
+    max-width: var(--x-container-lg) !important;
+  }
   .x\:max-w-md {
     max-width: var(--x-container-md) !important;
+  }
+  .x\:min-w-2xl {
+    min-width: var(--x-container-2xl) !important;
+  }
+  .x\:min-w-lg {
+    min-width: var(--x-container-lg) !important;
+  }
+  .x\:min-w-md {
+    min-width: var(--x-container-md) !important;
+  }
+  .x\:min-w-xl {
+    min-width: var(--x-container-xl) !important;
   }
   .x\:flex-1 {
     flex: 1 !important;
