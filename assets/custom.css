@@ -419,6 +419,6 @@
 
 .jdgm-gallery-wrapper {
   width: 100%;
-  padding: 24px;
+  padding: 24px !important;
 }
 /* end of custom review style */
