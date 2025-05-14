@@ -99,12 +99,13 @@
 
 
 
-html {
-  transform: scale(0.95);
-  transform-origin: top center;
-}
-body {
-  overflow-x: hidden;
+@media screen and (min-width: 1024px) {
+  html {
+    transform: scale(0.95);
+    transform-origin: top center;
+    width: 105.26%;
+    overflow-x: hidden;
+  }
 }
 
 html {
