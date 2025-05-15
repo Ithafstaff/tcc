@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('details.facets__disclosure').forEach((el) => {
+  document.querySelectorAll('.accordion').forEach((el) => {
     el.removeAttribute('open');
   });
 });
