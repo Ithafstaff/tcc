@@ -1,4 +1,4 @@
-// this script is for rendering product price
+//script for rendering product price
 document.addEventListener('DOMContentLoaded', function () {
   const renderPrice = document.getElementById('renderPrice');
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// this script is for product carousel image when hovering
+//script for product carousel image when hovering
 (function () {
   const THUMB_CLASS = 'custom-product__gallery-thumbnail';
   const MEDIA_CLASS = 'custom-product__gallery-media';
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
+//script for closing filter tabs when first load in Collections Filter
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.accordion').forEach((el) => {
     el.removeAttribute('open');
