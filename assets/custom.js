@@ -10,23 +10,20 @@ document.addEventListener('DOMContentLoaded', function () {
       renderPrice.innerText = `$${productPrice.toFixed(2)}`;
     }
   }
-
   // Example event listener for a variant change (assuming variant select element exists)
   const variantSelector = document.querySelector('select[name="id"]');
   if (variantSelector) {
     variantSelector.addEventListener('change', updatePrice);
   }
-
   // Initial price display
   updatePrice();
 });
 
 
+
+
+
 // this script is for product carousel image when hovering
-
-
-
-
 (function () {
   const THUMB_CLASS = 'custom-product__gallery-thumbnail';
   const MEDIA_CLASS = 'custom-product__gallery-media';
@@ -63,9 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log('index: ' + (index+1));
           
          let selectedMedia = document.querySelector('.' + MEDIA_CLASS + '.is-selected');
-
-   
-
       
           if (selectedMedia) {
             let selectedImg = selectedMedia.querySelector('img');
@@ -75,9 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
           }
 
-    
-          
-          
         } else {
           console.log(`No image found in media item ${index + 1}`);
         }
@@ -109,3 +100,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('details.facets__disclosure').forEach((el) => {
+    el.removeAttribute('open');
+  });
+});
