@@ -433,7 +433,7 @@
   max-width: unset !important;
 }
 
-..header__wrapper {
+.header__wrapper {
   padding: 30px 40px !important;
 }
 
