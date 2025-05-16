@@ -425,13 +425,13 @@
 
 
 /* start of custom homepage sectionstyle */
-.section {
+/* .section {
   padding: 0 40px !important;
-}
+} */
 
-.section-full div {
+/* .section-full div {
   max-width: unset !important;
-}
+} */
 
 .header__wrapper {
   padding: 30px 40px !important;
