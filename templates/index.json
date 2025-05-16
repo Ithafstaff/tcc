@@ -191,6 +191,9 @@
         "product_xhEnta",
         "product_iRE4er"
       ],
+      "custom_css": [
+        ".section-full {padding: 40px;}"
+      ],
       "settings": {
         "title": ""
       }
