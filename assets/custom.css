@@ -426,7 +426,7 @@
 
 /* start of custom homepage sectionstyle */
 .section {
-  padding: 40px !important;
+  padding: 0 40px !important;
 }
 
 .section-full div {
