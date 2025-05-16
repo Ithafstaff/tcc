@@ -123,6 +123,9 @@
         "collection-3",
         "collection_Qg49He"
       ],
+      "custom_css": [
+        ".section-full {padding: 40px;}"
+      ],
       "settings": {
         "title": "BEAUTIFUL CELEBRATIONS START HERE"
       }
