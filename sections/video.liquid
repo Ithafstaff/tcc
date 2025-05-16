@@ -30,7 +30,7 @@
 >
   {%- capture class -%}content-over-media {% if section.settings.video_size != 'auto' %}content-over-media--{{ section.settings.video_size }}{% endif %} {% if section.settings.full_width %}full-bleed{% else %}shadow-block rounded-lg{% endif %}{%- endcapture -%}
 
-  <div {% render 'surface', class: class, text_color: section.settings.text_color %}>
+  <div {% render 'surface', class: class, text_color: section.settings.text_color; gap: 0; display: flex; margin: 0; %}>
     {%- capture poster -%}
       {%- assign poster_image = section.settings.poster | default: section.settings.video.preview_image -%}
 
