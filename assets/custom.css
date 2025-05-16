@@ -433,4 +433,8 @@
   max-width: unset !important;
 }
 
+..header__wrapper {
+  padding: 30px 40px;
+}
+
 /* end of custom homepage sectionstyle */
