@@ -251,6 +251,9 @@
         "product_R9A4C9",
         "product_Hr7RcR"
       ],
+      "custom_css": [
+        ".section-full {padding: 40px;}"
+      ],
       "settings": {
         "title": ""
       }
@@ -307,6 +310,9 @@
         "product_JhVgCM",
         "product_3bLx9U",
         "product_gzbhBq"
+      ],
+      "custom_css": [
+        ".section-full {padding: 40px;}"
       ],
       "settings": {
         "title": ""
@@ -412,6 +418,9 @@
         "product_KbrCpc",
         "product_NMDFmn"
       ],
+      "custom_css": [
+        ".section-full {padding: 40px;}"
+      ],
       "settings": {
         "title": ""
       }
@@ -469,6 +478,9 @@
         "product_qpEKmj",
         "product_GPt94N"
       ],
+      "custom_css": [
+        ".section-full {padding: 40px;}"
+      ],
       "settings": {
         "title": ""
       }
@@ -525,6 +537,9 @@
         "product_nF4iia",
         "product_pKJEK7",
         "product_TNgjN4"
+      ],
+      "custom_css": [
+        ".section-full {padding: 40px;}"
       ],
       "settings": {
         "title": ""
