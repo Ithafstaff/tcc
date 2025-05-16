@@ -429,4 +429,8 @@
   padding: 40px !important;
 }
 
+.section div {
+  max-width: unset !important;
+}
+
 /* end of custom homepage sectionstyle */
