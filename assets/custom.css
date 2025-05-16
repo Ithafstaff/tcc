@@ -434,7 +434,7 @@
 }
 
 ..header__wrapper {
-  padding: 30px 40px;
+  padding: 30px 40px !important;
 }
 
 /* end of custom homepage sectionstyle */
