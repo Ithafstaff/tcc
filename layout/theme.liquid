@@ -179,6 +179,8 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script defer src="{{ 'custom.js' | asset_url }}"></script>
     <script defer src="{{ 'slider.js' | asset_url }}"></script>
+
+    {% section 'cart-drawer' %}
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const drawer = document.getElementById('cart-drawer');
