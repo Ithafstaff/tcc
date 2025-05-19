@@ -1,4 +1,4 @@
-<cart-drawer {% if request.design_mode %}handle-section-events{% endif %} class="cart-drawer drawer drawer--lg" id="cart-drawer">
+{% comment %} <cart-drawer {% if request.design_mode %}handle-section-events{% endif %} class="cart-drawer drawer drawer--lg" id="cart-drawer">
   {%- if cart.item_count == 0 -%}
     <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}">
       {%- render 'icon' with 'close' -%}
@@ -176,6 +176,37 @@
     </div>
   {%- endif -%}
 </cart-drawer>
+ {% endcomment %}
+
+ <cart-drawer id="cart-drawer" style="position: fixed; top: 10%; left: 50%; transform: translateX(-50%); width: 500px; max-width: 90%; background: #fff; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 8px; z-index: 9999; font-family: sans-serif; display: block;">
+  {% if cart.item_count > 0 %}
+    <div style="text-align: center;">
+      <p style="margin-bottom: 12px;">✔️ <strong>1 item added to your cart</strong></p>
+
+      <img src="{{ cart.items[0].image | image_url: width: 100 }}" alt="{{ cart.items[0].title }}" style="width: 60px; height: auto; margin-bottom: 16px;" />
+
+      <p style="margin: 8px 0;"><strong>Your Cart:</strong> {{ cart.item_count }} item{% if cart.item_count > 1 %}s{% endif %}</p>
+      <p style="margin: 8px 0;"><strong>Subtotal:</strong> {{ cart.total_price | money }}</p>
+
+      <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
+        <a href="{{ routes.cart_url }}" style="background: #000; color: #fff; padding: 12px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;">VIEW CART & CHECKOUT</a>
+        <button onclick="document.getElementById('cart-drawer').style.display = 'none';" style="background: #fff; border: 1px solid #000; color: #000; padding: 12px 20px; font-weight: bold; border-radius: 4px;">CONTINUE SHOPPING</button>
+      </div>
+    </div>
+  {% else %}
+    <div style="text-align: center;">
+      <p>Your cart is currently empty.</p>
+      <a href="/collections/all" style="margin-top: 20px; display: inline-block; background: #951828; color: #fff; padding: 10px 20px; border-radius: 4px; text-decoration: none;">Continue Shopping</a>
+    </div>
+  {% endif %}
+</cart-drawer>
+
+<script>
+  setTimeout(function() {
+    const cartDrawer = document.getElementById('cart-drawer');
+    if (cartDrawer) cartDrawer.style.display = 'none';
+  }, 3000);
+</script>
 
 {% schema %}
 {
