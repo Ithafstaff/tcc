@@ -181,7 +181,20 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     <script defer src="{{ 'slider.js' | asset_url }}"></script>
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cartOverlay = document.getElementById("cart-overlay");
 
+    if (cartOverlay) {
+      cartOverlay.style.display = "block";
+
+      // Auto-hide after 3 seconds
+      setTimeout(() => {
+        cartOverlay.style.display = "none";
+      }, 3000);
+    }
+  });
+</script>
     
 
 

@@ -201,20 +201,7 @@
     {% endif %}
   </cart-drawer>
 </div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cartOverlay = document.getElementById("cart-overlay");
 
-    if (cartOverlay) {
-      cartOverlay.style.display = "block";
-
-      // Auto-hide after 3 seconds
-      setTimeout(() => {
-        cartOverlay.style.display = "none";
-      }, 3000);
-    }
-  });
-</script>
 <!-- <script>
   // Show drawer only after adding to cart
   document.addEventListener("DOMContentLoaded", function () {
