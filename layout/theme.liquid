@@ -189,7 +189,17 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     }
   }
 </script>
+<style>
+  #cart-drawer {
+    display: none;
+    animation: slideDown 0.3s ease forwards;
+  }
 
+  @keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+</style>
 
 
 
