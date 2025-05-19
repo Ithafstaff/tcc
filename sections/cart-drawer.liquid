@@ -224,7 +224,7 @@
     overflow: hidden !important;
   }
 </style>
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", function () {
   const drawer = document.getElementById('cart-drawer');
   if (drawer) {
@@ -237,8 +237,23 @@
     const cartDrawer = document.getElementById('cart-drawer');
     if (cartDrawer) cartDrawer.style.display = 'none';
   }, 3000);
-</script>
+</script> -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const drawer = document.getElementById('cart-drawer');
 
+    if (drawer) {
+      drawer.style.display = 'block'; // Force show
+      drawer.style.opacity = '1';
+      drawer.style.transform = 'translateY(0)';
+
+      // Optional: Auto-hide after 3 seconds for testing
+      setTimeout(() => {
+        drawer.style.display = 'none';
+      }, 3000);
+    }
+  });
+</script>
 {% schema %}
 {
   "name": "Cart drawer",
