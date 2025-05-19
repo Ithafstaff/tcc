@@ -226,17 +226,28 @@
 </style>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-  const drawer = document.getElementById('cart-drawer');
-  if (drawer) {
-    drawer.classList.remove('drawer--right'); // If it's sliding from the side
-    drawer.style.top = '0';
-    drawer.style.transform = 'translateY(0)';
-  }
-});
-  setTimeout(function() {
-    const cartDrawer = document.getElementById('cart-drawer');
-    if (cartDrawer) cartDrawer.style.display = 'none';
-  }, 3000);
+    const drawer = document.getElementById('cart-drawer');
+
+    // If drawer exists
+    if (drawer) {
+      drawer.classList.remove('drawer--right');
+      drawer.style.top = '0';
+      drawer.style.transform = 'translateY(0)';
+
+      // Check if it was opened from the cart icon
+      const openedFromIcon = sessionStorage.getItem('openedFromCartIcon') === 'true';
+
+      // If NOT from cart icon, auto-close after 3 seconds
+      if (!openedFromIcon) {
+        setTimeout(() => {
+          drawer.style.display = 'none';
+        }, 3000);
+      }
+
+      // Reset flag after open
+      sessionStorage.setItem('openedFromCartIcon', 'false');
+    }
+  });
 </script>
 
 {% schema %}
