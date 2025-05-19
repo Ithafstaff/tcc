@@ -176,34 +176,34 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
 
     <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <script defer src="{{ 'custom.js' | asset_url }}"></script>
     <script defer src="{{ 'slider.js' | asset_url }}"></script>
-
-    {% section 'cart-drawer' %}
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const drawer = document.getElementById('cart-drawer');
-    
-    if (drawer) {
-      console.log("Drawer found. Forcing it to show...");
-      drawer.style.cssText += `
-        display: block !important;
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-        z-index: 9999 !important;
-        top: 0 !important;
-      `;
-
-      // Optional: auto-hide for test purposes
-      setTimeout(() => {
-        drawer.style.display = 'none';
-      }, 3000);
-    } else {
-      console.warn("Cart drawer not found in DOM.");
+  function openCartDrawer(event) {
+    event.preventDefault();
+    const cartDrawer = document.getElementById('cart-drawer');
+    if (cartDrawer) {
+      cartDrawer.style.display = 'block';
+      cartDrawer.scrollIntoView({ behavior: 'smooth' });
     }
-  });
+  }
 </script>
+<style>
+  #cart-drawer {
+    display: none;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  @keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+
+
+    
 
 
     
