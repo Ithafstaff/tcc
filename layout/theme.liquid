@@ -182,23 +182,26 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const drawer = document.getElementById('cart-drawer');
+    
     if (drawer) {
-      console.log("Drawer found. Showing for testing...");
-      drawer.style.display = 'block';
-      drawer.style.opacity = '1';
-      drawer.style.transform = 'translateY(0)';
+      console.log("Drawer found. Forcing it to show...");
+      drawer.style.cssText += `
+        display: block !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        z-index: 9999 !important;
+        top: 0 !important;
+      `;
 
-      // Optional auto-hide after 3 seconds
+      // Optional: auto-hide for test purposes
       setTimeout(() => {
         drawer.style.display = 'none';
       }, 3000);
     } else {
-      console.warn("Cart drawer not found on this page.");
+      console.warn("Cart drawer not found in DOM.");
     }
   });
 </script>
-
-    
 
 
     
