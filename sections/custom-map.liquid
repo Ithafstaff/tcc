@@ -1,0 +1,47 @@
+{% schema %}
+{
+  "name": "Google Map",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "api_key",
+      "label": "Google Maps API Key",
+      "default": "YOUR_API_KEY"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Map Address",
+      "default": "4809 13th Avenue, Brooklyn, NY"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Map Height (px)",
+      "default": 400,
+      "min": 200,
+      "max": 800,
+      "step": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Google Map",
+      "category": "Contact"
+    }
+  ]
+}
+{% endschema %}
+
+<div style="width: 100%">
+  <iframe
+    width="100%"
+    height="{{ section.settings.height }}"
+    style="border:0"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/place?q={{ section.settings.address | url_encode }}&key={{ section.settings.api_key }}">
+  </iframe>
+</div>
