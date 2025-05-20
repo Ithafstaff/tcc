@@ -188,8 +188,9 @@
       
       <!-- Left side: image + confirmation -->
       <div style="display: flex; gap: 20px; align-items: center;">
-        <img src="{{ cart.items[0].image | image_url: width: 120 }}" alt="{{ cart.items[0].title }}" style="width: 120px; height: auto; border-radius: 4px;" />
         <p style="font-size: 16px;">✔️ <strong>1 item added to your cart</strong></p>
+        <img src="{{ cart.items[0].image | image_url: width: 120 }}" alt="{{ cart.items[0].title }}" style="width: 120px; height: auto; border-radius: 4px;" />
+        
       </div>
 
       <!-- Right side: summary & buttons -->
