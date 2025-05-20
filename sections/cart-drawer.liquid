@@ -205,7 +205,14 @@
     </div>
   {% endif %}
 </cart-drawer>
-
+<style>
+  /* Hide top-left close button if present */
+  cart-drawer button[aria-label="Close"],
+  cart-drawer button.drawer__close-icon,
+  cart-drawer button[is="close-button"] {
+    display: none !important;
+  }
+</style>
 <!-- <style>
   cart-drawer {
     position: fixed !important;
