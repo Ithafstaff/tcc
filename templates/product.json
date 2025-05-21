@@ -139,6 +139,16 @@
             "icon_width": 20,
             "collapse_content": true
           }
+        },
+        "collapsible_text_yD3c9J": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Dimensions",
+            "content": "<p>Share some content to your customers about your products.</p>",
+            "page": "contact"
+          }
         }
       },
       "block_order": [
@@ -156,7 +166,8 @@
         "quantity_selector",
         "buy_buttons",
         "subi_ex_subify_app_block_9dQAbU",
-        "description"
+        "description",
+        "collapsible_text_yD3c9J"
       ],
       "settings": {
         "full_width": true,
