@@ -219,45 +219,6 @@
         <p><strong>Subtotal:</strong> $<span data-cart-subtotal>{{ cart.total_price | divided_by: 100.0 }}</span></p>
       </div>
 
-      {% if cart.items.size > 0 %}
-        <div class="x:mt-4 x:space-y-4">
-          {% for item in cart.items %}
-            <div class="x:flex x:items-center x:justify-between" data-cart-item data-line="{{ forloop.index }}">
-              <div class="x:flex x:items-center x:gap-4">
-                <img
-                  src="{{ item.image | img_url: '80x' }}"
-                  alt="{{ item.title }}"
-                  width="80"
-                  height="80"
-                  class="x:w-20 x:h-20 x:object-cover x:rounded"
-                >
-                <div>
-                  <p class="x:font-medium">{{ item.title }}</p>
-                  <p class="x:text-sm x:text-gray-600">${{ item.price | divided_by: 100.0 }}</p>
-                </div>
-              </div>
-              <div class="x:flex x:items-center x:gap-2">
-                <input
-                  type="number"
-                  value="{{ item.quantity }}"
-                  min="0"
-                  data-quantity-input
-                  data-line="{{ forloop.index }}"
-                  class="x:w-16 x:p-1 x:border x:border-gray-300 x:rounded"
-                >
-                <button
-                  data-remove-item
-                  data-line="{{ forloop.index }}"
-                  class="x:text-red-600 x:hover:text-red-800"
-                >
-                  {% render 'icon' with 'trash', width: 20, height: 20 %}
-                </button>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-
       <div class="x:flex x:flex-col x:gap-2">
         <a
           href="{{ routes.cart_url }}"
