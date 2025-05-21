@@ -102,7 +102,12 @@
     const phoneSpan = document.getElementById('store-phone');
     const descParagraph = document.getElementById('store-desc');
     const storeHoursContainer = document.getElementById('store-hours');
-
+    const buttons = document.querySelectorAll('.location-btn');
+    const phoneEl = document.getElementById('store-phone');
+    const hoursEl = document.getElementById('store-hours');
+    const descEl = document.getElementById('store-desc');
+    const addressEl = document.getElementById('map-address');
+    const iframe = document.getElementById('map-frame');
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
         const lat = button.getAttribute('data-lat');
