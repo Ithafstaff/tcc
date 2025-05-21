@@ -406,7 +406,7 @@
   margin: 0;
 }
 
-.product .accordion:first-child {
+.custom-product-info__block-item:first-child .accordion {
   border: 1px solid red;
 }
 
