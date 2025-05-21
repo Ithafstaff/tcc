@@ -1,14 +1,12 @@
-
-
 <section class=" x:border-t-2">
   <div class="container x:flex x:flex-col x:py-10">
-    {% comment %} PAGE HEADER SECTION {% endcomment %}
+    <!-- PAGE HEADER SECTION -->
     <div class="x:flex x:items-center x:flex-col">
       <h1 class="x:uppercase">find our nearest store in your city</h1>
       <span>Indulge in timeless pieces just around the corner</span>
     </div>
 
-    {% comment %} PINNED LOCATION BUTTON SECTION {% endcomment %}
+    <!-- PINNED LOCATION BUTTON SECTION -->
     <div class="x:flex x:justify-between x:py-10">
       <button class="location-btn x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.637516661474045" data-lng="-73.99037491120228">brooklyn borough park</button>
       <button class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.696809238004896" data-lng="-73.95639837301532">brooklyn williamsburg</button>
@@ -16,9 +14,9 @@
       <button class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.05914380616697" data-lng="-74.2191726772517">lakewood new jersey</button>
     </div>
 
-    {% comment %} MAP SECTION {% endcomment %}
-    <div class="x:flex x:w-full x:h-[50vh]">
-      {% comment %} MAP LEFT SECTION {% endcomment %}
+    <!-- MAP SECTION -->
+    <div class="x:flex x:w-full" style="height: {{ section.settings.height | default: 400 }}px;">
+      <!-- MAP LEFT SECTION -->
       <div class="x:flex x:flex-col x:w-lg x:p-4 x:justify-between">
         <div class="x:flex x:flex-col x:h-full x:justify-center x:gap-3">
           <div class="x:flex x:gap-3 x:items-center">
@@ -58,22 +56,14 @@
         </div>
       </div>
 
-      {% comment %} MAP RIGHT SECTION {% endcomment %}
-      <div class="x:w-full x:h-full x:rounded">
-        <!-- <iframe
-          width="100%"
-          height="{{ section.settings.height }}"
-          style="border:0;"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/place?q={{ section.settings.address | url_encode }}&key={{ section.settings.api_key }}">
-        </iframe> -->
-        <iframe class="embed-map-frame" style="width: 100%; height: 100%;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=4518%2013th%20Avenue%2C%20Brooklyn%2C%C2%A0NY&t=&z=18&ie=UTF8&iwloc=B&output=embed"></iframe>
+      <!-- MAP RIGHT SECTION (GOOGLE MAP IFRAME) -->
+      <div class="x:w-full x:h-full x:rounded x:relative">
+        <iframe class="embed-map-frame" style="width: 100%; height: 100%; filter: invert(100%) hue-rotate(180deg) brightness(90%) contrast(85%);" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q={{ section.settings.address | url_encode }}&t=&z=18&ie=UTF8&iwloc=B&output=embed"></iframe>
       </div>
- 
     </div>
   </div>
+
+  <!-- BOTTOM SECTION -->
   <div class="x:h-[7rem] x:bg-[#222222] x:w-full x:flex x:justify-center x:items-center x:gap-10 x:text-white">
     <div class="x:flex x:flex-col">
       <h2 class="x:uppercase">free shipping on orders over $200</h2>
@@ -84,6 +74,7 @@
     </button>
   </div>
 </section>
+
 {% schema %}
 {
   "name": "Store Locator Google Map",
