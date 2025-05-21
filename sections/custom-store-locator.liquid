@@ -141,7 +141,7 @@
 
           // Update map iframe
           const encodedAddress = encodeURIComponent(button.getAttribute('data-address'));
-          iframe.src = `https://maps.google.com/maps?width=600&height=400&hl=en&q=${encodedAddress}&output=embed`;
+          iframe.src = `https://maps.google.com/maps?width=600&height=600&hl=en&q=${encodedAddress}&output=embed`;
 
           // Highlight active button
           buttons.forEach(btn => btn.classList.remove('x:bg-[#222222]', 'x:text-white'));
