@@ -59,15 +59,15 @@
       </div>
 
       {% comment %} MAP RIGHT SECTION {% endcomment %}
-      <div class="x:flex x:flex-1 x:bg-white x:p-4">
+      <div class="x:w-full x:h-full x:rounded">
         <iframe
           width="100%"
-          height="100%"
-          style="border:0; border-radius: 8px;"
+          height="{{ section.settings.height }}"
+          style="border:0;"
           loading="lazy"
           allowfullscreen
           referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/place?q=4518%2013th%20Avenue%2C%20Brooklyn%2C%20NY&key=YOUR_API_KEY">
+          src="https://www.google.com/maps/embed/v1/place?q={{ section.settings.address | url_encode }}&key={{ section.settings.api_key }}">
         </iframe>
       </div>
     </div>
@@ -82,3 +82,38 @@
     </button>
   </div>
 </section>
+{% schema %}
+{
+  "name": "Store Locator Google Map",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "api_key",
+      "label": "Google Maps API Key",
+      "default": "YOUR_API_KEY"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Map Address",
+      "default": "4518 13th Avenue, Brooklyn, NY"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Map Height (px)",
+      "default": 400,
+      "min": 200,
+      "max": 800,
+      "step": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Google Map Store Section",
+      "category": "Contact"
+    }
+  ]
+}
+{% endschema %}
