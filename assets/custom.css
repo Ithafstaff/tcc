@@ -407,7 +407,7 @@
 }
 
 .custom-product-info__block-item:first-child .accordion {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 /* end of custom product page layout */
