@@ -184,11 +184,10 @@
     handle-section-events
   {% endif %}
   id="cart-drawer"
-  style="display: none;"
-  class="x:fixed x:top-0 x:left-0 x:right-0 x:bg-white x:shadow-md x:z-[9999] x:py-10 x:px-16 x:max-w-full x:font-sans x:transform x:translate-y-0 x:transition-all x:duration-300 x:ease-in-out"
+  class="x:fixed x:top-0 x:left-0 x:right-0 x:bg-white x:shadow-md x:z-[9999] x:py-10 x:px-16 x:max-w-full x:font-sans x:transform x:-translate-y-full x:transition-all x:duration-300 x:ease-in-out"
 >
   <button 
-    onclick="const drawer = document.querySelector('cart-drawer'); drawer.style.transform = 'translateY(-100%)'; setTimeout(() => drawer.style.display = 'none', 300);"
+    onclick="const drawer = document.querySelector('cart-drawer'); drawer.classList.remove('x:translate-y-0'); drawer.classList.add('x:-translate-y-full'); setTimeout(() => drawer.style.display = 'none', 300);"
     class="x:absolute x:top-4 x:right-4 x:bg-transparent x:border-none x:cursor-pointer x:p-2"
   >
     {% render 'icon' with 'close', width: 32, height: 32 %}
@@ -226,7 +225,7 @@
           >VIEW CART & CHECKOUT</a
         >
         <button
-          onclick="const drawer = document.querySelector('cart-drawer'); drawer.style.transform = 'translateY(-100%)'; setTimeout(() => drawer.style.display = 'none', 300);"
+          onclick="const drawer = document.querySelector('cart-drawer'); drawer.classList.remove('x:translate-y-0'); drawer.classList.add('x:-translate-y-full'); setTimeout(() => drawer.style.display = 'none', 300);"
           class="x:w-full x:text-center x:text-nowrap x:p-2 x:font-bold x:bg-white x:border x:border-black"
         >
           CONTINUE SHOPPING
@@ -238,7 +237,7 @@
   <!-- You may also like section -->
   {% assign all_products = collections.all.products %}
   {% assign random_products = '' | split: '' %}
-  {% assign max_products = 4 %}
+  {% assign max_products = 16 %}
   {% assign product_count = all_products.size %}
 
   {% if product_count > 0 %}
@@ -296,12 +295,12 @@
 
   /* Ensure smooth transition */
   cart-drawer {
-    transform: translateY(0);
+    transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
   }
 
-  cart-drawer.x\:-translate-y-full {
-    transform: translateY(-100%);
+  cart-drawer.x\:translate-y-0 {
+    transform: translateY(0);
   }
 </style>
 
@@ -314,7 +313,20 @@
         drawer.style.display = 'block';
         // Force a reflow
         drawer.offsetHeight;
-        drawer.style.transform = 'translateY(0)';
+        drawer.classList.remove('x:-translate-y-full');
+        drawer.classList.add('x:translate-y-0');
+      }
+    }
+
+    // Function to hide cart drawer
+    function hideCartDrawer() {
+      const drawer = document.querySelector('cart-drawer');
+      if (drawer) {
+        drawer.classList.remove('x:translate-y-0');
+        drawer.classList.add('x:-translate-y-full');
+        setTimeout(() => {
+          drawer.style.display = 'none';
+        }, 300);
       }
     }
 
@@ -442,6 +454,11 @@
         const line = this.dataset.line;
         removeCartItem(line);
       });
+    });
+
+    // Update close button click handlers
+    document.querySelectorAll('[data-close-drawer]').forEach(button => {
+      button.addEventListener('click', hideCartDrawer);
     });
 
     // Initialize cart drawer
