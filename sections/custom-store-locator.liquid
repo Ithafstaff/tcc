@@ -60,7 +60,7 @@
 
       {% comment %} MAP RIGHT SECTION {% endcomment %}
       <div class="x:w-full x:h-full x:rounded">
-        <iframe
+        <!-- <iframe
           width="100%"
           height="{{ section.settings.height }}"
           style="border:0;"
@@ -68,8 +68,12 @@
           allowfullscreen
           referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps/embed/v1/place?q={{ section.settings.address | url_encode }}&key={{ section.settings.api_key }}">
-        </iframe>
+        </iframe> -->
+        <iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=4518%2013th%20Avenue%2C%20Brooklyn%2C%C2%A0NY&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe>
       </div>
+      <!-- <div class="embed-map-fixed"><div class="embed-map-container">
+        <iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=4518%2013th%20Avenue%2C%20Brooklyn%2C%C2%A0NY&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe><a href="https://sprunkiretake.net" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:1px;overflow:hidden">sprunki retake</a></div><style>.embed-map-fixed{position:relative;text-align:right;width:600px;height:400px;}.embed-map-container{overflow:hidden;background:none!important;width:600px;height:400px;}.embed-map-frame{width:600px!important;height:400px!important;}</style>
+      </div> -->
     </div>
   </div>
   <div class="x:h-[7rem] x:bg-[#222222] x:w-full x:flex x:justify-center x:items-center x:gap-10 x:text-white">
