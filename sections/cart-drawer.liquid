@@ -275,10 +275,25 @@
   </div>
 
   <!-- You may also like section -->
-  {% if section.settings.products.size > 0 %}
+  {% assign all_products = collections.all.products %}
+  {% assign random_products = '' | split: '' %}
+  {% assign max_products = 4 %}
+  {% assign product_count = all_products.size %}
+
+  {% if product_count > 0 %}
+    {% for i in (1..max_products) %}
+      {% assign random_index = 'now' | date: '%s' | plus: i | modulo: product_count %}
+      {% assign random_product = all_products[random_index] %}
+      {% unless cart.items contains random_product %}
+        {% assign random_products = random_products | concat: random_product %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+
+  {% if random_products.size > 0 %}
     <div class="x:mt-8 x:border-t x:pt-8">
       <div class="x:flex x:items-center x:justify-between">
-        <h3 class="x:text-lg x:font-bold x:mb-4">{{ section.settings.recommendations_title | default: 'You may also like' }}</h3>
+        <h3 class="x:text-lg x:font-bold x:mb-4">You may also like</h3>
 
         <div class="x:flex x:items-center x:gap-2">
           <div class="x:bg-white x:flex x:items-center x:justify-center x:cursor-pointer x:p-2 x:border x:border-black x:hover:scale-110 x:transition-all x:duration-300">
@@ -291,20 +306,18 @@
       </div>
       <div class="x:relative">
         <div class="x:flex x:gap-4 x:overflow-x-auto x:pb-4 x:scrollbar-hide">
-          {% for product in section.settings.products %}
-            {% unless cart.items contains product %}
-              <div class="x:flex-shrink-0 x:w-[200px]">
-                <img
-                  src="{{ product.featured_image | img_url: '200x200', crop: 'center' }}"
-                  alt="{{ product.title }}"
-                  width="200"
-                  height="200"
-                  class="x:w-full x:h-[200px] x:object-cover x:rounded"
-                >
-                <p class="x:mt-2 x:font-medium">{{ product.title }}</p>
-                <p class="x:text-sm x:text-gray-600">{{ product.price | money }}</p>
-              </div>
-            {% endunless %}
+          {% for product in random_products %}
+            <div class="x:flex-shrink-0 x:w-[200px]">
+              <img
+                src="{{ product.featured_image | img_url: '200x200', crop: 'center' }}"
+                alt="{{ product.title }}"
+                width="200"
+                height="200"
+                class="x:w-full x:h-[200px] x:object-cover x:rounded"
+              >
+              <p class="x:mt-2 x:font-medium">{{ product.title }}</p>
+              <p class="x:text-sm x:text-gray-600">{{ product.price | money }}</p>
+            </div>
           {% endfor %}
         </div>
       </div>
