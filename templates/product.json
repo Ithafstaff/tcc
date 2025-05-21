@@ -79,7 +79,6 @@
         },
         "description": {
           "type": "description",
-          "disabled": true,
           "settings": {
             "icon": "none",
             "icon_width": 20,
@@ -113,7 +112,7 @@
           }
         },
         "subi_ex_subify_app_block_9dQAbU": {
-          "type": "shopify://apps/subi-ex-subify/blocks/app-block/bc0dba25-cd46-4841-bea4-6bdfe9ac815f",
+          "type": "shopify://apps/subi-subscriptions/blocks/app-block/bc0dba25-cd46-4841-bea4-6bdfe9ac815f",
           "settings": {
             "product": "{{product}}",
             "use_app_block_wording": false,
