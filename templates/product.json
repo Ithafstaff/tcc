@@ -77,14 +77,6 @@
           "type": "separator",
           "settings": {}
         },
-        "description": {
-          "type": "description",
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "collapse_content": false
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -139,6 +131,14 @@
             "pay": "Pay",
             "price_save_up_to": "save up to"
           }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": true
+          }
         }
       },
       "block_order": [
@@ -152,11 +152,11 @@
         "rating",
         "payment_terms",
         "separator",
-        "description",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "subi_ex_subify_app_block_9dQAbU"
+        "subi_ex_subify_app_block_9dQAbU",
+        "description"
       ],
       "settings": {
         "full_width": true,
