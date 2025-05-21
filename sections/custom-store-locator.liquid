@@ -28,27 +28,7 @@
             <span class="x:uppercase" id="store-phone">718-854-2595</span>
           </div>
           <div id="store-hours" class="x:flex x:flex-col x:gap-1">
-            <div class="x:flex x:items-center x:gap-1">
-              <div class="x:flex x:gap-3 x:items-center">
-                {%- render 'icon' with 'picto-timer', class: 'timer' -%}
-                <label class="x:capitalize x:font-bold">Sunday:</label>
-              </div>
-              <span class="x:uppercase">10:00 am - 7:00 pm</span>
-            </div>
-            <div class="x:flex x:items-center x:gap-1">
-              <div class="x:flex x:gap-3 x:items-center">
-                {%- render 'icon' with 'picto-timer', class: 'timer' -%}
-                <label class="x:capitalize x:font-bold">monday to thursday:</label>
-              </div>
-              <span class="x:uppercase">10:00 am - 7:00 pm</span>
-            </div>
-            <div class="x:flex x:items-center x:gap-1">
-              <div class="x:flex x:gap-3 x:items-center">
-                {%- render 'icon' with 'picto-timer', class: 'timer' -%}
-                <label class="x:capitalize x:font-bold">friday:</label>
-              </div>
-              <span class="x:uppercase">10:00 am - 4:00 pm</span>
-            </div>
+            <!-- Dynamic store hours will be injected here -->
           </div>
         </div>
         <div class="x:flex x:flex-col x:gap-2 x:justify-between">
@@ -116,7 +96,6 @@
         desc: "Come on and save at our Lakewood NJ location. Come and see our large inventory of upscale Bedding, Crystal, Electronics, Flatware, Glassware, Luggage, Paper and Plastic Party Goods, Tablecloths, Toys and much more, at rock bottom low Closeout prices."
       }
     };
-
     const buttons = document.querySelectorAll('.location-btn');
     const iframe = document.getElementById('map-frame');
     const addressSpan = document.getElementById('map-address');
