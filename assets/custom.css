@@ -406,7 +406,7 @@
   margin: 0;
 }
 
-.product .accordion {
+.product .accordion:first-child {
   border: 1px solid red;
 }
 
