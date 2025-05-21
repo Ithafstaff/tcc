@@ -406,6 +406,10 @@
   margin: 0;
 }
 
+.product .accordion {
+  border: 1px solid red;
+}
+
 /* end of custom product page layout */
 
 
