@@ -108,3 +108,12 @@ document.addEventListener('DOMContentLoaded', function () {
     el.removeAttribute('open');
   });
 });
+
+
+
+//script for closing filter tabs when first load in Collections Filter
+document.addEventListener('DOMContentLoaded', function () {
+  // Add the "open" attribute dynamically
+  document.querySelector('.custom-product-info__block-item:first-child .accordion').setAttribute('open', '');
+
+});
