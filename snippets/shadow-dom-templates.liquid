@@ -16,9 +16,9 @@ very valid reason to do so.
     }
   </style>
 
-  <button part="outside-close-button" is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}">
+  {% comment %} <button part="outside-close-button" is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}">
     {%- render 'icon' with 'close' -%}
-  </button>
+  </button> {% endcomment %}
 
   <div part="overlay"></div>
 

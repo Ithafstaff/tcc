@@ -1,19 +1,22 @@
 {%- comment -%}
-------------------------------------------------------------------------------------------------------------------------
-NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing this theme as much as we did for
-  developing it. We have put a lot of work to make this theme as developer friendly as possible by offering you
-  hooks to integrate into critical parts of the theme. You will find the complete technical documentation (including
-  all events, dependencies...) in the "documentation.txt" file, located in the Assets folder.
-------------------------------------------------------------------------------------------------------------------------
+  ------------------------------------------------------------------------------------------------------------------------
+  NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing this theme as much as we did for
+    developing it. We have put a lot of work to make this theme as developer friendly as possible by offering you
+    hooks to integrate into critical parts of the theme. You will find the complete technical documentation (including
+    all events, dependencies...) in the "documentation.txt" file, located in the Assets folder.
+  ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
 <!doctype html>
 
 <html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
   <head>
-{% include 'booster-seo' %}
+    {% include 'booster-seo' %}
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0"
+    >
     <meta name="theme-color" content="{{ settings.header_background }}">
 
     {% comment %}<title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>{% endcomment %}
@@ -33,11 +36,14 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     <link rel="preconnect" href="https://cdn.shopify.com">
     <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
-    <link href="{{ 'custom.css' | asset_url }}" rel="stylesheet"> 
-    <link href="{{ 'profile.css' | asset_url }}" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    <link href="{{ 'custom.css' | asset_url }}" rel="stylesheet">
+    <link href="{{ 'profile.css' | asset_url }}" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""/>
+      crossorigin=""
+    >
 
     {%- unless settings.heading_font.system? -%}
       <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
@@ -47,14 +53,21 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
       <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
     {%- endunless -%}
 
-     <!-- GOOGLE Fonts -->
+    <!-- GOOGLE Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    >
 
     <!-- Splider Style -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css"/>
-    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css"
+    >
+
     {%- render 'social-meta-tags' -%}
     {%- render 'microdata-schema' -%}
     {%- render 'css-variables' -%}
@@ -89,17 +102,19 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
 
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@2/fullscreen.css" />
-    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' />
-    <link rel="stylesheet" href="https://unpkg.com/flickity-fade@2/flickity-fade.css" />
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/light.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity-fullscreen@2/fullscreen.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity-fade@2/flickity-fade.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/themes/light.css">
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.0/cdn/shoelace-autoloader.js"
+    ></script>
 
     <script src="https://cdn.hengam.io/subify/subify-sdk.js" defer></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
@@ -110,35 +125,30 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
     <script defer src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
     <script defer src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""></script>
+      crossorigin=""
+    ></script>
     {% comment %} <script defer src='scripts/jquery.jmodal.js'></script> {% endcomment %}
 
     {{- 'output.css' | asset_url | stylesheet_tag: preload: true -}}
 
-    
-  <!-- <style>
-     html {
-        zoom: 0.75;
-      }
+    <!--
+      <style>
+         html {
+            zoom: 0.75;
+          }
 
-    .shopify-section--video {
-      overflow: hidden;
-    }
-  </style> -->
- 
-
+        .shopify-section--video {
+          overflow: hidden;
+        }
+      </style>
+    -->
   </head>
 
-
-  
-
   <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
-
-  
-
-    
     {%- render 'shadow-dom-templates' -%}
 
     <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
@@ -152,7 +162,10 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
       {%- endif -%}
     {%- endif -%}
 
-    {%- if request.page_type == 'customers/account' or request.page_type == 'customers/order' or request.page_type == 'customers/addresses' -%}
+    {%- if request.page_type == 'customers/account'
+      or request.page_type == 'customers/order'
+      or request.page_type == 'customers/addresses'
+    -%}
       {%- section 'account-banner' -%}
     {%- endif -%}
 
@@ -160,46 +173,42 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
       {{ content_for_layout }}
 
       {%- comment -%}
-      IMPLEMENTATION NOTE: due to the very complex logic of margin/padding collapsing in Impact, the footer group is
-      added into the main element to ensure that dynamic sections added into the footer group are properly laid out.
+        IMPLEMENTATION NOTE: due to the very complex logic of margin/padding collapsing in Impact, the footer group is
+        added into the main element to ensure that dynamic sections added into the footer group are properly laid out.
       {%- endcomment -%}
       {%- if request.page_type != 'password' -%}
         {%- sections 'footer-group' -%}
       {%- endif -%}
     </main>
 
-
-
-
-
     <!-- Splider Script -->
 
-    <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"
+    ></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
-    
+
     <script defer src="{{ 'custom.js' | asset_url }}"></script>
     <script defer src="{{ 'slider.js' | asset_url }}"></script>
 
-    <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Delay to allow cart-drawer shadow DOM to render
-    setTimeout(() => {
-      const shadowHost = document.querySelector('cart-drawer');
+    {% comment %} <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Delay to allow cart-drawer shadow DOM to render
+        setTimeout(() => {
+          const shadowHost = document.querySelector('cart-drawer');
 
-      if (shadowHost && shadowHost.shadowRoot) {
-        const closeBtn = shadowHost.shadowRoot.querySelector('button[part="outside-close-button"]');
-        if (closeBtn) {
-          closeBtn.style.display = 'none';
-          console.log('✅ Shadow close button hidden.');
-        } else {
-          console.warn('❌ Close button not found inside shadow DOM.');
-        }
-      }
-    }, 1000); // wait for drawer to render
-  });
-</script>
-
-
-    
+          if (shadowHost && shadowHost.shadowRoot) {
+            const closeBtn = shadowHost.shadowRoot.querySelector('button[part="outside-close-button"]');
+            if (closeBtn) {
+              closeBtn.style.display = 'none';
+              console.log('✅ Shadow close button hidden.');
+            } else {
+              console.warn('❌ Close button not found inside shadow DOM.');
+            }
+          }
+        }, 1000); // wait for drawer to render
+      });
+    </script> {% endcomment %}
   </body>
 </html>
