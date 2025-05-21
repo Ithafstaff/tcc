@@ -106,18 +106,10 @@
 
     buttons.forEach(button => {
       button.addEventListener('click', () => {
-        const label = button.textContent.trim().toLowerCase();
-        let matchedKey = null;
+        const storeKey = button.getAttribute('data-store');
 
-        for (const key in storeInfo) {
-          if (label.includes(key.toLowerCase().split(" - ")[1])) {
-            matchedKey = key;
-            break;
-          }
-        }
-
-        if (matchedKey) {
-          const store = storeInfo[matchedKey];
+        if (storeKey && storeInfo[storeKey]) {
+          const store = storeInfo[storeKey];
 
           // Update phone
           phoneEl.textContent = store.phone;
@@ -126,15 +118,19 @@
           hoursEl.innerHTML = '';
           store.hours.forEach(hour => {
             const [labelPart, timePart] = hour.split(/-(.+)/);
-            hoursEl.innerHTML += `
-              <div class="x:flex x:items-center x:gap-1">
-                <div class="x:flex x:gap-3 x:items-center">
-                  {%- render 'icon' with 'picto-timer', class: 'timer' -%}
-                  <label class="x:capitalize x:font-bold">${labelPart.trim()}:</label>
-                </div>
-                <span class="x:uppercase">${timePart.trim()}</span>
+            const wrapper = document.createElement('div');
+            wrapper.className = 'x:flex x:items-center x:gap-1';
+            wrapper.innerHTML = `
+              <div class="x:flex x:gap-3 x:items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="timer" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8 3.5a.5.5 0 0 1 .5.5v3.25l2.25 1.35a.5.5 0 0 1-.5.9l-2.5-1.5A.5.5 0 0 1 7.5 7V4a.5.5 0 0 1 .5-.5z"/>
+                  <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8z"/>
+                </svg>
+                <label class="x:capitalize x:font-bold">${labelPart.trim()}:</label>
               </div>
+              <span class="x:uppercase">${timePart.trim()}</span>
             `;
+            hoursEl.appendChild(wrapper);
           });
 
           // Update description
@@ -146,6 +142,10 @@
           // Update map iframe
           const encodedAddress = encodeURIComponent(button.getAttribute('data-address'));
           iframe.src = `https://maps.google.com/maps?width=600&height=400&hl=en&q=${encodedAddress}&output=embed`;
+
+          // Highlight active button
+          buttons.forEach(btn => btn.classList.remove('x:bg-[#222222]', 'x:text-white'));
+          button.classList.add('x:bg-[#222222]', 'x:text-white');
         }
       });
     });
