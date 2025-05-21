@@ -121,6 +121,8 @@
 
 .custom-product__gallery {
   gap: 20px !important;
+  position: sticky;
+  top: 0;
 }
 
 .custom-product__thumbnail-wrapper {
