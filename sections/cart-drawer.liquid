@@ -180,13 +180,12 @@
 {% endcomment %}
 
 <cart-drawer
-  {% comment %}
-    {% if request.design_mode %}
-      handle-section-events
-    {% endif %}
-  {% endcomment %}
-  {% comment %} id="cart-drawer" {% endcomment %}
-  class="x:fixed x:top-0 x:left-0 x:right-0 x:bg-white x:shadow-md x:z-[9999] x:py-10 x:px-16 x:max-w-full x:font-sans x:transform x:translate-y-0 x:transition-transform x:duration-300 x:ease-in-out"
+  {% if request.design_mode %}
+    handle-section-events
+  {% endif %}
+  id="cart-drawer"
+  style="display: none;"
+  class="x:fixed x:top-0 x:left-0 x:right-0 x:bg-white x:shadow-md x:z-[9999] x:py-10 x:px-16 x:max-w-full x:font-sans x:transform x:translate-y-0 x:transition-all x:duration-300 x:ease-in-out"
 >
   <button 
     onclick="const drawer = document.querySelector('cart-drawer'); drawer.style.transform = 'translateY(-100%)'; setTimeout(() => drawer.style.display = 'none', 300);"
@@ -197,26 +196,31 @@
   <div class="x:flex x:justify-between x:items-start x:flex-wrap">
     <!-- Left side: image + confirmation -->
     <div class="x:flex x:flex-col x:gap-5 x:items-center">
-      <p class="x:flex x:items-center x:gap-2 x:text-base">{% render 'icon' with 'check', width: 32, height: 32 %} <strong>1 item added to your cart</strong></p>
-      <img
-        src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-collection-5_large.png"
-        alt="Sample Product"
-        width="120"
-        height="120"
-        class="x:w-[120px] x:h-auto x:rounded"
-      >
+      <p class="x:flex x:items-center x:gap-2 x:text-base">
+        {% render 'icon' with 'check', width: 32, height: 32 %} 
+        <strong>{{ cart.item_count }} item{% if cart.item_count != 1 %}s{% endif %} added to your cart</strong>
+      </p>
+      {% if cart.items.size > 0 %}
+        <img
+          src="{{ cart.items.first.image | img_url: '120x' }}"
+          alt="{{ cart.items.first.title }}"
+          width="120"
+          height="120"
+          class="x:w-[120px] x:h-auto x:rounded"
+        >
+      {% endif %}
     </div>
 
     <!-- Right side: summary & buttons -->
     <div class="x:flex x:flex-col x:w-[30rem] x:m-5">
       <div class="x:flex x:items-center x:justify-between">
-        <p class="x:m-0"><strong>Your cart:</strong> 1 item</p>
-        <p><strong>Subtotal:</strong> $99.99</p>
+        <p class="x:m-0"><strong>Your cart:</strong> {{ cart.item_count }} item{% if cart.item_count != 1 %}s{% endif %}</p>
+        <p><strong>Subtotal:</strong> {{ cart.total_price | money }}</p>
       </div>
 
       <div class="x:flex x:flex-col x:gap-2">
         <a
-          href="#"
+          href="{{ routes.cart_url }}"
           class="x:w-full x:text-center x:text-nowrap x:p-2 x:font-bold x:bg-black x:text-white"
           >VIEW CART & CHECKOUT</a
         >
@@ -231,72 +235,41 @@
   </div>
 
   <!-- You may also like section -->
-  <div class="x:mt-8 x:border-t x:pt-8">
-    <div class="x:flex x:items-center x:justify-between">
-      <h3 class="x:text-lg x:font-bold x:mb-4">You may also like</h3>
+  {% if section.settings.products.size > 0 %}
+    <div class="x:mt-8 x:border-t x:pt-8">
+      <div class="x:flex x:items-center x:justify-between">
+        <h3 class="x:text-lg x:font-bold x:mb-4">{{ section.settings.recommendations_title | default: 'You may also like' }}</h3>
 
-      <div class="x:flex x:items-center x:gap-2">
-        <div class="x:bg-white x:flex x:items-center x:justify-center x:cursor-pointer x:p-2 x:border x:border-black x:hover:scale-110 x:transition-all x:duration-300">
-          {% render 'icon' with 'chevron-left', width: 20, height: 20 %}
+        <div class="x:flex x:items-center x:gap-2">
+          <div class="x:bg-white x:flex x:items-center x:justify-center x:cursor-pointer x:p-2 x:border x:border-black x:hover:scale-110 x:transition-all x:duration-300">
+            {% render 'icon' with 'chevron-left', width: 20, height: 20 %}
+          </div>
+          <div class="x:bg-white x:flex x:items-center x:justify-center x:cursor-pointer x:p-2 x:border x:border-black x:hover:scale-110 x:transition-all x:duration-300">
+            {% render 'icon' with 'chevron-right', width: 20, height: 20 %}
+          </div>
         </div>
-        <div class="x:bg-white x:flex x:items-center x:justify-center x:cursor-pointer x:p-2 x:border x:border-black x:hover:scale-110 x:transition-all x:duration-300">
-          {% render 'icon' with 'chevron-right', width: 20, height: 20 %}
+      </div>
+      <div class="x:relative">
+        <div class="x:flex x:gap-4 x:overflow-x-auto x:pb-4 x:scrollbar-hide">
+          {% for product in section.settings.products %}
+            {% unless cart.items contains product %}
+              <div class="x:flex-shrink-0 x:w-[200px]">
+                <img
+                  src="{{ product.featured_image | img_url: '200x200', crop: 'center' }}"
+                  alt="{{ product.title }}"
+                  width="200"
+                  height="200"
+                  class="x:w-full x:h-[200px] x:object-cover x:rounded"
+                >
+                <p class="x:mt-2 x:font-medium">{{ product.title }}</p>
+                <p class="x:text-sm x:text-gray-600">{{ product.price | money }}</p>
+              </div>
+            {% endunless %}
+          {% endfor %}
         </div>
       </div>
     </div>
-    <div class="x:relative">
-      <div class="x:flex x:gap-4 x:overflow-x-auto x:pb-4 x:scrollbar-hide">
-        <!-- Product 1 -->
-        <div class="x:flex-shrink-0 x:w-[200px]">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-collection-5_large.png"
-            alt="Related Product 1"
-            width="200"
-            height="200"
-            class="x:w-full x:h-[200px] x:object-cover x:rounded"
-          >
-          <p class="x:mt-2 x:font-medium">Product Name 1</p>
-          <p class="x:text-sm x:text-gray-600">$49.99</p>
-        </div>
-        <!-- Product 2 -->
-        <div class="x:flex-shrink-0 x:w-[200px]">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-collection-5_large.png"
-            alt="Related Product 2"
-            width="200"
-            height="200"
-            class="x:w-full x:h-[200px] x:object-cover x:rounded"
-          >
-          <p class="x:mt-2 x:font-medium">Product Name 2</p>
-          <p class="x:text-sm x:text-gray-600">$59.99</p>
-        </div>
-        <!-- Product 3 -->
-        <div class="x:flex-shrink-0 x:w-[200px]">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-collection-5_large.png"
-            alt="Related Product 3"
-            width="200"
-            height="200"
-            class="x:w-full x:h-[200px] x:object-cover x:rounded"
-          >
-          <p class="x:mt-2 x:font-medium">Product Name 3</p>
-          <p class="x:text-sm x:text-gray-600">$39.99</p>
-        </div>
-        <!-- Product 4 -->
-        <div class="x:flex-shrink-0 x:w-[200px]">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-collection-5_large.png"
-            alt="Related Product 4"
-            width="200"
-            height="200"
-            class="x:w-full x:h-[200px] x:object-cover x:rounded"
-          >
-          <p class="x:mt-2 x:font-medium">Product Name 4</p>
-          <p class="x:text-sm x:text-gray-600">$69.99</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% endif %}
 </cart-drawer>
 
 <style>
@@ -306,44 +279,57 @@
   cart-drawer button[is='close-button'] {
     display: none !important;
   }
+
+  /* Ensure smooth transition */
+  cart-drawer {
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  cart-drawer.x\:-translate-y-full {
+    transform: translateY(-100%);
+  }
 </style>
-<!--
-  <style>
-    cart-drawer {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      height: auto !important;
-      z-index: 9999 !important;
-      background: #fff !important;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.2) !important;
-      transform: translateY(0) !important;
-      transition: all 0.3s ease-in-out !important;
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to show cart drawer
+    function showCartDrawer() {
+      const drawer = document.querySelector('cart-drawer');
+      if (drawer) {
+        drawer.style.display = 'block';
+        // Force a reflow
+        drawer.offsetHeight;
+        drawer.style.transform = 'translateY(0)';
+      }
     }
 
-    body.drawer-open {
-      overflow: hidden !important;
-    }
-  </style>
--->
-<!--
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const drawer = document.getElementById('cart-drawer');
-    if (drawer) {
-      drawer.classList.remove('drawer--right'); // If it's sliding from the side
-      drawer.style.top = '0';
-      drawer.style.transform = 'translateY(0)';
-    }
+    // Listen for cart updates
+    document.addEventListener('cart:updated', showCartDrawer);
+    document.addEventListener('cart:add', showCartDrawer);
+
+    // Listen for add to cart form submissions
+    document.querySelectorAll('form[action="/cart/add"]').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        
+        fetch('/cart/add.js', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          showCartDrawer();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      });
+    });
   });
-    setTimeout(function() {
-      const cartDrawer = document.getElementById('cart-drawer');
-      if (cartDrawer) cartDrawer.style.display = 'none';
-    }, 3000);
-  </script>
--->
+</script>
+
 {% schema %}
 {
   "name": "Cart drawer",

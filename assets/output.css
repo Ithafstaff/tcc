@@ -755,8 +755,8 @@
   .x\:w-\[32rem\] {
     width: 32rem !important;
   }
-  .x\:w-\[70\%\] {
-    width: 70% !important;
+  .x\:w-\[50rem\] {
+    width: 50rem !important;
   }
   .x\:w-\[350px\] {
     width: 350px !important;
@@ -764,8 +764,8 @@
   .x\:w-\[35rem\] {
     width: 35rem !important;
   }
-  .x\:w-\[50rem\] {
-    width: 50rem !important;
+  .x\:w-\[70\%\] {
+    width: 70% !important;
   }
   .x\:w-\[70rem\] {
     width: 70rem !important;
@@ -820,6 +820,10 @@
   }
   .x\:-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1/2 * 100%) * -1) !important;
+    translate: var(--tw-translate-x) var(--tw-translate-y) !important;
+  }
+  .x\:-translate-y-full {
+    --tw-translate-y: -100% !important;
     translate: var(--tw-translate-x) var(--tw-translate-y) !important;
   }
   .x\:translate-y-0 {
