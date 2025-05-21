@@ -96,7 +96,10 @@
         desc: "Come on and save at our Lakewood NJ location. Come and see our large inventory of upscale Bedding, Crystal, Electronics, Flatware, Glassware, Luggage, Paper and Plastic Party Goods, Tablecloths, Toys and much more, at rock bottom low Closeout prices."
       }
     };
-
+    const defaultButton = document.querySelector('.location-btn[data-store="Brooklyn - Borough Park"]');
+    if (defaultButton) {
+      defaultButton.click();
+    }
     const buttons = document.querySelectorAll('.location-btn');
     const phoneEl = document.getElementById('store-phone');
     const hoursEl = document.getElementById('store-hours');
