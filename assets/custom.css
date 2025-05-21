@@ -406,10 +406,6 @@
   margin: 0;
 }
 
-.custom-product-info__block-item:first-child .accordion {
-  /* border: 1px solid red; */
-}
-
 /* end of custom product page layout */
 
 
@@ -430,7 +426,7 @@
 
 .jdgm-gallery-wrapper {
   width: 100%;
-  padding: 24px !important;
+  padding: 60px !important;
 }
 /* end of custom review style */
 
