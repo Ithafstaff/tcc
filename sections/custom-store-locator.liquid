@@ -72,8 +72,51 @@
     </button>
   </div>
 </section>
+
+
 <script>
+
+  
   document.addEventListener('DOMContentLoaded', function () {
+    const storeInfo = {
+    "Brooklyn - Borough Park": {
+      phone: "718-854-2595",
+      hours: [
+        "Sunday - 10:00am To 7:00pm",
+        "Monday - Through Thursday 10:00am 9:00pm",
+        "Friday - 10:00am To 4:00pm"
+      ],
+      desc: "Our Store in Boro Park Brooklyn, is conveniently located in one of the most busiest shopping locations in Brooklyn, come around and check out our large inventory of bed linen, crystal items, tablecloths, party goods, a variety of flatware, toys and much more. Everything at rock bottom closeout prices, price tags you have never seen before!"
+    },
+    "Brooklyn - Williamsburg": {
+      phone: "718-879-8751",
+      hours: [
+        "Sunday - 10:00am To 7:00pm",
+        "Monday - Through Thursday 10:00am 9:00pm",
+        "Friday - 10:00am To 4:00pm"
+      ],
+      desc: "Our Store in Williamsburg Brooklyn, is conveniently located in one of the busiest shopping locations in Brooklyn, come around and check out our large inventory of bed linens, comforters, crystal items, tablecloths, party goods, a variety of flatware, and much more. Everything is of beautiful quality at great closeout prices, price tags you have never seen before!"
+    },
+    "Cedarhurst": {
+      phone: "516-218-2212",
+      hours: [
+        "Sunday - 10:00am To 7:00pm",
+        "Monday - Through Wednesday 10:00am to 7:00pm",
+        "Thursday - 10:00am to 8:00pm",
+        "Friday - 9:00am to 4:00pm"
+      ],
+      desc: "Come on down and save at our Cedarhurst NY location. Come and see our large inventory of upscale Bedding, Crystal, Electronics, Flatware, Glassware, Luggage, Paper and Plastic Party Goods, Tablecloths, Toys and much more, at rock bottom low Closeout prices."
+    },
+    "Lakewood New Jersey": {
+      phone: "732-364-8822",
+      hours: [
+        "Sunday - 10:00am To 7:00pm",
+        "Monday - Through Thursday 10:00am to 9:00pm",
+        "Friday - 10:00am to 4:00pm"
+      ],
+      desc: "Come on and save at our Lakewood NJ location. Come and see our large inventory of upscale Bedding, Crystal, Electronics, Flatware, Glassware, Luggage, Paper and Plastic Party Goods, Tablecloths, Toys and much more, at rock bottom low Closeout prices."
+    }
+  };
     const buttons = document.querySelectorAll('.location-btn');
     const iframe = document.getElementById('map-frame');
     const addressSpan = document.getElementById('map-address');
