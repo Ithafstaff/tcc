@@ -8,10 +8,10 @@
 
     <!-- PINNED LOCATION BUTTON SECTION -->
     <div class="x:flex x:justify-between x:py-10">
-      <button class="location-btn x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.637516661474045" data-lng="-73.99037491120228" data-address="4518 13th Avenue, Brooklyn, NY 11219">brooklyn borough park</button>
-      <button class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.696809238004896" data-lng="-73.95639837301532" data-address="801 Bedford Avenue Brooklyn, NY 11205">brooklyn williamsburg</button>
-      <button class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.6208315995229" data-lng="-73.72690754232822" data-address="134 Washington Ave Cedarhurst NY 11516">cedarhurst</button>
-      <button class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.05914380616697" data-lng="-74.2191726772517" data-address="Todd Plaza 1091 River Ave, Lakewood Township, NJ 08701">lakewood new jersey</button>
+      <button class="location-btn x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.637516661474045" data-lng="-73.99037491120228" data-address="4518 13th Avenue, Brooklyn, NY 11219" data-store="Brooklyn - Borough Park">brooklyn borough park</button>
+      <button class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.696809238004896" data-lng="-73.95639837301532" data-address="801 Bedford Avenue Brooklyn, NY 11205" data-store="Brooklyn - Williamsburg">brooklyn williamsburg</button>
+      <button class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.6208315995229" data-lng="-73.72690754232822" data-address="134 Washington Ave Cedarhurst NY 11516" data-store="Cedarhurst">cedarhurst</button>
+      <button class="location-btn x:border x:border-black x:text-black x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:w-[21.875rem] x:h-[3.75rem] x:uppercase" data-lat="40.05914380616697" data-lng="-74.2191726772517" data-address="Todd Plaza 1091 River Ave, Lakewood Township, NJ 08701" data-store="Lakewood New Jersey">lakewood new jersey</button>
     </div>
 
     <!-- MAP SECTION -->
@@ -25,32 +25,34 @@
           </div>
           <div class="x:flex x:gap-3 x:items-center">
             {%- render 'icon' with 'picto-phone', class: 'phone' -%}
-            <span class="x:uppercase">718-854-2595</span>
+            <span class="x:uppercase" id="store-phone">718-854-2595</span>
           </div>
-          <div class="x:flex x:items-center x:gap-1">
-            <div class="x:flex x:gap-3 x:items-center">
-              {%- render 'icon' with 'picto-timer', class: 'timer' -%}
-              <label class="x:capitalize x:font-bold">Sunday:</label>
+          <div id="store-hours" class="x:flex x:flex-col x:gap-1">
+            <div class="x:flex x:items-center x:gap-1">
+              <div class="x:flex x:gap-3 x:items-center">
+                {%- render 'icon' with 'picto-timer', class: 'timer' -%}
+                <label class="x:capitalize x:font-bold">Sunday:</label>
+              </div>
+              <span class="x:uppercase">10:00 am - 7:00 pm</span>
             </div>
-            <span class="x:uppercase">10:00 am - 7:00 pm</span>
-          </div>
-          <div class="x:flex x:items-center x:gap-1">
-            <div class="x:flex x:gap-3 x:items-center">
-              {%- render 'icon' with 'picto-timer', class: 'timer' -%}
-              <label class="x:capitalize x:font-bold">monday to thursday:</label>
+            <div class="x:flex x:items-center x:gap-1">
+              <div class="x:flex x:gap-3 x:items-center">
+                {%- render 'icon' with 'picto-timer', class: 'timer' -%}
+                <label class="x:capitalize x:font-bold">monday to thursday:</label>
+              </div>
+              <span class="x:uppercase">10:00 am - 7:00 pm</span>
             </div>
-            <span class="x:uppercase">10:00 am - 7:00 pm</span>
-          </div>
-          <div class="x:flex x:items-center x:gap-1">
-            <div class="x:flex x:gap-3 x:items-center">
-              {%- render 'icon' with 'picto-timer', class: 'timer' -%}
-              <label class="x:capitalize x:font-bold">friday:</label>
+            <div class="x:flex x:items-center x:gap-1">
+              <div class="x:flex x:gap-3 x:items-center">
+                {%- render 'icon' with 'picto-timer', class: 'timer' -%}
+                <label class="x:capitalize x:font-bold">friday:</label>
+              </div>
+              <span class="x:uppercase">10:00 am - 4:00 pm</span>
             </div>
-            <span class="x:uppercase">10:00 am - 4:00 pm</span>
           </div>
         </div>
         <div class="x:flex x:flex-col x:gap-2 x:justify-between">
-          <p>
+          <p id="store-desc">
             Nestled in one of Brooklyn’s busiest shopping districts, our Boro Park store offers a wide variety of bed linens, crystal items, tablecloths, party goods, flatware, toys, and more. Discover unbeatable closeout prices on high-quality items you won’t find anywhere else.
           </p>
         </div>
@@ -73,59 +75,61 @@
   </div>
 </section>
 
-
 <script>
-
-  
   document.addEventListener('DOMContentLoaded', function () {
     const storeInfo = {
-    "Brooklyn - Borough Park": {
-      phone: "718-854-2595",
-      hours: [
-        "Sunday - 10:00am To 7:00pm",
-        "Monday - Through Thursday 10:00am 9:00pm",
-        "Friday - 10:00am To 4:00pm"
-      ],
-      desc: "Our Store in Boro Park Brooklyn, is conveniently located in one of the most busiest shopping locations in Brooklyn, come around and check out our large inventory of bed linen, crystal items, tablecloths, party goods, a variety of flatware, toys and much more. Everything at rock bottom closeout prices, price tags you have never seen before!"
-    },
-    "Brooklyn - Williamsburg": {
-      phone: "718-879-8751",
-      hours: [
-        "Sunday - 10:00am To 7:00pm",
-        "Monday - Through Thursday 10:00am 9:00pm",
-        "Friday - 10:00am To 4:00pm"
-      ],
-      desc: "Our Store in Williamsburg Brooklyn, is conveniently located in one of the busiest shopping locations in Brooklyn, come around and check out our large inventory of bed linens, comforters, crystal items, tablecloths, party goods, a variety of flatware, and much more. Everything is of beautiful quality at great closeout prices, price tags you have never seen before!"
-    },
-    "Cedarhurst": {
-      phone: "516-218-2212",
-      hours: [
-        "Sunday - 10:00am To 7:00pm",
-        "Monday - Through Wednesday 10:00am to 7:00pm",
-        "Thursday - 10:00am to 8:00pm",
-        "Friday - 9:00am to 4:00pm"
-      ],
-      desc: "Come on down and save at our Cedarhurst NY location. Come and see our large inventory of upscale Bedding, Crystal, Electronics, Flatware, Glassware, Luggage, Paper and Plastic Party Goods, Tablecloths, Toys and much more, at rock bottom low Closeout prices."
-    },
-    "Lakewood New Jersey": {
-      phone: "732-364-8822",
-      hours: [
-        "Sunday - 10:00am To 7:00pm",
-        "Monday - Through Thursday 10:00am to 9:00pm",
-        "Friday - 10:00am to 4:00pm"
-      ],
-      desc: "Come on and save at our Lakewood NJ location. Come and see our large inventory of upscale Bedding, Crystal, Electronics, Flatware, Glassware, Luggage, Paper and Plastic Party Goods, Tablecloths, Toys and much more, at rock bottom low Closeout prices."
-    }
-  };
+      "Brooklyn - Borough Park": {
+        phone: "718-854-2595",
+        hours: [
+          "Sunday - 10:00am To 7:00pm",
+          "Monday - Through Thursday 10:00am 9:00pm",
+          "Friday - 10:00am To 4:00pm"
+        ],
+        desc: "Our Store in Boro Park Brooklyn, is conveniently located in one of the most busiest shopping locations in Brooklyn, come around and check out our large inventory of bed linen, crystal items, tablecloths, party goods, a variety of flatware, toys and much more. Everything at rock bottom closeout prices, price tags you have never seen before!"
+      },
+      "Brooklyn - Williamsburg": {
+        phone: "718-879-8751",
+        hours: [
+          "Sunday - 10:00am To 7:00pm",
+          "Monday - Through Thursday 10:00am 9:00pm",
+          "Friday - 10:00am To 4:00pm"
+        ],
+        desc: "Our Store in Williamsburg Brooklyn, is conveniently located in one of the busiest shopping locations in Brooklyn, come around and check out our large inventory of bed linens, comforters, crystal items, tablecloths, party goods, a variety of flatware, and much more. Everything is of beautiful quality at great closeout prices, price tags you have never seen before!"
+      },
+      "Cedarhurst": {
+        phone: "516-218-2212",
+        hours: [
+          "Sunday - 10:00am To 7:00pm",
+          "Monday - Through Wednesday 10:00am to 7:00pm",
+          "Thursday - 10:00am to 8:00pm",
+          "Friday - 9:00am to 4:00pm"
+        ],
+        desc: "Come on down and save at our Cedarhurst NY location. Come and see our large inventory of upscale Bedding, Crystal, Electronics, Flatware, Glassware, Luggage, Paper and Plastic Party Goods, Tablecloths, Toys and much more, at rock bottom low Closeout prices."
+      },
+      "Lakewood New Jersey": {
+        phone: "732-364-8822",
+        hours: [
+          "Sunday - 10:00am To 7:00pm",
+          "Monday - Through Thursday 10:00am to 9:00pm",
+          "Friday - 10:00am to 4:00pm"
+        ],
+        desc: "Come on and save at our Lakewood NJ location. Come and see our large inventory of upscale Bedding, Crystal, Electronics, Flatware, Glassware, Luggage, Paper and Plastic Party Goods, Tablecloths, Toys and much more, at rock bottom low Closeout prices."
+      }
+    };
+
     const buttons = document.querySelectorAll('.location-btn');
     const iframe = document.getElementById('map-frame');
     const addressSpan = document.getElementById('map-address');
+    const phoneSpan = document.getElementById('store-phone');
+    const descParagraph = document.getElementById('store-desc');
+    const storeHoursContainer = document.getElementById('store-hours');
 
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
         const lat = button.getAttribute('data-lat');
         const lng = button.getAttribute('data-lng');
         const address = button.getAttribute('data-address');
+        const storeKey = button.getAttribute('data-store');
 
         if (lat && lng) {
           const url = `https://maps.google.com/maps?width=600&height=400&hl=en&q=${encodeURIComponent(address)}&output=embed`;
@@ -134,6 +138,24 @@
 
           buttons.forEach(btn => btn.classList.remove('x:bg-[#222222]', 'x:text-white'));
           button.classList.add('x:bg-[#222222]', 'x:text-white');
+
+          if (storeInfo[storeKey]) {
+            const info = storeInfo[storeKey];
+            phoneSpan.textContent = info.phone;
+            descParagraph.textContent = info.desc;
+
+            storeHoursContainer.innerHTML = info.hours.map(hour => {
+              const [day, time] = hour.split(' - ');
+              return `
+                <div class="x:flex x:items-center x:gap-1">
+                  <div class="x:flex x:gap-3 x:items-center">
+                    <svg class="icon icon-timer"><use xlink:href="#icon-timer"></use></svg>
+                    <label class="x:capitalize x:font-bold">${day}:</label>
+                  </div>
+                  <span class="x:uppercase">${time}</span>
+                </div>`;
+            }).join('');
+          }
         }
       });
     });
