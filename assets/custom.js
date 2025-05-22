@@ -135,20 +135,21 @@ document.addEventListener('DOMContentLoaded', function () {
 //   });
 // });
 
-colorOptionsContainer.addEventListener('click', (event) => {
+const colorOptionsContainer = document.querySelector('.variant-picker__option-values.Color');
+
+colorOptionsContainer.addEventListener('change', (event) => {
+  // Check if the event target is an input (optional check)
   if (event.target && event.target.matches('input')) {
-    setTimeout(() => {
-      const checkedInput = colorOptionsContainer.querySelector('input:checked');
-      if (checkedInput) {
-        const label = document.querySelector(`label[for="${checkedInput.id}"]`);
-        const span = label?.querySelector('span');
-  
-        console.log('Value:', checkedInput.value);
-        console.log('Text:', span?.textContent.trim());
-      }
-    }, 0);
+    const checkedInput = colorOptionsContainer.querySelector('input:checked');
+
+    if (checkedInput) {
+      const label = document.querySelector(`label[for="${checkedInput.id}"]`);
+      const span = label?.querySelector('span');
+
+      console.log('Value:', checkedInput.value);
+      console.log('Text:', span?.textContent.trim());
+    }
   }
 });
-
 
 
