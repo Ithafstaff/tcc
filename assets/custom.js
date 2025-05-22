@@ -172,7 +172,7 @@ thumbImgs.forEach(img => {
 }
 
 // Run every second
-setInterval(showOnlyVariantImage, 1000);
+setInterval(showOnlyVariantImage, 10000);
 
 
 
