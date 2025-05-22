@@ -156,9 +156,13 @@ function showOnlyVariantImage() {
     console.log('Selected value:   N/A');
     console.log('Selected color:   N/A');
   }
+
+  console.log('-----------------------------');
 }
 
-showOnlyVariantImage();
+// Run every second
+setInterval(showOnlyVariantImage, 1000);
+
 
 
 
