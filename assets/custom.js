@@ -135,11 +135,17 @@ document.addEventListener('DOMContentLoaded', function () {
 //   });
 // });
 
+
 function showOnlyVariantImage() {
-  const colorOptionsContainer = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
-  console.log(colorOptionsContainer.innertTxt);
+  const colorSpans = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
+
+  colorSpans.forEach(span => {
+    console.log(span.innerText.trim());
+  });
 }
+
 showOnlyVariantImage();
+
 
 
 
