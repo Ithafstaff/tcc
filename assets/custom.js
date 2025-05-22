@@ -136,7 +136,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // });
 
 function showOnlyVariantImage() {
-  const colorOptionsContainer = document.querySelectorAll('.variant-picker__option-values.Color input label span');
+const spans = document.querySelectorAll('.variant-picker__option-values.Color label span');
+
   console.log(colorOptionsContainer);
 }
 showOnlyVariantImage();
