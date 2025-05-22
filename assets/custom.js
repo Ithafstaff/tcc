@@ -170,7 +170,7 @@ thumbImgs.forEach(img => {
     });
   }
 
-  console.log('-----------------------------');
+  // console.log('-----------------------------');
 }
 
 // Run every second
