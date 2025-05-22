@@ -138,13 +138,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function showOnlyVariantImage() {
   const colorSpans = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
+  const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
 
+  // Log all color span texts
   colorSpans.forEach(span => {
-    console.log(span.innerText.trim());
+    console.log('Color option:', span.innerText.trim());
   });
+
+  // Log the currently selected variant value + color
+  if (activeVariant) {
+    const label = document.querySelector(`label[for="${activeVariant.id}"]`);
+    const selectedSpan = label?.querySelector('span');
+    
+    console.log('Selected value:', activeVariant.value);
+    console.log('Selected color:', selectedSpan?.innerText.trim());
+  }
 }
 
 showOnlyVariantImage();
+
 
 
 
