@@ -135,11 +135,13 @@ function updateProductImages() {
   });
 }
 
-// Attach event listeners to all color inputs
-document.querySelectorAll('.variant-picker__option-values.Color input').forEach(input => {
-  input.addEventListener('change', updateProductImages);
+// Use event delegation to ensure it works even after dynamic reloads
+document.addEventListener('change', function (e) {
+  if (e.target.matches('.variant-picker__option-values.Color input')) {
+    updateProductImages();
+  }
 });
 
-// Optional: Run on page load to reflect default selected color
+// Optional: Run on initial page load
 document.addEventListener('DOMContentLoaded', updateProductImages);
 
