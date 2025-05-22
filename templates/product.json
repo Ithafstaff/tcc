@@ -155,6 +155,7 @@
           "type": "collapsible_text",
           "settings": {
             "icon": "none",
+            "custom_icon": "shopify://shop_images/la_shipping-fast.png",
             "icon_width": 20,
             "title": "Shipping & Returns",
             "content": "<p>See our <a href=\"https://fj0uqa-gh.myshopify.com/products/test-product?&view=__DEFAULT__#\">Shipping & Returns policy</a> for our update details.</p>",
