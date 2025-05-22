@@ -158,6 +158,8 @@ function showOnlyVariantImage() {
     console.log('Selected color:   N/A');
   }
 
+  console.log(thumbImg.alt);
+
   
 
   console.log('-----------------------------');
