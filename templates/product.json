@@ -226,6 +226,7 @@
     },
     "custom_liquid_BWRTar": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "full_width": false,
         "remove_vertical_spacing": true,
