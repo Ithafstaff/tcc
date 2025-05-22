@@ -158,7 +158,13 @@ function showOnlyVariantImage() {
     console.log('Selected color:   N/A');
   }
 
-  console.log(thumbImg.alt);
+  
+const thumbImgs = document.querySelectorAll('.custom-product__gallery-thumbnail img');
+
+thumbImgs.forEach(img => {
+  console.log(img.alt);
+});
+
 
   
 
