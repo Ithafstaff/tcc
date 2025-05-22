@@ -137,23 +137,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function showOnlyVariantImage() {
-  const colorSpans = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
+  const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
 
-  // Log all color span texts
+  // Log all available color options
   colorSpans.forEach(span => {
-    console.log('Color option:', span.innerText.trim());
+    console.log('Color option:     ', span.innerText.trim());
   });
 
-  // Log the currently selected variant value + color
+  // Log the currently selected variant value and color
   if (activeVariant) {
-    const label = document.querySelector(`label[for="${activeVariant.id}"]`);
+    const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
     const selectedSpan = label?.querySelector('span');
-    
-    console.log('Selected value:', activeVariant.value);
-    console.log('Selected color:', selectedSpan?.innerText.trim());
+
+    console.log('Selected value:   ', activeVariant.value);
+    console.log('Selected color:   ', selectedSpan?.innerText.trim());
   } else {
-     console.log('N/A');
+    console.log('Selected value:   N/A');
+    console.log('Selected color:   N/A');
   }
 }
 
