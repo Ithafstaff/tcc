@@ -135,12 +135,26 @@ document.addEventListener('DOMContentLoaded', function () {
 //   });
 // });
 
-function showOnlyVariantImage() {
-const spans = document.querySelectorAll('.variant-picker__option-values.Color label span');
+const colorOptionsContainer = document.querySelector('.variant-picker__option-values.Color');
 
-  console.log(colorOptionsContainer);
-}
-showOnlyVariantImage();
+colorOptionsContainer.addEventListener('change', () => {
+  // Find the checked input inside the container
+  const checkedInput = colorOptionsContainer.querySelector('input:checked');
+  if (!checkedInput) return;
+
+  // Find the label linked to this input by 'for' attribute
+  const label = document.querySelector(`label[for="${checkedInput.id}"]`);
+  if (!label) return;
+
+  // Get the span inside the label (with class "sr-only")
+  const span = label.querySelector('span.sr-only');
+  if (!span) return;
+
+  // Log the value and the color text inside the span
+  console.log('Value:', checkedInput.value);
+  console.log('Color:', span.textContent.trim());
+});
+
 
 
 
