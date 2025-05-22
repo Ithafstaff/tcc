@@ -135,11 +135,12 @@ document.addEventListener('DOMContentLoaded', function () {
 //   });
 // });
 
-
 const colorOptionsContainer = document.querySelector('.variant-picker__option-values.Color');
-  setTimeout(() => {
-colorOptionsContainer.addEventListener('input', () => {
+const inputs = colorOptionsContainer.querySelectorAll('input');
 
+inputs.forEach(input => {
+  input.addEventListener('input', () => {
+    // When any input changes, find the currently checked input
     const checkedInput = colorOptionsContainer.querySelector('input:checked');
 
     if (checkedInput) {
@@ -149,7 +150,6 @@ colorOptionsContainer.addEventListener('input', () => {
       console.log('Value:', checkedInput.value);
       console.log('Text:', span?.textContent.trim());
     }
-
+  });
 });
 
-  }, 0); // or use 50-100 ms if needed
