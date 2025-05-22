@@ -150,7 +150,7 @@ function showOnlyVariantImage() {
     console.log('Selected value:   ', activeVariant.value);
     console.log('Selected color:   ', selectedColor);
 
-    thumbImgWrap.forEach(img => {
+    thumbImgs.forEach(img => {
       if (img.alt.toLowerCase().includes(selectedColor)) {
         img.style.display = 'block';
       } else {
@@ -163,7 +163,7 @@ function showOnlyVariantImage() {
     console.log('Selected color:   N/A');
 
     // Optionally show all or hide all images if no variant is selected
-    thumbImgWrap.forEach(img => {
+    thumbImgs.forEach(img => {
       img.style.display = 'none';
     });
   }
