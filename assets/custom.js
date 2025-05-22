@@ -137,9 +137,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 const colorOptionsContainer = document.querySelector('.variant-picker__option-values.Color');
-
-colorOptionsContainer.addEventListener('input', () => {
   setTimeout(() => {
+colorOptionsContainer.addEventListener('input', () => {
+
     const checkedInput = colorOptionsContainer.querySelector('input:checked');
 
     if (checkedInput) {
@@ -149,6 +149,7 @@ colorOptionsContainer.addEventListener('input', () => {
       console.log('Value:', checkedInput.value);
       console.log('Text:', span?.textContent.trim());
     }
-  }, 0); // or use 50-100 ms if needed
+
 });
 
+  }, 0); // or use 50-100 ms if needed
