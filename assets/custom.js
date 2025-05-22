@@ -126,7 +126,7 @@ document.querySelectorAll('.variant-picker__option-values.Color input').forEach(
     const selectedColor = this.value.toLowerCase();
     console.log(selectedColor);
     
-    document.querySelectorAll('.product__media-item').forEach(media => {
+    document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
       const altText = media.querySelector('img')?.alt?.toLowerCase() || '';
       
       if (altText.includes(selectedColor)) {
