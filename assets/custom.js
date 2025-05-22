@@ -136,11 +136,10 @@ document.addEventListener('DOMContentLoaded', function () {
 // });
 
 const colorOptionsContainer = document.querySelector('.variant-picker__option-values.Color');
-const inputs = colorOptionsContainer.querySelectorAll('input');
 
-inputs.forEach(input => {
-  input.addEventListener('input', () => {
-    // When any input changes, find the currently checked input
+colorOptionsContainer.addEventListener('change', (event) => {
+  // Check if the event target is an input (optional check)
+  if (event.target && event.target.matches('input')) {
     const checkedInput = colorOptionsContainer.querySelector('input:checked');
 
     if (checkedInput) {
@@ -150,6 +149,7 @@ inputs.forEach(input => {
       console.log('Value:', checkedInput.value);
       console.log('Text:', span?.textContent.trim());
     }
-  });
+  }
 });
+
 
