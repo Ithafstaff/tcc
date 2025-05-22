@@ -136,25 +136,26 @@ document.addEventListener('DOMContentLoaded', function () {
 // });
 
 function showOnlyVariantImage() {
-  
+  const colorOptionsContainer = document.querySelectorAll('.variant-picker__option-values.Color input');
+  console.log(colorOptionsContainer);
 }
 showOnlyVariantImage();
 
-const colorOptionsContainer = document.querySelector('.variant-picker__option-values.Color');
 
-colorOptionsContainer.addEventListener('change', (event) => {
-  // Check if the event target is an input (optional check)
-  if (event.target && event.target.matches('input')) {
-    const checkedInput = colorOptionsContainer.querySelector('input:checked');
 
-    if (checkedInput) {
-      const label = document.querySelector(`label[for="${checkedInput.id}"]`);
-      const span = label?.querySelector('span');
+// colorOptionsContainer.addEventListener('change', (event) => {
+//   // Check if the event target is an input (optional check)
+//   if (event.target && event.target.matches('input')) {
+//     const checkedInput = colorOptionsContainer.querySelector('input:checked');
 
-      console.log('Value:', checkedInput.value);
-      console.log('Text:', span?.textContent.trim());
-    }
-  }
-});
+//     if (checkedInput) {
+//       const label = document.querySelector(`label[for="${checkedInput.id}"]`);
+//       const span = label?.querySelector('span');
+
+//       console.log('Value:', checkedInput.value);
+//       console.log('Text:', span?.textContent.trim());
+//     }
+//   }
+// });
 
 
