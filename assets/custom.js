@@ -140,7 +140,7 @@ function showOnlyVariantImage() {
   const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
   const thumbImgWrap     = document.querySelectorAll('.custom-product__gallery-thumbnail');
-  const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail');
+  const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail img');
 
   if (activeVariant) {
     const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
@@ -150,7 +150,7 @@ function showOnlyVariantImage() {
     console.log('Selected value:   ', activeVariant.value);
     console.log('Selected color:   ', selectedColor);
 
-    thumbImgs.forEach(img => {
+    thumbImgs.forEach(item => {
       if (img.alt.toLowerCase().includes(selectedColor)) {
         img.style.display = 'block';
       } else {
@@ -163,7 +163,7 @@ function showOnlyVariantImage() {
     console.log('Selected color:   N/A');
 
     // Optionally show all or hide all images if no variant is selected
-    thumbImgs.forEach(img => {
+    thumbImgs.forEach(item => {
       img.style.display = 'none';
     });
   }
