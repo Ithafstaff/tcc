@@ -151,8 +151,9 @@ function showOnlyVariantImage() {
     const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
     const selectedSpan = label?.querySelector('span');
 
-    // console.log('Selected value:   ', activeVariant.value);
-    // console.log('Selected color:   ', selectedSpan?.innerText.trim());
+    console.log('Selected value:   ', activeVariant.value);
+    console.log('Selected color:   ', selectedSpan?.innerText.trim().toLowerCase());
+
   } else {
     console.log('Selected value:   N/A');
     console.log('Selected color:   N/A');
