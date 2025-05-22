@@ -152,6 +152,8 @@ function showOnlyVariantImage() {
     
     console.log('Selected value:', activeVariant.value);
     console.log('Selected color:', selectedSpan?.innerText.trim());
+  } else {
+     console.log('N/A');
   }
 }
 
