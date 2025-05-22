@@ -145,7 +145,7 @@
           "settings": {
             "icon": "none",
             "custom_icon": "shopify://shop_images/hugeicons_healtcare.png",
-            "icon_width": 20,
+            "icon_width": 36,
             "title": "Product Care",
             "content": "<p>Gently machine wash inside out. Wash with like colors. Made to be loved, worn, and passed on.</p>",
             "page": ""
@@ -156,7 +156,7 @@
           "settings": {
             "icon": "none",
             "custom_icon": "shopify://shop_images/la_shipping-fast.png",
-            "icon_width": 20,
+            "icon_width": 36,
             "title": "Shipping & Returns",
             "content": "<p>See our <a href=\"https://fj0uqa-gh.myshopify.com/products/test-product?&view=__DEFAULT__#\">Shipping & Returns policy</a> for our update details.</p>",
             "page": ""
