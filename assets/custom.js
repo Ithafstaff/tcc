@@ -136,7 +136,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // });
 
 function showOnlyVariantImage() {
-  const colorOptionsContainer = document.querySelectorAll('.variant-picker__option-values.Color .sr-only span');
+const colorSpans = document.querySelectorAll('.variant-picker__option-values.Color span.sr-only');
+
   console.log(colorOptionsContainer);
 }
 showOnlyVariantImage();
