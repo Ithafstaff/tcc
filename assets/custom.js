@@ -124,16 +124,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.querySelectorAll('.variant-picker__option-values.Color input').forEach(input => {
   input.addEventListener('change', function () {
     const selectedColor = this.value.toLowerCase();
-    console.log(selectedColor);
-    
+    console.log('Selected color:', selectedColor);
+
     document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
-      const altText = media.querySelector('img')?.alt?.toLowerCase() || '';
-      
-      if (altText.includes(selectedColor)) {
-        media.style.display = 'block';
-      } else {
-        media.style.display = 'none';
-      }
+      const img = media.querySelector('img');
+      const altText = img?.alt?.toLowerCase() || '';
+
+      media.style.display = altText.includes(selectedColor) ? 'block' : 'none';
     });
   });
 });
