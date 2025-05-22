@@ -136,21 +136,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // });
 
 function showOnlyVariantImage() {
- colorOptionsContainer.forEach(input => {
-  // Find the label linked to this input by matching the 'for' attribute to input's id
-  const label = document.querySelector(`label[for="${input.id}"]`);
-
-  if (label) {
-    console.log('Input value:', input.value);
-    console.log('Label:', label);
-    // If you want the color text inside the span
-    const span = label.querySelector('span.sr-only');
-    if (span) {
-      console.log('Color text:', span.textContent.trim());
-    }
-  }
-});
-
+  const colorOptionsContainer = document.querySelectorAll('.variant-picker__option-values.Color input');
+  console.log(colorOptionsContainer);
 }
 showOnlyVariantImage();
 
