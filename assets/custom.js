@@ -121,16 +121,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //script for showing only the product variant images 
-document.querySelectorAll('.variant-picker__option-values.Color input').forEach(input => {
-  input.addEventListener('change', function () {
-    const selectedColor = this.value.toLowerCase();
-    console.log('Selected color:', selectedColor);
+function updateProductImages() {
+  const selectedInput = document.querySelector('.variant-picker__option-values.Color input:checked');
+  if (!selectedInput) return;
 
-    document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
-      const img = media.querySelector('img');
-      const altText = img?.alt?.toLowerCase() || '';
+  const selectedColor = selectedInput.value.toLowerCase();
 
-      media.style.display = altText.includes(selectedColor) ? 'block' : 'none';
-    });
+  document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
+    const img = media.querySelector('img');
+    const altText = img?.alt?.toLowerCase() || '';
+
+    media.style.display = altText.includes(selectedColor) ? 'block' : 'none';
   });
+}
+
+// Attach event listeners to all color inputs
+document.querySelectorAll('.variant-picker__option-values.Color input').forEach(input => {
+  input.addEventListener('change', updateProductImages);
 });
+
+// Optional: Run on page load to reflect default selected color
+document.addEventListener('DOMContentLoaded', updateProductImages);
+
