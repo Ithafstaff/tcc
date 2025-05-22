@@ -134,3 +134,21 @@ document.addEventListener('DOMContentLoaded', function () {
 //     });
 //   });
 // });
+
+
+
+// Select all checked inputs within the Color variant picker
+const checkedInputs = document.querySelectorAll('.variant-picker__option-values.Color input:checked');
+
+checkedInputs.forEach(input => {
+  // Find the label associated with the input using its id
+  const label = document.querySelector(`label[for="${input.id}"]`);
+  
+  // Get the span inside the label
+  const span = label?.querySelector('span');
+
+  // Log the input value and the span text content
+  console.log('Value:', input.value);
+  console.log('Text:', span?.textContent.trim());
+});
+
