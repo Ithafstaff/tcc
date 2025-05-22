@@ -121,27 +121,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //script for showing only the product variant images 
-function updateProductImages() {
-  const selectedInput = document.querySelector('.variant-picker__option-values.Color input:checked');
-  if (!selectedInput) return;
+document.addEventListener('DOMContentLoaded', function () {
+  // Function to update images based on selected color
+  function updateProductImages() {
+    const selectedInput = document.querySelector('.variant-picker__option-values.Color input:checked');
+    if (!selectedInput) return;
 
-  const selectedColor = selectedInput.value.toLowerCase();
+    const selectedColor = selectedInput.value.toLowerCase();
 
-  document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
-    const img = media.querySelector('img');
-    const altText = img?.alt?.toLowerCase() || '';
+    document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
+      const img = media.querySelector('img');
+      const altText = img?.alt?.toLowerCase() || '';
 
-    media.style.display = altText.includes(selectedColor) ? 'block' : 'none';
-  });
-}
-
-// Use event delegation to ensure it works even after dynamic reloads
-document.addEventListener('change', function (e) {
-  if (e.target.matches('.variant-picker__option-values.Color input')) {
-    updateProductImages();
+      media.style.display = altText.includes(selectedColor) ? 'block' : 'none';
+    });
   }
+
+  // Initial run
+  updateProductImages();
+
+  // Listen for DOM changes caused by Shopify dynamic reloads
+  const productForm = document.querySelector('form[action^="/cart/add"]');
+  if (productForm) {
+    const observer = new MutationObserver(() => {
+      updateProductImages();
+    });
+
+    observer.observe(productForm, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+  // Global event listener for color variant changes
+  document.addEventListener('change', function (e) {
+    if (e.target.matches('.variant-picker__option-values.Color input')) {
+      updateProductImages();
+    }
+  });
 });
-
-// Optional: Run on initial page load
-document.addEventListener('DOMContentLoaded', updateProductImages);
-
