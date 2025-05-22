@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function showOnlyVariantImage() {
   const colorOptionsContainer = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
-  console.log(colorOptionsContainer);
+  console.log(colorOptionsContainer.innertTxt);
 }
 showOnlyVariantImage();
 
