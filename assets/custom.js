@@ -152,9 +152,9 @@ function showOnlyVariantImage() {
 
     thumbImgs.forEach(img => {
       if (img.alt.toLowerCase().includes(selectedColor)) {
-        img.style.display = 'block';
+        parent.style.display = 'block';
       } else {
-        img.style.display = 'none';
+        parent.style.display = 'none';
       }
     });
 
@@ -164,7 +164,7 @@ function showOnlyVariantImage() {
 
     // Optionally show all or hide all images if no variant is selected
     thumbImgs.forEach(img => {
-      img.style.display = 'none';
+      parent.style.display = 'none';
     });
   }
 
