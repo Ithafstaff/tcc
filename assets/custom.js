@@ -140,10 +140,10 @@ function showOnlyVariantImage() {
   const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
 
-  // Log all available color options
-  colorSpans.forEach(span => {
-    console.log('Color option:     ', span.innerText.trim());
-  });
+  // // Log all available color options
+  // colorSpans.forEach(span => {
+  //   console.log('Color option:     ', span.innerText.trim());
+  // });
 
   // Log the currently selected variant value and color
   if (activeVariant) {
