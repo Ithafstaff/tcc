@@ -121,25 +121,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //script for showing only the product variant images 
-function updateProductImages() {
-  const selectedInput = document.querySelector('.variant-picker__option-values.Color input:checked');
-  if (!selectedInput) return;
-
-  const selectedColor = selectedInput.value.toLowerCase();
-
-  document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
-    const img = media.querySelector('img');
-    const altText = img?.alt?.toLowerCase() || '';
-
-    media.style.display = altText.includes(selectedColor) ? 'block' : 'none';
-  });
-}
-
-// Attach event listeners to all color inputs
 document.querySelectorAll('.variant-picker__option-values.Color input').forEach(input => {
-  input.addEventListener('change', updateProductImages);
+  input.addEventListener('change', function () {
+    const selectedColor = this.value.toLowerCase();
+    console.log('Selected color:', selectedColor);
+
+    document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
+      const img = media.querySelector('img');
+      const altText = img?.alt?.toLowerCase() || '';
+
+      media.style.display = altText.includes(selectedColor) ? 'block' : 'none';
+    });
+  });
 });
-
-// Optional: Run on page load to reflect default selected color
-document.addEventListener('DOMContentLoaded', updateProductImages);
-
