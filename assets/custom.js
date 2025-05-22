@@ -135,6 +135,11 @@ document.addEventListener('DOMContentLoaded', function () {
 //   });
 // });
 
+function showOnlyVariantImage() {
+  
+}
+showOnlyVariantImage();
+
 const colorOptionsContainer = document.querySelector('.variant-picker__option-values.Color');
 
 colorOptionsContainer.addEventListener('change', (event) => {
