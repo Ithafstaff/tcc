@@ -147,8 +147,8 @@ function showOnlyVariantImage() {
     const selectedSpan = label?.querySelector('span');
     const selectedColor = selectedSpan?.innerText.trim().toLowerCase();
 
-    console.log('Selected value:   ', activeVariant.value);
-    console.log('Selected color:   ', selectedColor);
+    // console.log('Selected value:   ', activeVariant.value);
+    // console.log('Selected color:   ', selectedColor);
 
 thumbImgs.forEach(img => {
   const parent = img.parentElement;  // define parent here
@@ -161,8 +161,8 @@ thumbImgs.forEach(img => {
 
 
   } else {
-    console.log('Selected value:   N/A');
-    console.log('Selected color:   N/A');
+    // console.log('Selected value:   N/A');
+    // console.log('Selected color:   N/A');
 
     // Optionally show all or hide all images if no variant is selected
     thumbImgs.forEach(img => {
@@ -174,7 +174,7 @@ thumbImgs.forEach(img => {
 }
 
 // Run every second
-setInterval(showOnlyVariantImage, 5000);
+setInterval(showOnlyVariantImage, 100);
 
 
 
