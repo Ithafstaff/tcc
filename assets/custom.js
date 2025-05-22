@@ -117,3 +117,22 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.custom-product-info__block-item:first-child .accordion').setAttribute('open', '');
 
 });
+
+
+
+//script for showing only the product variant images 
+document.querySelectorAll('input[name="Color"]').forEach(input => {
+  input.addEventListener('change', function () {
+    const selectedColor = this.value.toLowerCase();
+    
+    document.querySelectorAll('.product__media-item').forEach(media => {
+      const altText = media.querySelector('img')?.alt?.toLowerCase() || '';
+      
+      if (altText.includes(selectedColor)) {
+        media.style.display = 'block';
+      } else {
+        media.style.display = 'none';
+      }
+    });
+  });
+});
