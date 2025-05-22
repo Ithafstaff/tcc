@@ -140,7 +140,7 @@ function showOnlyVariantImage() {
   const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
   const thumbImgWrap     = document.querySelectorAll('.custom-product__gallery-thumbnail');
-  const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail');
+  const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail img');
 
   if (activeVariant) {
     const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
