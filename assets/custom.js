@@ -136,22 +136,19 @@ document.addEventListener('DOMContentLoaded', function () {
 // });
 
 
-// Select the container for color variant options
 const colorOptionsContainer = document.querySelector('.variant-picker__option-values.Color');
 
-// Add a change event listener to the container
 colorOptionsContainer.addEventListener('change', () => {
-  // Find the checked input
-  const checkedInput = colorOptionsContainer.querySelector('input:checked');
+  setTimeout(() => {
+    const checkedInput = colorOptionsContainer.querySelector('input:checked');
 
-  if (checkedInput) {
-    // Get the label associated with the input
-    const label = document.querySelector(`label[for="${checkedInput.id}"]`);
-    const span = label?.querySelector('span');
+    if (checkedInput) {
+      const label = document.querySelector(`label[for="${checkedInput.id}"]`);
+      const span = label?.querySelector('span');
 
-    // Log the value and the label's span text
-    console.log('Value:', checkedInput.value);
-    console.log('Text:', span?.textContent.trim());
-  }
+      console.log('Value:', checkedInput.value);
+      console.log('Text:', span?.textContent.trim());
+    }
+  }, 0); // 0ms delay allows DOM updates to complete before reading values
 });
 
