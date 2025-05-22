@@ -139,40 +139,33 @@ document.addEventListener('DOMContentLoaded', function () {
 function showOnlyVariantImage() {
   const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
-  const thumbImgs = document.querySelectorAll('.custom-product__gallery-thumbnail img');
+  const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail img');
 
-  // // Log all available color options
-  // colorSpans.forEach(span => {
-  //   console.log('Color option:     ', span.innerText.trim());
-  // });
-
-  // Log the currently selected variant value and color
   if (activeVariant) {
     const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
     const selectedSpan = label?.querySelector('span');
+    const selectedColor = selectedSpan?.innerText.trim().toLowerCase();
 
     console.log('Selected value:   ', activeVariant.value);
-    console.log('Selected color:   ', selectedSpan?.innerText.trim().toLowerCase());
+    console.log('Selected color:   ', selectedColor);
+
+    thumbImgs.forEach(img => {
+      if (img.alt.toLowerCase().includes(selectedColor)) {
+        img.style.display = 'block';
+      } else {
+        img.style.display = 'none';
+      }
+    });
 
   } else {
     console.log('Selected value:   N/A');
     console.log('Selected color:   N/A');
+
+    // Optionally show all or hide all images if no variant is selected
+    thumbImgs.forEach(img => {
+      img.style.display = 'none';
+    });
   }
-
-  
-
-
-thumbImgs.forEach(img => {
-  if (img.alt.toLowerCase().includes(selectedSpan?.innerText.trim().toLowerCase())) {
-    img.style.display = 'block';
-  } else {
-    img.style.display = 'none';
-  }
-});
-
-
-
-  
 
   console.log('-----------------------------');
 }
