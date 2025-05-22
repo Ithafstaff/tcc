@@ -136,7 +136,8 @@
           "type": "description",
           "settings": {
             "icon": "none",
-            "icon_width": 20,
+            "custom_icon": "shopify://shop_images/fluent-mdl2_product.png",
+            "icon_width": 36,
             "collapse_content": true
           }
         },
