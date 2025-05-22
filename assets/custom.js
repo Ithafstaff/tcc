@@ -150,7 +150,7 @@ function showOnlyVariantImage() {
     console.log('Selected value:   ', activeVariant.value);
     console.log('Selected color:   ', selectedColor);
 
-    thumbImgs.forEach(img => {
+    thumbImgWrap.forEach(img => {
       if (img.alt.toLowerCase().includes(selectedColor)) {
         img.style.display = 'block';
       } else {
@@ -172,7 +172,7 @@ function showOnlyVariantImage() {
 }
 
 // Run every second
-setInterval(showOnlyVariantImage, 10000);
+setInterval(showOnlyVariantImage, 5000);
 
 
 
