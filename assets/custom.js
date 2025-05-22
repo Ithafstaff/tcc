@@ -121,16 +121,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //script for showing only the product variant images 
-document.querySelectorAll('.variant-picker__option-values.Color input').forEach(input => {
-  input.addEventListener('change', function () {
-    const selectedColor = this.value.toLowerCase();
-    console.log('Selected color:', selectedColor);
+function attachColorChangeHandler() {
+  document.querySelectorAll('.variant-picker__option-values.Color input').forEach(input => {
+    input.addEventListener('change', function () {
+      const selectedColor = this.value.toLowerCase();
+      console.log('Selected color:', selectedColor);
 
-    document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
-      const img = media.querySelector('img');
-      const altText = img?.alt?.toLowerCase() || '';
+      document.querySelectorAll('.custom-product__gallery-thumbnail').forEach(media => {
+        const img = media.querySelector('img');
+        const altText = img?.alt?.toLowerCase() || '';
 
-      media.style.display = altText.includes(selectedColor) ? 'block' : 'none';
+        media.style.display = altText.includes(selectedColor) ? 'block' : 'none';
+      });
     });
   });
-});
+}
+
+// Initial attach
+attachColorChangeHandler();
+
+// Reattach when variant picker gets replaced
+const productForm = document.querySelector('form[action^="/cart/add"]');
+if (productForm) {
+  const observer = new MutationObserver(() => {
+    attachColorChangeHandler();
+  });
+
+  observer.observe(productForm, {
+    childList: true,
+    subtree: true,
+  });
+}
