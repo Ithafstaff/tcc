@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function showOnlyVariantImage() {
   const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
-  const thumbImg = document.querySelectorAll('.custom-product__gallery-thumbnail img');
+  const thumbImgs = document.querySelectorAll('.custom-product__gallery-thumbnail img');
 
   // // Log all available color options
   // colorSpans.forEach(span => {
@@ -160,11 +160,16 @@ function showOnlyVariantImage() {
   }
 
   
-const thumbImgs = document.querySelectorAll('.custom-product__gallery-thumbnail img');
+
 
 thumbImgs.forEach(img => {
-  console.log(img.alt);
+  if (img.alt.toLowerCase().includes(selectedSpan?.innerText.trim().toLowerCase())) {
+    img.style.display = 'block';
+  } else {
+    img.style.display = 'none';
+  }
 });
+
 
 
   
