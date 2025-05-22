@@ -145,8 +145,18 @@
           "settings": {
             "icon": "none",
             "icon_width": 20,
-            "title": "Dimensions",
-            "content": "<p>Share some content to your customers about your products.</p>",
+            "title": "Product Care",
+            "content": "<p>Gently machine wash inside out. Wash with like colors. Made to be loved, worn, and passed on.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_9mdYfy": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Shipping & Returns",
+            "content": "<p>See our <a href=\"https://fj0uqa-gh.myshopify.com/products/test-product?&view=__DEFAULT__#\">Shipping & Returns policy</a> for our update details.</p>",
             "page": ""
           }
         }
@@ -167,7 +177,8 @@
         "buy_buttons",
         "subi_ex_subify_app_block_9dQAbU",
         "description",
-        "collapsible_text_yD3c9J"
+        "collapsible_text_yD3c9J",
+        "collapsible_text_9mdYfy"
       ],
       "settings": {
         "full_width": true,
