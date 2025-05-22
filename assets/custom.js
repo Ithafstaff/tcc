@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function showOnlyVariantImage() {
   const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
+  const thumbImg = document.querySelectorAll('.custom-product__gallery-thumbnail img');
 
   // // Log all available color options
   // colorSpans.forEach(span => {
@@ -150,18 +151,20 @@ function showOnlyVariantImage() {
     const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
     const selectedSpan = label?.querySelector('span');
 
-    console.log('Selected value:   ', activeVariant.value);
-    console.log('Selected color:   ', selectedSpan?.innerText.trim());
+    // console.log('Selected value:   ', activeVariant.value);
+    // console.log('Selected color:   ', selectedSpan?.innerText.trim());
   } else {
     console.log('Selected value:   N/A');
     console.log('Selected color:   N/A');
   }
 
+  
+
   console.log('-----------------------------');
 }
 
 // Run every second
-setInterval(showOnlyVariantImage, 1000);
+setInterval(showOnlyVariantImage, 10000);
 
 
 
