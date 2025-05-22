@@ -121,9 +121,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //script for showing only the product variant images 
-document.querySelectorAll('input[name="Color"]').forEach(input => {
+document.querySelectorAll('.variant-picker__option-values.Color input').forEach(input => {
   input.addEventListener('change', function () {
     const selectedColor = this.value.toLowerCase();
+    console.log(selectedColor);
     
     document.querySelectorAll('.product__media-item').forEach(media => {
       const altText = media.querySelector('img')?.alt?.toLowerCase() || '';
