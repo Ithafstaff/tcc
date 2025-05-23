@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
 //script for product carousel image when hovering
 // (function () {
 //   const THUMB_CLASS = 'custom-product__gallery-thumbnail';
