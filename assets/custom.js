@@ -179,21 +179,3 @@ setInterval(showOnlyVariantImage, 100);
 
 
 
-
-
-// colorOptionsContainer.addEventListener('change', (event) => {
-//   // Check if the event target is an input (optional check)
-//   if (event.target && event.target.matches('input')) {
-//     const checkedInput = colorOptionsContainer.querySelector('input:checked');
-
-//     if (checkedInput) {
-//       const label = document.querySelector(`label[for="${checkedInput.id}"]`);
-//       const span = label?.querySelector('span');
-
-//       console.log('Value:', checkedInput.value);
-//       console.log('Text:', span?.textContent.trim());
-//     }
-//   }
-// });
-
-
