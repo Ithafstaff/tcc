@@ -143,16 +143,6 @@ thumbImgs.forEach(img => {
   }
 });
 
-// const mainImg = document.querySelectorAll('.custom-product__gallery-media img');    
-// mainImg.forEach(img => {
-//   const parent = img.parentElement;  // define parent here
-//   if (img.alt.toLowerCase().includes(selectedColor)) {
-//     parent.style.display = 'block';
-//   } else {
-//     parent.style.display = 'none';
-//   }
-// });
-
 
   } else {
     // console.log('Selected value:   N/A');
