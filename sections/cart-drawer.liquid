@@ -185,6 +185,7 @@
   {% endif %}
   id="cart-drawer"
   class="x:fixed x:top-0 x:left-0 x:right-0 x:bg-white x:shadow-md x:z-[9999] x:py-10 x:px-16 x:max-w-full x:font-sans x:transform x:-translate-y-full x:transition-all x:duration-300 x:ease-in-out"
+  style="display: none;"
 >
   <button 
     onclick="const drawer = document.querySelector('cart-drawer'); drawer.classList.remove('x:translate-y-0'); drawer.classList.add('x:-translate-y-full'); setTimeout(() => drawer.style.display = 'none', 300);"
@@ -295,6 +296,14 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Ensure cart drawer is hidden on page load
+    const drawer = document.querySelector('cart-drawer');
+    if (drawer) {
+      drawer.style.display = 'none';
+      drawer.classList.add('x:-translate-y-full');
+      drawer.classList.remove('x:translate-y-0');
+    }
+
     // Function to show cart drawer
     function showCartDrawer() {
       const drawer = document.querySelector('cart-drawer');
@@ -318,6 +327,52 @@
         }, 300);
       }
     }
+
+    // Function to add item to cart
+    function addItemToCart(formData) {
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        updateCartDrawer();
+        showCartDrawer(); // Show drawer after adding item
+        return data;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        throw error;
+      });
+    }
+
+    // Override the default add to cart behavior
+    document.querySelectorAll('form[action="/cart/add"]').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const formData = new FormData(this);
+        addItemToCart(formData);
+      });
+    });
+
+    // Override add to cart button clicks
+    document.querySelectorAll('[data-add-to-cart]').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const form = this.closest('form[action="/cart/add"]');
+        if (form) {
+          const formData = new FormData(form);
+          addItemToCart(formData);
+        }
+      });
+    });
+
+    // Update close button click handlers
+    document.querySelectorAll('[data-close-drawer]').forEach(button => {
+      button.addEventListener('click', hideCartDrawer);
+    });
 
     // Function to update cart drawer content
     function updateCartDrawer() {
@@ -347,108 +402,14 @@
                 itemImage.alt = firstItem.title;
               }
             }
-
-            // Show the drawer
-            showCartDrawer();
           }
         })
         .catch(error => console.error('Error:', error));
     }
 
-    // Function to add item to cart
-    function addItemToCart(formData) {
-      return fetch('/cart/add.js', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        updateCartDrawer();
-        return data;
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        throw error;
-      });
-    }
-
-    // Function to update cart item quantity
-    function updateCartItemQuantity(line, quantity) {
-      return fetch('/cart/change.js', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          line: line,
-          quantity: quantity
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        updateCartDrawer();
-        return data;
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        throw error;
-      });
-    }
-
-    // Function to remove cart item
-    function removeCartItem(line) {
-      return updateCartItemQuantity(line, 0);
-    }
-
     // Listen for cart updates
     document.addEventListener('cart:updated', updateCartDrawer);
     document.addEventListener('cart:add', updateCartDrawer);
-
-    // Listen for add to cart form submissions
-    document.querySelectorAll('form[action="/cart/add"]').forEach(form => {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        addItemToCart(formData);
-      });
-    });
-
-    // Listen for add to cart button clicks
-    document.querySelectorAll('[data-add-to-cart]').forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const form = this.closest('form[action="/cart/add"]');
-        if (form) {
-          const formData = new FormData(form);
-          addItemToCart(formData);
-        }
-      });
-    });
-
-    // Listen for quantity changes
-    document.querySelectorAll('[data-quantity-input]').forEach(input => {
-      input.addEventListener('change', function(e) {
-        const line = this.dataset.line;
-        const quantity = parseInt(this.value);
-        if (!isNaN(quantity)) {
-          updateCartItemQuantity(line, quantity);
-        }
-      });
-    });
-
-    // Listen for remove item buttons
-    document.querySelectorAll('[data-remove-item]').forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const line = this.dataset.line;
-        removeCartItem(line);
-      });
-    });
-
-    // Update close button click handlers
-    document.querySelectorAll('[data-close-drawer]').forEach(button => {
-      button.addEventListener('click', hideCartDrawer);
-    });
 
     // Initialize cart drawer
     updateCartDrawer();
