@@ -111,11 +111,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//script for closing filter tabs when first load in Collections Filter
+//script for open first accordion in product page
 document.addEventListener('DOMContentLoaded', function () {
   // Add the "open" attribute dynamically
   document.querySelector('.custom-product-info__block-item:first-child .accordion').setAttribute('open', '');
-
 });
 
 
