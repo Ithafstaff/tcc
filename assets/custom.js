@@ -143,7 +143,7 @@ thumbImgs.forEach(img => {
   }
 });
 
-const mainImg     = document.querySelectorAll('.custom-product__gallery-media img');    
+const mainImg = document.querySelectorAll('.custom-product__gallery-media img');    
 mainImgs.forEach(img => {
   const parent = img.parentElement;  // define parent here
   if (img.alt.toLowerCase().includes(selectedColor)) {
