@@ -144,6 +144,13 @@ function activeOnHover() {
         selectedMedia.style.removeProperty('--thumb-preview-bg'); // remove or reset
       }
     });
+    thumbnail.addEventListener('click', () => {
+      const selectedMedia = document.querySelector('.custom-product__gallery-media.is-selected');
+
+      if (selectedMedia) {
+        selectedMedia.style.removeProperty('--thumb-preview-bg'); // remove or reset
+      }
+    });
   });
 }
 
