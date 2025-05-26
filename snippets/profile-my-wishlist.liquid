@@ -401,18 +401,8 @@
       </div>
 
       <!-- Variant Swatches (placeholder) -->
-      <div style="display: flex; gap: 6px;">
-        <div
-          class="swatch"
-          style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-          data-selected="true"
-        ></div>
-        <div
-          class="swatch"
-          style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-          onclick="selectSwatch(this)"
-        ></div>
+      <div style="display: flex; gap: 6px;" id="modal-swatches">
+        <!-- Swatches will be copied from product card -->
       </div>
 
       <hr>
@@ -526,6 +516,14 @@
       const modalPrice = document.getElementById('modal-product-price');
       if (modalPrice) {
         modalPrice.textContent = product.price || '$5.99';
+      }
+
+      // Copy swatches from product card
+      const productCard = document.querySelector(`[data-product-id="${product.id}"]`).closest('[style*="width: 250px"]');
+      const productSwatches = productCard.querySelector('.swatch').parentElement;
+      const modalSwatches = document.getElementById('modal-swatches');
+      if (productSwatches && modalSwatches) {
+        modalSwatches.innerHTML = productSwatches.innerHTML;
       }
 
       // Set variants
