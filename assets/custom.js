@@ -130,12 +130,16 @@ function activeOnHover() {
 
   allThumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('mouseenter', () => {
-      console.log('test');
+      const img = thumbnail.querySelector('img');
+      if (img) {
+        console.log(img.src);
+      }
     });
   });
 }
 
 activeOnHover();
+
 
 
 
