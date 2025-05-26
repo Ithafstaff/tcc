@@ -428,7 +428,7 @@
   margin: 0;
 }
 
-.custom-accordion {
+/* .custom-accordion {
   background: transparent !important;
   color: #000 !important;
   position: relative;
@@ -448,7 +448,7 @@
   left: 50%;
   font-size: 28px !important;
   font-weight: 300 !important;
-}
+} */
 /* .custom-accordion::after {
   content: "|";
   position: absolute;
