@@ -428,6 +428,14 @@
   margin: 0;
 }
 
+.circle-chevron {
+  background: transparent !important;
+}
+
+.circle-chevron svg {
+  display: none !important;
+}
+
 /* end of custom product page layout */
 
 
