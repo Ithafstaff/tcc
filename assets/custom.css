@@ -437,6 +437,10 @@
   display: none !important;
 }
 
+.group[aria-expanded="true"] .circle-chevron.group-expanded\:rotate {
+  transform: rotate(calc(var(--transform-logical-flip) * 90deg));
+}
+
 /* end of custom product page layout */
 
 
