@@ -124,23 +124,26 @@ document.addEventListener('DOMContentLoaded', function () {
 // })();
 
 function activeOnHover() {
-  // Get the selected main image container (assuming only one is selected)
-  let mainImage = document.querySelector('.custom-product__gallery-media .is-selected img');
   let allThumbnails = document.querySelectorAll('.custom-product__gallery-thumbnail');
-  
+
   allThumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('mouseenter', () => {
       const img = thumbnail.querySelector('img');
-      if (img && mainImage) {
+      
+      // Find the main image inside the currently selected media
+      const selectedMedia = document.querySelector('.custom-product__gallery-media.is-selected img');
+      
+      if (img && selectedMedia) {
         console.log(img.src);
-        mainImage.src = img.src; // correctly assign the actual image source
-        mainImage.srcset = img.src; // correctly assign the actual image source
+        selectedMedia.src = img.src;
+        selectedMedia.srcset = img.src;
       }
     });
   });
 }
 
 activeOnHover();
+
 
 
 
