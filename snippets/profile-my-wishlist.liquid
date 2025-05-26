@@ -366,17 +366,6 @@
     <div class="x:flex x:flex-col x:gap-4">
       <h3 id="modal-product-title" class="x:text-3xl x:font-medium"></h3>
 
-      <div class="x:flex x:items-start x:gap-4">
-        <img
-          id="modal-product-image"
-          class="x:w-24 x:h-24 x:object-cover"
-          src=""
-          alt="Product image"
-          width="96"
-          height="96"
-        >
-      </div>
-
       <div class="x:flex x:flex-col x:gap-2">
         <div class="x:flex x:items-center x:gap-3">
           <div class="x:flex x:items-center x:gap-1">
@@ -478,27 +467,9 @@
     const modal = document.getElementById('quick-add-modal');
     const closeModal = document.getElementById('close-modal');
     const modalTitle = document.getElementById('modal-product-title');
-    const modalImage = document.getElementById('modal-product-image');
     
     let currentProduct = null;
 
-    // Add click event listeners to cart icons
-    function addCartIconListeners() {
-      document.querySelectorAll('.cart-icon').forEach(icon => {
-        icon.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          const productId = this.getAttribute('data-product-id');
-          const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
-          const product = wishlist.find(item => item.id === productId);
-          
-          if (product) {
-            openProductModal(product);
-          }
-        });
-      });
-    }
-    
     // Ensure modal is hidden initially
     if (modal) {
       modal.style.display = 'none';
@@ -522,20 +493,34 @@
         modal.style.display = 'none';
       }
     });
+
+    // Add click event listeners to cart icons
+    function addCartIconListeners() {
+      document.querySelectorAll('.cart-icon').forEach(icon => {
+        icon.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const productId = this.getAttribute('data-product-id');
+          const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+          const product = wishlist.find(item => item.id === productId);
+          
+          if (product) {
+            openProductModal(product);
+          }
+        });
+      });
+    }
     
     function openProductModal(product) {
-      if (!modal || !modalTitle || !modalImage) {
-        console.error('Modal elements not found:', { modal, modalTitle, modalImage });
+      if (!modal || !modalTitle) {
+        console.error('Modal elements not found:', { modal, modalTitle });
         return;
       }
       
       currentProduct = product;
-      console.log('Opening modal for product:', product);
       
       // Set basic content
       modalTitle.textContent = product.title;
-      modalImage.src = product.image || '{{ "test_img1.png" | asset_url }}';
-      modalImage.alt = product.title;
       
       // Set price
       const modalPrice = document.getElementById('modal-product-price');
@@ -551,12 +536,12 @@
         // Group variants by option name (e.g., "Size", "Color", etc.)
         const variantGroups = {};
         product.variants.forEach(variant => {
-          if (variant.option1) {
+          {% comment %} if (variant.option1) {
             if (!variantGroups[variant.option1_name || 'Size']) {
               variantGroups[variant.option1_name || 'Size'] = new Set();
             }
             variantGroups[variant.option1_name || 'Size'].add(variant.option1);
-          }
+          } {% endcomment %}
           if (variant.option2) {
             if (!variantGroups[variant.option2_name || 'Color']) {
               variantGroups[variant.option2_name || 'Color'] = new Set();
@@ -576,52 +561,89 @@
           variantsHtml += `
             <div class="x:flex x:flex-col x:gap-2">
               <span class="x:text-lg x:font-medium">${groupName}</span>
-              ${Array.from(values).map(value => `
-                <div class="x:flex x:items-center x:gap-1">
-                  <input
-                    type="checkbox"
-                    class="x:h-8 x:w-8 x:appearance-none x:border x:border-gray-300 x:rounded x:checked:bg-black x:checked:border-black x:bg-center x:bg-no-repeat x:checked:bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M12.207%204.793a1%201%200%20010%201.414l-5%205a1%201%200%2001-1.414%200l-2-2a1%201%200%20011.414-1.414L6.5%209.086l4.293-4.293a1%201%200%20011.414%200z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E')]"
-                    name="${groupName}"
-                    value="${value}"
-                    ${product.selectedOptions && product.selectedOptions[groupName] === value ? 'checked' : ''}
+              <div class="x:flex x:flex-wrap x:gap-2">
+                ${Array.from(values).map(value => `
+                  <button
+                    class="variant-option x:px-4 x:py-2 x:border x:border-gray-300 x:rounded x:hover:border-black x:transition-colors"
+                    data-option-name="${groupName}"
+                    data-option-value="${value}"
                   >
-                  <label class="x:text-xl">${value}</label>
-                </div>
-              `).join('')}
+                    ${value}
+                  </button>
+                `).join('')}
+              </div>
             </div>
           `;
         });
 
         modalVariants.innerHTML = variantsHtml;
 
-        // Add event listeners to variant checkboxes
-        modalVariants.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-          checkbox.addEventListener('change', function() {
-            // Uncheck other checkboxes in the same group
-            const groupCheckboxes = modalVariants.querySelectorAll(`input[name="${this.name}"]`);
-            groupCheckboxes.forEach(cb => {
-              if (cb !== this) cb.checked = false;
-            });
+        // Add event listeners to variant options
+        modalVariants.querySelectorAll('.variant-option').forEach(button => {
+          button.addEventListener('click', function() {
+            // Remove active state from other buttons in the same group
+            const groupButtons = modalVariants.querySelectorAll(`[data-option-name="${this.dataset.optionName}"]`);
+            groupButtons.forEach(btn => btn.classList.remove('x:bg-black', 'x:text-white'));
+            
+            // Add active state to clicked button
+            this.classList.add('x:bg-black', 'x:text-white');
 
-            // Update selected variant
-            const selectedOptions = {};
-            modalVariants.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
-              selectedOptions[cb.name] = cb.value;
-            });
-
-            // Find matching variant
-            const selectedVariant = product.variants.find(variant => {
-              return (!selectedOptions[variant.option1_name] || variant.option1 === selectedOptions[variant.option1_name]) &&
-                     (!selectedOptions[variant.option2_name] || variant.option2 === selectedOptions[variant.option2_name]) &&
-                     (!selectedOptions[variant.option3_name] || variant.option3 === selectedOptions[variant.option3_name]);
-            });
-
-            // Update price if variant found
-            if (selectedVariant && modalPrice) {
-              modalPrice.textContent = selectedVariant.price || product.price || '$5.99';
-            }
+            // Update selected variant and price
+            updateSelectedVariant();
           });
         });
+      }
+
+      // Update quantity buttons
+      const decreaseQty = document.getElementById('decrease-qty');
+      const increaseQty = document.getElementById('increase-qty');
+      const quantityDisplay = document.getElementById('modal-product-quantity');
+      
+      if (decreaseQty && increaseQty && quantityDisplay) {
+        decreaseQty.onclick = () => {
+          const currentQty = parseInt(quantityDisplay.textContent);
+          if (currentQty > 1) {
+            quantityDisplay.textContent = currentQty - 1;
+          }
+        };
+        
+        increaseQty.onclick = () => {
+          const currentQty = parseInt(quantityDisplay.textContent);
+          quantityDisplay.textContent = currentQty + 1;
+        };
+      }
+
+      // Update add to cart button
+      const addToCartBtn = document.getElementById('modal-add-to-cart');
+      if (addToCartBtn) {
+        addToCartBtn.onclick = () => {
+          const quantity = parseInt(document.getElementById('modal-product-quantity').textContent);
+          const selectedVariant = getSelectedVariant();
+          if (selectedVariant) {
+            addToCart(selectedVariant.id, quantity);
+          }
+        };
+      }
+
+      // Update wishlist button
+      const wishlistBtn = document.getElementById('modal-add-to-wishlist');
+      if (wishlistBtn) {
+        wishlistBtn.textContent = 'REMOVE FROM WISHLIST';
+        wishlistBtn.onclick = () => {
+          removeFromWishlist(product.id);
+          modal.classList.remove('x:flex');
+          modal.classList.add('x:hidden');
+          modal.style.display = 'none';
+        };
+      }
+
+      // Update subscribe button
+      const subscribeBtn = document.getElementById('modal-subscribe');
+      if (subscribeBtn) {
+        subscribeBtn.onclick = () => {
+          // Add subscription logic here
+          alert('Subscription feature coming soon!');
+        };
       }
 
       // Show modal
@@ -629,11 +651,46 @@
       modal.classList.add('x:flex');
       modal.style.display = 'flex';
     }
+
+    function getSelectedVariant() {
+      if (!currentProduct || !currentProduct.variants) return null;
+
+      const selectedOptions = {};
+      document.querySelectorAll('.variant-option.x\\:bg-black').forEach(button => {
+        selectedOptions[button.dataset.optionName] = button.dataset.optionValue;
+      });
+
+      return currentProduct.variants.find(variant => {
+        return (!selectedOptions[variant.option1_name] || variant.option1 === selectedOptions[variant.option1_name]) &&
+               (!selectedOptions[variant.option2_name] || variant.option2 === selectedOptions[variant.option2_name]) &&
+               (!selectedOptions[variant.option3_name] || variant.option3 === selectedOptions[variant.option3_name]);
+      });
+    }
+
+    function updateSelectedVariant() {
+      const selectedVariant = getSelectedVariant();
+      if (selectedVariant) {
+        const modalPrice = document.getElementById('modal-product-price');
+        if (modalPrice) {
+          modalPrice.textContent = typeof selectedVariant.price === 'number' ? 
+            `$${selectedVariant.price.toFixed(2)}` : selectedVariant.price;
+        }
+      }
+    }
     
     function createProductCard(item) {
       const cardElement = document.createElement('div');
-      cardElement.style = "width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box;";
+      cardElement.style = "width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; cursor: pointer;";
       
+      // Add click handler for the entire card
+      cardElement.addEventListener('click', function(e) {
+        // Don't trigger if clicking on heart icon or swatches
+        if (e.target.closest('.swatch') || e.target.closest('img[src*="heart"]')) {
+          return;
+        }
+        openProductModal(item);
+      });
+
       // Format price if available
       let formattedPrice = '';
       if (item.price) {
