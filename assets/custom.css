@@ -142,6 +142,10 @@
   border-radius: 0 !important;
 }
 
+.custom-product__gallery-media.is-selected {
+  border: 1px solid;
+}
+
 .custom-product__gallery-thumbnail {
   width: 80px;
   height: 72px;
