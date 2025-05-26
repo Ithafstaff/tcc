@@ -645,6 +645,45 @@
       } else {
         formattedPrice = '$5.99'; // Default placeholder price
       }
+
+      // Generate swatches HTML from variants
+      let swatchesHtml = '';
+      if (item.variants && item.variants.length > 0) {
+        // Get all variants with their options
+        const variants = item.variants.map(variant => {
+          const options = {};
+          if (variant.option1) options[variant.option1_name || 'Option 1'] = variant.option1;
+          if (variant.option2) options[variant.option2_name || 'Option 2'] = variant.option2;
+          if (variant.option3) options[variant.option3_name || 'Option 3'] = variant.option3;
+          return { ...variant, options };
+        });
+
+        // Group variants by their first option (usually color)
+        const groupedVariants = variants.reduce((acc, variant) => {
+          const firstOption = Object.values(variant.options)[0];
+          if (!acc[firstOption]) {
+            acc[firstOption] = [];
+          }
+          acc[firstOption].push(variant);
+          return acc;
+        }, {});
+
+        // Create swatches for each group
+        swatchesHtml = Object.entries(groupedVariants).map(([optionValue, variants], index) => {
+          const firstVariant = variants[0];
+          return `
+            <div 
+              class="swatch" 
+              style="width: 25px; height: 25px; background-color: ${optionValue}; position: relative; cursor: pointer;"
+              onclick="selectSwatch(this)"
+              data-variant-id="${firstVariant.id}"
+              data-variants='${JSON.stringify(variants)}'
+              data-selected="${index === 0 ? 'true' : 'false'}"
+              title="${optionValue}"
+            ></div>
+          `;
+        }).join('');
+      }
       
       cardElement.innerHTML = `
         <!-- Image (250x250) with Heart -->
@@ -667,19 +706,16 @@
           />
         </div>
       
-        <!-- Variant Swatches (placeholder) -->
+        <!-- Variant Swatches -->
         <div style="display: flex; gap: 6px;">
-          <div 
-            class="swatch" 
-            style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
-            onclick="selectSwatch(this)"
-            data-selected="true"
-          ></div>
-          <div 
-            class="swatch" 
-            style="width: 25px; height: 25px; background-color: #cdcdcd; position: relative; cursor: pointer;"
-            onclick="selectSwatch(this)"
-          ></div>
+          ${swatchesHtml || `
+            <div 
+              class="swatch" 
+              style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
+              onclick="selectSwatch(this)"
+              data-selected="true"
+            ></div>
+          `}
         </div>
       
         <!-- Category and Cart -->
@@ -748,6 +784,8 @@
 
   function selectSwatch(el) {
     const container = el.parentElement;
+    const variantId = el.dataset.variantId;
+    const variants = JSON.parse(el.dataset.variants || '[]');
 
     container.querySelectorAll('.swatch').forEach(swatch => {
       swatch.removeAttribute('data-selected');
@@ -756,6 +794,20 @@
 
     el.setAttribute('data-selected', 'true');
     el.innerHTML = `<div style="position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: ${el.style.backgroundColor};"></div>`;
+
+    // Update price if variant has different price
+    if (variants.length > 0) {
+      const productCard = el.closest('[style*="width: 250px"]');
+      const priceElement = productCard.querySelector('.x\\:text-base:last-of-type');
+      
+      if (priceElement) {
+        const selectedVariant = variants[0]; // Use first variant of the group
+        if (selectedVariant && selectedVariant.price) {
+          priceElement.textContent = typeof selectedVariant.price === 'number' ? 
+            `$${selectedVariant.price.toFixed(2)}` : selectedVariant.price;
+        }
+      }
+    }
   }
   
   function removeFromWishlist(productId) {
