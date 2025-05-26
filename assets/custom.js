@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const allThumbs = Array.from(document.querySelectorAll('.' + THUMB_CLASS));
 
       const index = allThumbs.indexOf(el); // 0-based index
+        console.log('idnex: ' + index);
 
       // Remove border from all
       allThumbs.forEach(node => node.classList.remove(ACTIVE_CLASS));
