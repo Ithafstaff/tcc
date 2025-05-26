@@ -433,6 +433,7 @@
   color: #000 !important;
   border: 1px solid;
   position: relative;
+  transform: none !important;
 }
 
 .custom-accordion svg {
