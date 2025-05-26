@@ -174,6 +174,7 @@ function showOnlyVariantImage() {
   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
   const thumbImgWrap     = document.querySelectorAll('.custom-product__gallery-thumbnail');
   const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail img');
+  const mainbImgs     = document.querySelectorAll('.custom-product__gallery-media img');
 
   if (activeVariant) {
     const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
