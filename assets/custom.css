@@ -438,7 +438,7 @@
 }
 
 .group[aria-expanded="true"] .circle-chevron.group-expanded\:rotate {
-  transform: rotate(calc(var(--transform-logical-flip) * 90deg));
+  transform: rotate(calc(var(--transform-logical-flip) * 90deg)) !imporntant;
 }
 
 /* end of custom product page layout */
