@@ -449,6 +449,16 @@
   top: 50%;
   left: 0; 
 }
+.custom-accordion::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  top: 50%;
+  left: 0;
+  transform: rotate(90deg);
+}
 
 /* .group[aria-expanded="true"] .circle-chevron.group-expanded\:rotate {
   transform: rotate(calc(var(--transform-logical-flip) * 90deg)) !important;
