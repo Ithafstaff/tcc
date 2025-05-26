@@ -157,9 +157,9 @@
       {%- sections 'header-group' -%}
       {%- sections 'overlay-group' -%}
 
-      {%- if settings.cart_type == 'popover' -%}
+      {% comment %} {%- if settings.cart_type == 'popover' -%}
         <cart-notification-drawer open-from="bottom" class="quick-buy-drawer drawer"></cart-notification-drawer>
-      {%- endif -%}
+      {%- endif -%} {% endcomment %}
     {%- endif -%}
 
     {%- if request.page_type == 'customers/account'

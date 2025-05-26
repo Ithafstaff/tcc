@@ -1808,9 +1808,9 @@ let LineItem = class extends HTMLElement {
 if (!window.customElements.get("cart-drawer")) {
     window.customElements.define("cart-drawer", CartDrawer);
 }
-if (!window.customElements.get("cart-notification-drawer")) {
-    window.customElements.define("cart-notification-drawer", CartNotificationDrawer);
-}
+// if (!window.customElements.get("cart-notification-drawer")) {
+//     window.customElements.define("cart-notification-drawer", CartNotificationDrawer);
+// }
 if (!window.customElements.get("line-item")) {
     window.customElements.define("line-item", LineItem);
 }
@@ -3123,46 +3123,46 @@ if (!window.customElements.get("product-rerender")) {
 
 // js/common/product/quick-buy-drawer.js
 import { animate as animate7, timeline as timeline5 } from "vendor";
-// let QuickBuyDrawer = class extends Drawer {
-//     constructor() {
-//         super();
-//         this._hasLoaded = false;
-//         this.addEventListener("variant:add", this._onVariantAdded.bind(this));
-//     }
-//     async show() {
-//         this.style.display = "block";
-//         if (!this._hasLoaded) {
-//             [this, ...this.controls].forEach((control) => control.setAttribute("aria-busy", "true"));
-//             const responseContent = await (await fetch(`${window.Shopify.routes.root}products/${this.getAttribute("handle")}`)).text();
-//             [this, ...this.controls].forEach((control) => control.setAttribute("aria-busy", "false"));
-//             const quickBuyContent = new DOMParser().parseFromString(responseContent, "text/html").getElementById("quick-buy-content").content;
-//             Array.from(quickBuyContent.querySelectorAll("noscript")).forEach((noScript) => noScript.remove());
-//             this.replaceChildren(quickBuyContent);
-//             Shopify.PaymentButton?.init();
-//             this._hasLoaded = true;
-//         }
-//         return super.show();
-//     }
-//     async hide() {
-//         return super.hide()?.then(() => {
-//             this.style.display = "none";
-//         });
-//     }
-//     _onVariantAdded(event) {
-//         event.detail.blockCartDrawerOpening = true;
-//         const contentShadow = this.shadowRoot.querySelector('[part="content"]'), fromHeight = contentShadow.clientHeight;
-//         animate7(contentShadow.children, { opacity: 0, visibility: "hidden" }, { duration: 0.15 });
-//         this.replaceChildren(...new DOMParser().parseFromString(event.detail.cart["sections"]["variant-added"], "text/html").querySelector(".shopify-section").children);
-//         requestAnimationFrame(async () => {
-//             await timeline5([
-//                 [contentShadow, { height: [`${fromHeight}px`, `${contentShadow.clientHeight}px`] }, { duration: 0.35, easing: [0.86, 0, 0.07, 1] }],
-//                 [contentShadow.children, { opacity: [0, 1], visibility: "visible" }, { duration: 0.15 }]
-//             ]).finished;
-//             contentShadow.style.height = null;
-//         });
-//         this._hasLoaded = false;
-//     }
-// };
+let QuickBuyDrawer = class extends Drawer {
+    constructor() {
+        super();
+        this._hasLoaded = false;
+        this.addEventListener("variant:add", this._onVariantAdded.bind(this));
+    }
+    async show() {
+        this.style.display = "block";
+        if (!this._hasLoaded) {
+            [this, ...this.controls].forEach((control) => control.setAttribute("aria-busy", "true"));
+            const responseContent = await (await fetch(`${window.Shopify.routes.root}products/${this.getAttribute("handle")}`)).text();
+            [this, ...this.controls].forEach((control) => control.setAttribute("aria-busy", "false"));
+            const quickBuyContent = new DOMParser().parseFromString(responseContent, "text/html").getElementById("quick-buy-content").content;
+            Array.from(quickBuyContent.querySelectorAll("noscript")).forEach((noScript) => noScript.remove());
+            this.replaceChildren(quickBuyContent);
+            Shopify.PaymentButton?.init();
+            this._hasLoaded = true;
+        }
+        return super.show();
+    }
+    async hide() {
+        return super.hide()?.then(() => {
+            this.style.display = "none";
+        });
+    }
+    _onVariantAdded(event) {
+        event.detail.blockCartDrawerOpening = true;
+        const contentShadow = this.shadowRoot.querySelector('[part="content"]'), fromHeight = contentShadow.clientHeight;
+        animate7(contentShadow.children, { opacity: 0, visibility: "hidden" }, { duration: 0.15 });
+        this.replaceChildren(...new DOMParser().parseFromString(event.detail.cart["sections"]["variant-added"], "text/html").querySelector(".shopify-section").children);
+        requestAnimationFrame(async () => {
+            await timeline5([
+                [contentShadow, { height: [`${fromHeight}px`, `${contentShadow.clientHeight}px`] }, { duration: 0.35, easing: [0.86, 0, 0.07, 1] }],
+                [contentShadow.children, { opacity: [0, 1], visibility: "visible" }, { duration: 0.15 }]
+            ]).finished;
+            contentShadow.style.height = null;
+        });
+        this._hasLoaded = false;
+    }
+};
 if (!window.customElements.get("quick-buy-drawer")) {
     window.customElements.define("quick-buy-drawer", QuickBuyDrawer);
 }
