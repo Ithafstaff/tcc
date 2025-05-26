@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
       el.classList.add(ACTIVE_CLASS);
 
       // Get corresponding media element based on index
-      const mediaList = document.querySelector('.' + MEDIA_CLASS);
+      const mediaList = document.querySelectorAll('.' + MEDIA_CLASS);
       const targetMedia = mediaList[index+1];
 
       console.log("test targetMedia: " + targetMedia);
