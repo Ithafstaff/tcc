@@ -154,9 +154,11 @@
   top: 0;
   left: 0;
   border: 1px solid red;
-  background: url('') no-repeat;
+  background-image: var(--thumb-preview-bg);
   background-size: contain;
   background-position: center;
+  inset: 0;
+  z-index: 1;
 }
 
 .custom-product__gallery-thumbnail {

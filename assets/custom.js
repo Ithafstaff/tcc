@@ -123,20 +123,25 @@ document.addEventListener('DOMContentLoaded', function () {
 //   observer.observe(document.body, { childList: true, subtree: true });
 // })();
 
+
 function activeOnHover() {
   let allThumbnails = document.querySelectorAll('.custom-product__gallery-thumbnail');
 
   allThumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('mouseenter', () => {
       const img = thumbnail.querySelector('img');
-      
-      // Find the main image inside the currently selected media
-      const selectedMedia = document.querySelector('.custom-product__gallery-media.is-selected::after');
-      
+      const selectedMedia = document.querySelector('.custom-product__gallery-media.is-selected');
+
       if (img && selectedMedia) {
-        console.log(img.src);
-        selectedMedia.backgound.url = img.src;
-        selectedMedia.backgound.url = img.src;
+        selectedMedia.style.setProperty('--thumb-preview-bg', `url(${img.src})`);
+      }
+    });
+
+    thumbnail.addEventListener('mouseleave', () => {
+      const selectedMedia = document.querySelector('.custom-product__gallery-media.is-selected');
+
+      if (selectedMedia) {
+        selectedMedia.style.removeProperty('--thumb-preview-bg'); // remove or reset
       }
     });
   });
