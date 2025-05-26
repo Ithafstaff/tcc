@@ -102,7 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
 //script for closing filter tabs when first load in Collections Filter
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.accordion').forEach((el) => {
