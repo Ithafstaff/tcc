@@ -123,25 +123,24 @@ document.addEventListener('DOMContentLoaded', function () {
 //   observer.observe(document.body, { childList: true, subtree: true });
 // })();
 
-
 function activeOnHover() {
-  let mainImage = document.querySelectorAll('.custom-product__gallery-media .is-selected');
+  // Get the selected main image container (assuming only one is selected)
+  let mainImage = document.querySelector('.custom-product__gallery-media .is-selected img');
   let allThumbnails = document.querySelectorAll('.custom-product__gallery-thumbnail');
-  console.log(allThumbnails);
-
+  
   allThumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('mouseenter', () => {
       const img = thumbnail.querySelector('img');
-      const mainImg = mainImage.querySelector('img');
-      if (img) {
+      if (img && mainImage) {
         console.log(img.src);
-        mainImg.src="img.src";
+        mainImage.src = img.src; // correctly assign the actual image source
       }
     });
   });
 }
 
 activeOnHover();
+
 
 
 
