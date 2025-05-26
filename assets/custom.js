@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     el.addEventListener('mouseenter', () => {
       const allThumbs = Array.from(document.querySelectorAll('.' + THUMB_CLASS));
       const index = allThumbs.indexOf(el); // 0-based index
-console.log("test index: " + index);
+
       // Remove border from all
       allThumbs.forEach(node => node.classList.remove(ACTIVE_CLASS));
 
@@ -75,6 +75,7 @@ console.log("test index: " + index);
       const mediaList = document.querySelectorAll('.' + MEDIA_CLASS);
       const targetMedia = mediaList[index+1];
 
+      console.log("test medialist: " + mediaList);
       if (targetMedia) {
         const img = targetMedia.querySelector('img');
         if (img && img.src) {
