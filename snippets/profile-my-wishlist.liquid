@@ -560,16 +560,18 @@
         Object.entries(variantGroups).forEach(([groupName, values]) => {
           variantsHtml += `
             <div class="x:flex x:flex-col x:gap-2">
-              <span class="x:text-lg x:font-medium">${groupName}</span>
-              <div class="x:flex x:flex-wrap x:gap-2">
+              {% comment %} <span class="x:text-lg x:font-medium">${groupName}</span> {% endcomment %}
+              <div class="x:flex x:flex-col x:flex-wrap x:gap-2">
                 ${Array.from(values).map(value => `
-                  <button
-                    class="variant-option x:px-4 x:py-2 x:border x:border-gray-300 x:rounded x:hover:border-black x:transition-colors"
-                    data-option-name="${groupName}"
-                    data-option-value="${value}"
-                  >
-                    ${value}
-                  </button>
+                  <div class="x:flex x:items-center x:gap-2">
+                    <input
+                      type="checkbox"
+                      class="variant-option x:h-5 x:w-5 x:appearance-none x:border x:border-gray-300 x:rounded x:checked:bg-black x:checked:border-black x:bg-center x:bg-no-repeat x:checked:bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M12.207%204.793a1%201%200%20010%201.414l-5%205a1%201%200%2001-1.414%200l-2-2a1%201%200%20011.414-1.414L6.5%209.086l4.293-4.293a1%201%200%20011.414%200z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E')]"
+                      data-option-name="${groupName}"
+                      data-option-value="${value}"
+                    >
+                    <label class="x:text-base">${value}</label>
+                  </div>
                 `).join('')}
               </div>
             </div>
@@ -578,15 +580,14 @@
 
         modalVariants.innerHTML = variantsHtml;
 
-        // Add event listeners to variant options
-        modalVariants.querySelectorAll('.variant-option').forEach(button => {
-          button.addEventListener('click', function() {
-            // Remove active state from other buttons in the same group
-            const groupButtons = modalVariants.querySelectorAll(`[data-option-name="${this.dataset.optionName}"]`);
-            groupButtons.forEach(btn => btn.classList.remove('x:bg-black', 'x:text-white'));
-            
-            // Add active state to clicked button
-            this.classList.add('x:bg-black', 'x:text-white');
+        // Add event listeners to variant checkboxes
+        modalVariants.querySelectorAll('.variant-option').forEach(checkbox => {
+          checkbox.addEventListener('change', function() {
+            // Uncheck other checkboxes in the same group
+            const groupCheckboxes = modalVariants.querySelectorAll(`input[data-option-name="${this.dataset.optionName}"]`);
+            groupCheckboxes.forEach(cb => {
+              if (cb !== this) cb.checked = false;
+            });
 
             // Update selected variant and price
             updateSelectedVariant();
@@ -656,8 +657,8 @@
       if (!currentProduct || !currentProduct.variants) return null;
 
       const selectedOptions = {};
-      document.querySelectorAll('.variant-option.x\\:bg-black').forEach(button => {
-        selectedOptions[button.dataset.optionName] = button.dataset.optionValue;
+      document.querySelectorAll('.variant-option.x\\:bg-black').forEach(checkbox => {
+        selectedOptions[checkbox.dataset.optionName] = checkbox.dataset.optionValue;
       });
 
       return currentProduct.variants.find(variant => {
