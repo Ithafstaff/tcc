@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
 // script for product carousel image when hovering
 (function () {
   const THUMB_CLASS = 'custom-product__gallery-thumbnail';
@@ -104,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
 //script for closing filter tabs when first load in Collections Filter
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.accordion').forEach((el) => {
@@ -122,46 +120,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-script for showing only the product variant images 
+//script for showing only the product variant images 
 
-function showOnlyVariantImage() {
-  const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
-  const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
-  const thumbImgWrap     = document.querySelectorAll('.custom-product__gallery-thumbnail');
-  const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail img');
+// function showOnlyVariantImage() {
+//   const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
+//   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
+//   const thumbImgWrap     = document.querySelectorAll('.custom-product__gallery-thumbnail');
+//   const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail img');
 
-  if (activeVariant) {
-    const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
-    const selectedSpan = label?.querySelector('span');
-    const selectedColor = selectedSpan?.innerText.trim().toLowerCase();
+//   if (activeVariant) {
+//     const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
+//     const selectedSpan = label?.querySelector('span');
+//     const selectedColor = selectedSpan?.innerText.trim().toLowerCase();
 
-    // console.log('Selected value:   ', activeVariant.value);
-    // console.log('Selected color:   ', selectedColor);
+//     // console.log('Selected value:   ', activeVariant.value);
+//     // console.log('Selected color:   ', selectedColor);
 
-thumbImgs.forEach(img => {
-  const parent = img.parentElement;  // define parent here
-  if (img.alt.toLowerCase().includes(selectedColor)) {
-    parent.style.display = 'block';
-  } else {
-    parent.style.display = 'none';
-  }
-});
+// thumbImgs.forEach(img => {
+//   const parent = img.parentElement;  // define parent here
+//   if (img.alt.toLowerCase().includes(selectedColor)) {
+//     parent.style.display = 'block';
+//   } else {
+//     parent.style.display = 'none';
+//   }
+// });
 
 
-  } else {
-    // console.log('Selected value:   N/A');
-    // console.log('Selected color:   N/A');
+//   } else {
+//     // console.log('Selected value:   N/A');
+//     // console.log('Selected color:   N/A');
 
-    // Optionally show all or hide all images if no variant is selected
-    thumbImgs.forEach(img => {
-      parent.style.display = 'none';
-    });
-  }
+//     // Optionally show all or hide all images if no variant is selected
+//     thumbImgs.forEach(img => {
+//       parent.style.display = 'none';
+//     });
+//   }
 
-  // console.log('-----------------------------');
-}
-// Run every second
-setInterval(showOnlyVariantImage, 100);
+//   // console.log('-----------------------------');
+// }
+// // Run every second
+// setInterval(showOnlyVariantImage, 100);
 
 
 
