@@ -1,8 +1,16 @@
-{%- unless section.settings.full_width -%}
-  {%- render 'section-spacing-collapsing' -%}
-{%- endunless -%}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-<style>
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
   #shopify-section-{{ section.id }} {
     {%- if section.settings.full_width -%}
       --section-outer-spacing-block: 0;
@@ -26,7 +34,7 @@
     gap: 0;
     display: flex;  
   }
-</style>
+{%- endstyle -%}
 
 <div
   {% render 'section-properties' %}
@@ -65,18 +73,6 @@
             style="--aspect-ratio: {{ section.settings.mobile_video.aspect_ratio }}"
           {% endif %}
         >
-        <div style="position: absolute; bottom: 40px; left: 40px; z-index: 1;">
-          <button
-            class="drawer-button-{{ section.id }} x:bg-[#222]/70 x:text-white x:aspect-square x:flex x:items-center x:lg:aspect-auto x:justify-center x:rounded-full x:p-3 x:md:py-1 x:md:p-3 x:lg:pr-[0px]"
-          >
-            <i class="bx bx-shopping-bag x:text-base x:md:text-xl x:leading-[0px]"></i>
-            <p
-              class="animate-on-scroll x:text-base x:text-center x:text-nowrap x:hidden x:lg:block"
-            >
-              GET THE LOOK
-            </p>
-          </button>
-        </div>
           {{-
             section.settings.mobile_video
             | video_tag:
@@ -145,18 +141,7 @@
         </template>
       </video-media>
     {%- endif -%}
-      <div style="position: absolute; bottom: 40px; left: 40px; z-index: 1;">
-      <button
-        class="drawer-button-{{ section.id }} x:bg-[#222]/70 x:text-white x:aspect-square x:flex x:items-center x:lg:aspect-auto x:justify-center x:rounded-full x:p-3 x:md:py-1 x:md:p-3 x:lg:pr-[0px]"
-      >
-        <i class="bx bx-shopping-bag x:text-base x:md:text-xl x:leading-[0px]"></i>
-        <p
-          class="animate-on-scroll x:text-base x:text-center x:text-nowrap x:hidden x:lg:block"
-        >
-          GET THE LOOK
-        </p>
-      </button>
-    </div>
+
     {%- if section.blocks.size > 0 -%}
       <div class="place-self-center text-center">
         <div class="prose">
@@ -355,7 +340,7 @@
           "type": "text",
           "id": "text",
           "label": "Text",
-          "default": "Heading"
+          "default": "Video"
         },
         {
           "type": "select",
