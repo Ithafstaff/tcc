@@ -86,13 +86,13 @@ document.addEventListener('DOMContentLoaded', function () {
           
          let selectedMedia = document.querySelector('.' + MEDIA_CLASS + '.is-selected');
       
-          if (selectedMedia) {
+
             let selectedImg = selectedMedia.querySelector('img');
             if (selectedImg) {
               selectedImg.src = img.src;
               selectedImg.srcset = img.src;
             }
-          }
+          
 
         } else {
           console.log(`No image found in media item ${index + 1}`);
