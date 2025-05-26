@@ -437,9 +437,9 @@
   display: none !important;
 }
 
-.group[aria-expanded="true"] .circle-chevron.group-expanded\:rotate {
+/* .group[aria-expanded="true"] .circle-chevron.group-expanded\:rotate {
   transform: rotate(calc(var(--transform-logical-flip) * 90deg)) !important;
-}
+} */
 
 /* end of custom product page layout */
 
