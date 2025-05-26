@@ -123,26 +123,26 @@ document.addEventListener('DOMContentLoaded', function () {
 //   observer.observe(document.body, { childList: true, subtree: true });
 // })();
 
-// function activeOnHover() {
-//   let allThumbnails = document.querySelectorAll('.custom-product__gallery-thumbnail');
+function activeOnHover() {
+  let allThumbnails = document.querySelectorAll('.custom-product__gallery-thumbnail');
 
-//   allThumbnails.forEach(thumbnail => {
-//     thumbnail.addEventListener('mouseenter', () => {
-//       const img = thumbnail.querySelector('img');
+  allThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('mouseenter', () => {
+      const img = thumbnail.querySelector('img');
       
-//       // Find the main image inside the currently selected media
-//       const selectedMedia = document.querySelector('.custom-product__gallery-media.is-selected img');
+      // Find the main image inside the currently selected media
+      const selectedMedia = document.querySelector('.custom-product__gallery-media.is-selected::after');
       
-//       if (img && selectedMedia) {
-//         console.log(img.src);
-//         selectedMedia.src = img.src;
-//         selectedMedia.srcset = img.src;
-//       }
-//     });
-//   });
-// }
+      if (img && selectedMedia) {
+        console.log(img.src);
+        selectedMedia.backgound.url = img.src;
+        selectedMedia.backgound.url = img.src;
+      }
+    });
+  });
+}
 
-// activeOnHover();
+activeOnHover();
 
 
 
