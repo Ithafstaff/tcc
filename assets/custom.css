@@ -443,7 +443,7 @@
   content: '';
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 1px;
   border: 1px solid #000;
   top: 50%;
   left: 0; 
@@ -452,7 +452,7 @@
   content: '';
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 1px;
   border: 1px solid #000;
   top: 50%;
   left: 0;
