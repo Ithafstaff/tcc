@@ -134,6 +134,7 @@ function activeOnHover() {
       if (img && mainImage) {
         console.log(img.src);
         mainImage.src = img.src; // correctly assign the actual image source
+        mainImage.srcset = img.src; // correctly assign the actual image source
       }
     });
   });
