@@ -430,6 +430,7 @@
 
 .circle-chevron {
   background: transparent !important;
+  color: #000 !important;
 }
 
 .circle-chevron svg {
