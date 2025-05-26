@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     el.addEventListener('mouseenter', () => {
       const allThumbs = Array.from(document.querySelectorAll('.' + THUMB_CLASS));
-      console.log('test Althumbs: ' + allThumbs);
+
       const index = allThumbs.indexOf(el); // 0-based index
 
       // Remove border from all
