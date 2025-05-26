@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const mediaList = document.querySelectorAll('.' + MEDIA_CLASS);
       const targetMedia = mediaList[index+1];
 
-      console.log("test medialist: " + mediaList);
+      console.log("test targetMedia: " + targetMedia);
       if (targetMedia) {
         const img = targetMedia.querySelector('img');
         if (img && img.src) {
