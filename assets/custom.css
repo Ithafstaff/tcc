@@ -153,8 +153,10 @@
   height: 100%;
   top: 0;
   left: 0;
-  /* border: 1px solid red; */
-  background:
+  border: 1px solid red;
+  background: url('') no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .custom-product__gallery-thumbnail {
