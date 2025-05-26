@@ -446,8 +446,8 @@
   height: 100%;
   top: 0;
   left: 50%;
-  font-size: 28px;
-  font-weight: 300;
+  font-size: 28px !important;
+  font-weight: 300 !important;
 }
 .custom-accordion::after {
   content: "|";
