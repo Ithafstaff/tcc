@@ -22,6 +22,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+//script for closing filter tabs when first load in Collections Filter
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.accordion').forEach((el) => {
+    el.removeAttribute('open');
+  });
+});
+
+
+
+//script for open first accordion in product page
+document.addEventListener('DOMContentLoaded', function () {
+  // Add the "open" attribute dynamically
+  document.querySelector('.custom-product-info__block-item:first-child .accordion').setAttribute('open', '');
+});
+
+
+
+
+
+
+
+
 //script for product carousel image when hovering
 (function () {
   const THUMB_CLASS = 'custom-product__gallery-thumbnail';
@@ -100,21 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-//script for closing filter tabs when first load in Collections Filter
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.accordion').forEach((el) => {
-    el.removeAttribute('open');
-  });
-});
-
-
-
-//script for open first accordion in product page
-document.addEventListener('DOMContentLoaded', function () {
-  // Add the "open" attribute dynamically
-  document.querySelector('.custom-product-info__block-item:first-child .accordion').setAttribute('open', '');
-});
 
 
 
