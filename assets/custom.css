@@ -440,19 +440,24 @@
 }
 
 .custom-accordion::before {
-  content: '|';
+   content: "|";
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 50%;
-  left: 0; 
+  top: 0;
+  left: 50%;
+  font-size: 28px;
+  font-weight: 300;
 }
 .custom-accordion::after {
-  content: '|';
+  content: "|";
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 50%;
+  top: 0;
+  left: 50%;
+  font-size: 28px;
+  font-weight: 300;
   left: 0;
   transform: rotate(90deg);
 }
