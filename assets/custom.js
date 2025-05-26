@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function activeOnHover() {
+  let mainImage = document.querySelectorAll('.custom-product__gallery-media .is-selected');
   let allThumbnails = document.querySelectorAll('.custom-product__gallery-thumbnail');
   console.log(allThumbnails);
 
