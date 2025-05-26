@@ -132,8 +132,10 @@ function activeOnHover() {
   allThumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('mouseenter', () => {
       const img = thumbnail.querySelector('img');
+      const mainImg = mainImage.querySelector('img');
       if (img) {
         console.log(img.src);
+        mainImg.src="img.src";
       }
     });
   });
