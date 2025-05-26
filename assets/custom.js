@@ -124,10 +124,15 @@ document.addEventListener('DOMContentLoaded', function () {
 // })();
 
 
-function activeOnHover () {
-  
+function activeOnHover() {
+  let allThumbnails = document.querySelectorAll('.custom-product__gallery-thumbnail');
+
+
+  console.log(allThumbnails);
 }
 
+
+ activeOnHover();
 
 
 
