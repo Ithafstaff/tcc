@@ -129,20 +129,35 @@ function activeOnHover() {
   allThumbnails.forEach(thumbnail => {
     thumbnail.addEventListener('mouseenter', () => {
       const img = thumbnail.querySelector('img');
-      
-      // Find the main image inside the currently selected media
       const selectedMedia = document.querySelector('.custom-product__gallery-media.is-selected img');
-      
+
       if (img && selectedMedia) {
-        console.log(img.src);
+        // Save the original src and srcset as data attributes (if not already saved)
+        if (!selectedMedia.dataset.originalSrc) {
+          selectedMedia.dataset.originalSrc = selectedMedia.src;
+          selectedMedia.dataset.originalSrcset = selectedMedia.srcset;
+        }
+
+        // Set new thumbnail image
         selectedMedia.src = img.src;
         selectedMedia.srcset = img.src;
+      }
+    });
+
+    thumbnail.addEventListener('mouseleave', () => {
+      const selectedMedia = document.querySelector('.custom-product__gallery-media.is-selected img');
+
+      if (selectedMedia && selectedMedia.dataset.originalSrc) {
+        // Restore the original image
+        selectedMedia.src = selectedMedia.dataset.originalSrc;
+        selectedMedia.srcset = selectedMedia.dataset.originalSrcset;
       }
     });
   });
 }
 
 activeOnHover();
+
 
 
 
