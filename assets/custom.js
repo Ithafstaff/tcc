@@ -126,13 +126,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function activeOnHover() {
   let allThumbnails = document.querySelectorAll('.custom-product__gallery-thumbnail');
-
-
   console.log(allThumbnails);
+
+  allThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('mouseenter', () => {
+      console.log('test');
+    });
+  });
 }
 
+activeOnHover();
 
- activeOnHover();
 
 
 
