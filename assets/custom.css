@@ -428,12 +428,12 @@
   margin: 0;
 }
 
-.circle-chevron {
+.custom-accordion {
   background: transparent !important;
   color: #000 !important;
 }
 
-.circle-chevron svg {
+.custom-accordion svg {
   display: none !important;
 }
 
