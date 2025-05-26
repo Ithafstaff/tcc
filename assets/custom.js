@@ -23,88 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// script for product carousel image when hovering
-(function () {
-  const THUMB_CLASS = 'custom-product__gallery-thumbnail';
-  const MEDIA_CLASS = 'custom-product__gallery-media';
-  const ACTIVE_CLASS = 'thumb--hovered';
-  const BORDER_STYLE = '1px solid transparent';
-
-  const style = document.createElement('style');
-  style.textContent = `
-    .${ACTIVE_CLASS} { border: ${BORDER_STYLE}; }
-  `;
-  document.head.appendChild(style);
-
-  function attachHover(el) {
-    if (el.dataset.thumbBound) return;
-
-    el.addEventListener('mouseenter', () => {
-      const allThumbs = Array.from(document.querySelectorAll('.' + THUMB_CLASS));
-      const index = allThumbs.indexOf(el); // 0-based index
-
-      // Remove border from all
-      allThumbs.forEach(node => node.classList.remove(ACTIVE_CLASS));
-
-      // Add border to current
-      el.classList.add(ACTIVE_CLASS);
-
-      // Get corresponding media element based on index
-      const mediaList = document.querySelectorAll('.' + MEDIA_CLASS);
-      const targetMedia = mediaList[index+1];
-
-      if (targetMedia) {
-        const img = targetMedia.querySelector('img');
-        if (img && img.src) {
-          console.log(`Hovered image src: ${img.src}`);
-          console.log('index: ' + (index+1));
-          
-         let selectedMedia = document.querySelector('.' + MEDIA_CLASS + '.is-selected');
-      
-          if (selectedMedia) {
-            let selectedImg = selectedMedia.querySelector('img');
-            if (selectedImg) {
-              selectedImg.src = img.src;
-              selectedImg.srcset = img.src;
-            }
-          }
-
-        } else {
-          console.log(`No image found in media item ${index + 1}`);
-        }
-      } else {
-        console.log(`No media item at position ${index + 1}`);
-      }
-    });
-
-    el.dataset.thumbBound = 'true';
-  }
-
-  // Attach listeners to existing thumbs
-  document.querySelectorAll('.' + THUMB_CLASS).forEach(attachHover);
-
-  // Watch for dynamically added thumbs
-  const observer = new MutationObserver(mutations => {
-    for (const m of mutations) {
-      m.addedNodes.forEach(node => {
-        if (node.nodeType === 1 && node.classList.contains(THUMB_CLASS)) {
-          attachHover(node);
-        }
-        node.querySelectorAll?.('.' + THUMB_CLASS).forEach(attachHover);
-      });
-    }
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
-})();
-
-
-
-
-
-
-
-
 //script for closing filter tabs when first load in Collections Filter
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.accordion').forEach((el) => {
@@ -122,46 +40,155 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+
+
+
+//script for product carousel image when hovering
+// (function () {
+//   const THUMB_CLASS = 'custom-product__gallery-thumbnail';
+//   const MEDIA_CLASS = 'custom-product__gallery-media';
+//   const ACTIVE_CLASS = 'thumb--hovered';
+//   const BORDER_STYLE = '1px solid transparent';
+
+//   const style = document.createElement('style');
+//   style.textContent = `
+//     .${ACTIVE_CLASS} { border: ${BORDER_STYLE}; }
+//   `;
+//   document.head.appendChild(style);
+
+//   function attachHover(el) {
+//     if (el.dataset.thumbBound) return;
+
+//     el.addEventListener('mouseenter', () => {
+//       const allThumbs = Array.from(document.querySelectorAll('.' + THUMB_CLASS));
+
+//       const index = allThumbs.indexOf(el); // 0-based index
+//         console.log('idnex: ' + index);
+
+//       // Remove border from all
+//       allThumbs.forEach(node => node.classList.remove(ACTIVE_CLASS));
+
+//       // Add border to current
+//       el.classList.add(ACTIVE_CLASS);
+
+//       // Get corresponding media element based on index
+//       const mediaList = document.querySelectorAll('.' + MEDIA_CLASS);
+//       const targetMedia = mediaList[index+1];
+
+
+//       if (targetMedia) {
+//         const img = targetMedia.querySelector('img');
+//         if (img && img.src) {
+//           console.log(`Hovered image src: ${img.src}`);
+//           // console.log('index: ' + (index+1));
+          
+//          let selectedMedia = document.querySelector('.' + MEDIA_CLASS + '.is-selected');
+      
+//           if (selectedMedia) {
+//             let selectedImg = selectedMedia.querySelector('img');
+//             if (selectedImg) {
+//               selectedImg.src = img.src;
+//               selectedImg.srcset = img.src;
+//             }
+//           }
+
+//         } else {
+//           console.log(`No image found in media item ${index + 1}`);
+//         }
+//       } else {
+//         console.log(`No media item at position ${index + 1}`);
+//       }
+//     });
+
+//     el.dataset.thumbBound = 'true';
+//   }
+
+//   // Attach listeners to existing thumbs
+//   document.querySelectorAll('.' + THUMB_CLASS).forEach(attachHover);
+
+//   // Watch for dynamically added thumbs
+//   const observer = new MutationObserver(mutations => {
+//     for (const m of mutations) {
+//       m.addedNodes.forEach(node => {
+//         if (node.nodeType === 1 && node.classList.contains(THUMB_CLASS)) {
+//           attachHover(node);
+//         }
+//         node.querySelectorAll?.('.' + THUMB_CLASS).forEach(attachHover);
+//       });
+//     }
+//   });
+
+//   observer.observe(document.body, { childList: true, subtree: true });
+// })();
+
+
+function activeOnHover() {
+  let allThumbnails = document.querySelectorAll('.custom-product__gallery-thumbnail');
+  console.log(allThumbnails);
+
+  allThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('mouseenter', () => {
+      const img = thumbnail.querySelector('img');
+      if (img) {
+        console.log(img.src);
+      }
+    });
+  });
+}
+
+activeOnHover();
+
+
+
+
+
+
+
+
+
+
 //script for showing only the product variant images 
 
-// function showOnlyVariantImage() {
-//   const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
-//   const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
-//   const thumbImgWrap     = document.querySelectorAll('.custom-product__gallery-thumbnail');
-//   const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail img');
+function showOnlyVariantImage() {
+  const colorSpans    = document.querySelectorAll('.variant-picker__option-values.Color .color-swatch span');
+  const activeVariant = document.querySelector('.variant-picker__option-values.Color input:checked');
+  const thumbImgWrap     = document.querySelectorAll('.custom-product__gallery-thumbnail');
+  const thumbImgs     = document.querySelectorAll('.custom-product__gallery-thumbnail img');
 
-//   if (activeVariant) {
-//     const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
-//     const selectedSpan = label?.querySelector('span');
-//     const selectedColor = selectedSpan?.innerText.trim().toLowerCase();
+  if (activeVariant) {
+    const label        = document.querySelector(`label[for="${activeVariant.id}"]`);
+    const selectedSpan = label?.querySelector('span');
+    const selectedColor = selectedSpan?.innerText.trim().toLowerCase();
 
-//     // console.log('Selected value:   ', activeVariant.value);
-//     // console.log('Selected color:   ', selectedColor);
+    // console.log('Selected value:   ', activeVariant.value);
+    // console.log('Selected color:   ', selectedColor);
 
-// thumbImgs.forEach(img => {
-//   const parent = img.parentElement;  // define parent here
-//   if (img.alt.toLowerCase().includes(selectedColor)) {
-//     parent.style.display = 'block';
-//   } else {
-//     parent.style.display = 'none';
-//   }
-// });
+thumbImgs.forEach(img => {
+  const parent = img.parentElement;  // define parent here
+  if (img.alt.toLowerCase().includes(selectedColor)) {
+    parent.style.display = 'block';
+  } else {
+    parent.style.display = 'none';
+  }
+});
 
 
-//   } else {
-//     // console.log('Selected value:   N/A');
-//     // console.log('Selected color:   N/A');
+  } else {
+    // console.log('Selected value:   N/A');
+    // console.log('Selected color:   N/A');
 
-//     // Optionally show all or hide all images if no variant is selected
-//     thumbImgs.forEach(img => {
-//       parent.style.display = 'none';
-//     });
-//   }
+    // Optionally show all or hide all images if no variant is selected
+    thumbImgs.forEach(img => {
+      parent.style.display = 'none';
+    });
+  }
 
-//   // console.log('-----------------------------');
-// }
-// // Run every second
-// setInterval(showOnlyVariantImage, 100);
+  // console.log('-----------------------------');
+}
+// Run every second
+setInterval(showOnlyVariantImage, 100);
 
 
 
