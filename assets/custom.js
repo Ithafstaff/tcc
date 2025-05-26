@@ -109,7 +109,16 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.' + THUMB_CLASS).forEach(attachHover);
 
   // Watch for dynamically added thumbs
-
+  const observer = new MutationObserver(mutations => {
+    for (const m of mutations) {
+      m.addedNodes.forEach(node => {
+        if (node.nodeType === 1 && node.classList.contains(THUMB_CLASS)) {
+          attachHover(node);
+        }
+        node.querySelectorAll?.('.' + THUMB_CLASS).forEach(attachHover);
+      });
+    }
+  });
 
   observer.observe(document.body, { childList: true, subtree: true });
 })();
