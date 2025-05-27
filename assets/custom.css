@@ -1,5 +1,5 @@
 .product {
-  max-width: 1356px;
+  /* max-width: 1356px; */
   width: 100%;
   margin: 0 auto;
   grid-template-columns: 0.6175fr 0.3817fr !important;

@@ -11,8 +11,11 @@
   "sections": {
     "custom_liquid_WpJwGU": {
       "type": "custom-liquid",
+      "custom_css": [
+        ".section-full {padding: 0 3% !important;}"
+      ],
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "remove_vertical_spacing": true,
         "remove_horizontal_spacing": true,
         "liquid": "{% render 'breadcrumbs' %}",
@@ -183,10 +186,13 @@
         "collapsible_text_yD3c9J",
         "collapsible_text_9mdYfy"
       ],
+      "custom_css": [
+        ".section-full {padding: 0 3% !important;}"
+      ],
       "settings": {
         "full_width": true,
         "show_fixed_add_to_cart": true,
-        "desktop_media_width": 55,
+        "desktop_media_width": 65,
         "desktop_media_layout": "carousel_thumbnails_left",
         "mobile_media_size": "expanded",
         "mobile_carousel_control": "floating_dots",
