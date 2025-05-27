@@ -776,9 +776,34 @@
               <span class="variant-picker__option-value__label">
                 <span class="variant-picker__option-value__swatch" style="background-color: ${optionValue};"></span>
               </span>
+              <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: ${optionValue}; opacity: 0; transition: opacity 0.2s ease;"></span>
             </div>
           `;
         }).join('');
+
+        // Add default swatch if no variants
+        if (!swatchesHtml) {
+          swatchesHtml = `
+            <div 
+              class="variant-picker__option-value variant-picker__option-value--swatch"
+              style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
+              onclick="selectSwatch(this)"
+              data-selected="true"
+            >
+              <input 
+                type="radio" 
+                class="sr-only" 
+                name="option-${item.id}" 
+                value="default"
+                checked
+              >
+              <span class="variant-picker__option-value__label">
+                <span class="variant-picker__option-value__swatch" style="background-color: #d1bb9f;"></span>
+              </span>
+              <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: #d1bb9f; opacity: 1;"></span>
+            </div>
+          `;
+        }
       }
       
       const title = item.title || 'Untitled Product';
@@ -810,21 +835,22 @@
         <div class="variant-picker__option-values wrap gap-2" style="display: flex; gap: 6px;">
           ${swatchesHtml || `
             <div 
-              class="variant-picker__option-value variant-picker__option-value--swatch"
+              class="variant-picker__option-value variant-picker__option-value--swatch x:m-1"
               style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
               onclick="selectSwatch(this)"
               data-selected="true"
             >
               <input 
-                type="radio" 
-                class="sr-only" 
-                name="option-${item.id}" 
+                type="radio"
+                class="sr-only"
+                name="option-${item.id}"
                 value="default"
                 checked
               >
               <span class="variant-picker__option-value__label">
                 <span class="variant-picker__option-value__swatch" style="background-color: #d1bb9f;"></span>
               </span>
+              <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: #d1bb9f; opacity: 1;"></span>
             </div>
           `}
         </div>
@@ -902,20 +928,34 @@
         productImage.style.opacity = '1';
       }, 150);
     }
+
+    // Show underline on hover
+    const underline = el.querySelector('.variant-picker__option-value__underline');
+    if (underline) {
+      underline.style.opacity = '1';
+    }
   }
 
   function unhoverSwatch(el) {
-    const productCard = el.closest('[style*="width: 250px"]');
-    const productImage = productCard.querySelector('.product-image');
-    const selectedSwatch = productCard.querySelector('.variant-picker__option-value[data-selected="true"]');
-    
-    if (productImage && selectedSwatch) {
-      const selectedImage = selectedSwatch.dataset.image;
-      productImage.style.opacity = '0.7';
-      setTimeout(() => {
-        productImage.src = selectedImage;
-        productImage.style.opacity = '1';
-      }, 150);
+    if (!el.hasAttribute('data-selected')) {
+      const productCard = el.closest('[style*="width: 250px"]');
+      const productImage = productCard.querySelector('.product-image');
+      const selectedSwatch = productCard.querySelector('.variant-picker__option-value[data-selected="true"]');
+      
+      if (productImage && selectedSwatch) {
+        const selectedImage = selectedSwatch.dataset.image;
+        productImage.style.opacity = '0.7';
+        setTimeout(() => {
+          productImage.src = selectedImage;
+          productImage.style.opacity = '1';
+        }, 150);
+      }
+
+      // Hide underline if not selected
+      const underline = el.querySelector('.variant-picker__option-value__underline');
+      if (underline) {
+        underline.style.opacity = '0';
+      }
     }
   }
 
@@ -924,17 +964,31 @@
     const variantId = el.dataset.variantId;
     const variants = JSON.parse(el.dataset.variants || '[]');
 
+    // Remove selected state from all swatches
     container.querySelectorAll('.variant-picker__option-value').forEach(swatch => {
       swatch.removeAttribute('data-selected');
       swatch.classList.remove('is-selected');
       const radio = swatch.querySelector('input[type="radio"]');
       if (radio) radio.checked = false;
+      
+      // Hide underline
+      const underline = swatch.querySelector('.variant-picker__option-value__underline');
+      if (underline) {
+        underline.style.opacity = '0';
+      }
     });
 
+    // Set selected state
     el.setAttribute('data-selected', 'true');
     el.classList.add('is-selected');
     const radio = el.querySelector('input[type="radio"]');
     if (radio) radio.checked = true;
+
+    // Show underline for selected swatch
+    const underline = el.querySelector('.variant-picker__option-value__underline');
+    if (underline) {
+      underline.style.opacity = '1';
+    }
 
     // Update image
     const productCard = el.closest('[style*="width: 250px"]');
