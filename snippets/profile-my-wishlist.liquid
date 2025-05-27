@@ -680,6 +680,7 @@
     function createProductCard(item) {
       const cardElement = document.createElement('div');
       cardElement.style = "width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; cursor: pointer;";
+      console.log('Creating card for item:', item);
       
       // Add click handler for the entire card
       cardElement.addEventListener('click', function(e) {
@@ -741,12 +742,15 @@
         }).join('');
       }
       
+      const title = item.title || 'Untitled Product';
+      console.log('Title:', title);
+      
       cardElement.innerHTML = `
         <!-- Image (250x250) with Heart -->
         <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
           <img 
             src="${item.image || '{{ "test_img1.png" | asset_url }}'}" 
-            alt="${item.title}" 
+            alt="${title}" 
             style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto;" 
             width="250" 
             height="250"
@@ -777,18 +781,15 @@
         <!-- Category and Cart -->
         <div class="x:flex x:flex-col x:gap-1">
           <div class="x:text-base x:flex x:justify-between x:items-center x:uppercase">
-            <span>${item.productType || 'Product'}</span>
+            <span class="product-title">${title}</span>
             <span class="cart-icon x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300" data-product-id="${item.id}">
               {% render 'icon', icon: 'shop-cart' %}
             </span>
           </div>
-        
-          <!-- Title -->
-          <div class="x:text-base x:font-light">${item.title}</div>
-        
+          
           <!-- Price -->
-          <span class="x:text-base">$${formattedPrice}</span>
-        
+          <span class="x:text-base product-price">${formattedPrice}</span>
+          
           <!-- Certifications -->
           {% render 'icon', icon: 'certificate' %}
         </div>
@@ -854,7 +855,7 @@
     // Update price if variant has different price
     if (variants.length > 0) {
       const productCard = el.closest('[style*="width: 250px"]');
-      const priceElement = productCard.querySelector('.x\\:text-base:last-of-type');
+      const priceElement = productCard.querySelector('.product-price');
       
       if (priceElement) {
         const selectedVariant = variants[0]; // Use first variant of the group

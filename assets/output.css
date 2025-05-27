@@ -659,9 +659,6 @@
   .x\:h-12 {
     height: calc(var(--x-spacing) * 12) !important;
   }
-  .x\:h-24 {
-    height: calc(var(--x-spacing) * 24) !important;
-  }
   .x\:h-\[3\.75rem\] {
     height: 3.75rem !important;
   }
@@ -749,6 +746,15 @@
   .x\:w-\[14rem\] {
     width: 14rem !important;
   }
+  .x\:w-\[50rem\] {
+    width: 50rem !important;
+  }
+  .x\:w-\[120px\] {
+    width: 120px !important;
+  }
+  .x\:w-\[200px\] {
+    width: 200px !important;
+  }
   .x\:w-\[21\.875rem\] {
     width: 21.875rem !important;
   }
@@ -758,26 +764,17 @@
   .x\:w-\[32rem\] {
     width: 32rem !important;
   }
-  .x\:w-\[35rem\] {
-    width: 35rem !important;
-  }
-  .x\:w-\[50rem\] {
-    width: 50rem !important;
-  }
   .x\:w-\[70\%\] {
     width: 70% !important;
   }
-  .x\:w-\[70rem\] {
-    width: 70rem !important;
-  }
-  .x\:w-\[120px\] {
-    width: 120px !important;
-  }
-  .x\:w-\[200px\] {
-    width: 200px !important;
-  }
   .x\:w-\[350px\] {
     width: 350px !important;
+  }
+  .x\:w-\[35rem\] {
+    width: 35rem !important;
+  }
+  .x\:w-\[70rem\] {
+    width: 70rem !important;
   }
   .x\:w-\[calc\(33\.333\%-1\.5rem\)\] {
     width: calc(33.333% - 1.5rem) !important;
@@ -1318,11 +1315,6 @@
     transition-timing-function: var(--tw-ease, var(--x-default-transition-timing-function)) !important;
     transition-duration: var(--tw-duration, var(--x-default-transition-duration)) !important;
   }
-  .x\:transition-colors {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to !important;
-    transition-timing-function: var(--tw-ease, var(--x-default-transition-timing-function)) !important;
-    transition-duration: var(--tw-duration, var(--x-default-transition-duration)) !important;
-  }
   .x\:transition-opacity {
     transition-property: opacity !important;
     transition-timing-function: var(--tw-ease, var(--x-default-transition-timing-function)) !important;
@@ -1424,13 +1416,6 @@
     &:hover {
       @media (hover: hover) {
         border-color: #f0f0f0 !important;
-      }
-    }
-  }
-  .x\:hover\:border-black {
-    &:hover {
-      @media (hover: hover) {
-        border-color: var(--x-color-black) !important;
       }
     }
   }
