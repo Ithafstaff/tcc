@@ -518,7 +518,7 @@
       if (modalPrice) {
         modalPrice.textContent = typeof product.price === 'number' ? 
           `$${(product.price / 100).toFixed(2)}` : 
-          product.price;
+          "$" + product.price;
       }
 
       // Set variants
@@ -570,6 +570,7 @@
         // Add event listeners to variant checkboxes
         modalVariants.querySelectorAll('.variant-option').forEach(checkbox => {
           checkbox.addEventListener('change', function() {
+
             // Uncheck other checkboxes in the same group
             const groupCheckboxes = modalVariants.querySelectorAll(`input[data-option-name="${this.dataset.optionName}"]`);
             groupCheckboxes.forEach(cb => {
