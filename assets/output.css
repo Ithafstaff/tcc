@@ -617,6 +617,9 @@
   .x\:mt-8 {
     margin-top: calc(var(--x-spacing) * 8) !important;
   }
+  .x\:mt-auto {
+    margin-top: auto !important;
+  }
   .x\:mb-4 {
     margin-bottom: calc(var(--x-spacing) * 4) !important;
   }
@@ -746,15 +749,6 @@
   .x\:w-\[14rem\] {
     width: 14rem !important;
   }
-  .x\:w-\[50rem\] {
-    width: 50rem !important;
-  }
-  .x\:w-\[120px\] {
-    width: 120px !important;
-  }
-  .x\:w-\[200px\] {
-    width: 200px !important;
-  }
   .x\:w-\[21\.875rem\] {
     width: 21.875rem !important;
   }
@@ -764,17 +758,26 @@
   .x\:w-\[32rem\] {
     width: 32rem !important;
   }
-  .x\:w-\[70\%\] {
-    width: 70% !important;
-  }
-  .x\:w-\[350px\] {
-    width: 350px !important;
-  }
   .x\:w-\[35rem\] {
     width: 35rem !important;
   }
+  .x\:w-\[50rem\] {
+    width: 50rem !important;
+  }
+  .x\:w-\[70\%\] {
+    width: 70% !important;
+  }
   .x\:w-\[70rem\] {
     width: 70rem !important;
+  }
+  .x\:w-\[120px\] {
+    width: 120px !important;
+  }
+  .x\:w-\[200px\] {
+    width: 200px !important;
+  }
+  .x\:w-\[350px\] {
+    width: 350px !important;
   }
   .x\:w-\[calc\(33\.333\%-1\.5rem\)\] {
     width: calc(33.333% - 1.5rem) !important;
@@ -923,6 +926,12 @@
   }
   .x\:gap-y-\[20px\] {
     row-gap: 20px !important;
+  }
+  .x\:self-end {
+    align-self: flex-end !important;
+  }
+  .x\:justify-self-end {
+    justify-self: flex-end !important;
   }
   .x\:overflow-hidden {
     overflow: hidden !important;
