@@ -66,7 +66,7 @@ Supported variables
   {%- endcomment -%}
 
   {%- if product.media.size > 0 -%}
-    <div class="product-card__figure">
+    <div class="product-card__figure test2">
       <a href="{% if product.has_only_default_variant %}{{ product.url }}{% else %}{{ product.first_available_variant.url }}{% endif %}" data-instant>
         {%- capture sizes -%}
           {%- if stacked -%}
