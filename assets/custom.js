@@ -186,7 +186,7 @@ function showOnlyVariantImage() {
 
 thumbImgs.forEach(img => {
   const parent = img.parentElement;  // define parent here
-  if (img.alt.toLowerCase().includes(selectedColor)) {
+  if (img.name.toLowerCase().includes(selectedColor)) {
     parent.style.display = 'block';
   } else {
     parent.style.display = 'none';
