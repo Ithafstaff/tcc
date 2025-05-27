@@ -216,7 +216,7 @@ mainbImgs.forEach(img => {
   // console.log('-----------------------------');
 }
 // Run every second
-setInterval(showOnlyVariantImage, 100);
+// setInterval(showOnlyVariantImage, 100);
 
 
 
