@@ -12,7 +12,7 @@
     "custom_liquid_WpJwGU": {
       "type": "custom-liquid",
       "custom_css": [
-        ".section-full {padding: 0 3% !imporntat;}"
+        ".section-full {padding: 0 3% !important;}"
       ],
       "settings": {
         "full_width": true,
