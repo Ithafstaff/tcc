@@ -12,7 +12,7 @@
     "custom_liquid_WpJwGU": {
       "type": "custom-liquid",
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "remove_vertical_spacing": true,
         "remove_horizontal_spacing": true,
         "liquid": "{% render 'breadcrumbs' %}",
