@@ -521,14 +521,6 @@
           product.price;
       }
 
-      // Copy swatches from product card
-      const productCard = document.querySelector(`[data-product-id="${product.id}"]`).closest('[style*="width: 250px"]');
-      const productSwatches = productCard.querySelector('.swatch')?.parentElement;
-      const modalSwatches = document.getElementById('modal-swatches');
-      if (productSwatches && modalSwatches) {
-        modalSwatches.innerHTML = productSwatches.innerHTML;
-      }
-
       // Set variants
       const modalVariants = document.getElementById('modal-variants');
       if (modalVariants && product.variants) {
@@ -537,12 +529,6 @@
         // Group variants by option name (e.g., "Size", "Color", etc.)
         const variantGroups = {};
         product.variants.forEach(variant => {
-          {% comment %} if (variant.option1) {
-            if (!variantGroups[variant.option1_name || 'Size']) {
-              variantGroups[variant.option1_name || 'Size'] = new Set();
-            }
-            variantGroups[variant.option1_name || 'Size'].add(variant.option1);
-          } {% endcomment %}
           if (variant.option2) {
             if (!variantGroups[variant.option2_name || 'Color']) {
               variantGroups[variant.option2_name || 'Color'] = new Set();
@@ -561,7 +547,7 @@
         Object.entries(variantGroups).forEach(([groupName, values]) => {
           variantsHtml += `
             <div class="x:flex x:flex-col x:gap-2">
-              {% comment %} <span class="x:text-lg x:font-medium">${groupName}</span> {% endcomment %}
+              <span class="x:text-lg x:font-medium">${groupName}</span>
               <div class="x:flex x:flex-col x:flex-wrap x:gap-2">
                 ${Array.from(values).map(value => `
                   <div class="x:flex x:items-center x:gap-2">
@@ -592,6 +578,27 @@
 
             // Update selected variant and price
             updateSelectedVariant();
+          });
+        });
+      }
+
+      // Copy swatches from product card
+      const productCard = document.querySelector(`[data-product-id="${product.id}"]`).closest('[style*="width: 250px"]');
+      const productSwatches = productCard.querySelector('.variant-picker__option-values');
+      const modalSwatches = document.getElementById('modal-swatches');
+      if (productSwatches && modalSwatches) {
+        modalSwatches.innerHTML = productSwatches.innerHTML;
+        
+        // Add event listeners to modal swatches
+        modalSwatches.querySelectorAll('.variant-picker__option-value').forEach(swatch => {
+          swatch.addEventListener('click', function() {
+            selectSwatch(this);
+          });
+          swatch.addEventListener('mouseover', function() {
+            hoverSwatch(this);
+          });
+          swatch.addEventListener('mouseout', function() {
+            unhoverSwatch(this);
           });
         });
       }
