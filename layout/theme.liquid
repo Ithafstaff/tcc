@@ -135,8 +135,7 @@
 
     {{- 'output.css' | asset_url | stylesheet_tag: preload: true -}}
 
-    <!--
-      <style>
+          <style>
          html {
             zoom: 0.75;
           }
@@ -145,7 +144,7 @@
           overflow: hidden;
         }
       </style>
-    -->
+   
   </head>
 
   <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
