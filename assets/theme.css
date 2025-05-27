@@ -5906,7 +5906,7 @@ product-rerender {
   }
 
   .footer__block-list {
-    flex-wrap: nowrap;
+    /* flex-wrap: nowrap; */
   }
 
   .footer__block--newsletter, .footer__block--app {
