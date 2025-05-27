@@ -11,6 +11,9 @@
   "sections": {
     "custom_liquid_WpJwGU": {
       "type": "custom-liquid",
+      "custom_css": [
+        ".section-full {padding: 0 3% !imporntat;}"
+      ],
       "settings": {
         "full_width": true,
         "remove_vertical_spacing": true,
