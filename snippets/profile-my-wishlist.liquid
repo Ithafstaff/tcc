@@ -502,6 +502,7 @@
     }
     
     function openProductModal(product) {
+      console.log('openProductModal called with:', product);
       if (!modal || !modalTitle) {
         console.error('Modal elements not found:', { modal, modalTitle });
         return;
@@ -515,12 +516,14 @@
       // Set price
       const modalPrice = document.getElementById('modal-product-price');
       if (modalPrice) {
-        modalPrice.textContent = product.price || '$5.99';
+        modalPrice.textContent = typeof product.price === 'number' ? 
+          `$${(product.price / 100).toFixed(2)}` : 
+          product.price;
       }
 
       // Copy swatches from product card
       const productCard = document.querySelector(`[data-product-id="${product.id}"]`).closest('[style*="width: 250px"]');
-      const productSwatches = productCard.querySelector('.swatch').parentElement;
+      const productSwatches = productCard.querySelector('.swatch')?.parentElement;
       const modalSwatches = document.getElementById('modal-swatches');
       if (productSwatches && modalSwatches) {
         modalSwatches.innerHTML = productSwatches.innerHTML;
@@ -684,10 +687,19 @@
       
       // Add click handler for the entire card
       cardElement.addEventListener('click', function(e) {
-        // Don't trigger if clicking on heart icon or swatches
-        if (e.target.closest('.swatch') || e.target.closest('img[src*="heart"]')) {
+        console.log('Card clicked:', e.target);
+        // Stop event propagation for specific elements
+        if (e.target.closest('.swatch') || 
+            e.target.closest('img[src*="heart"]') || 
+            e.target.closest('.cart-icon')) {
+          e.stopPropagation();
           return;
         }
+        
+        // Open modal for all other clicks
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Opening modal for item:', item);
         openProductModal(item);
       });
 
@@ -767,7 +779,7 @@
       
       cardElement.innerHTML = `
         <!-- Image (250x250) with Heart -->
-        <div style="width: 100%; height: 250px; overflow: hidden; position: relative;">
+        <div style="width: 100%; height: 250px; overflow: hidden; position: relative; cursor: pointer;" onclick="openProductModal(${JSON.stringify(item)})">
           <img 
             src="${item.image || '{{ "test_img1.png" | asset_url }}'}" 
             alt="${title}" 
@@ -813,7 +825,7 @@
         <!-- Category and Cart -->
         <div class="x:flex x:flex-col x:gap-1">
           <div class="x:text-base x:flex x:justify-between x:items-center x:uppercase">
-            <span class="product-title">${title}</span>
+            <span class="product-title" style="cursor: pointer;" onclick="openProductModal(${JSON.stringify(item)})">${title}</span>
             <span class="cart-icon x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300" data-product-id="${item.id}">
               {% render 'icon', icon: 'shop-cart' %}
             </span>
