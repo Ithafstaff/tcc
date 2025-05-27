@@ -186,7 +186,7 @@ function showOnlyVariantImage() {
 
 thumbImgs.forEach(img => {
   const parent = img.parentElement;  // define parent here
-  if (img.name.toLowerCase().includes(selectedColor)) {
+  if (img.src.toLowerCase().includes(selectedColor)) {
     parent.style.display = 'block';
   } else {
     parent.style.display = 'none';
@@ -195,7 +195,7 @@ thumbImgs.forEach(img => {
     
 mainbImgs.forEach(img => {
   const parent = img.parentElement;  // define parent here
-  if (img.name.toLowerCase().includes(selectedColor)) {
+  if (img.src.toLowerCase().includes(selectedColor)) {
     parent.style.display = 'block';
   } else {
     parent.style.display = 'none';
