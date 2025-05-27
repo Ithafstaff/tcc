@@ -123,6 +123,7 @@
   gap: 20px !important;
   position: sticky;
   top: 10px;
+  height: 100%;
 }
 
 .custom-product__thumbnail-wrapper {
