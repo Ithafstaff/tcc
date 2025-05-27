@@ -694,11 +694,15 @@
       // Format price if available
       let formattedPrice = '';
       if (item.price) {
-        formattedPrice = typeof item.price === 'number' ? `$${item.price.toFixed(2)}` : item.price;
+        formattedPrice = typeof item.price === 'number' ? 
+          `$${(item.price / 100).toFixed(2)}` : 
+          item.price;
       } else if (item.priceText) {
         formattedPrice = item.priceText;
       } else if (item.compare_at_price) {
-        formattedPrice = typeof item.compare_at_price === 'number' ? `$${item.compare_at_price.toFixed(2)}` : item.compare_at_price;
+        formattedPrice = typeof item.compare_at_price === 'number' ? 
+          `$${(item.compare_at_price / 100).toFixed(2)}` : 
+          item.compare_at_price;
       } else {
         formattedPrice = '$5.99'; // Default placeholder price
       }
@@ -816,7 +820,7 @@
           </div>
           
           <!-- Price -->
-          <span class="x:text-base product-price">${formattedPrice}</span>
+          <span class="x:text-base product-price">$${formattedPrice}</span>
           
           <!-- Certifications -->
           {% render 'icon', icon: 'certificate' %}
@@ -933,8 +937,11 @@
       if (priceElement) {
         const selectedVariant = variants[0]; // Use first variant of the group
         if (selectedVariant && selectedVariant.price) {
-          priceElement.textContent = typeof selectedVariant.price === 'number' ? 
-            `$${selectedVariant.price.toFixed(2)}` : selectedVariant.price;
+          // Convert price to proper format (divide by 100 if it's in cents)
+          const price = typeof selectedVariant.price === 'number' ? 
+            (selectedVariant.price / 100).toFixed(2) : 
+            selectedVariant.price;
+          priceElement.textContent = `$${price}`;
         }
       }
     }
