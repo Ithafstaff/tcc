@@ -130,7 +130,7 @@
 }
 
 .custom-product__gallery-media {
-  max-height: 608px;
+  /* max-height: 608px; */
   height: 100%;
 }
 
