@@ -133,6 +133,7 @@
 .custom-product__gallery-media {
   /* max-height: 608px; */
   height: 100%;
+  max-height: unset !important;
 }
 
 .custom-product__gallery-media img {
