@@ -232,6 +232,12 @@ Supported variables
                     });
                   // }, 1000); // 1000ms = 1 second
                
+                    swatchInputs.forEach(input => {
+                      const color = input.dataset.color || 'N/A';
+                      input.addEventListener("click", () => {
+                        console.log(color);
+                      });
+                    });
 
 
 
