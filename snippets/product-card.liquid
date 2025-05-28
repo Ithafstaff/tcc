@@ -241,7 +241,11 @@ Supported variables
                       "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
                     {% endfor %}
                   ];
-                   console.log(productImages.includes("red"));
+                  productImages.forEach(url => {
+  if (url.includes("red")) {
+    console.log("Red image URL:", url);
+  }
+});
 
 
                    });
