@@ -243,12 +243,18 @@ Supported variables
                       input.addEventListener("click", () => {
                         console.log(`Click: ${color}`);
                   
-                        productImages.forEach(url => {
-                          if (url.toLowerCase().includes(color)) {
-                            console.log(url);
+                        // productImages.forEach(url => {
+                        //   if (url.toLowerCase().includes(color)) {
+                        //     console.log(url);
                             
-                          }
-                        });
+                        //   }
+                        // });
+
+
+                        matchingUrls.forEach(url => {
+  console.log("Matched URL:", url);
+  // Example: primaryImg.src = url; (if you only want the first one, just use matchingUrls[0])
+});
                       });
                     });
                   });
