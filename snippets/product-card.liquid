@@ -90,6 +90,16 @@ Supported variables
           {%- assign next_media = product.media[product.featured_media.position] | default: product.media[1] -%}
           {{- next_media | image_url: width: next_media.width | image_tag: class: 'product-card__image testimg2 product-card__image--secondary object-fill', loading: 'lazy', fetchpriority: 'low', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800' -}}
         {%- endif -%}
+
+        <script>
+  const productImages = [
+    {% for media in product.media %}
+      "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+  console.log(productImages);
+</script>
+
       </a>
 
       {%- if show_quick_buy and product.available -%}
