@@ -91,15 +91,14 @@ Supported variables
           {{- next_media | image_url: width: next_media.width | image_tag: class: 'product-card__image testimg2 product-card__image--secondary object-fill', loading: 'lazy', fetchpriority: 'low', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800' -}}
         {%- endif -%}
 
-        <script>
-          const productImages = [
-            {% for media in product.media %}
-              "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
-            {% endfor %}
-          ];
-          console.log(productImages);
-        </script>
 
+
+
+        
+  
+
+
+        
       </a>
 
       {%- if show_quick_buy and product.available -%}
@@ -212,6 +211,24 @@ Supported variables
                     <a href="{{ product.url }}" data-instant class="color-swatch__view-more {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %} text-xxs text-subdued">+{{ product_option.values.size | minus: 4 }}</a>
                   {% endif %}
                 </fieldset>
+
+
+
+
+
+
+
+                 <script>
+          const productImages = [
+            {% for media in product.media %}
+              "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ];
+          console.log(productImages);
+        </script>
+
+
+            
 
               {%- when 'variant' -%}
                 <fieldset class="product-card__variant-list" data-option-position="{{ product_option.position }}">
