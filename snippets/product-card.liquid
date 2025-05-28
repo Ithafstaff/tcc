@@ -232,12 +232,7 @@ Supported variables
                     });
                   // }, 1000); // 1000ms = 1 second
                
-                    swatchInputs.forEach(input => {
-                      const color = input.dataset.color || 'N/A';
-                      input.addEventListener("click", () => {
-                        console.log(color);
-                      });
-                    });
+                   
 
 
 
@@ -247,11 +242,29 @@ Supported variables
                       "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
                     {% endfor %}
                   ];
-                  productImages.forEach(url => {
+
+                   swatchInputs.forEach(input => {
+                      const color = input.dataset.color || 'N/A';
+                      input.addEventListener("click", () => {
+                        console.log(color);
+                      });
+
+
+                     productImages.forEach(url => {
                     if (url.includes("red")) {
                       console.log(url);
                     }
                   });
+                    });
+
+
+
+
+
+
+
+                  
+                  
 
 
                    });
