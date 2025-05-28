@@ -137,6 +137,18 @@ Color swatch specific parameters:
 {%- endif -%}
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const swatchInputs = document.querySelectorAll('.sr-only.test');
+
+  swatchInputs.forEach(input => {
+    const color = input.dataset.color || 'N/A';
+    console.log(`Name: ${input.name}, Value: ${input.value}, Color: ${color}, Checked: ${input.checked}`);
+  });
+});
+
+</script>
+
 
 {%- case type -%}
   {%- when 'thumbnail' -%}
