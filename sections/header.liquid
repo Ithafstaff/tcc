@@ -262,23 +262,23 @@ the underlying logic of the menu.
             </li>
           {%- endif -%}
 
-          </li>
-          <li class="custom-search__bar-list">
-            <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
-              <form role="search" class="x:flex x:items-center x:w-full x:border search-bar-link x:px-4 x:mx-10" onsubmit="return false;">
-                <input
-                  type="search"
-                  class="x:w-full search-bar-input x:outline-none"
-                  placeholder="What are you looking for?"
-                  id="header-search-input"
-                  autocomplete="off"
-                />
-                <span class="sr-only">{{ 'header.general.search' | t }}</span>
-                <span>{% render 'icon' with 'search' %}</span>
-              </form>
-              <div id="header-search-suggestions" class="search-suggestions hidden"></div>
-            </div>
-          </li>
+<li class="custom-search__bar-list">
+  <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
+    <form role="search" class="x:flex x:items-center x:w-full x:border search-bar-link x:px-4 x:mx-10" onsubmit="return false;">
+      <input
+        type="search"
+        class="x:w-full search-bar-input x:outline-none"
+        placeholder="What are you looking for?"
+        id="header-search-input"
+        autocomplete="off"
+      />
+      <span class="sr-only">{{ 'header.general.search' | t }}</span>
+      <span>{% render 'icon' with 'search' %}</span>
+    </form>
+    <div id="header-search-suggestions" class="search-suggestions hidden"></div>
+  </div>
+</li>
+          
           
           
           {%- if shop.customer_accounts_enabled -%}
@@ -304,7 +304,7 @@ the underlying logic of the menu.
 
 
           <li>
-            <a href="{{ routes.cart_url }}" class="relative block tap-area">
+            <a href="#" onclick="openCartDrawer(event)" data-no-instant class="relative block tap-area" {% if settings.cart_type != 'page' and request.page_type != 'cart' %}aria-controls="cart-drawer"{% endif %}>
               <span class="sr-only">{{ 'header.general.cart' | t }}</span>
               {%- render 'icon' with 'cart' -%}
 
