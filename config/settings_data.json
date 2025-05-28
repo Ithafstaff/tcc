@@ -32,7 +32,7 @@
     "heading_letter_spacing": -2,
     "text_font": "poppins_n4",
     "heading_apparition": "split_fade",
-    "show_secondary_image": true,
+    "show_secondary_image": false,
     "product_color_display": "swatch",
     "product_info_alignment": "start",
     "cart_icon": "shopping_basket",
