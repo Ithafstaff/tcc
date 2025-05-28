@@ -241,7 +241,7 @@ Supported variables
                       const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
                   
                       input.addEventListener("click", () => {
-                        console.log(`Color: ${color}`);
+                        console.log(`Click: ${color}`);
                   
                         productImages.forEach(url => {
                           if (url.toLowerCase().includes(color)) {
