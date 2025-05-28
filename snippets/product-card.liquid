@@ -87,7 +87,7 @@ Supported variables
         {{- product.featured_media | image_url: width: product.featured_media.width | image_tag: loading: main_media_loading_strategy, sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800', class: main_image_classes -}}
 
         {%- if show_secondary_image and product.media.size > 1 -%}
-          {%- assign next_media = product.media[product.featured_media.position] | default: product.media[1] -%}
+          {%- assign next_media = product.media[product.featured_media.position] | default: product.media[2] -%}
           {{- next_media | image_url: width: next_media.width | image_tag: class: 'product-card__image testimg2 product-card__image--secondary object-fill', loading: 'lazy', fetchpriority: 'low', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800' -}}
         {%- endif -%}
       </a>
