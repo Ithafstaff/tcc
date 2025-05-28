@@ -247,14 +247,16 @@ Supported variables
                       const color = input.dataset.color || 'N/A';
                       input.addEventListener("click", () => {
                         console.log(color);
+                        
+                        productImages.forEach(url => {
+                          if (url.includes(color)) {
+                            console.log(url);
+                          }
+                        });
                       });
 
 
-                     productImages.forEach(url => {
-                    if (url.includes("red")) {
-                      console.log(url);
-                    }
-                  });
+                    
                     });
 
 
