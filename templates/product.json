@@ -83,7 +83,7 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "hide_sold_out_variants": false,
+            "hide_sold_out_variants": true,
             "stack_blocks": true,
             "selector_style": "block",
             "swatch_selector_style": "swatch",
