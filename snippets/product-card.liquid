@@ -220,57 +220,37 @@ Supported variables
 
                  <script>
                    
-                document.addEventListener("DOMContentLoaded", function () {
-
-                  
-                  // setInterval(function () {
+                    document.addEventListener("DOMContentLoaded", function () {
                     const swatchInputs = document.querySelectorAll('.sr-only.test');
-                
+                  
+                    // Log colors found on inputs
                     swatchInputs.forEach(input => {
                       const color = input.dataset.color || 'N/A';
-                      console.log(`Color: ${color}`);
+                      console.log(`Input color: ${color}`);
                     });
-                  // }, 1000); // 1000ms = 1 second
-               
-                   
-
-
-
-                   
-                  const productImages = [
-                    {% for media in product.media %}
-                      "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
-                    {% endfor %}
-                  ];
-
-                   swatchInputs.forEach(input => {
-                      const color = input.dataset.color || 'N/A';
+                  
+                    const productImages = [
+                      {% for media in product.media %}
+                        "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
+                      {% endfor %}
+                    ];
+                    console.log("Product images:", productImages);
+                  
+                    swatchInputs.forEach(input => {
+                      const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
+                  
                       input.addEventListener("click", () => {
-                        console.log(color);
-                        
+                        console.log(`Clicked color: ${color}`);
+                  
                         productImages.forEach(url => {
-                          if (url.includes(color)) {
-                            console.log(url);
+                          if (url.toLowerCase().includes(color)) {
+                            console.log("Matching URL:", url);
                           }
                         });
                       });
-
-
-                    
                     });
+                  });
 
-
-
-
-
-
-
-                  
-                  
-
-
-                   });
-                   
                 </script>
 
 
