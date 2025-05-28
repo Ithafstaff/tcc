@@ -241,12 +241,12 @@ Supported variables
                       const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
                   
                       input.addEventListener("click", () => {
-                        console.log(`Clicked color: ${color}`);
+                        console.log(`Color: ${color}`);
                   
                         productImages.forEach(url => {
                           if (url.toLowerCase().includes(color)) {
-                            console.log("Matching URL:", url);
-                            primaryImg.src = url;
+                            console.log(url);
+                            
                           }
                         });
                       });
