@@ -92,13 +92,13 @@ Supported variables
         {%- endif -%}
 
         <script>
-  const productImages = [
-    {% for media in product.media %}
-      "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ];
-  console.log(productImages);
-</script>
+          const productImages = [
+            {% for media in product.media %}
+              "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ];
+          console.log(productImages);
+        </script>
 
       </a>
 
