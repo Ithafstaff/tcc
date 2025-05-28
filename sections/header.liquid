@@ -262,28 +262,22 @@ the underlying logic of the menu.
             </li>
           {%- endif -%}
 
-          <li class="custom-search__bar-list">
-            <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
-              <a
-                href="{{ routes.search_url }}"
-                class="x:flex x:items-center x:w-full x:border search-bar-link x:px-4 x:mx-10"
-                aria-controls="search-drawer" style="margin: 0 !important;"
-              >
-                <input
-                  type="text"
-                  class="x:w-full search-bar-input x:outline-none"
-                  placeholder="What are you looking for?"
-                />
-                <span class="sr-only">{{ 'header.general.search' | t }}</span>
-          
-                <!-- Icon: shown only on focus using JS or utility class toggle -->
-                <span>
-                  {%- render 'icon' with 'search' -%}
-                </span>
-              </a>
-            </div>
-          </li>
-          
+<li class="custom-search__bar-list">
+  <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
+    <form role="search" class="x:flex x:items-center x:w-full x:border search-bar-link x:px-4 x:mx-10" onsubmit="return false;">
+      <input
+        type="search"
+        class="x:w-full search-bar-input x:outline-none"
+        placeholder="What are you looking for?"
+        id="header-search-input"
+        autocomplete="off"
+      />
+      <span class="sr-only">{{ 'header.general.search' | t }}</span>
+      <span>{% render 'icon' with 'search' %}</span>
+    </form>
+    <div id="header-search-suggestions" class="search-suggestions hidden"></div>
+  </div>
+</li>
           
           
           {%- if shop.customer_accounts_enabled -%}
