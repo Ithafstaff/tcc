@@ -221,7 +221,7 @@ Supported variables
                  <script>
 document.addEventListener("DOMContentLoaded", function () {
   // setInterval(function () {
-    const swatchInputs = document.querySelectorAll('.sr-only.test');
+    const swatchInputs = document.querySelector('.product-card__swatch-list');
 
     swatchInputs.forEach(input => {
       const color = input.dataset.color || 'N/A';
