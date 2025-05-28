@@ -354,6 +354,40 @@ the underlying logic of the menu.
 
 <script>
   document.documentElement.style.setProperty('--header-height', Math.round(document.getElementById('shopify-section-{{ section.id }}').clientHeight) + 'px');
+  document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('header-search-input');
+  const suggestionsBox = document.getElementById('header-search-suggestions');
+
+  searchInput.addEventListener('input', async (e) => {
+    const query = e.target.value.trim();
+    if (query.length < 2) {
+      suggestionsBox.classList.add('hidden');
+      return;
+    }
+
+    try {
+      const res = await fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`);
+      const data = await res.json();
+
+      const suggestions = data.resources.results.products.map(product => `
+        <div class="suggestion-item">
+          <a href="${product.url}">${product.title}</a>
+        </div>
+      `).join('');
+
+      suggestionsBox.innerHTML = suggestions || '<div class="suggestion-item">No results found.</div>';
+      suggestionsBox.classList.remove('hidden');
+    } catch (error) {
+      console.error('Error fetching suggestions', error);
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+      suggestionsBox.classList.add('hidden');
+    }
+  });
+});
 </script>
 
 {% schema %}
