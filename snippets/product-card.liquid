@@ -220,14 +220,14 @@ Supported variables
 
                  <script>
 document.addEventListener("DOMContentLoaded", function () {
-  setInterval(function () {
+  // setInterval(function () {
     const swatchInputs = document.querySelectorAll('.sr-only.test');
 
     swatchInputs.forEach(input => {
       const color = input.dataset.color || 'N/A';
       console.log(`Color: ${color}, Checked: ${input.checked}`);
     });
-  }, 1000); // 1000ms = 1 second
+  // }, 1000); // 1000ms = 1 second
 });
 
 
