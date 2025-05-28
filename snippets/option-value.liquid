@@ -136,6 +136,16 @@ Color swatch specific parameters:
   <input class="sr-only" type="radio" name="{{ param_name }}" id="{{ id | escape }}" value="{{ value | escape }}" data-option-position="{{ option_position }}" {% if form %}form="{{ form }}"{% endif %} checked="checked">
 {%- endif -%}
 
+<script>             document.addEventListener("DOMContentLoaded", function () {
+  const swatchInputs = document.querySelectorAll('.color-swatch-input');
+
+  swatchInputs.forEach(input => {
+    const color = input.dataset.color || 'N/A';
+    console.log(`Name: ${input.name}, Value: ${input.value}, Color: ${color}, Checked: ${input.checked}`);
+  });
+});
+</script>
+
 {%- case type -%}
   {%- when 'thumbnail' -%}
     {%- assign image = image | default: variant.featured_media | default: variant.product.featured_media -%}
