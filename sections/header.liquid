@@ -1,8 +1,8 @@
 {%- comment -%}
-IMPLEMENTATION NOTE: Impact header with all the menu is an extremely complex piece of code. Due to requirements from design
-team, we had to cover over hundred of potential combinations. As a consequence, this part (and all the menu snippets) are
-extremely sensitive code that should (if possible) not be touched unless you have spend enough time to study and understand
-the underlying logic of the menu.
+  IMPLEMENTATION NOTE: Impact header with all the menu is an extremely complex piece of code. Due to requirements from design
+  team, we had to cover over hundred of potential combinations. As a consequence, this part (and all the menu snippets) are
+  extremely sensitive code that should (if possible) not be touched unless you have spend enough time to study and understand
+  the underlying logic of the menu.
 {%- endcomment -%}
 
 {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
@@ -12,7 +12,7 @@ the underlying logic of the menu.
 {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
   {%- assign will_show_locale_selector = true -%}
 {%- endif -%}
- 
+
 <style>
   :root {
     --sticky-header-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
@@ -76,17 +76,29 @@ the underlying logic of the menu.
 </style>
 
 <height-observer variable="header">
-  <store-header class="header {% if request.page_type == 'index' %}homepage-header{% endif %}" {% if section.settings.hide_on_scroll %}hide-on-scroll="100"{% endif %} {% if section.settings.enable_sticky %}sticky{% endif %}>
+  <store-header
+    class="header {% if request.page_type == 'index' %}homepage-header{% endif %}"
+    {% if section.settings.hide_on_scroll %}
+      hide-on-scroll="100"
+    {% endif %}
+    {% if section.settings.enable_sticky %}
+      sticky
+    {% endif %}
+  >
     <div class="header__wrapper">
       {%- comment -%}
-      --------------------------------------------------------------------------------------------------------------------
-      MAIN NAV AREA
-      --------------------------------------------------------------------------------------------------------------------
+        --------------------------------------------------------------------------------------------------------------------
+        MAIN NAV AREA
+        --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
       <div class="header__main-nav">
         <div class="header__icon-list">
-          <button type="button" class="tap-area {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}" aria-controls="header-sidebar-menu">
+          <button
+            type="button"
+            class="tap-area {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}"
+            aria-controls="header-sidebar-menu"
+          >
             <span class="sr-only">{{ 'header.general.menu' | t }}</span>
             {%- render 'icon' with 'hamburger' -%}
           </button>
@@ -97,7 +109,10 @@ the underlying logic of the menu.
           </a>
 
           {%- if section.settings.layout != 'drawer' and section.settings.menu.links.size > 0 -%}
-            <nav class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap" role="navigation">
+            <nav
+              class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap"
+              role="navigation"
+            >
               <ul class="contents" role="list">
                 {%- for link in section.settings.menu.links -%}
                   {% liquid
@@ -111,49 +126,89 @@ the underlying logic of the menu.
                         assign mega_menu_block = block
                         break
                       endif
-
                     endfor
                   %}
 
                   <li class="x:uppercase x:tracking-wider x:underline-offset-4 x:group x:transition-all x:duration-400">
                     {%- if link.levels == 0 and mega_menu_block == '' -%}
-                      <a href="{{ link.url }}" class="link-faded-reverse" {% if link.current %}aria-current="page"{% endif %}>{{- link.title -}}</a>
+                      <a
+                        href="{{ link.url }}"
+                        class="link-faded-reverse"
+                        {% if link.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{- link.title -}}
+                      </a>
                     {%- else -%}
                       {%- if mega_menu_block != '' -%}
                         {%- comment -%}
-                        Implementation note: the designers had the desire to show a lot of different kind of menus in Impact: one standard
-                        mega menu but also a kind of "sidebar" mode when the mega-menu appears in a drawer. Unfortunately, this comes with
-                        a lot of extra complexity as we have to go through two different code path: a "details" element for the standard
-                        menu, and a full drawer for the other one.
+                          Implementation note: the designers had the desire to show a lot of different kind of menus in Impact: one standard
+                          mega menu but also a kind of "sidebar" mode when the mega-menu appears in a drawer. Unfortunately, this comes with
+                          a lot of extra complexity as we have to go through two different code path: a "details" element for the standard
+                          menu, and a full drawer for the other one.
                         {%- endcomment -%}
                         {%- unless mega_menu_block.settings.layout == 'drawer' -%}
-                          <details is="mega-menu-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}" {{ mega_menu_block.shopify_attributes }}>
-                            <summary class="text-with-icon gap-2.5 link-faded-reverse" {% if link.url != '#' %}data-url="{{ link.url | escape }}"{% endif %}>
-                              {{- link.title -}} 
+                          <details
+                            is="mega-menu-disclosure"
+                            trigger="{{ section.settings.menu_open_trigger | escape }}"
+                            {{ mega_menu_block.shopify_attributes }}
+                          >
+                            <summary
+                              class="text-with-icon gap-2.5 link-faded-reverse"
+                              {% if link.url != '#' %}
+                                data-url="{{ link.url | escape }}"
+                              {% endif %}
+                            >
+                              {{- link.title -}}
                               {% comment %} {%- render 'icon' with 'chevron-bottom' -%} {% endcomment %}
                             </summary>
-                           {% if link.title == 'Catalog' %}
-                             {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                            {% if link.title == 'Catalog' %}
+                              {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
                             {% else %}
-                           {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                              {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
                             {% endif %}
-                           
-                          
+
                             {% comment %} {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%} {% endcomment %}
                           </details>
                         {%- else -%}
-                          <button aria-controls="navigation-drawer-{{ forloop.index }}" aria-expanded="false" class="text-with-icon gap-2.5 bold link-faded-reverse">
-                            {{- link.title -}} {%- render 'icon' with 'chevron-bottom' -%}
+                          <button
+                            aria-controls="navigation-drawer-{{ forloop.index }}"
+                            aria-expanded="false"
+                            class="text-with-icon gap-2.5 bold link-faded-reverse"
+                          >
+                            {{- link.title -}}
+                            {%- render 'icon' with 'chevron-bottom' -%}
                           </button>
 
-                          <navigation-drawer class="navigation-drawer drawer lg-max:hidden" id="navigation-drawer-{{ forloop.index }}" open-from="left" mega-menu>
-                            {%- render 'navigation-panel', navigation_layout: section.settings.layout, main_menu: link, is_mega_menu: true, mega_menu_block: mega_menu_block -%}
+                          <navigation-drawer
+                            class="navigation-drawer drawer lg-max:hidden"
+                            id="navigation-drawer-{{ forloop.index }}"
+                            open-from="left"
+                            mega-menu
+                          >
+                            {%- render 'navigation-panel',
+                              navigation_layout: section.settings.layout,
+                              main_menu: link,
+                              is_mega_menu: true,
+                              mega_menu_block: mega_menu_block
+                            -%}
                           </navigation-drawer>
                         {%- endunless -%}
                       {%- else -%}
-                        <details class="relative" is="dropdown-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}">
-                          <summary class="text-with-icon gap-2.5 bold link-faded-reverse" {% if link.url != '#' %}data-url="{{ link.url | escape }}"{% endif %}>
-                            {{- link.title -}} {%- render 'icon' with 'chevron-bottom' -%}
+                        <details
+                          class="relative"
+                          is="dropdown-disclosure"
+                          trigger="{{ section.settings.menu_open_trigger | escape }}"
+                        >
+                          <summary
+                            class="text-with-icon gap-2.5 bold link-faded-reverse"
+                            {% if link.url != '#' %}
+                              data-url="{{ link.url | escape }}"
+                            {% endif %}
+                          >
+                            {{- link.title -}}
+                            {%- render 'icon' with 'chevron-bottom' -%}
                           </summary>
 
                           <div class="dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable{% endif %}">
@@ -161,13 +216,32 @@ the underlying logic of the menu.
                               {%- for sub_link in link.links -%}
                                 <li>
                                   {%- if sub_link.levels == 0 -%}
-                                    <a href="{{ sub_link.url }}" class="dropdown-menu__item group" {% if sub_link.current %}aria-current="page"{% endif %}>
-                                      <span><span class="reversed-link">{{ sub_link.title }}</span></span>
+                                    <a
+                                      href="{{ sub_link.url }}"
+                                      class="dropdown-menu__item group"
+                                      {% if sub_link.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      <span
+                                        ><span class="reversed-link">{{ sub_link.title }}</span></span
+                                      >
                                     </a>
                                   {%- else -%}
-                                    <details class="relative" is="dropdown-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}">
-                                      <summary class="dropdown-menu__item group" {% if sub_link.url != '#' %}data-url="{{ sub_link.url | escape }}"{% endif %}>
-                                        <span><span class="reversed-link">{{- sub_link.title -}}</span></span>
+                                    <details
+                                      class="relative"
+                                      is="dropdown-disclosure"
+                                      trigger="{{ section.settings.menu_open_trigger | escape }}"
+                                    >
+                                      <summary
+                                        class="dropdown-menu__item group"
+                                        {% if sub_link.url != '#' %}
+                                          data-url="{{ sub_link.url | escape }}"
+                                        {% endif %}
+                                      >
+                                        <span
+                                          ><span class="reversed-link">{{- sub_link.title -}}</span></span
+                                        >
                                         {%- render 'icon' with 'chevron-right' -%}
                                       </summary>
 
@@ -175,8 +249,16 @@ the underlying logic of the menu.
                                         <ul class="contents" role="list">
                                           {%- for sub_sub_link in sub_link.links -%}
                                             <li>
-                                              <a href="{{ sub_sub_link.url }}" class="dropdown-menu__item group" {% if sub_sub_link.current %}aria-current="page"{% endif %}>
-                                                <span><span class="reversed-link">{{ sub_sub_link.title }}</span></span>
+                                              <a
+                                                href="{{ sub_sub_link.url }}"
+                                                class="dropdown-menu__item group"
+                                                {% if sub_sub_link.current %}
+                                                  aria-current="page"
+                                                {% endif %}
+                                              >
+                                                <span
+                                                  ><span class="reversed-link">{{ sub_sub_link.title }}</span></span
+                                                >
                                               </a>
                                             </li>
                                           {%- endfor -%}
@@ -192,7 +274,9 @@ the underlying logic of the menu.
                       {%- endif -%}
                     {%- endif -%}
 
-                    <div class="x:h-0.5 x:w-0 x:rounded-full x:bg-black x:transition-all x:duration-300 x:group-hover:w-full">&nbsp;</div>
+                    <div class="x:h-0.5 x:w-0 x:rounded-full x:bg-black x:transition-all x:duration-300 x:group-hover:w-full">
+                      &nbsp;
+                    </div>
                   </li>
                 {%- endfor -%}
               </ul>
@@ -202,9 +286,9 @@ the underlying logic of the menu.
       </div>
 
       {%- comment -%}
-      --------------------------------------------------------------------------------------------------------------------
-      LOGO AREA
-      --------------------------------------------------------------------------------------------------------------------
+        --------------------------------------------------------------------------------------------------------------------
+        LOGO AREA
+        --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
       {%- capture logo_content -%}
@@ -228,12 +312,12 @@ the underlying logic of the menu.
         </h1>
       {% else %}
         <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>
-      {% endif %} 
+      {% endif %}
 
       {%- comment -%}
-      --------------------------------------------------------------------------------------------------------------------
-      SECONDARY NAV AREA
-      --------------------------------------------------------------------------------------------------------------------
+        --------------------------------------------------------------------------------------------------------------------
+        SECONDARY NAV AREA
+        --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
       <div class="header__secondary-nav">
@@ -249,10 +333,15 @@ the underlying logic of the menu.
           </nav>
         {%- endif -%}
 
-        <ul class="header__icon-list">
+        <ul class="header__icon-list x:flex x:items-center x:h-6">
           {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
             <li class="hidden md:block shrink-0">
-              {%- render 'localization-selector', type: 'country', show_country_name: section.settings.show_country_name, show_country_flag: section.settings.show_country_flag, popover_vertical_position: 'end' -%}
+              {%- render 'localization-selector',
+                type: 'country',
+                show_country_name: section.settings.show_country_name,
+                show_country_flag: section.settings.show_country_flag,
+                popover_vertical_position: 'end'
+              -%}
             </li>
           {%- endif -%}
 
@@ -262,29 +351,31 @@ the underlying logic of the menu.
             </li>
           {%- endif -%}
 
-<li class="custom-search__bar-list">
-  <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
-    <form role="search" class="x:flex x:items-center x:w-full x:border search-bar-link x:px-4 x:mx-10" onsubmit="return false;">
-      <input
-        type="search"
-        class="x:w-full search-bar-input x:outline-none"
-        placeholder="What are you looking for?"
-        id="header-search-input"
-        autocomplete="off"
-      />
-      <span class="sr-only">{{ 'header.general.search' | t }}</span>
-      <span>{% render 'icon' with 'search' %}</span>
-    </form>
-    <div id="header-search-suggestions" class="search-suggestions hidden"></div>
-  </div>
-</li>
-          
-          
-          
+          <li class="custom-search__bar-list">
+            <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
+              <form
+                role="search"
+                class="x:flex x:items-center x:w-full x:border search-bar-link x:pl-4 x:mr-auto x:last:justify-end"
+                onsubmit="return false;"
+              >
+                <input
+                  type="search"
+                  class="x:w-full search-bar-input x:outline-none"
+                  placeholder="What are you looking for?"
+                  id="header-search-input"
+                  autocomplete="off"
+                >
+                {% comment %} <span class="sr-only">{{ 'header.general.search' | t }}</span> {% endcomment %}
+                <span class="x:ml-auto x:px-4">{% render 'icon' with 'search' %}</span>
+              </form>
+              <div id="header-search-suggestions" class="search-suggestions hidden"></div>
+            </div>
+          </li>
+
           {%- if shop.customer_accounts_enabled -%}
             <li>
-              <a 
-                href="{% if customer %}/pages/profile{% else %}#{% endif %}" 
+              <a
+                href="{% if customer %}/pages/profile{% else %}#{% endif %}"
                 class="hidden tap-area sm:block"
                 {% unless customer %}
                   onclick="
@@ -294,17 +385,27 @@ the underlying logic of the menu.
                 {% endunless %}
               >
                 <span class="sr-only">
-                  {% if customer %}{{ 'header.general.account' | t }}{% else %}{{ 'header.general.login' | t }}{% endif %}
+                  {% if customer -%}
+                    {{- 'header.general.account' | t -}}
+                  {%- else -%}
+                    {{- 'header.general.login' | t -}}
+                  {%- endif %}
                 </span>
                 {%- render 'icon' with 'account' -%}
               </a>
             </li>
           {%- endif -%}
 
-
-
           <li>
-            <a href="#" onclick="openCartDrawer(event)" data-no-instant class="relative block tap-area" {% if settings.cart_type != 'page' and request.page_type != 'cart' %}aria-controls="cart-drawer"{% endif %}>
+            <a
+              href="#"
+              onclick="openCartDrawer(event)"
+              data-no-instant
+              class="relative block tap-area"
+              {% if settings.cart_type != 'page' and request.page_type != 'cart' %}
+                aria-controls="cart-drawer"
+              {% endif %}
+            >
               <span class="sr-only">{{ 'header.general.cart' | t }}</span>
               {%- render 'icon' with 'cart' -%}
 
@@ -318,7 +419,6 @@ the underlying logic of the menu.
           </li>
         </ul>
       </div>
-
     </div>
   </store-header>
 </height-observer>
@@ -333,8 +433,22 @@ the underlying logic of the menu.
 {%- assign secondary_menu = section.settings.secondary_menu -%}
 
 {%- if main_menu.links.size > 0 or secondary_menu.links.size > 0 -%}
-  <navigation-drawer mobile-opening="{{ section.settings.opening_from }}" open-from="left" id="header-sidebar-menu" class="navigation-drawer drawer {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}" {% if request.design_mode %}handle-section-events{% endif %}>
-    <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}" {%- if section.settings.opening_from == 'bottom' -%}class="sm-max:hidden"{%- endif -%}>
+  <navigation-drawer
+    mobile-opening="{{ section.settings.opening_from }}"
+    open-from="left"
+    id="header-sidebar-menu"
+    class="navigation-drawer drawer {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}"
+    {% if request.design_mode %}
+      handle-section-events
+    {% endif %}
+  >
+    <button
+      is="close-button"
+      aria-label="{{ 'general.accessibility.close' | t | escape }}"
+      {%- if section.settings.opening_from == 'bottom' -%}
+        class="sm-max:hidden"
+      {%- endif -%}
+    >
       {%- render 'icon' with 'close', width: 19, height: 19 -%}
     </button>
 
@@ -348,46 +462,54 @@ the underlying logic of the menu.
       show_country_selector: section.settings.show_country_selector,
       show_country_name: section.settings.show_country_name,
       show_country_flag: section.settings.show_country_flag,
-      show_locale_selector: section.settings.show_locale_selector -%}
+      show_locale_selector: section.settings.show_locale_selector
+    -%}
   </navigation-drawer>
 {%- endif -%}
 
 <script>
-  document.documentElement.style.setProperty('--header-height', Math.round(document.getElementById('shopify-section-{{ section.id }}').clientHeight) + 'px');
+  document.documentElement.style.setProperty(
+    '--header-height',
+    Math.round(document.getElementById('shopify-section-{{ section.id }}').clientHeight) + 'px'
+  );
   document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('header-search-input');
-  const suggestionsBox = document.getElementById('header-search-suggestions');
+    const searchInput = document.getElementById('header-search-input');
+    const suggestionsBox = document.getElementById('header-search-suggestions');
 
-  searchInput.addEventListener('input', async (e) => {
-    const query = e.target.value.trim();
-    if (query.length < 2) {
-      suggestionsBox.classList.add('hidden');
-      return;
-    }
+    searchInput.addEventListener('input', async (e) => {
+      const query = e.target.value.trim();
+      if (query.length < 2) {
+        suggestionsBox.classList.add('hidden');
+        return;
+      }
 
-    try {
-      const res = await fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`);
-      const data = await res.json();
+      try {
+        const res = await fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`);
+        const data = await res.json();
 
-      const suggestions = data.resources.results.products.map(product => `
+        const suggestions = data.resources.results.products
+          .map(
+            (product) => `
         <div class="suggestion-item">
           <a href="${product.url}">${product.title}</a>
         </div>
-      `).join('');
+      `
+          )
+          .join('');
 
-      suggestionsBox.innerHTML = suggestions || '<div class="suggestion-item">No results found.</div>';
-      suggestionsBox.classList.remove('hidden');
-    } catch (error) {
-      console.error('Error fetching suggestions', error);
-    }
-  });
+        suggestionsBox.innerHTML = suggestions || '<div class="suggestion-item">No results found.</div>';
+        suggestionsBox.classList.remove('hidden');
+      } catch (error) {
+        console.error('Error fetching suggestions', error);
+      }
+    });
 
-  document.addEventListener('click', (e) => {
-    if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
-      suggestionsBox.classList.add('hidden');
-    }
+    document.addEventListener('click', (e) => {
+      if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+        suggestionsBox.classList.add('hidden');
+      }
+    });
   });
-});
 </script>
 
 {% schema %}
@@ -683,7 +805,7 @@ the underlying logic of the menu.
         {
           "type": "collection",
           "id": "image_btn",
-          "label": "Promo Collection",
+          "label": "Promo Collection"
         },
         {
           "type": "url",

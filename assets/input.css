@@ -24,4 +24,9 @@
   .profile__order-img {
     @apply x:w-full x:h-full;
   }
+
+  /* header */
+  .custom-search__bar-list {
+    @apply x:w-64 x:h-6 x:flex x:items-center;
+  }
 }

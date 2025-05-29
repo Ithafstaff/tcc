@@ -7,10 +7,10 @@
   position: relative;
 }
 
-.custom-search__bar-list {
+/* .custom-search__bar-list {
   width: 221px;
   height: 25px;
-}
+} */
 
 .custom-search__bar-wrap a {
   padding: 0 8px;
