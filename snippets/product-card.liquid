@@ -215,7 +215,7 @@ Supported variables
               <!-- script for variation select and hover img -->
                  <script>
                     document.addEventListener("DOMContentLoaded", function () {
-                      const swatchInputs = document.querySelectorAll('.sr-only.custom__swatch');
+                     
                       const primaryImg = document.querySelector('.product-card__image--primary');
                       const imgHoverContainer = document.querySelector('.custom__product-card'); 
                       const overlay = document.querySelector('.custom__product-card-overlay');
@@ -228,7 +228,7 @@ Supported variables
                         console.log(card); // logs the current product card DOM element
                         console.log(card.dataset.id); // logs the data-id of this specific card
                     
-
+                       const swatchInputs = card.querySelectorAll('.sr-only.custom__swatch');
 
 
               
