@@ -223,9 +223,8 @@ Supported variables
 
 
 
-          productCard.forEach(function(card) {
-
-  console.log(this.dataset.id); // Access data-id
+productCard.forEach(function() {
+  console.log(this.dataset.id); // Works
 });
 
 
