@@ -511,10 +511,7 @@
 
 /* start of custom collection variant style */
 
-.custom__product-card {
-  position: relative;
-}
-.custom__product-card::after {
+.custom__product-card-overlay {
   content: "";
   position: absolute;
   width: 100%;
