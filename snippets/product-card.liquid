@@ -241,7 +241,8 @@ Supported variables
                   
                     swatchInputs.forEach(input => {
                       const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
-                  
+
+                      let imgHover;
                       input.addEventListener("click", () => {
                         console.log(`Click: ${color}`);
                   
@@ -257,8 +258,11 @@ Supported variables
                         primaryImg.src = matchingUrls[0];
                         primaryImg.srcset = matchingUrls[0];
                         onsole.log(matchingUrls[0]);
+                          imgHover = matchingUrls[1];
                         });
                       });
+
+                      
                     });
                       
 
