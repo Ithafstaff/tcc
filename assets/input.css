@@ -14,3 +14,14 @@
       scrollbar-width: none;
     }
   }
+
+@layer base {
+  /* pages/profile */
+  .profile__order-img-wrap {
+    @apply x:min-w-[100px] x:min-h-[100px];
+  }
+
+  .profile__order-img {
+    @apply x:w-full x:h-full;
+  }
+}
