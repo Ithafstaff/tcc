@@ -220,45 +220,44 @@ Supported variables
 
                  <script>
                    
-                    document.addEventListener("DOMContentLoaded", function () {
-                    const swatchInputs = document.querySelectorAll('.sr-only.test');
-                    const primaryImg = document.querySelector('.product-card__image--primary');
-                  
-                    // Log colors found on inputs
-                    swatchInputs.forEach(input => {
-                      const color = input.dataset.color || 'N/A';
-                      console.log(`Input color: ${color}`);
-                    });
-                  
-                    const productImages = [
-                      {% for media in product.media %}
-                        "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
-                      {% endfor %}
-                    ];
-                    console.log("Product images:", productImages);
-                  
-                    swatchInputs.forEach(input => {
-                      const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
-                  
-                      input.addEventListener("click", () => {
-                        console.log(`Click: ${color}`);
-                  
-                        // productImages.forEach(url => {
-                        //   if (url.toLowerCase().includes(color)) {
-                        //     console.log(url);
-                            
-                        //   }
-                        // });
+document.addEventListener("DOMContentLoaded", function () {
+  const swatchInputs = document.querySelectorAll('.sr-only.test');
+  const primaryImg = document.querySelector('.product-card__image--primary');
 
-                        const matchingUrls = productImages.filter(url => url.toLowerCase().includes(color));
-                        matchingUrls.forEach(url => {
-                        primaryImg.src = matchingUrls[0];
-                        primaryImg.srcset = matchingUrls[0];
-                        onsole.log(matchingUrls[0]);
-                        });
-                      });
-                    });
-                  });
+  // Store the original image URL to reset later
+  const originalImageUrl = primaryImg.src;
+  const originalImageSrcset = primaryImg.srcset;
+
+  const productImages = [
+    {% for media in product.media %}
+      "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  swatchInputs.forEach(input => {
+    const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
+
+    const updateImage = () => {
+      const matchingUrls = productImages.filter(url => url.toLowerCase().includes(color));
+      if (matchingUrls.length > 0) {
+        primaryImg.src = matchingUrls[0];
+        primaryImg.srcset = matchingUrls[0];
+        console.log("Swatch matched image:", matchingUrls[0]);
+      }
+    };
+
+    const resetImage = () => {
+      primaryImg.src = originalImageUrl;
+      primaryImg.srcset = originalImageSrcset;
+      console.log("Image reset to original.");
+    };
+
+    input.addEventListener("click", updateImage);
+    input.addEventListener("mouseenter", updateImage);
+    input.addEventListener("mouseleave", resetImage);
+  });
+});
+
 
                 </script>
 
