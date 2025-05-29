@@ -222,8 +222,14 @@ Supported variables
                     document.addEventListener("DOMContentLoaded", function () {
                       const swatchInputs = document.querySelectorAll('.sr-only.test');
                       const primaryImg = document.querySelector('.product-card__image--primary');
-                      const imgHoverContainer = document.querySelector('.custom__product-card'); // renamed to avoid confusion with the imgHover variable
-                      const overlay = document.querySelector('.custom__product-card-overlay');
+                      const imgHoverContainer = document.querySelector('.custom__product-card'); 
+                       const overlay = document.querySelector('.custom__product-card-overlay');
+
+                    // Get the second image URL from Liquid
+                    const hoverImage = "{{ product.media[1] | image_url }}";
+                    
+                    overlay.style.backgroundImage = `url('${hoverImage}')`;
+
                   
                       // Log colors found on inputs
                       swatchInputs.forEach(input => {
