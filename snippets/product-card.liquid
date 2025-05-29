@@ -223,9 +223,10 @@ Supported variables
 
 
 
-productCard.forEach(function() {
-  console.log(this.dataset.id); // Works
+productCard.forEach(card => {
+  console.log(this); // 'this' does NOT refer to the current card
 });
+
 
 
               
