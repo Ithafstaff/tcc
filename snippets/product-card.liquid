@@ -283,7 +283,7 @@ Supported variables
 
               {%- when 'variant' -%}
                 <fieldset class="product-card__variant-list" data-option-position="{{ product_option.position }}">
-                  <legend class="sr-only">{{ product_option.name }}</legend>
+                  <legend class="sr-only t">{{ product_option.name }}</legend>
                   
                   {%- capture param_name -%}swatch-{{ quick_buy_context }}-{{ section.id }}-{{ product.id }}-{{ product_option.position }}{%- endcapture -%}
 
