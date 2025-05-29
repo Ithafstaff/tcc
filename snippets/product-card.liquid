@@ -221,7 +221,7 @@ Supported variables
                       const overlay = document.querySelector('.custom__product-card-overlay');
 
                     // Get the second image URL from Liquid
-                    const hoverImage = "{{ product.media[1] | image_url }}";
+                    const hoverImage = "{{ product.media[2] | image_url }}";
                     
                     overlay.style.backgroundImage = `url('${hoverImage}')`;
 
