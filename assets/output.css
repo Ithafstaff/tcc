@@ -1049,6 +1049,9 @@
   .x\:object-cover {
     object-fit: cover !important;
   }
+  .x\:p-0 {
+    padding: calc(var(--x-spacing) * 0) !important;
+  }
   .x\:p-2 {
     padding: calc(var(--x-spacing) * 2) !important;
   }
@@ -1611,6 +1614,29 @@
     height: calc(var(--x-spacing) * 6) !important;
     width: calc(var(--x-spacing) * 64) !important;
     align-items: center !important;
+  }
+}
+@layer base {
+  .suggestion-item-container {
+    position: absolute !important;
+    margin-block: calc(var(--x-spacing) * 1) !important;
+    display: flex !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: calc(var(--x-spacing) * 2) !important;
+    border-style: var(--tw-border-style) !important;
+    border-width: 1px !important;
+    border-color: color-mix(in oklab, #222222 10%, transparent) !important;
+    background-color: var(--x-color-amber-100) !important;
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1)) !important;
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow) !important;
+  }
+  .suggestion-item {
+    display: block !important;
+    width: 100% !important;
+    cursor: pointer !important;
+    background-color: var(--x-color-white) !important;
+    padding: calc(var(--x-spacing) * 2) !important;
   }
 }
 @keyframes spin {

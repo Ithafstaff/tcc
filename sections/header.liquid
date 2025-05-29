@@ -341,7 +341,7 @@
                 show_country_name: section.settings.show_country_name,
                 show_country_flag: section.settings.show_country_flag,
                 popover_vertical_position: 'end'
-              -%}
+              -%}7
             </li>
           {%- endif -%}
 
@@ -487,15 +487,20 @@
         const res = await fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`);
         const data = await res.json();
 
-        const suggestions = data.resources.results.products
-          .map(
-            (product) => `
-        <div class="suggestion-item">
-          <a href="${product.url}">${product.title}</a>
-        </div>
-      `
-          )
-          .join('');
+        const suggestions = `
+          <div class="suggestion-item-container">
+          <div class="x:w-full x:flex x:items-center x:justify-between x:h-full">
+            <span class="x:p-0 x:m-0 x:text-xs">Product Suggestions</span>
+          </div>
+            ${data.resources.results.products
+              .map(
+                (product) => `
+                <a class="suggestion-item" href="${product.url}">${product.title}</a>
+                `
+              )
+              .join('')}
+          </div>
+        `;
 
         suggestionsBox.innerHTML = suggestions || '<div class="suggestion-item">No results found.</div>';
         suggestionsBox.classList.remove('hidden');

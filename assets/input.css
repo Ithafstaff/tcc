@@ -30,3 +30,13 @@
     @apply x:w-64 x:h-6 x:flex x:items-center;
   }
 }
+
+@layer base {
+  .suggestion-item-container {
+    @apply x:bg-amber-100 x:gap-2 x:absolute x:w-full x:my-1 x:flex x:flex-col x:border x:border-[#222222]/10 x:shadow-lg;
+  }
+
+  .suggestion-item {
+    @apply x:w-full x:p-2 x:cursor-pointer x:bg-white x:block;
+  }
+}
