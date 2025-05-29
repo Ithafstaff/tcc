@@ -258,29 +258,7 @@ Supported variables
                         });
                       });
                     });
-
-
-                    swatchInputs.forEach(input => {
-                    const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
-                  
-                      input.addEventListener("click", () => {
-                        console.log(`Click: ${color}`);
-                  
-                        // productImages.forEach(url => {
-                        //   if (url.toLowerCase().includes(color)) {
-                        //     console.log(url);
-                            
-                        //   }
-                        // });
-
-                        const matchingUrls = productImages.filter(url => url.toLowerCase().includes(color));
-                        matchingUrls.forEach(url => {
-                        primaryImg.src = matchingUrls[0];
-                        primaryImg.srcset = matchingUrls[0];
-                        onsole.log(matchingUrls[0]);
-                        });
-                      });
-                    });
+                      
 
 
                       
