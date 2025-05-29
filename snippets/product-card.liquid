@@ -65,7 +65,7 @@ Supported variables
   {%- endcomment -%}
 
   {%- if product.media.size > 0 -%}
-    <div class="product-card__figure test">
+    <div class="product-card__figure custom__product-card">
       <a href="{{ product.url }}" data-instant>
         {%- capture sizes -%}
           {%- if stacked -%}
@@ -243,29 +243,37 @@ Supported variables
                       const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
 
                      let imgHover; // Declare imgHover in outer scope
+                     const overlay = document.querySelector('.custom__product-card-overlay');
 
-input.addEventListener("click", () => {
-  console.log(`Click: ${color}`);
+                      input.addEventListener("click", () => {
+                        console.log(`Click: ${color}`);
+                      
+                        const matchingUrls = productImages.filter(url => url.toLowerCase().includes(color));
+                      
+                      
+                        if (matchingUrls.length > 0) {
+                          primaryImg.src = matchingUrls[0];
+                          primaryImg.srcset = matchingUrls[0];
+                          console.log("Primary Image:", matchingUrls[0]);
+                      
+                          imgHover = matchingUrls[1] || null;
+                          console.log("imgHover:", imgHover);
+                      
+                          if (overlay && imgHover) {
+                            overlay.style.backgroundImage = `url('${imgHover}')`;
+                           
+                          }
+                        } else {
+                          console.warn(`No matching image found for color: ${color}`);
+                        }
+                      });
 
-  const matchingUrls = productImages.filter(url => url.toLowerCase().includes(color));
-  const overlay = document.querySelector('.custom__product-card-overlay');
-
-  if (matchingUrls.length > 0) {
-    primaryImg.src = matchingUrls[0];
-    primaryImg.srcset = matchingUrls[0];
-    console.log("Primary Image:", matchingUrls[0]);
-
-    imgHover = matchingUrls[1] || null;
-    console.log("imgHover:", imgHover);
-
-    if (overlay && imgHover) {
-      overlay.style.backgroundImage = `url('${imgHover}')`;
-      overlay.style.opacity = '1';
-    }
-  } else {
-    console.warn(`No matching image found for color: ${color}`);
-  }
-});
+                      
+                      input.addEventListener("mouseEnter", () => {
+                        console.log(`Click: ${color}`);
+                      
+                         overlay.style.opacity = '1';
+                      });
 
                       
 
