@@ -256,6 +256,10 @@ Supported variables
 
           imgHover = matchingUrls[1] || null;
           console.log("imgHover:", imgHover);
+
+          if (overlay && imgHover) {
+            overlay.style.backgroundImage = `url('${imgHover}')`;
+          }
         } else {
           console.warn(`No matching image found for color: ${color}`);
         }
