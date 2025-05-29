@@ -519,7 +519,7 @@
   top: 0;
   left: 0;
   border: 1px solid;
-  background-color: red;
-  opacity: 0;
+  background: url('//closeout-connect.myshopify.com/cdn/shop/files/71QX_fARvuL-gray.jpg?v=1748357715') no-repeat;
+  opacity: 1;
 }
 /* end of custom collection variant style */
