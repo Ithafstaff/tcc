@@ -523,6 +523,6 @@
   background: url('') no-repeat;
   background-size: contain;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 /* end of custom collection variant style */
