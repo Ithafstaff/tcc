@@ -218,7 +218,7 @@ Supported variables
                       const swatchInputs = document.querySelectorAll('.sr-only.test');
                       const primaryImg = document.querySelector('.product-card__image--primary');
                       const imgHoverContainer = document.querySelector('.custom__product-card'); 
-                       const overlay = document.querySelector('.custom__product-card-overlay');
+                      const overlay = document.querySelector('.custom__product-card-overlay');
 
                     // Get the second image URL from Liquid
                     const hoverImage = "{{ product.media[1] | image_url }}";
@@ -266,7 +266,6 @@ Supported variables
                           }
                         });
                   
-                        // ❌ FIXED: use "mouseenter" (lowercase), not "mouseEnter"
                         imgHoverContainer.addEventListener("mouseenter", () => {
                           if (overlay) overlay.style.opacity = '1';
                         });
