@@ -222,9 +222,12 @@ Supported variables
                       const overlay = document.querySelector('.custom__product-card-overlay');
 
 
+const productCards = document.querySelectorAll('.product-card');
 
-productCard.forEach(card => {
-  console.log(this); // 'this' does NOT refer to the current card
+productCards.forEach(card => {
+  // 'card' is the current .product-card element in the loop
+  console.log(card); // logs the current product card DOM element
+  console.log(card.dataset.id); // logs the data-id of this specific card
 });
 
 
