@@ -214,13 +214,18 @@ Supported variables
 
               <!-- script for variation select and hover img -->
                  <script>
-const productCards = document.querySelectorAll('.product-card');
+
+
+                   function test() {
+                     const productCards = document.querySelectorAll('.product-card');
                       
                       productCards.forEach(card => {
                         // 'card' is the current .product-card element in the loop
                         console.log(card); // logs the current product card DOM element
                         // console.log(card.dataset.id); // logs the data-id of this specific card
                          });
+                   }
+                   test();
                    
                     document.addEventListener("DOMContentLoaded", function () {
                      
