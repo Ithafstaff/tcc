@@ -69,6 +69,19 @@
     </p>
   {% endif %}
 {% endif %}
+{% if product.metafields.custom.show_product_care %}
+  {% assign selected_variant = product.selected_or_first_available_variant %}
+  {% assign care_raw = selected_variant.metafields.custom.show_care.value %}
+  {% if care_raw %}
+    {% assign care_list = care_raw | split: '\n' %}
+    <p class="x-pl-[8px] x-pt-[8px]">
+      {% for care in care_list %}
+        {{ care }}<br>
+      {% endfor %}
+    </p>
+  {% endif %}
+{% endif %}
+
     </div>
   </product-rerender>
 </div>
