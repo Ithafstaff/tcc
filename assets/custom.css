@@ -124,6 +124,7 @@
   position: sticky;
   top: 10px;
   height: 100%;
+  height: auto;
 }
 
 .custom-product__thumbnail-wrapper {
