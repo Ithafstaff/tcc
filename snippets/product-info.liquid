@@ -339,7 +339,25 @@ Supported variables
 
         {%- when 'collapsible_text' -%}
           {%- if block.settings.title != blank and block.settings.content != blank or block.settings.page.content != blank -%}
-            {%- capture accordion_content -%}<div class="prose">{{ block.settings.page.content | default: block.settings.content }}</div>{%- endcapture -%}
+            {%- capture accordion_content -%}<div class="prose">
+              <!-- sir mico pa add nalang ako neto sa dropdown --> 
+              <!-- DYNAMIC PRODUCT CARE -->
+              {% if product.metafields.custom.show_product_care %}
+                {% assign selected_variant = product.selected_or_first_available_variant %}
+                {% assign care_raw = selected_variant.metafields.custom.show_care.value %}
+                {% if care_raw %}
+                  {% assign care_list = care_raw | split: '\n' %}
+                  <p class="x-pl-[8px] x-pt-[8px]">
+                    {% for care in care_list %}
+                      {{ care }}
+                      {% comment %}{{ block.settings.page.content | default: block.settings.content }} {% endcomment %}
+                    <br>
+                    {% endfor %}
+                  </p>
+                {% endif %}
+              {% endif %}
+              
+              </div>{%- endcapture -%}
 
             {%- assign icon = block.settings.custom_icon | default: block.settings.icon -%}
             {%- render 'accordion', title: block.settings.title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion', block: block -%}
