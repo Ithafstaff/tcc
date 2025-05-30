@@ -524,4 +524,10 @@
   opacity: 0;
   transition: all 0.3s ease-in-out;
 }
+
+.custom__product-card {
+  width: 300px;
+  height: 300px;
+  border: 1px solid;
+}
 /* end of custom collection variant style */
