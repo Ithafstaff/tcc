@@ -252,7 +252,7 @@ Supported variables
                             "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
                           {% endfor %}
                         ];
-                        // console.log("Product images:", productImages);
+                        console.log("Product images:", productImages);
                     
                         swatchInputs.forEach(input => {
                           const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
