@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //script for open first accordion in product page
-document.addEventListener('DOMContentLoaded', function () {
-  // Add the "open" attribute dynamically
-  document.querySelector('.custom-product-info__block-item:first-child .accordion').setAttribute('open', '');
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//   // Add the "open" attribute dynamically
+//   document.querySelector('.custom-product-info__block-item:first-child .accordion').setAttribute('open', '');
+// });
 
 
 
