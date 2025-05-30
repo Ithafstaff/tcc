@@ -339,7 +339,7 @@ Supported variables
 
         {%- when 'collapsible_text' -%}
           {%- if block.settings.title != blank and block.settings.content != blank or block.settings.page.content != blank -%}
-            {%- capture accordion_content -%}<div class="prose test">{{ block.settings.page.content | default: block.settings.content }}</div>{%- endcapture -%}
+            {%- capture accordion_content -%}<div class="prose">{{ block.settings.page.content | default: block.settings.content }}</div>{%- endcapture -%}
 
             {%- assign icon = block.settings.custom_icon | default: block.settings.icon -%}
             {%- render 'accordion', title: block.settings.title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion', block: block -%}
