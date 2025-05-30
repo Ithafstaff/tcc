@@ -243,16 +243,16 @@ Supported variables
                         // Log colors found on inputs
                         swatchInputs.forEach(input => {
                           const color = input.dataset.color || 'N/A';
-                          console.log(`Input color: ${color}`);
+                          // console.log(`Input color: ${color}`);
                         });
-                        console.log(`Total number of variant color swatches: ${swatchInputs.length}`);
+                        // console.log(`Total number of variant color swatches: ${swatchInputs.length}`);
                     
                         const productImages = [
                           {% for media in product.media %}
                             "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
                           {% endfor %}
                         ];
-                        console.log("Product images:", productImages);
+                        // console.log("Product images:", productImages);
                     
                         swatchInputs.forEach(input => {
                           const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
@@ -260,23 +260,23 @@ Supported variables
                           let imgHover; // store hover image URL
                     
                           input.addEventListener("click", () => {
-                            console.log(`Click: ${color}`);
+                            // console.log(`Click: ${color}`);
                     
                             const matchingUrls = productImages.filter(url => url.toLowerCase().includes(color));
                     
                             if (matchingUrls.length > 0) {
                               primaryImg.src = matchingUrls[0];
                               primaryImg.srcset = matchingUrls[0];
-                              console.log("Primary Image:", matchingUrls[0]);
+                              // console.log("Primary Image:", matchingUrls[0]);
                     
                               imgHover = matchingUrls[1] || null;
-                              console.log("imgHover:", imgHover);
+                              // console.log("imgHover:", imgHover);
                     
                               if (overlay && imgHover) {
                                 overlay.style.backgroundImage = `url('${imgHover}')`;
                               }
                             } else {
-                              console.warn(`No matching image found for color: ${color}`);
+                              // console.warn(`No matching image found for color: ${color}`);
                             }
                           });
                     
