@@ -626,11 +626,101 @@
       // Update add to cart button
       const addToCartBtn = document.getElementById('modal-add-to-cart');
       if (addToCartBtn) {
+        // Set data attributes for the product
+        addToCartBtn.setAttribute('data-product-id', product.id);
+        addToCartBtn.setAttribute('data-product-title', product.title);
+        addToCartBtn.setAttribute('data-product-image', product.image);
+        addToCartBtn.setAttribute('data-product-price', typeof product.price === 'number' ? 
+          `$${(product.price / 100).toFixed(2)}` : 
+          "$" + product.price);
+        addToCartBtn.setAttribute('data-product-type', product.type || '');
+        addToCartBtn.setAttribute('data-product-handle', product.handle || '');
+        addToCartBtn.setAttribute('data-product-variants', JSON.stringify(product.variants || []));
+        addToCartBtn.setAttribute('data-product-options', JSON.stringify(product.options_with_values || []));
+
         addToCartBtn.onclick = () => {
           const quantity = parseInt(document.getElementById('modal-product-quantity').textContent);
           const selectedVariant = getSelectedVariant();
           if (selectedVariant) {
-            addToCart(selectedVariant.id, quantity);
+            // Add to cart functionality
+            let formData = {
+              'items': [{
+                'id': selectedVariant.id,
+                'quantity': quantity
+              }]
+            };
+            
+            // First, prepare the sections for bundling
+            document.documentElement.dispatchEvent(new CustomEvent('cart:prepare-bundled-sections', {
+              bubbles: true,
+              detail: {
+                sections: ['cart-drawer']
+              }
+            }));
+            
+            fetch('/cart/add.js', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+              // Get updated cart data
+              return fetch('/cart.js')
+                .then(response => response.json())
+                .then(cart => {
+                  // Get the sections HTML
+                  return fetch(`/?sections=cart-drawer`)
+                    .then(response => response.json())
+                    .then(sections => {
+                      // Add sections data to cart
+                      cart.sections = sections;
+                      
+                      // Dispatch cart:change event with the updated cart data
+                      document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
+                        bubbles: true,
+                        detail: {
+                          baseEvent: 'variant:add',
+                          cart: cart
+                        }
+                      }));
+
+                      // Show cart drawer
+                      const drawer = document.querySelector('cart-drawer');
+                      if (drawer) {
+                        // Update the drawer's content
+                        const drawerContent = drawer.querySelector('.cart-drawer__content');
+                        if (drawerContent && sections['cart-drawer']) {
+                          drawerContent.innerHTML = sections['cart-drawer'];
+                        }
+
+                        // Show the drawer
+                        drawer.style.display = 'block';
+                        // Force a reflow
+                        drawer.offsetHeight;
+                        drawer.classList.remove('x:-translate-y-full');
+                        drawer.classList.add('x:translate-y-0');
+
+                        // Update cart count if it exists
+                        const cartCount = document.querySelector('.cart-count-bubble');
+                        if (cartCount) {
+                          cartCount.textContent = cart.item_count;
+                        }
+                      }
+
+                      // Close the modal
+                      modal.classList.remove('x:flex');
+                      modal.classList.add('x:hidden');
+                      modal.style.display = 'none';
+                    });
+                });
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+              alert('Error adding item to cart');
+            });
           }
         };
       }
@@ -777,7 +867,7 @@
               <span class="variant-picker__option-value__label">
                 <span class="variant-picker__option-value__swatch" style="background-color: ${optionValue};"></span>
               </span>
-              <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: ${optionValue}; opacity: 0; transition: opacity 0.2s ease;"></span>
+              <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -6px; left: 0; width: 100%; height: 2px; background-color: ${optionValue}; opacity: 0; transition: opacity 0.2s ease;"></span>
             </div>
           `;
         }).join('');
