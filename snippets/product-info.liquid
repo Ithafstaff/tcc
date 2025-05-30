@@ -159,7 +159,7 @@ Supported variables
           {%- if block.settings.collapse_content -%}
             {%- if product.description != blank -%}
               {%- capture accordion_title -%}{{ 'product.general.description' | t }}{%- endcapture -%}
-              {%- capture accordion_content -%}<div class="prose">{{ product.description }}</div>{%- endcapture -%}
+              {%- capture accordion_content -%}<div class="prose 1">{{ product.description }}</div>{%- endcapture -%}
 
               {%- assign icon = block.settings.custom_icon | default: block.settings.icon -%}
               {%- render 'accordion', title: accordion_title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion', block: block -%}
@@ -167,7 +167,7 @@ Supported variables
           {%- else -%}
             {%- if product.description != blank -%}
               <div class="product-info__description">
-                <div class="prose">
+                <div class="prose 2">
                   {{- product.description -}}
                 </div>
               </div>
@@ -331,7 +331,7 @@ Supported variables
         {%- when 'text' -%}
           {%- if block.settings.text != blank -%}
             <div class="product-info__text">
-              <div class="prose">
+              <div class="prose 3">
                 {{- block.settings.text -}}
               </div>
             </div>
@@ -339,7 +339,7 @@ Supported variables
 
         {%- when 'collapsible_text' -%}
           {%- if block.settings.title != blank and block.settings.content != blank or block.settings.page.content != blank -%}
-            {%- capture accordion_content -%}<div class="prose">{{ block.settings.page.content | default: block.settings.content }}</div>{%- endcapture -%}
+            {%- capture accordion_content -%}<div class="prose 4">{{ block.settings.page.content | default: block.settings.content }}</div>{%- endcapture -%}
 
             {%- assign icon = block.settings.custom_icon | default: block.settings.icon -%}
             {%- render 'accordion', title: block.settings.title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion', block: block -%}
