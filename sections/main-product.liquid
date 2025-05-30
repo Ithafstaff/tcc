@@ -74,6 +74,7 @@
       
           <!-- sir mico pa add nalang ako neto sa dropdown --> 
       <!-- DYNAMIC PRODUCT CARE -->
+      {% comment %}
       {% if product.metafields.custom.show_product_care %}
         {% assign selected_variant = product.selected_or_first_available_variant %}
         {% assign care_raw = selected_variant.metafields.custom.show_care.value %}
@@ -86,6 +87,7 @@
           </p>
         {% endif %}
       {% endif %}
+      {% endcomment %}
 
     </div>
   </product-rerender>
