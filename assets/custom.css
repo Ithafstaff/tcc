@@ -525,9 +525,8 @@
   transition: all 0.3s ease-in-out;
 }
 
-.custom__product-card {
-  /* width: 300px;
-  height: 300px;
-  border: 1px solid; */
+.custom-product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 /* end of custom collection variant style */
