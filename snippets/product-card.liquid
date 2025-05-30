@@ -226,6 +226,18 @@ Supported variables
                       //   console.log(card); // logs the current product card DOM element
                       //   // console.log(card.dataset.id); // logs the data-id of this specific card
                       //    });
+
+
+              const productList = document.querySelector('.product-list');
+
+// Get all direct children (only immediate children)
+const children = productList.children;
+
+for (let i = 0; i < children.length; i++) {
+  const child = children[i];
+  console.log(`Child ${i + 1}:`, child);
+}
+
                     
                         const swatchInputs = card.querySelectorAll('.sr-only.custom__swatch');
                         const primaryImg = card.querySelector('.product-card__image--primary');
