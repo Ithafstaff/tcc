@@ -57,32 +57,35 @@
         product_form_id: product_form_id,
         context: 'main_product'
       -%}
-{% if product.metafields.custom.show_inclusions %}
-  {% assign selected_variant = product.selected_or_first_available_variant %}
-  {% assign inclusions_raw = selected_variant.metafields.custom.inclusions.value %}
-  {% if inclusions_raw %}
-    {% assign inclusions_list = inclusions_raw | split: '\n' %}
-    <p class="x-pl-[8px] x-pt-[8px]">
-      {% for inclusion in inclusions_list %}
-        {{ inclusion }}<br>
-      {% endfor %}
-    </p>
-  {% endif %}
-{% endif %}
-
-    <!-- sir mico pa add nalang ako neto sa dropdown -->
-{% if product.metafields.custom.show_product_care %}
-  {% assign selected_variant = product.selected_or_first_available_variant %}
-  {% assign care_raw = selected_variant.metafields.custom.show_care.value %}
-  {% if care_raw %}
-    {% assign care_list = care_raw | split: '\n' %}
-    <p class="x-pl-[8px] x-pt-[8px]">
-      {% for care in care_list %}
-        {{ care }}<br>
-      {% endfor %}
-    </p>
-  {% endif %}
-{% endif %}
+      
+      <!-- DYNAMIC INCLUSIONS -->
+      {% if product.metafields.custom.show_inclusions %}
+        {% assign selected_variant = product.selected_or_first_available_variant %}
+        {% assign inclusions_raw = selected_variant.metafields.custom.inclusions.value %}
+        {% if inclusions_raw %}
+          {% assign inclusions_list = inclusions_raw | split: '\n' %}
+          <p class="x-pl-[8px] x-pt-[8px]">
+            {% for inclusion in inclusions_list %}
+              {{ inclusion }}<br>
+            {% endfor %}
+          </p>
+        {% endif %}
+      {% endif %}
+      
+          <!-- sir mico pa add nalang ako neto sa dropdown --> 
+      <!-- DYNAMIC PRODUCT CARE -->
+      {% if product.metafields.custom.show_product_care %}
+        {% assign selected_variant = product.selected_or_first_available_variant %}
+        {% assign care_raw = selected_variant.metafields.custom.show_care.value %}
+        {% if care_raw %}
+          {% assign care_list = care_raw | split: '\n' %}
+          <p class="x-pl-[8px] x-pt-[8px]">
+            {% for care in care_list %}
+              {{ care }}<br>
+            {% endfor %}
+          </p>
+        {% endif %}
+      {% endif %}
 
     </div>
   </product-rerender>
