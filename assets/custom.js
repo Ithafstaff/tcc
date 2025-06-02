@@ -246,15 +246,11 @@ setInterval(showOnlyVariantImage, 100);
 
 
 
-              
-              }
-            customImageHover();
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-                    
-                      const productCards = document.querySelectorAll('.product-card');
+
+              const productCards = document.querySelectorAll('.product-card');
                       
                       productCards.forEach(card => {
                         // 'card' is the current .product-card element in the loop
@@ -323,7 +319,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
 
 
-                      });
+              
+              
+              }
+            customImageHover();
+
+
+
+
+                    
+                      
+
+
                       
     
 
