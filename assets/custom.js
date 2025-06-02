@@ -244,8 +244,6 @@ if (mediaScript) {
   const productMedia = JSON.parse(mediaScript.textContent);
   console.log('All media:', productMedia);
 
-  const imageMedia = productMedia.filter(item => item.media_type === 'image');
-  console.log('Images only:', imageMedia);
 }
 
 
