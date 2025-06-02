@@ -230,17 +230,16 @@ function customImageHover() {
   const productCards = document.querySelectorAll('.product-card');
   const productLists = document.querySelectorAll('.product-list');
 
-
   productLists.forEach((list, listIndex) => {
     const children = list.children;
-    Array.from(children).forEach((child, childIndex) => {
 
+    Array.from(children).forEach((child, childIndex) => {
       const dataImages = child.getAttribute('data-images');
-      let imageArray = []; // define it with default value to avoid undefined
+      let imageArray = [];
 
       if (dataImages) {
         try {
-          imageArray = JSON.parse(dataImages); // ✅ no 'const' here
+          imageArray = JSON.parse(dataImages);
           console.log('Parsed image array:', imageArray);
         } catch (e) {
           console.error('Failed to parse data-images:', e);
@@ -250,50 +249,52 @@ function customImageHover() {
       }
 
       const swatchInputs = child.querySelectorAll('.sr-only.custom__swatch');
+      const primaryImg = child.querySelector('.product-card__image--primary');
+      const imgHoverContainer = child.querySelector('.custom__product-card'); 
+      const overlay = child.querySelector('.custom__product-card-overlay');
+
+      if (overlay && imageArray[1]) {
+        overlay.style.backgroundImage = `url('${imageArray[1]}')`;
+      }
 
       swatchInputs.forEach(input => {
         const color = input.dataset.color || 'N/A';
         console.log(`Input color: ${color}`);
 
-          const primaryImg = child.querySelector('.product-card__image--primary');
-const imgHoverContainer = child.querySelector('.custom__product-card'); 
-                        const overlay = child.querySelector('.custom__product-card-overlay');
+        input.addEventListener("click", () => {
+          console.log(`Click: ${color}`);
 
-          overlay.style.backgroundImage = `url('${imageArray[1]}')`;
-        
-input.addEventListener("click", () => {
-  console.log(`Click: ${color}`);
+          const filteredImages = imageArray.filter(img => img.includes(color.toLowerCase()));
+          const selectedColorImages = [...filteredImages];
 
-  const filteredImages = imageArray.filter(img => img.includes(color.toLowerCase()));
+          console.log('Selected color images array:', selectedColorImages);
 
-  // Store filtered result into an array
-  const selectedColorImages = [...filteredImages]; // or just use `filteredImages` directly
+          if (primaryImg && selectedColorImages[0]) {
+            primaryImg.src = selectedColorImages[0];
+            primaryImg.srcset = selectedColorImages[0];
+          }
 
-  console.log('Selected color images array:', selectedColorImages);
+          if (overlay && selectedColorImages[1]) {
+            overlay.style.backgroundImage = `url('${selectedColorImages[1]}')`;
+          }
+        });
 
+        if (imgHoverContainer && overlay) {
+          imgHoverContainer.addEventListener("mouseenter", () => {
+            overlay.style.opacity = '1';
+          });
 
-  primaryImg.src = selectedColorImages[0];
-  primaryImg.srcset = selectedColorImages[0];
-  overlay.style.backgroundImage = `url('${selectedColorImages[1]}')`;
-});
-
-           imgHoverContainer.addEventListener("mouseenter", () => {
-                            if (overlay) overlay.style.opacity = '1';
-             
-                          });
-                    
-                          imgHoverContainer.addEventListener("mouseleave", () => {
-                            if (overlay) overlay.style.opacity = '0';
-                          });
-
-        
-
+          imgHoverContainer.addEventListener("mouseleave", () => {
+            overlay.style.opacity = '0';
+          });
+        }
       });
     });
   });
 }
 
 customImageHover();
+
 
 
 
