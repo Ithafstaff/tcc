@@ -244,9 +244,9 @@ setInterval(showOnlyVariantImage, 100);
                 });
               });
 
-              const swatchInputs = card.querySelectorAll('.sr-only.custom__swatch');
+              const swatchInputs = document.querySelectorAll('.sr-only.custom__swatch');
 
-// Log colors found on inputs
+                        // Log colors found on inputs
                         swatchInputs.forEach(input => {
                           const color = input.dataset.color || 'N/A';
                           console.log(`Input color: ${color}`);
