@@ -216,7 +216,9 @@ Supported variables
           <script>
             function customImageHover() {
               const productCards = document.querySelectorAll('.product-card');
-              console.log("productCards: " , productCards);
+              const productCardsArray = Array.from(productCards);
+console.log('productCards:', productCardsArray);
+
 
 
 
