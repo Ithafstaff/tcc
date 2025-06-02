@@ -47,8 +47,9 @@ Supported variables
   {%- assign card_class = card_class | append: 'product-card--show-secondary-media' -%}
 {%- endif -%}
 
-<product-card handle="{{ product.handle | escape }}" data-id="{{ product.id }}" data-first-media="{{ product.media[0] | image_url }}" data-second-media="{{ product.media[1] | image_url }}"  {% if reveal and settings.stagger_products_apparition %}reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
-  {%- comment -%}
+<product-card handle="{{ product.handle | escape }}" data-id="{{ product.id }}" data-images='[{% for media in product.media %}"{{ media | image_url }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]' data-first-media="{{ product.media[0] | image_url }}" data-second-media="{{ product.media[1] | image_url }}"  {% if reveal and settings.stagger_products_apparition %}reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
+  {%- comment -%}<div class="product-card" data-id="{{ product.id }}" data-images='[{% for media in product.media %}"{{ media | image_url }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]'>
+
   --------------------------------------------------------------------------------------------------------------------
   PRODUCT BADGES
   --------------------------------------------------------------------------------------------------------------------
