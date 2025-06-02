@@ -240,7 +240,7 @@ setInterval(showOnlyVariantImage, 100);
                   
               
                 const dataImages = child.getAttribute('data-images');
-
+let imageArray;
                 if (dataImages) {
                   try {
                     const imageArray = JSON.parse(dataImages); // 👈 convert string to array
@@ -270,8 +270,8 @@ setInterval(showOnlyVariantImage, 100);
                             input.addEventListener("click", () => {
                             console.log(`Click: ${color}`);
                                    imageArray.forEach((img, index) => {
-                                      console.log(`Image ${index + 1}: ${img}`);
-                                    });
+                                        console.log(`Image ${index + 1}: ${img}`);
+                                      });
                     
                           });
 
