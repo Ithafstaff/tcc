@@ -219,7 +219,7 @@ Supported variables
 
             
 <script>
-const swatchInputs = card.querySelectorAll('.sr-only.custom__swatch');
+const swatchInputs = document.querySelectorAll('.sr-only.custom__swatch');
 swatchInputs.forEach(input => {
     const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
 
