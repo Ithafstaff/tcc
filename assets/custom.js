@@ -235,12 +235,12 @@ setInterval(showOnlyVariantImage, 100);
                 Array.from(children).forEach((child, childIndex) => {
                   console.log(child);
                   
-                  const dataId = child.getAttribute('data-id');
-                  if (dataId) {
-                    console.log(`List #${listIndex} - Child #${childIndex} has data-id: ${dataId}`);
-                  } else {
-                    console.log(`List #${listIndex} - Child #${childIndex} has no data-id.`);
-                  }
+                  // const dataId = child.getAttribute('data-id');
+                  // if (dataId) {
+                  //   console.log(`List #${listIndex} - Child #${childIndex} has data-id: ${dataId}`);
+                  // } else {
+                  //   console.log(`List #${listIndex} - Child #${childIndex} has no data-id.`);
+                  // }
                 });
               });
 
