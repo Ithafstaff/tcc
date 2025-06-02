@@ -277,6 +277,7 @@ input.addEventListener("click", () => {
 
            imgHoverContainer.addEventListener("mouseenter", () => {
                             if (overlay) overlay.style.opacity = '1';
+             overlay.style.backgroundImage = `url('${selectedColorImages[1]}')`;
                           });
                     
                           imgHoverContainer.addEventListener("mouseleave", () => {
