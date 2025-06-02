@@ -216,8 +216,12 @@ Supported variables
           <script>
             function customImageHover() {
               const productCards = document.querySelectorAll('.product-card');
+              
               const productList = document.querySelectorAll('.product-list');
-              console.log(productList);
+
+productList.forEach((list, index) => {
+  console.log(`Children of product-list #${index}:`, list.children);
+});
 
 
 
