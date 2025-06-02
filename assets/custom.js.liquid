@@ -275,6 +275,14 @@ input.addEventListener("click", () => {
   primaryImg.srcset = selectedColorImages[0];
 });
 
+           imgHoverContainer.addEventListener("mouseenter", () => {
+                            if (overlay) overlay.style.opacity = '1';
+                          });
+                    
+                          imgHoverContainer.addEventListener("mouseleave", () => {
+                            if (overlay) overlay.style.opacity = '0';
+                          });
+
         
 
       });
