@@ -254,40 +254,7 @@ setInterval(showOnlyVariantImage, 100);
                         // console.log(`Total number of variant color swatches: ${swatchInputs.length}`);
 
 
-swatchInputs.forEach(input => {
-                          const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
-                    
-                          let imgHover; // store hover image URL
-                    
-                          input.addEventListener("click", () => {
-                            console.log(`Click: ${color}`);
-                    
-                            const matchingUrls = productImages.filter(url => url.toLowerCase().includes(color));
-                    
-                            if (matchingUrls.length > 0) {
-                              primaryImg.src = matchingUrls[0];
-                              primaryImg.srcset = matchingUrls[0];
-                              // console.log("Primary Image:", matchingUrls[0]);
-                    
-                              imgHover = matchingUrls[1] || null;
-                              // console.log("imgHover:", imgHover);
-                    
-                              if (overlay && imgHover) {
-                                overlay.style.backgroundImage = `url('${imgHover}')`;
-                              }
-                            } else {
-                              // console.warn(`No matching image found for color: ${color}`);
-                            }
-                          });
-                    
-                          imgHoverContainer.addEventListener("mouseenter", () => {
-                            if (overlay) overlay.style.opacity = '1';
-                          });
-                    
-                          imgHoverContainer.addEventListener("mouseleave", () => {
-                            if (overlay) overlay.style.opacity = '0';
-                          });
-                        });
+
 
 
 
