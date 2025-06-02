@@ -252,7 +252,78 @@ setInterval(showOnlyVariantImage, 100);
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+                    
+                      const productCards = document.querySelectorAll('.product-card');
+                      
+                      productCards.forEach(card => {
+                        // 'card' is the current .product-card element in the loop
+                        console.log(card); // logs the current product card DOM element
+                        // console.log(card.dataset.id); // logs the data-id of this specific card
+                    
+                        const swatchInputs = card.querySelectorAll('.sr-only.custom__swatch');
+                        const primaryImg = card.querySelector('.product-card__image--primary');
+                        const imgHoverContainer = card.querySelector('.custom__product-card'); 
+                        const overlay = card.querySelector('.custom__product-card-overlay');
 
+
+                        // Get the second image URL from Liquid
+                        const hoverImage = "{{ product.media[1] | image_url }}";
+                        
+                        overlay.style.backgroundImage = `url('${hoverImage}')`;
+  
+                    
+                        // Log colors found on inputs
+                        swatchInputs.forEach(input => {
+                          const color = input.dataset.color || 'N/A';
+                          // console.log(`Input color: ${color}`);
+                        });
+                        // console.log(`Total number of variant color swatches: ${swatchInputs.length}`);
+                    
+                        const productImages = [
+                          {% for media in product.media %}
+                            "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
+                          {% endfor %}
+                        ];
+                        console.log("Product images:", productImages);
+                    
+                        swatchInputs.forEach(input => {
+                          const color = input.dataset.color ? input.dataset.color.trim().toLowerCase() : 'n/a';
+                    
+                          let imgHover; // store hover image URL
+                    
+                          input.addEventListener("click", () => {
+                            console.log(`Click: ${color}`);
+                    
+                            const matchingUrls = productImages.filter(url => url.toLowerCase().includes(color));
+                    
+                            if (matchingUrls.length > 0) {
+                              primaryImg.src = matchingUrls[0];
+                              primaryImg.srcset = matchingUrls[0];
+                              // console.log("Primary Image:", matchingUrls[0]);
+                    
+                              imgHover = matchingUrls[1] || null;
+                              // console.log("imgHover:", imgHover);
+                    
+                              if (overlay && imgHover) {
+                                overlay.style.backgroundImage = `url('${imgHover}')`;
+                              }
+                            } else {
+                              // console.warn(`No matching image found for color: ${color}`);
+                            }
+                          });
+                    
+                          imgHoverContainer.addEventListener("mouseenter", () => {
+                            if (overlay) overlay.style.opacity = '1';
+                          });
+                    
+                          imgHoverContainer.addEventListener("mouseleave", () => {
+                            if (overlay) overlay.style.opacity = '0';
+                          });
+                        });
+
+
+                      });
                       
     
 
