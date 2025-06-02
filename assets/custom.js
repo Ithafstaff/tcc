@@ -267,16 +267,7 @@ setInterval(showOnlyVariantImage, 100);
                 });
               });
 
-              
 
-                        
-
-
-
-
-
-
-  
 
               
               
