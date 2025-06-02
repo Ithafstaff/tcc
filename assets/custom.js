@@ -249,7 +249,7 @@ setInterval(showOnlyVariantImage, 100);
 // Log colors found on inputs
                         swatchInputs.forEach(input => {
                           const color = input.dataset.color || 'N/A';
-                          // console.log(`Input color: ${color}`);
+                          console.log(`Input color: ${color}`);
                         });
                         // console.log(`Total number of variant color swatches: ${swatchInputs.length}`);
 
