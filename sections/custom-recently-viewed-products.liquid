@@ -111,6 +111,14 @@ LIQUID
               
               
             </product-list>
+            <script>
+              const test = document.querySelectorAll('.custom-product-list');
+            
+              test.forEach(list => {
+                list.style.border = '5px solid red';
+              });
+            
+            </script>
             
           </reveal-items>
         </scroll-carousel>
@@ -137,14 +145,7 @@ LIQUID
 </recently-viewed-products>
 
 
-<script>
-  const test = document.querySelectorAll('.product-list.custom-product-list');
 
-  test.forEach(list => {
-    list.style.border = '5px solid red';
-  });
-
-</script>
 
 
 {% schema %}
