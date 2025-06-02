@@ -234,6 +234,7 @@ setInterval(showOnlyVariantImage, 100);
                 const children = list.children;
                 Array.from(children).forEach((child, childIndex) => {
                   console.log(child);
+                  
                   const dataId = child.getAttribute('data-id');
                   if (dataId) {
                     console.log(`List #${listIndex} - Child #${childIndex} has data-id: ${dataId}`);
