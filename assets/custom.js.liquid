@@ -241,22 +241,22 @@ setInterval(showOnlyVariantImage, 100);
               
                 const dataImages = child.getAttribute('data-images');
 
-if (dataImages) {
-  try {
-    const imageArray = JSON.parse(dataImages); // 👈 convert string to array
-    console.log('Parsed image array:', imageArray);
-
-    // Example: loop through the images
-    imageArray.forEach((img, index) => {
-      console.log(`Image ${index + 1}: ${img}`);
-    });
-
-  } catch (e) {
-    console.error('Failed to parse data-images:', e);
-  }
-} else {
-  console.log('N/A');
-}
+                if (dataImages) {
+                  try {
+                    const imageArray = JSON.parse(dataImages); // 👈 convert string to array
+                    console.log('Parsed image array:', imageArray);
+                
+                    // Example: loop through the images
+                    // imageArray.forEach((img, index) => {
+                    //   console.log(`Image ${index + 1}: ${img}`);
+                    // });
+                
+                  } catch (e) {
+                    console.error('Failed to parse data-images:', e);
+                  }
+                } else {
+                  console.log('N/A');
+                }
 
 
 
