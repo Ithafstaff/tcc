@@ -281,7 +281,7 @@ setInterval(showOnlyVariantImage, 100);
               
               
               }
-            customImageHover();
+            // customImageHover();
 
 
 
