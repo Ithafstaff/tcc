@@ -255,22 +255,7 @@ setInterval(showOnlyVariantImage, 100);
                             input.addEventListener("click", () => {
                             console.log(`Click: ${color}`);
                     
-                            // const matchingUrls = productImages.filter(url => url.toLowerCase().includes(color));
-                    
-                            // if (matchingUrls.length > 0) {
-                            //   primaryImg.src = matchingUrls[0];
-                            //   primaryImg.srcset = matchingUrls[0];
-                            //   // console.log("Primary Image:", matchingUrls[0]);
-                    
-                            //   imgHover = matchingUrls[1] || null;
-                            //   // console.log("imgHover:", imgHover);
-                    
-                            //   if (overlay && imgHover) {
-                            //     overlay.style.backgroundImage = `url('${imgHover}')`;
-                            //   }
-                            // } else {
-                            //   // console.warn(`No matching image found for color: ${color}`);
-                            // }
+            
                           });
 
                           
