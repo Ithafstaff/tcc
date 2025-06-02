@@ -229,6 +229,7 @@ setInterval(showOnlyVariantImage, 100);
 function customImageHover() {
   const productCards = document.querySelectorAll('.product-card');
   const productLists = document.querySelectorAll('.product-list');
+  const primaryImg = card.querySelector('.product-card__image--primary');
 
   productLists.forEach((list, listIndex) => {
     const children = list.children;
