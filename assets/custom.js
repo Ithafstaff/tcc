@@ -237,6 +237,15 @@ setInterval(showOnlyVariantImage, 100);
             
                 });
               });
+
+ window.productMedia = {{ product.media | json }};
+console.log(window.productMedia);
+
+const images = window.productMedia.filter(item => item.media_type === 'image');
+console.log('Images only:', images);
+
+
+              
               
               }
             customImageHover();
