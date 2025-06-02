@@ -251,13 +251,6 @@ setInterval(showOnlyVariantImage, 100);
                         ];
                         console.log("Product images:", productImages);
 
-
-
-
-
-
-
-
               
               }
             customImageHover();
