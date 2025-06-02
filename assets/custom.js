@@ -261,15 +261,10 @@ setInterval(showOnlyVariantImage, 100);
                           
                         });
                         // console.log(`Total number of variant color swatches: ${swatchInputs.length}`);
-
-
-                  
+          
                 });
               });
-
-
-
-              
+       
               
               }
             // customImageHover();
