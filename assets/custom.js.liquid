@@ -229,7 +229,7 @@ setInterval(showOnlyVariantImage, 100);
 function customImageHover() {
   const productCards = document.querySelectorAll('.product-card');
   const productLists = document.querySelectorAll('.product-list');
-  const primaryImg = document.querySelector('.product-card__image--primary');
+
 
   productLists.forEach((list, listIndex) => {
     const children = list.children;
@@ -255,7 +255,7 @@ function customImageHover() {
         const color = input.dataset.color || 'N/A';
         console.log(`Input color: ${color}`);
 
-        
+          const primaryImg = child.querySelector('.product-card__image--primary');
 input.addEventListener("click", () => {
   console.log(`Click: ${color}`);
 
