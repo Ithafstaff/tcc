@@ -273,11 +273,12 @@ input.addEventListener("click", () => {
 
   primaryImg.src = selectedColorImages[0];
   primaryImg.srcset = selectedColorImages[0];
+  overlay.style.backgroundImage = `url('${selectedColorImages[1]}')`;
 });
 
            imgHoverContainer.addEventListener("mouseenter", () => {
                             if (overlay) overlay.style.opacity = '1';
-             overlay.style.backgroundImage = `url('${selectedColorImages[1]}')`;
+             
                           });
                     
                           imgHoverContainer.addEventListener("mouseleave", () => {
