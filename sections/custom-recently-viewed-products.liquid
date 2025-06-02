@@ -111,15 +111,18 @@ LIQUID
               
               
             </product-list>
-            <script>
-                    alert('test');
-              const test = document.querySelectorAll('.custom-product-list');
-        
-              test.forEach(list => {
-                list.style.border = '5px solid red';
-              });
-            
-            </script>
+          <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    alert('test');
+    
+    const test = document.querySelectorAll('.custom-product-list');
+
+    test.forEach(list => {
+      list.style.border = '5px solid red';
+    });
+  });
+</script>
+
             
           </reveal-items>
         </scroll-carousel>
