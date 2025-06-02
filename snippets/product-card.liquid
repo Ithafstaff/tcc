@@ -47,7 +47,7 @@ Supported variables
   {%- assign card_class = card_class | append: 'product-card--show-secondary-media' -%}
 {%- endif -%}
 
-<product-card handle="{{ product.handle | escape }}" data-id="{{ product.id }}" data-first-media="{{ product.media[0] | image_url }} }}" {% if reveal and settings.stagger_products_apparition %}reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
+<product-card handle="{{ product.handle | escape }}" data-id="{{ product.id }}" data-first-media="{{ product.media[0] | image_url }}" data-second-media="{{ product.media[1] | image_url }}"  {% if reveal and settings.stagger_products_apparition %}reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
   {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------
   PRODUCT BADGES
