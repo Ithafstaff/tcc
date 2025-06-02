@@ -239,7 +239,7 @@ setInterval(showOnlyVariantImage, 100);
 
 
 
-              document.addEventListener("DOMContentLoaded", function () {
+   
               function customImageHover() {
               alert('test');
 
@@ -251,7 +251,7 @@ setInterval(showOnlyVariantImage, 100);
                 
               }
               customImageHover();
-              });
+            
 
 
 
