@@ -254,19 +254,17 @@ function customImageHover() {
         const color = input.dataset.color || 'N/A';
         console.log(`Input color: ${color}`);
 
-       input.addEventListener("click", () => {
-        console.log(`Click: ${color}`);
-        
-        const filteredImages = imageArray.filter(img => img.includes(color.toLowerCase()));
-      
-        if (filteredImages.length > 0) {
-          filteredImages.forEach((img, index) => {
-            console.log(`Filtered Image ${index + 1}: ${img}`);
-          });
-        } else {
-          console.log(`No images found for color: ${color}`);
-        }
-      });
+input.addEventListener("click", () => {
+  console.log(`Click: ${color}`);
+
+  const filteredImages = imageArray.filter(img => img.includes(color.toLowerCase()));
+
+  // Store filtered result into an array
+  const selectedColorImages = [...filteredImages]; // or just use `filteredImages` directly
+
+  console.log('Selected color images array:', selectedColorImages);
+});
+
 
       });
     });
