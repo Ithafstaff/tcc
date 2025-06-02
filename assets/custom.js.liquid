@@ -241,6 +241,27 @@ setInterval(showOnlyVariantImage, 100);
               
                 const dataImages = child.getAttribute('data-images');
 
+
+
+
+                   const swatchInputs = child.querySelectorAll('.sr-only.custom__swatch');
+                  // Log colors found on inputs
+                        swatchInputs.forEach(input => {
+                          const color = input.dataset.color || 'N/A';
+                          console.log(`Input color: ${color}`);
+
+
+                            input.addEventListener("click", () => {
+                            console.log(`Click: ${color}`);
+                    
+                          });
+
+                        });
+
+                  
+
+                  
+
                 if (dataImages) {
                   try {
                     const imageArray = JSON.parse(dataImages); // 👈 convert string to array
@@ -260,20 +281,7 @@ setInterval(showOnlyVariantImage, 100);
 
 
 
-                  const swatchInputs = child.querySelectorAll('.sr-only.custom__swatch');
-                  // Log colors found on inputs
-                        swatchInputs.forEach(input => {
-                          const color = input.dataset.color || 'N/A';
-                          console.log(`Input color: ${color}`);
-
-
-                            input.addEventListener("click", () => {
-                            console.log(`Click: ${color}`);
-                    
-                          });
-
-                          
-                        });
+                 
 
 
           
