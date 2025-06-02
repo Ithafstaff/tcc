@@ -222,8 +222,39 @@ setInterval(showOnlyVariantImage, 100);
 
 
 
-              console.log('test');
+               console.log('test');
 
+
+            function customImageHover() {
+              const productCards = document.querySelectorAll('.product-card');
+              
+              const productLists = document.querySelectorAll('.product-list');
+
+productLists.forEach((list, listIndex) => {
+  const children = list.children;
+  Array.from(children).forEach((child, childIndex) => {
+    const dataId = child.getAttribute('data-id');
+    if (dataId) {
+      console.log(`List #${listIndex} - Child #${childIndex} has data-id: ${dataId}`);
+    } else {
+      console.log(`List #${listIndex} - Child #${childIndex} has no data-id.`);
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+              
+              }
+            customImageHover();
 
 
 
