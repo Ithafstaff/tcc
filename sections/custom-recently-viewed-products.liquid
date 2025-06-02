@@ -91,6 +91,14 @@ LIQUID
 
             
             <product-list class="product-list custom-product-list test">
+<script>
+
+  const test = document.querySelectorAll('.custom-product-list');
+  alert('test3');
+  test.forEach(list => {
+    list.style.border = '5px solid red';
+  });
+</script>
 
 
            
@@ -141,14 +149,6 @@ LIQUID
   {%- endif -%}
 </recently-viewed-products>
 
-<script>
-
-  const test = document.querySelectorAll('.custom-product-list');
-  alert('test3');
-  test.forEach(list => {
-    list.style.border = '5px solid red';
-  });
-</script>
 
 
 
