@@ -228,10 +228,10 @@ setInterval(showOnlyVariantImage, 100);
 //script for variant and hover images in collection product card
 function customImageHover() {
   const productCards = document.querySelectorAll('.product-card');
-  const productLists = document.querySelector('.custom-product-list');
+  const productLists = document.querySelectorAll('.custom-product-list');
 
   productLists.forEach(list => {
-    list.style.border = '5px solid red';
+    list.style.border = '5px solid red !important';
   });
   productLists.forEach((list, listIndex) => {
     const children = list.children;
