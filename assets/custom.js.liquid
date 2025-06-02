@@ -269,6 +269,9 @@ setInterval(showOnlyVariantImage, 100);
 
                             input.addEventListener("click", () => {
                             console.log(`Click: ${color}`);
+                                   imageArray.forEach((img, index) => {
+                                      console.log(`Image ${index + 1}: ${img}`);
+                                    });
                     
                           });
 
