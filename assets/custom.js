@@ -267,8 +267,7 @@ setInterval(showOnlyVariantImage, 100);
 
 
 
-              
-
+  
 
               
               
