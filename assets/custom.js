@@ -230,6 +230,8 @@ setInterval(showOnlyVariantImage, 100);
               
               const productLists = document.querySelectorAll('.product-list');
 
+              
+
               productLists.forEach((list, listIndex) => {
                 const children = list.children;
                 Array.from(children).forEach((child, childIndex) => {
@@ -241,17 +243,24 @@ setInterval(showOnlyVariantImage, 100);
                   } else {
                     console.log(`List #${listIndex} - Child #${childIndex} has no data-id.`);
                   }
-                });
-              });
 
-              const swatchInputs = document.querySelectorAll('.sr-only.custom__swatch');
 
-                        // Log colors found on inputs
+                  const swatchInputs = child.querySelectorAll('.sr-only.custom__swatch');
+                  // Log colors found on inputs
                         swatchInputs.forEach(input => {
                           const color = input.dataset.color || 'N/A';
                           console.log(`Input color: ${color}`);
                         });
                         // console.log(`Total number of variant color swatches: ${swatchInputs.length}`);
+
+
+                  
+                });
+              });
+
+              
+
+                        
 
 
 
