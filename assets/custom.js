@@ -240,18 +240,7 @@ setInterval(showOnlyVariantImage, 100);
 
 
    
-              function customImageHover() {
-              alert('test');
-
-
-
-
-
-
-                
-              }
-              customImageHover();
-            
+       
 
 
 
