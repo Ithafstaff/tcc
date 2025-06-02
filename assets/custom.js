@@ -222,9 +222,8 @@ setInterval(showOnlyVariantImage, 100);
 
 
 
-<script>
               console.log('test');
-          </script>
+
 
 
 
