@@ -215,10 +215,7 @@ Supported variables
               <!-- script for variation select and hover img -->
                  <script>
                     document.addEventListener("DOMContentLoaded", function () {
-                     
-                      
-
-
+                    
                       const productCards = document.querySelectorAll('.product-card');
                       
                       productCards.forEach(card => {
@@ -231,8 +228,6 @@ Supported variables
                         const imgHoverContainer = card.querySelector('.custom__product-card'); 
                         const overlay = card.querySelector('.custom__product-card-overlay');
 
-
-              
 
                         // Get the second image URL from Liquid
                         const hoverImage = "{{ product.media[1] | image_url }}";
@@ -290,12 +285,10 @@ Supported variables
                         });
 
 
-
                       });
                       
                     });
                   </script>
-
 
 
             
