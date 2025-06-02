@@ -265,7 +265,7 @@ setInterval(showOnlyVariantImage, 100);
 
 
                         const productImages = [
-                          {% for media in product.media %}
+                          {% for media in child.media %}
                             "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
                           {% endfor %}
                         ];
