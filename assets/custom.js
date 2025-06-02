@@ -234,18 +234,24 @@ setInterval(showOnlyVariantImage, 100);
                 const children = list.children;
                 Array.from(children).forEach((child, childIndex) => {
                   console.log(child);
-            
+                  
+                  const dataId = child.getAttribute('data-id');
+                  if (dataId) {
+                    console.log(`List #${listIndex} - Child #${childIndex} has data-id: ${dataId}`);
+                  } else {
+                    console.log(`List #${listIndex} - Child #${childIndex} has no data-id.`);
+                  }
                 });
               });
 
-const mediaScript = document.getElementById('product-media-data');
 
-if (mediaScript) {
-  const productMedia = JSON.parse(mediaScript.textContent);
-  console.log('All media:', productMedia);
 
-}
 
+
+
+
+
+              
 
 
               
