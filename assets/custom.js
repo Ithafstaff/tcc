@@ -244,12 +244,13 @@ setInterval(showOnlyVariantImage, 100);
               });
 
 
-              const productImages = [
-                          {% for media in product.media %}
-                            "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
-                          {% endfor %}
-                        ];
-                        console.log("Product images:", productImages);
+            const productImages = [
+  {% for media in product.media %}
+    "{{ media | image_url }}"{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+console.log("Product images:", productImages);
+
 
               
               }
