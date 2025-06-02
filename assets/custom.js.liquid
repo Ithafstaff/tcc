@@ -240,12 +240,12 @@ function customImageHover() {
       if (dataImages) {
         try {
           imageArray = JSON.parse(dataImages);
-          console.log('Parsed image array:', imageArray);
+          // console.log('Parsed image array:', imageArray);
         } catch (e) {
-          console.error('Failed to parse data-images:', e);
+          // console.error('Failed to parse data-images:', e);
         }
       } else {
-        console.log('N/A');
+        // console.log('N/A');
       }
 
       const swatchInputs = child.querySelectorAll('.sr-only.custom__swatch');
@@ -259,10 +259,10 @@ function customImageHover() {
 
       swatchInputs.forEach(input => {
         const color = input.dataset.color || 'N/A';
-        console.log(`Input color: ${color}`);
+        // console.log(`Input color: ${color}`);
 
         input.addEventListener("click", () => {
-          console.log(`Click: ${color}`);
+          // console.log(`Click: ${color}`);
 
           const filteredImages = imageArray.filter(img => img.includes(color.toLowerCase()));
           const selectedColorImages = [...filteredImages];
