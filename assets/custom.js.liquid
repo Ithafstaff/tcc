@@ -265,6 +265,10 @@ input.addEventListener("click", () => {
   const selectedColorImages = [...filteredImages]; // or just use `filteredImages` directly
 
   console.log('Selected color images array:', selectedColorImages);
+
+
+  primaryImg.src = selectedColorImages[0];
+  primaryImg.srcset = selectedColorImages[0];
 });
 
         
