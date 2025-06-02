@@ -239,6 +239,7 @@ setInterval(showOnlyVariantImage, 100);
                   console.log(child);
                   
                   const dataId = child.getAttribute('data-id');
+                  const dataImages = child.getAttribute('data-images');
                   if (dataId) {
                     console.log(`List #${listIndex} - Child #${childIndex} has data-id: ${dataId}`);
                   } else {
