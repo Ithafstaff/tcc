@@ -226,66 +226,47 @@ setInterval(showOnlyVariantImage, 100);
 
 
 
-            function customImageHover() {
-              const productCards = document.querySelectorAll('.product-card');
-              
-              const productLists = document.querySelectorAll('.product-list');
+function customImageHover() {
+  const productCards = document.querySelectorAll('.product-card');
+  const productLists = document.querySelectorAll('.product-list');
 
-              
+  productLists.forEach((list, listIndex) => {
+    const children = list.children;
+    Array.from(children).forEach((child, childIndex) => {
 
-              productLists.forEach((list, listIndex) => {
-                const children = list.children;
-                Array.from(children).forEach((child, childIndex) => {
-                  // console.log(child);
-                  
-              
-                const dataImages = child.getAttribute('data-images');
-let imageArray;
-                if (dataImages) {
-                  try {
-                    const imageArray = JSON.parse(dataImages); // 👈 convert string to array
-                    console.log('Parsed image array:', imageArray);
-                
-                    // Example: loop through the images
-                    // imageArray.forEach((img, index) => {
-                    //   console.log(`Image ${index + 1}: ${img}`);
-                    // });
-                
-                  } catch (e) {
-                    console.error('Failed to parse data-images:', e);
-                  }
-                } else {
-                  console.log('N/A');
-                }
+      const dataImages = child.getAttribute('data-images');
+      let imageArray = []; // define it with default value to avoid undefined
 
+      if (dataImages) {
+        try {
+          imageArray = JSON.parse(dataImages); // ✅ no 'const' here
+          console.log('Parsed image array:', imageArray);
+        } catch (e) {
+          console.error('Failed to parse data-images:', e);
+        }
+      } else {
+        console.log('N/A');
+      }
 
+      const swatchInputs = child.querySelectorAll('.sr-only.custom__swatch');
 
-                  const swatchInputs = child.querySelectorAll('.sr-only.custom__swatch');
-                  // Log colors found on inputs
-                        swatchInputs.forEach(input => {
-                          const color = input.dataset.color || 'N/A';
-                          console.log(`Input color: ${color}`);
+      swatchInputs.forEach(input => {
+        const color = input.dataset.color || 'N/A';
+        console.log(`Input color: ${color}`);
 
+        input.addEventListener("click", () => {
+          console.log(`Click: ${color}`);
+          imageArray.forEach((img, index) => {
+            console.log(`Image ${index + 1}: ${img}`);
+          });
+        });
+      });
+    });
+  });
+}
 
-                            input.addEventListener("click", () => {
-                            console.log(`Click: ${color}`);
-                                   imageArray.forEach((img, index) => {
-                                        console.log(`Image ${index + 1}: ${img}`);
-                                      });
-                    
-                          });
+customImageHover();
 
-                          
-                        });
-
-
-          
-                });
-              });
-        
-              
-              }
-            customImageHover();
 
 
 
