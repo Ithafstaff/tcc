@@ -245,6 +245,11 @@ setInterval(showOnlyVariantImage, 100);
                   } else {
                     console.log(`List #${listIndex} - Child #${childIndex} has no data-id.`);
                   }
+                  if (dataImages) {
+                    console.log(`imgages #${listIndex} - imgages #${childIndex} has data-id: ${dataImages}`);
+                  } else {
+                    console.log(`imgages #${listIndex} - imgages #${childIndex} has no data-id.`);
+                  }
 
 
                   const swatchInputs = child.querySelectorAll('.sr-only.custom__swatch');
