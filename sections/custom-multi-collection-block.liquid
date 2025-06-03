@@ -241,8 +241,10 @@
         <div class="custom-multi-col__item-img-box">
           <img class="custom-multi-col__item-img" src="{{ product.featured_image | img_url: 'medium' }}" width="100%" loading="lazy" />
         </div>
-        
-        <!-- {% assign color_option_index = -1 %}
+
+
+        {% comment %}
+        {% assign color_option_index = -1 %}
         
         {% for option in product.options_with_values %}
           {% if option.name == 'Color' %}
@@ -263,7 +265,8 @@
               {% endunless %}
             {% endfor %}
           </div>
-        {% endif %} -->
+        {% endif %}
+      {% endcomment %}
 
 
 
