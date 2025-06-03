@@ -175,8 +175,10 @@
     gap: 6px;
   }
 
-  .custom-multi-col__item-swatch-wrap label {
+  .custom__color-swatch {
     margin: 0;
+    width: 26px;
+    height: 26px;
   }
 
   
@@ -255,7 +257,7 @@
               {% assign color = variant.options[color_option_index] %}
               {% unless colors contains color %}
                 {% assign colors = colors | append: color | append: ',' %}
-                <label class="color-swatch" style="background-color: {{ color | downcase }};" title="{{ color }}">
+                <label class="custom__color-swatch" style="background-color: {{ color | downcase }};" title="{{ color }}">
                   <input type="radio" name="color" value="{{ color }}" class="sr-only">
                 </label>
               {% endunless %}
