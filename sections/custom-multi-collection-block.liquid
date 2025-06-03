@@ -242,7 +242,7 @@
           <img class="custom-multi-col__item-img" src="{{ product.featured_image | img_url: 'medium' }}" width="100%" loading="lazy" />
         </div>
         
-        {% assign color_option_index = -1 %}
+        <!-- {% assign color_option_index = -1 %}
         
         {% for option in product.options_with_values %}
           {% if option.name == 'Color' %}
@@ -263,7 +263,44 @@
               {% endunless %}
             {% endfor %}
           </div>
-        {% endif %}
+        {% endif %} -->
+
+
+
+
+
+<fieldset class="product-card__swatch-list h-stack {% if settings.color_swatch_style == 'rectangle' %}gap-2.5{% else %}gap-0.5{% endif %}" data-option-position="{{ product_option.position }}">
+  <legend class="sr-only">{{ product_option.name }}</legend>
+
+  {%- capture param_name -%}
+    swatch-{{ quick_buy_context }}-{{ section.id }}-{{ product.id }}-{{ product_option.position }}
+  {%- endcapture -%}
+
+  {%- for option_value in product_option.values limit: 4 -%}
+    {%- render 'option-value',
+      type: 'swatch',
+      option_value: option_value,
+      param_name: param_name,
+      option_position: product_option.position,
+      output_variant_media: true,
+      size: 'sm'
+    -%}
+  {%- endfor -%}
+
+  {% if product_option.values.size > 4 %}
+    <a href="{{ product.url }}" data-instant class="color-swatch__view-more {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %} text-xxs text-subdued">+{{ product_option.values.size | minus: 4 }}</a>
+  {% endif %}
+</fieldset>
+
+
+
+
+
+
+
+
+
+        
 
         <h3 class="custom-multi-col__item-name">{{ product.title }}</h3>
         <p class="custom-multi-col__item-desc">{{ product.description | strip_html | truncatewords: 10 }}</p>
