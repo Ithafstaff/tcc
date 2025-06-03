@@ -234,28 +234,28 @@
           <img class="custom-multi-col__item-img" src="{{ product.featured_image | img_url: 'medium' }}" width="100%" loading="lazy" />
         </div>
         <div class="custom-multi-col__item-swatch-wrap">
-{% assign color_option_index = -1 %}
-
-{% for option in product.options_with_values %}
-  {% if option.name == 'Color' %}
-    {% assign color_option_index = forloop.index0 %}
-  {% endif %}
-{% endfor %}
-
-{% if color_option_index >= 0 %}
-  <div class="color-swatches">
-    {% assign colors = '' %}
-    {% for variant in product.variants %}
-      {% assign color = variant.options[color_option_index] %}
-      {% unless colors contains color %}
-        {% assign colors = colors | append: color | append: ',' %}
-        <label class="color-swatch" style="background-color: {{ color | downcase }};" title="{{ color }}">
-          <input type="radio" name="color" value="{{ color }}" class="sr-only">
-        </label>
-      {% endunless %}
-    {% endfor %}
-  </div>
-{% endif %}
+        {% assign color_option_index = -1 %}
+        
+        {% for option in product.options_with_values %}
+          {% if option.name == 'Color' %}
+            {% assign color_option_index = forloop.index0 %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if color_option_index >= 0 %}
+          <div class="color-swatches">
+            {% assign colors = '' %}
+            {% for variant in product.variants %}
+              {% assign color = variant.options[color_option_index] %}
+              {% unless colors contains color %}
+                {% assign colors = colors | append: color | append: ',' %}
+                <label class="color-swatch" style="background-color: {{ color | downcase }};" title="{{ color }}">
+                  <input type="radio" name="color" value="{{ color }}" class="sr-only">
+                </label>
+              {% endunless %}
+            {% endfor %}
+          </div>
+        {% endif %}
 
         </div>
         <h3 class="custom-multi-col__item-name">{{ product.title }}</h3>
