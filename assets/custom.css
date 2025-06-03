@@ -513,6 +513,11 @@
 
 /* start of custom collection variant style */
 
+.custom__product-card {
+  width: 240px;
+  height: 240px;
+}
+
 .custom__product-card-overlay {
   content: "";
   position: absolute;
