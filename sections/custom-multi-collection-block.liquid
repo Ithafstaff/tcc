@@ -272,7 +272,7 @@
 
 
 
-<fieldset class="product-card__swatch-list h-stack {% if settings.color_swatch_style == 'rectangle' %}gap-2.5{% else %}gap-0.5{% endif %}" data-option-position="{{ product_option.position }}">
+<fieldset class="product-card__swatch-list h-stack">
                   <legend class="sr-only">{{ product_option.name }}</legend>
 
                   {%- capture param_name -%}swatch-{{ quick_buy_context }}-{{ section.id }}-{{ product.id }}-{{ product_option.position }}{%- endcapture -%}
