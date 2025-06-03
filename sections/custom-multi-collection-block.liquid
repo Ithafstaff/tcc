@@ -279,16 +279,11 @@
     swatch-{{ quick_buy_context }}-{{ section.id }}-{{ product.id }}-{{ product_option.position }}
   {%- endcapture -%}
 
-  {%- for option_value in product_option.values limit: 4 -%}
-    {%- render 'option-value',
-      type: 'swatch',
-      option_value: option_value,
-      param_name: param_name,
-      option_position: product_option.position,
-      output_variant_media: true,
-      size: 'sm'
-    -%}
-  {%- endfor -%}
+  {%- liquid
+                    for option_value in product_option.values limit: 4
+                      render 'option-value', type: 'swatch', option_value: option_value, param_name: param_name, option_position: product_option.position, output_variant_media: true, size: 'sm'
+                    endfor
+                  -%}
 
   {% if product_option.values.size > 4 %}
     <a href="{{ product.url }}" data-instant class="color-swatch__view-more {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %} text-xxs text-subdued">+{{ product_option.values.size | minus: 4 }}</a>
