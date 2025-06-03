@@ -194,6 +194,18 @@
 
     <script defer src="{{ 'slider.js' | asset_url }}"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    alert('test');
+    
+    const test = document.querySelector('.custom-product-list');
+
+      test.style.border = '5px solid red';
+
+  });
+
+    </script>
+
     {% comment %} <script>
       document.addEventListener('DOMContentLoaded', function () {
         // Delay to allow cart-drawer shadow DOM to render
