@@ -35,7 +35,8 @@ LIQUID
     {%- assign product_count = 0 -%}
     {%- for block in section.blocks -%}
       {%- if product_count < 3 -%}
-        {%- assign product = block.settings.product -%}
+        {%- assign product_handle = block.settings.product -%}
+        {%- assign product = all_products[product_handle] -%}
 
         <!-- Product Card -->
         <a href="{{ product.url }}" style="scroll-snap-align: start; width: calc(33.333% - 1.5rem); flex-shrink: 0; overflow: hidden; border-radius: 0.375rem; display: block; text-decoration: none;">
@@ -58,6 +59,7 @@ LIQUID
     {%- endfor -%}
   </div>
 </div>
+
 
 </div>
 
