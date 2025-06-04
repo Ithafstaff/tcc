@@ -1017,12 +1017,12 @@ function hoverSwatch(el) {
   const productImage = productCard.querySelector('.product-image');
   const variantImage = el.dataset.image;
 
-  // 🧼 Clean all underlines in this product card
+  // Remove all underlines
   productCard.querySelectorAll('.variant-picker__option-value__underline').forEach(underline => {
     underline.style.opacity = '0';
   });
 
-  // 👁️ Update image only if it's different
+  // Update image on hover
   if (productImage && variantImage && productImage.src !== variantImage) {
     productImage.style.opacity = '0.7';
     setTimeout(() => {
@@ -1031,7 +1031,7 @@ function hoverSwatch(el) {
     }, 150);
   }
 
-  // ✅ Show underline for current hovered
+  // Show underline for hovered swatch
   const underline = el.querySelector('.variant-picker__option-value__underline');
   if (underline) {
     underline.style.opacity = '1';
@@ -1040,31 +1040,37 @@ function hoverSwatch(el) {
 
 
 
+
 function unhoverSwatch(el) {
   const productCard = el.closest('[style*="width: 250px"]');
   const productImage = productCard.querySelector('.product-image');
   const selectedSwatch = productCard.querySelector('.variant-picker__option-value[data-selected="true"]');
-  const underline = el.querySelector('.variant-picker__option-value__underline');
 
+  // Hide underline of currently unhovered swatch
+  const underline = el.querySelector('.variant-picker__option-value__underline');
   if (underline) {
     underline.style.opacity = '0';
   }
 
-  if (productImage && selectedSwatch) {
+  // Restore underline to selected swatch
+  if (selectedSwatch && selectedSwatch !== el) {
+    const selectedUnderline = selectedSwatch.querySelector('.variant-picker__option-value__underline');
+    if (selectedUnderline) {
+      selectedUnderline.style.opacity = '1';
+    }
+
+    // Also reset image to selected
     const selectedImage = selectedSwatch.dataset.image;
-
-    productImage.style.opacity = '0.7';
-    setTimeout(() => {
-      productImage.src = selectedImage;
-      productImage.style.opacity = '1';
-    }, 150);
-
-    // Re-show underline if el *is* the selected swatch
-    if (el === selectedSwatch && underline) {
-      underline.style.opacity = '1';
+    if (productImage && selectedImage) {
+      productImage.style.opacity = '0.7';
+      setTimeout(() => {
+        productImage.src = selectedImage;
+        productImage.style.opacity = '1';
+      }, 150);
     }
   }
 }
+
 
 
   function selectSwatch(el) {
