@@ -398,67 +398,7 @@
       </div>
         
         <div id="profile-section" class="profile__account-wrap" style="padding-bottom: 20px;">
-          <h3 class="profile__account-heading">Manage and protect your account</h3>
-          <div class="profile__account-info-wrap">
-            
-          {% if customer %}
-            <div class="profile__account-info-block">
-              <form class="profile__account-info-container" method="post" action="/account">
-                <div class="profile__account-info-row row-flex">
-                  <div class="profile__account-row-block">
-                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
-                    <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" name="customer[first_name]" value="{{ customer.first_name }}" placeholder="First Name">
-                  </div>
-                  <div class="profile__account-row-block">
-                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
-                    <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" name="customer[last_name]" value="{{ customer.last_name }}" placeholder="Last Name">
-                  </div>
-                </div>
-            
-                <div class="profile__account-info-row">
-                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_3.svg?v=1746218281">
-                  <label for="dob">Date of Birth</label>
-                  <input type="text" id="dob" name="customer[note][dob]" value="{{ customer.note.dob }}" placeholder="MM/DD/YYYY">
-                </div>
-            
-                <div class="profile__account-info-row">
-                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/mdi-light_phone.svg?v=1746218281">
-                  <label for="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="customer[phone]" value="{{ customer.phone }}" placeholder="Phone Number">
-                </div>
-            
-                <div class="profile__account-info-row">
-                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/stash_person-light.svg?v=1746218418">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="customer[email]" value="{{ customer.email }}" placeholder="Email">
-                </div>
-            
-                <div class="profile__account-info-row">
-                  <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/circum_lock.svg?v=1746218282">
-                  <label for="password">Password</label>
-                  <input type="password" id="password" name="customer[password]" placeholder="New Password">
-                  <span id="togglePassword" class="toggle-eye"></span>
-                </div>
-            
-                <button class="profile__account-btn-submit" type="submit">Update Account Information</button>
-              </form>
-            </div>
-          {% endif %}
-
-
-            
-          <div class="profile__account-pic-block">
-            <div class="profile__account-pic-box">
-              <img class="profile__account-pic" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/img_prof-pic_1.png?v=1746477596">
-            </div>
-            <label class="profile__account-input-label" for="imageInput">Select Image</label>
-            <input type="file" id="imageInput" class="profile__account-input-file" accept="image/*">
-            <span class="profile__account-input-note">File size: maximum 1MB<br>File extension: .JPEG, .PNG</span>
-          </div>
-            
-          </div>
+          
         </div>
         
                           <!-- ADDRESS SECTION -->
