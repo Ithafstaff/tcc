@@ -6160,7 +6160,9 @@ product-rerender {
 }
 
 .header__logo-image {
-  width: var(--header-logo-width);
+  /* width: var(--header-logo-width); */
+  max-width: 150px;
+  width: 100%;
   height: auto;
   opacity: var(--header-logo-opacity, 1);
 }
