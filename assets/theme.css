@@ -6241,6 +6241,7 @@ product-rerender {
   .header__link-list {
     gap: var(--spacing-4) var(--header-link-list-spacing);
     display: flex;
+    font-size: 12px;
   }
 }
 
