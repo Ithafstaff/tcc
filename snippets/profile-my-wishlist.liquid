@@ -1012,66 +1012,61 @@ setTimeout(() => {
     window.selectSwatch = selectSwatch;
   });
 
-function hoverSwatch(el) {
-  const productCard = el.closest('[style*="width: 250px"]');
-  const productImage = productCard.querySelector('.product-image');
-  const variantImage = el.dataset.image;
-
-  // Remove all underlines
-  productCard.querySelectorAll('.variant-picker__option-value__underline').forEach(underline => {
-    underline.style.opacity = '0';
-  });
-
-  // Update image on hover
-  if (productImage && variantImage && productImage.src !== variantImage) {
-    productImage.style.opacity = '0.7';
-    setTimeout(() => {
-      productImage.src = variantImage;
-      productImage.style.opacity = '1';
-    }, 150);
-  }
-
-  // Show underline for hovered swatch
-  const underline = el.querySelector('.variant-picker__option-value__underline');
-  if (underline) {
-    underline.style.opacity = '1';
-  }
-}
-
-
-
-
-function unhoverSwatch(el) {
-  const productCard = el.closest('[style*="width: 250px"]');
-  const productImage = productCard.querySelector('.product-image');
-  const selectedSwatch = productCard.querySelector('.variant-picker__option-value[data-selected="true"]');
-
-  // Hide underline of currently unhovered swatch
-  const underline = el.querySelector('.variant-picker__option-value__underline');
-  if (underline) {
-    underline.style.opacity = '0';
-  }
-
-  // Restore underline to selected swatch
-  if (selectedSwatch && selectedSwatch !== el) {
-    const selectedUnderline = selectedSwatch.querySelector('.variant-picker__option-value__underline');
-    if (selectedUnderline) {
-      selectedUnderline.style.opacity = '1';
-    }
-
-    // Also reset image to selected
-    const selectedImage = selectedSwatch.dataset.image;
-    if (productImage && selectedImage) {
+  function hoverSwatch(el) {
+    const productCard = el.closest('[style*="width: 250px"]');
+    const productImage = productCard.querySelector('.product-image');
+    const variantImage = el.dataset.image;
+  
+    // Remove all underlines
+    productCard.querySelectorAll('.variant-picker__option-value__underline').forEach(underline => {
+      underline.style.opacity = '0';
+    });
+  
+    // Update image on hover
+    if (productImage && variantImage && productImage.src !== variantImage) {
       productImage.style.opacity = '0.7';
       setTimeout(() => {
-        productImage.src = selectedImage;
+        productImage.src = variantImage;
         productImage.style.opacity = '1';
       }, 150);
     }
+  
+    // Show underline for hovered swatch
+    const underline = el.querySelector('.variant-picker__option-value__underline');
+    if (underline) {
+      underline.style.opacity = '1';
+    }
   }
-}
-
-
+  
+  function unhoverSwatch(el) {
+    const productCard = el.closest('[style*="width: 250px"]');
+    const productImage = productCard.querySelector('.product-image');
+    const selectedSwatch = productCard.querySelector('.variant-picker__option-value[data-selected="true"]');
+  
+    // Hide underline of currently unhovered swatch
+    const underline = el.querySelector('.variant-picker__option-value__underline');
+    if (underline) {
+      underline.style.opacity = '0';
+    }
+  
+    // Restore underline to selected swatch
+    if (selectedSwatch && selectedSwatch !== el) {
+      const selectedUnderline = selectedSwatch.querySelector('.variant-picker__option-value__underline');
+      if (selectedUnderline) {
+        selectedUnderline.style.opacity = '1';
+      }
+  
+      // Also reset image to selected
+      const selectedImage = selectedSwatch.dataset.image;
+      if (productImage && selectedImage) {
+        productImage.style.opacity = '0.7';
+        setTimeout(() => {
+          productImage.src = selectedImage;
+          productImage.style.opacity = '1';
+        }, 150);
+      }
+    }
+  }
 
   function selectSwatch(el) {
     const container = el.parentElement;
