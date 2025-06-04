@@ -1168,4 +1168,9 @@ function unhoverSwatch(el) {
       selectSwatch(el);
     });
   });
+
+  document.querySelectorAll('.variant-picker__option-value[data-selected="true"]').forEach(swatch => {
+  hoverSwatch(swatch);
+});
+
 </script>
