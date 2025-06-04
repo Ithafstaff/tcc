@@ -106,36 +106,6 @@
             "payment_button_text_color": ""
           }
         },
-        "subi_ex_subify_app_block_9dQAbU": {
-          "type": "shopify://apps/subi-subscriptions/blocks/app-block/bc0dba25-cd46-4841-bea4-6bdfe9ac815f",
-          "disabled": true,
-          "settings": {
-            "product": "{{product}}",
-            "use_app_block_wording": false,
-            "widget_label": "Purchase options",
-            "one_time_purchase_text": "One-Time Purchase",
-            "subscription_text": "Subscribe and save",
-            "delivery_frequency_text": "Delivery frequency",
-            "prepaid_subscription_text": "Subscription with prepaid",
-            "skin1_priceSuffix": "each",
-            "skin1_save": "Save(skin1)",
-            "skin1_prepaid_payment_title": "prepaid",
-            "skin1_normal_payment_title": "pay as you go",
-            "skin2_discountSuffix": "Save",
-            "skin3_fullPrice": "Full price",
-            "skin3_priceSuffix": "each",
-            "skin3_discountSuffix": "Off",
-            "skin4_justOnce": "Just once",
-            "skin4_discountSuffix": "Off",
-            "skin4_priceSuffix": "each",
-            "skin4_fullPrice": "(Full price)",
-            "skin4_sellingPlansTitle": "Renews every:",
-            "from": "from",
-            "max_discount_badge_title": "UP To",
-            "pay": "Pay",
-            "price_save_up_to": "save up to"
-          }
-        },
         "description": {
           "type": "description",
           "settings": {
@@ -182,7 +152,6 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "subi_ex_subify_app_block_9dQAbU",
         "description",
         "collapsible_text_yD3c9J",
         "collapsible_text_9mdYfy"
