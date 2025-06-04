@@ -373,6 +373,7 @@
       "block_order": [
         "heading_74VdiT"
       ],
+      "disabled": true,
       "settings": {
         "full_width": true,
         "content_width": "small",
@@ -385,6 +386,7 @@
     },
     "custom_drawer_banner_EmtM96": {
       "type": "custom-drawer-banner",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Judaica.png",
         "collection": ""
@@ -417,6 +419,7 @@
         "product_KbrCpc",
         "product_NMDFmn"
       ],
+      "disabled": true,
       "custom_css": [
         ".section-full {padding: 40px;}"
       ],
@@ -438,6 +441,7 @@
       "block_order": [
         "button_Adrajz"
       ],
+      "disabled": true,
       "settings": {
         "heading": "DESIGNED TO REFLECT ELEGANCE",
         "subheading": "Designed to blend into any space and stand out all at once"
@@ -445,6 +449,7 @@
     },
     "custom_drawer_banner_pUz7df": {
       "type": "custom-drawer-banner",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Dining.png",
         "collection": ""
@@ -477,6 +482,7 @@
         "product_qpEKmj",
         "product_GPt94N"
       ],
+      "disabled": true,
       "custom_css": [
         ".section-full {padding: 40px;}"
       ],
@@ -498,6 +504,7 @@
       "block_order": [
         "button_E9cczY"
       ],
+      "disabled": true,
       "settings": {
         "heading": "DINING ELEGANCE ON SALE",
         "subheading": "Created to impress, built to serve — modern dinnerware with graceful appeal"
@@ -505,6 +512,7 @@
     },
     "custom_drawer_banner_NweafM": {
       "type": "custom-drawer-banner",
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Lucite-1.png",
         "collection": ""
@@ -537,6 +545,7 @@
         "product_pKJEK7",
         "product_TNgjN4"
       ],
+      "disabled": true,
       "custom_css": [
         ".section-full {padding: 40px;}"
       ],
@@ -558,6 +567,7 @@
       "block_order": [
         "button_zz6wbT"
       ],
+      "disabled": true,
       "settings": {
         "heading": "SLEEK SOPHISTICATION FOR EVERYDAY USE",
         "subheading": "Timeless lucite pieces that elevate your home with clarity, grace, and understated luxury"
