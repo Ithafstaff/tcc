@@ -271,6 +271,7 @@
     },
     "featured_collection_x3HbxJ": {
       "type": "featured-collection",
+      "disabled": true,
       "custom_css": [
         ".section-stack {max-width: 1356px; margin: 0 auto;}"
       ],
