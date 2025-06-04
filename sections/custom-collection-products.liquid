@@ -30,35 +30,35 @@ LIQUID
   </div>
 
   <!-- Product List Section (Limited to 3 Products) -->
-  <div class="x:mt-8 x:overflow-hidden">
-    <div id="scroll-area-{{ section.id }}" class="x:flex x:gap-6 x:overflow-x-auto x:scroll-smooth" style="scroll-snap-type: x mandatory;">
-      {%- assign product_count = 0 -%}
-      {%- for block in section.blocks -%}
-        {%- if product_count < 3 -%}
-          {%- assign product = block.settings.product -%}
+<div style="margin-top: 2rem; overflow: hidden;">
+  <div id="scroll-area-{{ section.id }}" style="display: flex; gap: 1.5rem; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory;">
+    {%- assign product_count = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if product_count < 3 -%}
+        {%- assign product = block.settings.product -%}
 
-          <!-- Product Card -->
-          <a href="{{ product.url }}" class="x:group product-card x:w-[calc(33.333%-1.5rem)] sm:x:w-[calc(50%-1.5rem)] lg:x:w-[calc(33.333%-1.5rem)] x:shrink-0 x:overflow-hidden x:rounded-md">
-            <div class=" x:w-full x:h-[400px] x:flex x:items-center x:justify-center x:bg-gray-300 x:relative">
-              <div class="x:absolute x:bottom-0 x:left-0 x:w-full x:h-12 x:bg-black x:z-10 x:opacity-0 x:pointer-events-none x:group-hover:opacity-70 x:group-hover:pointer-events-auto x:flex x:items-center x:justify-center x:transition-all x:duration-300">
-                <span class="x:uppercase x:text-white">view product</span>
-              </div>
-              {%- if product.featured_image != blank -%}
-                <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" class="x:w-full x:h-full x:object-cover" loading="lazy">
-              {%- else -%}
-                <span>No Image Available</span>
-              {%- endif -%}
+        <!-- Product Card -->
+        <a href="{{ product.url }}" style="scroll-snap-align: start; width: calc(33.333% - 1.5rem); flex-shrink: 0; overflow: hidden; border-radius: 0.375rem; display: block; text-decoration: none;">
+          <div style="width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; background-color: #d1d5db; position: relative;">
+            <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 48px; background-color: black; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+              <span style="text-transform: uppercase; color: white;">view product</span>
             </div>
-            <p style="font-family: 'Poppins', sans-serif;" class="x:text-center x:mt-4 x:text-[16px]">
-              {{ product.title }}
-            </p>
-            <!-- <p class="x:text-center x:text-sm x:text-gray-500">{{ product.price | money }}</p> -->
-          </a>
-          {%- assign product_count = product_count | plus: 1 -%}
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
+            {%- if product.featured_image != blank -%}
+              <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            {%- else -%}
+              <span>No Image Available</span>
+            {%- endif -%}
+          </div>
+          <p style="font-family: 'Poppins', sans-serif; text-align: center; margin-top: 1rem; font-size: 16px;">
+            {{ product.title }}
+          </p>
+        </a>
+        {%- assign product_count = product_count | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
   </div>
+</div>
+
 </div>
 
 {% schema %}
