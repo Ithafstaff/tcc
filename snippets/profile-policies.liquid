@@ -391,7 +391,7 @@
       <div class="profile__order-container">
       <div class="profile__order-cat-wrap flex-start">
         <a href="#" id="profile-tab" class="profile__order-cat-link profile__order-cat-link--active">pickup</a>
-        <a href="#" id="addresses-tab" class="profile__order-cat-link">ADDRESSES</a>
+        <a href="#" id="shipping-tab" class="profile__order-cat-link">shipping</a>
         <a href="#" id="deletion-tab" class="profile__order-cat-link">ACCOUNT DELETION</a>
       </div>
         
@@ -420,7 +420,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     const tabs = {
       "profile-tab": "profile-section",
-      "addresses-tab": "addresses-section",
+      "shipping-tab": "addresses-section",
       "deletion-tab": "deletion-section"
     };
 
@@ -442,8 +442,8 @@
 
     // Initial tab from hash
     const hash = window.location.hash;
-    if (hash === "#addresses-tab") {
-      activateTab("addresses-tab");
+    if (hash === "#shipping-tab") {
+      activateTab("shipping-tab");
     } else if (hash === "#deletion-tab") {
       activateTab("deletion-tab");
     } else {
@@ -474,7 +474,7 @@
         })
         .then(response => {
           if (response.ok) {
-            window.location.hash = "#addresses-tab";
+            window.location.hash = "#shipping-tab";
             setTimeout(() => location.reload(), 100); 
           } else {
             alert("Failed to add address.");
@@ -554,7 +554,7 @@ if (editForm) {
     })
     .then(response => {
       if (response.ok) {
-        window.location.hash = "#addresses-tab";
+        window.location.hash = "#shipping-tab";
         setTimeout(() => location.reload(), 100);
       } else {
         alert("Failed to update address.");
