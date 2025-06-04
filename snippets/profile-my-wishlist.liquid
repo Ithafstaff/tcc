@@ -962,7 +962,12 @@
           {% render 'icon', icon: 'certificate' %}
         </div>
       `;
-      
+      // Trigger hoverSwatch for the default selected swatch after rendering
+setTimeout(() => {
+  const defaultSwatch = cardElement.querySelector('.variant-picker__option-value[data-selected="true"]');
+  if (defaultSwatch) hoverSwatch(defaultSwatch);
+}, 0);
+
       return cardElement;
     }
     
