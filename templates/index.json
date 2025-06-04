@@ -167,19 +167,19 @@
     "custom_collection_products_dkYzhr": {
       "type": "custom-collection-products",
       "blocks": {
-        "product_LEnQzp": {
+        "product_hWQRH9": {
           "type": "product",
           "settings": {
             "product": "white-with-gold-velvet-tablecloth-by-palermo"
           }
         },
-        "product_xhEnta": {
+        "product_89rFay": {
           "type": "product",
           "settings": {
-            "product": "gold-tablecloth-by-audrey"
+            "product": "spill-proof-tablecloth-by-brookline"
           }
         },
-        "product_iRE4er": {
+        "product_VQrNFb": {
           "type": "product",
           "settings": {
             "product": "ivory-and-gold-faux-leather-tablecloth-by-columbia"
@@ -187,9 +187,9 @@
         }
       },
       "block_order": [
-        "product_LEnQzp",
-        "product_xhEnta",
-        "product_iRE4er"
+        "product_hWQRH9",
+        "product_89rFay",
+        "product_VQrNFb"
       ],
       "custom_css": [
         ".section-full {padding: 40px;}"
