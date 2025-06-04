@@ -390,12 +390,12 @@
       </div>
       <div class="profile__order-container">
       <div class="profile__order-cat-wrap flex-start">
-        <a href="#" id="profile-tab" class="profile__order-cat-link profile__order-cat-link--active">pickup</a>
+        <a href="#" id="pickup-tab" class="profile__order-cat-link profile__order-cat-link--active">pickup</a>
         <a href="#" id="shipping-tab" class="profile__order-cat-link">shipping</a>
         <a href="#" id="deletion-tab" class="profile__order-cat-link">ACCOUNT DELETION</a>
       </div>
         
-        <div id="profile-section" class="profile__account-wrap" style="padding-bottom: 20px;">
+        <div id="pickup-section" class="profile__account-wrap" style="padding-bottom: 20px;">
           <h3 class="profile__account-heading">Manage and protect your account</h3>
         </div>
         
@@ -419,7 +419,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const tabs = {
-      "profile-tab": "profile-section",
+      "pickup-tab": "pickup-section",
       "shipping-tab": "shipping-section",
       "deletion-tab": "deletion-section"
     };
@@ -447,8 +447,8 @@
     } else if (hash === "#deletion-tab") {
       activateTab("deletion-tab");
     } else {
-      window.location.hash = "#profile-tab"; // set default hash
-      activateTab("profile-tab");
+      window.location.hash = "#pickup-tab"; // set default hash
+      activateTab("pickup-tab");
     }
 
 
