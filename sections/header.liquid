@@ -364,7 +364,6 @@
                   placeholder="What are you looking for?"
                   id="header-search-input"
                   autocomplete="off"
-                  style="font-size: 12px;"
                 >
                 {% comment %} <span class="sr-only">{{ 'header.general.search' | t }}</span> {% endcomment %}
                 <span class="x:ml-auto x:px-4">{% render 'icon' with 'search' %}</span>
@@ -399,8 +398,7 @@
 
           <li>
             <a
-              href="#"
-              onclick="openCartDrawer(event)"
+              href="/cart"
               data-no-instant
               class="relative block tap-area"
               {% if settings.cart_type != 'page' and request.page_type != 'cart' %}
