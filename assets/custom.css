@@ -132,10 +132,9 @@
 }
 
 .custom-product__gallery-media {
-  max-height: 800px;
+  /* max-height: 608px; */
   height: 100%;
-  width: 100%;
-  background-size: cover;
+  max-height: unset !important;
 }
 
 .custom-product__gallery-media img {
@@ -148,15 +147,13 @@
 }
 
 @media screen and (max-width: 1400px) {
-  .custom-product__gallery-media img,
-  .custom-product__gallery-media {
+  .custom-product__gallery-media img {
     max-height: 700px;
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .custom-product__gallery-media img
-  .custom-product__gallery-media {
+  .custom-product__gallery-media img {
     max-height: 600px;
   }
 }
