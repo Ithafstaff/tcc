@@ -735,10 +735,13 @@ const accordionItems = document.querySelectorAll(".profile-policy__privacy-list 
 accordionItems.forEach((item) => {
   const accordionContent = item.querySelector(".profile-policy__privacy-item-wrap");
 
-  item.addEventListener("click", () => {
-    accordionContent.classList.toggle("show");
-  });
+  if (accordionContent) {
+    item.addEventListener("click", () => {
+      accordionContent.classList.toggle("show");
+    });
+  }
 });
+
 
 
     
