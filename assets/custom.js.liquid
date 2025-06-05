@@ -137,6 +137,7 @@ function activeOnHover() {
 
       if (img && selectedMedia) {
         selectedMedia.style.setProperty('--thumb-preview-bg', `url(${img.src})`);
+        selectedMedia.style = "border: 1px solid;";
       }
     });
 
