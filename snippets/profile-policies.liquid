@@ -728,15 +728,16 @@
 
   // Show accordion content
 
-const accordionItem = document.quesryselectorAll(".profile-policy__privacy-item");
 
     
-accordionItem.forloop(item) {
-  const accordionContent = document.quesryselector(".profile-policy__privacy-item-wrap");
-  item.addeventlisnter("click", () => {
-    item.accordionContent.style = "height: auto;"
+accordionItems.forEach((item) => {
+  const accordionContent = item.querySelector(".profile-policy__privacy-item");
+  
+  item.addEventListener("click", () => {
+    accordionContent.classList.toggle("show");
   });
-} 
+});
+
     
     
   });
