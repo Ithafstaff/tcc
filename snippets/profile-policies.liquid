@@ -728,26 +728,21 @@
 
 
 
-  // Show accordion content
-const accordionItems = document.querySelectorAll(".profile-policy__privacy-list li");
-
-accordionItems.forEach((item) => {
-  const accordionHeader = item.querySelector(".profile-policy__privacy-item");
-  const accordionContent = item.querySelector(".profile-policy__privacy-item-wrap");
-
-  if (accordionHeader && accordionContent) {
-    accordionHeader.addEventListener("click", () => {
-      accordionContent.classList.toggle("show");
+    // Show accordion content
+    const accordionItems = document.querySelectorAll(".profile-policy__privacy-list li");
+    accordionItems.forEach((item) => {
+      const accordionHeader = item.querySelector(".profile-policy__privacy-item");
+      const accordionContent = item.querySelector(".profile-policy__privacy-item-wrap");
+    
+      if (accordionHeader && accordionContent) {
+        accordionHeader.addEventListener("click", () => {
+          accordionContent.classList.toggle("show");
+        });
+      }
     });
-  }
-});
-
-
     
     
   });
-
-  
 
 
 </script>
