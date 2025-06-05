@@ -734,8 +734,9 @@ const accordionItems = document.querySelectorAll(".profile-policy__privacy-list 
 
 accordionItems.forEach((item) => {
   const accordionContent = item.querySelector(".profile-policy__privacy-item-wrap");
+  const accordionHeader = item.querySelector(".profile-policy__privacy-item");
 
-  item.addEventListener("click", () => {
+  accordionHeader.addEventListener("click", () => {
     accordionContent.classList.toggle("show");
   });
 });
