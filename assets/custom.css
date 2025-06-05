@@ -137,7 +137,8 @@
   max-height: unset !important;
 }
 
-.custom-product__gallery-media img {
+.custom-product__gallery-media img,
+.custom-product__gallery-media {
   width: 100% !important;
   max-height: 800px;
   height: 100% !important;
