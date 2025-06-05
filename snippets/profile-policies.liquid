@@ -728,15 +728,16 @@
 
   // Show accordion content
 
+const accordionItems = document.querySelectorAll(".profile-policy__privacy-list li");
 
-    
 accordionItems.forEach((item) => {
   const accordionContent = item.querySelector(".profile-policy__privacy-item");
-  
+
   item.addEventListener("click", () => {
     accordionContent.classList.toggle("show");
   });
 });
+
 
     
     
