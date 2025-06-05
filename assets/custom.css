@@ -146,6 +146,17 @@
   border-radius: 0 !important;
 }
 
+@media screen and (max-width: 1400px) {
+  .custom-product__gallery-media img {
+    max-height: 700px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .custom-product__gallery-media img {
+    max-height: 600px;
+  }
+}
+
 .custom-product__gallery-media.is-selected {
   position: relative;
 }
