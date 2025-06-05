@@ -132,11 +132,10 @@
 }
 
 .custom-product__gallery-media {
-  /* max-height: 608px; */
+  max-height: 800px;
   height: 100%;
-  width:
-  max-height: unset !important;
-  background: 
+  width: 100%;
+  background-size: cover;
 }
 
 .custom-product__gallery-media img {
