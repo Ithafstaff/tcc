@@ -139,7 +139,8 @@
 
 .custom-product__gallery-media img {
   width: 100% !important;
-  height: 90% !important;
+  max-height: 800px;
+  height: 100% !important;
   object-fit: cover;
   object-position: center;
   border-radius: 0 !important;
