@@ -7,10 +7,14 @@
   position: relative;
 }
 
-/* .custom-search__bar-list {
-  width: 221px;
-  height: 25px;
-} */
+@media screen and (max-width: 1400px) {
+  .custom-search__bar-list {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100;
+  }
+}
 
 .custom-search__bar-wrap a {
   padding: 0 8px;
