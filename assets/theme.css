@@ -1039,7 +1039,7 @@ scroll-carousel {
   }
 
   .content-over-media--lg {
-    --content-over-media-height: 560px;
+    --content-over-media-height: 660px;
   }
 }
 
@@ -1053,7 +1053,7 @@ scroll-carousel {
   }
 
   .content-over-media--lg {
-    --content-over-media-height: 640px;
+    --content-over-media-height: 740px;
   }
 
   .content-over-media--fill > :is(img, video, iframe, svg, video-media, picture) {
@@ -1067,7 +1067,7 @@ scroll-carousel {
   }
 
   .content-over-media--lg {
-    --content-over-media-height: 720px;
+    --content-over-media-height: 820px;
   }
 }
 
