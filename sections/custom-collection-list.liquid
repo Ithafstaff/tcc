@@ -28,7 +28,12 @@ LIQUID
     <div class="x:flex x:gap-4" 
       style="
         position: absolute;
-        right: 40px;">
+        right: 40px;
+        @media screen and (max-width: 767px) {
+          display: none;
+        }
+      "
+      >
       <button
         is="prev-button"
         class="x:w-12 x:h-12 x:border x:border-black x:flex x:items-center x:justify-center 
