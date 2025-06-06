@@ -7,12 +7,15 @@
   position: relative;
 }
 
+.custom-search__bar-list {
+  width: 100% !important;
+}
+
 @media screen and (max-width: 767px) {
   .custom-search__bar-list {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100% !important;
   }
 }
 
