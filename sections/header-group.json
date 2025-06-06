@@ -25,6 +25,9 @@
       "block_order": [
         "message"
       ],
+      "custom_css": [
+        "@media screen and (min-width: 767px) {.announcement-bar {display: none; }}"
+      ],
       "settings": {
         "enable_sticky": false,
         "autoplay": false,
