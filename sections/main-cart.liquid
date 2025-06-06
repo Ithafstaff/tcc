@@ -262,6 +262,31 @@
   {%- endif -%}
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const wrapper = btn.closest('.quantity-wrapper');
+        const input = wrapper.querySelector('input.quantity-input');
+        const step = parseInt(input.step) || 1;
+        const min = parseInt(input.min) || 1;
+        const max = parseInt(input.max) || null;
+        let current = parseInt(input.value) || 0;
+
+        if (btn.classList.contains('qty-minus')) {
+          current = Math.max(current - step, min);
+        } else {
+          current = max ? Math.min(current + step, max) : current + step;
+        }
+
+        input.value = current;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+    });
+  });
+</script>
+
+
 {% schema %}
 {
   "name": "Cart",
