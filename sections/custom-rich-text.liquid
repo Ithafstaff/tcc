@@ -15,7 +15,7 @@
       {% for block in section.blocks %}
         <a href="{{ block.settings.url | default: '#' }}" 
            style="font-family: 'Alata', sans-serif;"
-           class="x:border x:border-white x:text-white x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:h-[60px] custom__btn-width">
+           class="x:border x:border-white x:text-white x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition custom__btn-width">
           {{ block.settings.text | default: 'Button' }}
         </a>
       {% endfor %}
