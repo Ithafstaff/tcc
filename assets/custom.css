@@ -179,6 +179,16 @@
   }
 }
 
+.custom-shipping__container {
+  padding: 32px;
+}
+
+@media screen and (max-width: 767px) {
+  .custom-shipping__container {
+    padding: 28px;
+  }
+}
+
 
   
 .custom-search__bar-wrap a {
