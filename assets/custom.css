@@ -199,7 +199,6 @@
 
 @media screen and (max-width: 767px) {
   .custom-shipping__wrap {
-    padding: 28px;
     flex-direction: column;
     gap: 20px;
   }
