@@ -112,6 +112,16 @@
   
 }
 
+.custom-collection__slide-continer {
+  width: calc(33.333% - 1.5rem);
+}
+
+@media screen and (max-width: 767px) {
+  .custom-collection__slide-continer {
+    width: calc(48% - 1.5rem);
+  }
+}
+
 .custom-product-info__block-item {
   margin: 0 !important;
 }
