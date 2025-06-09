@@ -11,7 +11,7 @@
   
     <!-- Button Section -->
     {% assign button_count = section.blocks.size %}
-    <div class="x:flex x:gap-6 x:pt-[25px] {% if button_count == 1 %}x:justify-center{% endif %}">
+    <div class="custom-luxury__btn-wrap x:flex x:gap-6 {% if button_count == 1 %}x:justify-center{% endif %}">
       {% for block in section.blocks %}
         <a href="{{ block.settings.url | default: '#' }}" 
            style="font-family: 'Alata', sans-serif;"
