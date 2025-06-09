@@ -159,7 +159,7 @@
 
 @media screen and (max-width: 767px) {
   .custom-collection__info-txt {
-    18px;
+    font-size: 8px;
   }
 }
 
