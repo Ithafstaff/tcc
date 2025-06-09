@@ -448,44 +448,6 @@
   margin: 0;
 }
 
-/* .custom-accordion {
-  background: transparent !important;
-  color: #000 !important;
-  position: relative;
-  transform: none !important;
-}
-
-.custom-accordion svg {
-  display: none !important;
-}
-
-.custom-accordion::before {
-   content: "|";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 50%;
-  font-size: 28px !important;
-  font-weight: 300 !important;
-} */
-/* .custom-accordion::after {
-  content: "|";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 50%;
-  font-size: 28px;
-  font-weight: 300;
-  left: 0;
-  transform: rotate(90deg);
-} */
-
-/* .group[aria-expanded="true"] .circle-chevron.group-expanded\:rotate {
-  transform: rotate(calc(var(--transform-logical-flip) * 90deg)) !important;
-} */
-
 /* end of custom product page layout */
 
 
