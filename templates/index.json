@@ -214,6 +214,10 @@
       "block_order": [
         "button_yc77Ek"
       ],
+      "custom_css": [
+        "shopify-section {padding: 40px;}",
+        "@media screen and (max-width: 767px) {shopify-section {padding: 28px; }}"
+      ],
       "settings": {
         "heading": "WAKE UP IN SOFT BLOOM",
         "subheading": "Floral bedding designed for comfort, crafted for beauty — turn every morning into a moment"
