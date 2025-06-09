@@ -136,6 +136,11 @@
 }
 
 
+.custom-collection__info-txt {
+  font-family: 'GFSDidot', serif;
+  font-size: 32px;
+}
+
 @media screen and (max-width: 767px) {
   .custom-collection__info-txt {
     font-size: 16px !important;
