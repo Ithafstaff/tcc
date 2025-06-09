@@ -27,6 +27,12 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .custom__btn-width {
+    width: 40px !important; 
+  }
+}
+
 .custom-search__bar-wrap a {
   padding: 0 8px;
   font-family: "Alata", sans-serif !important;
