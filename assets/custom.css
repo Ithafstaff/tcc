@@ -134,6 +134,13 @@
     height: auto !important;
   }
 }
+
+
+@media screen and (max-width: 767px) {
+  .custom-collection__info-wrap {
+    
+  }
+}
   
 .custom-search__bar-wrap a {
   padding: 0 8px;
