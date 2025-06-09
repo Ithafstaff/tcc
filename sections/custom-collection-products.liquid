@@ -32,7 +32,7 @@ LIQUID
    
   <!-- Product List Section (Limited to 3 Products) -->
 <div>
-  <div class="custom-collection__container" id="scroll-area-{{ section.id }}" style="display: flex; gap: 1.5rem; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory;">
+  <div class="custom-collection__container" id="scroll-area-{{ section.id }}">
     {%- assign product_count = 0 -%}
     {%- for block in section.blocks -%}
       {%- if product_count < 3 -%}
