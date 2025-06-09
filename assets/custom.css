@@ -527,7 +527,7 @@
 @media screen and (max-width: 767px) {
   .header__wrapper {
     padding: 15px 16px 66px !important;
-    backgrond: #fff !important;
+    background: #fff !important;
   }
 }
 
