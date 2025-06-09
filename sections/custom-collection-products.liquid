@@ -19,16 +19,17 @@ LIQUID
 </style>
 
 <div {% render 'section-properties' %} style="--section-spacing-block: 10px;" class="x:w-full x:h-[635px] x:bg-white x:p-6 x:pt-[40px]">
-  <!-- Header Section -->
-  <div class="x:flex x:items-center x:justify-between">
+  <!-- Header Section -->   
+  
+  {%- if section.settings.title != blank -%}
+    <div class="x:flex x:items-center x:justify-between">
     <!-- Centered Header -->
-    {%- if section.settings.title != blank -%}
       <h1 class="x:text-3xl x:font-bold x:text-center x:flex-grow">
         {{ section.settings.title }}
       </h1>
-    {%- endif -%}
-  </div>
-
+    </div>
+   {%- endif -%}
+   
   <!-- Product List Section (Limited to 3 Products) -->
 <div style="margin-top: 2rem; overflow: hidden;">
   <div id="scroll-area-{{ section.id }}" style="display: flex; gap: 1.5rem; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory;">
