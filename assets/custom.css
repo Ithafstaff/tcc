@@ -113,6 +113,13 @@
     gap: 15px;
   }
 }
+
+.custom-collection__box-text {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 16px;
+}
   
 .custom-search__bar-wrap a {
   padding: 0 8px;
