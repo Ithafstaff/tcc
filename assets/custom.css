@@ -120,6 +120,12 @@
   margin-top: 1rem;
   font-size: 16px;
 }
+
+@media screen and (max-width: 767px) {
+  .custom-collection__box-text {
+    font-size: 12px;
+  }
+}
   
 .custom-search__bar-wrap a {
   padding: 0 8px;
