@@ -227,6 +227,16 @@
   }
 }
 
+.custom-shipping__btn {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  .custom-shipping__btn {
+    font-size: 12px;
+  }
+}
+
 
   
 .custom-search__bar-wrap a {
@@ -238,7 +248,6 @@
   letter-spacing: 0px;
   vertical-align: middle;
   margin: 0 !important;
-  
 }
 
 .custom-collection__slide-continer {
