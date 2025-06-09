@@ -29,6 +29,10 @@ LIQUID
     }
   }
 
+  .custom__slide-arrow {
+    
+  }
+
 </style>
 
 <div {% render 'section-properties' %} class="x:w-full x:h-[620px] x:bg-white" style="--section-spacing-block-start: 30px; --section-spacing-block-end: 20px;">
@@ -39,7 +43,7 @@ LIQUID
     {{ section.settings.title | default: 'BEAUTIFUL CELEBRATIONS START HERE' }}
   </p>
     <!-- Navigation Buttons -->
-    <div class="x:flex x:gap-4 pc" 
+    <div class="custom__slide-arrow pc" 
       style="
         position: absolute;
         right: 40px;"
