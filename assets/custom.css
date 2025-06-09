@@ -64,6 +64,16 @@
   }
 }
 
+.custom-luxuty__container {
+  padding: 0 46px;
+}
+
+@media screen and (max-width: 767px) {
+  .custom-luxuty__container {
+    padding: 0 20px;
+  }
+}
+
 
 
 .custom-search__bar-wrap a {
