@@ -29,6 +29,7 @@
 
 
 .custom__btn-width {
+  height: 60px;
   width: 350px; 
   font-size: 18px;
 }
@@ -37,6 +38,7 @@
 @media screen and (max-width: 767px) {
   .custom__btn-width {
     width: 150px; 
+    height: 40px;
     font-size: 10px;
   }
 }
