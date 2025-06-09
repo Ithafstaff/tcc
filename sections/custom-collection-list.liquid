@@ -79,7 +79,7 @@ LIQUID
   </div>
 
   <!-- Collection List Section with Scrollable Carousel -->
-  <div class="x:mt-8 x:overflow-hidden custom__slide-container">
+  <div class="x:overflow-hidden custom__slide-container">
     <div id="scroll-area-{{ section.id }}" class="x:flex x:gap-6 x:overflow-x-auto x:scroll-smooth" style="scroll-snap-type: x mandatory; max-height: 300px;">
       {%- for block in section.blocks -%}
         {%- assign collection = block.settings.collection -%}
