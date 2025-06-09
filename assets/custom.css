@@ -42,6 +42,8 @@
 @media screen and (max-width: 767px) {
   .announcement-bar {
     height: 30px; 
+    padding: 0 !important;
+    display: flex;
   }
 }
 
