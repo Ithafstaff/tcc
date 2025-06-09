@@ -205,6 +205,16 @@
   }
 }
 
+.custom-shipping__heading {
+  font-size: 28px;
+}
+
+@media screen and (max-width: 767px) {
+  .custom-shipping__heading {
+    font-size: 16px;
+  }
+}
+
 
   
 .custom-search__bar-wrap a {
