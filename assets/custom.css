@@ -212,6 +212,18 @@
 @media screen and (max-width: 767px) {
   .custom-shipping__heading {
     font-size: 16px;
+    text-align: center;
+  }
+}
+
+.custom-shipping__desc {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  .custom-shipping__desc {
+    font-size: 10px;
+    text-align: center;
   }
 }
 
