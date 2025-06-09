@@ -27,9 +27,15 @@
   }
 }
 
+
+.custom__btn-width {
+  width: 350px; 
+}
+
+
 @media screen and (max-width: 767px) {
   .custom__btn-width {
-    width: 40px !important; 
+    width: 40px; 
   }
 }
 
