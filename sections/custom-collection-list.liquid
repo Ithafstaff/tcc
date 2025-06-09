@@ -34,6 +34,12 @@ LIQUID
     gap: 10px;
   }
 
+  @media screen and (max-width: 767px) {
+    .custom__slide-container {
+      margin-top: 15px !important;
+    }
+  }
+
 </style>
 
 <div {% render 'section-properties' %} class="x:w-full x:h-[620px] x:bg-white" style="--section-spacing-block-start: 30px; --section-spacing-block-end: 20px;">
@@ -73,7 +79,7 @@ LIQUID
   </div>
 
   <!-- Collection List Section with Scrollable Carousel -->
-  <div class="x:mt-8 x:overflow-hidden">
+  <div class="x:mt-8 x:overflow-hidden custom__slide-container">
     <div id="scroll-area-{{ section.id }}" class="x:flex x:gap-6 x:overflow-x-auto x:scroll-smooth" style="scroll-snap-type: x mandatory; max-height: 300px;">
       {%- for block in section.blocks -%}
         {%- assign collection = block.settings.collection -%}
