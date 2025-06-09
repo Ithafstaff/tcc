@@ -79,13 +79,13 @@
 }
 
 .custom-luxury__text {
-    paddding-top: 20px;
+    padding-top: 20px;
   }
 
 @media screen and (max-width: 767px) {
   .custom-luxury__text {
     font-size: 10px;
-    paddding-top: 0;
+    padding-top: 0;
   }
 }
 
