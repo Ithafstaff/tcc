@@ -73,6 +73,12 @@
       }
     }
   {%- endif -%}
+
+  @media screen and (max-width: 767px) {
+    .search-bar-input:placeholder {
+      color: red !important;
+    }
+  }
 </style>
 
 <height-observer variable="header">
