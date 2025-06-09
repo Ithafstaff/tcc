@@ -1,11 +1,11 @@
 <div class="custom-luxury__container x:w-full x:bg-[#222222] x:text-white x:flex x:flex-col x:justify-center x:items-center x:gap-4">
     <!-- Heading Section -->
 
-  {% if section.settings.heading != blank %}
-    <p style="font-family: 'GFSDidot', serif; font-size: 32px;" class="custom__heading-title x:tracking-wide x:pt-[5px]">
-      {{ section.settings.heading | default: 'LUXURY. ELEGANCE. STYLE.' }}
-    </p>
-  {% endif %}
+    {% if section.settings.heading != blank %}
+      <p style="font-family: 'GFSDidot', serif; font-size: 32px;" class="custom__heading-title x:tracking-wide x:pt-[5px]">
+        {{ section.settings.heading }}
+      </p>
+    {% endif %}
   
     <!-- Subheading Section -->
     <p class="custom-luxury__text">
