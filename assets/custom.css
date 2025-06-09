@@ -15,6 +15,12 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .icon {
+    color: #000 !important;
+  }
+}
+
 .custom-search__bar-wrap a {
   padding: 0 8px;
   font-family: "Alata", sans-serif !important;
@@ -113,7 +119,6 @@
   background-size: 100%;
   bottom: 5px;
   right: -20px;
-
 }
 /* end of custom mega menu layout */
 
