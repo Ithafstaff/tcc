@@ -126,6 +126,14 @@
     font-size: 12px;
   }
 }
+
+
+@media screen and (max-width: 767px) {
+  .custom-collection__info-wrap {
+    padding: 0 28px;
+    height: auto !important;
+  }
+}
   
 .custom-search__bar-wrap a {
   padding: 0 8px;
