@@ -89,7 +89,15 @@
   }
 }
 
+.custom-luxury__btn-wrap {
+  margin-top: 20px;
+}
 
+@media screen and (max-width: 767px) {
+  .custom-luxury__btn-wrap {
+    paddding-top: 0;
+  }
+}
 
 .custom-search__bar-wrap a {
   padding: 0 8px;
