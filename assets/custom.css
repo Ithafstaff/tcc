@@ -100,6 +100,20 @@
   }
 }
 
+.custom-collection__container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+@media screen and (max-width: 767px) {
+  .custom-collection__container {
+    gap: 15px;
+  }
+}
+  
 .custom-search__bar-wrap a {
   padding: 0 8px;
   font-family: "Alata", sans-serif !important;
