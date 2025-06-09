@@ -69,8 +69,14 @@
 }
 
 @media screen and (max-width: 767px) {
-  .custom-luxuty__container {
+  .custom-luxury__container {
     padding: 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .custom-luxury__text {
+    font-size: 10px;
   }
 }
 
