@@ -109,12 +109,19 @@ LIQUID
         <!-- Responsive width for 3 items per page -->
         <a {% if collection_url != blank %} href="{{ collection_url }}" {% endif %}
            class="collection-card sm:x:w-[calc(50%-1.5rem)] x:shrink-0 x:overflow-hidden x:rounded-md">
-           <div class=" x:w-full x:h-[500px] x:overflow-hidden">
+           <div class=" x:w-full x:h-[500px] x:overflow-hidden" style="
+                width: 100% !important;
+                height: 100% !important;
+            ">
              <!-- Bottom Overlay -->
              {% comment %} <div class="x:absolute x:bottom-0 x:left-0 x:w-full x:h-12 x:bg-black x:z-10"></div> {% endcomment %}
             {%- assign image = block.settings.image | default: collection.featured_image -%}
             {%- if image != blank -%}
-              <img src="{{ image | image_url: width: image.width }}" alt="{{ block.settings.title | default: collection.title }}" class="x:w-full x:h-full x:object-cover" loading="lazy" />
+              <img src="{{ image | image_url: width: image.width }}" alt="{{ block.settings.title | default: collection.title }}" class="x:w-full x:h-full x:object-cover" loading="lazy" style="
+                  width: 100% !important;
+                  height: 100% !important;
+                  object-fit: cover;
+              ">
             {%- else -%}
               <span>No Image Available</span>
             {%- endif -%}
