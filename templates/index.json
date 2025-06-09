@@ -193,7 +193,8 @@
         "product_VQrNFb"
       ],
       "custom_css": [
-        ".section-full {padding: 40px;}"
+        ".section-full {padding: 40px;}",
+        "@media screen and (max-width: 767px) {.section-full {padding: 28px; }}"
       ],
       "settings": {
         "title": ""
