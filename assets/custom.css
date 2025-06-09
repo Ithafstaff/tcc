@@ -47,6 +47,16 @@
   }
 }
 
+.get-the-look {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  .get-the-look {
+    font-size: 10px;
+  }
+}
+
 .custom-search__bar-wrap a {
   padding: 0 8px;
   font-family: "Alata", sans-serif !important;
