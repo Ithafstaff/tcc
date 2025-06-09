@@ -169,6 +169,14 @@
   height: 60px;
 }
 
+@media screen and (max-width: 767px) {
+  .custom-collection__btn {
+    width: auto;
+    height: auto;
+    padding: 10px 15px;
+  }
+}
+
 
   
 .custom-search__bar-wrap a {
