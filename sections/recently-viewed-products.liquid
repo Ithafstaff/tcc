@@ -28,6 +28,10 @@ CSS
       --product-list-carousel-item-width: calc(var(--container-inner-width) / {{ section.settings.products_per_row_desktop }} - (var(--product-list-column-gap) / {{ section.settings.products_per_row_desktop }} * {{ section.settings.products_per_row_desktop | minus: 1 }}));
     }
   }
+
+  .custom-recently__container {
+    overflow: hidden;
+  }
 </style>
 
 {%- comment -%}
