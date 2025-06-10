@@ -218,6 +218,11 @@
     font-size: 12px;
   }
 
+  .custom-store__heading {
+    font-size: 18px;
+    text-align: center;
+  }
+
   .custom-footer__list {
     flex-direction: column;
   }
