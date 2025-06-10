@@ -97,7 +97,7 @@
   display: flex;
   padding: 4px;
   gap: 8px;
-  width: 550px;
+  width: 526px;
   flex-direction: column;
 }
 
@@ -115,11 +115,9 @@
 }
 
 .custom-store__info {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 39px;
   width: fit-content;
-  row-gap: 13px;
+  c
 }
 
 .custom-store__store-desc {
@@ -161,6 +159,11 @@
 
 .custom-product__variant-picker {
   gap: 18px !important;
+}
+
+.custom-recently__container {
+    max-width: 1381px;
+    margin: 0 auto 15px;
 }
 
 /* MOBILE RESPONSIVENESS PORTION*/
@@ -301,6 +304,7 @@
   }
 
   .custom-store__store-hours {
+    margin-top: 30px;
     row-gap: 13px;
   }
   
