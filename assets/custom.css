@@ -110,6 +110,8 @@
   gap: 18px !important;
 }
 
+/* MOBILE RESPONSIVENESS PORTION*/
+
 @media screen and (max-width: 767px) {
   .custom-search__bar-list {
     position: absolute;
