@@ -255,8 +255,8 @@
       "name": "Recently viewed products",
       "settings": {
         "full_width": true,
-        "products_count": 4,
-        "stack_products": true,
+        "products_count": 6,
+        "stack_products": false,
         "show_progress_bar": true,
         "products_per_row_mobile": "2",
         "products_per_row_desktop": 4,
