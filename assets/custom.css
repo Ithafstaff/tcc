@@ -111,6 +111,7 @@
   display: flex;
   gap: calc(var(--spacing) * 2);
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .custom-search__bar-wrap a {
