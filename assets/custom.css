@@ -151,27 +151,10 @@
   font-size: 18px;
 }
 
-@media screen and (max-width: 767px) {
-  .custom-collection__info-heading {
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .custom-collection__info-txt {
-    font-size: 8px;
-    text-align: center;
-  }
-}
-
 .custom-collection__btn {
   width: 350px;
   height: 60px;
   font-size: 18px;
-}
-
-@media screen and (max-width: 767px) {
-  
 }
 
 .custom-shipping__container {
@@ -190,6 +173,15 @@
 }
 
 @media screen and (max-width: 767px) {
+  .custom-collection__info-heading {
+    font-size: 16px;
+  }
+  
+  .custom-collection__info-txt {
+    font-size: 8px;
+    text-align: center;
+  }
+  
   .custom-collection__btn {
     width: auto;
     height: auto;
