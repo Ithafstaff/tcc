@@ -83,6 +83,12 @@
   font-size: 14px;
 }
 
+.custom-store__header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .custom-store__heading {
   font-size: 40px;
 }
