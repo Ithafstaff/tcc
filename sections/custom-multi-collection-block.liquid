@@ -61,7 +61,7 @@
     }
   }
   
-  . {
+  .custom-multi-col__banner-desc-wrap p {
     font-size: 16px;
     font-family: "Poppins", sans-serif !important;
     font-weight: 400;
@@ -222,7 +222,7 @@
         {% endif %}
 
        
-        <p class="custom-multi-col__desc">{{ block.settings.id_col-desc | newline_to_br }}</p>
+        {{ block.settings.id_col-desc | newline_to_br }}
         <div class="custom-multi-col__swatch-wrap">
           <span></span>
           <span></span>
