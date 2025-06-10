@@ -196,191 +196,6 @@
   height: 44px;
 }
 
-/* MOBILE RESPONSIVENESS PORTION*/
-
-@media screen and (max-width: 767px) {
-  .custom-search__bar-list {
-    position: absolute;
-    bottom: 15px;
-    left: 20px;
-  }
-  
-  .icon {
-    color: #000 !important;
-  }
-  
-  .header__logo {
-    max-width: 100px !important;
-  }
-  
-  .custom__btn-width {
-    width: 150px; 
-    height: 40px;
-    font-size: 10px;
-  }
-  
-  .announcement-bar {
-    height: 30px; 
-    padding: 0 !important;
-    display: flex;
-  }
-  
-  .get-the-look {
-    font-size: 10px;
-  }
-  
-  .drawer-button-responsive {
-    width: 120px;
-    height: 35px;
-  }
-  
-  .custom-luxury__container {
-    padding: 20px;
-  }
-  
-  .custom-luxury__text {
-    font-size: 10px;
-    padding-top: 0;
-  }
-  
-  .custom-luxury__btn-wrap {
-    margin-top: 0;
-  }
-  
-  .custom-collection__container {
-    gap: 15px;
-  }
-  
-  .custom-collection__box-text {
-    font-size: 12px;
-  }
-  
-  .custom-collection__info-wrap {
-    padding: 0 28px;
-    height: auto !important;
-  }
-  
-  .custom-collection__info-heading {
-      font-size: 16px;
-  }
-  
-  .custom-collection__info-heading {
-    font-size: 16px;
-  }
-  
-  .custom-collection__info-txt {
-    font-size: 8px;
-    text-align: center;
-  }
-  
-  .custom-collection__btn {
-    width: auto;
-    height: auto;
-    padding: 10px 20px;
-    font-size: 12px !important;
-  }
-  
-  .custom-shipping__container {
-    padding: 28px;
-  }
-  
-  .custom-shipping__wrap {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .custom-shipping__heading {
-    font-size: 16px;
-    text-align: center;
-  }
-
-  .custom-shipping__desc {
-    font-size: 10px;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .custom-shipping__btn {
-    font-size: 12px;
-  }
-
-  .custom-store__heading {
-    font-family: "Alata", sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-    font-size: 18px;
-    text-align: center;
-  }
-
-  .custom-store__wrapper {
-    display: flex;
-    flex-direction: column-reverse;
-    height: fit-content;
-    width: 100%;
-  }
-  
-  .custom-store__map-wrap-left {
-    display: flex;
-    padding: calc(var(--spacing) * 4);
-    gap: calc(var(--spacing) * 8);
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .custom-store__map-wrap-right {
-    margin-bottom: 10px;
-    height: 230px;
-  }
-
-  .custom-store__info-wrap {
-    margin-bottom: 42px;
-  }
-
-  .custom-store__store-hours {
-    row-gap: 13px;
-  }
-  
-  .custom-store__store-desc {
-    width: 100%;
-  }
-
-  .custom-footer__list {
-    flex-direction: column;
-  }
-  
-  .footer__wrapper {
-    overflow: hidden;
-  }
-
-  .custom-footer__link-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .custom-collection__slide-continer {
-    width: calc(48% - 1.5rem);
-  }
-
-  .collection__results {
-    padding: 0 20px;
-  }
-
-  .location-btn__wrapper {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 4px;
-    margin: 20px 0 30px 0;
-  }
-
-  .location-btn {
-    font-size: 10px;
-    font-family: "Alata", sans-serif !important;
-    font-weight: 400;
-    letter-spacing: 1px;
-  }
-}
-
 /* start of custom mega menu layout */
 .mega-menu__nav {
   display: grid !important;
@@ -826,13 +641,6 @@
   padding: 30px 40px !important;
 }
 
-@media screen and (max-width: 767px) {
-  .header__wrapper {
-    padding: 15px 16px 66px !important;
-    background: #fff !important;
-  }
-}
-
 /* end of custom homepage sectionstyle */
 
 
@@ -866,4 +674,196 @@
   display: grid !important;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr !important;
 }
+
 /* end of custom collection variant style */
+
+/* MOBILE RESPONSIVENESS PORTION*/
+
+@media screen and (max-width: 767px) {
+  .custom-search__bar-list {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+  }
+  
+  .icon {
+    color: #000 !important;
+  }
+  
+  .header__logo {
+    max-width: 100px !important;
+  }
+  
+  .header__wrapper {
+    padding: 15px 16px 66px !important;
+    background: #fff !important;
+  }
+  
+  .custom__btn-width {
+    width: 150px; 
+    height: 40px;
+    font-size: 10px;
+  }
+  
+  .announcement-bar {
+    height: 30px; 
+    padding: 0 !important;
+    display: flex;
+  }
+  
+  .get-the-look {
+    font-size: 10px;
+  }
+  
+  .drawer-button-responsive {
+    width: 120px;
+    height: 35px;
+  }
+  
+  .custom-luxury__container {
+    padding: 20px;
+  }
+  
+  .custom-luxury__text {
+    font-size: 10px;
+    padding-top: 0;
+  }
+  
+  .custom-luxury__btn-wrap {
+    margin-top: 0;
+  }
+  
+  .custom-collection__container {
+    gap: 15px;
+  }
+  
+  .custom-collection__box-text {
+    font-size: 12px;
+  }
+  
+  .custom-collection__info-wrap {
+    padding: 0 28px;
+    height: auto !important;
+  }
+  
+  .custom-collection__info-heading {
+      font-size: 16px;
+  }
+  
+  .custom-collection__info-heading {
+    font-size: 16px;
+  }
+  
+  .custom-collection__info-txt {
+    font-size: 8px;
+    text-align: center;
+  }
+  
+  .custom-collection__btn {
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    font-size: 12px !important;
+  }
+  
+  .custom-shipping__container {
+    padding: 28px;
+  }
+  
+  .custom-shipping__wrap {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .custom-shipping__heading {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .custom-shipping__desc {
+    font-size: 10px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .custom-shipping__btn {
+    font-size: 12px;
+  }
+
+  .custom-store__heading {
+    font-family: "Alata", sans-serif !important;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .custom-store__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    height: fit-content;
+    width: 100%;
+  }
+  
+  .custom-store__map-wrap-left {
+    display: flex;
+    padding: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 8);
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .custom-store__map-wrap-right {
+    margin-bottom: 10px;
+    height: 230px;
+  }
+
+  .custom-store__info-wrap {
+    margin-bottom: 42px;
+  }
+
+  .custom-store__store-hours {
+    row-gap: 13px;
+  }
+  
+  .custom-store__store-desc {
+    width: 100%;
+  }
+
+  .custom-footer__list {
+    flex-direction: column;
+  }
+  
+  .footer__wrapper {
+    overflow: hidden;
+  }
+
+  .custom-footer__link-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .custom-collection__slide-continer {
+    width: calc(48% - 1.5rem);
+  }
+
+  .collection__results {
+    padding: 0 20px;
+  }
+
+  .location-btn__wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4px;
+    margin: 20px 0 30px 0;
+  }
+
+  .location-btn {
+    font-size: 10px;
+    font-family: "Alata", sans-serif !important;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+}
+
