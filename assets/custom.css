@@ -36,6 +36,8 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .custom-collection__box-text {
