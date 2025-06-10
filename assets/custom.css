@@ -89,6 +89,7 @@
 
 .custom-store__wrapper {
   display: flex;
+  gap: calc(var(--spacing) * 3)
   flex-direction: row;
   width: 100%;
 }
