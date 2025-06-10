@@ -569,7 +569,6 @@
     margin: 0 auto;
   }
 
-  @media screen and (max-width: 767px) {
     .custom-recently__heading {
       font-size: 20px !important;
       font-family: "Alata", sans-serif !important;
@@ -577,6 +576,11 @@
       color: #000;
       line-height: 66px;
       text-transform: uppercase !important;
+    }
+
+  @media screen and (max-width: 767px) {
+    .custom-recently__heading {
+      font-size: 16px !important;
     }
   }
 
