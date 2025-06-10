@@ -366,6 +366,15 @@
   }
 }
 
+.custom-recently__heading {
+  font-size: 20px;
+  font-family: "Alata", sans-serif !important;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  line-height: 66px;
+}
+
 .custom-product__gallery-media.is-selected {
   position: relative;
 }
