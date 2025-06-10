@@ -233,11 +233,33 @@
       "name": "Custom Recently viewed",
       "settings": {
         "full_width": true,
-        "products_count": 6,
+        "products_count": 4,
         "stack_products": true,
         "show_progress_bar": true,
         "products_per_row_mobile": "2",
         "products_per_row_desktop": 2,
+        "subheading": "",
+        "title": "Recently viewed products",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "recently_viewed_products_i8QMgh": {
+      "type": "recently-viewed-products",
+      "name": "Recently viewed products",
+      "settings": {
+        "full_width": true,
+        "products_count": 4,
+        "stack_products": true,
+        "show_progress_bar": true,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
         "subheading": "",
         "title": "Recently viewed products",
         "content": "",
@@ -258,28 +280,6 @@
         "subheading": "Get alerts about new items, sales, and more.",
         "button_text": "GET STARTED",
         "button_url": ""
-      }
-    },
-    "recently_viewed_products_i8QMgh": {
-      "type": "recently-viewed-products",
-      "name": "Recently viewed products",
-      "settings": {
-        "full_width": true,
-        "products_count": 6,
-        "stack_products": true,
-        "show_progress_bar": true,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 3,
-        "subheading": "",
-        "title": "Recently viewed products",
-        "content": "",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
       }
     }
   },
