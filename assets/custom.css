@@ -162,8 +162,9 @@
 }
 
 .custom-recently__container {
-    max-width: 1381px;
-    margin: 0 auto 15px;
+  max-width: 1381px;
+  margin: 0 auto 15px;
+  overflow: hidden;
 }
 
 /* MOBILE RESPONSIVENESS PORTION*/
