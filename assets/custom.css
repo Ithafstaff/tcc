@@ -172,6 +172,14 @@
   font-size: 28px;
 }
 
+.custom-shipping__desc {
+  font-size: 16px;
+}
+
+.custom-shipping__btn {
+  font-size: 14px;
+}
+
 @media screen and (max-width: 767px) {
   .custom-collection__info-heading {
     font-size: 16px;
@@ -218,13 +226,6 @@
   }
 }
 
-.custom-shipping__desc {
-  font-size: 16px;
-}
-
-.custom-shipping__btn {
-  font-size: 14px;
-}
 
 @media screen and (max-width: 767px) {
   .footer__wrapper {
