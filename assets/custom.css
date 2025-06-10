@@ -372,6 +372,7 @@
   font-weight: 400;
   color: #000;
   line-height: 66px;
+  text-transform: uppercase !important;
 }
 
 .custom-product__gallery-media.is-selected {
