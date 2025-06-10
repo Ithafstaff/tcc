@@ -18,7 +18,7 @@
     </div>
 
     <!-- MAP SECTION -->
-    <div class="x:flex x:w-full x:h-fit">
+    <div class="x:flex x:w-full" style="height: {{ section.settings.height | default: 400 }}px;">
       <!-- MAP LEFT SECTION -->
       <div class="x:flex x:flex-col x:w-lg x:p-4 x:gap-8">
         <div class="x:flex x:flex-col x:items-start x:gap-3" style="margin-bottom: 80px;">
@@ -42,7 +42,7 @@
       </div>
 
       <!-- MAP RIGHT SECTION (GOOGLE MAP IFRAME) -->
-      <div class="x:w-full x:h-full x:rounded x:relative" style="height: {{ section.settings.height | default: 800 }}px;">
+      <div class="x:w-full x:h-full x:rounded x:relative">
         <iframe
           id="map-frame"
           class="embed-map-frame"
