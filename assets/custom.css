@@ -161,6 +161,11 @@
   gap: 18px !important;
 }
 
+.custom-recently__container {
+    max-width: 1381px;
+    margin: 0 auto 15px;
+}
+
 /* MOBILE RESPONSIVENESS PORTION*/
 
 @media screen and (max-width: 767px) {
