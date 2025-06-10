@@ -274,6 +274,10 @@
     margin-bottom: 30px;
   }
 
+  .custom-store_store-desc {
+    width: 100%;
+  }
+
   .custom-footer__list {
     flex-direction: column;
   }
