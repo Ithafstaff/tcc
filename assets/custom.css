@@ -288,11 +288,11 @@
     height: 230px;
   }
 
-  .custom-store_info-wrap {
+  .custom-store__info-wrap {
     margin-bottom: 42px;
   }
 
-  .custom-store_store-hours {
+  .custom-store__store-hours {
     margin-top: 30px;
     row-gap: 13px;
   }
