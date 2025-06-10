@@ -113,6 +113,7 @@
   gap: calc(var(--spacing) * 2);
   width: 100%;
   height: fit-content;
+  justify-content: center;
 }
 
 .custom-search__bar-wrap a {
