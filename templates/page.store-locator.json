@@ -11,10 +11,25 @@
   "sections": {
     "main": {
       "type": "custom-store-locator",
-      "settings": {}
+      "settings": {
+        "api_key": "YOUR_API_KEY",
+        "address": "4518 13th Avenue, Brooklyn, NY",
+        "height": 500
+      }
+    },
+    "custom_shipping_section_jDExeg": {
+      "type": "custom-shipping-section",
+      "name": "Custom Shipping Section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_shipping_section_jDExeg"
   ]
 }
