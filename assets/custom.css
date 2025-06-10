@@ -108,7 +108,7 @@
 }
 
 .custom-store__store-desc {
-  display: flex;
+  display: relative;
   gap: calc(var(--spacing) * 2);
   width: 100%;
   height: fit-content;
@@ -294,11 +294,6 @@
 
   .collection__results {
     padding: 0 20px;
-  }
-
-  .custom-recently__heading {
-    font-size: 16px !important;
-    text-transform: uppercase !important;
   }
 }
 
@@ -608,7 +603,7 @@
 }
 
 .section-header h2 {
-  font-size: 32px;
+  font-size: 32px !important;
   font-family: "Alata", sans-serif !important;
   font-weight: 400 !important;
   font-style: normal !important;
