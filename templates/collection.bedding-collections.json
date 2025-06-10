@@ -252,6 +252,9 @@
     },
     "recently_viewed_products_i8QMgh": {
       "type": "recently-viewed-products",
+      "custom_css": [
+        ".section-full {padding: 0 50px;}"
+      ],
       "name": "Recently viewed products",
       "settings": {
         "full_width": true,
@@ -259,7 +262,7 @@
         "stack_products": false,
         "show_progress_bar": true,
         "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
+        "products_per_row_desktop": 5,
         "subheading": "",
         "title": "Recently viewed products",
         "content": "",
