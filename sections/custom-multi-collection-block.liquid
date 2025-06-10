@@ -273,7 +273,7 @@
 
 <div class="custom-multi-col__col-wrap">
   {% assign custom_collection = collections[block.settings.id_link.handle] %}
-  {% if custom_collection.products_count > 0 %}
+  
     {% for product in custom_collection.products limit: 5 %}
       <a class="custom-multi-col__item-box" href="{{ product.url }}">
         <div class="custom-multi-col__item-img-box">
@@ -317,7 +317,7 @@
         <!-- <img class="custom-multi-col__item-cert" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Img_fs-logo.png?v=1744799331" /> -->
       </a>
     {% endfor %}
-  {% endif %}
+
 </div>
 
 
