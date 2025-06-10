@@ -177,9 +177,6 @@
   justify-content: center;
   width: 100%;
   height: 3.75rem;
-  transition-property: all;
-  transition-timing-function: ease-out;
-  transition-duration: 1.5s;
 }
 
 .location-btn:hover {
