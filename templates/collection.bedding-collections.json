@@ -226,12 +226,13 @@
     },
     "custom_recently_viewed_products_TW7TV4": {
       "type": "custom-recently-viewed-products",
+      "disabled": true,
       "custom_css": [
         ".section-full {padding: 0 0 65px;}"
       ],
       "name": "Custom Recently viewed",
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "products_count": 6,
         "stack_products": true,
         "show_progress_bar": true,
@@ -266,8 +267,8 @@
         "full_width": true,
         "products_count": 6,
         "stack_products": true,
-        "show_progress_bar": false,
-        "products_per_row_mobile": "1",
+        "show_progress_bar": true,
+        "products_per_row_mobile": "2",
         "products_per_row_desktop": 3,
         "subheading": "",
         "title": "Recently viewed products",
@@ -290,7 +291,7 @@
     "custom_multi_collection_block_N4JfXa",
     "custom_category_slider_ELP3LG",
     "custom_recently_viewed_products_TW7TV4",
-    "custom_shipping_section_yyTCaW",
-    "recently_viewed_products_i8QMgh"
+    "recently_viewed_products_i8QMgh",
+    "custom_shipping_section_yyTCaW"
   ]
 }
