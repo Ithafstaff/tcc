@@ -18,7 +18,7 @@
     </div>
 
     <!-- MAP SECTION -->
-    <div class="x:flex x:w-full">
+    <div class="x:flex x:w-full" style="height: {{ section.settings.height | default: 400 }}px;">
       <!-- MAP LEFT SECTION -->
       <div class="x:flex x:flex-col x:w-lg x:p-4 x:gap-8">
         <div class="x:flex x:flex-col x:items-start x:gap-3" style="margin-bottom: 80px;">
@@ -144,7 +144,7 @@
 
           // Update map iframe
           const encodedAddress = encodeURIComponent(button.getAttribute('data-address'));
-          iframe.src = `https://maps.google.com/maps?width=600&height={{ section.settings.height | default:500 }}&hl=en&q=${encodedAddress}&output=embed`;
+          iframe.src = `https://maps.google.com/maps?width=600&height=500&hl=en&q=${encodedAddress}&output=embed`;
 
           // Highlight active button
           buttons.forEach(btn => btn.classList.remove('x:bg-[#222222]', 'x:text-white'));
