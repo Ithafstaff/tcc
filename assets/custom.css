@@ -116,7 +116,9 @@
 }
 
 .custom-store_store-hours {
-  
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 1);
 }
 
 .custom-search__bar-wrap a {
@@ -278,6 +280,10 @@
     margin-bottom: 30px;
   }
 
+  .custom-store_store-hours {
+    margin-top: 30px;
+  }
+  
   .custom-store__store-desc {
     width: 100%;
   }
