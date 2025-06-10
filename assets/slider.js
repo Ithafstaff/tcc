@@ -18,7 +18,7 @@ function splider() {
        pagination: false,
       breakpoints: {
         640: {
-          height     : '200px',
+          // height     : '200px',
         },
       },
     }).mount();
