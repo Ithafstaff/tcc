@@ -366,14 +366,7 @@
   }
 }
 
-.custom-recently__heading {
-  font-size: 20px !important;
-  font-family: "Alata", sans-serif !important;
-  font-weight: 400;
-  color: #000;
-  line-height: 66px;
-  text-transform: uppercase !important;
-}
+
 
 .custom-product__gallery-media.is-selected {
   position: relative;
@@ -568,6 +561,15 @@
   line-height: 20px;
   padding-top: 50px;
   margin-bottom: 52px;
+}
+
+.custom-recently__heading {
+  font-size: 20px !important;
+  font-family: "Alata", sans-serif !important;
+  font-weight: 400;
+  color: #000;
+  line-height: 66px;
+  text-transform: uppercase !important;
 }
 
 /* .section {
