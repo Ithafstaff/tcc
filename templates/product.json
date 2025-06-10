@@ -157,7 +157,8 @@
         "collapsible_text_9mdYfy"
       ],
       "custom_css": [
-        ".section-full {padding: 0 3% !important;}"
+        ".section-full {padding: 0 3% !important;}",
+        "@media screen and (max-width: 767px) {.section-full {padding: 0 20px !important; }}"
       ],
       "settings": {
         "full_width": true,
