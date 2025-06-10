@@ -108,7 +108,7 @@
 }
 
 .custom-store__store-desc {
-  display: relative;
+  display: flex;
   gap: calc(var(--spacing) * 2);
   width: 100%;
   height: fit-content;
