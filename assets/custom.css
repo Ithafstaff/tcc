@@ -249,6 +249,7 @@
   }
 
   .custom-store__wrapper {
+    display: flex;
     flex-direction: row-reverse;
     background-color: grey;
     height: fit-content;
@@ -256,6 +257,7 @@
   }
   
   .custom-store__map-wrap-left {
+    display: flex;
     padding: calc(var(--spacing) * 4);
     gap: calc(var(--spacing) * 8);
     width: 32rem;
