@@ -183,7 +183,7 @@
         "product_VQrNFb": {
           "type": "product",
           "settings": {
-            "product": "vanessa-white-tablecloth"
+            "product": "richmond-spillproof-tablecloth"
           }
         }
       },
@@ -579,7 +579,7 @@
     "custom_shipping_section_QJdWUJ": {
       "type": "custom-shipping-section",
       "settings": {
-        "heading": "FREE UPS SHIPPING ON ORDERS OVER $200",
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
         "subheading": "Get alerts about new items, sales, and more.",
         "button_text": "GET STARTED",
         "button_url": ""
