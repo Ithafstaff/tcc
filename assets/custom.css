@@ -188,11 +188,6 @@
   height: 3.75rem;
 }
 
-.location-btn:hover {
-  color: black;
-  background-color: white;
-}
-
 /* MOBILE RESPONSIVENESS PORTION*/
 
 @media screen and (max-width: 767px) {
