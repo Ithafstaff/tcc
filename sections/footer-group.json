@@ -26,7 +26,7 @@
           "type": "text",
           "settings": {
             "title": "CONTACT US & STORE LOCATOR",
-            "content": "<p>Questions? Text us: (000) 000-0000.</p><p><a href=\"#\">CHAT WITH US</a>   |   <a href=\"#\">LEAVE FEEDBACK</a>   |   <a href=\"/pages/store-locator\" title=\"Store Locator\">FIND A STORE</a></p>",
+            "content": "<p>Questions? Text us: (718)-854-2595</p><p><a href=\"/pages/contact-us\" title=\"Contact Us\">LEAVE FEEDBACK</a>   |   <a href=\"/pages/store-locator\" title=\"Store Locator\">FIND A STORE</a></p>",
             "enable_follow_on_shop": true
           }
         },
