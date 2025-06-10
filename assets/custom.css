@@ -88,7 +88,7 @@
 }
 
 .custom-store__map-info {
-  padding: calc(var(--spacing) * 4);
+  padding: calc(var(--spacing) * 3);
   gap: calc(var(--spacing) * 8px);
   width: 32rem;
   flex-direction: column;
