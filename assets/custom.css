@@ -361,6 +361,7 @@
   .location-btn__wrapper {
     display: grid;
     grid-template-columns: auto auto;
+    gap: 4px;
   }
 
   .location-btn {
