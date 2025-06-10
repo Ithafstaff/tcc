@@ -295,6 +295,10 @@
   .collection__results {
     padding: 0 20px;
   }
+
+  .custom-recently__heading {
+    font-size: 16px !important;
+  }
 }
 
 /* start of custom mega menu layout */
