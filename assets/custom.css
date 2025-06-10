@@ -141,7 +141,7 @@
 .custom-store__store-hours {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--spacing) * 1);
+  row-gap: 13px;
 }
 
 .custom-search__bar-wrap a {
