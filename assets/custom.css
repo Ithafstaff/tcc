@@ -108,7 +108,9 @@
 }
 
 .custom-store__store-desc {
-  
+  display: flex;
+  gap: calc(var(--spacing) * 2);
+  width: 100%;
 }
 
 .custom-search__bar-wrap a {
