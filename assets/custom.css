@@ -249,7 +249,7 @@
   }
 
   .custom-store__wrapper {
-    flex-direction: row-reverse;
+    flex-direction: row;
     background-color: grey;
     height: fit-content;
   }
