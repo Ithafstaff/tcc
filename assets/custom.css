@@ -277,6 +277,7 @@
 
   .custom-store__heading {
     font-family: "Alata", sans-serif !important;
+    font-weight: 400;
     font-size: 18px;
     text-align: center;
   }
