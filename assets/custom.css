@@ -97,7 +97,7 @@
   display: flex;
   padding: 4px;
   gap: 8px;
-  width: 526px;
+  width: 1000px;
   flex-direction: column;
 }
 
@@ -159,11 +159,6 @@
 
 .custom-product__variant-picker {
   gap: 18px !important;
-}
-
-.custom-recently__container {
-    max-width: 1381px;
-    margin: 0 auto 15px;
 }
 
 /* MOBILE RESPONSIVENESS PORTION*/
