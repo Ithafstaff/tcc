@@ -360,7 +360,9 @@ Supported variables
               </div>{%- endcapture -%}
 
             {%- assign icon = block.settings.custom_icon | default: block.settings.icon -%}
+            
             {%- render 'accordion', title: block.settings.title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion', block: block -%}
+            
           {%- endif -%}
 
         {%- when 'image' -%}
