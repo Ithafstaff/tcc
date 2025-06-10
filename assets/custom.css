@@ -87,13 +87,6 @@
   font-size: 40px;
 }
 
-.custom-store__map-info {
-  padding: calc(var(--spacing) * 4);
-  gap: calc(var(--spacing) * 8px);
-  width: 32rem;
-  flex-direction: column;
-}
-
 .custom-search__bar-wrap a {
   padding: 0 8px;
   font-family: "Alata", sans-serif !important;
@@ -373,6 +366,8 @@
   }
 }
 
+
+
 .custom-product__gallery-media.is-selected {
   position: relative;
 }
@@ -559,7 +554,7 @@
 }
 
 .section-header h2 {
-  font-size: 32px !important;
+  font-size: 32px;
   font-family: "Alata", sans-serif !important;
   font-weight: 400 !important;
   font-style: normal !important;
@@ -567,6 +562,28 @@
   padding-top: 50px;
   margin-bottom: 52px;
 }
+
+  .custom-recently__container {
+    overflow: hidden;
+    max-width: 1381px;
+    margin: 0 auto;
+  }
+
+  .custom-recently__heading {
+    font-size: 20px !important;
+    font-family: "Alata", sans-serif !important;
+    font-weight: 400;
+    color: #000;
+    line-height: 66px;
+    text-transform: uppercase !important;
+  }
+
+  @media screen and (max-width: 767px) {
+    .custom-recently__heading {
+      font-size: 16px !important;
+    }
+  }
+
 
 /* .section {
   max-width: 1356px;
