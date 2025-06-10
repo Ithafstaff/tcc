@@ -18,13 +18,13 @@
     </div>
 
     <!-- MAP SECTION -->
-    <div class="x:flex x:w-full" style="height: {{ section.settings.height | default: 400 }}px;">
+    <div class="x:flex x:w-full x:h-fit">
       <!-- MAP LEFT SECTION -->
       <div class="x:flex x:flex-col x:w-lg x:p-4 x:gap-8">
         <div class="x:flex x:flex-col x:items-start x:gap-3" style="margin-bottom: 80px;">
           <div class="x:flex x:gap-3 x:items-center">
             {%- render 'icon' with 'picto-pin', class: 'pin' -%}
-            <span class="x:capitalize" id="map-address">4518 13th avenue brooklyn ny 11219</span>
+            <span class="x:capitalize" id="map-address">4518 13th Avenue Brooklyn Ny 11219</span>
           </div>
           <div class="x:flex x:gap-3 x:items-center">
             {%- render 'icon' with 'picto-phone', class: 'phone' -%}
@@ -42,7 +42,7 @@
       </div>
 
       <!-- MAP RIGHT SECTION (GOOGLE MAP IFRAME) -->
-      <div class="x:w-full x:h-full x:rounded x:relative">
+      <div class="x:w-full x:h-full x:rounded x:relative" style="height: {{ section.settings.height | default: 400 }}px;">
         <iframe
           id="map-frame"
           class="embed-map-frame"
