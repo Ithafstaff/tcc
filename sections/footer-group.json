@@ -18,7 +18,7 @@
           "type": "text",
           "settings": {
             "title": "ORDERS",
-            "content": "<p>Find out when your purchase will arrive or schedule a delivery.</p><p><a href=\"#\">TRACK ORDER</a>   |   <a href=\"#\">SCHEDULE DELIVERY</a></p>",
+            "content": "<p>Find out when your purchase will arrive or schedule a delivery.</p><p><a href=\"/pages/profile\" title=\"Profile\">TRACK ORDER</a>  </p>",
             "enable_follow_on_shop": true
           }
         },
@@ -34,7 +34,7 @@
           "type": "text",
           "settings": {
             "title": "THE CLOSEOUT CONECTION CREDIT CARD",
-            "content": "<p>Earn Reward Dollars every time you shop* (excluding special financing purchases), plus get access to special offers and events.</p><p><a href=\"#\">APPLY NOW</a> &nbsp; | &nbsp; <a href=\"#\">MANAGE YOUR ACCOUNT</a></p>",
+            "content": "<p>Earn Reward Dollars every time you shop* (excluding special financing purchases), plus get access to special offers and events.</p><p><a href=\"#\">APPLY NOW</a>   |   <a href=\"#\">MANAGE YOUR ACCOUNT</a></p>",
             "enable_follow_on_shop": true
           }
         }
