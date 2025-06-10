@@ -72,12 +72,6 @@
   padding: 46px 20px;
 }
 
-@media screen and (max-width: 767px) {
-  .custom-luxury__container {
-    padding: 20px;
-  }
-}
-
 .custom-luxury__text {
     padding-top: 20px;
     font-size: 18px;
@@ -141,6 +135,10 @@
 }
 
 @media screen and (max-width: 767px) {
+  .custom-luxury__container {
+    padding: 20px;
+  }
+  
   .custom-luxury__text {
     font-size: 10px;
     padding-top: 0;
