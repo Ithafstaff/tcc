@@ -38,7 +38,7 @@ LIQUID
 
 <recently-viewed-products products-count="{{ section.settings.products_count }}" {% if request.page_type == 'product' %}exclude-id="{{ product.id }}"{% endif %} {% render 'section-properties' %}>
   {%- if search.performed and search.results_count > 0 -%}
-    <div class="section-stack">
+    <div class="section-stack custom-recently__container">
       {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, heading_color: section.settings.heading_color, heading_gradient: section.settings.heading_gradient, content: section.settings.content -%}
 
       <div class="{% if section.settings.show_progress_bar %}scrollable-with-controls{% else %}floating-controls-container{% endif %}">
