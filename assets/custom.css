@@ -107,7 +107,7 @@
   position: relative;
 }
 
-.custom-store_store-info {
+.custom-store_info-wrap {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
