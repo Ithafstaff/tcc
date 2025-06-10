@@ -115,6 +115,7 @@
 }
 
 .custom-store__info {
+  display: flex;
   margin-bottom: 39px;
   width: 100%;
   row-gap: 13px;
