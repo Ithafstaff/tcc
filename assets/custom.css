@@ -114,6 +114,11 @@
   margin-bottom: 38px;
 }
 
+.custom-store__info {
+  margin-bottom: 39px;
+  width: fit-content;
+}
+
 .custom-store__store-desc {
   display: flex;
   position: relative;
