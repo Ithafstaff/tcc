@@ -159,7 +159,7 @@ Supported variables
           {%- if block.settings.collapse_content -%}
             {%- if product.description != blank -%}
               {%- capture accordion_title -%}{{ 'product.general.description' | t }}{%- endcapture -%}
-              {%- capture accordion_content -%}<div class="prose test1">{{ product.description }}</div>{%- endcapture -%}
+              {%- capture accordion_content -%}<div class="prose">{{ product.description }}</div>{%- endcapture -%}
 
               {%- assign icon = block.settings.custom_icon | default: block.settings.icon -%}
               {%- render 'accordion', title: accordion_title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion', block: block -%}
@@ -339,7 +339,7 @@ Supported variables
 
         {%- when 'collapsible_text' -%}
           {%- if block.settings.title != blank and block.settings.content != blank or block.settings.page.content != blank -%}
-            {%- capture accordion_content -%}<div class="prose test2">
+            {%- capture accordion_content -%}<div class="prose">
               <!-- sir mico pa add nalang ako neto sa dropdown --> 
               <!-- DYNAMIC PRODUCT CARE -->
               {% if product.metafields.custom.show_product_care %}
