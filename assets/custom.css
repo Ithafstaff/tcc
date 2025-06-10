@@ -107,7 +107,7 @@
   position: relative;
 }
 
-.custom-store_info-wrap {
+.custom-store__info-wrap {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -122,7 +122,7 @@
   height: fit-content;
 }
 
-.custom-store_store-hours {
+.custom-store__store-hours {
   display: flex;
   flex-direction: column;
   gap: calc(var(--spacing) * 1);
