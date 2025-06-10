@@ -253,6 +253,7 @@
   .custom-footer__list {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
   }
 }
 
