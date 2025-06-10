@@ -138,14 +138,14 @@
           "type": "button",
           "settings": {
             "text": "SHOP NEW",
-            "url": "shopify://collections/all-collections"
+            "url": "shopify://collections/shop-new"
           }
         },
         "button_iUCqYQ": {
           "type": "button",
           "settings": {
             "text": "SHOP BEST SELLERS",
-            "url": "shopify://collections/all-collections"
+            "url": "shopify://collections/best-seller"
           }
         }
       },
