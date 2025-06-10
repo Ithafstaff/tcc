@@ -88,6 +88,8 @@
 }
 
 .custom-store__wrapper {
+  display: flex;
+  flex-direction: row;
   width: 100%;
 }
 
