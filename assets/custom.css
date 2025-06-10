@@ -282,6 +282,7 @@
 
   .custom-store_store-hours {
     margin-top: 30px;
+    row-gap: 10px;
   }
   
   .custom-store__store-desc {
