@@ -257,6 +257,12 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .custom-footer__list li {
+    width: fit-content;
+  }
+}
+
   
 .custom-search__bar-wrap a {
   padding: 0 8px;
