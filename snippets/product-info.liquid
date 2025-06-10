@@ -162,7 +162,7 @@ Supported variables
               {%- capture accordion_content -%}<div class="prose">{{ product.description }}</div>{%- endcapture -%}
 
               {%- assign icon = block.settings.custom_icon | default: block.settings.icon -%}
-              {%- render 'accordion', title: accordion_title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion', block: block -%}
+              {%- render 'accordion', title: accordion_title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion test1', block: block -%}
             {%- endif -%}
           {%- else -%}
             {%- if product.description != blank -%}
@@ -339,7 +339,7 @@ Supported variables
 
         {%- when 'collapsible_text' -%}
           {%- if block.settings.title != blank and block.settings.content != blank or block.settings.page.content != blank -%}
-            {%- capture accordion_content -%}<div class="prose">
+            {%- capture accordion_content -%}<div class="prose test2">
               <!-- sir mico pa add nalang ako neto sa dropdown --> 
               <!-- DYNAMIC PRODUCT CARE -->
               {% if product.metafields.custom.show_product_care %}
@@ -360,7 +360,7 @@ Supported variables
               </div>{%- endcapture -%}
 
             {%- assign icon = block.settings.custom_icon | default: block.settings.icon -%}
-            {%- render 'accordion', title: block.settings.title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion', block: block -%}
+            {%- render 'accordion', title: block.settings.title, content: accordion_content, icon: icon, icon_width: block.settings.icon_width, class: 'product-info__accordion test2', block: block -%}
           {%- endif -%}
 
         {%- when 'image' -%}
