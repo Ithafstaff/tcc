@@ -97,7 +97,7 @@
   display: flex;
   padding: calc(var(--spacing) * 4);
   gap: calc(var(--spacing) * 8);
-  width: 514px;
+  width: 520px;
   flex-direction: column;
 }
 
