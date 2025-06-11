@@ -759,6 +759,11 @@
     width: 20px;
     height: 20px;
   }
+
+  .custom-product__quantity-button {
+    width: 25px;
+    height: 25px;
+  }
   
   .announcement-bar {
     height: 30px; 
