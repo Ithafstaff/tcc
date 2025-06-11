@@ -2752,26 +2752,26 @@ let BuyButtons = class extends HTMLElement {
     disconnectedCallback() {
         this._productForm?.removeEventListener("cart:error", this._onCartErrorListener);
     }
-    _onCartError(event) {
-        const errorBanner = document.createElement("div");
-        errorBanner.classList.add("banner", "banner--error", "justify-center");
-        errorBanner.setAttribute("role", "alert");
-        errorBanner.style.gridColumn = "1/-1";
-        errorBanner.style.marginBottom = "1rem";
-        errorBanner.innerHTML = `
-      <svg role="presentation" focusable="false" width="18" height="18" class="offset-icon icon icon-error" style="--icon-height: 18px" viewBox="0 0 18 18">
-        <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="currentColor"></path>
-        <path d="M5.29289 6.70711L11.2929 12.7071L12.7071 11.2929L6.70711 5.29289L5.29289 6.70711ZM6.70711 12.7071L12.7071 6.70711L11.2929 5.2929L5.29289 11.2929L6.70711 12.7071Z" fill="#ffffff"></path>
-      </svg>
+    // _onCartError(event) {
+    //     const errorBanner = document.createElement("div");
+    //     errorBanner.classList.add("banner", "banner--error", "justify-center");
+    //     errorBanner.setAttribute("role", "alert");
+    //     errorBanner.style.gridColumn = "1/-1";
+    //     errorBanner.style.marginBottom = "1rem";
+    //     errorBanner.innerHTML = `
+    //   <svg role="presentation" focusable="false" width="18" height="18" class="offset-icon icon icon-error" style="--icon-height: 18px" viewBox="0 0 18 18">
+    //     <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="currentColor"></path>
+    //     <path d="M5.29289 6.70711L11.2929 12.7071L12.7071 11.2929L6.70711 5.29289L5.29289 6.70711ZM6.70711 12.7071L12.7071 6.70711L11.2929 5.2929L5.29289 11.2929L6.70711 12.7071Z" fill="#ffffff"></path>
+    //   </svg>
       
-      <p>${event.detail.error}</p>
-    `;
-        this.before(errorBanner);
-        setTimeout(async () => {
-            await errorBanner.animate({ opacity: [1, 0] }, { duration: 250, fill: "forwards" }).finished;
-            errorBanner.remove();
-        }, 5e3);
-    }
+    //   <p>${event.detail.error}</p>
+    // `;
+    //     this.before(errorBanner);
+    //     setTimeout(async () => {
+    //         await errorBanner.animate({ opacity: [1, 0] }, { duration: 250, fill: "forwards" }).finished;
+    //         errorBanner.remove();
+    //     }, 5e3);
+    // }
 };
 if (!window.customElements.get("buy-buttons")) {
     window.customElements.define("buy-buttons", BuyButtons);
