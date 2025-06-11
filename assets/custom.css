@@ -696,6 +696,7 @@
 
   .product-gallery {
     position: relative; 
+    overflow: hidden;
   }
   
   .announcement-bar {
