@@ -210,6 +210,14 @@
   width: 100%;
 }
 
+.custom-contact__input-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: calc(var(--x-spacing) * 5);
+}
+
 /* start of custom mega menu layout */
 .mega-menu__nav {
   display: grid !important;
@@ -784,14 +792,6 @@
 
   .custom-contact__first-last-name {
     gap: calc(var(--x-spacing) * 1);
-  }
-
-  .custom-contact__input-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: calc(var(--x-spacing) * 5);
   }
   
   .custom-shipping__container {
