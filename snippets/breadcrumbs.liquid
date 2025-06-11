@@ -15,6 +15,14 @@
     line-height: 66px;
   }
 
+  @media screen and (max-width: 767px) {
+    .breadcrumbs--root li,
+    .breadcrumbs--root li a {
+      font-size: 12px;
+      line-height: 40px;
+    }
+  }
+
   /* All breadcrumb items except the last one: black */
   .breadcrumbs--root li:not(:last-child),
   .breadcrumbs--root li:not(:last-child) a {
