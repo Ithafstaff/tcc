@@ -1935,55 +1935,55 @@ let LineItemQuantity = class extends HTMLElement {
         const url = new URL(event.target.href);
         this._changeLineItemQuantity(url.searchParams.get("id"), parseInt(url.searchParams.get("quantity")));
     }
-    // async _changeLineItemQuantity(lineKey, targetQuantity) {
-    //     const lineItem = this.closest("line-item");
-    //     lineItem?.dispatchEvent(new CustomEvent("line-item:will-change", { bubbles: true, detail: { targetQuantity } }));
-    //     let sectionsToBundle = [];
-    //     document.documentElement.dispatchEvent(new CustomEvent("cart:prepare-bundled-sections", { bubbles: true, detail: { sections: sectionsToBundle } }));
-    //     const response = await fetch(`${Shopify.routes.root}cart/change.js`, {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             id: lineKey,
-    //             quantity: targetQuantity,
-    //             sections: sectionsToBundle
-    //         })
-    //     });
-    //     if (!response.ok) {
-    //         const responseContent = await response.json();
-    //         this.closest(".line-item, tr").querySelector('[role="alert"]')?.remove();
-    //         const errorSvg = `<svg width="18" viewBox="0 0 18 18">
-    //     <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="#eb001b"></path>
-    //     <path d="M5.29289 6.70711L11.2929 12.7071L12.7071 11.2929L6.70711 5.29289L5.29289 6.70711ZM6.70711 12.7071L12.7071 6.70711L11.2929 5.2929L5.29289 11.2929L6.70711 12.7071Z" fill="#ffffff"></path>
-    //   </svg>`;
-    //         this.closest(".line-item, tr").querySelector(".line-item__info").insertAdjacentHTML("beforeend", `<p class="banner banner--with-icon banner--error banner--sm w-full" role="alert">${errorSvg} ${responseContent["description"]}</p>`);
-    //         this.querySelector(".quantity-input").value = this.querySelector(".quantity-input").defaultValue;
-    //         lineItem?.dispatchEvent(new CustomEvent("line-item:error", { bubbles: true }));
-    //     } else {
-    //         const cartContent = await response.json();
-    //         if (window.themeVariables.settings.pageType === "cart") {
-    //             window.location.reload();
-    //         } else {
-    //             const lineItemAfterChange = cartContent["items"].filter((lineItem2) => lineItem2["key"] === lineKey);
-    //             lineItem?.dispatchEvent(new CustomEvent("line-item:change", {
-    //                 bubbles: true,
-    //                 detail: {
-    //                     quantity: lineItemAfterChange.length === 0 ? 0 : lineItemAfterChange[0]["quantity"],
-    //                     cart: cartContent
-    //                 }
-    //             }));
-    //             document.documentElement.dispatchEvent(new CustomEvent("cart:change", {
-    //                 bubbles: true,
-    //                 detail: {
-    //                     baseEvent: "line-item:change",
-    //                     cart: cartContent
-    //                 }
-    //             }));
-    //         }
-    //     }
-    // }
+    async _changeLineItemQuantity(lineKey, targetQuantity) {
+        const lineItem = this.closest("line-item");
+        lineItem?.dispatchEvent(new CustomEvent("line-item:will-change", { bubbles: true, detail: { targetQuantity } }));
+        let sectionsToBundle = [];
+        document.documentElement.dispatchEvent(new CustomEvent("cart:prepare-bundled-sections", { bubbles: true, detail: { sections: sectionsToBundle } }));
+        const response = await fetch(`${Shopify.routes.root}cart/change.js`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: lineKey,
+                quantity: targetQuantity,
+                sections: sectionsToBundle
+            })
+        });
+        if (!response.ok) {
+            const responseContent = await response.json();
+            this.closest(".line-item, tr").querySelector('[role="alert"]')?.remove();
+            const errorSvg = `<svg width="18" viewBox="0 0 18 18">
+        <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="#eb001b"></path>
+        <path d="M5.29289 6.70711L11.2929 12.7071L12.7071 11.2929L6.70711 5.29289L5.29289 6.70711ZM6.70711 12.7071L12.7071 6.70711L11.2929 5.2929L5.29289 11.2929L6.70711 12.7071Z" fill="#ffffff"></path>
+      </svg>`;
+            this.closest(".line-item, tr").querySelector(".line-item__info").insertAdjacentHTML("beforeend", `<p class="banner banner--with-icon banner--error banner--sm w-full" role="alert">${errorSvg} ${responseContent["description"]}</p>`);
+            this.querySelector(".quantity-input").value = this.querySelector(".quantity-input").defaultValue;
+            lineItem?.dispatchEvent(new CustomEvent("line-item:error", { bubbles: true }));
+        } else {
+            const cartContent = await response.json();
+            if (window.themeVariables.settings.pageType === "cart") {
+                window.location.reload();
+            } else {
+                const lineItemAfterChange = cartContent["items"].filter((lineItem2) => lineItem2["key"] === lineKey);
+                lineItem?.dispatchEvent(new CustomEvent("line-item:change", {
+                    bubbles: true,
+                    detail: {
+                        quantity: lineItemAfterChange.length === 0 ? 0 : lineItemAfterChange[0]["quantity"],
+                        cart: cartContent
+                    }
+                }));
+                document.documentElement.dispatchEvent(new CustomEvent("cart:change", {
+                    bubbles: true,
+                    detail: {
+                        baseEvent: "line-item:change",
+                        cart: cartContent
+                    }
+                }));
+            }
+        }
+    }
 };
 if (!window.customElements.get("line-item-quantity")) {
     window.customElements.define("line-item-quantity", LineItemQuantity);
