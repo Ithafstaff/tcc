@@ -720,8 +720,12 @@
   }
 
   .custom-product__info-title {
-    font-size: 16px !important;
+    font-size: 20px !important;
     font-family: "Alata", sans-serif !important;
+  }
+
+  .custom-product__info-sub-title {
+    font-size: 14px !important;
   }
   
   .announcement-bar {
