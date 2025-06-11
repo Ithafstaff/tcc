@@ -750,6 +750,10 @@
     width: 20px !important;
     height: 20px !important;
   }
+
+  .Size .block-swatch {
+    font-size: 12px;
+  }
   
   .announcement-bar {
     height: 30px; 
