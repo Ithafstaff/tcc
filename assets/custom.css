@@ -201,7 +201,7 @@
   width: 70rem;
   display: flex;
   flex-direction: column;
-  gap: calc(var(--x-spacing) * 5) !important;
+  gap: calc(var(--x-spacing) * 5);
 }
 
 .custom-contact__first-last-name {
