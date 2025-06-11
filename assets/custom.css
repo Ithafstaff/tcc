@@ -760,7 +760,8 @@
     height: 20px;
   }
 
-  .custom-product__quantity-button {
+  .custom-product__quantity-button,
+  .custom-product__quantity-input {
     width: 25px;
     height: 25px;
   }
