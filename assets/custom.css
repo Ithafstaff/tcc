@@ -740,6 +740,11 @@
     gap: 10px !important;
   }
 
+  .variant-picker__option-values.Size {
+    gap: 10px;
+    padding: 20px 0 25px;
+  }
+
   .custom-product__swatch-rectangle {
     margin: 0 !important;
     width: 20px !important;
