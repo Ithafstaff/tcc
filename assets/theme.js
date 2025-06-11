@@ -1958,7 +1958,7 @@ let LineItemQuantity = class extends HTMLElement {
         <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="#eb001b"></path>
         <path d="M5.29289 6.70711L11.2929 12.7071L12.7071 11.2929L6.70711 5.29289L5.29289 6.70711ZM6.70711 12.7071L12.7071 6.70711L11.2929 5.2929L5.29289 11.2929L6.70711 12.7071Z" fill="#ffffff"></path>
       </svg>`;
-            this.closest(".line-item, tr").querySelector(".line-item__info").insertAdjacentHTML("beforeend", `<p class="banner banner--with-icon banner--error banner--sm w-full" role="alert">${errorSvg} ${responseContent["description"]}</p>`);
+            this.closest(".line-item, tr").querySelector(".line-item__info").insertAdjacentHTML("beforeend", `<p class="banner test1 banner--with-icon banner--error banner--sm w-full" role="alert">${errorSvg} ${responseContent["description"]}</p>`);
             this.querySelector(".quantity-input").value = this.querySelector(".quantity-input").defaultValue;
             lineItem?.dispatchEvent(new CustomEvent("line-item:error", { bubbles: true }));
         } else {
