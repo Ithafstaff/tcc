@@ -197,6 +197,13 @@
   height: 44px;
 }
 
+.custom-contact__container {
+  width: 70rem;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 5);
+}
+
 /* start of custom mega menu layout */
 .mega-menu__nav {
   display: grid !important;
