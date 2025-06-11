@@ -762,8 +762,9 @@
 
   .custom-product__quantity-button,
   .custom-product__quantity-input {
-    width: 25px;
+    width: 25px !important;
     height: 25px;
+    font-size: 14px !important;
   }
   
   .announcement-bar {
