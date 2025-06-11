@@ -702,6 +702,11 @@
   .custom-product__gallery-thumbnail-list {
     display: flex !important;
     gap: 10px !important;
+    overflow: scroll !important;
+  }
+
+  .custom-product__gallery-thumbnail {
+    min-width: 60px;
   }
   
   .announcement-bar {
