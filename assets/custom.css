@@ -731,6 +731,10 @@
   .custom-product-info__block-item {
     font-size: 10px !important;
   }
+
+  .product-info__text {
+    font-size: 12px !important;
+  }
   
   .announcement-bar {
     height: 30px; 
