@@ -204,6 +204,12 @@
   gap: calc(var(--spacing) * 5);
 }
 
+.custom-contact__first-last-name {
+  display: flex;
+  gap: calc(var(--spacing) * 5);
+  width: 100%;
+}
+
 /* start of custom mega menu layout */
 .mega-menu__nav {
   display: grid !important;
