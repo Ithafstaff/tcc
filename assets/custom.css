@@ -793,6 +793,10 @@
   .custom-contact__first-last-name {
     gap: calc(var(--x-spacing) * 1);
   }
+
+  .custom-contact__input-wrap {
+    gap: calc(var(--x-spacing) * 1);
+  }
   
   .custom-shipping__container {
     padding: 28px;
@@ -817,8 +821,6 @@
   .custom-shipping__btn {
     font-size: 12px;
   }
-
-  
   
   .custom-store__header {
     margin-bottom: 10px;
