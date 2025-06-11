@@ -46,6 +46,14 @@
     height: 60px
   }
 
+  .custom-contact__header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
   .custom-contact__heading {
     text-transform: uppercase;
     font-size: 40px;
@@ -103,7 +111,7 @@
   {% comment %} CONTACT US SECTION {% endcomment %}
   <div class="container custom-contact__container">
     <div class="section x:flex x:flex-col x:gap-5">
-      <div class="x:flex x:justify-center x:flex-col x:items-center x:mb-[6rem]">
+      <div class="custom-contact__header">
         <h1 class="custom-contact__heading">need help? send us a message</h1>
         <span class="custom-contact__subheading">To get help with your online purchase, contact us at <strong>718-854-2595</strong> or use the form below.</span>
       </div>
