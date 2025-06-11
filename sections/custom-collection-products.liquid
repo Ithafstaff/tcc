@@ -35,7 +35,7 @@ LIQUID
   <div class="custom-collection__container" id="scroll-area-{{ section.id }}">
     {%- assign product_count = 0 -%}
     {%- for block in section.blocks -%}
-      {%- if product_count < 3 -%}
+      {%- if product_count < 4 -%}
         {%- assign product_handle = block.settings.product -%}
         {%- assign product = all_products[product_handle] -%}
 
