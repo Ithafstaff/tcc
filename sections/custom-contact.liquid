@@ -12,6 +12,14 @@
     flex-direction: column;
   }
 
+  .custom-contact__input-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: calc(var(--x-spacing) * 5);
+  }
+
   @media screen and (max-width: 767px) {
     .custom-contact__container {
       width: 100%;
@@ -19,6 +27,10 @@
 
     .custom-contact__first-last-name {
       gap: calc(var(--x-spacing) * 2);
+    }
+
+    .custom-contact__input-wrap {
+      
     }
   }
 </style>
