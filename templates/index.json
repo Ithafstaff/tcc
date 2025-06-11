@@ -255,7 +255,8 @@
         "product_Hr7RcR"
       ],
       "custom_css": [
-        ".section-full {padding: 40px;}"
+        ".section-full {padding: 40px;}",
+        "@media screen and (max-width: 767px) {.section-full {padding: 20px; }}"
       ],
       "settings": {
         "title": ""
@@ -315,7 +316,8 @@
         "product_gzbhBq"
       ],
       "custom_css": [
-        ".section-full {padding: 40px;}"
+        ".section-full {padding: 40px;}",
+        "@media screen and (max-width: 767px) {.section-full {padding: 20px; }}"
       ],
       "settings": {
         "title": ""
