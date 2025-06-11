@@ -714,6 +714,10 @@
   .product-gallery__thumbnail::after {
     height: 2px !important;
   }
+
+  .custom-product__gallery-media {
+    max-height: 350px !important;
+  }
   
   .announcement-bar {
     height: 30px; 
