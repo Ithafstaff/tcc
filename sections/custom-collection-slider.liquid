@@ -52,7 +52,7 @@
    @media screen and (max-width: 767px) {
     .custom-col-slider__desc {
       font-size: 12px;
-      margin-top: 10px 0 40px;
+      margin: 10px 0 40px;
     }
    }
 
@@ -125,11 +125,20 @@
 
 
 <div class="custom-col-slider__container">
+  {% comment %}
   <h2 class="custom-col-slider__heading">{{ section.settings.id_header }}</h2>
   <h4 class="custom-col-slider__sub-heading">{{ section.settings.id_sub-header }}</h2>
   {% if section.settings.id_content != blank %}
     <p class="custom-col-slider__desc">{{ section.settings.id_content | strip_html }}</p>
   {% endif %}
+  {% endcomment %}
+  
+  <h2 class="custom-col-slider__heading">{{ collection.title }}</h2>
+  <h4 class="custom-col-slider__sub-heading">{{ section.settings.id_sub-header }}</h2>
+  {% if section.settings.id_content != blank %}
+    <p class="custom-col-slider__desc">{{ section.settings.id_content | strip_html }}</p>
+  {% endif %}
+  
   <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
     <div class="custom-col-slider__track splide__track">
       <ul class="custom-col-slider__list splide__list">
