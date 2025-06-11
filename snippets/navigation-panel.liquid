@@ -15,18 +15,8 @@ Supported variables
 * is_mega_menu: set to true if mega menu is set to drawer
 * layout
 {%- endcomment -%}
-<style>
 
-  @media screen and (max-width: 767px) {
-    .custom-panel__container {
-      
-    }
-  }
-</style>
-
-
-
-<div class="panel-list__wrapper custom-panel__container">
+<div class="panel-list__wrapper">
   <div class="panel">
     <div class="panel__wrapper" {% if mega_menu_block.settings.promo_content_layout == 'grid' or mega_menu_block.settings.promo_content_layout == 'collage' %}style="--panel-wrapper-justify-content: flex-start"{% endif %}>
       <div class="panel__scroller v-stack gap-8">
