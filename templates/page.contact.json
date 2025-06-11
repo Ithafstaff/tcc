@@ -123,11 +123,22 @@
         "button_text": "GET STARTED",
         "button_url": ""
       }
+    },
+    "custom_shipping_section_9nazWF": {
+      "type": "custom-shipping-section",
+      "name": "Custom Shipping Section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
     }
   },
   "order": [
     "main",
     "contact",
+    "custom_shipping_section_9nazWF",
     "custom_faq_iCLJAW",
     "custom_shipping_section_bUiVrr"
   ]
