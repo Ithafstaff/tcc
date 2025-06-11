@@ -16,6 +16,16 @@ Supported variables
 * layout
 {%- endcomment -%}
 
+<style>
+
+  @media screen and (max-width: 767px) {
+    .custom-panel__list li {
+      font-size: 14px;
+    }
+  }
+  
+</style>
+
 <div class="panel-list__wrapper">
   <div class="panel">
     <div class="panel__wrapper" {% if mega_menu_block.settings.promo_content_layout == 'grid' or mega_menu_block.settings.promo_content_layout == 'collage' %}style="--panel-wrapper-justify-content: flex-start"{% endif %}>
@@ -26,7 +36,7 @@ Supported variables
           </button>
         {%- endif -%}
 
-        <ul class="v-stack gap-4">
+        <ul class="v-stack gap-4 custom-panel__list">
           {%- for link in main_menu.links -%}
             {%- unless is_mega_menu -%}
               {% liquid
