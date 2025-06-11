@@ -807,7 +807,7 @@
   }
 
   .custom-contact__first-last-name {
-    gap: calc(var(--x-spacing) * 2);
+    gap: calc(var(--x-spacing) * 1);
   }
   
   .custom-store__header {
