@@ -706,7 +706,8 @@
   }
 
   .custom-product__gallery-thumbnail {
-    min-width: 60px;
+    width: 60px;
+    height: 70px;
   }
   
   .announcement-bar {
