@@ -718,6 +718,11 @@
   .custom-product__gallery-media {
     max-height: 350px !important;
   }
+
+  .custom-product__info-title {
+    font-size: 16px !important;
+    font-family: "Alata", sans-serif !important;
+  }
   
   .announcement-bar {
     height: 30px; 
