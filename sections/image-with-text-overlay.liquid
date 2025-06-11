@@ -28,6 +28,10 @@
     line-height: 66px;
     width: 100%;
   }
+
+  @media screen and (max-width: 727px) {
+    font-size: 20px !important;
+  }
 </style>
 
 <div {% render 'section-properties' %} {% if section.settings.allow_transparent_header %}allow-transparent-header{% endif %}>
