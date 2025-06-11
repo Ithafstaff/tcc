@@ -737,6 +737,10 @@
     width: calc(48% - 1.5rem);
   }
 
+  .custom-contact__container {
+    width: 100%;
+  }
+
   .custom-footer__link-list {
     display: flex;
     flex-wrap: wrap;
