@@ -698,6 +698,11 @@
     position: relative; 
     overflow: hidden;
   }
+
+  .custom-product__gallery-thumbnail-list {
+    display: flex;
+    gap: 10px !important;
+  }
   
   .announcement-bar {
     height: 30px; 
