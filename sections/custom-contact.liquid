@@ -4,7 +4,7 @@
     text-transform: capitalize;
   }
 
-  .checkbox {
+  .custom-contact__checkbox {
     width: calc(var(--x-spacing) * 6);
     height: calc(var(--x-spacing) * 6);
     accent-color: #000000;
@@ -203,19 +203,19 @@
                 <div class="custom-contact__reason-options">
                   {% comment %} SHIPPING CHECKBOX {% endcomment %}
                   <div class="x:flex x:items-center x:gap-3">
-                    <input type="checkbox" class="checkbox">
+                    <input type="checkbox" class="custom-contact__checkbox">
                     <label>shipping</label>
                   </div>
     
                   {% comment %} PRODUCT CHECKBOX {% endcomment %}
                   <div class="x:flex x:items-center x:gap-3">
-                    <input type="checkbox" class="checkbox">
+                    <input type="checkbox" class="custom-contact__checkbox">
                     <label>Product</label>
                   </div>
     
                   {% comment %} OTHERS CHECKBOX WITH INPUT {% endcomment %}
                   <div class="x:flex x:items-center x:gap-3">
-                    <input type="checkbox" class="checkbox">
+                    <input type="checkbox" class="custom-contact__checkbox">
                     <div class="x:flex x:items-center x:gap-3">
                       <label>others:</label>
                       <input placeholder="Please specify..." class="x:border-b-2 x:border-black">
