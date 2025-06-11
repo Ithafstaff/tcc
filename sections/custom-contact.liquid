@@ -18,7 +18,8 @@
     position: absolute;
     display: flex;
     align-items: center;
-    translate: var(--x-tw-translate-x) calc(var(--x-spacing) * (1/2));
+    translate: var(--x-tw-translate-x) calc(1/2 * 100%);
+    top: calc(1/2 * 100%);
   }
 
   .custom-contact__input {
@@ -107,7 +108,7 @@
               <div class="x:relative x:group x:w-full">
                 <input placeholder="Last Name" style="padding-left: 40px;" class="x:flex x:items-center x:h-[60px] x:border-2 x:border-black x:text-xl x:w-full">
     
-                <div style="margin-left: 12px; height: 100%;" class="x:absolute x:flex x:items-center x:left-[12px] x:-translate-y-1/2 x:gap-3">
+                <div style="margin-left: 12px; height: 100%;" class="x:absolute x:flex x:items-center x:left-[12px] x:top-1/2 x:-translate-y-1/2 x:gap-3">
                   <i>
                     {%- render 'icon' with 'user', class: 'user' -%}
                   </i>

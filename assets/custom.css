@@ -737,7 +737,11 @@
   }
 
   .variant-picker__option-values.Color {
-    gap: 5px !important;
+    gap: 10px !important;
+  }
+
+  .custom-product__swatch-rectangle {
+    margin: 0 !important;
   }
   
   .announcement-bar {
