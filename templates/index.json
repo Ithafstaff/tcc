@@ -247,19 +247,12 @@
           "settings": {
             "product": "ivory-and-gold-faux-leather-tablecloth-by-columbia"
           }
-        },
-        "product_bGhpMm": {
-          "type": "product",
-          "settings": {
-            "product": "10oz-silver-rim-plastic-tumblers-16-count"
-          }
         }
       },
       "block_order": [
         "product_Qgeie6",
         "product_R9A4C9",
-        "product_Hr7RcR",
-        "product_bGhpMm"
+        "product_Hr7RcR"
       ],
       "custom_css": [
         ".section-full {padding: 40px;}"
