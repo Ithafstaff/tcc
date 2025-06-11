@@ -791,11 +791,11 @@
   }
 
   .custom-contact__first-last-name {
-    gap: calc(var(--x-spacing) * 1);
+    gap: calc(var(--x-spacing) * 2);
   }
 
   .custom-contact__input-wrap {
-    gap: calc(var(--x-spacing) * 1);
+    gap: calc(var(--x-spacing) * 2);
   }
   
   .custom-shipping__container {
