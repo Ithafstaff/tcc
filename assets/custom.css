@@ -206,7 +206,7 @@
 
 .custom-contact__first-last-name {
   display: flex;
-  gap: 5px;
+  gap: calc(var(--x-spacing) * 5);
   width: 100%;
 }
 
