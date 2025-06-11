@@ -693,6 +693,10 @@
   .product {
     grid-template-columns: 1fr !important;
   }
+
+  .product-gallery {
+    position: relative; 
+  }
   
   .announcement-bar {
     height: 30px; 
