@@ -90,6 +90,12 @@
     gap: calc(var(--x-spacing) * 2);
   }
 
+  .custom-contact__textarea {
+    height: 100%;
+    width: 100%;
+    padding-left: 40px
+  }
+
   .custom-contact__textarea-wrap {
     position: relative;
     width: 100%;
@@ -234,7 +240,7 @@
             </div>
     
             {% comment %} MESSAGE TEXT AREA SECTION {% endcomment %}
-            <div class="x:w-full x:border-2 x:border-black x:p-5">
+            <div class="custom-contact__textarea-wrapx:w-full x:border-2 x:border-black x:p-5">
               <div class="x:relative">
                 <i class="x:absolute">
                   {%- render 'icon' with 'message' -%}
