@@ -754,6 +754,11 @@
   .Size .block-swatch {
     font-size: 12px;
   }
+
+  .Size .block-swatch::before {
+    width: 20px;
+    height: 20px;
+  }
   
   .announcement-bar {
     height: 30px; 
