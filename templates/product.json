@@ -12,7 +12,8 @@
     "custom_liquid_WpJwGU": {
       "type": "custom-liquid",
       "custom_css": [
-        ".section-full {padding: 0 3% !important;}"
+        ".section-full {padding: 0 40px !important;}",
+        "@media screen and (max-width: 767px) {.section-full {padding: 0 20px !important;}}"
       ],
       "settings": {
         "full_width": true,
