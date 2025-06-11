@@ -102,8 +102,8 @@
 
 .custom-store__map-wrap-left {
   display: flex;
-  padding: 4px;
-  gap: 8px;
+  padding: calc(var(--x-spacing) * 4);;
+  gap: calc(var(--x-spacing) * 8);
   width: 650px;
   flex-direction: column;
 }
@@ -133,7 +133,7 @@
 .custom-store__store-desc {
   display: flex;
   position: relative;
-  gap: calc(var(--spacing) * 2);
+  gap: calc(var(--x-spacing) * 2);
   width: 100%;
   height: fit-content;
 }
