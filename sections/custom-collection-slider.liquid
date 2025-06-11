@@ -133,7 +133,7 @@
   {% endif %}
   {% endcomment %}
   
-  <h2 class="custom-col-slider__heading">{{ collection.title }}</h2>
+  <h2 class="custom-col-slider__heading">{{ collection.title | upcase }} COLLECTION</h2>
   <h4 class="custom-col-slider__sub-heading">{{ section.settings.id_sub-header }}</h2>
   {% if section.settings.id_content != blank %}
     <p class="custom-col-slider__desc">{{ section.settings.id_content | strip_html }}</p>
