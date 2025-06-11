@@ -781,6 +781,18 @@
   .custom-contact__container {
     width: 100%;
   }
+
+  .custom-contact__input-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: calc(var(--x-spacing) * 5);
+  }
+
+  .custom-contact__first-last-name {
+    gap: calc(var(--x-spacing) * 1);
+  }
   
   .custom-shipping__container {
     padding: 28px;
@@ -806,9 +818,7 @@
     font-size: 12px;
   }
 
-  .custom-contact__first-last-name {
-    gap: calc(var(--x-spacing) * 1);
-  }
+  
   
   .custom-store__header {
     margin-bottom: 10px;
