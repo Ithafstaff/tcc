@@ -72,7 +72,6 @@
         },
         "mega_menu_VWypqM": {
           "type": "mega_menu",
-          "disabled": true,
           "settings": {
             "menu_item": "Catalog",
             "layout": "horizontal",
