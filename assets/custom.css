@@ -712,7 +712,7 @@
   }
 
   .product-gallery__thumbnail::after {
-    height: 2px;
+    height: 2px !important;
   }
   
   .announcement-bar {
