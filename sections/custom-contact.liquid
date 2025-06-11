@@ -9,7 +9,7 @@
   .custom-contact__first-last-name {
     display: flex;
     gap: calc(var(--x-spacing) * 5);
-    flex-direction: column;
+    width: 100%;
   }
 
   .custom-contact__input-wrap {
@@ -68,7 +68,7 @@
       <div class="x:flex x:flex-col x:items-center x:w-full x:gap-5">
         {% comment %} <form> {% endcomment %}
             {% comment %} FIRST NAME & LAST NAME INPUTS {% endcomment %}
-            <div class="custom-contact__first-last-name">
+            <div class="x:flex x:gap-5 x:w-full">
               {% comment %} FIRST NAME INPUT {% endcomment %}
               <div class="x:relative x:group x:w-full">
                 <input placeholder="First Name" class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full">
