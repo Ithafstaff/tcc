@@ -766,6 +766,10 @@
     height: 25px;
     font-size: 14px !important;
   }
+
+  .custom-product__quantity-selector {
+    height: auto !important;
+  }
   
   .announcement-bar {
     height: 30px; 
