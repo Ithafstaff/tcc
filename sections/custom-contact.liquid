@@ -12,6 +12,10 @@
     width: 100%;
   }
 
+  .custom-contact__input {
+    
+  }
+
   .custom-contact__input-wrap {
     display: flex;
     flex-direction: column;
@@ -27,6 +31,10 @@
 
     .custom-contact__first-last-name {
       gap: calc(var(--x-spacing) * 2);
+    }
+
+    .custom-contact__input {
+    
     }
 
     .custom-contact__input-wrap {
@@ -65,7 +73,7 @@
         <span>To get help with your online purchase, contact us at 718-854-2595 or use the form below.</span>
       </div>
 
-      <div class="x:flex x:flex-col x:items-center x:w-full x:gap-5">
+      <div class="custom-contact__input-wrap">
         {% comment %} <form> {% endcomment %}
             {% comment %} FIRST NAME & LAST NAME INPUTS {% endcomment %}
             <div class="custom-contact__first-last-name">
