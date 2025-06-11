@@ -689,6 +689,11 @@
 /* MOBILE RESPONSIVENESS PORTION*/
 
 @media screen and (max-width: 767px) {
+
+  .product {
+    grid-template-columns: 1fr !important;
+  }
+  
   .announcement-bar {
     height: 30px; 
     padding: 0 !important;
