@@ -806,6 +806,10 @@
     font-size: 12px;
   }
 
+  .custom-contact__first-last-name {
+    gap: 4px;
+  }
+  
   .custom-store__header {
     margin-bottom: 10px;
     gap: 4px;
