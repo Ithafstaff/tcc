@@ -802,6 +802,7 @@
 
   .custom-store__header {
     margin-bottom: 10px;
+    gap: 4px;
   }
 
   .custom-store__heading {
