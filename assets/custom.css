@@ -800,6 +800,10 @@
     font-size: 12px;
   }
 
+  .custom-store__header {
+    margin-bottom: 20px;
+  }
+
   .custom-store__heading {
     font-family: "Alata", sans-serif !important;
     font-weight: 400;
