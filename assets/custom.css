@@ -735,6 +735,10 @@
   .product-info__text {
     font-size: 12px !important;
   }
+
+  .variant-picker__option-values.Color {
+    gap: 5px !important;
+  }
   
   .announcement-bar {
     height: 30px; 
