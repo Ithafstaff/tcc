@@ -14,7 +14,7 @@
 
   .custom-contact__input {
     width: 100%;
-    height: 60px;
+    position: relative;
   }
 
   .custom-contact__input-wrap {
@@ -35,7 +35,7 @@
     }
 
     .custom-contact__input {
-    
+      height: 60px;
     }
 
     .custom-contact__input-wrap {
@@ -56,7 +56,6 @@
       Thank you for reaching out. Our team will review your message and get back to you within 2-3 business days. We
       appreciate your patience.
     </p>
-
 
     <div class="x:flex x:items-center x:justify-center x:gap-5 x:w-full">
         <button class="x:capitalize x:border-black x:border-2 x:py-1 x:px-2 x:hover:scale-110 x:duration-300 x:transition-all">back to home</button>
@@ -79,7 +78,7 @@
             {% comment %} FIRST NAME & LAST NAME INPUTS {% endcomment %}
             <div class="custom-contact__first-last-name">
               {% comment %} FIRST NAME INPUT {% endcomment %}
-              <div class="x:relative x:group x:w-full">
+              <div class="custom-contact__input">
                 <input placeholder="First Name" class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full">
     
                 <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
