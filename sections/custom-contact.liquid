@@ -17,12 +17,16 @@
     position: relative;
   }
 
-  .custom-contact__input-wrap {
+  .custom-contact__input-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     gap: calc(var(--x-spacing) * 5);
+  }
+
+  .custom-contact__input-wrap {
+    
   }
 
   @media screen and (max-width: 767px) {
@@ -38,8 +42,12 @@
       height: 60px;
     }
 
-    .custom-contact__input-wrap {
+    .custom-contact__input-container {
       gap: calc(var(--x-spacing) * 2);
+    }
+
+    .custom-contact__input-wrap {
+      
     }
   }
 </style>
@@ -73,7 +81,7 @@
         <span>To get help with your online purchase, contact us at 718-854-2595 or use the form below.</span>
       </div>
 
-      <div class="custom-contact__input-wrap">
+      <div class="custom-contact__input-container">
         {% comment %} <form> {% endcomment %}
             {% comment %} FIRST NAME & LAST NAME INPUTS {% endcomment %}
             <div class="custom-contact__first-last-name">
