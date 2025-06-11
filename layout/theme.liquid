@@ -194,25 +194,5 @@
 
     <script defer src="{{ 'slider.js' | asset_url }}"></script>
 
-
-
-    {% comment %} <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Delay to allow cart-drawer shadow DOM to render
-        setTimeout(() => {
-          const shadowHost = document.querySelector('cart-drawer');
-
-          if (shadowHost && shadowHost.shadowRoot) {
-            const closeBtn = shadowHost.shadowRoot.querySelector('button[part="outside-close-button"]');
-            if (closeBtn) {
-              closeBtn.style.display = 'none';
-              console.log('✅ Shadow close button hidden.');
-            } else {
-              console.warn('❌ Close button not found inside shadow DOM.');
-            }
-          }
-        }, 1000); // wait for drawer to render
-      });
-    </script> {% endcomment %}
   </body>
 </html>
