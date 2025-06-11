@@ -693,65 +693,30 @@
     padding: 0 !important;
     display: flex;
   }
+
+  .collection__results {
+    padding: 0 20px;
+  }
   
   .custom__btn-width {
     width: 150px; 
     height: 40px;
     font-size: 10px;
   }
-  
-  .custom-search__bar-list {
-    position: absolute;
-    bottom: 15px;
-    left: 20px;
-  }
-  
-  .icon {
-    color: #000 !important;
-  }
-  
-  .header__logo {
-    max-width: 100px !important;
-  }
-  
-  .header__wrapper {
-    padding: 15px 16px 66px !important;
-    background: #fff !important;
-  }
-  
-  .get-the-look {
-    font-size: 10px;
-  }
-  
-  .drawer-button-responsive {
-    width: 120px;
-    height: 35px;
-  }
-  
-  .custom-luxury__container {
-    padding: 20px;
-  }
 
-  .custom-luxury__btn-wrap {
-    margin-top: 0;
+  .custom-collection__btn {
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    font-size: 12px !important;
   }
   
-  .custom-luxury__text {
-    font-size: 10px;
-    padding-top: 0;
-  }
-
   .custom-collection__box-text {
     font-size: 12px;
   }
   
   .custom-collection__container {
     gap: 15px;
-  }
-  
-  .custom-collection__info-wrap {
-    padding: 0 28px;
-    height: auto !important;
   }
   
   .custom-collection__info-heading {
@@ -762,26 +727,51 @@
     font-size: 8px;
     text-align: center;
   }
+
+  .custom-collection__info-wrap {
+    padding: 0 28px;
+    height: auto !important;
+  }
+
+  .custom-collection__slide-continer {
+    width: calc(48% - 1.5rem);
+  }
+
+  .custom-footer__link-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .custom-footer__list {
+    flex-direction: column;
+  }
   
-  .custom-collection__btn {
-    width: auto;
-    height: auto;
-    padding: 10px 20px;
-    font-size: 12px !important;
+  .custom-luxury__btn-wrap {
+    margin-top: 0;
+  }
+  
+  .custom-luxury__container {
+    padding: 20px;
+  }
+  
+  .custom-luxury__text {
+    font-size: 10px;
+    padding-top: 0;
+  }
+
+  .custom-search__bar-list {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+  }
+  
+  .custom-shipping__btn {
+    font-size: 12px;
   }
   
   .custom-shipping__container {
     padding: 28px;
-  }
-  
-  .custom-shipping__wrap {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .custom-shipping__heading {
-    font-size: 16px;
-    text-align: center;
   }
 
   .custom-shipping__desc {
@@ -790,8 +780,14 @@
     margin-top: 10px;
   }
 
-  .custom-shipping__btn {
-    font-size: 12px;
+  .custom-shipping__heading {
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .custom-shipping__wrap {
+    flex-direction: column;
+    gap: 20px;
   }
 
   .custom-store__heading {
@@ -802,13 +798,10 @@
     text-align: center;
   }
 
-  .custom-store__wrapper {
-    display: flex;
-    flex-direction: column-reverse;
-    height: fit-content;
-    width: 100%;
+  .custom-store__info-wrap {
+    margin-bottom: 42px;
   }
-  
+
   .custom-store__map-wrap-left {
     display: flex;
     padding: calc(var(--spacing) * 4);
@@ -822,38 +815,45 @@
     height: 230px;
   }
 
-  .custom-store__info-wrap {
-    margin-bottom: 42px;
+  .custom-store__store-desc {
+    width: 100%;
   }
-
+  
   .custom-store__store-hours {
     row-gap: 13px;
   }
   
-  .custom-store__store-desc {
+  .custom-store__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    height: fit-content;
     width: 100%;
   }
-
-  .custom-footer__list {
-    flex-direction: column;
+  
+  .drawer-button-responsive {
+    width: 120px;
+    height: 35px;
   }
   
   .footer__wrapper {
     overflow: hidden;
   }
 
-  .custom-footer__link-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  .get-the-look {
+    font-size: 10px;
   }
   
-  .custom-collection__slide-continer {
-    width: calc(48% - 1.5rem);
+  .header__logo {
+    max-width: 100px !important;
+  }
+  
+  .header__wrapper {
+    padding: 15px 16px 66px !important;
+    background: #fff !important;
   }
 
-  .collection__results {
-    padding: 0 20px;
+  .icon {
+    color: #000 !important;
   }
 
   .location-btn__wrapper {
