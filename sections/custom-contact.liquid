@@ -21,10 +21,13 @@
   }
 
   .custom-contact__input {
-    height: 100%;
     width: 100%;
+    height: 100%;
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
     font-size: 20px;
-    position: relative;
   }
 
   .custom-contact__input-container {
@@ -36,10 +39,9 @@
   }
 
   .custom-contact__input-wrap {
-    display: flex;
+    position: relative;
     width: 100%;
-    border: 2px solid black;
-    flex-direction: row;
+    height: 60px
   }
 
   @media screen and (max-width: 767px) {
@@ -51,16 +53,8 @@
       gap: calc(var(--x-spacing) * 2);
     }
 
-    .custom-contact__input {
-      
-    }
-
     .custom-contact__input-container {
       gap: calc(var(--x-spacing) * 2);
-    }
-
-    .custom-contact__input-wrap {
-      height: 60px;
     }
   }
 </style>
