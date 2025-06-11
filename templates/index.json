@@ -271,7 +271,7 @@
           "type": "button",
           "settings": {
             "text": "SHOP COLLECTION",
-            "url": "shopify://collections"
+            "url": "shopify://collections/bedding"
           }
         }
       },
