@@ -125,7 +125,7 @@
       ],
       "custom_css": [
         ".section-full {padding: 40px;}",
-        "@media screen and (max-width: 767px) {.section-full {padding: 28px; }}"
+        "@media screen and (max-width: 767px) {.section-full {padding: 20px; }}"
       ],
       "settings": {
         "title": "BEAUTIFUL CELEBRATIONS START HERE"
@@ -160,6 +160,7 @@
     },
     "custom_drawer_banner_nKGchn": {
       "type": "custom-drawer-banner",
+      "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/Tablecloths.jpg",
         "collection": ""
