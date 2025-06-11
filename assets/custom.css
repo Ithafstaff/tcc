@@ -710,6 +710,10 @@
     width: 60px;
     height: 70px;
   }
+
+  .product-gallery__thumbnail::after {
+    height: 2px;
+  }
   
   .announcement-bar {
     height: 30px; 
