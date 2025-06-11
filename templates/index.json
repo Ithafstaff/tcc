@@ -208,7 +208,7 @@
           "type": "button",
           "settings": {
             "text": "SHOP COLLECTION",
-            "url": "shopify://collections"
+            "url": "shopify://collections/table-cloth"
           }
         }
       },
