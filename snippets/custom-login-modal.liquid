@@ -6,7 +6,6 @@
   .custom-login__bg {
     position: fixed;
     inset: 0;
-    display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
@@ -46,7 +45,7 @@
 </style>
 
 <section 
-  class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-50" 
+  class="custom-login__bg" 
   id="login-modal"
 >
 {% form 'customer_login' %}
