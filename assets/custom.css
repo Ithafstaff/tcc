@@ -668,7 +668,7 @@
 }
 
 .custom-recently__container .product-list {
-  display: flex;
+  display: flex !important;
 }
 
 .custom__product-card img {
