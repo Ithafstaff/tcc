@@ -361,9 +361,9 @@
           <li class="profile__menu-item">
             <a href="/pages/profile">My Orders</a>
             </li>
-          <!-- <li class="profile__menu-item">
+          <li class="profile__menu-item">
             <a href="/pages/profile-subscription">My Subscriptions</a>
-          </li> -->
+          </li>
         </ul>
         <ul class="profile__menu-list">
           <li class="profile__menu-item">
@@ -384,7 +384,7 @@
       </div>
     </div> 
 
-    <div id="column-right" class="profile__col-right">
+    <div class="profile__col-right">
       <div class="profile__order-heading-wrap">
         <h2 class="profile__order-heading">Account</h2>
       </div>
@@ -609,25 +609,14 @@
   </div>
 </div>
 
-<script>
-  // window.addEventListener("resize", () => {
-  //   if (window.innerWidth <= 767) {
-  //     console.log("chek Mobile view");
-  //     // You can run mobile-specific code here
-  //   } else {
-  //     console.log("chek Desktop view");
-  //     // You can run desktop-specific code here
-  //   }
-  // });
 
+<script>
   document.addEventListener("DOMContentLoaded", function () {
-    console.log("chekerinoes")
     const tabs = {
       "profile-tab": "profile-section",
       "addresses-tab": "addresses-section",
       "deletion-tab": "deletion-section"
     };
-    const columnRight = document.getElementById("column-right");
 
     function activateTab(tabId) {
       // Remove active class from all links
