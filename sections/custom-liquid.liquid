@@ -1,18 +1,16 @@
-{% render 'profile-my-account' %}
+<div id="desktop-view">
+  {% render 'profile-my-account' %}
+</div>
 
-{%- if section.settings.liquid != blank -%}
-  
-{%- endif -%}
+<div id="mobile-view">
+  {%  render 'profile-mobile' %}
+</div>
 
 <script>
-  window.addEventListener("resize", () => {
-    if (window.innerWidth <= 767) {
-      console.log("chek Mobile view");
-      // You can run mobile-specific code here
-    } else {
-      console.log("chek Desktop view");
-      // You can run desktop-specific code here
-    }
+  window.addEventListener("resize", function () {
+    const isMobile = window.innerWidth <= 768;
+    document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
+    document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
   });
 </script>
 
