@@ -256,12 +256,19 @@
           "settings": {
             "product": "ivory-and-gold-faux-leather-tablecloth-by-columbia"
           }
+        },
+        "product_hdLB33": {
+          "type": "product",
+          "settings": {
+            "product": "white-with-gold-velvet-tablecloth-by-palermo"
+          }
         }
       },
       "block_order": [
         "product_Qgeie6",
         "product_R9A4C9",
-        "product_Hr7RcR"
+        "product_Hr7RcR",
+        "product_hdLB33"
       ],
       "custom_css": [
         ".section-full {padding: 40px;}",
@@ -318,12 +325,19 @@
           "settings": {
             "product": "black-and-white-32ct-combo-by-chic-flatware"
           }
+        },
+        "product_nzcraX": {
+          "type": "product",
+          "settings": {
+            "product": "white-with-gold-velvet-tablecloth-by-palermo"
+          }
         }
       },
       "block_order": [
         "product_JhVgCM",
         "product_3bLx9U",
-        "product_gzbhBq"
+        "product_gzbhBq",
+        "product_nzcraX"
       ],
       "custom_css": [
         ".section-full {padding: 40px;}",
