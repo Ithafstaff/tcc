@@ -13,6 +13,13 @@
     display: flex;
     flex-direction: column;
   }
+
+  .profile-name {
+    font-family: 'Alata', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0px;
+    font-weight: 400;
+  }
 </style>
 
 <div class="main-div">
@@ -25,9 +32,9 @@
       height="50px"
     >
     <div class="profile-details-container">
-      <span>{{ customer.first_name }} {{ customer.last_name }}</span>
-      <span>{{ customer.phone }}</span>
-      <span>{{ customer.email }}</span>
+      <span class="profile-name">{{ customer.first_name }} {{ customer.last_name }}</span>
+      <span class="profile-number">{{ customer.phone }}</span>
+      <span class="profile-email">{{ customer.email }}</span>
     </div>
     {% endif %}
   </div>
