@@ -384,7 +384,7 @@
       </div>
     </div> 
 
-    <div class="profile__col-right">
+    <div id="column-right" class="profile__col-right">
       <div class="profile__order-heading-wrap">
         <h2 class="profile__order-heading">Account</h2>
       </div>
@@ -617,6 +617,17 @@
       "addresses-tab": "addresses-section",
       "deletion-tab": "deletion-section"
     };
+    const columnRight = document.getElementById("column-right");
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth <= 767) {
+        console.log("Mobile view");
+        // You can run mobile-specific code here
+      } else {
+        console.log("Desktop view");
+        // You can run desktop-specific code here
+      }
+    });
 
     function activateTab(tabId) {
       // Remove active class from all links
