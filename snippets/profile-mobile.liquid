@@ -1,4 +1,10 @@
 <style>
+  span{
+    font-family: 'Alata', sans-serif;
+    letter-spacing: 0px;
+    font-weight: 400;
+  }
+  
   .main-div {
     display: flex;
     width: 100%;
@@ -13,20 +19,6 @@
     display: flex;
     flex-direction: column;
   }
-
-  .profile-name {
-    font-family: 'Alata', sans-serif;
-    font-size: 14px;
-    letter-spacing: 0px;
-    font-weight: 400;
-  }
-
-  .profile.detail {
-    font-family: 'Alata', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0px;
-    font-weight: 400px;
-  }
 </style>
 
 <div class="main-div">
@@ -39,9 +31,9 @@
       height="50px"
     >
     <div class="profile-details-container">
-      <span class="profile-name">{{ customer.first_name }} {{ customer.last_name }}</span>
-      <span class="profile-detail">{{ customer.phone }}</span>
-      <span class="profile-detail">{{ customer.email }}</span>
+      <span style="font-size: 14px;">{{ customer.first_name }} {{ customer.last_name }}</span>
+      <span style="font-size: 10px;">{{ customer.phone }}</span>
+      <span style="font-size: 10px;">{{ customer.email }}</span>
     </div>
     {% endif %}
   </div>
