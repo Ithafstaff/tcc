@@ -611,15 +611,7 @@
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabs = {
-      "profile-tab": "profile-section",
-      "addresses-tab": "addresses-section",
-      "deletion-tab": "deletion-section"
-    };
-    const columnRight = document.getElementById("column-right");
-
-    window.addEventListener("resize", function () {
+  window.addEventListener("resize", function () {
       if (window.innerWidth <= 767) {
         console.log("chek Mobile view");
         // You can run mobile-specific code here
@@ -628,6 +620,14 @@
         // You can run desktop-specific code here
       }
     });
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs = {
+      "profile-tab": "profile-section",
+      "addresses-tab": "addresses-section",
+      "deletion-tab": "deletion-section"
+    };
+    const columnRight = document.getElementById("column-right");
 
     function activateTab(tabId) {
       // Remove active class from all links
