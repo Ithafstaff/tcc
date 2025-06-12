@@ -662,10 +662,13 @@
 
 .custom-recently__container .custom__product-card a {
   display: block;
-  max-width: 240px;
-  width: 100%;
+  width: 240px;
   height: 240px;
   border: 1px solid;
+}
+
+.custom-recently__container .custom__product-list {
+  display: flex;
 }
 
 .custom__product-card img {
