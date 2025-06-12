@@ -1,9 +1,4 @@
 <style>
-  .custom-faq__heading {
-    text-transform: uppercase;
-    font-size: 40px;
-  }
-
   .custom-faq__cat-btn {
     width: 200px;
     border: 1px solid black;
@@ -17,6 +12,19 @@
     text-align: center;
   }
 
+  .custom-faq__cat-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .custom-faq__heading {
+    text-transform: uppercase;
+    font-size: 40px;
+  }
+
   @media screen and (max-width: 767px) {
     .custom-faq__heading {
       font-family: "Alata", sans-serif !important;
@@ -24,6 +32,10 @@
       letter-spacing: 1px;
       font-size: 20px;
       text-align: center;
+    }
+
+    .custom-faq__cat-wrap {
+      
     }
   }
 </style>
@@ -72,6 +84,14 @@
 </div>
 
 <script>
+  window.addEventListener("resize", function () {
+    if (window.innerWidth <= 768) {
+      console.log("Switched to mobile view");
+    } else {
+      console.log("Switched to desktop view");
+    }
+  });
+  
   document.addEventListener("DOMContentLoaded", function () {
     const toggleButtons = document.querySelectorAll(".faq-toggle");
     const categoryButtons = document.querySelectorAll(".faq-category-button");
