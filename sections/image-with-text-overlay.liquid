@@ -16,7 +16,7 @@
   }
 
   .pad0 {
-     padding-block-start: 0 !important;
+    padding-block-start: 0 !important;
     max-width: 1070px !important;
     width: 100%;
   }
@@ -31,7 +31,7 @@
 
   @media screen and (max-width: 767px) {
     .custom-header {
-      min-width: 507px;
+      min-height: 507px;
     }
     
     .custom-heading {
@@ -68,7 +68,7 @@
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
-      <div class="pad0 {{ section.settings.mobile_text_position }} {{ section.settings.desktop_text_position }}">
+      <div class="pad0 custom-header {{ section.settings.mobile_text_position }} {{ section.settings.desktop_text_position }}">
         <div class="prose">
           {%- for block in section.blocks -%}
             {%- case block.type -%}
