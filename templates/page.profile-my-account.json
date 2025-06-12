@@ -18,12 +18,11 @@
     },
     "custom_liquid_P3DFe4": {
       "type": "custom-liquid",
-      "name": "Custom Liquid",
       "settings": {
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "liquid": "{% render 'profile-my-account' %}",
+        "liquid": "",
         "background": "",
         "background_gradient": "",
         "text_color": ""
