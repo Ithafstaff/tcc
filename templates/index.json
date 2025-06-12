@@ -186,12 +186,19 @@
           "settings": {
             "product": "richmond-spillproof-tablecloth"
           }
+        },
+        "product_Qgtg4M": {
+          "type": "product",
+          "settings": {
+            "product": "10-oz-heavyweight-square-cups-case-of-5-by-simcha-collection"
+          }
         }
       },
       "block_order": [
         "product_hWQRH9",
         "product_89rFay",
-        "product_VQrNFb"
+        "product_VQrNFb",
+        "product_Qgtg4M"
       ],
       "custom_css": [
         ".section-full {padding: 40px;}",
