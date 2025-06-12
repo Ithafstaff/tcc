@@ -662,9 +662,7 @@
 
 .custom-recently__container .custom__product-card {
   display: block;
-
   height: 200px;
-  border: 1px solid;
 }
 
 .custom-recently__container .product-list {
