@@ -35,6 +35,10 @@
     }
 
     .custom-faq__cat-wrap {
+      display: grid;
+      width: 100%;
+      height: fit-content;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       
     }
   }
@@ -49,7 +53,7 @@
   </div>
 
   {% assign faq_categories_array = section.settings.faq_categories | split: ',' %}
-  <div id="faq-categories" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+  <div id="faq-categories" class="custom-faq__cat-wrap">
     {% for category in faq_categories_array %}
       {% assign cat_clean = category | strip %}
       <button
@@ -87,16 +91,6 @@
   document.addEventListener("DOMContentLoaded", function () {
     const toggleButtons = document.querySelectorAll(".faq-toggle");
     const categoryButtons = document.querySelectorAll(".faq-category-button");
-    const catBtnContainer = document.getElementById("faq-categories");
-
-    // Check if browser is resized
-    window.addEventListener("resize", function () {
-      if (window.innerWidth <= 768) {
-        console.log("chek Switched to mobile view");
-      } else {
-        console.log("chek Switched to desktop view");
-      }
-    });
 
     // FAQ expand/collapse
     toggleButtons.forEach(btn => {
