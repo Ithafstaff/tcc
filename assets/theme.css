@@ -9346,6 +9346,7 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
 .bg-custom {
   background: rgb(var(--background));
   width: -webkit-fill-available;
+  display: block;
 }
 
 .bg-gradient {

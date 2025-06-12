@@ -84,17 +84,19 @@
 </div>
 
 <script>
-  window.addEventListener("resize", function () {
-    if (window.innerWidth <= 768) {
-      console.log("chek Switched to mobile view");
-    } else {
-      console.log("chek Switched to desktop view");
-    }
-  });
-  
   document.addEventListener("DOMContentLoaded", function () {
     const toggleButtons = document.querySelectorAll(".faq-toggle");
     const categoryButtons = document.querySelectorAll(".faq-category-button");
+    const catBtnContainer = document.getElementById("faq-categories");
+
+    // Check if browser is resized
+    window.addEventListener("resize", function () {
+      if (window.innerWidth <= 768) {
+        console.log("chek Switched to mobile view");
+      } else {
+        console.log("chek Switched to desktop view");
+      }
+    });
 
     // FAQ expand/collapse
     toggleButtons.forEach(btn => {
