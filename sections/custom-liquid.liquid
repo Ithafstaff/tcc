@@ -14,7 +14,15 @@
 {%- endif -%}
 
 <script>
-  console.log("chekerinoes");
+  window.addEventListener("resize", () => {
+    if (window.innerWidth <= 767) {
+      console.log("chek Mobile view");
+      // You can run mobile-specific code here
+    } else {
+      console.log("chek Desktop view");
+      // You can run desktop-specific code here
+    }
+  });
 </script>
 
 {% schema %}
