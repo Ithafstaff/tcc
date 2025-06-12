@@ -2,6 +2,7 @@
   <div>
     <div>
       <div>
+        {% comment %}
         <sl-drawer label="" class="drawer-overview-{{ section.id }}">
           <div slot="label">
             <div
@@ -40,6 +41,7 @@
             {% endfor %}
           </div>
         </sl-drawer>
+        {% endcomment %}
         <div class="custom-drawer__container">
           <div class="x:relative {% comment %}x:lg:max-w-[1650px]{% endcomment %} x:overflow-hidden x:rounded">
             <div
