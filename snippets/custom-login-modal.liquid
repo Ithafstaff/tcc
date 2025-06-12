@@ -81,7 +81,7 @@
       letter-spacing: 1px;
     }
 
-    .forgot-password {
+    .tiny-text {
       font-family: "Alata", sans-serif !important;
       font-weight: 400;
       letter-spacing: 1px;
@@ -152,13 +152,13 @@
                 <span class="eye-off-icon" style="display: none;">{%- render 'icon' with 'eye-off' -%}</span>
               </div>
             </div>
-            <a href="/account/recover" class="forgot-password">Forgot Password?</a>
+            <a href="/account/recover" class="tiny-text">Forgot Password?</a>
             <button type="submit"
               class="x:w-full x:border x:border-black x:bg-[#222222] x:text-white x:text-lg x:tracking-wider x:flex x:items-center x:justify-center x:hover:bg-white x:hover:text-black x:transition x:h-[3.75rem] x:uppercase"
             >
               sign in
             </button>
-            <a class="x:text-center x:hover:underline x:hover:cursor-pointer" onclick="
+            <a class="x:text-center x:hover:cursor-pointer tiny-text" onclick="
               document.getElementById('login-modal').classList.add('x:hidden');
               document.querySelector('#signup-modal').classList.remove('x:hidden');
             ">Don't have an account? Create One</a>
