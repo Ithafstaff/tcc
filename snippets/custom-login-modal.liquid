@@ -196,24 +196,24 @@
         {% endif %}
         <!-- First & Last Name Inputs -->
         <div class="x:flex x:gap-5 x:w-full">
-          <div class="x:relative x:group x:w-full">
+          <div class="x:relative x:group x:w-full custom-login__input-wrap">
             <input
               name="customer[first_name]"
               placeholder="First Name"
               required
-              class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+              class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full custom-login__input"
             >
             <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
               <i>{%- render 'icon' with 'user', class: 'user' -%}</i>
             </div>
           </div>
 
-          <div class="x:relative x:group x:w-full">
+          <div class="x:relative x:group x:w-full custom-login__input-wrap">
             <input
               name="customer[last_name]"
               placeholder="Last Name"
               required
-              class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+              class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full custom-login__input"
             >
             <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
               <i>{%- render 'icon' with 'user', class: 'user' -%}</i>
@@ -221,38 +221,38 @@
           </div>
         </div>
 
-        <div class="x:relative x:group x:w-full">
+        <div class="x:relative x:group x:w-full custom-login__input-wrap">
           <input
             name="customer[phone]"
             placeholder="Phone Number"
-            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full custom-login__input"
           >
           <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
             <i>{%- render 'icon' with 'picto-phone' -%}</i>
           </div>
         </div>
 
-        <div class="x:relative x:group x:w-full">
+        <div class="x:relative x:group x:w-full custom-login__input-wrap">
           <input
             name="customer[email]"
             type="email"
             required
             placeholder="Email"
-            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full custom-login__input"
           >
           <div class="x:absolute x:flex x:items-center x:left-3 x:top-1/2 x:-translate-y-1/2 x:gap-3">
             <i>{%- render 'icon' with 'email' -%}</i>
           </div>
         </div>
 
-        <div class="x:relative x:group x:w-full">
+        <div class="x:relative x:group x:w-full custom-login__input-wrap">
           <input
             id="signup-password"
             name="customer[password]"
             type="password"
             required
             placeholder="Password"
-            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full"
+            class="x:pl-12 x:py-5 x:pr-5 x:border-2 x:border-black x:text-xl x:w-full custom-login__input"
           >
           <div class="x:absolute x:left-3 x:top-1/2 x:-translate-y-1/2">
             {%- render 'icon' with 'picto-lock' -%}
