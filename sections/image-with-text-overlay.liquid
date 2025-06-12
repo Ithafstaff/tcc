@@ -30,8 +30,11 @@
   }
 
   @media screen and (max-width: 767px) {
-    .custom-text {
-      font-size: 20px !important;
+    .custom-heading {
+      font-size: 20px;
+      letter-spacing: 1px;
+      font-family: 'Alata', sans-serif !important;
+      font-weight: 400;
     }
   }
 </style>
@@ -72,7 +75,7 @@
 
               {%- when 'heading' -%}
                 {%- if block.settings.text != blank -%}
-                  <p class="{{ block.settings.heading_tag }}" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %} {{ block.shopify_attributes }}>
+                  <p class="{{ block.settings.heading_tag }} custom-heading" {% if settings.heading_apparition != 'none' %}reveal-on-scroll="true"{% endif %} {{ block.shopify_attributes }}>
                     {%- render 'styled-text', content: block.settings.text, apparition_effect: true -%}
                   </p>
                 {%- endif -%}
