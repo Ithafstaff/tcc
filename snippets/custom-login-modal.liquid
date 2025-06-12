@@ -4,13 +4,7 @@
   }
 
   .custom-login__bg {
-    position: fixed;
-    inset: 0;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 50;
-    display: hidden;
+    
   }
   
   .custom-login__container {
@@ -29,11 +23,6 @@
   }
 
   @media screen and (max-width: 767px) {
-    .custom-login__bg {
-      padding-left: 49px;
-      padding-right: 49px;
-    }
-    
     .custom-login__container {
       width: 100%;
     }
@@ -50,7 +39,7 @@
 </style>
 
 <section 
-  class="custom-login__bg" 
+  class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-50" 
   id="login-modal"
 >
 {% form 'customer_login' %}
