@@ -656,6 +656,7 @@
 /* start of custom collection variant style */
 
 .custom__product-card {
+  max-width: 240px;
   width: auto;
   height: 240px;
 }
