@@ -660,7 +660,7 @@
   height: 240px;
 }
 
-.custom__product-card a {
+.custom__product-card .custom__product-card a {
   max-width: 240px;
   width: 100%;
   height: 240px;
