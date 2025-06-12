@@ -8,9 +8,20 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .profile-details-container {
+    
+  }
 </style>
 
 <div class="main-div">
-  <div style="width: 100px; height: 50px; background-color: blue;">FIRST DIV</div>
+  <div style="width: 100%; height: fit-content; background-color: blue;">
+    {% if customer %}
+    <img src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393" alt="" class="profile__profile-picture">
+    <div class="profile-details-container">
+      <span>{{ customer.first_name }} {{ customer.last_name }}</span>
+    </div>
+    {% endif %}
+  </div>
   <div style="width: 50px; height: 100px; background-color: red;">SECOND DIV</div>
 </div>
