@@ -2,6 +2,17 @@
   a:hover {
       text-decoration: underline;
   }
+
+  .custom-login__bg {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    display: hidden;
+  }
   
   .custom-login__container {
     width: 50rem;
@@ -35,7 +46,7 @@
 </style>
 
 <section 
-  class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:hidden x:z-50" 
+  class="x:fixed x:inset-0 x:flex x:items-center x:justify-center x:bg-black/50 x:z-50" 
   id="login-modal"
 >
 {% form 'customer_login' %}
