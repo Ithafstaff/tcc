@@ -16,17 +16,15 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let isMobile = window.innerWidth <= 767;
+  const isMobile = window.innerWidth <= 767;
 
-    document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
-    document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
-  };
+  document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
+  document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
   
   window.addEventListener("resize", function () {
-    const isMobile = window.innerWidth <= 767;
-    document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
-    document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
+    const isMobile2 = window.innerWidth <= 767;
+    document.getElementById("desktop-view").style.display = isMobile2 ? "none" : "flex";
+    document.getElementById("mobile-view").style.display = isMobile2 ? "flex" : "none";
   });
 </script>
 
