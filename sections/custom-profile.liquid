@@ -1,6 +1,13 @@
 <!-- DESKTOP VIEW -->
 <div id="desktop-view">
-  {%  render section.settings.profile_page_template, user: customer %}
+  {%  case section.settings.profile_page_template %}
+    {% when 'account' %}
+      {%  render 'profile-my-account' %}
+    {% when 'wishlist' %}
+      {%  render 'profile-my-wishlist' %}
+    {% else %}
+      {%  render 'profile-page' %}
+  {%  endcase %}
 </div>
 
 <!-- MOBILE VIEW -->
@@ -44,19 +51,19 @@
       "label": "Profile Page Template",
       "options": [
         {
-          "value": "profile-page",
+          "value": "order",
           "label": "My Orders"
         },
         {
-          "value": "profile-my-account",
+          "value": "account",
           "label": "My Account"
         },
         {
-          "value": "profile-my-wishlist",
+          "value": "wishlist",
           "label": "My Wishlist"
         }
       ],
-      "default": "profile-page"
+      "default": "order"
     },
     {
       "type": "checkbox",
