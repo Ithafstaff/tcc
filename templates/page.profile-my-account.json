@@ -21,21 +21,9 @@
       "name": "Custom Profile",
       "settings": {
         "full_width": true,
+        "profile_page_template": "account",
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "liquid": "",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
-    "custom_liquid_P3DFe4": {
-      "type": "custom-liquid",
-      "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": false,
-        "remove_horizontal_spacing": false,
-        "liquid": "",
         "background": "",
         "background_gradient": "",
         "text_color": ""
@@ -54,7 +42,6 @@
   "order": [
     "main",
     "custom_profile_9YYemy",
-    "custom_liquid_P3DFe4",
     "custom_shipping_section_DaRzrX"
   ]
 }
