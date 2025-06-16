@@ -392,7 +392,7 @@
     
     function createProductCard(item) {
       const cardElement = document.createElement('div');
-      cardElement.style = "width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; cursor: pointer;";
+      cardElement.style = "display: flex; flex-direction: column; width: 100%; height: fit-content; gap: 10px; cursor: pointer;";
       console.log('Creating card for item:', item);
       
       // Add click handler for the entire card
