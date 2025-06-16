@@ -578,6 +578,7 @@ setTimeout(() => {
       
       // Show empty message if wishlist is empty
       if (wishlist.length === 0) {
+        document.getElementById('wishlist-container-mobile').style.filter = "drop-shadow(rgba(0, 0, 0, 0.15) 0px 1px 2px;";
         if (emptyWishlistMessage) {
           emptyWishlistMessage.style.display = 'flex';
           wishlistContainer.appendChild(emptyWishlistMessage);
