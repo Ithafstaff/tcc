@@ -514,7 +514,7 @@
       
       cardElement.innerHTML = `
         <!-- Image (250x250) with Heart -->
-        <div style="width: 100%; height: 250px; overflow: hidden; position: relative; cursor: pointer;" onclick="openProductModal(${JSON.stringify(item)})">
+        <div style="width: 100%; height: 190px; overflow: hidden; position: relative; cursor: pointer;" onclick="openProductModal(${JSON.stringify(item)})">
           <img 
             src="${item.image || '{{ "test_img1.png" | asset_url }}'}" 
             alt="${title}" 
