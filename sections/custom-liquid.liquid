@@ -1,54 +1,17 @@
-<style>
-  span{
-    font-family: 'Alata', sans-serif;
-    letter-spacing: 0px;
-    font-weight: 400;
-  }
-  
-  .main-div {
-    display: flex;
-    width: 100%;
-    height: fit-content;
-    background-color: rgba(22,22,22,0.03);
-    margin: 16px 21px;
-    flex-direction: column;
-    align-items: center;
-    gap: 51px;
-    padding: 24px 30px;
-  }
+{%- if section.settings.liquid != blank -%}
+  {%- render 'section-spacing-collapsing' -%}
 
-  .profile-details-container {
-    display: flex;
-    flex-direction: column;
-  }
+  <style>
+    #shopify-section-{{ section.id }} {
+      {% if section.settings.remove_vertical_spacing %}--section-spacing-block: 0px;{% endif %}
+      {% if section.settings.remove_horizontal_spacing %}--section-spacing-inline: 0px;{% endif %}
+    }
+  </style>
 
-  .redirect-btn:hover {
-    text-decoration: underline;
-  }
-</style>
-
-<!-- DESKTOP VIEW -->
-<div id="desktop-view">
-  {% render 'profile-my-account' %}
-</div>
-
-<!-- MOBILE VIEW -->
-<div id="mobile-view">
-  {%  render 'profile-mobile' %}
-</div>
-
-<script>
-  let isMobile = window.innerWidth <= 767;
-
-  document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
-  document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
-  
-  window.addEventListener("resize", function () {
-    const isMobile = window.innerWidth <= 767;
-    document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
-    document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
-  });
-</script>
+  <div {% render 'section-properties' %}>
+    {{ section.settings.liquid }}
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
