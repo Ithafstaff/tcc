@@ -1,13 +1,8 @@
 <style>
-  span{
+  span {
     font-family: 'Alata', sans-serif;
     letter-spacing: 0px;
     font-weight: 400;
-  }
-
-  .profile-details-container {
-    display: flex;
-    flex-direction: column;
   }
 
   .redirect-btn:hover {
@@ -26,7 +21,7 @@
         height="50px"
         style="border: 1px solid rgba(22,22,22);"
       >
-      <div class="profile-details-container">
+      <div style="display:flex; flex-direction: column;">
         <span style="font-size: 14px;">{{ customer.first_name }} {{ customer.last_name }}</span>
         <span style="font-size: 10px; color: rgba(22,22,22,0.5);">{{ customer.phone }}</span>
         <span style="font-size: 10px; color: rgba(22,22,22,0.5);">{{ customer.email }}</span>
