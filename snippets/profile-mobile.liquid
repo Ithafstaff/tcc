@@ -89,6 +89,7 @@
 <script>
   function toggleSnippet(snippetSelected) {
     const snippets = {'wishlist-snippet', 'account-snippet', 'order-snippet'};
+    console.log('chek btn is pressed');
 
     for (let i = 0; i < snippets.length; i++) {
       document.getElementById(snippets[i]).style.display = (snippetSelected == snippets[i]) ? 'flex' : 'none';
