@@ -16,14 +16,14 @@
         "content_width": "80ch"
       }
     },
-    "custom_liquid_P3DFe4": {
-      "type": "custom-liquid",
-      "name": "Custom Liquid",
+    "custom_profile_89WMA9": {
+      "type": "custom-profile",
+      "name": "Custom Profile",
       "settings": {
         "full_width": true,
+        "profile_page_template": "wishlist",
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "liquid": "{% render 'profile-my-wishlist' %}",
         "background": "",
         "background_gradient": "",
         "text_color": ""
@@ -41,7 +41,7 @@
   },
   "order": [
     "main",
-    "custom_liquid_P3DFe4",
+    "custom_profile_89WMA9",
     "custom_shipping_section_DaRzrX"
   ]
 }
