@@ -486,7 +486,26 @@
 
         // Add default swatch if no variants
         if (!swatchesHtml) {
-          swatchesHtml = ``;
+          swatchesHtml = `
+            <div 
+              class="variant-picker__option-value variant-picker__option-value--swatch"
+              style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
+              onclick="selectSwatch(this)"
+              data-selected="true"
+            >
+              <input 
+                type="radio" 
+                class="sr-only" 
+                name="option-${item.id}" 
+                value="default"
+                checked
+              >
+              <span class="variant-picker__option-value__label">
+                <span class="variant-picker__option-value__swatch" style="background-color: #d1bb9f;"></span>
+              </span>
+              <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: #d1bb9f; opacity: 1;"></span>
+            </div>
+          `;
         }
       }
       
