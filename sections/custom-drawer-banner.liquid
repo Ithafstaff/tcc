@@ -1,131 +1,21 @@
-<section class="x:mt-8 section-blends section-full">
-  {% comment %}
-  <sl-drawer label="" class="drawer-overview-{{ section.id }}">
-    <div slot="label">
-      <div
-        class="x:absolute x:w-full x:z-[-1] x:flex x:item-center x:justify-center x:tracking-widest x:text-sm" style="font-size: 14px;"
-      >
-        GET THE LOOK
-      </div>
-      &nbsp;
-    </div>
-    <div
-      id="product-container-{{ section.id }}"
-      class="x:grid x:grid-cols-2 x:gap-x-[15px] x:gap-y-[20px] x:p-[20px] x:md:p-[40px] x:pb-[40px]"
-    >
-      {% for product in section.settings.collection.products %}
-        <a href="{{ product.url }}" class="x:w-full x:flex x:flex-col">
-          <div
-            class="x:w-full x:aspect-square x:bg-cover x:bg-center x:mb-[8px] x:md:mb-[18px]"
-            style="background-image: url('{{ product.featured_image.src | image_url: width: product.featured_image.width }}')"
-          >
-            &nbsp;
-          </div>
-          <div class="x:flex x:flex-col x:justify-between x:gap-[8px] x:flex-grow x:items-start">
-            <div class="x:space-y-[2px] x:md:space-y-[5px]">
-              <p class="x:text-[12px] x:md:text-[14px] x:leading-[16px] x:md:leading-[20px]">
-                {{ product.title }}
-              </p>
-              <p class="x:text-[12px] x:leading-[18px] x:tracking-[-0.21px]">{{ product.price | money }}</p>
-            </div>
-            <button
-              class="x:text-[#222] x:border x:border-solid x:border-black x:p-[6px] x:text-[12px] x:leading-[1.5] x:tracking-[1px] x:px-[10.5px] x:py-[3.5px] x:md:hidden"
-            >
-              ADD TO CART
-            </button>
-          </div>
-        </a>
-      {% endfor %}
-    </div>
-  </sl-drawer>
-  {% endcomment %}
-  <div class="custom-drawer__container">
-    <div class="x:relative {% comment %}x:lg:max-w-[1650px]{% endcomment %} x:overflow-hidden x:rounded">
-      <div
-        class="x:bg-cover x:bg-no-repeat x:bg-center x:w-full x:aspect-square x:lg:aspect-[16/9]"
-        style="background-image: url('{{ section.settings.image | image_url: width: 1000 }}'); max-height: 550px;"
-      >
-        <div class="x:absolute x:z-[1] drawer__button-container" style="left: 40px; bottom: 40px;">
-          <button
-            class="drawer-button-responsive {{ section.settings.collection }} drawer-button-{{ section.id }}"
-            style="
-              background-color: rgba(34, 34, 34, 0.7);
-              color: white;
-              aspect-ratio: 1 / 1;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 9999px;
-              padding: 12px;
-            "
-            >
-    <i class="bx bx-shopping-bag"
-      style="
-        font-size: 1rem;
-        line-height: 0;
-      "
-    ></i>
-    <p
-      class="animate-on-scroll get-the-look"
-      style="
-        text-align: center;
-        white-space: nowrap;
-        display: none;
-      "
-    >
-      GET THE LOOK
-    </p>
-  </button>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="custom-drawer__collection-wrap">
-        <div class="custom-drawer__product-container" style="display: none;">
-
-          <span class="custom-drawer__heading-txt">
-            GET THE LOOK
-          </span>
-
-          <div
-            id="product-container-{{ section.id }}"
-            class="custom-drawer__product-wrap"
-          >
-            {% for product in section.settings.collection.products %}
-              <a href="{{ product.url }}" class="x:w-full x:flex x:flex-col custom-drawer__product-item">
-                <div
-                  class="x:w-full x:aspect-square x:bg-cover x:bg-center x:mb-[8px] x:md:mb-[18px]"
-                  style="background-image: url('{{ product.featured_image.src | image_url: width: product.featured_image.width }}')"
-                >
-                  &nbsp;
-                </div>
-                <div class="x:flex x:flex-col x:justify-between x:gap-[8px] x:flex-grow x:items-start">
-                  <div class="x:space-y-[2px] x:md:space-y-[5px]">
-                    <p class="x:text-[12px] x:md:text-[14px] x:leading-[16px] x:md:leading-[20px]">
-                      {{ product.title }}
-                    </p>
-                    <p class="x:text-[12px] x:leading-[18px] x:tracking-[-0.21px]">{{ product.price | money }}</p>
-                  </div>
-                  <button
-                    class="x:text-[#222] x:border x:border-solid x:border-black x:p-[6px] x:text-[12px] x:leading-[1.5] x:tracking-[1px] x:px-[10.5px] x:py-[3.5px] x:md:hidden"
-                  >
-                    ADD TO CART
-                  </button>
-                </div>
-              </a>
-            {% endfor %}
-          </div>
-        </div>
-    </div>
-    
-    
-    
-  </div>
-</section>
-
 <style>
+
+  /* Initial state (hidden) */
+  .animate-on-scroll {
+    width: 0px;
+    padding-left: 20px;
+    opacity: 0;
+    transition: width 0.5s ease-in-out, padding-right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    overflow-x: hidden;
+  }
+
+  /* When the element is visible */
+  .animate-on-scroll.visible {
+    width: auto;
+    padding-right: 30px;
+    opacity: 1;
+  }
+
   sl-drawer.drawer-overview-{{ section.id }}::part(body) {
       padding: 0;
   }
@@ -162,10 +52,17 @@
     position: fixed;
     top: 0;
     z-index: 99;
+    /* right: -100%; */
+    transform: translateX(100%);
     right: 0;
     background: #fff;
-    border: 1px solid;
+    /* border: 1px solid; */
+    transition: all 0.4s ease;
   }
+  .custom-drawer__collection-wrap.active {
+    transform: translateX(0);
+  }
+
 
   .custom-drawer__product-wrap {
     display: grid;
@@ -174,12 +71,41 @@
     height: auto;
   }
 
+  @media screen and (max-width: 767px) {
+    .custom-drawer__product-wrap {
+      gap: 20px;
+    }
+  }
+
   .custom-drawer__product-container {
     height: 100vh;
     overflow: scroll;
-    padding: 70px 40px 40px;
+    padding: 0 40px 80px;
+    z-index: 9;
+    margin-top: 50px;
   }
 
+  @media screen and (max-width: 767px) {
+    .custom-drawer__product-container {
+      padding: 0 20px 40px;
+       margin-top: 40px;
+    }
+  }
+
+
+   .custom-drawer__collection-overlay {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background: #000;
+    opacity: .5;
+    display: none;
+  }
+  
   .custom-drawer__heading-txt {
     position: absolute;
     width: 100%;
@@ -189,15 +115,171 @@
     text-align: center;
     padding: 20px;
     background: #fff;
-    font-weight: 700px;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .custom-drawer__heading-txt {
+      padding: 15px;
+    }
   }
 
   .custom-drawer__product-item {
     max-width: 245px;
     width: 100%;
   }
-    
+
+  .custom-drawer__product-img {
+    position: relative;
+  }
+
+  .custom-drawer__collection-close {
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 9;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  @media screen and (max-width: 767px) {
+    .custom-drawer__collection-close {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .custom-drawer__collection-close:hover {
+    scale: 1.1;
+  }
+
+  .custom-drawer__product-item-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 12px;
+    background-color: rgba(34, 34, 34, 0.8);
+  }
+
+  @media screen and (max-width: 767px) {
+    .custom-drawer__product-item-btn {
+      height: 30px;
+    }
+  }
+
+  .no-scroll {
+    overflow: hidden;
+    height: 100vh; /* Optional: Prevents body from stretching */
+  }
+  
+      
 </style>
+
+
+
+<section class="x:mt-8 section-blends section-full">
+ 
+  <div class="custom-drawer__container">
+    <div class="x:relative {% comment %}x:lg:max-w-[1650px]{% endcomment %} x:overflow-hidden x:rounded">
+      <div
+        class="x:bg-cover x:bg-no-repeat x:bg-center x:w-full x:aspect-square x:lg:aspect-[16/9]"
+        style="background-image: url('{{ section.settings.image | image_url: width: 1000 }}'); max-height: 550px;"
+      >
+        <div class="x:absolute x:z-[1] drawer__button-container" style="left: 40px; bottom: 40px;">
+          <button
+            class="custom-drawer__btn drawer-button-responsive drawer-button-{{ section.id }}" data-col-id="{{ section.settings.collection }}"
+            style="
+              background-color: rgba(34, 34, 34, 0.7);
+              color: white;
+              aspect-ratio: 1 / 1;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 9999px;
+              padding: 12px;
+            "
+            >
+            <i class="bx bx-shopping-bag"
+              style="
+                font-size: 1rem;
+                line-height: 0;
+              "
+            ></i>
+            <p class="animate-on-scroll get-the-look"
+              style="
+                text-align: center;
+                white-space: nowrap;
+                display: none;
+              ">
+              GET THE LOOK
+            </p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    {% if section.settings.collection != blank %}
+    <span class="custom-drawer__collection-overlay"></span>
+    <div class="custom-drawer__collection-wrap" data-col-id="{{ section.settings.collection }}">>
+        <div class="custom-drawer__product-container">
+          <span class="custom-drawer__collection-close">X</span>
+          <h3 class="custom-drawer__heading-txt">
+            GET THE LOOK
+          </h3>
+          <div
+            id="product-container-{{ section.id }}"
+            class="custom-drawer__product-wrap"
+          >
+            {% for product in section.settings.collection.products %}
+              <div class="x:w-full x:flex x:flex-col custom-drawer__product-item">
+                <div
+                  class="x:w-full x:aspect-square x:bg-cover x:bg-center x:mb-[8px] x:md:mb-[18px] custom-drawer__product-img"
+                  style="background-image: url('{{ product.featured_image.src | image_url: width: product.featured_image.width }}')"
+                >
+                  <button onclick="showCartDrawer()"
+                    class="custom-drawer__product-item-btn" 
+                    data-variant-id="{{ product.variants.first.id }}" 
+                    data-product-title="{{ product.title }}">
+                    ADD TO CART
+                  </button>
+
+                </div>
+                <div class="x:flex x:flex-col x:justify-between x:gap-[8px] x:flex-grow x:items-start">
+                  <a href="{{ product.url }}" class="x:space-y-[2px] x:md:space-y-[5px]">
+                    <p href="{{ product.url }}" class="x:text-[12px] x:md:text-[14px] x:leading-[16px] x:md:leading-[20px]">
+                      {{ product.title }}
+                    </p>
+                    <p class="x:text-[12px] x:leading-[18px] x:tracking-[-0.21px]">{{ product.price | money }}</p>
+                  </a>
+                  
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    
+    
+  </div>
+</section>
+
 
 <script>
   $(window).on('load', function () {
@@ -208,25 +290,8 @@
   });
 </script>
 
-<style>
-  /* Initial state (hidden) */
-  .animate-on-scroll {
-    width: 0px;
-    padding-left: 20px;
-    opacity: 0;
-    transition: width 0.5s ease-in-out, padding-right 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    overflow-x: hidden;
-  }
-
-  /* When the element is visible */
-  .animate-on-scroll.visible {
-    width: auto;
-    padding-right: 30px;
-    opacity: 1;
-  }
-</style>
-
 <script>
+
   document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('.animate-on-scroll');
 
@@ -247,12 +312,92 @@
         rootMargin: '0px 0px -50px 0px', // Add padding before the bottom edge
       }
     );
-
     elements.forEach((element) => {
       observer.observe(element);
     });
   });
+
 </script>
+
+
+<script>
+  // Add item to cart via AJAX
+  function addItemToCart(formData) {
+    return fetch('/cart/add.js', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      showCartDrawer(); // Opens and updates the drawer
+      return data;
+    })
+    .catch(error => {
+      console.error('Error adding to cart:', error);
+      throw error;
+    });
+  }
+
+  // Show the cart drawer
+  function showCartDrawer() {
+    const drawer = document.querySelector('cart-drawer');
+    if (drawer) {
+      drawer.style.display = 'block';
+      drawer.offsetHeight;
+      drawer.classList.remove('x:-translate-y-full');
+      drawer.classList.add('x:translate-y-0');
+      updateCartDrawer();
+    }
+  }
+
+  // Update cart content
+  function updateCartDrawer() {
+    return fetch('/cart.js')
+      .then(response => response.json())
+      .then(cart => {
+        const drawer = document.querySelector('cart-drawer');
+        if (!drawer) return;
+
+        drawer.querySelectorAll('[data-cart-count]').forEach(el => {
+          el.textContent = cart.item_count;
+        });
+
+        drawer.querySelectorAll('[data-cart-subtotal]').forEach(el => {
+          el.textContent = (cart.total_price / 100).toFixed(2);
+        });
+
+        if (cart.items && cart.items.length > 0) {
+          const firstItem = cart.items[0];
+          const itemImage = drawer.querySelector('[data-cart-item-image]');
+          if (itemImage && firstItem.image) {
+            itemImage.src = firstItem.image;
+            itemImage.alt = firstItem.title;
+          }
+        }
+      })
+      .catch(error => console.error('Error updating cart:', error));
+  }
+
+  // Attach event listeners to all "Add to Cart" buttons
+  document.addEventListener('DOMContentLoaded', function () {
+    const addToCartButtons = document.querySelectorAll('.custom-drawer__product-item-btn');
+
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        const variantId = this.getAttribute('data-variant-id');
+        const formData = new FormData();
+        formData.append('id', variantId);
+        formData.append('quantity', 1);
+
+        addItemToCart(formData);
+      });
+    });
+  });
+</script>
+
+
+
 
 {% schema %}
 {
