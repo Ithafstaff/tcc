@@ -557,14 +557,14 @@
             </div>
           `}
         </div>
+        <span class="cart-icon x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300" data-product-id="${item.id}">
+          {% render 'icon', icon: 'shop-cart' %}
+        </span>
       
         <!-- Category and Cart -->
         <div class="x:flex x:flex-col x:gap-1">
           <div class="x:text-base x:flex x:justify-between x:items-center x:uppercase">
             <span class="product-title" style="cursor: pointer;" onclick="openProductModal(${JSON.stringify(item)})">${title}</span>
-            <span class="cart-icon x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300" data-product-id="${item.id}">
-              {% render 'icon', icon: 'shop-cart' %}
-            </span>
           </div>
           
           <!-- Price -->
