@@ -9,10 +9,12 @@
 </div>
 
 <script>
-  let isMobile = window.innerWidth <= 767;
+  document.addEventListener("DOMContentLoaded", function () {
+    let isMobile = window.innerWidth <= 767;
 
-  document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
-  document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
+    document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
+    document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
+  };
   
   window.addEventListener("resize", function () {
     const isMobile = window.innerWidth <= 767;
