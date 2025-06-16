@@ -298,7 +298,88 @@ customImageHover();
 
 
 
+function getTheLook() {
+  const getTheLookBtns = document.querySelectorAll('.custom-drawer__btn');
+  const collectionDrawers = document.querySelectorAll('.custom-drawer__collection-wrap');
+  const closeBtns = document.querySelectorAll('.custom-drawer__collection-close');
+  const drawerOverlay = document.querySelector('.custom-drawer__collection-overlay'); // shared overlay
 
+  // Open drawer
+  getTheLookBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const btnColId = btn.dataset.colId;
+
+      collectionDrawers.forEach(drawer => {
+        if (drawer.dataset.colId === btnColId) {
+          drawer.classList.add("active");
+          if (drawerOverlay) drawerOverlay.style.display = "block";
+          document.body.classList.add("no-scroll"); // Disable scrolling
+        } else {
+          drawer.classList.remove("active");
+        }
+      });
+    });
+  });
+
+  // Close drawer via close button
+  closeBtns.forEach(closeBtn => {
+    closeBtn.addEventListener('click', function () {
+      const drawer = closeBtn.closest('.custom-drawer__collection-wrap');
+      if (drawer) drawer.classList.remove('active');
+      if (drawerOverlay) drawerOverlay.style.display = "none";
+      document.body.classList.remove("no-scroll"); // Enable scrolling
+    });
+  });
+
+  // Close drawer via overlay
+  if (drawerOverlay) {
+    drawerOverlay.addEventListener('click', function () {
+      collectionDrawers.forEach(drawer => drawer.classList.remove('active'));
+      drawerOverlay.style.display = "none";
+      document.body.classList.remove("no-scroll"); // Enable scrolling
+    });
+  }
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.custom-drawer__product-item-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        const variantId = button.dataset.variantId;
+        const productTitle = button.dataset.productTitle;
+
+        if (!variantId) {
+          console.error('Missing variant ID on button');
+          return;
+        }
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: variantId,
+            quantity: 1
+          })
+        })
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(data => {
+          
+          console.log(data);
+        })
+        .catch(error => {
+          console.error('Error adding to cart:', error);
+        });
+      });
+    });
+  });
+  
+}
+
+getTheLook();
 
 
 
