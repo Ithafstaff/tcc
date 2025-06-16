@@ -16,13 +16,14 @@
         "content_width": "80ch"
       }
     },
-    "custom_liquid_P3DFe4": {
-      "type": "custom-liquid",
+    "custom_profile_9YYemy": {
+      "type": "custom-profile",
+      "name": "Custom Profile",
       "settings": {
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "liquid": "",
+        "liquid": "<p style=\"text-align: center\">Write or copy/paste Liquid code</p>",
         "background": "",
         "background_gradient": "",
         "text_color": ""
@@ -40,7 +41,7 @@
   },
   "order": [
     "main",
-    "custom_liquid_P3DFe4",
+    "custom_profile_9YYemy",
     "custom_shipping_section_DaRzrX"
   ]
 }
