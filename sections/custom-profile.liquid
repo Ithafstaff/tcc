@@ -1,6 +1,85 @@
+<!-- DESKTOP VIEW -->
+<div id="desktop-view">
+  {% render 'profile-my-account' %}
+</div>
+
+<!-- MOBILE VIEW -->
+<div id="mobile-view">
+  {%  render 'profile-mobile' %}
+</div>
+
+<script>
+  let isMobile = window.innerWidth <= 767;
+
+  document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
+  document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
+  
+  window.addEventListener("resize", function () {
+    const isMobile = window.innerWidth <= 767;
+    document.getElementById("desktop-view").style.display = isMobile ? "none" : "flex";
+    document.getElementById("mobile-view").style.display = isMobile ? "flex" : "none";
+  });
+</script>
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Custom Liquid",
+  "class": "shopify-section--custom-liquid",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_vertical_spacing",
+      "label": "Remove vertical spacing",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_horizontal_spacing",
+      "label": "Remove horizontal spacing",
+      "default": false
+    },
+    {
+      "type": "liquid",
+      "id": "liquid",
+      "label": "Liquid",
+      "info": "Add app snippets or other Liquid code to create advanced customizations.",
+      "default": "<p style=\"text-align: center\">Write or copy/paste Liquid code</p>"
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Liquid"
+    }
+  ]
+}
 {% endschema %}
