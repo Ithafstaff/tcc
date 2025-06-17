@@ -1276,11 +1276,10 @@
 
 
 
-            // Handle tab clicks
-     
-              e.preventDefault();
-              window.location.hash = `#${tabId}`; // update the hash
-              activateTab(tabId);
+         
+            const selectedValue = this.value;
+            window.location.hash = `#${selectedValue}`;
+         
            
           
         }
