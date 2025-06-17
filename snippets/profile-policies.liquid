@@ -1259,11 +1259,22 @@
       dropdown.addEventListener('change', function () {
         console.log('Changed selected value:', this.value);
         window.tabValue = this.value;
-      });
+     
 
-    
+         if (this.value === "shipping-tab") {
+          activateTab("shipping-tab");
+        } else if (hash === "#return-tab") {
+          activateTab("return-tab");
+        } else if (hash === "#subscription-tab") {
+          activateTab("subscription-tab");
+        } else if (hash === "#privacy-tab") {
+          activateTab("privacy-tab");
+        } else {
+          window.location.hash = "#pickup-tab"; // set default hash
+          activateTab("pickup-tab");
+        }
 
-
+     });
 
 
 
