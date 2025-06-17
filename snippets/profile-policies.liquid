@@ -1247,9 +1247,6 @@
       }
     });
 
-
-
-    
       
       // for Mobile dropdown option
       const dropdown = document.getElementById('tab-category');
@@ -1257,11 +1254,10 @@
       console.log('Initial selected value:', dropdown.value);
       // Log value every time it changes
       dropdown.addEventListener('change', function () {
-        console.log('Changed selected value:', this.value);
-        window.tabValue = this.value;
+      console.log('Changed selected value:', this.value);
+      window.tabValue = this.value;
      
-
-         if (this.value === "shipping-tab") {
+        if (this.value === "shipping-tab") {
           activateTab("shipping-tab");
         } else if (this.value === "return-tab") {
           activateTab("return-tab");
@@ -1274,16 +1270,6 @@
           activateTab("pickup-tab");
         }
      });
-
-
-
-
-
-
-
-
-
-
     
     
   });
