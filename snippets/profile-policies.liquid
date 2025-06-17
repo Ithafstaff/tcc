@@ -1277,13 +1277,11 @@
 
 
             // Handle tab clicks
-          Object.keys(tabs).forEach(tabId => {
-            document.getElementById(tabId).addEventListener("click", function (e) {
+     
               e.preventDefault();
-              window.location.hash = `#${tabId}`; // update the hash
+              window.location.hash = `#${this.value}`; // update the hash
               activateTab(tabId);
-            });
-          });
+           
           
         }
      });
