@@ -1265,12 +1265,12 @@
           activateTab("shipping-tab");
         } else if (this.value === "return-tab") {
           activateTab("return-tab");
-        } else if (hash === "#subscription-tab") {
+        } else if (this.value === "subscription-tab") {
           activateTab("subscription-tab");
-        } else if (hash === "#privacy-tab") {
+        } else if (this.value === "privacy-tab") {
           activateTab("privacy-tab");
         } else {
-          window.location.hash = "#pickup-tab"; // set default hash
+          this.value = "pickup-tab"; // set default hash
           activateTab("pickup-tab");
         }
 
