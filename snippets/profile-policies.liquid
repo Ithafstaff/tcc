@@ -1216,8 +1216,8 @@
 
     // Initial tab from hash
     const hash = window.location.hash;
-    window.tabValue == 'shipping-tab';
-    if (hash === "#shipping-tab" || window.tabValue == 'shipping-tab') {
+    const test = 'shipping-tab';
+    if (hash === "#shipping-tab" || test == 'shipping-tab') {
       activateTab("shipping-tab");
       console.log('test');
     } else if (hash === "#return-tab") {
