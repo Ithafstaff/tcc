@@ -525,7 +525,10 @@
             ${data.resources.results.products
               .map(
                 (product) => `
-                <a class="suggestion-item" href="${product.url}">${product.title}</a>
+                <a class="suggestion-item" href="${product.url}">
+                ${product.title}
+                <img src="${product.img}">
+                </a>
                 `
               )
               .join('')}
