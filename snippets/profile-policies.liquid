@@ -1212,6 +1212,9 @@
       // Show selected section and highlight tab
       document.getElementById(tabId).classList.add("profile__order-cat-link--active");
       document.getElementById(tabs[tabId]).classList.remove("hide");
+      // Show selected section and highlight tab
+      document.getElementById(window.tabValue).classList.add("profile__order-cat-link--active");
+      document.getElementById(tabs[window.tabValue]).classList.remove("hide");
     }
 
     // Initial tab from hash
