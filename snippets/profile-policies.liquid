@@ -1256,6 +1256,8 @@
       dropdown.addEventListener('change', function () {
       console.log('Changed selected value:', this.value);
         
+      const dropdownCat = document.querySelector('.profile__cat-dropdown-wrap'); // The <select>
+      const targetValue = this.value;
       
       dropdownCat.value = targetValue; // This selects the option with value="shipping-tab"
 
