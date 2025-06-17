@@ -1248,13 +1248,20 @@
 
 
 
+
   document.addEventListener('DOMContentLoaded', function () {
     const dropdown = document.getElementById('tab-category');
 
+    // Log current selected value on first load
+    console.log('Initial selected value:', dropdown.value);
+
+    // Log value every time it changes
     dropdown.addEventListener('change', function () {
-      console.log('Selected value:', this.value);
+      console.log('Changed selected value:', this.value);
     });
   });
+
+
 
 
 
