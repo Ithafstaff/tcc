@@ -527,7 +527,7 @@
                 (product) => `
                 <a class="suggestion-item" href="${product.url}">
                 ${product.title}
-                 {{ product.featured_image | image_url: width: 140 | image_tag: sizes: '70px', widths: '70, 105, 140, 210' }}
+                 {{ product.featured_image | image_url }}
                 </a>
                 `
               )
