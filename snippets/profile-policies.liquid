@@ -1252,31 +1252,41 @@ const dropdown = document.getElementById('tab-category');
 window.tabValue = dropdown.value;
 console.log('Initial selected value:', dropdown.value);
 
+// On change
 dropdown.addEventListener('change', function () {
   const selectedValue = this.value;
   console.log('Changed selected value:', selectedValue);
 
-  // Update window.tabValue and location hash
+  // Update window value and hash
   window.tabValue = selectedValue;
   window.location.hash = `#${selectedValue}`;
 
-  // Activate the appropriate tab
-  if (selectedValue === "shipping-tab") {
-    activateTab("shipping-tab");
-  } else if (selectedValue === "return-tab") {
-    activateTab("return-tab");
-  } else if (selectedValue === "subscription-tab") {
-    activateTab("subscription-tab");
-  } else if (selectedValue === "privacy-tab") {
-    activateTab("privacy-tab");
-  } else {
-    // Default to pickup-tab
-    dropdown.value = "pickup-tab";
-    window.tabValue = "pickup-tab";
-    activateTab("pickup-tab");
-    window.location.hash = "#pickup-tab";
+  // Remove `selected` from all options, then add to the matching one
+  Array.from(dropdown.options).forEach(option => {
+    option.removeAttribute('selected');
+    if (option.value === selectedValue) {
+      option.setAttribute('selected', 'selected');
+    }
+  });
+
+  // Activate the corresponding tab
+  switch (selectedValue) {
+    case "shipping-tab":
+    case "return-tab":
+    case "subscription-tab":
+    case "privacy-tab":
+    case "pickup-tab":
+      activateTab(selectedValue);
+      break;
+    default:
+      // Fallback
+      dropdown.value = "pickup-tab";
+      window.tabValue = "pickup-tab";
+      window.location.hash = "#pickup-tab";
+      activateTab("pickup-tab");
   }
 });
+
 
     
   });
