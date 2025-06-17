@@ -1260,13 +1260,14 @@
       const targetValue = this.value;
       
       dropdownCat.value = targetValue; // This selects the option with value="shipping-tab"
-
         
 
       window.tabValue = this.value;
      
         if (this.value === "shipping-tab") {
           activateTab("shipping-tab");
+          console.log('test1: ' + targetValue);
+          
         } else if (this.value === "return-tab") {
           activateTab("return-tab");
         } else if (this.value === "subscription-tab") {
