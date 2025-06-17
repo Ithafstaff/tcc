@@ -1,7 +1,6 @@
 <style>
   .profile-sub {
     padding: 0 50px 30px;
-    width: 100%;
     font-family: 'Alata', sans-serif !important;
     color: #222222;
   }
@@ -449,7 +448,7 @@
     // Render wishlist items
     renderWishlistItems();
     
-    // Listen for wishlist updateswi
+    // Listen for wishlist updates
     document.addEventListener('wishlist:updated', function(event) {
       renderWishlistItems();
     });
