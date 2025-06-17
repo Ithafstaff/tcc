@@ -1257,7 +1257,6 @@
         
       const dropdownCat = document.querySelector('.profile__cat-dropdown-wrap'); // The <select>
       const targetValue = this.value;
-      
       dropdownCat.value = targetValue; // This selects the option with value="shipping-tab"
         
 
@@ -1265,8 +1264,6 @@
      
         if (this.value === "shipping-tab") {
           activateTab("shipping-tab");
-          targetValue
-          
         } else if (this.value === "return-tab") {
           activateTab("return-tab");
         } else if (this.value === "subscription-tab") {
@@ -1276,6 +1273,18 @@
         } else {
           this.value = "pickup-tab"; // set default hash
           activateTab("pickup-tab");
+
+
+
+            // Handle tab clicks
+          Object.keys(tabs).forEach(tabId => {
+            document.getElementById(tabId).addEventListener("click", function (e) {
+              e.preventDefault();
+              window.location.hash = `#${tabId}`; // update the hash
+              activateTab(tabId);
+            });
+          });
+          
         }
      });
     
