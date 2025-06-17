@@ -1246,4 +1246,16 @@
   });
 
 
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const dropdown = document.getElementById('tab-category');
+
+    dropdown.addEventListener('change', function () {
+      console.log('Selected value:', this.value);
+    });
+  });
+
+
+
 </script>
