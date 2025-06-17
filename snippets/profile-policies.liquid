@@ -1213,7 +1213,7 @@
       document.getElementById(tabId).classList.add("profile__order-cat-link--active");
       document.getElementById(tabs[tabId]).classList.remove("hide");
     }
-
+console.log('Changed selected value:', this.value);
     // Initial tab from hash
     const hash = window.location.hash;
     if (hash === "#shipping-tab" || window.tabValue == 'shipping-tab') {
