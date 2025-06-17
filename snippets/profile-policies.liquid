@@ -1247,37 +1247,20 @@
     });
 
       
+// For Mobile dropdown option
 const dropdown = document.getElementById('tab-category');
 window.tabValue = dropdown.value;
 console.log('Initial selected value:', dropdown.value);
 
-function updateDropdownSelection(value) {
-  Array.from(dropdown.options).forEach(option => {
-    // Set the JavaScript property
-    option.selected = (option.value === value);
-
-    // Update HTML attribute for visual confirmation in DevTools
-    if (option.value === value) {
-      option.setAttribute('selected', 'selected');
-    } else {
-      option.removeAttribute('selected');
-    }
-  });
-}
-
-// Initial setup on page load
-updateDropdownSelection(dropdown.value);
-
-// Event listener for change
 dropdown.addEventListener('change', function () {
   const selectedValue = this.value;
   console.log('Changed selected value:', selectedValue);
 
+  // Update window.tabValue and location hash
   window.tabValue = selectedValue;
   window.location.hash = `#${selectedValue}`;
 
-  updateDropdownSelection(selectedValue);
-
+  // Activate the appropriate tab
   if (selectedValue === "shipping-tab") {
     activateTab("shipping-tab");
   } else if (selectedValue === "return-tab") {
@@ -1287,14 +1270,13 @@ dropdown.addEventListener('change', function () {
   } else if (selectedValue === "privacy-tab") {
     activateTab("privacy-tab");
   } else {
+    // Default to pickup-tab
     dropdown.value = "pickup-tab";
     window.tabValue = "pickup-tab";
-    updateDropdownSelection("pickup-tab");
     activateTab("pickup-tab");
     window.location.hash = "#pickup-tab";
   }
 });
-
 
     
   });
