@@ -527,8 +527,9 @@
                 (product) => `
                 <a class="suggestion-item" href="${product.url}">
                 ${product.title}
-                 {{ product.featured_image | image_url }}
+                 
                 </a>
+                ${{ product.featured_image | image_url }}
                 `
               )
               .join('')}
