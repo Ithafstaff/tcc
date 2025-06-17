@@ -1177,86 +1177,79 @@
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabs = {
-      "pickup-tab": "pickup-section",
-      "shipping-tab": "shipping-section",
-      "return-tab": "return-section",
-      "subscription-tab": "subscription-section",
-      "privacy-tab": "privacy-section",
-    };
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = {
+    "pickup-tab": "pickup-section",
+    "shipping-tab": "shipping-section",
+    "return-tab": "return-section",
+    "subscription-tab": "subscription-section",
+    "privacy-tab": "privacy-section",
+  };
 
+  const dropdown = document.getElementById('tab-category');
 
-      // for Mobile dropdown option
-      const dropdown = document.getElementById('tab-category');
-      window.tabValue = dropdown.value;
-      console.log('Initial selected value:', dropdown.value);
-      // Log value every time it changes
-      dropdown.addEventListener('change', function () {
-        console.log('Changed selected value:', this.value);
-        window.tabValue = this.value;
-      });
-   
+  // Initial tab detection
+  const hash = window.location.hash.replace("#", "");
+  const defaultTab = hash || dropdown.value || "pickup-tab";
 
-    function activateTab(tabId) {
-      // Remove active class from all links
-      document.querySelectorAll(".profile__order-cat-link").forEach(link =>
-        link.classList.remove("profile__order-cat-link--active")
-      );
+  activateTab(defaultTab);
+  window.location.hash = `#${defaultTab}`;
 
-      // Hide all tab sections
-      Object.values(tabs).forEach(sectionId =>
-        document.getElementById(sectionId).classList.add("hide")
-      );
+  // Update dropdown value to match hash (optional sync)
+  dropdown.value = defaultTab;
 
-      // Show selected section and highlight tab
-      document.getElementById(tabId).classList.add("profile__order-cat-link--active");
-      document.getElementById(tabs[tabId]).classList.remove("hide");
-    }
-
-    // Initial tab from hash
-    const hash = window.location.hash;
-    if (hash === "#shipping-tab" || window.tabValue == 'shipping-tab') {
-      activateTab("shipping-tab");
-      console.log('test');
-    } else if (hash === "#return-tab") {
-      activateTab("return-tab");
-    } else if (hash === "#subscription-tab") {
-      activateTab("subscription-tab");
-    } else if (hash === "#privacy-tab") {
-      activateTab("privacy-tab");
-    } else {
-      window.location.hash = "#pickup-tab"; // set default hash
-      activateTab("pickup-tab");
-    }
-
-
-    // Handle tab clicks
-    Object.keys(tabs).forEach(tabId => {
-      document.getElementById(tabId).addEventListener("click", function (e) {
-        e.preventDefault();
-        window.location.hash = `#${tabId}`; // update the hash
-        activateTab(tabId);
-      });
-    });
-
-
-
-    // Show policy accordion content
-    const accordionItems = document.querySelectorAll(".profile-policy__privacy-list li");
-    accordionItems.forEach((item) => {
-      const accordionHeader = item.querySelector(".profile-policy__privacy-item");
-      const accordionContent = item.querySelector(".profile-policy__privacy-item-wrap");
-    
-      if (accordionHeader && accordionContent) {
-        accordionHeader.addEventListener("click", () => {
-          accordionContent.classList.toggle("show");
-        });
-      }
-    });
-    
-    
+  // Update tab when dropdown changes
+  dropdown.addEventListener('change', function () {
+    const selectedTab = this.value;
+    activateTab(selectedTab);
+    window.location.hash = `#${selectedTab}`;
   });
+
+  // Handle tab link clicks
+  Object.keys(tabs).forEach(tabId => {
+    const tabElement = document.getElementById(tabId);
+    if (tabElement) {
+      tabElement.addEventListener("click", function (e) {
+        e.preventDefault();
+        activateTab(tabId);
+        window.location.hash = `#${tabId}`;
+        dropdown.value = tabId; // sync mobile dropdown
+      });
+    }
+  });
+
+  function activateTab(tabId) {
+    // Remove active class from all links
+    document.querySelectorAll(".profile__order-cat-link").forEach(link =>
+      link.classList.remove("profile__order-cat-link--active")
+    );
+
+    // Hide all tab sections
+    Object.values(tabs).forEach(sectionId =>
+      document.getElementById(sectionId)?.classList.add("hide")
+    );
+
+    // Activate tab link and show section
+    document.getElementById(tabId)?.classList.add("profile__order-cat-link--active");
+    document.getElementById(tabs[tabId])?.classList.remove("hide");
+  }
+
+  // Accordion logic (unchanged)
+  const accordionItems = document.querySelectorAll(".profile-policy__privacy-list li");
+  accordionItems.forEach((item) => {
+    const accordionHeader = item.querySelector(".profile-policy__privacy-item");
+    const accordionContent = item.querySelector(".profile-policy__privacy-item-wrap");
+
+    if (accordionHeader && accordionContent) {
+      accordionHeader.addEventListener("click", () => {
+        accordionContent.classList.toggle("show");
+      });
+    }
+  });
+});
+</script>
+
 
 
 
