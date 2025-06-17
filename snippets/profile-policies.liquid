@@ -1227,7 +1227,7 @@
       document.getElementById(tabId).addEventListener("click", function (e) {
         e.preventDefault();
         window.location.hash = `#${tabId}`; // update the hash
-         (tabId);
+        activateTab(tabId);
       });
     });
 
@@ -1279,7 +1279,7 @@
             // Handle tab clicks
      
               e.preventDefault();
-              window.location.hash = `#${this.value}`; // update the hash
+              window.location.hash = `#${tabId}`; // update the hash
               activateTab(tabId);
            
           
