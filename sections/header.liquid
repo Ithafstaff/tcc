@@ -107,7 +107,6 @@
 
   .suggestion-item {
     display: flex !important;
-    flex-direction: row-reverse !important;
     justify-content: flex-end;
   }
 
@@ -536,7 +535,7 @@
             .map((product) => {
               // console.log(product);
               return `
-                <a class="suggestion-item" href="${product.url}">
+                <a class="suggestion-item" href="${product.url}" style="flex-direction: row-reverse !important;">
                   ${product.title}
                   <img class="custom-suggestion__item-img" src="${product.image}" alt="${product.title}">
                 </a>
