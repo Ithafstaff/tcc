@@ -175,17 +175,17 @@
 
       <div class="header__main-nav">
         <div class="header__icon-list">
-          <button id="hamburgerToggle"
+          <button
             type="button"
-            class="tap-area custom-hamburger__wrap {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}"
+            class="tap-area test {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}"
             aria-controls="header-sidebar-menu"
           >
             <span class="sr-only">{{ 'header.general.menu' | t }}</span>
-           
+            <div class="custom-hamburger__wrap" id="hamburgerToggle">
               <span class="custom-hamburger__line"></span>
               <span class="custom-hamburger__line"></span>
               <span class="custom-hamburger__line"></span>
-           
+            </div>
             {% comment %}{%- render 'icon' with 'hamburger' -%}{% endcomment %}
           </button>
 
