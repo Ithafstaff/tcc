@@ -1,6 +1,12 @@
 <style>
   input[type=radio] {
     visibility: hidden;
+    position: absolute;
+  }
+
+  label {
+    width: fit-content;
+    display: flex;
   }
   
   input[type=radio] + label:before {
@@ -9,7 +15,6 @@
     content: " ";
     display:block;
     border:1px solid #777;
-
   }
 
   input[type=radio]:checked + label:before {
