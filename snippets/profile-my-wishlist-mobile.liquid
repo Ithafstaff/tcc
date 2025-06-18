@@ -167,37 +167,6 @@
       renderWishlistItems();
     });
 
-    // Modal elements
-    const modal = document.getElementById('quick-add-modal');
-    const closeModal = document.getElementById('close-modal');
-    const modalTitle = document.getElementById('modal-product-title');
-    
-    let currentProduct = null;
-
-    // Ensure modal is hidden initially
-    if (modal) {
-      modal.style.display = 'none';
-      modal.classList.remove('x:flex');
-      modal.classList.add('x:hidden');
-    }
-    
-    // Close modal when clicking the close button or outside the modal
-    if (closeModal) {
-      closeModal.addEventListener('click', () => {
-        modal.classList.remove('x:flex');
-        modal.classList.add('x:hidden');
-        modal.style.display = 'none';
-      });
-    }
-    
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('x:flex');
-        modal.classList.add('x:hidden');
-        modal.style.display = 'none';
-      }
-    });
-
     // Add click event listeners to cart icons
     function addCartIconListeners() {
       document.querySelectorAll('.cart-icon').forEach(icon => {
@@ -214,48 +183,6 @@
         });
       });
     }
-    
-    function openProductModal(product) {
-      console.log('openProductModal called with:', product);
-      if (!modal || !modalTitle) {
-        console.error('Modal elements not found:', { modal, modalTitle });
-        return;
-      }
-      
-      currentProduct = product;
-      
-      // Set basic content
-      modalTitle.textContent = product.title;
-      
-      // Set price
-      const modalPrice = document.getElementById('modal-product-price');
-      if (modalPrice) {
-        modalPrice.textContent = typeof product.price === 'number' ? 
-          `$${(product.price / 100).toFixed(2)}` : 
-          "$" + product.price;
-      }
-
-      // Set variants
-      const modalVariants = document.getElementById('modal-variants');
-      if (modalVariants && product.variants) {
-        let variantsHtml = '';
-        
-        // Group variants by option name (e.g., "Size", "Color", etc.)
-        const variantGroups = {};
-        product.variants.forEach(variant => {
-          if (variant.option2) {
-            if (!variantGroups[variant.option2_name || 'Color']) {
-              variantGroups[variant.option2_name || 'Color'] = new Set();
-            }
-            variantGroups[variant.option2_name || 'Color'].add(variant.option2);
-          }
-          if (variant.option3) {
-            if (!variantGroups[variant.option3_name || 'Material']) {
-              variantGroups[variant.option3_name || 'Material'] = new Set();
-            }
-            variantGroups[variant.option3_name || 'Material'].add(variant.option3);
-          }
-        });
 
         // Create HTML for each variant group
         Object.entries(variantGroups).forEach(([groupName, values]) => {
