@@ -178,7 +178,7 @@
           const product = wishlist.find(item => item.id === productId);
           
           if (product) {
-            window.location.href = `/products/${product.handle}`;
+            window.location.href = `/product/${this.getAttribute('data-product-id')}`;
           }
         });
       });
@@ -582,5 +582,42 @@ setTimeout(() => {
       alert('Item removed from wishlist');
     }
   }
+  
+  function addToCart(productId, quantity = 1) {
+    // Add to cart functionality
+    let formData = {
+      'items': [{
+        'id': productId,
+        'quantity': quantity
+      }]
+    };
+    
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert('Item added to cart!');
+      // Optionally refresh cart drawer or redirect
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('Error adding item to cart');
+    });
+  }
+
+  // Auto-select first swatch for each card on load
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.swatch[data-selected="true"]').forEach(el => {
+      selectSwatch(el);
+    });
+  });
+
+  document.querySelectorAll('.variant-picker__option-value[data-selected="true"]').forEach(swatch => {
+  hoverSwatch(swatch);
 });
 </script>
