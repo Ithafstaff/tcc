@@ -608,16 +608,26 @@
 
 
          
-     // JS
-    document.addEventListener("DOMContentLoaded", function () {
-      const burgerWrap = document.getElementById('hamburgerToggle');
-      if (burgerWrap) {
-        burgerWrap.addEventListener('click', () => {
-          burgerWrap.classList.toggle('active');
-          console.log('clicked!');
-        });
-      }
+     document.addEventListener("DOMContentLoaded", function () {
+  const burgerWrap = document.getElementById('hamburgerToggle');
+
+  if (burgerWrap) {
+    burgerWrap.addEventListener('click', () => {
+      burgerWrap.classList.toggle('active');
+      console.log('clicked!');
     });
+
+    // Check every second if the burger has the 'active' class
+    setInterval(() => {
+      if (burgerWrap.classList.contains('active')) {
+        console.log('Hamburger is ACTIVE');
+      } else {
+        console.log('Hamburger is NOT active');
+      }
+    }, 1000); // 1000 milliseconds = 1 second
+  }
+});
+
 
 
 
