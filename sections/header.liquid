@@ -607,17 +607,28 @@
   });
 
 
-document.addEventListener("DOMContentLoaded", function () {
+         
+     // JS
+    document.addEventListener("DOMContentLoaded", function () {
   const burgerWrap = document.getElementById('hamburgerToggle');
   const burgerBtn = document.getElementById('hamburgerBtn');
 
   if (burgerBtn && burgerWrap) {
     burgerBtn.addEventListener('click', () => {
       const isExpanded = burgerBtn.getAttribute('aria-expanded') === 'true';
-      burgerBtn.setAttribute('aria-expanded', String(!isExpanded));
+      const newState = !isExpanded;
 
-      burgerWrap.classList.toggle('active');
-      console.log('clicked!');
+      // Update aria-expanded
+      burgerBtn.setAttribute('aria-expanded', String(newState));
+
+      // Toggle class based on updated value
+      if (newState) {
+        burgerWrap.classList.add('active');
+      } else {
+        burgerWrap.classList.remove('active');
+      }
+
+      console.log(`aria-expanded is now: ${newState}`);
     });
   }
 });
