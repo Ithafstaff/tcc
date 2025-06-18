@@ -116,10 +116,6 @@
     height: 100%;
     object-fit: center;
   }
-
-  .suggestion-item-container {
-    gap: 0 !important;
-  }
   
 </style>
 
@@ -533,7 +529,7 @@
         const data = await res.json();
 
         const suggestions = `
-          <div class="suggestion-item-container">
+          <div class="suggestion-item-container" style="gap: 0 !important;">
           <div class="x:w-full x:flex x:items-center x:justify-between x:h-full">
             <span class="x:p-0 x:m-0 x:text-xs">Product Suggestions</span>
           </div>
