@@ -282,8 +282,6 @@
               class="variant-picker__option-value variant-picker__option-value--swatch"
               style="width: 25px; height: 25px; background-color: ${optionValue}; position: relative; cursor: pointer;"
               onclick="selectSwatch(this)"
-              onmouseover="hoverSwatch(this)"
-              onmouseout="unhoverSwatch(this)"
               data-variant-id="${firstVariant.id}"
               data-variants='${JSON.stringify(variants)}'
               data-selected="${index === 0 ? 'true' : 'false'}"
@@ -602,8 +600,4 @@ setTimeout(() => {
       selectSwatch(el);
     });
   });
-
-  document.querySelectorAll('.variant-picker__option-value[data-selected="true"]').forEach(swatch => {
-  hoverSwatch(swatch);
-});
 </script>
