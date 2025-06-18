@@ -1,4 +1,14 @@
 <style>
+  input[type=radio] + label:before {
+    height: 20px;
+    width: 20px;
+    border-radius: 2px;
+  }
+
+  input[type=radio]:checked + label:before {
+    background-color: black;
+  }
+  
   .custom-heading {
     font-family: 'Alata', sans-serif;
     font-weight: 400;
@@ -47,7 +57,7 @@
       </div>
       <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); justify-items: center;">
         <span style="display: flex; height: 20px;">
-          <input type="radio" name="filter-btn" value="50">
+          <input type="radio" name="filter-btn" value="50" style="">
           <label>5-10 items</label>
         </span>
         <span>btn 2</span>
