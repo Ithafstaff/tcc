@@ -117,22 +117,38 @@
     object-fit: center;
   }
 
-  .custom-humburger__wrap {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-  }
+.custom-hamburger__wrap {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 
-  .custom-humburger__line {
-    display: block;
-    width: 80%;
-    height: 2px;
-    background: #000;
-  }
+.custom-hamburger__line {
+  display: block;
+  width: 80%;
+  height: 2px;
+  background: #000;
+  transition: all 0.3s ease;
+}
+
+/* Animate to "X" when active */
+.custom-hamburger__wrap.active .custom-hamburger__line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.custom-hamburger__wrap.active .custom-hamburger__line:nth-child(2) {
+  opacity: 0;
+}
+
+.custom-hamburger__wrap.active .custom-hamburger__line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
   
 </style>
 
@@ -165,10 +181,12 @@
               <span class="custom-humburger__line"></span>
               <span class="custom-humburger__line"></span>
               <span class="custom-humburger__line"></span>
-
-
             </div>
-            
+            <script>
+              document.getElementById('hamburgerToggle').addEventListener('click', function () {
+                this.classList.toggle('active');
+              });
+            </script>
             {% comment %}{%- render 'icon' with 'hamburger' -%}{% endcomment %}
           </button>
 
