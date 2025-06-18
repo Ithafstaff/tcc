@@ -82,4 +82,12 @@
 </div>
 
 <script>
+  function toggleSnippet(pageName) {
+    const snippets = {'wishlist-snippet', 'account-snippet', 'order-snippet'};
+
+    for (let i = 0; i < snippets.length; i++) {
+      let unhide = pageName == snippets[i];
+      document.getElementById(snippets[i]).style.display = unhide ? 'flex' : 'none';
+    };
+  }
 </script>
