@@ -83,7 +83,7 @@
       <summary>
         {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
         <div class="accordion__toggle bold">
-          {% assign icon = 'heart_black.png' %}
+          {% assign icon = {% render icon, icon: 'err' %} %}
           {%- if icon -%}
             <div class="text-with-icon">
               {%- if icon.src != blank -%}
