@@ -48,7 +48,7 @@
   <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
     <span class="custom-heading" style="font-size: 20px;">My Wishlist</span>
     <button 
-      onclick="document.getElementById('filter-modal').classList.add(x:hidden);"
+      onclick="document.getElementById('filter-modal').classList.remove(x:hidden);"
       style="display: flex; width: fit-content; height: fit-content; align-items: center; gap: 6px;">
       <span style="font-size: 12px;">FILTER</span>
       <img
@@ -71,7 +71,7 @@
   </div>
 </div>
 
-<div id="filter-modal" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: none;">
+<div id="filter-modal" class="x:hidden" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
   <div style="background-color: white; width: 100%; height: fit-content; display: flex; flex-direction: column; padding: 26px 25px;">
     <div>
       <div style="display: flex; justify-content: space-between; width: 100%;">
