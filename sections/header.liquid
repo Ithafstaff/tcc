@@ -144,7 +144,8 @@
             aria-controls="header-sidebar-menu"
           >
             <span class="sr-only">{{ 'header.general.menu' | t }}</span>
-      
+            <span class="">X</span>
+            {% comment %}{%- render 'icon' with 'hamburger' -%}{% endcomment %}
           </button>
 
           <a href="{{ routes.search_url }}" class="tap-area sm:hidden" aria-controls="search-drawer">
