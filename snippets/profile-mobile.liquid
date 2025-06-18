@@ -87,9 +87,7 @@
       button.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-
         const snippets = ['wishlist-snippet', 'account-snippet', 'order-snippet'];
-        console.log('chek wants to kill herself');
         const selectedSnippet = `${button.getAttribute('id')}-snippet`;
         for (let i = 0; i < snippets.length; i++) {
           document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
