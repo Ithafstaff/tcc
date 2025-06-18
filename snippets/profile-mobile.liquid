@@ -28,8 +28,8 @@
       </div>
       {% endif %}
     </div>
-    <div style="width: 100%; height: fit-content; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: center; row-gap: 42px;">
-      <a id='order-btn' class="" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
+    <div id="link-container" style="width: 100%; height: fit-content; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: center; row-gap: 42px;">
+      <a id='order' class="page-btn" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
         <img
           src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
           alt=""
@@ -38,7 +38,7 @@
         >
         <span style="font-size: 12px;">My Orders</span>
       </a>
-      <a id='wishlist-btn' style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
+      <a id='wishlist' class="page-btn" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
         <img
           src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
           alt=""
@@ -47,7 +47,7 @@
         >
         <span style="font-size: 12px;">My Wishlist</span>
       </a>
-      <a id='account-btn' style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
+      <a id='account' class="page-btn" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
         <img
           src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
           alt=""
@@ -83,7 +83,15 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    document.
+    document.querySelector('#link-container').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const snippet = `${this.getAttribute('id')}-snippet`;
+        console.log('chek was here!');
+      })
+    })
 
     window.toggleSnippet = toggleSnippet;
   });
