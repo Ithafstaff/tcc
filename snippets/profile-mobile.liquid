@@ -29,7 +29,7 @@
       {% endif %}
     </div>
     <div style="width: 100%; height: fit-content; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: center; row-gap: 42px;">
-      <a id='order' class="page-btn" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
+      <button id='order' class="page-btn" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
         <img
           src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
           alt=""
@@ -37,8 +37,8 @@
           height="25px"
         >
         <span style="font-size: 12px;">My Orders</span>
-      </a>
-      <a id='wishlist' class="page-btn" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
+      </button>
+      <button id='wishlist' class="page-btn" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
         <img
           src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
           alt=""
@@ -46,8 +46,8 @@
           height="25px"
         >
         <span style="font-size: 12px;">My Wishlist</span>
-      </a>
-      <a id='account' class="page-btn" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
+      </button>
+      <button id='account' class="page-btn" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
         <img
           src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
           alt=""
@@ -55,7 +55,7 @@
           height="25px"
         >
         <span style="font-size: 12px;">Account</span>
-      </a>
+      </button>
       <a href="{{ routes.account_logout_url }}" style="display: flex; flex-direction: column; gap: 4px; width: fit-content; height: fit-content; align-items: center;">
         <img
           src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
