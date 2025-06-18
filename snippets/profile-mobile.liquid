@@ -85,7 +85,7 @@
   document.addEventListener('DOMContentLoaded', function() {  
     document.querySelectorAll('.page-btn').forEach(a => {
       a.addEventListener('click', function() {
-        console.log('chek pressed a button!');
+        console.log('chek', a.getAttribute('id'));
       })
     })
   });
