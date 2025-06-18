@@ -349,7 +349,10 @@
             src="{{ 'heart_black.png' | asset_url }}" 
             alt="Remove from Wishlist" 
             style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
-            onclick="removeFromWishlist('${item.id}')"
+            onclick="(function() {
+              removeFromWishlist('${item.id}');
+              renderWishlistItemsMobile();
+            })()"
             width="16"
             height="16"
           />
