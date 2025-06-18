@@ -175,13 +175,13 @@
 
       <div class="header__main-nav">
         <div class="header__icon-list">
-          <button
+          <button id="hamburgerToggle"
             type="button"
             class="tap-area test {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}"
             aria-controls="header-sidebar-menu"
           >
             <span class="sr-only">{{ 'header.general.menu' | t }}</span>
-            <div class="custom-hamburger__wrap" id="hamburgerToggle">
+            <div class="custom-hamburger__wrap">
               <span class="custom-hamburger__line"></span>
               <span class="custom-hamburger__line"></span>
               <span class="custom-hamburger__line"></span>
