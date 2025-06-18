@@ -82,10 +82,15 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {  
+  document.addEventListener('DOMContentLoaded', function() { 
+    const snippets = {"wishlist-snippet", "order-snippet", "account-snippet"};
+    
     document.querySelectorAll('.page-btn').forEach(a => {
       a.addEventListener('click', function() {
-        console.log('chek', a.getAttribute('id'));
+        const selectedSnippet = `${a.getAttribute('id')}-snippet`;
+        for (let i = 0; i < snippets.length; i++) {
+          document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
+        }
       })
     })
   });
