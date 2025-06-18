@@ -144,7 +144,12 @@
             aria-controls="header-sidebar-menu"
           >
             <span class="sr-only">{{ 'header.general.menu' | t }}</span>
-            <span class="">X</span>
+            <div class="custom-humburger__wrap">
+              <span class="custom-humburger__line"></span>
+              <span class="custom-humburger__line"></span>
+              <span class="custom-humburger__line"></span>
+            </div>
+            
             {% comment %}{%- render 'icon' with 'hamburger' -%}{% endcomment %}
           </button>
 
