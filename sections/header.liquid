@@ -604,11 +604,16 @@
 
 
          
-      document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById('hamburgerToggle').addEventListener('click', function () {
-        this.classList.toggle('active');
-      });
-    });
+      function toggleMenu() {
+        const burgerWrap = document.getElementById('hamburgerToggle');
+      
+        burgerWrap.addEventListener('click', function () {
+          burgerWrap.classList.toggle('active');
+        });
+      }
+      toggleMenu();
+
+
            
 </script>
 
