@@ -83,17 +83,23 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() { 
-    document.querySelectorAll('.page-btn').forEach(button => {
+    function addToggleSnippetListeners() {
+      document.querySelectorAll('.page-btn').forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
+        
         console.log('chek');
+        
         const snippets = {'wishlist-snippet', 'account-snippet', 'order-snippet'};
         const selectedSnippet = `${button.getAttribute('id')}-snippet`;
         for (let i = 0; i < snippets.length; i++) {
           document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
         }
-      });
+      })
     });
+    }
+
+    addToggleSnippetListeners();
   });
 </script>
