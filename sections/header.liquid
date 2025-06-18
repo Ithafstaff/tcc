@@ -527,7 +527,7 @@
                 (product) => `
                 <a class="suggestion-item" href="${product.url}">
                 ${product.title}
-                <img src="${product.images?.[0]?.src || 'default.jpg'}" alt="${product.title}">
+                <img src="${product.image.src}" alt="${product.title}">
                 
                 </a>
                 `
