@@ -428,7 +428,7 @@ setTimeout(() => {
       console.log('chek wishlistcontainer cleared!');
       
       // Show empty message if wishlist is empty
-      if (wishlist.length === 0) {
+      if (wishlist.length <= 0) {
         wishlistContainer.style.filter = "drop-shadow(0 2px 3px rgba(22,22,22,0.1))";
         wishlistContainer.style.backgroundColor = "white";
         if (emptyWishlistMessage) {
