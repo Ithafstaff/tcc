@@ -175,12 +175,19 @@
 
       <div class="header__main-nav">
         <div class="header__icon-list">
-          <div class="custom-hamburger__wrap" id="hamburgerToggle">
+          <button id="hamburgerToggle"
+            type="button"
+            class="tap-area custom-hamburger__wrap {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}"
+            aria-controls="header-sidebar-menu"
+          >
+            <span class="sr-only">{{ 'header.general.menu' | t }}</span>
+           
               <span class="custom-hamburger__line"></span>
               <span class="custom-hamburger__line"></span>
               <span class="custom-hamburger__line"></span>
-            </div>
-          
+           
+            {% comment %}{%- render 'icon' with 'hamburger' -%}{% endcomment %}
+          </button>
 
           <a href="{{ routes.search_url }}" class="tap-area sm:hidden" aria-controls="search-drawer">
             <span class="sr-only">{{ 'header.general.search' | t }}</span>
