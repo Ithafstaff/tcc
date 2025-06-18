@@ -608,23 +608,23 @@
 
 
          
-     // JS
+     // JS for Hamburger menu
     document.addEventListener("DOMContentLoaded", function () {
-  const burgerWrap = document.getElementById('hamburgerToggle');
-  const burgerBtn = document.getElementById('hamburgerBtn');
-
-  if (burgerBtn && burgerWrap) {
-    setInterval(() => {
-      const isExpanded = burgerBtn.getAttribute('aria-expanded') === 'true';
-
-      if (isExpanded) {
-        burgerWrap.classList.add('active');
-      } else {
-        burgerWrap.classList.remove('active');
-      }
-    }, 10); // checks every 1 second
-  }
-});
+    const burgerWrap = document.getElementById('hamburgerToggle');
+    const burgerBtn = document.getElementById('hamburgerBtn');
+  
+    if (burgerBtn && burgerWrap) {
+      setInterval(() => {
+        const isExpanded = burgerBtn.getAttribute('aria-expanded') === 'true';
+  
+        if (isExpanded) {
+          burgerWrap.classList.add('active');
+        } else {
+          burgerWrap.classList.remove('active');
+        }
+      }, 10); // checks every 1 second
+    }
+  });
 
 
 
