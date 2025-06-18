@@ -1612,7 +1612,7 @@
   .custom-search__bar-list {
     display: flex !important;
     height: calc(var(--x-spacing) * 6) !important;
-    width: calc(var(--x-spacing) * 64) !important;
+    width: calc(var(--x-spacing) * 64);
     align-items: center !important;
   }
 }
