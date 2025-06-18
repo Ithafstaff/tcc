@@ -83,16 +83,17 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#link-container').forEach(a => {
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    const query = document.querySelector('#link-container');
+    console.log('chek', query);
+    
+    // document.querySelector('#link-container').forEach(a => {
+    //   a.addEventListener('click', function(e) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
         
-        const snippet = `${this.getAttribute('id')}-snippet`;
-        console.log('chek was here!');
-      })
-    })
-
-    window.toggleSnippet = toggleSnippet;
+    //     const snippet = `${this.getAttribute('id')}-snippet`;
+    //     console.log('chek was here!');
+    //   })
+    // })
   });
 </script>
