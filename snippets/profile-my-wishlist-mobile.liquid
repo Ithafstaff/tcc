@@ -596,32 +596,6 @@ setTimeout(() => {
     }
   }
   
-  function addToCart(productId, quantity = 1) {
-    // Add to cart functionality
-    let formData = {
-      'items': [{
-        'id': productId,
-        'quantity': quantity
-      }]
-    };
-    
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      alert('Item added to cart!');
-      // Optionally refresh cart drawer or redirect
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      alert('Error adding item to cart');
-    });
-  }
 
   // Auto-select first swatch for each card on load
   window.addEventListener('DOMContentLoaded', () => {
