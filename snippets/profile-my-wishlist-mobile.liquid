@@ -13,6 +13,24 @@
     font-family: 'Alata', sans-serif;
     font-weight: 400;
   }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .grid div:nth-child(3n+1) {
+    justify-content: left;
+  }
+
+  .grid div:nth-child(3n+2) {
+    justify-content: center;
+  }
+
+  .grid div:nth-child(3n) {
+    justify-content: right;
+  }
 </style>
 
 <div style="display: flex; flex-direction: column; width: 100%; padding-top: 34px; padding-bottom: 34px; gap: 15px;">
@@ -48,6 +66,7 @@
       <div style="display: flex; justify-content: space-between; width: 100%;">
         <span>SHOW</span>
         <img
+          id="show-img"
           src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
           alt=""
           width="26px"
