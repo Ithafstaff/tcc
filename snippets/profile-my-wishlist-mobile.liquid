@@ -5,11 +5,8 @@
   }
 
   label {
-    width: 100%;
+    width: fit-content;
     display: flex;
-    height: 20px;
-    gap: 12px;
-    align-items: center;
   }
   
   input[type=radio] + label:before {
@@ -34,6 +31,14 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
     row-gap: 16px;
+  }
+
+  .grid span {
+    width: 100%;
+    display: flex;
+    height: 20px;
+    gap: 12px;
+    align-items: center;
   }
 
   .grid span:nth-child(3n+1) {
