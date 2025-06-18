@@ -1,11 +1,15 @@
 <style>
-  input[type=radio]:before {
+  input[type=radio] {
+    visibility: hidden;
+  }
+  
+  input[type=radio] + label:before {
     height: 20px;
     width: 20px;
     border-radius: 2px;
   }
 
-  input[type=radio]:checked {
+  input[type=radio]:checked + label:before {
     background-color: black;
   }
   
