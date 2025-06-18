@@ -82,22 +82,14 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const query = document.querySelectorAll('.page-btn');
-    console.log('chek', query);
-    
-    query.forEach(a => {
-      console.log('chek', a);
-    });
-    
-    // document.querySelector('#link-container').forEach(a => {
-    //   a.addEventListener('click', function(e) {
-    //     e.preventDefault();
-    //     e.stopPropagation();
+  document.addEventListener('DOMContentLoaded', function() {  
+    document.querySelector('.page-btn').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         
-    //     const snippet = `${this.getAttribute('id')}-snippet`;
-    //     console.log('chek was here!');
-    //   })
-    // })
+        console.log('chek', a.getAttribute('id'));
+      })
+    })
   });
 </script>
