@@ -1351,7 +1351,7 @@ scroll-carousel {
   background: #0006;
   min-height: 100lvh;
   position: fixed;
-  top: 0;
+  top: 80px;
   bottom: 0;
   left: 0;
   right: 0;
