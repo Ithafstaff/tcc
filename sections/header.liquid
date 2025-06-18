@@ -523,16 +523,17 @@
             <span class="x:p-0 x:m-0 x:text-xs">Product Suggestions</span>
           </div>
             ${data.resources.results.products
-              .map(
-                (product) => `
-                <a class="suggestion-item" href="${product.url}">
-                ${product.title}
-                <img src="${product.image_url}" alt="${product.title}">
-                console.log(product);
-                </a>
-                `
-              )
-              .join('')}
+  .map((product) => {
+    console.log(product); // ✅ This logs the object to the console properly
+    return `
+      <a class="suggestion-item" href="${product.url}">
+        ${product.title}
+        <img src="${product.image_url}" alt="${product.title}">
+      </a>
+    `;
+  })
+  .join('')}
+
           </div>
         `;
 
