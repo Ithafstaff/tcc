@@ -178,7 +178,7 @@
           const product = wishlist.find(item => item.id === productId);
           
           if (product) {
-            window.location.href = `/product/${this.getAttribute('data-product-id')}`;
+            window.location.href = `/product/${product.handle}`;
           }
         });
       });
