@@ -524,20 +524,12 @@
           </div>
             ${data.resources.results.products
   .map(
-    (product) => {
-      const imageSrc =
-        product.image?.src || // try this first
-        product.featured_image || // fallback
-        product.image_url || // your original try
-        ''; // fallback to empty
-
-      return `
-        <a class="suggestion-item" href="${product.url}">
-          ${product.title}
-          <img src="${imageSrc}" alt="${product.title}">
-        </a>
-      `;
-    }
+    (product) => `
+      <a class="suggestion-item" href="${product.url}">
+        ${product.title}
+        <img src="${product.image?.src}" alt="${product.title}">
+      </a>
+    `
   )
   .join('')}
 
