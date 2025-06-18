@@ -1467,13 +1467,23 @@
       // Activate the appropriate tab
       if (selectedValue === "shipping-tab") {
         activateTab("shipping-tab");
-      } else if (selectedValue === "return-tab") {
+      }
+      else if (selectedValue === "return-tab") {
         activateTab("return-tab");
-      } else if (selectedValue === "subscription-tab") {
+      }
+      else if (selectedValue === "subscription-tab") {
         activateTab("subscription-tab");
-      } else if (selectedValue === "privacy-tab") {
+      }
+      else if (selectedValue === "privacy-tab") {
         activateTab("privacy-tab");
-      } else {
+      }
+      else if (selectedValue === "payment-tab") {
+        activateTab("payment-tab");
+      }
+      else if (selectedValue === "exchage-tab") {
+        activateTab("exchange-tab");
+      }
+      else {
         // Default to pickup-tab
         dropdown.value = "pickup-tab";
         window.tabValue = "pickup-tab";
