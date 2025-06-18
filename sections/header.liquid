@@ -607,18 +607,21 @@
   });
 
 
-         
-     // JS
-    document.addEventListener("DOMContentLoaded", function () {
-      const burgerWrap = document.getElementById('hamburgerToggle');
-      const burgerBtn = document.getElementById('hamburgerBtn');
-      if (burgerBtn) {
-        burgerBtn.aria-expanded.addEventListener('change', () => {
-          burgerWrap.classList.toggle('active');
-          console.log('clicked!');
-        });
-      }
+document.addEventListener("DOMContentLoaded", function () {
+  const burgerWrap = document.getElementById('hamburgerToggle');
+  const burgerBtn = document.getElementById('hamburgerBtn');
+
+  if (burgerBtn && burgerWrap) {
+    burgerBtn.addEventListener('click', () => {
+      const isExpanded = burgerBtn.getAttribute('aria-expanded') === 'true';
+      burgerBtn.setAttribute('aria-expanded', String(!isExpanded));
+
+      burgerWrap.classList.toggle('active');
+      console.log('clicked!');
     });
+  }
+});
+
 
 
 
