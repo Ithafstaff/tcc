@@ -83,15 +83,13 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() { 
-    const snippets = {'wishlist-snippet', 'account-snippet', 'order-snippet'};
-    
     document.querySelectorAll('.page-btn').forEach(a => {
       a.addEventListener('click', function() {
         const selectedSnippet = `${a.getAttribute('id')}-snippet`;
         console.log('chek');
-        for (let i = 0; i < snippets.length; i++) {
-          document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
-        }
+        // for (let i = 0; i < snippets.length; i++) {
+        //   document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
+        // }
     })
   });
 </script>
