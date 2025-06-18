@@ -1,10 +1,10 @@
 <style>
   input[type=radio] {
-    height: 20px;
-    width: 10px;
+    visibility: hidden;
+    
   }
   
-  /* input[type=radio] + label:before {
+  input[type=radio] + label:before {
     height:20px;
     width:20px;
     content: " ";
@@ -15,7 +15,7 @@
 
   input[type=radio]:checked + label:before {
     background-color: black;
-  } */
+  }
   
   .custom-heading {
     font-family: 'Alata', sans-serif;
@@ -101,27 +101,28 @@
       </div>
       <div class="grid">
         <span>
-          <input type="radio" name="filter-btn" value="10" checked><label>10 items</label>
+          <input id="r1" type="radio" name="filter-btn" value="10" checked>
+          <label for="r1">10 items</label>
         </span>
         <span>
-          <input type="radio" name="filter-btn" value="20">
-          <label>20 items</label>
+          <input id="r2" type="radio" name="filter-btn" value="20">
+          <label for="r2">20 items</label>
         </span>
         <span>
-          <input type="radio" name="filter-btn" value="30">
-          <label>30 items</label>
+          <input id="r3" type="radio" name="filter-btn" value="30">
+          <label for="r3">30 items</label>
         </span>
         <span>
-          <input type="radio" name="filter-btn" value="40">
-          <label>40 items</label>
+          <input id="r4" type="radio" name="filter-btn" value="40">
+          <label for="r4">40 items</label>
         </span>
         <span>
-          <input type="radio" name="filter-btn" value="50">
-          <label>50 items</label>
+          <input id="r5" type="radio" name="filter-btn" value="50">
+          <label for="r5">50 items</label>
         </span>
         <span>
-          <input type="radio" name="filter-btn" value="60">
-          <label>60 items</label>
+          <input id="r6" type="radio" name="filter-btn" value="60">
+          <label for="r6">60 items</label>
         </span>
       </div>
     </div>
