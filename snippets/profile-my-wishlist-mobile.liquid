@@ -178,7 +178,7 @@
           const product = wishlist.find(item => item.id === productId);
           
           if (product) {
-            window.location.href(`/product/${this.getAttribute('data-product-id')}`);
+            window.location.href = `/product/${this.getAttribute('data-product-id')}`;
           }
         });
       });
@@ -230,7 +230,7 @@
         e.preventDefault();
         e.stopPropagation();
         console.log('REDIRECTING HERE CHEK');
-        window.location.href(`/product/${item.handle}`)
+        window.location.href = `/product/${item.handle}`;
         ;
       });
 
