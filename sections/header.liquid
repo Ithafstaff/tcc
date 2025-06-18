@@ -181,7 +181,7 @@
             aria-controls="header-sidebar-menu"
           >
             <span class="sr-only">{{ 'header.general.menu' | t }}</span>
-            <div class="custom-hamburger__wrap" id="hamburgerToggle" onclick="toggleMenu();">
+            <div class="custom-hamburger__wrap" id="hamburgerToggle">
               <span class="custom-hamburger__line"></span>
               <span class="custom-hamburger__line"></span>
               <span class="custom-hamburger__line"></span>
@@ -608,13 +608,16 @@
 
 
          
-      function toggleMenu() {
-        const burgerWrap = document.getElementById('hamburgerToggle');
-      
-        burgerWrap.addEventListener('click', function () {
+     // JS
+    document.addEventListener("DOMContentLoaded", function () {
+      const burgerWrap = document.getElementById('hamburgerToggle');
+      if (burgerWrap) {
+        burgerWrap.addEventListener('click', () => {
           burgerWrap.classList.toggle('active');
         });
       }
+    });
+
 
 
            
