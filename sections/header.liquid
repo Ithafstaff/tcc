@@ -614,22 +614,15 @@
   const burgerBtn = document.getElementById('hamburgerBtn');
 
   if (burgerBtn && burgerWrap) {
-    burgerBtn.addEventListener('click', () => {
+    setInterval(() => {
       const isExpanded = burgerBtn.getAttribute('aria-expanded') === 'true';
-      const newState = !isExpanded;
 
-      // Update aria-expanded
-      burgerBtn.setAttribute('aria-expanded', String(newState));
-
-      // Toggle class based on updated value
-      if (newState) {
+      if (isExpanded) {
         burgerWrap.classList.add('active');
       } else {
         burgerWrap.classList.remove('active');
       }
-
-      console.log(`aria-expanded is now: ${newState}`);
-    });
+    }, 1000); // checks every 1 second
   }
 });
 
