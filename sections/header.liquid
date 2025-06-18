@@ -539,7 +539,9 @@
               return `
                 <a class="suggestion-item" href="${product.url}" style="display: flex !important; flex-direction: row-reverse !important; justify-content: flex-end; gap: 10px; align-items: center;">
                   ${product.title}
-                  <img class="custom-suggestion__item-img" src="${product.image}" alt="${product.title}">
+                  <div class="custom-suggestion__item-img-wrap">
+                    <img class="custom-suggestion__item-img" src="${product.image}" alt="${product.title}">
+                  </div>
                 </a>
               `;
             })
