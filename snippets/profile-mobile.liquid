@@ -88,11 +88,11 @@
         e.preventDefault();
         e.stopPropagation();
         console.log('chek');
-        // const snippets = {'wishlist-snippet', 'account-snippet', 'order-snippet'};
-        // const selectedSnippet = `${a.getAttribute('id')}-snippet`;
-        // for (let i = 0; i < snippets.length; i++) {
-        //   document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
-        // }
+        const snippets = {'wishlist-snippet', 'account-snippet', 'order-snippet'};
+        const selectedSnippet = `${a.getAttribute('id')}-snippet`;
+        for (let i = 0; i < snippets.length; i++) {
+          document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
+        }
       });
     });
   });
