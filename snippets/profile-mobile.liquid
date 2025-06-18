@@ -84,11 +84,8 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {  
     document.querySelector('.page-btn').forEach(a => {
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        console.log('chek', a.id);
+      a.addEventListener('click', function() {
+        console.log('chek pressed a button!');
       })
     })
   });
