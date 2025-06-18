@@ -160,11 +160,11 @@
   document.addEventListener("DOMContentLoaded", function () {
     
     // Render wishlist items
-    renderWishlistItems();
+    renderWishlistItemsMobile();
     
     // Listen for wishlist updates
     document.addEventListener('wishlist:updated', function(event) {
-      renderWishlistItems();
+      renderWishlistItemsMobile();
     });
 
     // Add click event listeners to cart icons
@@ -616,7 +616,7 @@ setTimeout(() => {
       return cardElement;
     }
     
-    function renderWishlistItems() {
+    function renderWishlistItemsMobile() {
       const wishlistContainer = document.getElementById('wishlist-container-mobile');
       const emptyWishlistMessage = document.getElementById('empty-wishlist-message-mobile');
       
@@ -789,7 +789,7 @@ setTimeout(() => {
       localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
       
       // Re-render wishlist
-      renderWishlistItems();
+      renderWishlistItemsMobile();
       
       // Notify
       alert('Item removed from wishlist');
