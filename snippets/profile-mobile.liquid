@@ -84,7 +84,9 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() { 
     document.querySelectorAll('.page-btn').forEach(a => {
-      a.addEventListener('click', function() {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         console.log('chek');
         // const snippets = {'wishlist-snippet', 'account-snippet', 'order-snippet'};
         // const selectedSnippet = `${a.getAttribute('id')}-snippet`;
