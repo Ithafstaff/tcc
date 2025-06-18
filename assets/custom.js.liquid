@@ -269,7 +269,7 @@ function customImageHover() {
           const filteredImages = imageArray.filter(img => img.includes(color.toLowerCase()));
           const selectedColorImages = [...filteredImages];
 
-          console.log('Selected color images array:', selectedColorImages);
+          // console.log('Selected color images array:', selectedColorImages);
 
           if (primaryImg && selectedColorImages[0]) {
             primaryImg.src = selectedColorImages[0];
@@ -368,7 +368,7 @@ function getTheLook() {
         })
         .then(data => {
           
-          console.log(data);
+          // console.log(data);
         })
         .catch(error => {
           console.error('Error adding to cart:', error);
