@@ -84,18 +84,18 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.page-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      console.log('chek wants to kill herself');
-      
-      // const snippets = {'wishlist-snippet', 'account-snippet', 'order-snippet'};
-      // const selectedSnippet = `${button.getAttribute('id')}-snippet`;
-      // for (let i = 0; i < snippets.length; i++) {
-      //   document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
-      // }
-    })
-  });
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('chek wants to kill herself');
+        
+        // const snippets = {'wishlist-snippet', 'account-snippet', 'order-snippet'};
+        // const selectedSnippet = `${button.getAttribute('id')}-snippet`;
+        // for (let i = 0; i < snippets.length; i++) {
+        //   document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
+        // }
+      })
+    });
   });
 </script>
