@@ -124,7 +124,7 @@
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
                     {{ sub_link.object.title }}
                   {% else %}
-                    {{ sub_link.title }}
+                    {{ sub_link.metafields.custom.name_of_collection }}
                   {% endif %}
                 </strong>
               </li>
