@@ -3,7 +3,7 @@
 <ul class="1">
   {% for top_link in menu.links %}
     <li>
-
+      {% if top_link.title == 'ALL PRODUCTS' %}
         <strong>
           {% if top_link.type == 'collection_link' and top_link.object %}
             {{ top_link.object.title }}
@@ -11,7 +11,7 @@
             {{ top_link.title }}
           {% endif %}
         </strong>
-     
+      {% endif %}
 
       {% if top_link.links != blank %}
         <ul class="2">
