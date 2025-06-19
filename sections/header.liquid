@@ -19,6 +19,8 @@
   }
 
   
+
+  
   #shopify-section-{{ section.id }} {
     --header-grid-template: "main-nav logo secondary-nav" / minmax(0, 1fr) auto minmax(0, 1fr);
     --header-padding-block: {% if section.settings.reduce_padding %}var(--spacing-3){% else %}var(--spacing-4-5){% endif %};
@@ -37,9 +39,7 @@
   }
 
   @media screen and (max-width: 767px) {
-    #shopify-section-{{ section.id }} {
-      position: sticky;
-    }
+    {% assign section.settings.enable_sticky = 1 %}
   }
 
   {%- if section.settings.enable_sticky -%}
