@@ -1,12 +1,28 @@
-{% assign menu = linklists['main-menu'] %} {# Replace 'main-menu' with your actual menu handle #}
+{% assign menu = linklists['main-menu'] %} {# Replace with your actual menu handle #}
 
 <ul>
-  {% for link in linklists['main-menu'].links %}
+  {% for top_link in menu.links %}
     <li>
-      {% if link.type == 'collection_link' and link.object %}
-        {{ link.object.title }}
-      {% else %}
-        {{ link.title }}
+      <strong>
+        {% if top_link.type == 'collection_link' and top_link.object %}
+          {{ top_link.object.title }}
+        {% else %}
+          {{ top_link.title }}
+        {% endif %}
+      </strong>
+
+      {% if top_link.links != blank %}
+        <ul>
+          {% for sub_link in top_link.links %}
+            <li>
+              {% if sub_link.type == 'collection_link' and sub_link.object %}
+                {{ sub_link.object.title }}
+              {% else %}
+                {{ sub_link.title }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
       {% endif %}
     </li>
   {% endfor %}
