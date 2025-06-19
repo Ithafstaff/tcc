@@ -237,7 +237,7 @@
           height="25px"
         >
       `;
-      console.log('chek', catBtn);
+      console.log('chek is making a button for', item);
 
       return catBtn;
     }
@@ -247,7 +247,6 @@
 
     categories.forEach(item => {
       document.getElementById('sort-categories').appendChild(createCategoryButtons(item));
-      console.log('chek is making a button for', item);
     });
 
     
