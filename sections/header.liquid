@@ -651,9 +651,9 @@
 
   window.addEventListener("resize", function () {
     if (window.innerWidth <= 767) {
-      console.log("Now in mobile view");
+      document.querySelector('store-header').setAttribute('sticky', '');
     } else {
-      console.log("Now in desktop view");
+      document.querySelector('store-header').removeAttribute('sticky');
     }
   });
            
