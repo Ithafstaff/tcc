@@ -148,6 +148,7 @@
                     {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
                       {{ sub_sub_link.object.title | upcase }}
                       {{ sub_sub_link.object.url }}
+                      {{ sub_sub_link.object.image | img_url: 'medium' }}
                     {% else %}
                       {{ sub_sub_link.title }}
                     {% endif %}
