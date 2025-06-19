@@ -132,14 +132,14 @@
     {% if top_link.links != blank %}
       {% for sub_link in top_link.links %}
         {% if sub_link.object.title == collection.title %}
-          <li>
-            <strong>
+          <div>
+            <h2>
               {% if sub_link.type == 'collection_link' and sub_link.object %}
                 {{ sub_link.object.title }}
               {% else %}
                 {{ sub_link.title }}
               {% endif %}
-            </strong>
+            </h2>
 
             {% if sub_link.links != blank %}
               <ul class="sub-submenu">
@@ -154,7 +154,7 @@
                 {% endfor %}
               </ul>
             {% endif %}
-          </li>
+          </div>
         {% endif %}
       {% endfor %}
     {% endif %}
