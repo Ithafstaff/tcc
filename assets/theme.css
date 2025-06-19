@@ -10241,3 +10241,9 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
   display: -webkit-box;
   overflow: hidden;
 }
+
+@media screen and (max-width: 767px) {
+  header {
+    position: sticky;
+  }
+}
