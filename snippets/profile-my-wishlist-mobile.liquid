@@ -200,9 +200,9 @@
             <label for="sort-r5">Price, High to Low</label>
           </span>
         </div>
-        <div style="display: flex; flex-direction: column; padding-top: 20px; gap: 14px;">
+        <div id="sort-categories" style="display: flex; flex-direction: column; padding-top: 20px; gap: 14px;">
           <button style="display: flex; width: 100%; justify-content: space-between;">
-            <span>DINING</span>
+            <span style="text-transform: uppercase;">DINING</span>
             <img
               src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
               alt=""
@@ -233,6 +233,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    const sortCat = ['dining', 'tabletop', 'plastic dinnerware', 'judaica', '']
     
     // Render wishlist items
     renderWishlistItemsMobile();
