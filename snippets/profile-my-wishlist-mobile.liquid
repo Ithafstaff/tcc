@@ -228,15 +228,85 @@
       const catBtn = document.createElement('button');
       catBtn.style = "display: flex; width: 100%; justify-content: space-between;";
 
-      catBtn.innerHtml = `
-        <span style="text-transform: uppercase;">${item}</span>
-        <img
-          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
-          alt=""
-          width="25px"
-          height="25px"
-        >
+      cardElement.innerHTML = `
+        <!-- Image (250x250) with Heart -->
+        <div style="width: 100%; height: 190px; overflow: hidden; position: relative; cursor: pointer;" onclick="openProductModal(${JSON.stringify(item)})">
+          <img 
+            src="${item.image || '{{ "test_img1.png" | asset_url }}'}" 
+            alt="${title}" 
+            class="product-image"
+            style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto; transition: opacity 0.3s ease;" 
+            width="250" 
+            height="250"
+          />
+          <!-- Heart Icon (active) -->
+          <img 
+            src="{{ 'heart_black.png' | asset_url }}" 
+            alt="Remove from Wishlist" 
+            style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
+            onclick="(function() {
+              removeFromWishlist('${item.id}');
+              renderWishlistItemsMobile();
+              console.log('rerender done chek!');
+            })()"
+            width="16"
+            height="16"
+          />
+        </div>
+      
+        <!-- Variant Swatches w/ Cart -->
+        <div style="display: flex; justify-content: space-between;">
+          <div class="variant-picker__option-values wrap gap-2" style="display: flex; gap: 6px;">
+            ${swatchesHtml || `
+              <div 
+                class="variant-picker__option-value variant-picker__option-value--swatch x:m-1"
+                style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
+                onclick="selectSwatch(this)"
+                data-selected="true"
+              >
+                <input 
+                  type="radio"
+                  class="sr-only"
+                  name="option-${item.id}"
+                  value="default"
+                  checked
+                >
+                <span class="variant-picker__option-value__label">
+                  <span class="variant-picker__option-value__swatch" style="background-color: #d1bb9f;"></span>
+                </span>
+                <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: #d1bb9f; opacity: 1;"></span>
+              </div>
+            `}
+          </div>
+          <span class="cart-icon x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300" data-product-id="${item.id}">
+            {% render 'icon', icon: 'shop-cart' %}
+          </span>
+        </div>
+        
+      
+        <!-- Category and Cart -->
+        <div class="x:flex x:flex-col x:gap-1">
+          <div class="x:text-base x:flex x:justify-between x:items-center x:uppercase">
+            <span class="product-title" style="cursor: pointer; font-size: 14px;" onclick="openProductModal(${JSON.stringify(item)})">${title}</span>
+          </div>
+          
+          <!-- Price -->
+          <span style="font-size: 14px;">$${formattedPrice}</span>
+          
+          <!-- Certifications -->
+          {% render 'icon', icon: 'certificate' %}
+        </div>
       `;
+
+      // catBtn.innerHtml = `
+      //   <span style="text-transform: uppercase;">${item}</span>
+      //   <img
+      //     src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
+      //     alt=""
+      //     width="25px"
+      //     height="25px"
+      //   >
+      // `;
       console.log('chek is making a button for', item);
 
       return catBtn;
