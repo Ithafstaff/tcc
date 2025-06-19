@@ -127,9 +127,9 @@
 {% assign menu = linklists['main-menu'] %} 
 {% comment %} Replace with your actual menu handle {% endcomment %}
 
-  {% if top_link != blank %}
+
   {% for top_link in menu.links %}
-  
+    {% if menu.links != blank %}
       <li>
         {% if top_link.links != blank %}
           <ul class="2">
@@ -163,9 +163,9 @@
           </ul>
         {% endif %}
       </li>
-
-  {% endfor %}
     {% endif %}
+  {% endfor %}
+
 
 
 <div class="custom-col-slider__container">
