@@ -147,6 +147,18 @@
         >
       </div>
     </div>
+    <details class="accordion group" aria-expanded="false" is="accordion-disclosure">
+      <summary>
+        {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
+        <div class="accordion__toggle bold">
+          <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
+        </div>
+      </summary>
+    
+      <div class="accordion__content">
+        DETAILSDETAILSDETAILSDETAILSDETAILSDETAILSDETAILSDETAILSDETAILSDETAILSDETAILSDETAILSDETAILS
+      </div>
+    </details>
     <div style="display: flex; width: 100%; justify-content: center;">
       <button style="display: flex; width: 174px; height: 38px; background-color: #222222; color: white; align-items: center; justify-content: center;">
         APPLY FILTER
