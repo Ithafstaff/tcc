@@ -223,7 +223,48 @@
 {% schema %}
   { 
     "name": "Custom Collection Slider",
-    "settings": [  
+    "settings": [
+        {
+          "type": "text",
+          "label": "Header",
+          "id": "id_header"
+        },
+        {
+          "type": "text",
+          "label": "Sub-Header",
+          "id": "id_sub-header"
+        },
+        {
+          "type": "richtext",
+          "label": "Content",
+          "id": "id_content"
+        },
+  
+    ],
+    "blocks": [
+      {
+        "type": "Image",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "image_picker",
+            "label": "Image",
+            "id": "id_img"
+          },
+          {
+            "type": "text",
+            "label": "Collection Label",
+            "id": "id_img-label"
+          },
+          {
+            "type": "url",
+            "label": "Collection Link",
+            "id": "id_link",
+          },
+        ]
+      },
+
+      
     ],
     "presets": [
       {
