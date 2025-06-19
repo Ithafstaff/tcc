@@ -128,43 +128,84 @@
 {% comment %} Replace with your actual menu handle {% endcomment %}
 
 
-  {% for top_link in menu.links %}
-    {% if top_link.links != blank %}
-      {% for sub_link in top_link.links %}
-        {% if sub_link.object.title == collection.title %}
-          <div>
-            <h2>
-              {% if sub_link.type == 'collection_link' and sub_link.object %}
-                {{ sub_link.object.title }}
-              {% else %}
-                {{ sub_link.title }}
-              {% endif %}
-            </h2>
+  
 
-            {% if sub_link.links != blank %}
-              <ul class="sub-submenu">
-                {% for sub_sub_link in sub_link.links %}
-                  <li>
-                    {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
-                      {{ sub_sub_link.object.title | upcase }}
-                      {{ sub_sub_link.object.url }}
-                      <img src="{{ sub_sub_link.object.image | img_url: 'medium' }}" alt="{{ sub_sub_link.object.title }}">
-                    {% else %}
-                      {{ sub_sub_link.title }}
-                    {% endif %}
-                  </li>
-                {% endfor %}
-              </ul>
+
+
+
+<div class="custom-col-slider__container">
+  <h2 class="custom-col-slider__heading">{{ collection.title | upcase }} COLLECTION</h2>
+  {% if collection.description != blank %}
+    {{ collection.description }}
+  {% endif %}
+  
+  <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
+    <div class="custom-col-slider__track splide__track">
+      <ul class="custom-col-slider__list splide__list">
+
+
+
+
+    {% for top_link in menu.links %}
+        {% if top_link.links != blank %}
+          {% for sub_link in top_link.links %}
+            {% if sub_link.object.title == collection.title %}
+              <div>
+                <h2>
+                  {% if sub_link.type == 'collection_link' and sub_link.object %}
+                    {{ sub_link.object.title }}
+                  {% else %}
+                    {{ sub_link.title }}
+                  {% endif %}
+                </h2>
+    
+                {% if sub_link.links != blank %}
+                  <div class="sub-submenu">
+                    {% for sub_sub_link in sub_link.links %}
+                      
+                      <a class="custom-col-slider__slide splide__slide" href="{{ sub_sub_link.object.url }}">
+                        {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
+                          <div class="custom-col-slider__img-box">
+                            <img class="custom-col-slider__img" src="{{ sub_sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/>
+                          </div>
+                          <span class="custom-col-slider__img-label">{{ sub_sub_link.object.title | upcase }}</span>
+                        {% endif %}
+                      </a>
+        
+                      <li>
+                        
+                          
+                          
+           
+                       
+                        
+                      </li>
+                    
+                    {% endfor %}
+                  
+                  </div>
+                {% endif %}
+              </div>
             {% endif %}
-          </div>
+          {% endfor %}
         {% endif %}
       {% endfor %}
-    {% endif %}
-  {% endfor %}
 
 
 
 
+
+        
+        
+  
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+{% comment %}
 <div class="custom-col-slider__container">
   <h2 class="custom-col-slider__heading">{{ collection.title | upcase }} COLLECTION</h2>
   {% if collection.description != blank %}
@@ -189,6 +230,7 @@
   </div>
 
 </div>
+{% endcomment %}
 
 
 {% schema %}
