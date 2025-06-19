@@ -131,7 +131,7 @@
 {% assign menu = linklists['main-menu'] %} 
 
 <div class="custom-col-slider__container">
-  <h2 class="custom-col-slider__heading">{{ collection.title | upcase }} COLLECTION</h2>
+  <h2 class="custom-col-slider__heading">{{ collection.metafields.custom.name_of_collection | upcase }} COLLECTION</h2>
   {% if collection.description != blank %}
     {{ collection.description }}
   {% endif %}
