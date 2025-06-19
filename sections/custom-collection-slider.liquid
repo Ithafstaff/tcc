@@ -127,10 +127,10 @@
 {% assign menu = linklists['main-menu'] %} 
 {% comment %} Replace with your actual menu handle {% endcomment %}
 
-<ul class="1">
+
   {% for top_link in menu.links %}
     {% if top_link.links != blank %}
-      <li>
+      <div>
         <ul class="2">
           {% for sub_link in top_link.links %}
             {% if sub_link.object.title == collection.title %}
@@ -160,10 +160,10 @@
             {% endif %}
           {% endfor %}
         </ul>
-      </li>
+      </div>
     {% endif %}
   {% endfor %}
-</ul>
+
 
 
 
