@@ -6236,6 +6236,7 @@ product-rerender {
   .header {
     --header-part-gap: var(--spacing-6);
     --header-icon-list-spacing: var(--spacing-6);
+    position: sticky;
   }
 }
 
