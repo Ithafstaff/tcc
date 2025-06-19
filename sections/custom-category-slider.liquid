@@ -121,10 +121,13 @@
               <li>
                 <strong>
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
-                    {{ sub_link.object.metafields.custom.name_of_collection }}
-                    {{ sub_link.object.image | image_url: 'medium' }}
-                    <img src="{{ sub_link.image | image_url: 'medium' }}" alt="{{ sub_link.object.title }}">
-                  {% endif %}
+  {{ sub_link.object.metafields.custom.name_of_collection }}
+  
+  {% if sub_link.object.image %}
+    <img src="{{ sub_link.object.image | image_url: 'medium' }}" alt="{{ sub_link.object.title }}">
+  {% endif %}
+{% endif %}
+
                 </strong>
               </li>
            
