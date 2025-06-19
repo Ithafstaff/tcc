@@ -10246,4 +10246,8 @@ shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
   header {
     position: sticky;
   }
+
+  body {
+    position: relative;
+  }
 }
