@@ -1,1 +1,9 @@
-{{ collection.title }}
+{% assign menu = linklists['main-menu-handle'] %}
+
+{% for link in menu.links %}
+  {% if link.type == 'collection_link' %}
+    <p>{{ link.object.title }}</p>
+  {% else %}
+    <p>{{ link.title }}</p> {# fallback to normal title #}
+  {% endif %}
+{% endfor %}
