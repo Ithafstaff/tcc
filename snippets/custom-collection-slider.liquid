@@ -24,7 +24,7 @@
                 {% if sub_link.links != blank %}
                   <ul class="3">
                     {% for sub_link in sub_link.links %}
-                      {% unless sub_link.object.title == collection.title  %}
+                      
                         <li>
                           {% if sub_link.type == 'collection_link' and sub_link.object %}
                             {{ sub_link.object.title | upcase }}
@@ -32,7 +32,7 @@
                             {{ sub_link.title }}
                           {% endif %}
                         </li>
-                      {% endunless %}
+                      
                     {% endfor %}
                   </ul>
                 {% endif %}
