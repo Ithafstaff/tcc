@@ -227,7 +227,6 @@
     function createCategoryButtons(catName) {
       const catBtn = document.createElement('button');
       catBtn.style = "display: flex; width: 100%; justify-content: space-between;"
-      console.log('chek is making a button!');
 
       catBtn.innerHtml = `
         <span style="text-transform: uppercase;">${catName}</span>
@@ -247,6 +246,7 @@
 
     categories.forEach(name => {
       document.getElementById('sort-categories').appenChild(createCategoryButtons(name));
+      console.log('chek is making a button!');
     });
 
     
