@@ -130,37 +130,33 @@
 
   {% for top_link in menu.links %}
     {% if top_link.links != blank %}
-      <div>
-        <ul class="2">
-          {% for sub_link in top_link.links %}
-            {% if sub_link.object.title == collection.title %}
-              <li>
-                <strong>
-                  {% if sub_link.type == 'collection_link' and sub_link.object %}
-                    {{ sub_link.object.title }}
-                  {% else %}
-                    {{ sub_link.title }}
-                  {% endif %}
-                </strong>
+      {% for sub_link in top_link.links %}
+        {% if sub_link.object.title == collection.title %}
+          <li>
+            <strong>
+              {% if sub_link.type == 'collection_link' and sub_link.object %}
+                {{ sub_link.object.title }}
+              {% else %}
+                {{ sub_link.title }}
+              {% endif %}
+            </strong>
 
-                {% if sub_link.links != blank %}
-                  <ul class="sub-submenu">
-                    {% for sub_sub_link in sub_link.links %}
-                      <li>
-                        {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
-                          {{ sub_sub_link.object.title | upcase }}
-                        {% else %}
-                          {{ sub_sub_link.title }}
-                        {% endif %}
-                      </li>
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-              </li>
+            {% if sub_link.links != blank %}
+              <ul class="sub-submenu">
+                {% for sub_sub_link in sub_link.links %}
+                  <li>
+                    {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
+                      {{ sub_sub_link.object.title | upcase }}
+                    {% else %}
+                      {{ sub_sub_link.title }}
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
             {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
+          </li>
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% endfor %}
 
