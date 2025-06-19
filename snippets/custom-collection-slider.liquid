@@ -1,18 +1,13 @@
-{% assign menu = linklists['main-menu'] %} {% comment %} Replace with your actual menu handle {% endcomment %}
+{% assign menu = linklists['main-menu'] %} 
+{% comment %} Replace with your actual menu handle {% endcomment %}
 
 <ul class="1">
   {% for top_link in menu.links %}
     <li>
-
-
       {% if top_link.links != blank %}
         <ul class="2">
           {% for sub_link in top_link.links %}
-
-
-
-
-           {% if sub_link.object.title  == collection.title %}
+            {% if sub_link.object.title == collection.title %}
               <li>
                 <strong>
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
@@ -22,7 +17,7 @@
                     {{ sub_link.title }}
                   {% endif %}
                 </strong>
-          
+
                 {% if sub_link.links != blank %}
                   <ul class="sub-submenu">
                     {% for sub_sub_link in sub_link.links %}
@@ -37,29 +32,12 @@
                   </ul>
                 {% endif %}
               </li>
-
-          
-      {% endif %}
-
-
-
-
-
-
-
-
-
-
-          
-         
+            {% endif %}
           {% endfor %}
-
         </ul>
       {% endif %}
     </li>
   {% endfor %}
 </ul>
 
-
 {{ collection.title }}
-
