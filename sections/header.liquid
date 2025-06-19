@@ -26,8 +26,6 @@
     .shopify-section--announcement-bar ~ #shopify-section-{{ section.id }} {
       top: calc(var(--sticky-announcement-bar-enabled, 0) * var(--announcement-bar-height, 0px));
     }
-
-    
   }
   
   :root {
@@ -651,7 +649,7 @@
 
   window.addEventListener("resize", function () {
     if (window.innerWidth <= 767) {
-      document.querySelector('store-header').setAttribute('sticky', '');
+      document.querySelector('store-header').setAttribute('sticky');
       console.log('chek added sticky!', document.querySelector('store-header'));
     } else {
       document.querySelector('store-header').removeAttribute('sticky');
