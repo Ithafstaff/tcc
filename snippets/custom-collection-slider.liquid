@@ -1,13 +1,16 @@
 {% assign menu = linklists['main-menu'] %} {# Replace 'main-menu' with your actual menu handle #}
 
 <ul>
-  {% for link in menu.links %}
-    {% if link.type == 'collection_link' %}
-      <li>{{ link.object.title }}</li> {# Real collection title #}
-    {% else %}
-      <li>{{ link.title }}</li> {# Fallback to menu label #}
-    {% endif %}
+  {% for link in linklists['main-menu'].links %}
+    <li>
+      {% if link.type == 'collection_link' and link.object %}
+        {{ link.object.title }}
+      {% else %}
+        {{ link.title }}
+      {% endif %}
+    </li>
   {% endfor %}
 </ul>
+
 
 <p>test</p>
