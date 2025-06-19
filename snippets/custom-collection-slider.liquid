@@ -8,7 +8,7 @@
       {% if top_link.links != blank %}
         <ul class="2">
           {% for sub_link in top_link.links %}
-            {% if sub_link.title == collection.title %}
+           
               <li>
                 <strong>
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
@@ -32,7 +32,7 @@
                   </ul>
                 {% endif %}
               </li>
-            {% endif %}
+         
           {% endfor %}
 
         </ul>
