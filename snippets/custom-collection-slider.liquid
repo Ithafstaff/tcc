@@ -2,59 +2,57 @@
 
 <ul class="1">
   {% for top_link in menu.links %}
-    {% if top_link.title == 'ALL PRODUCTS' %}
-      <li>
-        
-          <strong>
-            {% if top_link.type == 'collection_link' and top_link.object %}
-              {{ top_link.object.title }}
-            {% else %}
-              {{ top_link.title }}
-            {% endif %}
-          </strong>
-        
-  
-        {% if top_link.links != blank %}
-          <ul class="2">
-            {% for sub_link in top_link.links %}
-               {% if sub_link.title == collection.title %}
-              <li>
-               
-                  <strong>
-                    {% if sub_link.type == 'collection_link' and sub_link.object %}
-                      {{ sub_link.object.title }}
-                    {% else %}
-                      {{ sub_link.title }}
-                    {% endif %}
-                  </strong>
-                
-  
-                {% if sub_link.links != blank %}
-                  <ul class="3">
-                    {% for sub_link in sub_link.links %}
-                      {% unless sub_link.object.title == collection.title  %}
-                        <li>
-                          {% if sub_link.type == 'collection_link' and sub_link.object %}
-                            {{ sub_link.object.title | upcase }}
-                          {% else %}
-                            {{ sub_link.title }}
-                          {% endif %}
-                        </li>
-                      {% endunless %}
-                    {% endfor %}
-                  </ul>
-                {% endif %}
-  
-  
-  
-                
-              </li>
-            {% endif %}
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </li>
-    {% endif %}
+    <li>
+      {% if top_link.title == 'ALL PRODUCTS' %}
+        <strong>
+          {% if top_link.type == 'collection_link' and top_link.object %}
+            {{ top_link.object.title }}
+          {% else %}
+            {{ top_link.title }}
+          {% endif %}
+        </strong>
+      {% endif %}
+
+      {% if top_link.links != blank %}
+        <ul class="2">
+          {% for sub_link in top_link.links %}
+             {% if sub_link.title == collection.title %}
+            <li>
+             
+                <strong>
+                  {% if sub_link.type == 'collection_link' and sub_link.object %}
+                    {{ sub_link.object.title }}
+                  {% else %}
+                    {{ sub_link.title }}
+                  {% endif %}
+                </strong>
+              
+
+              {% if sub_link.links != blank %}
+                <ul class="3">
+                  {% for sub_link in sub_link.links %}
+                    {% unless sub_link.object.title == collection.title  %}
+                      <li>
+                        {% if sub_link.type == 'collection_link' and sub_link.object %}
+                          {{ sub_link.object.title | upcase }}
+                        {% else %}
+                          {{ sub_link.title }}
+                        {% endif %}
+                      </li>
+                    {% endunless %}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+
+
+              
+            </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
   {% endfor %}
 </ul>
 
