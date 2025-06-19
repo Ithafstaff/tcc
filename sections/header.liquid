@@ -15,7 +15,11 @@
 
 <style>
   :root {
-    --sticky-header-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
+    --sticky-header-enabled: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    --sticky-header-enabled: 1;
   }
 
   #shopify-section-{{ section.id }} {
