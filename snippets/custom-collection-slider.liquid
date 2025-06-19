@@ -13,7 +13,7 @@
         </strong>
       {% endif %}
 
-    
+      {% if top_link.links != blank %}
         <ul>
           {% for sub_link in top_link.links %}
             <li>
@@ -47,7 +47,7 @@
             </li>
           {% endfor %}
         </ul>
-    
+      {% endif %}
     </li>
   {% endfor %}
 </ul>
