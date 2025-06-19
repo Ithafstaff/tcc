@@ -1,0 +1,29 @@
+<div style="display: flex; flex-direction: column; width: 100%; padding-top: 34px; padding-bottom: 34px; gap: 15px;">
+  <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+    <span class="custom-heading" style="font-size: 20px;">My Wishlist</span>
+    <!-- FILTER HIDDEN FOR NOW -->
+    <button
+      onclick="(function() {
+        document.getElementById('filter-modal').style.display = 'flex';
+      })()"
+      style="display: none; width: fit-content; height: fit-content; align-items: center; gap: 6px;">
+      <span style="font-size: 12px;">FILTER</span>
+      <img
+        src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
+        alt=""
+        width="10px"
+        height="10px"
+        style="width: 10px; height: 10px;"
+      >
+    </button>
+  </div>
+  <div id="wishlist-container-mobile" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 10px; row-gap: 30px;">
+    <div id="empty-wishlist-message-mobile" style="gap: 20px; display: none; width: 100%; flex-direction: column; justify-content: center; align-items: center; grid-column: 1 / -1; padding: 42px 50px; text-align: center;">
+      <span class="custom-heading" style="text-transform: uppercase; font-size: 20px; letter-spacing: 1px;">your favorites is currently empty</span>
+      <span style="font-size: 12px; letter-spacing: 1px;">Don't worry - the best deals in party supplies are just a click away!</span>
+      <a href="/collections/all" class="custom-heading" style="background-color: black; color: white; font-size: 16px; padding: 9px 20px; line-height: 20px;">
+        SHOP NOW
+      </a>
+    </div>
+  </div>
+</div>
