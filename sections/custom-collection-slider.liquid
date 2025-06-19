@@ -128,14 +128,15 @@
 
 
 
-{% assign menu = linklists['main-menu'] %} 
+
 
 <div class="custom-col-slider__container">
   <h2 class="custom-col-slider__heading">{{ collection.metafields.custom.name_of_collection | upcase }} COLLECTION</h2>
   {% if collection.description != blank %}
     {{ collection.description }}
   {% endif %}
-  
+
+  {% assign menu = linklists['main-menu'] %} 
   {% for top_link in menu.links %}
     {% if top_link.links != blank %}
       {% for sub_link in top_link.links %}
