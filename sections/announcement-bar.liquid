@@ -19,6 +19,12 @@
       .shopify-section--header ~ #shopify-section-{{ section.id }} {
         top: calc(var(--sticky-header-enabled, 0) * var(--header-height, 0px));
       }
+
+      @media screen and (max-width: 727px) {
+        .shopify-section--header ~ #shopify-section-{{ section.id }} {
+          top: calc(1 * var(--header-height, 0px));
+        }
+      }
     {%- endif -%}
   </style>
 
