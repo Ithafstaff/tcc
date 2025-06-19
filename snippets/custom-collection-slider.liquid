@@ -28,9 +28,9 @@
                 </strong>
               
 
-              {% if top_link.links != blank %}
+              {% if sub_link.links != blank %}
                 <ul class="3">
-                  {% for sub_link in top_link.links %}
+                  {% for sub_link in sub_link.links %}
                     <li>
                       {% if sub_link.type == 'collection_link' and sub_link.object %}
                         {{ sub_link.object.title }}
