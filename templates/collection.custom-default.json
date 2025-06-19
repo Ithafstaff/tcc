@@ -30,6 +30,19 @@
         "overlay_opacity": 30
       }
     },
+    "custom_liquid_bpczbY": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% render 'custom-collection-slider' %}",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "custom_collection_slider_7tetRg": {
       "type": "custom-collection-slider",
       "blocks": {
@@ -245,6 +258,7 @@
   },
   "order": [
     "banner",
+    "custom_liquid_bpczbY",
     "custom_collection_slider_7tetRg",
     "main",
     "custom_multi_collection_block_N4JfXa",
