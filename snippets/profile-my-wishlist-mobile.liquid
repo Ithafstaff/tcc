@@ -232,9 +232,7 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sortCat = ['dining', 'tabletop', 'plastic dinnerware', 'judaica', '']
-    
+  document.addEventListener("DOMContentLoaded", function () {  
     // Render wishlist items
     renderWishlistItemsMobile();
     
@@ -242,6 +240,29 @@
     document.addEventListener('wishlist:updated', function(event) {
       renderWishlistItemsMobile();
     });
+
+    const categories = ['dining', 'table top', 'plastic dinnerware', 'judaica', 'bedding', 'lucite', 'towels', 'tablecloth'];
+
+    categories.forEach(name => {
+      document.getElementById('sort-categories').appenChild(createCategoryButtons(name));
+    });
+
+    function createCategoryButtons(catName) {
+      const catBtn = document.createElement('button');
+      catBtn.style = "display: flex; width: 100%; justify-content: space-between;"
+
+      catBtn.innerHtml = `
+        <span style="text-transform: uppercase;">${catName}</span>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
+          alt=""
+          width="25px"
+          height="25px"
+        >
+      `;
+
+      return catBtn;
+    }
 
     // Add click event listeners to cart icons
     function addCartIconListeners() {
