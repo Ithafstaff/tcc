@@ -13,6 +13,7 @@ function splider() {
       type       : 'slide',
       // height     : '200px',
       perPage    : 6,
+       width: '200px',
       perMove    : 1,
       focus    : 'start',
       gap: 20,
