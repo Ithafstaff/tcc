@@ -160,19 +160,22 @@
                 </h2>
     
                 {% if sub_link.links != blank %}
-                  <ul class="sub-submenu">
+                  <div class="sub-submenu">
                     {% for sub_sub_link in sub_link.links %}
-                      <li>
+                      
+                      <a class="custom-col-slider__slide splide__slide" href="{{ sub_sub_link.object.url }}">
                         {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
-                          {{ sub_sub_link.object.title | upcase }}
-                          {{ sub_sub_link.object.url }}
-                          <img src="{{ sub_sub_link.object.image | img_url: 'medium' }}" alt="{{ sub_sub_link.object.title }}">
-                        {% else %}
-                          {{ sub_sub_link.title }}
+                          <div class="custom-col-slider__img-box">
+                            <img class="custom-col-slider__img" src="{{ sub_sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/>
+                          </div>
+                          <span class="custom-col-slider__img-label">{{ sub_sub_link.object.title | upcase }}</span>
                         {% endif %}
-                      </li>
+                      </a>
+        
+                    
                     {% endfor %}
-                  </ul>
+                  
+                  </div>
                 {% endif %}
               </div>
             {% endif %}
