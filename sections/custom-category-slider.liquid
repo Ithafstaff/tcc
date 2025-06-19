@@ -120,15 +120,11 @@
           
               <li>
                 <strong>
-                  {% if sub_link.type == 'collection_link' and sub_link.object %}
-  {{ sub_link.object.metafields.custom.name_of_collection }}
+                  {% assign collection_handle = sub_link.object.handle %}
+{% assign real_collection = collections[collection_handle] %}
 
-  {% if sub_link.object.image %}
-    <img src="{{ sub_link.object.image | image_url: 'medium' }}" alt="{{ sub_link.object.title }}">
-  {% else %}
-    <!-- Optional fallback -->
-    <img src="{{ 'placeholder.jpg' | asset_url }}" alt="No image available">
-  {% endif %}
+{% if real_collection.image %}
+  <img src="{{ real_collection.image | image_url: 'medium' }}" alt="{{ real_collection.title }}">
 {% endif %}
 
                 </strong>
