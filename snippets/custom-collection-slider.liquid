@@ -13,11 +13,11 @@
         </strong>
       {% endif %}
 
-      {% if top_link.links != blank %}
+    
         <ul>
           {% for sub_link in top_link.links %}
             <li>
-              {% if sub_link.title == {{ collection.title %}
+              {% if sub_link.title == collection.title %}
                 <strong>
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
                     {{ sub_link.object.title }}
@@ -47,7 +47,7 @@
             </li>
           {% endfor %}
         </ul>
-      {% endif %}
+    
     </li>
   {% endfor %}
 </ul>
