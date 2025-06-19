@@ -10,8 +10,8 @@
 
 <ul class="1">
   {% for top_link in menu.links %}
-    <li>
-      {% if top_link.links != blank %}
+    {% if top_link.links != blank %}
+      <li>
         <ul class="2">
           {% for sub_link in top_link.links %}
             {% if sub_link.object.title == collection.title %}
@@ -41,10 +41,11 @@
             {% endif %}
           {% endfor %}
         </ul>
-      {% endif %}
-    </li>
+      </li>
+    {% endif %}
   {% endfor %}
 </ul>
+
 
 
 {% comment %}
