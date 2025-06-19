@@ -105,8 +105,40 @@
       </ul>
     </div>
   </div>
-
 </div>
+
+
+
+
+ {% assign menu = linklists['main-menu'] %} 
+  {% for top_link in menu.links %}
+    {% if top_link.links != blank %}
+      {% for sub_link in top_link.links %}
+        {% if sub_link.object.title == collection.title %}
+          <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
+            <div class="custom-col-slider__track splide__track">
+              <ul class="custom-col-slider__list splide__list">
+                {% if sub_link.links != blank %}
+                  {% for sub_sub_link in sub_link.links %}          
+                    <a class="custom-col-slider__slide splide__slide" href="{{ sub_sub_link.object.url }}">
+                      {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
+                        <div class="custom-col-slider__img-box">
+                          <img class="custom-col-slider__img" src="{{ sub_sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/>
+                        </div>
+                        <span class="custom-col-slider__img-label">{{ sub_sub_link.object.metafields.custom.name_of_collection | upcase }}</span>
+                      {% endif %}
+                    </a>       
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+
 
 
 {% schema %}
