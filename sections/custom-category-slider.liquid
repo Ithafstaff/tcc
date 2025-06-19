@@ -122,7 +122,8 @@
                 <strong>
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
                     {{ sub_link.object.metafields.custom.name_of_collection }}
-                    <img class="custom-col-slider__img" src="{{ sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/>
+                    {{ sub_link.object.image | img_url: 'medium' }}
+                    <!-- <img class="custom-col-slider__img" src="{{ sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/> -->
                   {% endif %}
                 </strong>
               </li>
