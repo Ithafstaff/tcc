@@ -161,19 +161,25 @@
     
                 {% if sub_link.links != blank %}
                   <div class="sub-submenu">
-                    {% for sub_sub_link in sub_link.links %}
-                      
-                      <a class="custom-col-slider__slide splide__slide" href="{{ sub_sub_link.object.url }}">
-                        {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
-                          <div class="custom-col-slider__img-box">
-                            <img class="custom-col-slider__img" src="{{ sub_sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/>
-                          </div>
-                          <span class="custom-col-slider__img-label">{{ sub_sub_link.object.title | upcase }}</span>
-                        {% endif %}
-                      </a>
-        
-                    
-                    {% endfor %}
+                    <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
+                      <div class="custom-col-slider__track splide__track">
+                        <ul class="custom-col-slider__list splide__list">
+                          {% for sub_sub_link in sub_link.links %}
+                            
+                            <a class="custom-col-slider__slide splide__slide" href="{{ sub_sub_link.object.url }}">
+                              {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
+                                <div class="custom-col-slider__img-box">
+                                  <img class="custom-col-slider__img" src="{{ sub_sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/>
+                                </div>
+                                <span class="custom-col-slider__img-label">{{ sub_sub_link.object.title | upcase }}</span>
+                              {% endif %}
+                            </a>
+              
+                          
+                          {% endfor %}
+                       </ul>
+                    </div>
+                  </div>
                   
                   </div>
                 {% endif %}
