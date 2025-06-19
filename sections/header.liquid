@@ -14,13 +14,26 @@
 {%- endif -%}
 
 <style>
+  @media screen and (max-width: 767px) {
+    :root {
+      --sticky-header-enabled: 1;
+    }
+
+    #shopify-section-{{ section.id }} {
+      position: sticky;
+    }
+
+    .shopify-section--announcement-bar ~ #shopify-section-{{ section.id }} {
+      top: calc(var(--sticky-announcement-bar-enabled, 0) * var(--announcement-bar-height, 0px));
+    }
+
+    
+  }
+  
   :root {
     --sticky-header-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
   }
 
-  
-
-  
   #shopify-section-{{ section.id }} {
     --header-grid-template: "main-nav logo secondary-nav" / minmax(0, 1fr) auto minmax(0, 1fr);
     --header-padding-block: {% if section.settings.reduce_padding %}var(--spacing-3){% else %}var(--spacing-4-5){% endif %};
@@ -38,9 +51,6 @@
     z-index: 10;
   }
 
-  @media screen and (max-width: 767px) {
-    {% assign section.settings.enable_sticky = 1 %}
-  }
 
   {%- if section.settings.enable_sticky -%}
     .shopify-section--announcement-bar ~ #shopify-section-{{ section.id }} {
@@ -620,8 +630,8 @@
 
 
          
-     // JS for Hamburger menu
-    document.addEventListener("DOMContentLoaded", function () {
+   // JS for Hamburger menu
+  document.addEventListener("DOMContentLoaded", function () {
     const burgerWrap = document.getElementById('hamburgerToggle');
     const burgerBtn = document.getElementById('hamburgerBtn');
   
@@ -636,11 +646,16 @@
         }
       }, 10); // checks every 1 second
     }
+  
   });
 
-
-
-
+  window.addEventListener("resize", function () {
+    if (window.innerWidth <= 767) {
+      console.log("Now in mobile view");
+    } else {
+      console.log("Now in desktop view");
+    }
+  });
            
 </script>
 
