@@ -29,7 +29,7 @@
         "@media screen and (min-width: 767px) {.announcement-bar {display: none; }}"
       ],
       "settings": {
-        "enable_sticky": false,
+        "enable_sticky": true,
         "autoplay": false,
         "cycle_speed": 6,
         "text_size": "text-xs",
