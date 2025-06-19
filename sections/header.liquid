@@ -14,20 +14,6 @@
 {%- endif -%}
 
 <style>
-  @media screen and (max-width: 767px) {
-    :root {
-      --sticky-header-enabled: 1;
-    }
-
-    #shopify-section-{{ section.id }} {
-      position: sticky;
-    }
-
-    .shopify-section--announcement-bar ~ #shopify-section-{{ section.id }} {
-      top: calc(var(--sticky-announcement-bar-enabled, 0) * var(--announcement-bar-height, 0px));
-    }
-  }
-  
   :root {
     --sticky-header-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
   }
@@ -645,16 +631,6 @@
       }, 10); // checks every 1 second
     }
   
-  });
-
-  window.addEventListener("resize", function () {
-    if (window.innerWidth <= 767) {
-      document.querySelector('store-header').setAttribute('sticky', '');
-      console.log('chek added sticky!', document.querySelector('store-header'));
-    } else {
-      document.querySelector('store-header').removeAttribute('sticky');
-      console.log('chek removed sticky!', document.querySelector('store-header'));
-    }
   });
            
 </script>
