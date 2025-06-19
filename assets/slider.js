@@ -13,7 +13,7 @@ function splider() {
       type   : 'loop',
       drag   : 'free',
       snap   : true,
-      perPage: 3,
+      perPage: 6,
       perMove    : 1,
       gap: 20,
        pagination: false,
