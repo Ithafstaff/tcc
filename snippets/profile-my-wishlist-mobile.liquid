@@ -224,15 +224,10 @@
       renderWishlistItemsMobile();
     });
 
-    const categories = ['dining', 'table top', 'plastic dinnerware', 'judaica', 'bedding', 'lucite', 'towels', 'tablecloth'];
-
-    categories.forEach(name => {
-      document.getElementById('sort-categories').appenChild(createCategoryButtons(name));
-    });
-
     function createCategoryButtons(catName) {
       const catBtn = document.createElement('button');
       catBtn.style = "display: flex; width: 100%; justify-content: space-between;"
+      console.log('chek is making a button!');
 
       catBtn.innerHtml = `
         <span style="text-transform: uppercase;">${catName}</span>
@@ -246,6 +241,14 @@
 
       return catBtn;
     }
+
+    const categories = ['dining', 'table top', 'plastic dinnerware', 'judaica', 'bedding', 'lucite', 'towels', 'tablecloth'];
+
+    categories.forEach(name => {
+      document.getElementById('sort-categories').appenChild(createCategoryButtons(name));
+    });
+
+    
 
     // Add click event listeners to cart icons
     function addCartIconListeners() {
