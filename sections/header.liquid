@@ -123,44 +123,43 @@
     object-fit: center;
   }
 
-.custom-hamburger__wrap {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
+  .custom-hamburger__wrap {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .custom-hamburger__line {
+    display: block;
+    width: 80%;
+    height: 2px;
+    background: #000;
+    transition: all 0.3s ease;
+  }
+  
+  /* Animate to "X" when active */
+  .custom-hamburger__wrap.active .custom-hamburger__line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .custom-hamburger__wrap.active .custom-hamburger__line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .custom-hamburger__wrap.active .custom-hamburger__line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .tap-area::before {
+    content: none;
+  }
 
-.custom-hamburger__line {
-  display: block;
-  width: 80%;
-  height: 2px;
-  background: #000;
-  transition: all 0.3s ease;
-}
-
-/* Animate to "X" when active */
-.custom-hamburger__wrap.active .custom-hamburger__line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.custom-hamburger__wrap.active .custom-hamburger__line:nth-child(2) {
-  opacity: 0;
-}
-
-.custom-hamburger__wrap.active .custom-hamburger__line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-.tap-area::before {
-  content: none;
-}
-
-@media screen and (max-width: 767px) {
   store-header {
     position: sticky;
   }
