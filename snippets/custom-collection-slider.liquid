@@ -17,6 +17,7 @@
                 <strong>
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
                     {{ sub_link.object.title }}
+                    {{ collection.title }}
                   {% else %}
                     {{ sub_link.title }}
                   {% endif %}
