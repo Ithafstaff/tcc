@@ -17,11 +17,13 @@
         <ul>
           {% for sub_link in top_link.links %}
             <li>
-              {% if sub_link.type == 'collection_link' and sub_link.object %}
-                {{ sub_link.object.title }}
-              {% else %}
-                {{ sub_link.title }}
-              {% endif %}
+              <strong>
+                {% if sub_link.type == 'collection_link' and sub_link.object %}
+                  {{ sub_link.object.title }}
+                {% else %}
+                  {{ sub_link.title }}
+                {% endif %}
+              </strong>
 
               {% if top_link.links != blank %}
                 <ul>
