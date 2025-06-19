@@ -652,8 +652,10 @@
   window.addEventListener("resize", function () {
     if (window.innerWidth <= 767) {
       document.querySelector('store-header').setAttribute('sticky', '');
+      console.log('chek added sticky!');
     } else {
       document.querySelector('store-header').removeAttribute('sticky');
+      console.log('chek removed sticky!');
     }
   });
            
