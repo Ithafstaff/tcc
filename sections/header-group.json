@@ -29,7 +29,7 @@
         "@media screen and (min-width: 767px) {.announcement-bar {display: none; }}"
       ],
       "settings": {
-        "enable_sticky": false,
+        "enable_sticky": true,
         "autoplay": false,
         "cycle_speed": 6,
         "text_size": "text-xs",
@@ -151,7 +151,7 @@
         "mega_menu_KAgdzQ"
       ],
       "settings": {
-        "enable_sticky": false,
+        "enable_sticky": true,
         "hide_on_scroll": false,
         "logo": "shopify://shop_images/WhatsApp_Image_2025-04-22_at_00.20.28_e284780a-Photoroom.png",
         "logo_max_width": 170,
