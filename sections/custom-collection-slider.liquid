@@ -151,19 +151,13 @@
           {% for sub_link in top_link.links %}
             {% if sub_link.object.title == collection.title %}
               <div>
-                <h2>
-                  {% if sub_link.type == 'collection_link' and sub_link.object %}
-                    {{ sub_link.object.title }}
-                  {% else %}
-                    {{ sub_link.title }}
-                  {% endif %}
-                </h2>
+                  <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
+                      <div class="custom-col-slider__track splide__track">
+                        <ul class="custom-col-slider__list splide__list">
     
                 {% if sub_link.links != blank %}
                
-                    <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
-                      <div class="custom-col-slider__track splide__track">
-                        <ul class="custom-col-slider__list splide__list">
+                    
                           {% for sub_sub_link in sub_link.links %}
                             
                             <a class="custom-col-slider__slide splide__slide" href="{{ sub_sub_link.object.url }}">
@@ -177,12 +171,13 @@
               
                           
                           {% endfor %}
-                       </ul>
-                    </div>
-                  </div>
+                    
                   
                
                 {% endif %}
+                 </ul>
+                    </div>
+                  </div>
               </div>
             {% endif %}
           {% endfor %}
