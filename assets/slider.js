@@ -10,7 +10,7 @@ function splider() {
     if (productSlider1) {
 
      new Splide(productSlider1, {
-      type   : 'slide',
+      type   : 'loop',
       drag   : 'free',
       snap   : true,
       perPage: 6,
