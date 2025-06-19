@@ -131,6 +131,42 @@
         </span>
       </div>
     </details>
+    <details class="accordion" style="border: none;" aria-expanded="false" is="accordion-disclosure">
+      <summary>
+        {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
+        <div class="accordion__toggle" style="display: flex; justify-content: space-between; width: 100%;">
+          <span>SORT BY</span>
+          <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
+        </div>
+      </summary>
+    
+      <div class="accordion__content grid">
+        <span>
+          <input id="r1" type="radio" name="filter-btn" value="10" checked>
+          <label for="r1">10 items</label>
+        </span>
+        <span>
+          <input id="r2" type="radio" name="filter-btn" value="20">
+          <label for="r2">20 items</label>
+        </span>
+        <span>
+          <input id="r3" type="radio" name="filter-btn" value="30">
+          <label for="r3">30 items</label>
+        </span>
+        <span>
+          <input id="r4" type="radio" name="filter-btn" value="40">
+          <label for="r4">40 items</label>
+        </span>
+        <span>
+          <input id="r5" type="radio" name="filter-btn" value="50">
+          <label for="r5">50 items</label>
+        </span>
+        <span>
+          <input id="r6" type="radio" name="filter-btn" value="60">
+          <label for="r6">60 items</label>
+        </span>
+      </div>
+    </details>
     <div style="width: 100%;">
       <div style="display: flex; justify-content: space-between; width: 100%;">
         <span>SORT BY</span>
