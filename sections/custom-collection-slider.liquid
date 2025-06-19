@@ -131,7 +131,7 @@
   {% for top_link in menu.links %}
     {% if menu.links != blank %}
       <li>
-        {% if top_link.links != blank %}
+        {% if menu.links != blank %}
           <ul class="2">
             {% for sub_link in top_link.links %}
               {% if sub_link.object.title == collection.title %}
