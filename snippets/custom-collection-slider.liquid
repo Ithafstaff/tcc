@@ -17,13 +17,15 @@
         <ul>
           {% for sub_link in top_link.links %}
             <li>
-              <strong>
-                {% if sub_link.type == 'collection_link' and sub_link.object %}
-                  {{ sub_link.object.title }}
-                {% else %}
-                  {{ sub_link.title }}
-                {% endif %}
-              </strong>
+              {% if top_link.title == {{ collection.title }} %}
+                <strong>
+                  {% if sub_link.type == 'collection_link' and sub_link.object %}
+                    {{ sub_link.object.title }}
+                  {% else %}
+                    {{ sub_link.title }}
+                  {% endif %}
+                </strong>
+              {% endif %}
 
               {% if top_link.links != blank %}
                 <ul>
@@ -51,4 +53,3 @@
 </ul>
 
 
-{{ collection.title }}
