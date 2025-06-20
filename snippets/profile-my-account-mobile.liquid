@@ -94,7 +94,7 @@
 
 <script>
   function editAccount() {
-    document.querySelectorAll('div .hidden-input').forEach(item => {
+    document.querySelectorAll('.hidden-input').parentElement.forEach(item => {
       item.style.boxShadow = 'inset 0 0 0 2px black';
     })
     
