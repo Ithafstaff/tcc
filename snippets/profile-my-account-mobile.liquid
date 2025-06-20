@@ -179,8 +179,8 @@
       button.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        const snippets = ['wishlist-snippet', 'account-snippet', 'order-snippet'];
-        const selectedSnippet = `${button.getAttribute('id')}-snippet`;
+        const snippets = ['account-details-page', 'account-addresses-page', 'account-deletion-page'];
+        const selectedSnippet = `${button.getAttribute('id')}-page`;
         for (let i = 0; i < snippets.length; i++) {
           document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
           window.location.hash = `#${button.getAttribute('id')}`;
