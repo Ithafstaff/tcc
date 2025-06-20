@@ -675,7 +675,7 @@
    } 
 }
 
-.header homepage-header.is-filled {
+.header.homepage-header.is-filled {
   /* border: 1px solid; */
   background: #fff;
    transition: all 0.3s ease;
