@@ -85,29 +85,57 @@
         </div>
       </div>
     </div>
-    <button id="edit-account" onclick="editAccount()" style="display: flex; width: 100%; background-color: rgba(22,22,22); color: white; height: 60px; justify-content: center; align-items: center;">UPDATE ACCOUNT INFORMATION</button>
+    <button
+      id="edit-account"
+      onclick="(function() {
+        document.getElementById('edit-account').style.display = 'none';
+        document.getElementById('edit-account-btn-container').style.display = 'flex';
+        
+        document.querySelectorAll('.hidden-input').forEach(item => {
+          item.style.display = 'flex';
+        })
+    
+        document.querySelectorAll('.input-container').forEach(item => {
+          item.style.boxShadow = 'inset 0 0 0 2px black';
+        })
+    
+        document.querySelectorAll('.shown-input').forEach(item => {
+          item.style.display = 'none';
+        })
+      })()"
+      style="display: flex; width: 100%; background-color: rgba(22,22,22); color: white; height: 60px; justify-content: center; align-items: center;"
+    >
+      UPDATE ACCOUNT INFORMATION
+    </button>
     <div id="edit-account-btn-container" style="display: none; justify-content: space-between; width: 100%; height: 60px; gap: 10px;">
-      <button style="display: flex; width: 100%; background-color: white; color: rgba(22,22,22); height: 60px; justify-content: center; align-items: center; box-shadow: inset 0 0 0 2px rgba(22,22,22);">CANCEL</button>
+      <button
+        onclick="(function() {
+          document.getElementById('edit-account').style.display = 'none';
+          document.getElementById('edit-account-btn-container').style.display = 'flex';
+          
+          document.querySelectorAll('.hidden-input').forEach(item => {
+            item.style.display = 'flex';
+          })
+      
+          document.querySelectorAll('.input-container').forEach(item => {
+            item.style.boxShadow = '';
+          })
+      
+          document.querySelectorAll('.shown-input').forEach(item => {
+            item.style.display = 'flex';
+          })
+        })()"
+        style="display: flex; width: 100%; background-color: white; color: rgba(22,22,22); height: 60px; justify-content: center; align-items: center; box-shadow: inset 0 0 0 2px rgba(22,22,22);"
+      >
+        CANCEL
+      </button>
       <button style="display: flex; width: 100%; background-color: rgba(22,22,22); color: white; height: 60px; justify-content: center; align-items: center;">SAVE</button>
     </div>
   </div>
 </div> 
 
 <script>
-  function editAccount() {
-    document.getElementById('edit-account').style.display = 'none';
-    document.getElementById('edit-account-btn-container').style.display = 'flex';
+  function cancelEdit() {
     
-    document.querySelectorAll('.hidden-input').forEach(item => {
-      item.style.display = 'flex';
-    })
-
-    document.querySelectorAll('.input-container').forEach(item => {
-      item.style.boxShadow = 'inset 0 0 0 2px black';
-    })
-
-    document.querySelectorAll('.shown-input').forEach(item => {
-      item.style.display = 'none';
-    })
   }
 </script>
