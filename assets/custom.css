@@ -668,6 +668,9 @@
     fill: #000 !important;
   }
 
+   .header__secondary-nav .count-bubble span {
+     color: #fff !important;
+   } 
   
  
 
