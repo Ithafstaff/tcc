@@ -692,7 +692,7 @@
   }
 
   .search-bar-link {
-    border-color: #000;
+    border-color: #000 !important;
   }
 
   #header-search-input::placeholder,
