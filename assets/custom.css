@@ -706,7 +706,7 @@
      color: #fff !important;
    } 
 
-  .header__secondary-nav .suggestion-item
+  .header__secondary-nav .suggestion-item,
   .header__secondary-nav input {
      color: #000 !important;
    }
