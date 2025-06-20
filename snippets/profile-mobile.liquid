@@ -83,6 +83,23 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash;
+    if (hash === "#account") {
+      document.getElementById('account-snippet').style.display = 'flex';
+      document.getElementById('order-snippet').style.display = 'none';
+      document.getElementById('wishlist-snippet').style.display = 'none';
+    } else if (hash === "#wishlist") {
+      document.getElementById('wishlist-snippet').style.display = 'flex';
+      document.getElementById('order-snippet').style.display = 'none';
+      document.getElementById('account-snippet').style.display = 'none';
+    } else {
+      window.location.hash = "#order"; // set default hash
+      document.getElementById('order-snippet').style.display = 'flex';
+      document.getElementById('wishlist-snippet').style.display = 'none';
+      document.getElementById('account-snippet').style.display = 'none';
+    }
+    
+    
     console.log(document.querySelector('delivery'));
     document.querySelectorAll('.page-btn').forEach(button => {
       button.addEventListener('click', function(e) {
