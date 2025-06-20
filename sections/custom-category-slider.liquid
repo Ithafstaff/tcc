@@ -109,7 +109,7 @@
               
                   {% for sub_link in top_link.links %}
                       <a class="custom-cat-slider__slide splide__slide" href=" {{ sub_link.object.url }}">
-                        <strong>
+                        
                           {% if sub_link.type == 'collection_link' and sub_link.object %}
 
                             <div class="custom-cat-slider__img-box">
@@ -117,7 +117,7 @@
                             </div>
                             <span class="custom-cat-slider__img-label">{{ sub_link.object.metafields.custom.name_of_collection }}</span>
                           {% endif %}
-                        </strong>
+                       
                       </a>
                   {% endfor %}
              
