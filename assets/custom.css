@@ -513,6 +513,7 @@
   line-height: 20px;
   padding-top: 50px;
   margin-bottom: 52px;
+  letter-spacing: 1px !important;
 }
 
 .custom-recently__heading {
