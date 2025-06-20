@@ -151,7 +151,8 @@
                       <a class="custom-col-slider__slide splide__slide" href="{{ sub_sub_link.object.url }}">
                         {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
                           <div class="custom-col-slider__img-box">
-                            <img class="custom-col-slider__img" src="{{ sub_sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/>
+                            <!-- <img class="custom-col-slider__img" src="{{ sub_sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/> -->
+                            {{- sub_sub_link_image | image_url: width: 104 | image_tag: loading: 'lazy', sizes: '52px', widths: '52,104', class: 'panel-link__image rounded' -}}
                           </div>
                           <span class="custom-col-slider__img-label">{{ sub_sub_link.object.metafields.custom.name_of_collection | upcase }}</span>
                           
