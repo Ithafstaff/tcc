@@ -822,7 +822,7 @@
     width: calc(100% - 40px) !important;
   }
 
-  .custom-search__bar-list .search-bar-link {
+  .search-bar-link {
     border-color: #fff;
   }
   
