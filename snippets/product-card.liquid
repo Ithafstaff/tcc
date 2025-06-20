@@ -110,7 +110,7 @@ Supported variables
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
               <div class="pointer-fine:hidden">
-                <button type="submit" is="custom-button" class="product-card__mobile-quick-buy-button test" aria-label="{{ quick_add_label | escape }}">
+                <button type="submit" is="custom-button" class="product-card__mobile-quick-buy-button custom-quick-but__mobile-btn" aria-label="{{ quick_add_label | escape }}">
                   {%- render 'icon' with 'quick-buy-cart' -%}
                 </button>
               </div>
