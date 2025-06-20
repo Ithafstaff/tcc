@@ -30,7 +30,7 @@ Supported variables
 
 <div class="panel-list__wrapper">
   <div class="panel">
-    <div class="panel__wrapper" {% if mega_menu_block.settings.promo_content_layout == 'grid' or mega_menu_block.settings.promo_content_layout == 'collage' %}style="--panel-wrapper-justify-content: flex-start"{% endif %}>
+    <div class="panel__wrapper 1" {% if mega_menu_block.settings.promo_content_layout == 'grid' or mega_menu_block.settings.promo_content_layout == 'collage' %}style="--panel-wrapper-justify-content: flex-start"{% endif %}>
       <div class="panel__scroller v-stack gap-8">
         {%- if is_mega_menu -%}
           <button is="close-button" aria-label="{{ 'general.accessibility.close' | t | escape }}" {%- if section.settings.opening_from == 'bottom' -%}class="sm-max:hidden"{%- endif -%}>
@@ -87,7 +87,7 @@ Supported variables
               {%- capture link_level_2 -%}
                 {{- link_level_2 -}}
 
-                <div class="panel__wrapper" {% if mega_menu_block.settings.promo_content_layout == 'grid' or mega_menu_block.settings.promo_content_layout == 'collage' %}style="--panel-wrapper-justify-content: flex-start"{% endif %} hidden>
+                <div class="panel__wrapper 2" {% if mega_menu_block.settings.promo_content_layout == 'grid' or mega_menu_block.settings.promo_content_layout == 'collage' %}style="--panel-wrapper-justify-content: flex-start"{% endif %} hidden>
                   <ul class="v-stack custom-panel__list li  {% if is_mega_menu and is_image_shown == 'show' %}gap-3{% else %}gap-4{% endif %}">
                     <li class="{% if layout != 'drawer' %}lg:hidden{% endif %}">
                       <button class="text-with-icon h6 text-subdued" data-panel="0">
@@ -135,8 +135,8 @@ Supported variables
                         {%- if sub_link.links.size > 0 -%}
                           {%- capture link_level_3 -%}
                             {{- link_level_3 -}}
-
-                            <div class="panel__wrapper" hidden>
+ 
+                            <div class="panel__wrapper 3" hidden>
                               <ul class="v-stack {% if is_image_shown %}gap-3{% else %}gap-4{% endif %}">
                                 <li class="text-with-icon {% if layout != 'drawer' %}lg:hidden{% endif %}">
                                   <button class="text-with-icon h6 text-subdued" data-panel="1">
@@ -194,7 +194,7 @@ Supported variables
         </ul>
 
         {%- if secondary_menu != blank -%}
-          <ul class="v-stack gap-3 test">
+          <ul class="v-stack gap-3">
             {%- for link in secondary_menu.links -%}
               <li>
                 <a href="{{ link.url }}" class="h6 group"><span><span class="reversed-link">{{ link.title }}</span></span></a>
