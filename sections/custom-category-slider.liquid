@@ -94,12 +94,38 @@
       <ul class="custom-cat-slider__list splide__list">
 
         {% for block in section.blocks %}
-        <a class="custom-cat-slider__slide splide__slide" href="{{ block.settings.id_link | strip_html }}">
-          <div class="custom-cat-slider__img-box">
-            <img class="custom-cat-slider__img" src="{{ block.settings.id_img | img_url: 'master' }}" width="100%" height="" loading="lazy"/>
-          </div>
-          <span class="custom-cat-slider__img-label">{{ block.settings.id_img-label | strip_html }}</span>
-        </a>
+          
+         
+            
+            
+          
+
+
+
+          {% assign menu = linklists['main-menu'] %}
+          {% for top_link in menu.links %}
+            {% if top_link.links != blank %}
+               
+                <ul class="2">
+                  {% for sub_link in top_link.links %}
+                      <a class="custom-cat-slider__slide splide__slide" href="{{ sub_link.object.link }}">
+                        <strong>
+                          {% if sub_link.type == 'collection_link' and sub_link.object %}
+
+                            <div class="custom-cat-slider__img-box">
+                              <img class="custom-cat-slider__img" src="{{ sub_link.object.image | img_url: 'medium' }}" alt="{{ sub_link.object.title }}" width="100%" height="" loading="lazy"/>
+                            </div>
+                            <span class="custom-cat-slider__img-label">{{ sub_link.object.metafields.custom.name_of_collection }}</span>
+                          {% endif %}
+                        </strong>
+                      </a>
+                  {% endfor %}
+                </ul>
+              
+            {% endif %}
+          {% endfor %}
+
+          
         {% endfor %}
   
       </ul>
@@ -109,28 +135,8 @@
 
 
 
-{% assign menu = linklists['main-menu'] %}
 
-<ul class="1">
-  {% for top_link in menu.links %}
-    {% if top_link.links != blank %}
-      <li>
-        <ul class="2">
-          {% for sub_link in top_link.links %}
-              <li>
-                <strong>
-                  {% if sub_link.type == 'collection_link' and sub_link.object %}
-                    {{ sub_link.object.metafields.custom.name_of_collection }}
-                    <img src="{{ sub_link.object.image | img_url: 'medium' }}" alt="{{ sub_link.object.title }}">
-                  {% endif %}
-                </strong>
-              </li>
-          {% endfor %}
-        </ul>
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>
+
 
 
 
