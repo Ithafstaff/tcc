@@ -152,29 +152,27 @@
                         {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
                           <div class="custom-col-slider__img-box">
                             {% assign collection_image = sub_sub_link.object.image %}
-{% assign fallback_image = sub_sub_link.object.products.first.featured_image %}
-
-{% if collection_image %}
-  <img 
-    class="custom-col-slider__img" 
-    src="{{ collection_image | img_url: 'medium' }}" 
-    alt="{{ sub_sub_link.object.title }}" 
-    width="100%" 
-    height="" 
-    loading="lazy"
-  />
-{% elsif fallback_image %}
-  <img 
-    class="custom-col-slider__img" 
-    src="{{ fallback_image | img_url: 'medium' }}" 
-    alt="{{ sub_sub_link.object.title }}" 
-    width="100%" 
-    height="" 
-    loading="lazy"
-  />
-{% endif %}
-
-                       
+                            {% assign fallback_image = sub_sub_link.object.products.first.featured_image %}
+                            
+                            {% if collection_image %}
+                              <img 
+                                class="custom-col-slider__img" 
+                                src="{{ collection_image | img_url: 'medium' }}" 
+                                alt="{{ sub_sub_link.object.title }}" 
+                                width="100%" 
+                                height="" 
+                                loading="lazy"
+                              />
+                            {% elsif fallback_image %}
+                              <img 
+                                class="custom-col-slider__img" 
+                                src="{{ fallback_image | img_url: 'medium' }}" 
+                                alt="{{ sub_sub_link.object.title }}" 
+                                width="100%" 
+                                height="" 
+                                loading="lazy"
+                              />
+                            {% endif %}
                           </div>
                           <span class="custom-col-slider__img-label">{{ sub_sub_link.object.metafields.custom.name_of_collection | upcase }}</span>
                           
