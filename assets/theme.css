@@ -54,16 +54,6 @@
   color: white;
 }
 
-.search-bar-link {
-  border-color: #fff;
-}
-
-.header__wrapper:hover {
-
-
-
-
-
 /* On hover over either nav block, turn everything black */
 .homepage-header .header__main-nav:hover a,
 .homepage-header .header__main-nav:hover svg,
@@ -104,7 +94,6 @@
 .homepage-header .header__main-nav:hover ~ .header__secondary-nav input::placeholder,
 .homepage-header .header__secondary-nav:hover ~ .header__main-nav input::placeholder {
   color: black;
-}
 }
 
 html {
