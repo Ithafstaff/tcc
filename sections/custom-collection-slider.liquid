@@ -151,7 +151,17 @@
                       <a class="custom-col-slider__slide splide__slide" href="{{ sub_sub_link.object.url }}">
                         {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
                           <div class="custom-col-slider__img-box">
-                            <img class="custom-col-slider__img" src="{{ sub_sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/>
+                           {% assign fallback_image = sub_sub_link.object.products.first.featured_image %}
+
+<img 
+  class="custom-col-slider__img" 
+  src="{{ sub_sub_link.object.image | img_url: 'medium' | default: fallback_image | img_url: 'medium' }}" 
+  alt="{{ sub_sub_link.object.title }}" 
+  width="100%" 
+  height="" 
+  loading="lazy"
+/>
+
                        
                           </div>
                           <span class="custom-col-slider__img-label">{{ sub_sub_link.object.metafields.custom.name_of_collection | upcase }}</span>
