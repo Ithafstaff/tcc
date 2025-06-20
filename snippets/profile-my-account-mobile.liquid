@@ -26,7 +26,7 @@
       onclick="(function() {document.getElementById('account-navigation').style.display = 'flex';})()"
       style="display: flex; width: fit-content; height: fit-content; align-items: center; gap: 6px;"
     >
-      <span style="font-size: 12px;">Name</span>
+      <span style="font-size: 12px;">PROFILE</span>
       <img
         src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
         alt=""
@@ -153,13 +153,16 @@
 
 <div
   id="account-page-selection-modal"
-  style="display: flex; position: absolute; top: 0; left: 0; background-color: rgba(0,0,0,0.5); flex-direction: column; width: 100%; height: 100%; z-index: 50;"
+  style="display: none; position: absolute; top: 0; left: 0; background-color: rgba(0,0,0,0.5); flex-direction: column; width: 100%; height: 100%; z-index: 50;"
 >
   <div style="width: 100%; background-color: white; padding: 23px 12px; gap: 6px;">
     <button>PROFILE</button>
     <button>ADDRESSES</button>
     <button>ACCOUNT DELETION</button>
   </div>
+  <div
+    onclick="(function() {document.getElementById('account-page-selection-modal').style.display = 'none';})()"
+    style="width: 100%; height: 100%;"></div>
 </div>
 
 <script>
