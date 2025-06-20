@@ -672,7 +672,13 @@
 
    .header__secondary-nav .count-bubble span {
      color: #fff !important;
+   }
+  
+   .header__secondary-nav .suggestion-item {
+     color: #000 !important;
    } 
+
+  
 }
 
 .header.homepage-header.is-filled {
@@ -699,6 +705,10 @@
    .header__secondary-nav .count-bubble span {
      color: #fff !important;
    } 
+
+  .header__secondary-nav .suggestion-item {
+     color: #000 !important;
+   }
 }
 
 .search-bar-link {
