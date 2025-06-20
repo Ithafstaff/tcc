@@ -649,6 +649,10 @@
   padding: 30px 40px !important;
 }
 
+.header__wrapper:hover {
+  border: 1px solid;
+}
+
 /* end of custom homepage sectionstyle */
 
 
