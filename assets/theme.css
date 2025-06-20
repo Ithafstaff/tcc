@@ -85,7 +85,7 @@
 .homepage-header .header__secondary-nav:hover button.text-with-icon {
   color: red !important;
   fill: red !important;
-  border-color: black !important;
+  border-color: red !important;
 }
 
 /* Placeholder: turn black on hover */
@@ -93,7 +93,7 @@
 .homepage-header .header__secondary-nav:hover input::placeholder,
 .homepage-header .header__main-nav:hover ~ .header__secondary-nav input::placeholder,
 .homepage-header .header__secondary-nav:hover ~ .header__main-nav input::placeholder {
-  color: black;
+  color: blue;
 }
 
 html {
