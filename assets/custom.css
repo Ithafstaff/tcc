@@ -653,7 +653,7 @@
   border: 1px solid;
   background: #fff;
 
-  .header__wrapper .link-faded-reverse {
+  .link-faded-reverse {
     color: #000 !important;
   }
 }
