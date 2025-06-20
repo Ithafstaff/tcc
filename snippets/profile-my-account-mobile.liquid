@@ -110,11 +110,11 @@
     <div id="edit-account-btn-container" style="display: none; justify-content: space-between; width: 100%; height: 60px; gap: 10px;">
       <button
         onclick="(function() {
-          document.getElementById('edit-account').style.display = 'none';
-          document.getElementById('edit-account-btn-container').style.display = 'flex';
+          document.getElementById('edit-account').style.display = 'flex';
+          document.getElementById('edit-account-btn-container').style.display = 'none';
           
           document.querySelectorAll('.hidden-input').forEach(item => {
-            item.style.display = 'flex';
+            item.style.display = 'none';
           })
       
           document.querySelectorAll('.input-container').forEach(item => {
