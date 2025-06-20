@@ -149,11 +149,11 @@
       <button style="display: flex; width: 100%; background-color: rgba(22,22,22); color: white; height: 60px; justify-content: center; align-items: center;">SAVE</button>
     </div>
   </div>
-  
+
   <div id="account-deletion-page" style="display: none; width: 100%;">
     ACCOUNT DELETION PAGE
   </div>
-  
+
   <div id="account-addresses-page" style="display: none; width: 100%;">
     ACCOUNT ADDRESSES PAGE
   </div>
@@ -185,7 +185,7 @@
           document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
           window.location.hash = `#${button.getAttribute('id')}`;
         }
-        
+        document.getElementById('account-page-selection-modal').style.display = 'none';
       })
     })
   });
