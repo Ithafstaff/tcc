@@ -652,9 +652,11 @@
 .header__wrapper:hover {
   /* border: 1px solid; */
   background: #fff;
+   transition: all 0.3s ease;
 
   .link-faded-reverse {
     color: #000 !important;
+     transition: all 0.3s ease;
   }
 
   .search-bar-link {
