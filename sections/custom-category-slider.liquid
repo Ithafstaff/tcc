@@ -123,6 +123,8 @@
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
                     {{ sub_link.object.metafields.custom.name_of_collection }}
                     
+                    {{ sub_link.image }}
+                    
                   {% endif %}
                 </strong>
               </li>
