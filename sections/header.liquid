@@ -164,7 +164,7 @@
 
 <height-observer variable="header">
   <store-header
-    class="header {% if request.page_type == 'index' %}homepage-header{% endif %}"
+    class="header {% if request.page_type == 'index' %}homepage-header{% endif %}{% unless homepage %}is-filled{% endunless %}"
     {% if section.settings.hide_on_scroll %}
       hide-on-scroll="100"
     {% endif %}
