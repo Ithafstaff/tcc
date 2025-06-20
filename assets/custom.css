@@ -661,45 +661,10 @@
     border-color: #000;
   }
 
-  .homepage-header .header__main-nav:hover a,
-.homepage-header .header__main-nav:hover svg,
-.homepage-header .header__main-nav:hover input,
-.homepage-header .header__main-nav:hover span,
-.homepage-header .header__main-nav:hover .reversed-link,
-.homepage-header .header__secondary-nav:hover a,
-.homepage-header .header__secondary-nav:hover svg,
-.homepage-header .header__secondary-nav:hover input,
-.homepage-header .header__secondary-nav:hover span,
-.homepage-header .header__secondary-nav:hover .reversed-link,
-.homepage-header .header__main-nav:hover ~ .header__secondary-nav a,
-.homepage-header .header__main-nav:hover ~ .header__secondary-nav svg,
-.homepage-header .header__main-nav:hover ~ .header__secondary-nav input,
-.homepage-header .header__main-nav:hover ~ .header__secondary-nav span,
-.homepage-header .header__main-nav:hover ~ .header__secondary-nav .reversed-link,
-.homepage-header .header__secondary-nav:hover ~ .header__main-nav a,
-.homepage-header .header__secondary-nav:hover ~ .header__main-nav svg,
-.homepage-header .header__secondary-nav:hover ~ .header__main-nav input,
-.homepage-header .header__secondary-nav:hover ~ .header__main-nav span,
-.homepage-header .header__secondary-nav:hover ~ .header__main-nav .reversed-link,
-.homepage-header .header__main-nav:hover summary.link-faded-reverse,
-.homepage-header .header__main-nav:hover summary.link-faded-reverse svg,
-.homepage-header .header__main-nav:hover summary.text-with-icon,
-.homepage-header .header__main-nav:hover button.text-with-icon,
-.homepage-header .header__secondary-nav:hover summary.link-faded-reverse,
-.homepage-header .header__secondary-nav:hover summary.link-faded-reverse svg,
-.homepage-header .header__secondary-nav:hover summary.text-with-icon,
-.homepage-header .header__secondary-nav:hover button.text-with-icon {
-  color: black !important;
-  fill: black !important;
-  border-color: black !important;
-}
-  /* Placeholder: turn black on hover */
-.homepage-header .header__main-nav:hover input::placeholder,
-.homepage-header .header__secondary-nav:hover input::placeholder,
-.homepage-header .header__main-nav:hover ~ .header__secondary-nav input::placeholder,
-.homepage-header .header__secondary-nav:hover ~ .header__main-nav input::placeholder {
-  color: black;
-}
+  #header-search-input:placeholder {
+    color: #000 !important;
+    fill: #000 !important;
+  }
 
 }
 
