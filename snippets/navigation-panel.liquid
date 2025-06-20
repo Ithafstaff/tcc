@@ -123,7 +123,7 @@ Supported variables
                                 {%- endcase -%}
 
                                 {%- if sub_link_image != blank -%}
-                                  {{- sub_link_image | image_url: width: 120 | image_tag: loading: 'lazy', sizes: '60px', widths: '120', class: 'panel-link__image rounded' -}}
+                                  {{- sub_link_image | image_url: width: 120 | image_tag: loading: 'lazy', sizes: '60px', widths: '120', class: 'panel-link__image rounded test' -}}
                                 {%- endif -%}
                               {%- endif -%}
 
@@ -166,7 +166,7 @@ Supported variables
                                         {%- endcase -%}
 
                                         {%- if sub_sub_link_image != blank -%}
-                                          {{- sub_sub_link_image | image_url: width: 104 | image_tag: loading: 'lazy', sizes: '52px', widths: '52,104', class: 'panel-link__image rounded' -}}
+                                          {{- sub_sub_link_image | image_url: width: 104 | image_tag: loading: 'lazy', sizes: '52px', widths: '52,104', class: 'panel-link__image rounded test2' -}}
                                         {%- endif -%}
                                       {%- endif -%}
 
