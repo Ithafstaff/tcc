@@ -30,7 +30,7 @@
             <input id="first-name-input" style="display:none;" value={{ customer.first_name }}>
           </div>
         </div>
-        <div style="display: flex; align-items: center; width: 100%; gap: 19px; background-color: rgba(22,22,22,0.5); padding: 12px 19px;">
+        <div style="display: flex; align-items: center; width: 100%; gap: 15px; padding: 12px 19px;">
           <img
             src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
             alt=""
@@ -38,13 +38,51 @@
             height="17px"
           >
           <div style="display: flex; flex-direction: column; gap: 12px;">
-            <span style="font-size: 10px; color: rgba(22,22,22,0.5);">First Name</span>
-            <span id="first-name-display" style="">something1</span>
-            <input id="first-name-input" style="display:none;" value={{ customer.first_name }}>
+            <span style="font-size: 10px; color: rgba(22,22,22,0.5);">Last Name</span>
+            <span id="first-name-display" style="">{{ customer.last_name }}</span>
+            <input id="first-name-input" style="display:none;" value={{ customer.last_name }}>
           </div>
         </div>
       </div>
-      
+      <div style="display: flex; align-items: center; width: 100%; gap: 15px; padding: 12px 19px;">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
+          alt=""
+          width="17px"
+          height="17px"
+        >
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-size: 10px; color: rgba(22,22,22,0.5);">Phone Number</span>
+          <span id="first-name-display" style="">{{ customer.phone }}</span>
+          <input id="first-name-input" style="display:none;" value={{ customer.phone }}>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; width: 100%; gap: 15px; padding: 12px 19px;">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
+          alt=""
+          width="17px"
+          height="17px"
+        >
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-size: 10px; color: rgba(22,22,22,0.5);">Email</span>
+          <span id="first-name-display" style="">{{ customer.email }}</span>
+          <input type="email" id="first-name-input" style="display:none;" value={{ customer.email }}>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; width: 100%; gap: 15px; padding: 12px 19px;">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
+          alt=""
+          width="17px"
+          height="17px"
+        >
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="font-size: 10px; color: rgba(22,22,22,0.5);">Password</span>
+          <span id="first-name-display" style="">password</span>
+          <input type="password" id="first-name-input" style="display:none;" value={{ customer.first_name }}>
+        </div>
+      </div>
     </div>
   </div>
 </div>
