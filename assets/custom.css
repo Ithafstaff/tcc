@@ -663,6 +663,7 @@
 
   .search-bar-link input {
     color: #000 !important;
+    fill: #000 !important;
   }
 
 }
