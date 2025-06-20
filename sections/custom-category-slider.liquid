@@ -108,7 +108,7 @@
                
               
                   {% for sub_link in top_link.links %}
-                      <a class="custom-cat-slider__slide splide__slide" href="{{ sub_link.object.link }}">
+                      <a class="custom-cat-slider__slide splide__slide" href=" {{ sub_link.object.url }}">
                         <strong>
                           {% if sub_link.type == 'collection_link' and sub_link.object %}
 
