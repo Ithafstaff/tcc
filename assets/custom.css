@@ -662,7 +662,8 @@
   }
 
   #header-search-input::placeholder,
-  .header__secondary-nav svg  {
+  .header__secondary-nav svg,
+  .header__secondary-nav span {
     color: #000 !important;
     fill: #000 !important;
   }
