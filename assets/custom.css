@@ -650,7 +650,7 @@
 }
 
 .header__wrapper:hover {
-  /* border: 1px solid; */
+  border: 1px solid;
 }
 
 /* end of custom homepage sectionstyle */
