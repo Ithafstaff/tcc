@@ -673,10 +673,32 @@
    .header__secondary-nav .count-bubble span {
      color: #fff !important;
    } 
-  
- 
+}
 
+.header homepage-header.is-filled {
+  /* border: 1px solid; */
+  background: #fff;
+   transition: all 0.3s ease;
 
+  .link-faded-reverse {
+    color: #000 !important;
+     transition: all 0.3s ease;
+  }
+
+  .search-bar-link {
+    border-color: #000;
+  }
+
+  #header-search-input::placeholder,
+  .header__secondary-nav svg,
+  .header__secondary-nav span {
+    color: #000 !important;
+    fill: #000 !important;
+  }
+
+   .header__secondary-nav .count-bubble span {
+     color: #fff !important;
+   } 
 }
 
 .search-bar-link {
