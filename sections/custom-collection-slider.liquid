@@ -154,7 +154,7 @@
                           <img class="custom-col-slider__img" src="{{ sub_sub_link.object.image | img_url: 'medium' }}" width="100%" height="" loading="lazy"/>
                         </div>
                         <span class="custom-col-slider__img-label">{{ sub_sub_link.object.metafields.custom.name_of_collection | upcase }}</span>
-                        {{ collection.title }}
+                        {{ collection.metafields.custom.name_of_collection | upcase }}
                       {% endif %}
                     </a>       
                   {% endfor %}
