@@ -41,7 +41,7 @@
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <span style="font-size: 10px; color: rgba(22,22,22,0.5);">First Name</span>
             <span class="shown-input" style="">{{ customer.first_name | default: 'N/A'}}</span>
-            <input class="hidden-input" id="first-name" style="display:none; width: 100%;" placeholder="Juan" value={{ customer.first_name }}>
+            <input class="hidden-input" id="first_name" style="display:none; width: 100%;" placeholder="Juan" value={{ customer.first_name }}>
           </div>
         </div>
         <div class="input-container" style="display: flex; align-items: center; width: 100%; gap: 15px; padding: 12px 19px;">
@@ -54,7 +54,7 @@
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <span style="font-size: 10px; color: rgba(22,22,22,0.5);">Last Name</span>
             <span class="shown-input" style="">{{ customer.last_name | default: 'N/A' }}</span>
-            <input class="hidden-input" id="last-name" style="display:none; width: 100%;" placeholder="Dela Cruz" value={{ customer.last_name }}>
+            <input class="hidden-input" id="last_name" style="display:none; width: 100%;" placeholder="Dela Cruz" value={{ customer.last_name }}>
           </div>
         </div>
       </div>
