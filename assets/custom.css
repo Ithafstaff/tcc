@@ -661,15 +661,14 @@
     border-color: #000;
   }
 
-  #header-search-input::placeholder {
+  #header-search-input::placeholder,
+   .custom-search__bar-list svg  {
     color: #000 !important;
     fill: #000 !important;
   }
   
-  .custom-search__bar-list svg  {
-    color: #000 !important;
-    fill: #000 !important;
-  }
+ 
+
 
 }
 
