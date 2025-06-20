@@ -84,7 +84,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const hash = window.location.hash;
-    if (hash === "#account") {
+    if (hash.includes('account')) {
       document.getElementById('account-snippet').style.display = 'flex';
       document.getElementById('order-snippet').style.display = 'none';
       document.getElementById('wishlist-snippet').style.display = 'none';
