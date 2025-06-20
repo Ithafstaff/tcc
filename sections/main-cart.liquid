@@ -1,7 +1,14 @@
 <style>
+  
   .custom-cart__order {
     display: flex;
     flex-direction: column;
+  }
+
+  .custom-cart__order-recap {
+    margin: 0px 0px 0px auto;
+    width: 50%;
+    top: 20px;
   }
 
 
@@ -135,7 +142,7 @@
             {%- endif -%}
           </div>
 
-          <safe-sticky class="cart-order__recap v-stack gap-6">
+          <safe-sticky class="cart-order__recap custom-cart__order-recap v-stack gap-6">
             <form action="{{ routes.cart_url }}" method="POST" class="cart-form rounded">
               {%- for block in section.blocks -%}
                 {%- case block.type -%}
