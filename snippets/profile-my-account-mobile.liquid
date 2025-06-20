@@ -186,6 +186,7 @@
           window.location.hash = `#${button.getAttribute('id')}`;
         }
         document.getElementById('account-page-selection-modal').style.display = 'none';
+        document.getElementById('account-page-selection-label').innerHTML = `${button.innerHTML}`;
       })
     })
   });
