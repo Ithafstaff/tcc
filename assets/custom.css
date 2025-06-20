@@ -662,7 +662,10 @@
   }
 
   #header-search-input::placeholder, {
-  #header-search-input svg  {
+    color: #000 !important;
+    fill: #000 !important;
+  }
+  .custom-search__bar-list svg  {
     color: #000 !important;
     fill: #000 !important;
   }
