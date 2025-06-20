@@ -81,66 +81,41 @@
 </style>
 
 
-
-
-
-
-
-
 <div class="custom-cat-slider__container">
   <h2 class="custom-cat-slider__heading">{{ section.settings.id_header }}</h2>
-  <div class="custom-cat-slider__slide-wrap splide  js-category-slider">
+  <div class="custom-cat-slider__slide-wrap splide js-category-slider">
     <div class="custom-cat-slider__track splide__track">
       <ul class="custom-cat-slider__list splide__list">
-
         {% for block in section.blocks %}
-          
-         
-            
-            
-          
-
-
-
           {% assign menu = linklists['main-menu'] %}
           {% for top_link in menu.links %}
             {% if top_link.links != blank %}
-               
-              
-                  {% for sub_link in top_link.links %}
-                      <a class="custom-cat-slider__slide splide__slide" href=" {{ sub_link.object.url }}">
-                        
-                          {% if sub_link.type == 'collection_link' and sub_link.object %}
-
-                            <div class="custom-cat-slider__img-box">
-                              <img class="custom-cat-slider__img" src="{{ sub_link.object.image | img_url: 'medium' }}" alt="{{ sub_link.object.title }}" width="100%" height="" loading="lazy"/>
-                            </div>
-                            <span class="custom-cat-slider__img-label">{{ sub_link.object.metafields.custom.name_of_collection }}</span>
-                          {% endif %}
-                       
-                      </a>
-                  {% endfor %}
-             
-              
+              {% for sub_link in top_link.links %}
+                <a class="custom-cat-slider__slide splide__slide" href="{{ sub_link.object.url }}">
+                  {% if sub_link.type == 'collection_link' and sub_link.object %}
+                    <div class="custom-cat-slider__img-box">
+                      <img 
+                        class="custom-cat-slider__img" 
+                        src="{{ sub_link.object.image | img_url: 'medium' }}" 
+                        alt="{{ sub_link.object.title }}" 
+                        width="100%" 
+                        height="" 
+                        loading="lazy"
+                      />
+                    </div>
+                    <span class="custom-cat-slider__img-label">
+                      {{ sub_link.object.metafields.custom.name_of_collection }}
+                    </span>
+                  {% endif %}
+                </a>
+              {% endfor %}
             {% endif %}
           {% endfor %}
-
-          
         {% endfor %}
-  
       </ul>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 
 {% schema %}
