@@ -238,13 +238,11 @@
           height="25px"
         >
       `;
-      console.log('chek is making a button for', catBtn.innerHTML);
 
       return catBtn;
     }
 
     const categories = ['dining', 'table top', 'plastic dinnerware', 'judaica', 'bedding', 'lucite', 'towels', 'tablecloth'];
-    console.log('chek categories made!');
 
     categories.forEach(item => {
       document.getElementById('sort-categories').appendChild(createCategoryButtons(item));
@@ -434,7 +432,6 @@
             onclick="(function() {
               removeFromWishlist('${item.id}');
               renderWishlistItemsMobile();
-              console.log('rerender done chek!');
             })()"
             width="16"
             height="16"
