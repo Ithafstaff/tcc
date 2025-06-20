@@ -122,6 +122,8 @@
           
           document.querySelectorAll('.hidden-input').forEach(item => {
             item.style.display = 'none';
+            console.log('chek', item.getAttribute('id'));
+            item.setAttribute('value', customer[item.getAttribute('id')]);
           })
       
           document.querySelectorAll('.input-container').forEach(item => {
