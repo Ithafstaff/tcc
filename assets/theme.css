@@ -2907,7 +2907,7 @@ model-media model-viewer, model-media .shopify-model-viewer-ui {
 }
 
 .buy-buttons--compact {
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
 }
 
 @media screen and (min-width: 700px) {
