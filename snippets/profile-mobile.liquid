@@ -92,6 +92,7 @@
         const selectedSnippet = `${button.getAttribute('id')}-snippet`;
         for (let i = 0; i < snippets.length; i++) {
           document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
+          window.location.hash = `#${button.getAttribute('id')}`;
         }
       })
     })
