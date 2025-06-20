@@ -700,6 +700,10 @@
   font-weight: 500;
 }
 
+.link-faded-reverse:hover {
+  tranform: none;
+  text-decoration: none;
+}
 /* end of custom collection variant style */
 
 /* MOBILE RESPONSIVENESS PORTION*/
