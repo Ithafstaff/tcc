@@ -692,6 +692,10 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr !important;
 }
 
+.custom-quick-but__mobile-btn {
+  
+}
+
 /* end of custom collection variant style */
 
 /* MOBILE RESPONSIVENESS PORTION*/
