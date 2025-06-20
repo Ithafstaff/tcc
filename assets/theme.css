@@ -83,7 +83,7 @@
 .homepage-header .header__secondary-nav:hover summary.link-faded-reverse svg,
 .homepage-header .header__secondary-nav:hover summary.text-with-icon,
 .homepage-header .header__secondary-nav:hover button.text-with-icon {
-  color: black !important;
+  color: red !important;
   fill: black !important;
   border-color: black !important;
 }
