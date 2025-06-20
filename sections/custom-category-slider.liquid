@@ -98,14 +98,29 @@
                 <a class="custom-cat-slider__slide splide__slide" href="{{ sub_link.object.url }}">
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
                     <div class="custom-cat-slider__img-box">
-                      <img 
-                        class="custom-cat-slider__img" 
-                        src="{{ sub_link.object.image | img_url: 'medium' }}" 
-                        alt="{{ sub_link.object.title }}" 
-                        width="100%" 
-                        height="" 
-                        loading="lazy"
-                      />
+                      {% assign collection_image = sub_link.object.image %}
+{% assign fallback_image = sub_link.object.products.first.featured_image %}
+
+{% if collection_image %}
+  <img 
+    class="custom-cat-slider__img" 
+    src="{{ collection_image | img_url: 'medium' }}" 
+    alt="{{ sub_link.object.title }}" 
+    width="100%" 
+    height="" 
+    loading="lazy"
+  />
+{% elsif fallback_image %}
+  <img 
+    class="custom-cat-slider__img" 
+    src="{{ fallback_image | img_url: 'medium' }}" 
+    alt="{{ sub_link.object.title }}" 
+    width="100%" 
+    height="" 
+    loading="lazy"
+  />
+{% endif %}
+
                     </div>
                     <span class="custom-cat-slider__img-label">
                       {{ sub_link.object.metafields.custom.name_of_collection }}
