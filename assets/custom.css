@@ -651,7 +651,7 @@
 
 .header__wrapper:hover {
   border: 1px solid;
-  background: #fff;
+  /* background: #fff; */
 
   .link-faded-reverse {
     color: #000 !important;
