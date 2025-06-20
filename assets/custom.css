@@ -1046,5 +1046,9 @@
   .custom-recently__heading {
     font-size: 16px !important;
   }
+
+  .header__secondary-nav input {
+     color: #000 !important;
+   }
 }
 
