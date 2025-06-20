@@ -95,9 +95,11 @@
 <script>
   function editAccount() {
     document.querySelectorAll('.hidden-input').forEach(item => {
-      const parentDiv = item.closest('div');
-      parentDiv.style.boxShadow = 'inset 0 0 0 2px black';
       item.style.display = 'flex';
+    })
+
+    document.querySelectorAll('.input-container').forEach(item => {
+      item.style.boxShadow = 'inset 0 0 0 2px black';
     })
 
     document.querySelectorAll('.shown-input').forEach(item => {
