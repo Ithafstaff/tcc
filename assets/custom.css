@@ -661,13 +661,12 @@
     border-color: #000;
   }
 
-  
+  .homepage-header .header__main-nav:hover ~ .header__secondary-nav input::placeholder,
+  .homepage-header .header__secondary-nav:hover ~ .header__main-nav input::placeholder {
+    color: black;
+  }
 
 }
-#header-search-input:placeholder {
-    color: #000 !important;
-    fill: #000 !important;
-  }
 
 .search-bar-link {
   border-color: #fff;
