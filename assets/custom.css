@@ -176,6 +176,7 @@
   max-width: 1381px;
   margin: 0 auto 15px;
   overflow: hidden;
+  gap: 30px !important;
 }
 
 .location-btn__wrapper {
