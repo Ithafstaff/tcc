@@ -21,7 +21,7 @@ Supported variables
   {%- capture product_form_id -%}quick-buy-form-{{ product.id }}-{{ section.id }}{%- endcapture -%}
 
   <product-rerender id="quick-buy-modal-content" observe-form="{{ product_form_id }}">
-    <div class="quick-buy-drawer__variant text-start h-stack gap-6" slot="header">
+    <div class="quick-buy-drawer__variant test text-start h-stack gap-6" slot="header">
       {%- assign image = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
       {%- if image != blank -%}
