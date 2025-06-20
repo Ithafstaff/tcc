@@ -656,6 +656,11 @@
   .link-faded-reverse {
     color: #000 !important;
   }
+
+  .search-bar-link {
+    border-color: #000;
+  }
+
 }
 
 .search-bar-link {
