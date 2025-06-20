@@ -649,7 +649,6 @@
   padding: 20px 30px !important;
 }
 
-
 .header__wrapper:hover {
   border: 1px solid;
   background: #fff;
@@ -657,6 +656,10 @@
   .link-faded-reverse {
     color: #000 !important;
   }
+}
+
+.search-bar-link {
+  border-color: #fff;
 }
 
 /* end of custom homepage sectionstyle */
@@ -820,10 +823,6 @@
     bottom: 15px;
     left: 20px;
     width: calc(100% - 40px) !important;
-  }
-
-  .search-bar-link {
-    border-color: #fff;
   }
   
   .icon {
