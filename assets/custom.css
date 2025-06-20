@@ -651,6 +651,7 @@
 
 .header__wrapper:hover {
   border: 1px solid;
+  background: #fff;
 }
 
 /* end of custom homepage sectionstyle */
