@@ -29,7 +29,7 @@ Supported variables
 </style>
 
 <div class="panel-list__wrapper">
-  <div class="panel">
+  <div class="panel 1">
     <div class="panel__wrapper" {% if mega_menu_block.settings.promo_content_layout == 'grid' or mega_menu_block.settings.promo_content_layout == 'collage' %}style="--panel-wrapper-justify-content: flex-start"{% endif %}>
       <div class="panel__scroller v-stack gap-8">
         {%- if is_mega_menu -%}
@@ -257,7 +257,7 @@ Supported variables
   {%- endif -%}
 
   {%- if link_level_3 != blank %}
-    <div class="panel">
+    <div class="panel 2">
       {{ link_level_3 }}
     </div>
   {%- endif -%}
