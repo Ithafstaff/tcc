@@ -949,9 +949,9 @@
     width: calc(48% - 1.5rem);
   }
 
-  .collection__results {
+  /* .collection__results {
     padding: 0 20px;
-  }
+  } */
 
   .location-btn__wrapper {
     display: grid;
