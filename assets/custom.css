@@ -358,7 +358,7 @@
 
 .custom-product__gallery-media-list {
   /* max-height: 608px; */
-  /* border: 1px solid; */
+  border: 1px solid;
 }
 
 .custom-product__info-title {
