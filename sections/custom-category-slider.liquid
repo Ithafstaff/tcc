@@ -117,21 +117,14 @@
       <li>
         <ul class="2">
           {% for sub_link in top_link.links %}
-          
               <li>
                 <strong>
                   {% if sub_link.type == 'collection_link' and sub_link.object %}
                     {{ sub_link.object.metafields.custom.name_of_collection }}
-                    
-                 
-  <img src="{{ sub_link.object.image | img_url: 'medium' }}" alt="{{ sub_link.object.title }}">
-
-
-                    
+                    <img src="{{ sub_link.object.image | img_url: 'medium' }}" alt="{{ sub_link.object.title }}">
                   {% endif %}
                 </strong>
               </li>
-           
           {% endfor %}
         </ul>
       </li>
