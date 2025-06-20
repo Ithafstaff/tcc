@@ -84,7 +84,7 @@
 .homepage-header .header__secondary-nav:hover summary.text-with-icon,
 .homepage-header .header__secondary-nav:hover button.text-with-icon {
   color: red !important;
-  fill: black !important;
+  fill: red !important;
   border-color: black !important;
 }
 
