@@ -657,8 +657,10 @@
     color: #000 !important;
   }
 
-  .search-bar-link {
+  .search-bar-link
+  .search-bar-link input {
     border-color: #000;
+    color: #000 !important;
   }
 
 }
