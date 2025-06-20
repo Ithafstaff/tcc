@@ -88,19 +88,11 @@
     <button
       id="edit-account"
       onclick="(function() {
-        const customer = {
-          'first_name' : {{ customer.first_name }},
-          'last_name' : {{ customer.last_name }},
-          'phone' : {{ customer.phone }},
-          'email' : {{ customer.email }}
-        };
-      
         document.getElementById('edit-account').style.display = 'none';
         document.getElementById('edit-account-btn-container').style.display = 'flex';
         
         document.querySelectorAll('.hidden-input').forEach(item => {
           item.style.display = 'flex';
-          item.setAttribute('value', customer[item.getAttribute('id')]);
         })
     
         document.querySelectorAll('.input-container').forEach(item => {
@@ -118,6 +110,13 @@
     <div id="edit-account-btn-container" style="display: none; justify-content: space-between; width: 100%; height: 60px; gap: 10px;">
       <button
         onclick="(function() {
+          const customer = {
+            'first_name' : {{ customer.first_name }},
+            'last_name' : {{ customer.last_name }},
+            'phone' : {{ customer.phone }},
+            'email' : {{ customer.email }}
+          };
+        
           document.getElementById('edit-account').style.display = 'flex';
           document.getElementById('edit-account-btn-container').style.display = 'none';
           
