@@ -32,7 +32,7 @@
     "custom_shipping_section_DaRzrX": {
       "type": "custom-shipping-section",
       "settings": {
-        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "heading": "FREE UPS SHIPPING ON ORDERS OVER $200",
         "subheading": "Get alerts about new items, sales, and more.",
         "button_text": "GET STARTED",
         "button_url": ""
