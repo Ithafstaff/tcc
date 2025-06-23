@@ -215,7 +215,7 @@
           "type": "button",
           "settings": {
             "text": "SHOP COLLECTION",
-            "url": "shopify://collections/table-cloth"
+            "url": "shopify://collections/tablecloth-main-category"
           }
         }
       },
@@ -285,7 +285,7 @@
           "type": "button",
           "settings": {
             "text": "SHOP COLLECTION",
-            "url": "shopify://collections/bedding"
+            "url": "shopify://collections/beddings-main-category"
           }
         }
       },
