@@ -1604,4 +1604,27 @@
     });
   });
 </script>
-  
+
+
+
+
+<script>
+  const menuItems = document.querySelectorAll('.profile__menu-item');
+  const sections = document.querySelectorAll('.profile__section');
+
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove 'show' from all sections
+      sections.forEach(section => section.classList.remove('show'));
+
+      // Get the target section ID (e.g., 'my-account' -> 'my-account-section')
+      const targetId = item.id + '-section';
+      const targetSection = document.getElementById(targetId);
+
+      // Add 'show' to the target section
+      if (targetSection) {
+        targetSection.classList.add('show');
+      }
+    });
+  });
+</script>
