@@ -446,104 +446,225 @@
       
       <section class="profile__my-order-section">
         <div class="profile__order-heading-wrap">
-        <h2 class="profile__order-heading">My Orders</h2>
-        <div class="profile__order-filer">
-          <select id="order-filter">
-            <option value="5-10">5–10 ITEMS</option>
-            <option value="10-20">10–20 ITEMS</option>
-            <option value="20-30">20–30 ITEMS</option>
-          </select>
+          <h2 class="profile__order-heading">Account</h2>
         </div>
-      </div>
         <div class="profile__order-container">
-        <div class="profile__order-cat-wrap">
-          <a href="#" class="profile__order-cat-link profile__order-cat-link--active" data-status="all">all</a>
-          <a href="#" class="profile__order-cat-link" data-status="pending">pending</a>
-          <a href="#" class="profile__order-cat-link" data-status="processing">processing</a>
-          <a href="#" class="profile__order-cat-link" data-status="shipped">shipped</a>
-          <a href="#" class="profile__order-cat-link" data-status="received">received</a>
-          <a href="#" class="profile__order-cat-link" data-status="cancelled">cancelled</a>
-          <a href="#" class="profile__order-cat-link" data-status="returned">returned</a>
-        </div>
-        <div class="profile__order-wrap">
-          {% assign orders = customer.orders %}
-          {% assign orders_per_page = 10 %}
-          {% assign total_pages = orders.size | divided_by: orders_per_page | ceil %}
-          {% assign current_page = 1 %}
+          <div class="profile__order-cat-wrap flex-start">
+            <a href="#" id="profile-tab" class="profile__order-cat-link profile__order-cat-link--active">PROFILE</a>
+            <a href="#" id="addresses-tab" class="profile__order-cat-link">ADDRESSES</a>
+            <a href="#" id="deletion-tab" class="profile__order-cat-link">ACCOUNT DELETION</a>
+          </div>
           
-          {% for order in orders limit: orders_per_page %}
-            <div class="profile__order-block" data-order-status="{{ order.financial_status }}">
-              <div class="profile__order-date-wrap">
-                <span class="profile__order-date">{{ order.created_at | date: "%B %d, %Y" }}</span>
-                <span class="profile__order-status">{{ order.financial_status }}: {{ order.fulfillment_status | default: 'unfulfilled' }}</span>
+          <div id="profile-section" class="profile__account-wrap" style="padding-bottom: 20px;">
+            <h3 class="profile__account-heading">Manage and protect your account</h3>
+            <div class="profile__account-info-wrap">
+              
+            {% if customer %}
+              <div class="profile__account-info-block">
+                <form class="profile__account-info-container" method="post" action="/account">
+                  <div class="profile__account-info-row row-flex">
+                    <div class="profile__account-row-block">
+                      <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
+                      <label for="first-name">First Name</label>
+                      <input type="text" id="first-name" name="customer[first_name]" value="{{ customer.first_name }}" placeholder="First Name">
+                    </div>
+                    <div class="profile__account-row-block">
+                      <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_2.svg?v=1746218281">
+                      <label for="last-name">Last Name</label>
+                      <input type="text" id="last-name" name="customer[last_name]" value="{{ customer.last_name }}" placeholder="Last Name">
+                    </div>
+                  </div>
+              
+                  <div class="profile__account-info-row">
+                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/Vector_3.svg?v=1746218281">
+                    <label for="dob">Date of Birth</label>
+                    <input type="text" id="dob" name="customer[note][dob]" value="{{ customer.note.dob }}" placeholder="MM/DD/YYYY">
+                  </div>
+              
+                  <div class="profile__account-info-row">
+                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/mdi-light_phone.svg?v=1746218281">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="customer[phone]" value="{{ customer.phone }}" placeholder="Phone Number">
+                  </div>
+              
+                  <div class="profile__account-info-row">
+                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/stash_person-light.svg?v=1746218418">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="customer[email]" value="{{ customer.email }}" placeholder="Email">
+                  </div>
+              
+                  <div class="profile__account-info-row">
+                    <img class="profile__account-info-icon" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/circum_lock.svg?v=1746218282">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="customer[password]" placeholder="New Password">
+                    <span id="togglePassword" class="toggle-eye"></span>
+                  </div>
+              
+                  <button class="profile__account-btn-submit" type="submit">Update Account Information</button>
+                </form>
               </div>
-              <ul class="profile__order-block-list">
-                {% for line_item in order.line_items %}
-                  <li class="profile__order-block-item">
-                    <div class="profile__order-img-wrap">
-                      <img 
-                        src="{{ line_item.image | img_url: '100x' }}" 
-                        alt="{{ line_item.title }}" 
-                        class="profile__order-img"
-                        width="100"
-                        height="100"
-                      >
-                    </div>
-                    <div class="profile__order-desc-wrap">
-                      <span class="profile__order-item-name">{{ line_item.title }}</span>
-                      <span class="profile__order-item-variant">{{ line_item.variant.title }}</span>
-                      <span class="profile__order-item-qty">{{ line_item.quantity }} {% if line_item.quantity == 1 %}piece{% else %}pieces{% endif %}</span>
-                      <span class="profile__order-item-price">{{ line_item.final_price | money }}</span>
-                      {% if line_item.properties.subscription_id %}
-                        <span class="profile__order-item-sub">Monthly Subscription</span>
-                      {% endif %}
-                    </div>
-                  </li>
-                {% endfor %}
-              </ul>
-              <div class="profile__order-button-container">
-                <div class="profile__order-button-wrap">
-                  {% if order.financial_status == 'pending' %}
-                    <a href="/pages/profile-confirm-order?order={{ order.id }}" class="profile__order-btn-link">pay now</a>
-                  {% endif %}
-                  {% if order.fulfillment_status == 'shipped' %}
-                    <a href="#" class="profile__order-btn-link">track order</a>
-                  {% endif %}
-                  {% if order.fulfillment_status == 'fulfilled' %}
-                    <a href="#" class="profile__order-btn-link">order again</a>
-                    <a href="#" class="profile__order-btn-link profile__order-btn-link--white">add review</a>
-                  {% endif %}
-                  <a href="#" class="profile__order-btn-link profile__order-btn-link--white">contact us</a>
-                </div>
-                <div class="profile__order-ttl-wrap">
-                  <span class="profile__order-ttl-txt">order total: </span>
-                  <span class="profile__order-ttl-price">{{ order.total_price | money }}</span>
-                </div>
+            {% endif %}
+  
+  
+              
+            <div class="profile__account-pic-block">
+              <div class="profile__account-pic-box">
+                <img class="profile__account-pic" src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/img_prof-pic_1.png?v=1746477596">
+              </div>
+              <label class="profile__account-input-label" for="imageInput">Select Image</label>
+              <input type="file" id="imageInput" class="profile__account-input-file" accept="image/*">
+              <span class="profile__account-input-note">File size: maximum 1MB<br>File extension: .JPEG, .PNG</span>
+            </div>
+              
+            </div>
+          </div>
+          
+                            <!-- ADDRESS SECTION -->
+          <!-- Add Address Button -->
+          <div id="addresses-section" class="profile__account-wrap hide" style="padding-top: 20px;">
+            <button onclick="document.getElementById('add-address-modal').style.display='flex'" style="padding: 20px 20px; background-color: #000; color: #fff; border: none; cursor: pointer; font-size: 16px; text-transform: uppercase;">
+              ADD NEW ADDRESS &nbsp;&nbsp;+
+            </button>
+            
+                    <!-- Address List -->
+            <ul style="list-style: none; padding: 0; margin-top: 30px;">
+              {% for address in customer.addresses %}
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid #ddd;">
+                  
+                  <!-- Left: Address Details -->
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <!-- Location Icon -->
+                    <svg style="width: 16px; height: 16px; fill: #000;" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                    </svg>
+                    <span style="font-size: 13px; font-family: 'Poppins', sans-serif; color: #000;">
+                      {{ address.address1 }},
+                      {% if address.address2 != blank %}{{ address.address2 }},{% endif %}
+                      {{ address.city }}, {{ address.province }}, {{ address.zip }}, {{ address.country }}
+                    </span>
+            
+                    {% if address == customer.default_address %}
+                      <span style="font-size: 10px; text-transform: uppercase; border: 1px solid #888; padding: 2px 6px; margin-left: 10px;">Default</span>
+                    {% endif %}
+                  </div>
+            
+                  <!-- Right: Action Buttons -->
+                  <div style="text-align: right;">
+                      <button 
+                        class="edit-address-button" 
+                        data-id="{{ address.id }}"
+                        data-address1="{{ address.address1 }}"
+                        data-address2="{{ address.address2 }}"
+                        data-city="{{ address.city }}"
+                        data-province="{{ address.province }}"
+                        data-zip="{{ address.zip }}"
+                        data-country="{{ address.country }}"
+                        data-default="{% if address.id == customer.default_address.id %}true{% else %}false{% endif %}"
+                        style="font-size: 11px; text-transform: uppercase; color: #000; display: block; margin-bottom: 4px; background: none; border: none; cursor: pointer;">
+                        Edit
+                      </button>
+  
+                    <form class="delete-address-form" method="post" action="/account/addresses/{{ address.id }}" style="margin: 0;">
+                      <input type="hidden" name="_method" value="delete">
+                      <button type="submit" style="font-size: 11px; text-transform: uppercase; color: #000; background: none; border: none; cursor: pointer;">Delete</button>
+                    </form>
+                  </div>
+            
+                </li>
+              {% endfor %}
+            </ul>
+    
+            
+            <!-- Modal Overlay -->
+            <div id="add-address-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 999;">
+              <div style="background: #fff; padding: 30px; max-width: 600px; width: 100%; box-sizing: border-box; position: relative;">
+            
+                <!-- Modal Heading -->
+                <h2 style="text-align: center; margin-top: 0; margin-bottom: 30px; font-family: 'Alata', sans-serif;">DELIVERY ADDRESS</h2>
+            
+                <!-- Form -->
+                <form id="add-address-form" accept-charset="UTF-8">
+                  <input type="hidden" name="form_type" value="customer_address">
+                  <input type="hidden" name="utf8" value="✓">
+                
+            
+                  <!-- Address -->
+                  <div style="margin-bottom: 20px;">
+                    <input type="text" name="address[address1]" placeholder="Street Address" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                  </div>
+            
+                  <!-- 2 Column Fields -->
+                  <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <input type="text" name="address[city]" placeholder="City" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                    <input type="text" name="address[province]" placeholder="State" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                  </div>
+            
+                  <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <input type="text" name="address[zip]" placeholder="ZIP Code" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                    <input type="text" name="address[country]" placeholder="Country" value="United States" style="background-color: #EBEBE4; flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;" disabled>
+                  </div>
+            
+                  <!-- Checkbox -->
+                  <label style="display: flex; align-items: center; margin-bottom: 20px; font-size: 13px;">
+                    <input type="checkbox" name="address[default]" value="1" style="margin-right: 10px; width: 16px; height: 16px; accent-color: #000000;"> 
+                    Set As Default Address
+                  </label>
+            
+                  <!-- Buttons -->
+                  <div style="display: flex; gap: 10px;">
+                    <button type="button" onclick="document.getElementById('add-address-modal').style.display='none'" style="flex: 1; padding: 14px; background: #fff; border: 1px solid #000; font-size: 13px; cursor: pointer;">CANCEL</button>
+                    <button type="submit" style="flex: 1; padding: 14px; background: #000; color: #fff; border: none; font-size: 13px; cursor: pointer;">SAVE</button>
+                  </div>
+                </form>
               </div>
             </div>
-          {% endfor %}
-
-          {% if total_pages > 1 %}
-            <div class="pagination">
-              <div class="pagination__container">
-                {% if current_page > 1 %}
-                  <a href="?page={{ current_page | minus: 1 }}" class="pagination__link">Previous</a>
-                {% endif %}
-                
-                {% for page in (1..total_pages) %}
-                  <a href="?page={{ page }}" class="pagination__link {% if page == current_page %}pagination__link--active{% endif %}">
-                    {{ page }}
-                  </a>
-                {% endfor %}
-                
-                {% if current_page < total_pages %}
-                  <a href="?page={{ current_page | plus: 1 }}" class="pagination__link">Next</a>
-                {% endif %}
+  
+            <div id="edit-address-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 999;">
+              <div style="background: #fff; padding: 30px; max-width: 600px; width: 100%; box-sizing: border-box; position: relative;">
+            
+                <h2 style="text-align: center; margin-top: 0; margin-bottom: 30px; font-family: 'Alata', sans-serif;">EDIT ADDRESS</h2>
+            
+                <form id="edit-address-form" method="post" accept-charset="UTF-8">
+                  <input type="hidden" name="_method" value="put">
+                  <input type="hidden" name="form_type" value="customer_address">
+                  <input type="hidden" name="utf8" value="✓">
+                  <input type="hidden" id="edit-address-id" name="id" value="">
+            
+                  <!-- Fields (same as Add Modal) -->
+                  <div style="margin-bottom: 20px;">
+                    <input type="text" name="address[address1]" id="edit-address1" placeholder="Street Address" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                  </div>
+                  <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <input type="text" name="address[city]" id="edit-city" placeholder="City" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                    <input type="text" name="address[province]" id="edit-province" placeholder="State" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                  </div>
+                  <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                    <input type="text" name="address[zip]" id="edit-zip" placeholder="ZIP Code" style="flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+                    <input type="text" name="address[country]" id="edit-country" placeholder="Country" style="background-color: #EBEBE4; flex: 1; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;" disabled>
+                  </div>
+                  <label style="display: flex; align-items: center; margin-bottom: 20px; font-size: 13px;">
+                    <input type="checkbox" name="address[default]" value="1" id="edit-default" style="margin-right: 10px; width: 16px; height: 16px; accent-color: #000000;"> 
+                    Set As Default Address
+                  </label>
+            
+                  <!-- Buttons -->
+                  <div style="display: flex; gap: 10px;">
+                    <button type="button" onclick="document.getElementById('edit-address-modal').style.display='none'" style="flex: 1; padding: 14px; background: #fff; border: 1px solid #000; font-size: 13px; cursor: pointer;">CANCEL</button>
+                    <button type="submit" style="flex: 1; padding: 14px; background: #000; color: #fff; border: none; font-size: 13px; cursor: pointer;">UPDATE</button>
+                  </div>
+                </form>
               </div>
             </div>
-          {% endif %}
+  
+                        
+          </div>
+                        
+  
+          <div id="deletion-section" class="profile__account-wrap hide">
+            <p>Request to delete your account will go here.</p>
+          </div>
+  
         </div>
-      </div>
       </section>
       
     </div>
