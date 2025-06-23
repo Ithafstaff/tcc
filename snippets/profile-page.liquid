@@ -694,6 +694,93 @@
             </div>
           </div>
         </div>
+        <!-- Quick Add Modal -->
+<div id="quick-add-modal" class="x:fixed x:inset-0 x:bg-black/50 x:z-50 x:hidden x:items-center x:justify-center">
+  <div class="x:bg-white x:p-10 x:rounded x:min-w-2xl x:relative x:overflow-y-auto">
+    <button
+      id="close-modal"
+      class="x:absolute x:top-4 x:right-4 x:text-black x:text-xl x:font-bold x:hover:text-gray-500"
+    >
+      &times;
+    </button>
+
+    <div class="x:flex x:flex-col x:gap-4">
+      <h3 id="modal-product-title" class="x:text-3xl x:font-medium"></h3>
+
+      <div class="x:flex x:flex-col x:gap-2">
+        <div class="x:flex x:items-center x:gap-3">
+          <div class="x:flex x:items-center x:gap-1">
+            <span>5.0</span>
+            <span class="x:flex x:items-center x:gap-1">
+              {% render 'icon', icon: 'rating-star' %}
+              {% render 'icon', icon: 'rating-star' %}
+              {% render 'icon', icon: 'rating-star' %}
+              {% render 'icon', icon: 'rating-star' %}
+              {% render 'icon', icon: 'rating-star' %}
+            </span>
+          </div>
+
+          <span>3 reviews</span>
+        </div>
+        <span
+          >Available for <span class="x:capitalize x:underline">pickup</span> and
+          <span class="x:capitalize x:underline">delivery</span></span
+        >
+      </div>
+
+      <hr>
+
+      <div class="x:flex x:flex-col x:gap-1">
+        <div class="x:flex x:items-center x:gap-1">
+          <span>Product Code: </span>
+          <span>4014</span>
+        </div>
+        <div class="x:flex x:items-center x:gap-1">
+          {% render 'icon', icon: 'map-pin' %}
+          <span class="x:underline">See It In Person</span>
+        </div>
+      </div>
+
+      <!-- Variant Swatches (placeholder) -->
+      <div style="display: flex; gap: 6px;" id="modal-swatches">
+        <!-- Swatches will be copied from product card -->
+      </div>
+
+      <hr>
+
+      <div class="x:flex x:flex-col x:gap-2" id="modal-variants">
+        {% comment %}Variants will be dynamically inserted here{% endcomment %}
+      </div>
+
+      <hr>
+
+      <div class="x:w-full x:flex x:justify-between">
+        <div class="x:flex x:items-center x:border x:border-gray-300 x:rounded x:w-24">
+          <button id="decrease-qty" class="x:px-2 x:py-1 x:text-lg x:font-medium">-</button>
+          <span id="modal-product-quantity" class="x:w-12 x:text-center x:py-1">1</span>
+          <button id="increase-qty" class="x:px-2 x:py-1 x:text-lg x:font-medium">+</button>
+        </div>
+    
+        <p id="modal-product-price" class="x:text-lg x:font-medium"></p>
+      </div>
+
+      <div class="x:flex x:flex-col x:gap-2 x:mt-4">
+        <button id="modal-add-to-cart" class="profile-sub__order-btn-link x:w-full">ADD TO CART</button>
+        <div class="x:flex x:gap-2">
+          <button
+            id="modal-add-to-wishlist"
+            class="profile-sub__order-btn-link profile-sub__order-btn-link--white x:w-full"
+          >
+            ADD TO WISHLIST
+          </button>
+          <button id="modal-subscribe" class="profile-sub__order-btn-link profile-sub__order-btn-link--white x:w-full">
+            SUBSCRIBE AND SAVE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       </section>
                         
       <section class="profile__my-order-section">
