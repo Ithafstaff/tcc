@@ -781,6 +781,753 @@
             </div>
           </div>
         </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll(".profile-sub__order-cat-link");
+            
+            // Render wishlist items
+            renderWishlistItems();
+            
+            // Listen for wishlist updates
+            document.addEventListener('wishlist:updated', function(event) {
+              renderWishlistItems();
+            });
+        
+            // Modal elements
+            const modal = document.getElementById('quick-add-modal');
+            const closeModal = document.getElementById('close-modal');
+            const modalTitle = document.getElementById('modal-product-title');
+            
+            let currentProduct = null;
+        
+            // Ensure modal is hidden initially
+            if (modal) {
+              modal.style.display = 'none';
+              modal.classList.remove('x:flex');
+              modal.classList.add('x:hidden');
+            }
+            
+            // Close modal when clicking the close button or outside the modal
+            if (closeModal) {
+              closeModal.addEventListener('click', () => {
+                modal.classList.remove('x:flex');
+                modal.classList.add('x:hidden');
+                modal.style.display = 'none';
+              });
+            }
+            
+            modal.addEventListener('click', (e) => {
+              if (e.target === modal) {
+                modal.classList.remove('x:flex');
+                modal.classList.add('x:hidden');
+                modal.style.display = 'none';
+              }
+            });
+        
+            // Add click event listeners to cart icons
+            function addCartIconListeners() {
+              document.querySelectorAll('.cart-icon').forEach(icon => {
+                icon.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  const productId = this.getAttribute('data-product-id');
+                  const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+                  const product = wishlist.find(item => item.id === productId);
+                  
+                  if (product) {
+                    openProductModal(product);
+                  }
+                });
+              });
+            }
+            
+            function openProductModal(product) {
+              console.log('openProductModal called with:', product);
+              if (!modal || !modalTitle) {
+                console.error('Modal elements not found:', { modal, modalTitle });
+                return;
+              }
+              
+              currentProduct = product;
+              
+              // Set basic content
+              modalTitle.textContent = product.title;
+              
+              // Set price
+              const modalPrice = document.getElementById('modal-product-price');
+              if (modalPrice) {
+                modalPrice.textContent = typeof product.price === 'number' ? 
+                  `$${(product.price / 100).toFixed(2)}` : 
+                  "$" + product.price;
+              }
+        
+              // Set variants
+              const modalVariants = document.getElementById('modal-variants');
+              if (modalVariants && product.variants) {
+                let variantsHtml = '';
+                
+                // Group variants by option name (e.g., "Size", "Color", etc.)
+                const variantGroups = {};
+                product.variants.forEach(variant => {
+                  if (variant.option2) {
+                    if (!variantGroups[variant.option2_name || 'Color']) {
+                      variantGroups[variant.option2_name || 'Color'] = new Set();
+                    }
+                    variantGroups[variant.option2_name || 'Color'].add(variant.option2);
+                  }
+                  if (variant.option3) {
+                    if (!variantGroups[variant.option3_name || 'Material']) {
+                      variantGroups[variant.option3_name || 'Material'] = new Set();
+                    }
+                    variantGroups[variant.option3_name || 'Material'].add(variant.option3);
+                  }
+                });
+        
+                // Create HTML for each variant group
+                Object.entries(variantGroups).forEach(([groupName, values]) => {
+                  variantsHtml += `
+                    <div class="x:flex x:flex-col x:gap-2">
+                      <span class="x:text-lg x:font-medium">${groupName}</span>
+                      <div class="x:flex x:flex-col x:flex-wrap x:gap-2">
+                        ${Array.from(values).map(value => `
+                          <div class="x:flex x:items-center x:gap-2">
+                            <input
+                              type="checkbox"
+                              class="variant-option x:h-5 x:w-5 x:appearance-none x:border x:border-gray-300 x:rounded x:checked:bg-black x:checked:border-black x:bg-center x:bg-no-repeat x:checked:bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M12.207%204.793a1%201%200%20010%201.414l-5%205a1%201%200%2001-1.414%200l-2-2a1%201%200%20011.414-1.414L6.5%209.086l4.293-4.293a1%201%200%20011.414%200z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E')]"
+                              data-option-name="${groupName}"
+                              data-option-value="${value}"
+                            >
+                            <label class="x:text-base">${value}</label>
+                          </div>
+                        `).join('')}
+                      </div>
+                    </div>
+                  `;
+                });
+        
+                modalVariants.innerHTML = variantsHtml;
+        
+                // Add event listeners to variant checkboxes
+                modalVariants.querySelectorAll('.variant-option').forEach(checkbox => {
+                  checkbox.addEventListener('change', function() {
+        
+                    // Uncheck other checkboxes in the same group
+                    const groupCheckboxes = modalVariants.querySelectorAll(`input[data-option-name="${this.dataset.optionName}"]`);
+                    groupCheckboxes.forEach(cb => {
+                      if (cb !== this) cb.checked = false;
+                    });
+        
+                    // Update selected variant and price
+                    updateSelectedVariant();
+                  });
+                });
+              }
+        
+              // Copy swatches from product card
+              const productCard = document.querySelector(`[data-product-id="${product.id}"]`).closest('[style*="width: 250px"]');
+              const productSwatches = productCard.querySelector('.variant-picker__option-values');
+              const modalSwatches = document.getElementById('modal-swatches');
+              if (productSwatches && modalSwatches) {
+                modalSwatches.innerHTML = productSwatches.innerHTML;
+                
+                // Add event listeners to modal swatches
+                modalSwatches.querySelectorAll('.variant-picker__option-value').forEach(swatch => {
+                  swatch.addEventListener('click', function() {
+                    selectSwatch(this);
+                  });
+                  swatch.addEventListener('mouseover', function() {
+                    hoverSwatch(this);
+                  });
+                  swatch.addEventListener('mouseout', function() {
+                    unhoverSwatch(this);
+                  });
+                });
+              }
+        
+              // Update quantity buttons
+              const decreaseQty = document.getElementById('decrease-qty');
+              const increaseQty = document.getElementById('increase-qty');
+              const quantityDisplay = document.getElementById('modal-product-quantity');
+              
+              if (decreaseQty && increaseQty && quantityDisplay) {
+                decreaseQty.onclick = () => {
+                  const currentQty = parseInt(quantityDisplay.textContent);
+                  if (currentQty > 1) {
+                    quantityDisplay.textContent = currentQty - 1;
+                  }
+                };
+                
+                increaseQty.onclick = () => {
+                  const currentQty = parseInt(quantityDisplay.textContent);
+                  quantityDisplay.textContent = currentQty + 1;
+                };
+              }
+        
+              // Update add to cart button
+              const addToCartBtn = document.getElementById('modal-add-to-cart');
+              if (addToCartBtn) {
+                // Set data attributes for the product
+                addToCartBtn.setAttribute('data-product-id', product.id);
+                addToCartBtn.setAttribute('data-product-title', product.title);
+                addToCartBtn.setAttribute('data-product-image', product.image);
+                addToCartBtn.setAttribute('data-product-price', typeof product.price === 'number' ? 
+                  `$${(product.price / 100).toFixed(2)}` : 
+                  "$" + product.price);
+                addToCartBtn.setAttribute('data-product-type', product.type || '');
+                addToCartBtn.setAttribute('data-product-handle', product.handle || '');
+                addToCartBtn.setAttribute('data-product-variants', JSON.stringify(product.variants || []));
+                addToCartBtn.setAttribute('data-product-options', JSON.stringify(product.options_with_values || []));
+        
+                addToCartBtn.onclick = () => {
+                  const quantity = parseInt(document.getElementById('modal-product-quantity').textContent);
+                  const selectedVariant = getSelectedVariant();
+                  if (selectedVariant) {
+                    // Add to cart functionality
+                    let formData = {
+                      'items': [{
+                        'id': selectedVariant.id,
+                        'quantity': quantity
+                      }]
+                    };
+                    
+                    // First, prepare the sections for bundling
+                    document.documentElement.dispatchEvent(new CustomEvent('cart:prepare-bundled-sections', {
+                      bubbles: true,
+                      detail: {
+                        sections: ['cart-drawer']
+                      }
+                    }));
+                    
+                    fetch('/cart/add.js', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      // Get updated cart data
+                      return fetch('/cart.js')
+                        .then(response => response.json())
+                        .then(cart => {
+                          // Get the sections HTML
+                          return fetch(`/?sections=cart-drawer`)
+                            .then(response => response.json())
+                            .then(sections => {
+                              // Add sections data to cart
+                              cart.sections = sections;
+                              
+                              // Dispatch cart:change event with the updated cart data
+                              document.documentElement.dispatchEvent(new CustomEvent('cart:change', {
+                                bubbles: true,
+                                detail: {
+                                  baseEvent: 'variant:add',
+                                  cart: cart
+                                }
+                              }));
+        
+                              // Show cart drawer
+                              const drawer = document.querySelector('cart-drawer');
+                              if (drawer) {
+                                // Update the drawer's content
+                                const drawerContent = drawer.querySelector('.cart-drawer__content');
+                                if (drawerContent && sections['cart-drawer']) {
+                                  drawerContent.innerHTML = sections['cart-drawer'];
+                                }
+        
+                                // Show the drawer
+                                drawer.style.display = 'block';
+                                // Force a reflow
+                                drawer.offsetHeight;
+                                drawer.classList.remove('x:-translate-y-full');
+                                drawer.classList.add('x:translate-y-0');
+        
+                                // Update cart count if it exists
+                                const cartCount = document.querySelector('.cart-count-bubble');
+                                if (cartCount) {
+                                  cartCount.textContent = cart.item_count;
+                                }
+                              }
+        
+                              // Close the modal
+                              modal.classList.remove('x:flex');
+                              modal.classList.add('x:hidden');
+                              modal.style.display = 'none';
+                            });
+                        });
+                    })
+                    .catch((error) => {
+                      console.error('Error:', error);
+                      alert('Error adding item to cart');
+                    });
+                  }
+                };
+              }
+        
+              // Update wishlist button
+              const wishlistBtn = document.getElementById('modal-add-to-wishlist');
+              if (wishlistBtn) {
+                wishlistBtn.textContent = 'REMOVE FROM WISHLIST';
+                wishlistBtn.onclick = () => {
+                  removeFromWishlist(product.id);
+                  modal.classList.remove('x:flex');
+                  modal.classList.add('x:hidden');
+                  modal.style.display = 'none';
+                };
+              }
+        
+              // Update subscribe button
+              const subscribeBtn = document.getElementById('modal-subscribe');
+              if (subscribeBtn) {
+                subscribeBtn.onclick = () => {
+                  // Add subscription logic here
+                  alert('Subscription feature coming soon!');
+                };
+              }
+        
+              // Show modal
+              modal.classList.remove('x:hidden');
+              modal.classList.add('x:flex');
+              modal.style.display = 'flex';
+            }
+        
+            function getSelectedVariant() {
+              if (!currentProduct || !currentProduct.variants) return null;
+        
+              const selectedOptions = {};
+              document.querySelectorAll('.variant-option.x\\:bg-black').forEach(checkbox => {
+                selectedOptions[checkbox.dataset.optionName] = checkbox.dataset.optionValue;
+              });
+        
+              return currentProduct.variants.find(variant => {
+                return (!selectedOptions[variant.option1_name] || variant.option1 === selectedOptions[variant.option1_name]) &&
+                       (!selectedOptions[variant.option2_name] || variant.option2 === selectedOptions[variant.option2_name]) &&
+                       (!selectedOptions[variant.option3_name] || variant.option3 === selectedOptions[variant.option3_name]);
+              });
+            }
+        
+            function updateSelectedVariant() {
+              const selectedVariant = getSelectedVariant();
+              if (selectedVariant) {
+                const modalPrice = document.getElementById('modal-product-price');
+                if (modalPrice) {
+                  modalPrice.textContent = typeof selectedVariant.price === 'number' ? 
+                    `$${selectedVariant.price.toFixed(2)}` : selectedVariant.price;
+                }
+              }
+            }
+            
+            function createProductCard(item) {
+              const cardElement = document.createElement('div');
+              cardElement.style = "width: 250px; height: 453px; background: #fff; display: flex; flex-direction: column; gap: 10px; box-sizing: border-box; cursor: pointer;";
+              console.log('Creating card for item:', item);
+              
+              // Add click handler for the entire card
+              cardElement.addEventListener('click', function(e) {
+                console.log('Card clicked:', e.target);
+                // Stop event propagation for specific elements
+                if (e.target.closest('.swatch') || 
+                    e.target.closest('img[src*="heart"]') || 
+                    e.target.closest('.cart-icon')) {
+                  e.stopPropagation();
+                  return;
+                }
+                
+                // Open modal for all other clicks
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Opening modal for item:', item);
+                openProductModal(item);
+              });
+        
+              // Format price if available
+              let formattedPrice = '';
+              if (item.price) {
+                formattedPrice = typeof item.price === 'number' ? 
+                  `$${(item.price / 100).toFixed(2)}` : 
+                  item.price;
+              } else if (item.priceText) {
+                formattedPrice = item.priceText;
+              } else if (item.compare_at_price) {
+                formattedPrice = typeof item.compare_at_price === 'number' ? 
+                  `$${(item.compare_at_price / 100).toFixed(2)}` : 
+                  item.compare_at_price;
+              } else {
+                formattedPrice = '$5.99'; // Default placeholder price
+              }
+        
+              // Generate swatches HTML from variants
+              let swatchesHtml = '';
+              if (item.variants && item.variants.length > 0) {
+                // Get all variants with their options
+                const variants = item.variants.map(variant => {
+                  const options = {};
+                  if (variant.option1) options[variant.option1_name || 'Option 1'] = variant.option1;
+                  if (variant.option2) options[variant.option2_name || 'Option 2'] = variant.option2;
+                  if (variant.option3) options[variant.option3_name || 'Option 3'] = variant.option3;
+                  return { ...variant, options };
+                });
+        
+                // Group variants by their first option (usually color)
+                const groupedVariants = variants.reduce((acc, variant) => {
+                  const firstOption = Object.values(variant.options)[0];
+                  if (!acc[firstOption]) {
+                    acc[firstOption] = [];
+                  }
+                  acc[firstOption].push(variant);
+                  return acc;
+                }, {});
+        
+                // Create swatches for each group
+                swatchesHtml = Object.entries(groupedVariants).map(([optionValue, variants], index) => {
+                  const firstVariant = variants[0];
+                  // Get the variant image using featured_media
+                  const variantImage = firstVariant.featured_media?.src || firstVariant.featured_image?.src || item.featured_media?.src || item.image;
+                  return `
+                    <div 
+                      class="variant-picker__option-value variant-picker__option-value--swatch"
+                      style="width: 25px; height: 25px; background-color: ${optionValue}; position: relative; cursor: pointer;"
+                      onclick="selectSwatch(this)"
+                      onmouseover="hoverSwatch(this)"
+                      onmouseout="unhoverSwatch(this)"
+                      data-variant-id="${firstVariant.id}"
+                      data-variants='${JSON.stringify(variants)}'
+                      data-selected="${index === 0 ? 'true' : 'false'}"
+                      data-image="${variantImage}"
+                      title="${optionValue}"
+                    >
+                      <input 
+                        type="radio" 
+                        class="sr-only" 
+                        name="option-${item.id}" 
+                        value="${optionValue}"
+                        ${index === 0 ? 'checked' : ''}
+                      >
+                      <span class="variant-picker__option-value__label">
+                        <span class="variant-picker__option-value__swatch" style="background-color: ${optionValue};"></span>
+                      </span>
+                      <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -6px; left: 0; width: 100%; height: 2px; background-color: ${optionValue}; opacity: 0; transition: opacity 0.2s ease;"></span>
+                    </div>
+                  `;
+                }).join('');
+        
+                // Add default swatch if no variants
+                if (!swatchesHtml) {
+                  swatchesHtml = `
+                    <div 
+                      class="variant-picker__option-value variant-picker__option-value--swatch"
+                      style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
+                      onclick="selectSwatch(this)"
+                      data-selected="true"
+                    >
+                      <input 
+                        type="radio" 
+                        class="sr-only" 
+                        name="option-${item.id}" 
+                        value="default"
+                        checked
+                      >
+                      <span class="variant-picker__option-value__label">
+                        <span class="variant-picker__option-value__swatch" style="background-color: #d1bb9f;"></span>
+                      </span>
+                      <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: #d1bb9f; opacity: 1;"></span>
+                    </div>
+                  `;
+                }
+              }
+              
+              const title = item.title || 'Untitled Product';
+              console.log('Creating card for item:', item);
+              
+              cardElement.innerHTML = `
+                <!-- Image (250x250) with Heart -->
+                <div style="width: 100%; height: 250px; overflow: hidden; position: relative; cursor: pointer;" onclick="openProductModal(${JSON.stringify(item)})">
+                  <img 
+                    src="${item.image || '{{ "test_img1.png" | asset_url }}'}" 
+                    alt="${title}" 
+                    class="product-image"
+                    style="width: 100%; height: 100%; object-fit: cover; image-rendering: auto; transition: opacity 0.3s ease;" 
+                    width="250" 
+                    height="250"
+                  />
+                  <!-- Heart Icon (active) -->
+                  <img 
+                    src="{{ 'heart_black.png' | asset_url }}" 
+                    alt="Remove from Wishlist" 
+                    style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
+                    onclick="removeFromWishlist('${item.id}')"
+                    width="16"
+                    height="16"
+                  />
+                </div>
+              
+                <!-- Variant Swatches -->
+                <div class="variant-picker__option-values wrap gap-2" style="display: flex; gap: 6px;">
+                  ${swatchesHtml || `
+                    <div 
+                      class="variant-picker__option-value variant-picker__option-value--swatch x:m-1"
+                      style="width: 25px; height: 25px; background-color: #d1bb9f; position: relative; cursor: pointer;"
+                      onclick="selectSwatch(this)"
+                      data-selected="true"
+                    >
+                      <input 
+                        type="radio"
+                        class="sr-only"
+                        name="option-${item.id}"
+                        value="default"
+                        checked
+                      >
+                      <span class="variant-picker__option-value__label">
+                        <span class="variant-picker__option-value__swatch" style="background-color: #d1bb9f;"></span>
+                      </span>
+                      <span class="variant-picker__option-value__underline" style="position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: #d1bb9f; opacity: 1;"></span>
+                    </div>
+                  `}
+                </div>
+              
+                <!-- Category and Cart -->
+                <div class="x:flex x:flex-col x:gap-1">
+                  <div class="x:text-base x:flex x:justify-between x:items-center x:uppercase">
+                    <span class="product-title" style="cursor: pointer;" onclick="openProductModal(${JSON.stringify(item)})">${title}</span>
+                    <span class="cart-icon x:hover:scale-110 x:cursor-pointer x:transition-all x:duration-300" data-product-id="${item.id}">
+                      {% render 'icon', icon: 'shop-cart' %}
+                    </span>
+                  </div>
+                  
+                  <!-- Price -->
+                  <span class="x:text-base product-price">$${formattedPrice}</span>
+                  
+                  <!-- Certifications -->
+                  {% render 'icon', icon: 'certificate' %}
+                </div>
+              `;
+              // Trigger hoverSwatch for the default selected swatch after rendering
+        setTimeout(() => {
+          const defaultSwatch = cardElement.querySelector('.variant-picker__option-value[data-selected="true"]');
+          if (defaultSwatch) hoverSwatch(defaultSwatch);
+        }, 0);
+        
+              return cardElement;
+            }
+            
+            function renderWishlistItems() {
+              const wishlistContainer = document.getElementById('wishlist-container');
+              const emptyWishlistMessage = document.getElementById('empty-wishlist-message');
+              
+              if (!wishlistContainer) {
+                console.error('Wishlist container not found');
+                return;
+              }
+              
+              // Get wishlist from localStorage
+              const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+              console.log('Current wishlist:', wishlist);
+              
+              // Clear existing items
+              wishlistContainer.innerHTML = '';
+              
+              // Show empty message if wishlist is empty
+              if (wishlist.length === 0) {
+                if (emptyWishlistMessage) {
+                  emptyWishlistMessage.style.display = 'block';
+                  wishlistContainer.appendChild(emptyWishlistMessage);
+                }
+                return;
+              }
+              
+              // Add items to container
+              wishlist.forEach(item => {
+                const productCard = createProductCard(item);
+                wishlistContainer.appendChild(productCard);
+              });
+        
+              // Add event listeners to cart icons after rendering
+              addCartIconListeners();
+            }
+            
+            // Make functions available globally
+            window.openProductModal = openProductModal;
+            window.removeFromWishlist = removeFromWishlist;
+            window.selectSwatch = selectSwatch;
+          });
+        
+          function hoverSwatch(el) {
+            const productCard = el.closest('[style*="width: 250px"]');
+            const productImage = productCard.querySelector('.product-image');
+            const variantImage = el.dataset.image;
+          
+            // Remove all underlines
+            productCard.querySelectorAll('.variant-picker__option-value__underline').forEach(underline => {
+              underline.style.opacity = '0';
+            });
+          
+            // Update image on hover
+            if (productImage && variantImage && productImage.src !== variantImage) {
+              productImage.style.opacity = '0.7';
+              setTimeout(() => {
+                productImage.src = variantImage;
+                productImage.style.opacity = '1';
+              }, 150);
+            }
+          
+            // Show underline for hovered swatch
+            const underline = el.querySelector('.variant-picker__option-value__underline');
+            if (underline) {
+              underline.style.opacity = '1';
+            }
+          }
+          
+          function unhoverSwatch(el) {
+            const productCard = el.closest('[style*="width: 250px"]');
+            const productImage = productCard.querySelector('.product-image');
+            const selectedSwatch = productCard.querySelector('.variant-picker__option-value[data-selected="true"]');
+          
+            // Hide underline of currently unhovered swatch
+            const underline = el.querySelector('.variant-picker__option-value__underline');
+            if (underline) {
+              underline.style.opacity = '0';
+            }
+          
+            // Restore underline to selected swatch
+            if (selectedSwatch && selectedSwatch !== el) {
+              const selectedUnderline = selectedSwatch.querySelector('.variant-picker__option-value__underline');
+              if (selectedUnderline) {
+                selectedUnderline.style.opacity = '1';
+              }
+          
+              // Also reset image to selected
+              const selectedImage = selectedSwatch.dataset.image;
+              if (productImage && selectedImage) {
+                productImage.style.opacity = '0.7';
+                setTimeout(() => {
+                  productImage.src = selectedImage;
+                  productImage.style.opacity = '1';
+                }, 150);
+              }
+            }
+          }
+        
+          function selectSwatch(el) {
+            const container = el.parentElement;
+            const variantId = el.dataset.variantId;
+            const variants = JSON.parse(el.dataset.variants || '[]');
+        
+            // Remove selected state from all swatches
+            container.querySelectorAll('.variant-picker__option-value').forEach(swatch => {
+              swatch.removeAttribute('data-selected');
+              swatch.classList.remove('is-selected');
+              const radio = swatch.querySelector('input[type="radio"]');
+              if (radio) radio.checked = false;
+              
+              // Hide underline
+              const underline = swatch.querySelector('.variant-picker__option-value__underline');
+              if (underline) {
+                underline.style.opacity = '0';
+              }
+            });
+        
+            // Set selected state
+            el.setAttribute('data-selected', 'true');
+            el.classList.add('is-selected');
+            const radio = el.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+        
+            // Show underline for selected swatch
+            const underline = el.querySelector('.variant-picker__option-value__underline');
+            if (underline) {
+              underline.style.opacity = '1';
+            }
+        
+            // Update image
+            const productCard = el.closest('[style*="width: 250px"]');
+            const productImage = productCard.querySelector('.product-image');
+            const variantImage = el.dataset.image;
+            
+            if (productImage && variantImage) {
+              productImage.style.opacity = '0.7';
+              setTimeout(() => {
+                productImage.src = variantImage;
+                productImage.style.opacity = '1';
+              }, 150);
+            }
+        
+            // Update price if variant has different price
+            if (variants.length > 0) {
+              const priceElement = productCard.querySelector('.product-price');
+              
+              if (priceElement) {
+                const selectedVariant = variants[0]; // Use first variant of the group
+                if (selectedVariant && selectedVariant.price) {
+                  // Convert price to proper format (divide by 100 if it's in cents)
+                  const price = typeof selectedVariant.price === 'number' ? 
+                    (selectedVariant.price / 100).toFixed(2) : 
+                    selectedVariant.price;
+                  priceElement.textContent = `$${price}`;
+                }
+              }
+            }
+          }
+          
+          function removeFromWishlist(productId) {
+            // Get current wishlist
+            let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+            
+            // Find and remove the product
+            const index = wishlist.findIndex(item => item.id === productId);
+            if (index !== -1) {
+              wishlist.splice(index, 1);
+              
+              // Save updated wishlist
+              localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
+              
+              // Re-render wishlist
+              renderWishlistItems();
+              
+              // Notify
+              alert('Item removed from wishlist');
+            }
+          }
+          
+          function addToCart(productId, quantity = 1) {
+            // Add to cart functionality
+            let formData = {
+              'items': [{
+                'id': productId,
+                'quantity': quantity
+              }]
+            };
+            
+            fetch('/cart/add.js', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+              alert('Item added to cart!');
+              // Optionally refresh cart drawer or redirect
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+              alert('Error adding item to cart');
+            });
+          }
+        
+          // Auto-select first swatch for each card on load
+          window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.swatch[data-selected="true"]').forEach(el => {
+              selectSwatch(el);
+            });
+          });
+        
+          document.querySelectorAll('.variant-picker__option-value[data-selected="true"]').forEach(swatch => {
+          hoverSwatch(swatch);
+        });
+        
+        </script>
       </section>
                         
       <section class="profile__my-order-section">
