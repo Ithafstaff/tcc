@@ -279,8 +279,6 @@
         <div class="custom-multi-col__item-img-box">
           <img class="custom-multi-col__item-img" src="{{ product.featured_image | img_url: 'medium' }}" width="100%" loading="lazy" />
         </div>
-
-
     
         {% assign color_option_index = -1 %}
         
@@ -305,10 +303,6 @@
           </div>
         {% endif %}
      
-
-
-        
-
         <h3 class="custom-multi-col__item-name">{{ product.title }}</h3>
         <p class="custom-multi-col__item-desc">{{ product.description | strip_html | truncatewords: 10 }}</p>
         <span class="custom-multi-col__item-price">
@@ -319,8 +313,6 @@
     {% endfor %}
 
 </div>
-
-
   
   {% endfor %}
 </div>
