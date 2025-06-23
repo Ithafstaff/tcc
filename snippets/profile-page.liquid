@@ -669,7 +669,31 @@
 
 
       <section class="profile__my-order-section">
-        
+        <div class="profile-sub__order-heading-wrap">
+          <h2 class="profile-sub__order-heading">My Wishlist</h2>
+          <div class="profile-sub__order-filer">
+            <select>
+              <option>5–10 ITEMS</option>
+              <option>10–20 ITEMS</option>
+              <option>20–30 ITEMS</option>
+            </select>
+          </div>
+        </div>
+  
+        <div class="profile-sub__order-container" style="padding-top: 20px; padding-bottom: 20px;">
+          <div id="wishlist-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+            <!-- Wishlist items will be dynamically inserted here -->
+            <div
+              id="empty-wishlist-message"
+              style="grid-column: span 4; text-align: center; padding: 50px 0; display: none;"
+            >
+              <p style="font-size: 16px;">Your wishlist is empty.</p>
+              <a href="/collections/all" class="profile-sub__order-btn-link" style="margin: 20px auto;"
+                >BROWSE PRODUCTS</a
+              >
+            </div>
+          </div>
+        </div>
       </section>
                         
       <section class="profile__my-order-section">
