@@ -257,16 +257,16 @@
 
        
         {{ block.settings.id_col-desc | newline_to_br }}
-        <div class="custom-multi-col__swatch-wrap">
+        <!-- <div class="custom-multi-col__swatch-wrap">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           <p>+ more</p>
-        </div>
+        </div> -->
         
-        <a class="custom-multi-col__button" href="{{ block.settings.id_link }}">SHOP {{ block.settings.id_link.title | upcase }}</a>
+        <a class="custom-multi-col__button" href="{{ block.settings.id_link }}">SHOP {{ block.settings.id_link.metafields.custom.name_of_collection | upcase }}</a>
      </div>
     </div>
   
