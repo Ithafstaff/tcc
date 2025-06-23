@@ -443,6 +443,109 @@
         </div>
       </div>
       </section>
+      
+      <section class="profile__my-order-section">
+        <div class="profile__order-heading-wrap">
+        <h2 class="profile__order-heading">My Orders</h2>
+        <div class="profile__order-filer">
+          <select id="order-filter">
+            <option value="5-10">5–10 ITEMS</option>
+            <option value="10-20">10–20 ITEMS</option>
+            <option value="20-30">20–30 ITEMS</option>
+          </select>
+        </div>
+      </div>
+        <div class="profile__order-container">
+        <div class="profile__order-cat-wrap">
+          <a href="#" class="profile__order-cat-link profile__order-cat-link--active" data-status="all">all</a>
+          <a href="#" class="profile__order-cat-link" data-status="pending">pending</a>
+          <a href="#" class="profile__order-cat-link" data-status="processing">processing</a>
+          <a href="#" class="profile__order-cat-link" data-status="shipped">shipped</a>
+          <a href="#" class="profile__order-cat-link" data-status="received">received</a>
+          <a href="#" class="profile__order-cat-link" data-status="cancelled">cancelled</a>
+          <a href="#" class="profile__order-cat-link" data-status="returned">returned</a>
+        </div>
+        <div class="profile__order-wrap">
+          {% assign orders = customer.orders %}
+          {% assign orders_per_page = 10 %}
+          {% assign total_pages = orders.size | divided_by: orders_per_page | ceil %}
+          {% assign current_page = 1 %}
+          
+          {% for order in orders limit: orders_per_page %}
+            <div class="profile__order-block" data-order-status="{{ order.financial_status }}">
+              <div class="profile__order-date-wrap">
+                <span class="profile__order-date">{{ order.created_at | date: "%B %d, %Y" }}</span>
+                <span class="profile__order-status">{{ order.financial_status }}: {{ order.fulfillment_status | default: 'unfulfilled' }}</span>
+              </div>
+              <ul class="profile__order-block-list">
+                {% for line_item in order.line_items %}
+                  <li class="profile__order-block-item">
+                    <div class="profile__order-img-wrap">
+                      <img 
+                        src="{{ line_item.image | img_url: '100x' }}" 
+                        alt="{{ line_item.title }}" 
+                        class="profile__order-img"
+                        width="100"
+                        height="100"
+                      >
+                    </div>
+                    <div class="profile__order-desc-wrap">
+                      <span class="profile__order-item-name">{{ line_item.title }}</span>
+                      <span class="profile__order-item-variant">{{ line_item.variant.title }}</span>
+                      <span class="profile__order-item-qty">{{ line_item.quantity }} {% if line_item.quantity == 1 %}piece{% else %}pieces{% endif %}</span>
+                      <span class="profile__order-item-price">{{ line_item.final_price | money }}</span>
+                      {% if line_item.properties.subscription_id %}
+                        <span class="profile__order-item-sub">Monthly Subscription</span>
+                      {% endif %}
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+              <div class="profile__order-button-container">
+                <div class="profile__order-button-wrap">
+                  {% if order.financial_status == 'pending' %}
+                    <a href="/pages/profile-confirm-order?order={{ order.id }}" class="profile__order-btn-link">pay now</a>
+                  {% endif %}
+                  {% if order.fulfillment_status == 'shipped' %}
+                    <a href="#" class="profile__order-btn-link">track order</a>
+                  {% endif %}
+                  {% if order.fulfillment_status == 'fulfilled' %}
+                    <a href="#" class="profile__order-btn-link">order again</a>
+                    <a href="#" class="profile__order-btn-link profile__order-btn-link--white">add review</a>
+                  {% endif %}
+                  <a href="#" class="profile__order-btn-link profile__order-btn-link--white">contact us</a>
+                </div>
+                <div class="profile__order-ttl-wrap">
+                  <span class="profile__order-ttl-txt">order total: </span>
+                  <span class="profile__order-ttl-price">{{ order.total_price | money }}</span>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+          {% if total_pages > 1 %}
+            <div class="pagination">
+              <div class="pagination__container">
+                {% if current_page > 1 %}
+                  <a href="?page={{ current_page | minus: 1 }}" class="pagination__link">Previous</a>
+                {% endif %}
+                
+                {% for page in (1..total_pages) %}
+                  <a href="?page={{ page }}" class="pagination__link {% if page == current_page %}pagination__link--active{% endif %}">
+                    {{ page }}
+                  </a>
+                {% endfor %}
+                
+                {% if current_page < total_pages %}
+                  <a href="?page={{ current_page | plus: 1 }}" class="pagination__link">Next</a>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      </section>
+      
     </div>
   </div>
 </div>
