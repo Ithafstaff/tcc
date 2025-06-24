@@ -160,11 +160,7 @@
   }
 }
 
-.custom-header__text {
-  font-weight: 400 !important;
-}
-
-.custom-header__text  svg {
+.custom-header__text svg {
   display: none;
 }
   
@@ -304,7 +300,7 @@
                           trigger="{{ section.settings.menu_open_trigger | escape }}"
                         >
                           <summary
-                            class="text-with-icon gap-2.5 bold link-faded-reverse custom-header__text"
+                            class="text-with-icon gap-2.5 link-faded-reverse custom-header__text"
                             {% if link.url != '#' %}
                               data-url="{{ link.url | escape }}"
                             {% endif %}
