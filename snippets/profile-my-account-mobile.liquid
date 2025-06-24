@@ -241,26 +241,36 @@
 > <!-- Add Address Modal -->
   <div onclick="event.stopPropagation()" style="gap: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; background-color: white; padding: 37px 72px;">
     <span class="alata" style="font-size: 22px;">DELIVERY ADDRESS</span>
-    <form id="add-address-form-mobile" accept-charset="UTF-8" style="display: flex; flex-direction: column; justify-content: center; gap: 18px;">
-      <input type="hidden" name="form_type" value="customer_address">
-      <input type="hidden" name="utf8" value="✓">
-
-      <input type="text" name="address[address1]" placeholder="Street Address" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-      <input type="text" name="address[city]" placeholder="City" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-      <input type="text" name="address[province]" placeholder="State" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-      <input type="text" name="address[zip]" placeholder="ZIP Code" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-      <input type="text" name="address[country]" placeholder="Country" value="United States" style="width: 100%; background-color: #EBEBE4; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;" disabled>
-
-      <label style="display: flex; align-items: center; margin-bottom: 20px; font-size: 13px;">
-        <input type="checkbox" name="address[default]" value="1" style="margin-right: 10px; width: 16px; height: 16px; accent-color: #000000;"> 
-        Set As Default Address
-      </label>
-      
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <button type="submit" style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 6px 0px; background: #000; color: #fff; border: none; font-size: 13px; cursor: pointer;">SAVE</button>
-        <button type="button" onclick="document.getElementById('add-address-modal').style.display='none'" style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 6px 0px; background: #fff; box-shadow: inset 0 0 0 2px #000; font-size: 13px; cursor: pointer;">CANCEL</button>
-      </div>
-    </form>
+    <div style="display: flex; flex-direction: column; justify-content: center; gap: 18px;">
+      {% form 'customer_address', customer.new_address, id: 'addAddressFormMobile' %}
+        <input type="hidden" name="form_type" value="customer_address">
+        <input type="hidden" name="utf8" value="✓">
+  
+        <input type="text" name="address[address1]" placeholder="Street Address" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+        <input type="text" name="address[city]" placeholder="City" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+        <input type="text" name="address[province]" placeholder="State" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+        <input type="text" name="address[zip]" placeholder="ZIP Code" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
+        <input type="text" name="address[country]" placeholder="Country" value="United States" style="width: 100%; background-color: #EBEBE4; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;" disabled>
+  
+        <label style="display: flex; align-items: center; margin-bottom: 20px; font-size: 13px;">
+          <input type="checkbox" name="address[default]" value="1" style="margin-right: 10px; width: 16px; height: 16px; accent-color: #000000;"> 
+          Set As Default Address
+        </label>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button type="submit" style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 6px 0px; background: #000; color: #fff; border: none; font-size: 13px; cursor: pointer;">SAVE</button>
+          <button
+            type="button"
+            onclick="(function() {
+              e.preventDefault();
+              e.stopPropagation();
+              document.getElementById('addAdressFormMobile').reset();
+              document.getElementById('add-address-modal').style.display = 'none';
+            })()"
+            style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 6px 0px; background: #fff; box-shadow: inset 0 0 0 2px #000; font-size: 13px; cursor: pointer;">CANCEL</button>
+        </div>
+      {% endform %}
+    </div>
   </div>
 </div>
 
@@ -294,30 +304,6 @@
       })
     })
 
-    const addressFormMobile = document.getElementById("add-address-form-mobile");
-    if (addressFormMobile) {
-      addressFormMobile.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const formData = new FormData(addressFormMobile);
-        console.log('chek', formData);
-
-        fetch("/account/addresses", {
-          method: "POST",
-          body: formData,
-          headers: { "Accept": "text/html" }
-        })
-        .then(response => {
-          if (response.ok) {
-            window.location.hash = "#addresses-tab";
-            setTimeout(() => location.reload(), 100); 
-          } else {
-            alert("Failed to add address.");
-          }
-        })
-        .catch(() => alert("Error submitting address."));
-      });
-    }
-
     function showDeleteModal() {
       return new Promise((resolve) => {
         const modal = document.getElementById('confirmModal');
@@ -338,31 +324,6 @@
         };
       });
     }
-
-    document.querySelectorAll('.delete-address-form-mobile').forEach(form => {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-    
-        const confirmed = confirm("Are you sure you want to delete this address?");
-        if (!confirmed) return;
-    
-        const formData = new FormData(this);
-    
-        fetch(this.action, {
-          method: "POST",
-          body: formData,
-          headers: { "Accept": "text/html" }
-        })
-        .then(response => {
-          if (response.ok) {
-             location.reload();
-          } else {
-            alert("Failed to delete address.");
-          }
-        })
-        .catch(() => alert("Error deleting address."));
-      });
-    });
 
     document.querySelectorAll('.edit-address-btn-mobile').forEach(button => {
       button.addEventListener('click', () => {
