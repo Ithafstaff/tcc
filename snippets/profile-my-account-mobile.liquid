@@ -315,7 +315,7 @@
         .then(response => {
           if (response.ok) {
             window.location.hash = "#account";
-            console.log('chek', response);
+            console.log('chek', formData, response);
             // setTimeout(() => location.reload(), 100); 
           } else {
             alert("Failed to add address.");
