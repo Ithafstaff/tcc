@@ -317,7 +317,7 @@
         })
         .then(response => {
           if (response.ok) {
-            window.location.hash = "#addresses-tab";
+            window.location.hash = "#account";
             setTimeout(() => location.reload(), 100); 
           } else {
             alert("Failed to add address.");
