@@ -463,27 +463,7 @@
             </li>
           {%- endif -%}
 
-          <li class="custom-search__bar-list">
-            <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
-              <form
-                role="search"
-                class="x:flex x:items-center x:w-full x:border search-bar-link x:pl-4 x:mr-auto x:last:justify-end"
-                onsubmit="return false;"
-              >
-                <input
-                  type="search"
-                  class="x:w-full search-bar-input x:outline-none"
-                  placeholder="What are you looking for?"
-                  id="header-search-input"
-                  autocomplete="off"
-                  style=" font-size: 13px;"
-                >
-                {% comment %} <span class="sr-only">{{ 'header.general.search' | t }}</span> {% endcomment %}
-                <span class="x:ml-auto x:px-4">{% render 'icon' with 'search' %}</span>
-              </form>
-              <div id="header-search-suggestions" class="search-suggestions hidden test2"></div>
-            </div>
-          </li>
+          
 
           {%- if shop.customer_accounts_enabled -%}
             <li>
@@ -527,6 +507,27 @@
             </a>
           </li>
         </ul>
+        <li class="custom-search__bar-list">
+            <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
+              <form
+                role="search"
+                class="x:flex x:items-center x:w-full x:border search-bar-link x:pl-4 x:mr-auto x:last:justify-end"
+                onsubmit="return false;"
+              >
+                <input
+                  type="search"
+                  class="x:w-full search-bar-input x:outline-none"
+                  placeholder="What are you looking for?"
+                  id="header-search-input"
+                  autocomplete="off"
+                  style=" font-size: 13px;"
+                >
+                {% comment %} <span class="sr-only">{{ 'header.general.search' | t }}</span> {% endcomment %}
+                <span class="x:ml-auto x:px-4">{% render 'icon' with 'search' %}</span>
+              </form>
+              <div id="header-search-suggestions" class="search-suggestions hidden test2"></div>
+            </div>
+          </li>
       </div>
     </div>
   </store-header>
