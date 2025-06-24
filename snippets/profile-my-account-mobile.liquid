@@ -248,7 +248,9 @@
         <input type="text" name="address[address1]" placeholder="Street Address" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
         <input type="text" name="address[city]" placeholder="City" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
         <select name="address[province]" placeholder="State" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
-          {{ all_country_option_provinces[form.country] }}
+          {% for province in all_country_option_province[form.country] %}
+            <option value="{{ province[0] }}" {% if province[0] == form.province %}selected{% endif %}>{{ province[1] }}</option>
+          {% endfor %}
         </select>
         <input type="text" name="address[zip]" placeholder="ZIP Code" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
         <input type="select" name="address[country]" placeholder="Country" value="United States" style="width: 100%; background-color: #EBEBE4; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;" disabled>
