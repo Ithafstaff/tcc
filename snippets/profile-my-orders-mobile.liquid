@@ -1,0 +1,126 @@
+<style>
+
+</style>
+
+<div style="display: flex; flex-direction: column; width: 100%; padding-top: 34px; padding-bottom: 34px; gap: 15px;">
+  <div style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+    <span class="custom-heading" style="font-size: 20px;">My Orders</span>
+    <!-- FILTER HIDDEN FOR NOW -->
+    <button
+      onclick="(function() {
+        document.getElementById('filter-modal').style.display = 'flex';
+      })()"
+      style="display: none; width: fit-content; height: fit-content; align-items: center; gap: 6px;">
+      <span style="font-size: 12px;">FILTER</span>
+      <img
+        src="https://cdn.shopify.com/s/files/1/0723/0839/2168/files/person-img_2.png?v=1745996393"
+        alt=""
+        width="10px"
+        height="10px"
+        style="width: 10px; height: 10px;"
+      >
+    </button>
+  </div>
+  <div id="orders-container-mobile" style="gap: 2rem; filter: drop-shadow(0 2px 3px rgba(22,22,22,0.1)); background-color: white; display: flex; flex-direction: column; align-items: center; padding: 21px 16px;">
+    ORDER STUFF
+  </div>
+</div>
+
+<div
+  id="filter-modal"
+  onclick="(function() { document.getElementById('filter-modal').style.display = 'none'; })()"
+  style="flex-direction: column; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: none; z-index: 50;"
+>
+  <div onclick="event.stopPropagation()" style="background-color: white; width: 100%; height: fit-content; display: flex; flex-direction: column; padding: 26px 25px;">
+    <details class="accordion" style="border: none;" aria-expanded="false" is="accordion-disclosure">
+      <summary>
+        {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
+        <!-- ACCORDION HEADER/BUTTON HERE -->
+        <div class="accordion__toggle" style="display: flex; justify-content: space-between; width: 100%;">
+          <span>SHOW</span>
+          <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
+        </div>
+      </summary>
+
+      <!-- ACCORDION CONTENT HERE -->
+      <div class="accordion__content show-grid">
+        <span>
+          <input id="show-r1" type="radio" name="show-filter" value="10" checked>
+          <label for="show-r1">10 items</label>
+        </span>
+        <span>
+          <input id="show-r2" type="radio" name="show-filter" value="20">
+          <label for="show-r2">20 items</label>
+        </span>
+        <span>
+          <input id="show-r3" type="radio" name="show-filter" value="30">
+          <label for="show-r3">30 items</label>
+        </span>
+        <span>
+          <input id="show-r4" type="radio" name="show-filter" value="40">
+          <label for="show-r4">40 items</label>
+        </span>
+        <span>
+          <input id="show-r5" type="radio" name="show-filter" value="50">
+          <label for="show-r5">50 items</label>
+        </span>
+        <span>
+          <input id="show-r6" type="radio" name="show-filter" value="60">
+          <label for="show-r6">60 items</label>
+        </span>
+      </div>
+    </details>
+    <details class="accordion" style="border: none;" aria-expanded="false" is="accordion-disclosure">
+      <summary>
+        {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
+        <!-- ACCORDION HEADER/BUTTON HERE -->
+        <div class="accordion__toggle" style="display: flex; justify-content: space-between; width: 100%;">
+          <span>SORT BY</span>
+          <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
+        </div>
+      </summary>
+
+      <!-- ACCORDION CONTENT HERE -->
+      <div class="accordion__content">
+        <div class="sort-grid" style="border-bottom: 1px solid rgba(22,22,22,0.1); padding-bottom: 20px;">
+          <span>
+            <input id="sort-r1" type="radio" name="sort-filter" value="10" checked>
+            <label for="sort-r1">Most Relevant</label>
+          </span>
+          <span>
+            <input id="sort-r2" type="radio" name="sort-filter" value="20">
+            <label for="sort-r2">New</label>
+          </span>
+          <span>
+            <input id="sort-r3" type="radio" name="sort-filter" value="30">
+            <label for="sort-r3">Top Rated</label>
+          </span>
+          <span>
+            <input id="sort-r4" type="radio" name="sort-filter" value="40">
+            <label for="sort-r4">Price, Low to High</label>
+          </span>
+          <span style="grid-column: span 2 / span 2;">
+            <input id="sort-r5" type="radio" name="sort-filter" value="50">
+            <label for="sort-r5">Price, High to Low</label>
+          </span>
+        </div>
+        <div id="sort-categories" style="display: flex; flex-direction: column; padding-top: 20px; gap: 14px;">
+          
+        </div>
+      </div>
+    </details>
+    <div style="display: flex; width: 100%; justify-content: center;">
+      <button style="display: flex; width: 174px; height: 38px; background-color: #222222; color: white; align-items: center; justify-content: center;">
+        APPLY FILTER
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {  
+    
+  });
+
+ 
+</script>
