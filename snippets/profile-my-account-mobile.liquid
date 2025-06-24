@@ -318,12 +318,12 @@
         const result = await response.json();
     
         if (!result.success) {
-          console.error('Error:', result.errors); // log errors to the console
+          console.error('Error:', result.errors, ); // log errors to the console
         } else {
           console.log('Address added successfully:', result);
         }
       } catch (err) {
-        console.error('Network error:', err);
+        console.error('Network error:', err, response.json());
       }
     });
 
