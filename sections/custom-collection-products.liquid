@@ -30,32 +30,32 @@ LIQUID
     </div>
    {%- endif -%}
    
-  <!-- Product List Section (Limited to 3 Products) -->
+  <!-- collection List Section (Limited to 3 collections) -->
 <div>
   <div class="custom-collection__container" id="scroll-area-{{ section.id }}">
-    {%- assign product_count = 0 -%}
+    {%- assign collection_count = 0 -%}
     {%- for block in section.blocks -%}
-      {%- if product_count < 4 -%}
-        {%- assign product_handle = block.settings.product -%}
-        {%- assign product = all_products[product_handle] -%}
+      {%- if collection_count < 4 -%}
+        {%- assign collection_handle = block.settings.collection -%}
+        {%- assign collection = all_collections[collection_handle] -%}
 
-        <!-- Product Card -->
-        <a class="custom-collection__slide-continer" href="{{ product.url }}" style="scroll-snap-align: start; flex-shrink: 0; overflow: hidden; border-radius: 0.375rem; display: block; text-decoration: none;">
+        <!-- collection Card -->
+        <a class="custom-collection__slide-continer" href="{{ collection.url }}" style="scroll-snap-align: start; flex-shrink: 0; overflow: hidden; border-radius: 0.375rem; display: block; text-decoration: none;">
           <div class="custom-collection__slide-item" style="width: 100%; display: flex; align-items: center; justify-content: center; background-color: #d1d5db; position: relative;">
             <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 48px; background-color: black; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-              <span style="text-transform: uppercase; color: white;">view product</span>
+              <span style="text-transform: uppercase; color: white;">view collection</span>
             </div>
-            {%- if product.featured_image != blank -%}
-              <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+            {%- if collection.featured_image != blank -%}
+              <img src="{{ collection.featured_image | image_url: width: 800 }}" alt="{{ collection.title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
             {%- else -%}
               <span>No Image Available</span>
             {%- endif -%}
           </div>
           <p class="custom-collection__box-text">
-            {{ product.title }}
+            {{ collection.title }}
           </p>
         </a>
-        {%- assign product_count = product_count | plus: 1 -%}
+        {%- assign collection_count = collection_count | plus: 1 -%}
       {%- endif -%}
     {%- endfor -%}
   </div>
@@ -66,8 +66,8 @@ LIQUID
 
 {% schema %}
 {
-  "name": "Custom Collection Product",
-  "class": "shopify-section--collection-products",
+  "name": "Custom Collection",
+  "class": "shopify-section--collection-collections",
   "tag": "section",
   "settings": [
     {
@@ -78,29 +78,29 @@ LIQUID
   ],
   "blocks": [
     {
-      "type": "product",
-      "name": "Product",
+      "type": "collection",
+      "name": "collection",
       "settings": [
         {
-          "type": "product",
-          "id": "product",
-          "label": "Select Product"
+          "type": "collection",
+          "id": "collection",
+          "label": "Select collection"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Custom Collection Product",
+      "name": "Custom Collection collection",
       "blocks": [
         {
-          "type": "product"
+          "type": "collection"
         },
         {
-          "type": "product"
+          "type": "collection"
         },
         {
-          "type": "product"
+          "type": "collection"
         }
       ]
     }
