@@ -313,7 +313,7 @@
                             {% endcomment %}
                           </summary>
 
-                          <div class="dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable{% endif %}">
+                          <div class="dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable custom__dropdown{% endif %}">
                             <ul class="contents custom__contents" role="list">
                               {%- for sub_link in link.links -%}
                                 <li>
