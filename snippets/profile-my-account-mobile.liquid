@@ -18,6 +18,17 @@
     text-decoration: underline;
   }
 
+  .edit-address-btn-mobile {
+    color: rgba(22,22,22,0.5);
+    text-decoration: underline;
+    font-size: 10px;
+    text-align: right;
+  }
+
+  .edit-address-btn-mobile:hover {
+    text-decoration: none;
+  }
+
   .delete-address-btn-mobile {
     color: rgba(22,22,22,0.5);
     text-decoration: underline;
@@ -208,7 +219,7 @@
               <button class="edit-address-btn-mobile">EDIT</button>
               <form class="delete-address-form-mobile" method="post" action="/account/addresses/{{ address.id }}" style="margin: 0;">
                 <input type="hidden" name="_method" value="delete">
-                <button class="delete-address-btn-mobile" type="submit"></button>
+                <button class="delete-address-btn-mobile" type="submit">DELETE</button>
               </form>
             </div>
           </li>
