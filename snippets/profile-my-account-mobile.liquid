@@ -177,7 +177,7 @@
         ADD NEW ADDRESS +
       </button>
       <ul style="width: 100%;">
-        {% assign address_count = customer.addresses.size - 1 %}
+        {% assign address_count = customer.addresses.size | minus: 1 %}
         {% for address in customer.addresses limit: address_count %}
           <li style="width: 100%; display: flex; gap: 5%; align-items: center; border-bottom: 1px solid #222222; padding: 17px 0px;">
             <svg style="height: 24px; fill: #222222;" viewBox="0 0 24 24">
