@@ -36,7 +36,7 @@ LIQUID
     {%- assign product_count = 0 -%}
     {%- for block in section.blocks -%}
       {%- if product_count < 4 -%}
-        {%- assign product_handle = block.settings.product -%}
+        {%- assign product_handle = block.settings.collection -%}
         {%- assign product = all_products[product_handle] -%}
 
         <!-- Product Card -->
@@ -78,29 +78,29 @@ LIQUID
   ],
   "blocks": [
     {
-      "type": "product",
-      "name": "Product",
+      "type": "collection",
+      "name": "collection",
       "settings": [
         {
-          "type": "product",
-          "id": "product",
-          "label": "Select Product"
+          "type": "collection",
+          "id": "collection",
+          "label": "Select collection"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Custom Collection Product",
+      "name": "Custom Collection",
       "blocks": [
         {
-          "type": "product"
+          "type": "collection"
         },
         {
-          "type": "product"
+          "type": "collection"
         },
         {
-          "type": "product"
+          "type": "collection"
         }
       ]
     }
