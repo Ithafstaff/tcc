@@ -243,9 +243,6 @@
     <span class="alata" style="font-size: 22px;">DELIVERY ADDRESS</span>
     {% if customer %}
       {% form 'customer_address', customer.new_address, id: "addAddressFormMobile", style: "display: flex; flex-direction: column; justify-content: center; gap: 18px;" %}    
-        <input type="hidden" name="form_type" value="customer_address">
-        <input type="hidden" name="utf8" value="✓">
-  
         <input type="text" name="address[address1]" placeholder="Street Address" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
         <input type="text" name="address[city]" placeholder="City" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
         <input type="text" name="address[province]" placeholder="State" style="width: 100%; padding: 14px 16px; font-weight: bold; border: 1px solid #000; font-size: 14px;">
