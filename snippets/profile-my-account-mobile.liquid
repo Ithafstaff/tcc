@@ -195,7 +195,7 @@
 
   <div id="account-addresses-page" style="display: none; width: 100%;">
     <div id="account-details-page" style="width: 100%; gap: 10px; filter: drop-shadow(0 2px 3px rgba(22,22,22,0.1)); background-color: white; display: flex; flex-direction: column; padding: 21px 16px;">
-      <button class="alata" style="background-color: #222222; color: white; width: fit-content; height: 45px; display: flex; padding: 0px 20px; align-items: center;">
+      <button onclick="(function() {document.getElementById('add-address-modal-mobile').style.display = 'flex';})()" class="alata" style="background-color: #222222; color: white; width: fit-content; height: 45px; display: flex; padding: 0px 20px; align-items: center;">
         ADD NEW ADDRESS +
       </button>
       <ul style="width: 100%;">
@@ -230,7 +230,7 @@
 </div>
 
 <!-- ADDRESS MODALS -->
-<div id="add-address-modal-mobile" style="padding: 60px 20px; background-color: rgba(22,22,22,0.4); width: 100%; height: 100%; position: absolute; display: flex;" onclick="(function() {document.getElementById('add-address-modal-mobile').style.display = 'none';})()"> <!-- Add Address Modal -->
+<div id="add-address-modal-mobile" style="padding: 60px 20px; background-color: rgba(22,22,22,0.4); width: 100%; height: 100%; position: absolute; display: none;" onclick="(function() {document.getElementById('add-address-modal-mobile').style.display = 'none';})()"> <!-- Add Address Modal -->
   <div onclick="event.stopPropagation()" style="width: 100%; height: 100%; background-color: white; padding: 37px 72px;">
     
   </div>
