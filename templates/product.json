@@ -62,6 +62,7 @@
         },
         "text_cedcxt": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Available for <a href=\"#\" title=\"#\">Pickup</a> and <a href=\"#\" title=\"#\">Delivery</a></p>"
           }
