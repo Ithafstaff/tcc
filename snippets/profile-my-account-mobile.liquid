@@ -306,25 +306,19 @@
     
       const formData = new FormData(e.target);
     
-      try {
-        fetch("/account/addresses", {
-          method: "POST",
-          body: formData,
-          headers: { "Accept": "text/html" }
-        })
-        .then(response => {
-          if (response.ok) {
-            window.location.hash = "#account";
-            console.log('chek', formData, response);
-            // setTimeout(() => location.reload(), 100); 
-          } else {
-            alert("Failed to add address.");
-          }
-        })
-        .catch(() => alert("Error submitting address."));
-      } catch (err) {
-        console.error('Network error:', err);
-      }
+      fetch("/account/addresses", {
+        method: "POST",
+        body: formData,
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.hash = "#account";
+          setTimeout(() => location.reload(), 100); 
+        } else {
+          alert("Failed to add address.");
+        }
+      })
+      .catch(() => alert("Error submitting address."));
     });
 
     function showDeleteModal() {
