@@ -1680,7 +1680,13 @@
       // Remove 'show' from all sections
       sections.forEach(section => section.classList.remove('show'));
 
-      // Get the target section ID (sample, 'my-account' -> 'my-account-section')
+      // Remove 'active' from all menu items
+      menuItems.forEach(menu => menu.classList.remove('active'));
+
+      // Add 'active' to the clicked menu item
+      item.classList.add('active');
+
+      // Get the target section ID (e.g., 'my-account' -> 'my-account-section')
       const targetId = item.id + '-section';
       const targetSection = document.getElementById(targetId);
 
@@ -1691,3 +1697,4 @@
     });
   });
 </script>
+
