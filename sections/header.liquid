@@ -195,10 +195,12 @@
             {% comment %}{%- render 'icon' with 'hamburger' -%}{% endcomment %}
           </button>
 
+          {% comment %}
           <a href="{{ routes.search_url }}" class="tap-area sm:hidden" aria-controls="search-drawer">
             <span class="sr-only">{{ 'header.general.search' | t }}</span>
             {%- render 'icon' with 'search' -%}
           </a>
+          {% endcomment %}
 
           {%- if section.settings.layout != 'drawer' and section.settings.menu.links.size > 0 -%}
             <nav
