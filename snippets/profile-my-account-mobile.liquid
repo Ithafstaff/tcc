@@ -310,19 +310,21 @@
       const formData = new FormData(e.target);
     
       try {
-        const response = await fetch('/account/addresses', { // your custom API endpoint
-          method: 'POST',
-          body: formData
-        });
-        console.log('chek', response);
-    
-        const result = await response.json();
-    
-        if (!result.success) {
-          console.error('Error:', result.errors, ); // log errors to the console
-        } else {
-          console.log('Address added successfully:', result);
-        }
+        fetch("/account/addresses", {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "text/html" }
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.hash = "#addresses-tab";
+            setTimeout(() => location.reload(), 100); 
+          } else {
+            alert("Failed to add address.");
+          }
+        })
+        .catch(() => alert("Error submitting address."));
+      });
       } catch (err) {
         console.error('Network error:', err);
       }
