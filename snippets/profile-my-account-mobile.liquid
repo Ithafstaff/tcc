@@ -176,15 +176,23 @@
       <button class="alata" style="background-color: #222222; color: white; width: fit-content; height: 45px; display: flex; padding: 0px 20px; align-items: center;">
         ADD NEW ADDRESS +
       </button>
+      <ul style="width: 100%;">
+        {% for address in customer.addresses %}
+          <li>
+            <div style="width: 100%; text-wrap: wrap; display: flex; font-size: 12px;">
+              Address contents Address contents Address contents Address contents
+            </div>
+            <div style="width: fit-content; display: flex; flex-direction: column; justify-content: space-between; padding-top: 4px; padding-bottom: 4px;">
+              <a style="color: rgba(22,22,22,0.5); text-decoration: underline; font-size: 10px; text-align: right;">EDIT</a>
+              <a style="color: rgba(22,22,22,0.5); text-decoration: underline; font-size: 10px;">DELETE</a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+     
       <div id="address-container" style="width: 100%;">
         <div style="width: 100%; display: flex;">
-          <div style="width: 100%; text-wrap: wrap; display: flex; font-size: 12px;">
-            Address contents Address contents Address contents Address contents
-          </div>
-          <div style="width: fit-content; display: flex; flex-direction: column; justify-content: space-between; padding-top: 4px; padding-bottom: 4px;">
-            <a style="color: rgba(22,22,22,0.5); text-decoration: underline; font-size: 10px; text-align: right;">EDIT</a>
-            <a style="color: rgba(22,22,22,0.5); text-decoration: underline; font-size: 10px;">DELETE</a>
-          </div>
+          
         </div>
       </div>
     </div>
