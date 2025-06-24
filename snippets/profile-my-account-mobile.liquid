@@ -18,8 +18,16 @@
     text-decoration: underline;
   }
 
+  a {
+    color: rgba(22,22,22,0.5);
+    text-decoration: underline;
+    font-size: 10px;
+    text-align: right;
+  }
+
   a:hover {
     color: blue;
+    text-decoration: none;
   }
 </style>
 
@@ -198,8 +206,8 @@
               
             </div>
             <div style="width: fit-content; display: flex; flex-direction: column; justify-content: space-between; padding-top: 4px; padding-bottom: 4px;">
-              <a style="color: rgba(22,22,22,0.5); text-decoration: underline; font-size: 10px; text-align: right;">EDIT</a>
-              <a style="color: rgba(22,22,22,0.5); text-decoration: underline; font-size: 10px;">DELETE</a>
+              <a>EDIT</a>
+              <a>DELETE</a>
             </div>
           </li>
         {% endfor %}
