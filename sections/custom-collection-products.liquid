@@ -52,7 +52,7 @@ LIQUID
                 {% comment %}
                   <img src="{{ collection.products.first.images.first | img_url: 'large' }}" alt="{{ collection.products.first.title }}">
                 {% endcomment %}
-                <span>{{ collection }}</span>
+                <span>{{ collection.image }}</span>
                 <!-- <span>No Image Available</span> -->
               {%- endif -%}
           </div>
