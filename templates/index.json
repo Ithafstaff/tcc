@@ -169,36 +169,36 @@
     "custom_collection_products_dkYzhr": {
       "type": "custom-collection-products",
       "blocks": {
-        "product_hWQRH9": {
-          "type": "product",
+        "collection_Nh4q7m": {
+          "type": "collection",
           "settings": {
-            "product": "white-with-gold-velvet-tablecloth-by-palermo"
+            "collection": "tablecloth-velvet"
           }
         },
-        "product_89rFay": {
-          "type": "product",
+        "collection_nGQPkV": {
+          "type": "collection",
           "settings": {
-            "product": "spill-proof-tablecloth-by-brookline"
+            "collection": "tablecloth-classic-tablecloths"
           }
         },
-        "product_VQrNFb": {
-          "type": "product",
+        "collection_padTnR": {
+          "type": "collection",
           "settings": {
-            "product": "richmond-spillproof-tablecloth"
+            "collection": "tablecloth-spill-proof"
           }
         },
-        "product_Qgtg4M": {
-          "type": "product",
+        "collection_CTjBCc": {
+          "type": "collection",
           "settings": {
-            "product": "white-with-gold-velvet-tablecloth-by-palermo"
+            "collection": "tablecloths-liners-and-protectors"
           }
         }
       },
       "block_order": [
-        "product_hWQRH9",
-        "product_89rFay",
-        "product_VQrNFb",
-        "product_Qgtg4M"
+        "collection_Nh4q7m",
+        "collection_nGQPkV",
+        "collection_padTnR",
+        "collection_CTjBCc"
       ],
       "custom_css": [
         ".section-full {padding: 40px;}",
@@ -238,38 +238,6 @@
     },
     "custom_collection_products_gCxwVX": {
       "type": "custom-collection-products",
-      "blocks": {
-        "product_Qgeie6": {
-          "type": "product",
-          "settings": {
-            "product": "black-gold-by-palermo"
-          }
-        },
-        "product_R9A4C9": {
-          "type": "product",
-          "settings": {
-            "product": "spill-proof-tablecloth-by-brookline"
-          }
-        },
-        "product_Hr7RcR": {
-          "type": "product",
-          "settings": {
-            "product": "ivory-and-gold-faux-leather-tablecloth-by-columbia"
-          }
-        },
-        "product_hdLB33": {
-          "type": "product",
-          "settings": {
-            "product": "white-with-gold-velvet-tablecloth-by-palermo"
-          }
-        }
-      },
-      "block_order": [
-        "product_Qgeie6",
-        "product_R9A4C9",
-        "product_Hr7RcR",
-        "product_hdLB33"
-      ],
       "custom_css": [
         ".section-full {padding: 40px;}",
         "@media screen and (max-width: 767px) {.section-full {padding: 20px; }}"
@@ -308,36 +276,36 @@
     "custom_collection_products_XmhK7E": {
       "type": "custom-collection-products",
       "blocks": {
-        "product_JhVgCM": {
-          "type": "product",
+        "collection_WayArb": {
+          "type": "collection",
           "settings": {
-            "product": "square-plates-clear-gold-rim-by-edge-collection"
+            "collection": ""
           }
         },
-        "product_3bLx9U": {
-          "type": "product",
+        "collection_mzpENf": {
+          "type": "collection",
           "settings": {
-            "product": "disposable-plastic-bowls-6oz-by-simcha-collection"
+            "collection": ""
           }
         },
-        "product_gzbhBq": {
-          "type": "product",
+        "collection_6hgbpt": {
+          "type": "collection",
           "settings": {
-            "product": "black-and-white-32ct-combo-by-chic-flatware"
+            "collection": ""
           }
         },
-        "product_nzcraX": {
-          "type": "product",
+        "collection_Wcte6D": {
+          "type": "collection",
           "settings": {
-            "product": "white-with-gold-velvet-tablecloth-by-palermo"
+            "collection": ""
           }
         }
       },
       "block_order": [
-        "product_JhVgCM",
-        "product_3bLx9U",
-        "product_gzbhBq",
-        "product_nzcraX"
+        "collection_WayArb",
+        "collection_mzpENf",
+        "collection_6hgbpt",
+        "collection_Wcte6D"
       ],
       "custom_css": [
         ".section-full {padding: 40px;}",
@@ -423,31 +391,6 @@
     },
     "custom_collection_products_gXXUyr": {
       "type": "custom-collection-products",
-      "blocks": {
-        "product_RjF4gD": {
-          "type": "product",
-          "settings": {
-            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
-          }
-        },
-        "product_KbrCpc": {
-          "type": "product",
-          "settings": {
-            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
-          }
-        },
-        "product_NMDFmn": {
-          "type": "product",
-          "settings": {
-            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
-          }
-        }
-      },
-      "block_order": [
-        "product_RjF4gD",
-        "product_KbrCpc",
-        "product_NMDFmn"
-      ],
       "disabled": true,
       "custom_css": [
         ".section-full {padding: 40px;}"
@@ -486,31 +429,6 @@
     },
     "custom_collection_products_VWjrPX": {
       "type": "custom-collection-products",
-      "blocks": {
-        "product_YtUqkJ": {
-          "type": "product",
-          "settings": {
-            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
-          }
-        },
-        "product_qpEKmj": {
-          "type": "product",
-          "settings": {
-            "product": "superior-linen-fishing-fun-6pc-twin-bedding-set"
-          }
-        },
-        "product_GPt94N": {
-          "type": "product",
-          "settings": {
-            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
-          }
-        }
-      },
-      "block_order": [
-        "product_YtUqkJ",
-        "product_qpEKmj",
-        "product_GPt94N"
-      ],
       "disabled": true,
       "custom_css": [
         ".section-full {padding: 40px;}"
@@ -549,31 +467,6 @@
     },
     "custom_collection_products_x6DChT": {
       "type": "custom-collection-products",
-      "blocks": {
-        "product_nF4iia": {
-          "type": "product",
-          "settings": {
-            "product": "superior-linen-denim-pockets-6pc-twin-bedding-set"
-          }
-        },
-        "product_pKJEK7": {
-          "type": "product",
-          "settings": {
-            "product": "superior-linen-bears-in-umbrellas-blue-6pc-twin-bedding-set"
-          }
-        },
-        "product_TNgjN4": {
-          "type": "product",
-          "settings": {
-            "product": "superity-linen-dotted-clouds-blue-twin-bedding-set"
-          }
-        }
-      },
-      "block_order": [
-        "product_nF4iia",
-        "product_pKJEK7",
-        "product_TNgjN4"
-      ],
       "disabled": true,
       "custom_css": [
         ".section-full {padding: 40px;}"
