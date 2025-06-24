@@ -306,7 +306,9 @@
                             {% endif %}
                           >
                             {{- link.title -}}
-                            {%- render 'icon' with 'chevron-bottom' -%}
+                            {% comment %}
+                              {%- render 'icon' with 'chevron-bottom' -%}
+                            {% endcomment %}
                           </summary>
 
                           <div class="dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable{% endif %}">
