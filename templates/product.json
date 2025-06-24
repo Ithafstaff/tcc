@@ -66,6 +66,12 @@
             "text": "<p>Available for <a href=\"#\" title=\"#\">Pickup</a> and <a href=\"#\" title=\"#\">Delivery</a></p>"
           }
         },
+        "liquid_zHBBjj": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render \"pickup-and-delivery\" %}"
+          }
+        },
         "rating": {
           "type": "rating",
           "disabled": true,
@@ -147,6 +153,7 @@
         "price",
         "judge_me_reviews_preview_badge_dCPARp",
         "text_cedcxt",
+        "liquid_zHBBjj",
         "rating",
         "payment_terms",
         "separator",
