@@ -1702,3 +1702,156 @@
   });
 </script>
 
+
+
+<script>
+   // Script for My Account tabs
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs = {
+      "profile-tab": "profile-section",
+      "addresses-tab": "addresses-section",
+      "deletion-tab": "deletion-section"
+    };
+
+    function activateTab(tabId) {
+      // Remove active class from all links
+      document.querySelectorAll(".profile__order-cat-link").forEach(link =>
+        link.classList.remove("profile__order-cat-link--active")
+      );
+
+      // Hide all tab sections
+      Object.values(tabs).forEach(sectionId =>
+        document.getElementById(sectionId).classList.add("hide")
+      );
+
+      // Show selected section and highlight tab
+      document.getElementById(tabId).classList.add("profile__order-cat-link--active");
+      document.getElementById(tabs[tabId]).classList.remove("hide");
+    }
+
+    // Initial tab from hash
+    const hash = window.location.hash;
+    if (hash === "#addresses-tab") {
+      activateTab("addresses-tab");
+    } else if (hash === "#deletion-tab") {
+      activateTab("deletion-tab");
+    } else {
+      window.location.hash = "#profile-tab"; // set default hash
+      activateTab("profile-tab");
+    }
+
+
+    // Handle tab clicks
+    Object.keys(tabs).forEach(tabId => {
+      document.getElementById(tabId).addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.hash = `#${tabId}`; // update the hash
+        activateTab(tabId);
+      });
+    });
+    
+    const addressForm = document.getElementById("add-address-form");
+    if (addressForm) {
+      addressForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(addressForm);
+
+        fetch("/account/addresses", {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "text/html" }
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.hash = "#addresses-tab";
+            setTimeout(() => location.reload(), 100); 
+          } else {
+            alert("Failed to add address.");
+          }
+        })
+        .catch(() => alert("Error submitting address."));
+      });
+    }
+  });
+
+  // Toggle password visibility
+  const toggle = document.getElementById("togglePassword");
+  const password = document.getElementById("password");
+
+  if (toggle && password) {
+    toggle.addEventListener("click", function () {
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+      this.style.backgroundImage = type === "password"
+        ? "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/hide.png?v=1746473941)"
+        : "url(https://cdn.shopify.com/s/files/1/0723/0839/2168/files/show.png?v=1746473942)";
+    });
+  }
+
+  function closeAddressModal() {
+    document.getElementById('addressModal').style.display = 'none';
+  }
+  
+  document.querySelectorAll('.delete-address-form').forEach(form => {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      const confirmed = confirm("Are you sure you want to delete this address?");
+      if (!confirmed) return;
+  
+      const formData = new FormData(this);
+  
+      fetch(this.action, {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "text/html" }
+      })
+      .then(response => {
+        if (response.ok) {
+           location.reload();
+        } else {
+          alert("Failed to delete address.");
+        }
+      })
+      .catch(() => alert("Error deleting address."));
+    });
+  });
+document.querySelectorAll('.edit-address-button').forEach(button => {
+  button.addEventListener('click', () => {
+    document.getElementById('edit-address-id').value = button.dataset.id;
+    document.getElementById('edit-address1').value = button.dataset.address1 || '';
+    document.getElementById('edit-city').value = button.dataset.city || '';
+    document.getElementById('edit-province').value = button.dataset.province || '';
+    document.getElementById('edit-zip').value = button.dataset.zip || '';
+    document.getElementById('edit-country').value = button.dataset.country || '';
+    document.getElementById('edit-default').checked = button.dataset.default === "true";
+
+    document.getElementById('edit-address-modal').style.display = 'flex';
+  });
+});
+const editForm = document.getElementById("edit-address-form");
+if (editForm) {
+  editForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const id = document.getElementById('edit-address-id').value;
+    const formData = new FormData(editForm);
+
+    fetch(`/account/addresses/${id}`, {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "text/html" }
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.hash = "#addresses-tab";
+        setTimeout(() => location.reload(), 100);
+      } else {
+        alert("Failed to update address.");
+      }
+    })
+    .catch(() => alert("Error updating address."));
+  });
+}
+
+
+</script>
