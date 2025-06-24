@@ -101,22 +101,6 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const hash = window.location.hash;
-    if (hash.includes('account')) {
-      document.getElementById('account-snippet').style.display = 'flex';
-      document.getElementById('order-snippet').style.display = 'none';
-      document.getElementById('wishlist-snippet').style.display = 'none';
-    } else if (hash === "#wishlist") {
-      document.getElementById('wishlist-snippet').style.display = 'flex';
-      document.getElementById('order-snippet').style.display = 'none';
-      document.getElementById('account-snippet').style.display = 'none';
-    } else {
-      window.location.hash = "#order"; // set default hash
-      document.getElementById('order-snippet').style.display = 'flex';
-      document.getElementById('wishlist-snippet').style.display = 'none';
-      document.getElementById('account-snippet').style.display = 'none';
-    }
-    
     document.querySelectorAll('.page-btn').forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
@@ -125,7 +109,6 @@
         const selectedSnippet = `${button.getAttribute('id')}-snippet`;
         for (let i = 0; i < snippets.length; i++) {
           document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
-          window.location.hash = `#${button.getAttribute('id')}`;
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       })
