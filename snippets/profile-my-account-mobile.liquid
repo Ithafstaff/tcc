@@ -314,6 +314,7 @@
           method: 'POST',
           body: formData
         });
+        console.log('chek', response);
     
         const result = await response.json();
     
@@ -323,7 +324,7 @@
           console.log('Address added successfully:', result);
         }
       } catch (err) {
-        console.error('Network error:', err, result);
+        console.error('Network error:', err);
       }
     });
 
