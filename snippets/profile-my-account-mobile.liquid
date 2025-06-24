@@ -18,14 +18,14 @@
     text-decoration: underline;
   }
 
-  a {
+  .delete-address-btn-mobile {
     color: rgba(22,22,22,0.5);
     text-decoration: underline;
     font-size: 10px;
     text-align: right;
   }
 
-  a:hover {
+  .delete-address-btn-mobile:hover {
     text-decoration: none;
   }
 </style>
@@ -205,8 +205,11 @@
               
             </div>
             <div style="width: fit-content; display: flex; flex-direction: column; justify-content: space-between; padding-top: 4px; padding-bottom: 4px;">
-              <a>EDIT</a>
-              <a>DELETE</a>
+              <button class="edit-address-btn-mobile">EDIT</button>
+              <form class="delete-address-form-mobile" method="post" action="/account/addresses/{{ address.id }}" style="margin: 0;">
+                <input type="hidden" name="_method" value="delete">
+                <button class="delete-address-btn-mobile" type="submit"></button>
+              </form>
             </div>
           </li>
         {% endfor %}
