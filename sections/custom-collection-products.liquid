@@ -46,10 +46,10 @@ LIQUID
               <span style="text-transform: uppercase; color: white;">view product</span>
             </div>
               {%- if collection.image != blank -%}
-  <img src="{{ collection.image | img_url: 'large' }}" alt="{{ collection.title }}">
-{%- elsif collection.products.first != blank and collection.products.first.featured_image != blank -%}
-  <img src="{{ collection.products.first.featured_image | img_url: 'large' }}" alt="{{ collection.products.first.title }}">
-{%- endif -%}
+                <img src="{{ collection.image | img_url: 'large' }}" alt="{{ collection.title }}">
+              {%- elsif collection.products.first != blank and collection.products.first.featured_image != blank -%}
+                <img src="{{ collection.products.first.featured_image | img_url: 'large' }}" alt="{{ collection.products.first.title }}">
+              {%- endif -%}
 
           </div>
           <p class="custom-collection__box-text">
