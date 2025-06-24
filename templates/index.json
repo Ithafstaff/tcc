@@ -145,7 +145,7 @@
           "type": "button",
           "settings": {
             "text": "SHOP BEST SELLERS",
-            "url": "shopify://collections/best-seller"
+            "url": "shopify://collections/best-sellers"
           }
         }
       },
