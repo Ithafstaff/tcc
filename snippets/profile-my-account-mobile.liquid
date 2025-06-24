@@ -220,7 +220,7 @@
               
             </div>
             <div style="width: fit-content; display: flex; flex-direction: column; justify-content: space-between; padding-top: 4px; padding-bottom: 4px;">
-              <button onclick="document.getElementById('edit-address-modal-mobile-{{ address.id }}').style.display='none'">EDIT</button>
+              <button class="edit-address-btn-mobile" onclick="document.getElementById('edit-address-modal-mobile-{{ address.id }}').style.display='none'">EDIT</button>
               <form class="delete-address-form-mobile" method="post" action="/account/addresses/{{ address.id }}" style="margin: 0;">
                 <input type="hidden" name="_method" value="delete">
                 <button class="delete-address-btn-mobile" type="submit">DELETE</button>
