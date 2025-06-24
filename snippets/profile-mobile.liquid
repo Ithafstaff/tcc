@@ -126,6 +126,7 @@
         for (let i = 0; i < snippets.length; i++) {
           document.getElementById(snippets[i]).style.display = (selectedSnippet == snippets[i]) ? 'flex' : 'none';
           window.location.hash = `#${button.getAttribute('id')}`;
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
       })
     })
