@@ -780,6 +780,9 @@
 
   .custom-footer__list {
     gap: 20px !important;
+  }
+
+  .custom-footer__block-text {
     width: 100%;
   }
 
