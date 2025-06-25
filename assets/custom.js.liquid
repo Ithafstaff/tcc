@@ -254,10 +254,11 @@ function customImageHover() {
       const primaryImg = child.querySelector('.product-card__image--primary');
       const imgHoverContainer = child.querySelector('.custom__product-card'); 
       const overlay = child.querySelector('.custom__product-card-overlay');
+      overlay.style.backgroundSize = "cover";
 
       if (overlay && imageArray[1]) {
         overlay.style.backgroundImage = `url('${imageArray[1]}')`;
-        overlay.style.backgroundSize = "cover";
+        
       }
 
       swatchInputs.forEach(input => {
@@ -283,7 +284,6 @@ function customImageHover() {
 
           if (overlay && selectedColorImages[1]) {
             overlay.style.backgroundImage = `url('${selectedColorImages[1]}')`;
-            overlay.style.backgroundSize = "cover";
           }
         });
 
