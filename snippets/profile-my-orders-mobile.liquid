@@ -28,7 +28,9 @@
           {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
           <!-- ACCORDION HEADER/BUTTON HERE -->
           <div class="accordion__toggle" style="display: flex; justify-content: space-between; width: 100%;">
-            <span style="text-transform: uppercase; font-size: 10px; color: #222222;">{{ order.created_at | date: "%B %d, %Y"}} | {{ order.financial_status }}: {{ order.fulfillment_status }}</span>
+            <span style="text-transform: uppercase; font-size: 10px; color: #222222;">
+              {{ order.created_at | date: "%B %d, %Y"}} | <span>{{ order.financial_status }}: {{ order.fulfillment_status }}</span>
+            </span>
             <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
           </div>
         </summary>
