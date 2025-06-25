@@ -780,7 +780,7 @@
 
   .custom-footer__list {
     gap: 20px !important;
-    flex-wrap: no-wrap;
+    flex-wrap: nowrap !important;
   }
 
   .custom-footer__block-text {
