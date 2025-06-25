@@ -779,7 +779,7 @@
   }
 
   .custom-footer__list {
-    gap: 20px;
+    gap: 20px !important;
   }
 
 
