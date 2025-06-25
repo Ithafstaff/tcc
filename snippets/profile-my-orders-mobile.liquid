@@ -66,22 +66,26 @@
 
           <div style="display: flex; width: fit-content; height: 38px; gap: 5%;">
             {% if order.financial_status == "pending" %}
-              <button
-                onclick="window.location.assign(/pages/profile-confirm-order?order={{ order.id }})"
+              <a
+                href="/pages/profile-confirm-order?order={{ order.id }}"
                 style="height: 100%; width: 103px; font-size: 12px; display: flex; align-items: center; justify-content: center; color: white; background-color: #222222;"
-              >PAY NOW</button>
+              >PAY NOW</a>
             {% endif %}
             {% if order.fulfillment_status == "shipped" %}
-              <button
-                onclick="window.location.assign(/pages/profile-confirm-order?order={{ order.id }})"
+              <a
+                href="#"
                 style="height: 100%; width: 103px; font-size: 12px; display: flex; align-items: center; justify-content: center; color: white; background-color: #222222;"
-              >PAY NOW</button>
+              >PAY NOW</a>
             {% endif %}
             {% if order.fulfillment_status == "fulfilled" %}
-              <button
-                onclick="window.location.assign(/pages/profile-confirm-order?order={{ order.id }})"
+              <a
+                href="#"
                 style="height: 100%; width: 103px; font-size: 12px; display: flex; align-items: center; justify-content: center; color: white; background-color: #222222;"
-              >PAY NOW</button>
+              >ORDER AGAIN</a>
+              <a
+                href="#"
+                style="height: 100%; width: 103px; font-size: 12px; display: flex; align-items: center; justify-content: center; color: white; background-color: #222222;"
+              >ADD REVIEW</a>
             {% endif %}
             <button style="height: 100%; width: 103px; box-shadow: inset 0 0 0 2px #222222; font-size: 12px; display: flex; align-items: center; justify-content: center;">CONTACT US</button>
           </div>
