@@ -787,9 +787,13 @@
     flex-basis: unset !important;
   }
 
-  .custom-footer__headind-txt {
+  .custom-footer__heading-txt {
     font-weight: 500 !important;
     font-size: 14px;
+  }
+  
+  .custom-footer__desc-txt p {
+    font-size: 12px;
   }
 
 
