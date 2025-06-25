@@ -17,19 +17,6 @@
   font-size: 14px;
 }
 
-.custom-luxury__container {
-  padding: 46px 20px;
-}
-
-.custom-luxury__text {
-    padding-top: 20px;
-    font-size: 18px;
-  }
-
-.custom-luxury__btn-wrap {
-  margin-top: 20px;
-}
-
 .custom-collection__container {
   display: flex;
   gap: 1.5rem;
