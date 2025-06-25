@@ -257,6 +257,7 @@ function customImageHover() {
 
       if (overlay && imageArray[1]) {
         overlay.style.backgroundImage = `url('${imageArray[1]}')`;
+        overlay.style.backgroundSize = "cover";
       }
 
       swatchInputs.forEach(input => {
