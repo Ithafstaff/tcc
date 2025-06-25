@@ -60,7 +60,7 @@
           {% endfor %}
 
           <div style="font-family: 'Alata', sans-serif;">
-            <span style="font-size: 10px;">ORDER TOTAL:</span><span style="font-size: 14px;">{{ order.total_price }}</span>
+            <span style="font-size: 10px;">ORDER TOTAL:</span><span style="font-size: 14px;">{{ order.total_price | money }}</span>
           </div>
         </div>
       </details>
