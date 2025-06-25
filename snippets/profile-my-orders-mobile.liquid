@@ -37,7 +37,7 @@
         <!-- ACCORDION CONTENT HERE -->
         <div style="display: flex; flex=direction: column; gap: 10px; width: 100%;">
           {% for line_item in order.line_items %}
-            <div style="display: flex; width: 100%;">
+            <div style="display: flex; width: 100%; gap: 5px;">
               <img 
                 src="{{ line_item.image | img_url: '100px' }}" 
                 alt="{{ line_item.title }}" 
