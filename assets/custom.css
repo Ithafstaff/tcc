@@ -757,6 +757,17 @@
 }
 /* end of custom collection variant style */
 
+/* TABLET RESPONSIVENESS PORTION*/
+
+@media screen and (max-width: 980px) {
+  
+  .custom-collection__info-heading {
+    font-size: 24px;
+  }
+
+
+}
+
 /* MOBILE RESPONSIVENESS PORTION*/
 
 @media screen and (max-width: 767px) {
