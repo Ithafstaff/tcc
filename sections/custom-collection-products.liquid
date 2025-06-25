@@ -46,14 +46,14 @@ LIQUID
               <span style="text-transform: uppercase; color: white;">view product</span>
             </div>
               {%- if collection.featured_image != blank -%}
-  <img src="{{ collection.featured_image | image_url: width: 800 }}" alt="{{ collection.title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-{%- else -%}
-  <span>No Image Available</span>
-{%- endif -%}
-
+                <img src="{{ collection.featured_image | image_url: width: 800 }}" alt="{{ collection.title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+              {%- else -%}
+                <span>No Image Available</span>
+              {%- endif -%}
+              
           </div>
           <p class="custom-collection__box-text">
-            {{ collection.title }}
+            {{ collection.metafields.custom.name_of_collection }}
           </p>
         </a>
         {%- assign collection_count = collection_count | plus: 1 -%}
