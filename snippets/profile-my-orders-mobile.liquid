@@ -22,7 +22,46 @@
     </button>
   </div>
   <div id="orders-container-mobile" style="gap: 2rem; filter: drop-shadow(0 2px 3px rgba(22,22,22,0.1)); background-color: white; display: flex; flex-direction: column; align-items: center; padding: 21px 16px;">
-    ORDER STUFF
+    {% for order in customer.orders %}
+      <details class="accordion" style="border: none;" aria-expanded="false" is="accordion-disclosure">
+        <summary>
+          {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
+          <!-- ACCORDION HEADER/BUTTON HERE -->
+          <div class="accordion__toggle" style="display: flex; justify-content: space-between; width: 100%;">
+            <span>{{ order.created_at | date: "%B %d, %Y"}} | {{ order.financial_status }}: {{ order.fulfillment_status }}</span>
+            <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
+          </div>
+        </summary>
+  
+        <!-- ACCORDION CONTENT HERE -->
+        <div class="accordion__content show-grid">
+          <span>
+            <input id="show-r1" type="radio" name="show-filter" value="10" checked>
+            <label for="show-r1">10 items</label>
+          </span>
+          <span>
+            <input id="show-r2" type="radio" name="show-filter" value="20">
+            <label for="show-r2">20 items</label>
+          </span>
+          <span>
+            <input id="show-r3" type="radio" name="show-filter" value="30">
+            <label for="show-r3">30 items</label>
+          </span>
+          <span>
+            <input id="show-r4" type="radio" name="show-filter" value="40">
+            <label for="show-r4">40 items</label>
+          </span>
+          <span>
+            <input id="show-r5" type="radio" name="show-filter" value="50">
+            <label for="show-r5">50 items</label>
+          </span>
+          <span>
+            <input id="show-r6" type="radio" name="show-filter" value="60">
+            <label for="show-r6">60 items</label>
+          </span>
+        </div>
+      </details>
+    {% endfor %}
   </div>
 </div>
 
