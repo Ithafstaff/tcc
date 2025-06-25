@@ -787,6 +787,10 @@
     flex-basis: unset !important;
   }
 
+  .custom-footer__headind-txt {
+    font-weight: 500;
+  }
+
 
 }
 
