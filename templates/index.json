@@ -238,6 +238,38 @@
     },
     "custom_collection_products_gCxwVX": {
       "type": "custom-collection-products",
+      "blocks": {
+        "collection_bzAfxj": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_4EdgLF": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_NArRKx": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection_cqeLxb": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_bzAfxj",
+        "collection_4EdgLF",
+        "collection_NArRKx",
+        "collection_cqeLxb"
+      ],
       "custom_css": [
         ".section-full {padding: 40px;}",
         "@media screen and (max-width: 767px) {.section-full {padding: 20px; }}"
