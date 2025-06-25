@@ -267,7 +267,8 @@ function customImageHover() {
           console.log(`Click: ${color}`);
 
           const filteredImages = imageArray.filter(img => img.includes(color.toLowerCase()));
-          console.log(imageArray);
+          console.log("imageArray:", imageArray);
+          console.log("filteredImages:", filteredImages);
           const selectedColorImages = [...filteredImages];
 
           // console.log('Selected color images array:', selectedColorImages);
