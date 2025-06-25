@@ -38,9 +38,7 @@
         <div style="display: flex; flex-direction: column; gap: 10px; width: 100%; padding-bottom: 20px;">
           {% for line_item in order.line_items %}
             <div style="display: flex; width: 100%; gap: 10px;">
-              <div style="width: auto; height: auto;">
-                <img 
-                  src="{{ line_item.image | img_url: '100x' }}" 
+              <div style="width: auto; height: 100px;" 
                   alt="{{ line_item.title }}" 
                   class="profile__order-img"
                   width="100px"
