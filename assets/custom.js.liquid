@@ -264,7 +264,7 @@ function customImageHover() {
         // console.log(`Input color: ${color}`);
 
         input.addEventListener("click", () => {
-          // console.log(`Click: ${color}`);
+          console.log(`Click: ${color}`);
 
           const filteredImages = imageArray.filter(img => img.includes(color.toLowerCase()));
           const selectedColorImages = [...filteredImages];
