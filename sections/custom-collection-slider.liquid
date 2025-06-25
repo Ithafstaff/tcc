@@ -138,60 +138,54 @@
     {{ collection.description }}
   {% endif %}
 
-  {% assign menu = linklists['main-menu'] %} 
-  {% for top_link in menu.links %}
-    {% if top_link.links != blank %}
-      {% for sub_link in top_link.links %}
-        {% if sub_link.object.title == collection.title %}
-          <div class="custom-col-slider__slide-wrap splide  js-collection-slider">
-            <div class="custom-col-slider__track splide__track">
-              <ul class="custom-col-slider__list splide__list">
-                {% if sub_link.links != blank %}
-                  {% for sub_sub_link in sub_link.links %}
-                    {% unless collection.metafields.custom.name_of_collection == sub_sub_link.object.metafields.custom.name_of_collection %}
-                      <a class="custom-col-slider__slide splide__slide" href="{{ sub_sub_link.object.url }}">
-                        {% if sub_sub_link.type == 'collection_link' and sub_sub_link.object %}
-                          <div class="custom-col-slider__img-box">
-                            {% assign collection_image = sub_sub_link.object.image %}
-                            {% assign fallback_image = sub_sub_link.object.products.first.featured_image %}
-                            
-                            {% if collection_image %}
-                              <img 
-                                class="custom-col-slider__img" 
-                                src="{{ collection_image | img_url: 'medium' }}" 
-                                alt="{{ sub_sub_link.object.title }}" 
-                                width="100%" 
-                                height="" 
-                                loading="lazy"
-                              />
-                            {% elsif fallback_image %}
-                              <img 
-                                class="custom-col-slider__img" 
-                                src="{{ fallback_image | img_url: 'medium' }}" 
-                                alt="{{ sub_sub_link.object.title }}" 
-                                width="100%" 
-                                height="" 
-                                loading="lazy"
-                              />
-                            {% endif %}
-                          </div>
-                          <span class="custom-col-slider__img-label">{{ sub_sub_link.object.metafields.custom.name_of_collection | upcase }}</span>
-                          
+ {% assign menu = linklists['main-menu'] %}
+{% for top_link in menu.links %}
+  {% if top_link.links != blank %}
+    {% for sub_link in top_link.links %}
+      {% if sub_link.object.title == collection.title %}
+        <div class="custom-col-slider__slide-wrap splide js-collection-slider">
+          <div class="custom-col-slider__track splide__track">
+            <ul class="custom-col-slider__list splide__list">
+              {% for sibling_link in top_link.links %}
+                {% unless collection.metafields.custom.name_of_collection == sibling_link.object.metafields.custom.name_of_collection %}
+                  <a class="custom-col-slider__slide splide__slide" href="{{ sibling_link.object.url }}">
+                    {% if sibling_link.type == 'collection_link' and sibling_link.object %}
+                      <div class="custom-col-slider__img-box">
+                        {% assign collection_image = sibling_link.object.image %}
+                        {% assign fallback_image = sibling_link.object.products.first.featured_image %}
+
+                        {% if collection_image %}
+                          <img 
+                            class="custom-col-slider__img" 
+                            src="{{ collection_image | img_url: 'medium' }}" 
+                            alt="{{ sibling_link.object.title }}" 
+                            width="100%" 
+                            height="" 
+                            loading="lazy"
+                          />
+                        {% elsif fallback_image %}
+                          <img 
+                            class="custom-col-slider__img" 
+                            src="{{ fallback_image | img_url: 'medium' }}" 
+                            alt="{{ sibling_link.object.title }}" 
+                            width="100%" 
+                            height="" 
+                            loading="lazy"
+                          />
                         {% endif %}
-                      </a>     
-                    {% endunless %}
-                  {% endfor %}
-                {% endif %}
-              </ul>
-            </div>
+                      </div>
+                      <span class="custom-col-slider__img-label">{{ sibling_link.object.metafields.custom.name_of_collection | upcase }}</span>
+                    {% endif %}
+                  </a>
+                {% endunless %}
+              {% endfor %}
+            </ul>
           </div>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  {% endfor %}
-
-
-
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
 
 </div>
         
