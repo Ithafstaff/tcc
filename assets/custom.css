@@ -784,7 +784,7 @@
   }
 
   .custom-footer__block-text {
-    width: 100%;
+    flex-basis: unset !important;
   }
 
 
