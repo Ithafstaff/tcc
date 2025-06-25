@@ -50,7 +50,7 @@
                 <span style="font-family: 'Alata', sans-serif; font-size: 12px; line-height: 20px;">{{ line_item.title }}</span>
                 <span style="font-size: 10px;">{{ line_item.variant.title }}</span>
                 <span style="font-size: 10px;">{{ line_item.quantity }} {% if line_item.quantity < 2 %}piece{% else %}pieces{% endif %}</span>
-                <span style="font-size: 10px;">{{ line_item.final_line_price }}</span>
+                <span style="font-size: 10px;">{{ line_item.final_price | money }}</span>
                 {% if line_item.properties.subscription_id %}
                   <span style="border: 2px solid red; color: red; font-size: 6px;">Monthly Subscription</span>
                 {% endif %}
