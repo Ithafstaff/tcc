@@ -33,9 +33,9 @@ LIQUID
   <!-- Product List Section (Limited to 3 Products) -->
 <div>
   <div class="custom-collection__container" id="scroll-area-{{ section.id }}">
-    {%- assign product_count = 0 -%}
+    {%- assign collection_count = 0 -%}
     {%- for block in section.blocks -%}
-      {%- if product_count < 4 -%}
+      {%- if collection_count < 4 -%}
         {%- assign collection_handle = block.settings.collection -%}
         {%- assign collection = all_collections[collection_handle] -%}
 
@@ -55,7 +55,7 @@ LIQUID
             {{ collection.title }}
           </p>
         </a>
-        {%- assign product_count = product_count | plus: 1 -%}
+        {%- assign collection_count = collection_count | plus: 1 -%}
       {%- endif -%}
     {%- endfor -%}
   </div>
