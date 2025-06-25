@@ -427,6 +427,9 @@
       "block_order": [
         "button_dnhezQ"
       ],
+      "custom_css": [
+        ".custom-collection__info-wrap {margin-bottom: 40px;}"
+      ],
       "settings": {
         "heading": "DESIGNED TO REFLECT ELEGANCE",
         "subheading": "Designed to blend into any space and stand out all at once"
