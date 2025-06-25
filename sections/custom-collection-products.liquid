@@ -47,7 +47,7 @@ LIQUID
             </div>
               {%- if collection.featured_image != blank -%}
                 <div class="custom-collection__img-wrap" style="height: 370px; width: 370px;">
-                  <img style="height: 100%; width: 100%; object-fit: contain;" src="{{ collection.featured_image | image_url: width: 800 }}" alt="{{ collection.title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                  <img style="height: 100%; width: 100%; object-fit: cover;" src="{{ collection.featured_image | image_url: width: 800 }}" alt="{{ collection.title }}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
               {%- else -%}
                 <span>No Image Available</span>
