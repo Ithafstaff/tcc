@@ -63,7 +63,7 @@
 
               {%- when 'text' -%}
                 {%- if block.settings.title != blank or block.settings.content != blank or shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
-                  <div class="footer__block footer__block--text" {{ block.shopify_attributes }}>
+                  <div class="footer__block footer__block--text x:w-md" {{ block.shopify_attributes }}>
                     {%- if block.settings.title != blank -%}
                       <div class="x:flex x:items-center x:gap-3">
                         {%- if block.settings.icon != blank -%}
