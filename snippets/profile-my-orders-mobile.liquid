@@ -23,7 +23,7 @@
   </div>
   <div id="orders-container-mobile" style="gap: 5px; filter: drop-shadow(0 2px 3px rgba(22,22,22,0.1)); background-color: white; display: flex; flex-direction: column; align-items: center; padding: 21px 16px;">
     {% for order in customer.orders %}
-      <details class="accordion" style="width: 100%; border: none; {% unless forloop.last %}border-bottom: 1px solid rgba(22,22,22,0.2);{% endunless %}" aria-expanded="false" is="accordion-disclosure">
+      <details class="accordion group" style="width: 100%; border: none; {% unless forloop.last %}border-bottom: 1px solid rgba(22,22,22,0.2);{% endunless %}" aria-expanded="false" is="accordion-disclosure">
         <summary>
           {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
           <!-- ACCORDION HEADER/BUTTON HERE -->
@@ -31,7 +31,7 @@
             <span style="text-transform: uppercase; font-size: 10px; color: #222222;">
               {{ order.created_at | date: "%B %d, %Y"}} | <span>{{ order.financial_status }}: {{ order.fulfillment_status }}</span>
             </span>
-            <span class="">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
+            <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
           </div>
         </summary>
   
