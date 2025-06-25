@@ -39,7 +39,7 @@
           {% for line_item in order.line_items %}
             <div style="display: flex; width: 100%;">
               <img 
-                src="{{ line_item.image | image_url: '100x' }}" 
+                src="{{ line_item.image | img_url: '100x' }}" 
                 alt="{{ line_item.title }}" 
                 class="profile__order-img"
                 width="100"
