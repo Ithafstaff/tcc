@@ -297,6 +297,25 @@
         "subheading": "Designed to blend into any space and stand out all at once"
       }
     },
+    "custom_rich_text_white_wbtKDf": {
+      "type": "custom-rich-text_white",
+      "blocks": {
+        "button_dnhezQ": {
+          "type": "button",
+          "settings": {
+            "text": "SHOP COLLECTION",
+            "url": "shopify://collections/beddings-main-category"
+          }
+        }
+      },
+      "block_order": [
+        "button_dnhezQ"
+      ],
+      "settings": {
+        "heading": "DESIGNED TO REFLECT ELEGANCE",
+        "subheading": "Designed to blend into any space and stand out all at once"
+      }
+    },
     "custom_drawer_banner_e9xLj7": {
       "type": "custom-drawer-banner",
       "custom_css": [],
@@ -548,6 +567,7 @@
     "drawer_banner",
     "custom_collection_products_gCxwVX",
     "custom_rich_text_white_qqai8x",
+    "custom_rich_text_white_wbtKDf",
     "custom_drawer_banner_e9xLj7",
     "custom_collection_products_XmhK7E",
     "custom_image_grid_kr7aCj",
