@@ -208,7 +208,7 @@
       </div>
     </details>
     <div style="display: flex; width: 100%; justify-content: center;">
-      <button style="display: flex; width: 174px; height: 38px; background-color: #222222; color: white; align-items: center; justify-content: center;">
+      <button id="apply-filter" style="display: flex; width: 174px; height: 38px; background-color: #222222; color: white; align-items: center; justify-content: center;">
         APPLY FILTER
       </button>
     </div>
@@ -225,13 +225,9 @@
       renderWishlistItemsMobile();
     });
 
-    // console.log('chek', document.querySelectorAll('input[name="show-filter"]');
-
-    document.querySelectorAll('input[name="show-filter"]').forEach(radio => {
-      radio.addEventListener('change', function(e) {
-        renderWishlistItemsMobile();
-      })
-    });
+    document.querySelector('apply-filter').addEventListener('click', function(e) {
+      renderWishlistItemsMobile();
+    })
 
     function createCategoryButtons(item) {
       const catBtn = document.createElement('button');
