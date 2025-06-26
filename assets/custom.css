@@ -5,6 +5,7 @@
   grid-template-columns: 0.6fr 0.4fr !important;
   gap: 25px !important;
   position: relative;
+  overflow: hidden;
 }
 
 .custom__btn-width {
