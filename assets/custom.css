@@ -2,7 +2,7 @@
   /* max-width: 1356px; */
   width: 100%;
   margin: 0 auto;
-  grid-template-columns: 0.6175fr 0.3817fr !important;
+  grid-template-columns: 0.6fr 0.4fr !important;
   gap: 25px !important;
   position: relative;
 }
