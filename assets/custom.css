@@ -660,7 +660,11 @@
   
    .header__secondary-nav .suggestion-item {
      color: #000 !important;
-   } 
+   }
+  
+  .custom-hamburger__line {
+      background: #000;
+    }
 
   
 }
