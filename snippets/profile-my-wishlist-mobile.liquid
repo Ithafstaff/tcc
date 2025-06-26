@@ -226,7 +226,7 @@
     });
 
     document.querySelectorAll('input[name="show-filter"]'.forEach(radio => {
-      radio.addEventListener('change', function() {
+      radio.addEventListener('change', function(e) {
         renderWishlistItemsMobile();
       })
     });
