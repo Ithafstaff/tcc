@@ -837,8 +837,11 @@
   }
 
   .custom-product__gallery-thumbnail-list {
-    display: flex !important;
     gap: 10px !important;
+  }
+
+  .product-gallery__thumbnail-list {
+    grid-auto-columns: 80px;
   }
 
 
