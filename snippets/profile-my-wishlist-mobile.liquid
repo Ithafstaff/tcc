@@ -263,8 +263,9 @@
     
       // Optionally group them in a wrapper div
       const wrapper = document.createElement('div');
-      wrapper.appendChild(checkbox);
+      wrapper.style = "display: flex; justify-content: space-between;";
       wrapper.appendChild(label);
+      wrapper.appendChild(checkbox);
     
       // Append to container
       document.getElementById('sort-categories').appendChild(wrapper);
