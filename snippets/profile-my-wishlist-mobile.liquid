@@ -172,9 +172,9 @@
       <summary>
         {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
         <!-- ACCORDION HEADER/BUTTON HERE -->
-        <div class="accordion__toggle group" style="display: flex; justify-content: space-between; width: 100%;">
+        <div class="accordion__toggle" style="display: flex; justify-content: space-between; width: 100%;">
           <span>SORT BY</span>
-          <span class="circle-chevron group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
+          <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
         </div>
       </summary>
 
@@ -263,7 +263,7 @@
     
       // Optionally group them in a wrapper div
       const wrapper = document.createElement('div');
-      wrapper.style = "display: flex; justify-content: space-between; text-transform: uppercase;";
+      wrapper.style = "display: flex; justify-content: space-between;";
       wrapper.appendChild(label);
       wrapper.appendChild(checkbox);
     
