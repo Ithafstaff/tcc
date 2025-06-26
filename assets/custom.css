@@ -917,6 +917,13 @@
     font-size: 10px;
   }
   
+  .custom-search__bar-list {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    width: calc(100% - 40px) !important;
+  }
+  
   .icon {
     color: #000 !important;
   }
