@@ -855,6 +855,10 @@
     font-size: 14px !important;
   }
 
+  .custom-store__heading {
+    font-size: 32px;
+  }
+
 
 }
 
