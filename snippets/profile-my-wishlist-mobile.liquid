@@ -527,7 +527,6 @@
       wishlist.forEach((item, index) => {
         const productCard = createProductCard(item);
         wishlistContainer.appendChild(productCard);
-        if (index >= itemsPerPage) break;
       });
 
       // Add event listeners to cart icons after rendering
