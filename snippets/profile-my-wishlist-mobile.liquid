@@ -524,10 +524,15 @@
       // Add items to container
       const itemsPerPage = Number(document.querySelector('input[name="show-filter"]:checked').value);
       console.log('chek', itemsPerPage);
-      wishlist.forEach((item, index) => {
-        const productCard = createProductCard(item);
+
+      for (let i = 0; i < itemsPerPage; i++) {
+        const productCard = createProductCard(wishlist[i]);
         wishlistContainer.appendChild(productCard);
-      });
+      }
+      // wishlist.forEach((item, index) => {
+      //   const productCard = createProductCard(item);
+      //   wishlistContainer.appendChild(productCard);
+      // });
 
       // Add event listeners to cart icons after rendering
       addCartIconListeners();
