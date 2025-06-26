@@ -231,7 +231,6 @@
     })
 
     function createCategoryButtons(item) {
-      
       const catBtn = document.createElement('button');
       catBtn.style = "display: flex; width: 100%; justify-content: space-between;";
 
@@ -249,26 +248,9 @@
     }
 
     const categories = ['dining', 'table top', 'plastic dinnerware', 'judaica', 'bedding', 'lucite', 'towels', 'tablecloth'];
-    categories.forEach((item, index) => {
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.id = `checkbox-${index}`;
-      checkbox.name = `checkbox-group`;
-      checkbox.value = item;
-    
-      // Create label
-      const label = document.createElement('label');
-      label.htmlFor = checkbox.id;
-      label.textContent = item;
-    
-      // Optionally group them in a wrapper div
-      const wrapper = document.createElement('div');
-      wrapper.style = "display: flex; justify-content: space-between;";
-      wrapper.appendChild(label);
-      wrapper.appendChild(checkbox);
-    
-      // Append to container
-      document.getElementById('sort-categories').appendChild(wrapper);
+
+    categories.forEach(item => {
+      document.getElementById('sort-categories').appendChild(createCategoryButtons(item));
     });
 
     
@@ -550,6 +532,10 @@
         const productCard = createProductCard(wishlist[i]);
         wishlistContainer.appendChild(productCard);
       }
+      // wishlist.forEach((item, index) => {
+      //   const productCard = createProductCard(item);
+      //   wishlistContainer.appendChild(productCard);
+      // });
 
       // Add event listeners to cart icons after rendering
       addCartIconListeners();
