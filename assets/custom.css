@@ -847,6 +847,10 @@
     grid-auto-columns: 80px !important;
   }
 
+  .custom-product__info-title {
+    font-size: 28px;
+  }
+
 
 }
 
