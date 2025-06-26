@@ -88,6 +88,7 @@ Supported variables
           data-product-image="{{ product.featured_image | img_url: '500x' }}"
           data-product-price="{{ product.price | money_without_currency }}"
           data-product-type="{{ product.type }}"
+          data-product-category="{{ product.category }}"
           data-product-handle="{{ product.handle }}"
           data-product-variants="{{ product.variants | json | escape }}"
           data-product-options="{{ product.options_with_values | json | escape }}"
