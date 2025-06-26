@@ -841,7 +841,7 @@
   }
 
   .product-gallery__thumbnail-list {
-    grid-auto-columns: 80px;
+    grid-auto-columns: 80px !important;
   }
 
 
