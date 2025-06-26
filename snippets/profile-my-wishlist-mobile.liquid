@@ -522,7 +522,9 @@
       }
       
       // Add items to container
-      wishlist.forEach(item => {
+      const itemsPerPage = document.querySelector('input[name="show-filter"]:checked').value;
+      wishlist.forEach((item, index) => {
+        if (index >= itemsPerPage) continue;
         const productCard = createProductCard(item);
         wishlistContainer.appendChild(productCard);
       });

@@ -819,6 +819,13 @@
     width: calc(100% - 40px) !important;
   }
 
+  .header.homepage-header.is-filled,
+  .header.is-filled {
+    .custom-hamburger__line {
+      background: #000;
+    }
+  }
+
 
 }
 
@@ -1099,6 +1106,42 @@
   .header__secondary-nav input {
      color: #000 !important;
    }
+
+  .header.homepage-header.is-filled,
+  .header.is-filled {
+    /* border: 1px solid; */
+    background: #fff;
+     transition: all 0.3s ease;
+  
+    .link-faded-reverse {
+      color: #000 !important;
+       transition: all 0.3s ease;
+    }
+  
+    .search-bar-link {
+      border-color: #000 !important;
+    }
+  
+    #header-search-input::placeholder,
+    .header__secondary-nav svg,
+    .header__secondary-nav span {
+      color: #000 !important;
+      fill: #000 !important;
+    }
+  
+     .header__secondary-nav .count-bubble span {
+       color: #fff !important;
+     } 
+  
+    .header__secondary-nav .suggestion-item,
+    .header__secondary-nav input {
+       color: #000 !important;
+     }
+  
+    .custom-hamburger__line {
+      background: #000;
+    }
+  }
 
   
 }
