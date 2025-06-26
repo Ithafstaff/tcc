@@ -760,7 +760,7 @@
 
 /* TABLET RESPONSIVENESS PORTION*/
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1150px) {
   
   .custom-collection__info-heading {
     font-size: 24px;
@@ -806,6 +806,13 @@
 
   .custom-footer__link-list li {
     font-size: 12px;
+  }
+
+  .custom-search__bar-list {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    width: calc(100% - 40px) !important;
   }
 
 
@@ -908,13 +915,6 @@
     width: 150px; 
     height: 40px;
     font-size: 10px;
-  }
-  
-  .custom-search__bar-list {
-    position: absolute;
-    bottom: 15px;
-    left: 20px;
-    width: calc(100% - 40px) !important;
   }
   
   .icon {
