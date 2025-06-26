@@ -178,6 +178,10 @@
 .header__link-list {
   gap: 30px;
 }
+
+  .header__wrapper {
+    display: flex;
+  }
   
   
 </style>
@@ -193,6 +197,37 @@
     {% endif %}
   >
     <div class="header__wrapper">
+
+      {%- comment -%}
+        --------------------------------------------------------------------------------------------------------------------
+        LOGO AREA
+        --------------------------------------------------------------------------------------------------------------------
+      {%- endcomment -%}
+
+      {%- capture logo_content -%}
+        {%- if section.settings.logo -%}
+          {%- capture sizes -%}{{ section.settings.logo_max_width }}px{%- endcapture -%}
+          {%- capture widths -%}{{ section.settings.logo_max_width | times: 2 | at_most: section.settings.logo.width }}, {{ section.settings.logo_max_width | times: 3 | at_most: section.settings.logo.width }}{%- endcapture -%}
+          <span class="sr-only">{{ shop.name }}</span>
+          {{- section.settings.logo | image_url: width: section.settings.logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image' -}}
+
+          {%- if section.settings.transparent_logo -%}
+            {{- section.settings.transparent_logo | image_url: width: section.settings.transparent_logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image header__logo-image--transparent' -}}
+          {%- endif -%}
+        {%- else -%}
+          <span class="header__logo-text h4">{{ shop.name }}</span>
+        {%- endif -%}
+      {%- endcapture -%}
+
+      {%- if request.page_type == 'index' -%}
+        <h1 class="header__logo">
+          <a href="{{ routes.root_url }}">{{ logo_content }}</a>
+        </h1>
+      {% else %}
+        <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>
+      {% endif %}
+
+      
       {%- comment -%}
         --------------------------------------------------------------------------------------------------------------------
         MAIN NAV AREA
@@ -401,35 +436,7 @@
         </div>
       </div>
 
-      {%- comment -%}
-        --------------------------------------------------------------------------------------------------------------------
-        LOGO AREA
-        --------------------------------------------------------------------------------------------------------------------
-      {%- endcomment -%}
-
-      {%- capture logo_content -%}
-        {%- if section.settings.logo -%}
-          {%- capture sizes -%}{{ section.settings.logo_max_width }}px{%- endcapture -%}
-          {%- capture widths -%}{{ section.settings.logo_max_width | times: 2 | at_most: section.settings.logo.width }}, {{ section.settings.logo_max_width | times: 3 | at_most: section.settings.logo.width }}{%- endcapture -%}
-          <span class="sr-only">{{ shop.name }}</span>
-          {{- section.settings.logo | image_url: width: section.settings.logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image' -}}
-
-          {%- if section.settings.transparent_logo -%}
-            {{- section.settings.transparent_logo | image_url: width: section.settings.transparent_logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image header__logo-image--transparent' -}}
-          {%- endif -%}
-        {%- else -%}
-          <span class="header__logo-text h4">{{ shop.name }}</span>
-        {%- endif -%}
-      {%- endcapture -%}
-
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__logo">
-          <a href="{{ routes.root_url }}">{{ logo_content }}</a>
-        </h1>
-      {% else %}
-        <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>
-      {% endif %}
-
+      
       {%- comment -%}
         --------------------------------------------------------------------------------------------------------------------
         SECONDARY NAV AREA
