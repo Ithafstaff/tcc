@@ -226,7 +226,8 @@
     });
 
     document.querySelector('#apply-filter').addEventListener('click', function(e) {
-      console.log('chek apply filter button pressed!');
+      window.scrollTo(0, 0);
+      document.getElementById('filer-modal').style.display = 'none';
       renderWishlistItemsMobile();
     })
 
