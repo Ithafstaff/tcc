@@ -878,9 +878,9 @@
     height: 2px !important;
   }
 
-  .custom-product__gallery-media {
+  /* .custom-product__gallery-media {
     max-height: 350px !important;
-  }
+  } */
 
   .custom-product__info-title {
     font-size: 20px !important;
