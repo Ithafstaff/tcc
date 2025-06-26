@@ -522,10 +522,8 @@
       }
       
       // Add items to container
-      const itemsPerPage = document.querySelector('input[name="show-filter"]:checked').value;
-      console.log('chek', itemsPerPage);
+      
       wishlist.forEach((item, index) => {
-        if (index >= itemsPerPage) break;
         const productCard = createProductCard(item);
         wishlistContainer.appendChild(productCard);
       });
