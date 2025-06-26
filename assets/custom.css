@@ -837,7 +837,7 @@
   }
 
   .custom-product__gallery-thumbnail-list {
-    display: flex;
+    display: flex !important;
     gap: 10px !important;
   }
 
