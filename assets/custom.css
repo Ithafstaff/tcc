@@ -836,6 +836,11 @@
     grid-template-columns: 1fr 1fr 1fr !important;
   }
 
+  .custom-product__gallery-thumbnail-list {
+    display: flex;
+    gap: 10px !important;
+  }
+
 
 }
 
