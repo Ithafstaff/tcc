@@ -88,14 +88,13 @@ Supported variables
           data-product-image="{{ product.featured_image | img_url: '500x' }}"
           data-product-price="{{ product.price | money_without_currency }}"
           data-product-type="{{ product.type }}"
-          data-product-category="{{ product.category }}"
           data-product-handle="{{ product.handle }}"
           data-product-variants="{{ product.variants | json | escape }}"
           data-product-options="{{ product.options_with_values | json | escape }}"
         >
           <span class="wishlist-button-text">ADD TO WISHLIST</span>
         </button>
-        <!-- <button type="button" class="custom-product__buy-button custom-product__buy-button--white">SUBSCRIBE AND SAVE</button> -->
+        <button type="button" class="custom-product__buy-button custom-product__buy-button--white">SUBSCRIBE AND SAVE</button>
       </div>
       
       {%- if show_payment_button -%}
@@ -150,7 +149,6 @@ Supported variables
           image: this.getAttribute('data-product-image'),
           price: this.getAttribute('data-product-price'),
           productType: this.getAttribute('data-product-type'),
-          category: this.getAttribute('data-product-category'),
           handle: this.getAttribute('data-product-handle'),
           variants: JSON.parse(this.getAttribute('data-product-variants') || '[]'),
           options: JSON.parse(this.getAttribute('data-product-options') || '[]'),
