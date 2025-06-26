@@ -524,7 +524,7 @@
       // Add items to container
       const itemsPerPage = document.querySelector('input[name="show-filter"]:checked').value;
       wishlist.forEach((item, index) => {
-        if (index >= itemsPerPage) continue;
+        if (index >= itemsPerPage) break;
         const productCard = createProductCard(item);
         wishlistContainer.appendChild(productCard);
       });
