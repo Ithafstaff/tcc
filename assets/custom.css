@@ -862,6 +862,8 @@
   .location-btn {
     font-size: 14px;
     text-align: center;
+    height: auto;
+    padding: 10px;
   }
 
 
