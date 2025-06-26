@@ -866,6 +866,10 @@
     padding: 5px;
   }
 
+  .location-btn__wrapper {
+    margin: 20px 0 30px;
+  }
+
 
 }
 
