@@ -277,6 +277,7 @@
 
 .custom-product__gallery-media {
   /* max-height: 608px; */
+  width: 100%;
   height: 100%;
   max-height: unset !important;
 }
