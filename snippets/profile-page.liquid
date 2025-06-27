@@ -1434,6 +1434,7 @@
               
               // Clear existing items
               wishlistContainer.innerHTML = '';
+              console.log('chek', wishlistContainer.innerHTML);
               
               // Show empty message if wishlist is empty
               if (wishlist.length <= 0) {
@@ -1452,6 +1453,7 @@
                   emptyWishlistMessage.style.display = 'block';
                   wishlistContainer.appendChild(emptyWishlistMessage);
                 }
+                console.log('chek', wishlistContainer.innerHTML);
                 return;
               }
               
