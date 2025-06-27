@@ -995,30 +995,6 @@ setTimeout(() => {
         }
         return;
       }
-
-      function removeFromWishlist(productId) {
-        // Get current wishlist
-        let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
-        
-        // Find and remove the product
-        const index = wishlist.findIndex(item => item.id === productId);
-        if (index !== -1) {
-          wishlist.splice(index, 1);
-          
-          // Save updated wishlist
-          localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
-    
-          console.log('chek removed from wishlist!');
-          
-          // Re-render wishlist
-          renderWishlistItems();
-    
-          console.log('chek rerender after deletion!');
-          
-          // Notify
-          alert('Item removed from wishlist');
-        }
-      }
       
       // Add items to container
       wishlist.forEach(item => {
@@ -1032,10 +1008,33 @@ setTimeout(() => {
     
     // Make functions available globally
     window.openProductModal = openProductModal;
-    window.removeFromWishlist = removeFromWishlist;
     window.selectSwatch = selectSwatch;
     window.renderWishlistItems = renderWishlistItems;
   });
+
+  function removeFromWishlist(productId) {
+    // Get current wishlist
+    let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+    
+    // Find and remove the product
+    const index = wishlist.findIndex(item => item.id === productId);
+    if (index !== -1) {
+      wishlist.splice(index, 1);
+      
+      // Save updated wishlist
+      localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
+
+      console.log('chek removed from wishlist!');
+      
+      // Re-render wishlist
+      renderWishlistItems();
+
+      console.log('chek rerender after deletion!');
+      
+      // Notify
+      alert('Item removed from wishlist');
+    }
+  }
 
   function hoverSwatch(el) {
     const productCard = el.closest('[style*="width: 250px"]');
