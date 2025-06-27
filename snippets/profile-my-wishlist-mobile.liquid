@@ -168,7 +168,7 @@
         </span>
       </div>
     </details>
-    <details class="accordion" style="border: none;" aria-expanded="false" is="accordion-disclosure">
+    <details class="accordion" style="border: none; border-bottom: 1px solid rgba(22,22,22,0.1); " aria-expanded="false" is="accordion-disclosure">
       <summary>
         {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
         <!-- ACCORDION HEADER/BUTTON HERE -->
@@ -180,7 +180,7 @@
 
       <!-- ACCORDION CONTENT HERE -->
       <div class="accordion__content">
-        <div class="sort-grid" style="border-bottom: 1px solid rgba(22,22,22,0.1); padding-bottom: 20px;">
+        <div class="sort-grid" style="padding-bottom: 20px;">
           <span>
             <input id="sort-r1" type="radio" name="sort-filter" value="10" checked>
             <label for="sort-r1">Most Relevant</label>
