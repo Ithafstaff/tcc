@@ -507,7 +507,7 @@
       // Show empty message if wishlist is empty
       if (wishlist.length <= 0) {
         wishlistContainer.innerHTML = `
-          <div id="empty-wishlist-message-mobile" style="gap: 20px; display: none; width: 100%; flex-direction: column; justify-content: center; align-items: center; grid-column: 1 / -1; padding: 42px 50px; text-align: center;">
+          <div id="empty-wishlist-message-mobile" style="gap: 20px; display: flex; width: 100%; flex-direction: column; justify-content: center; align-items: center; grid-column: 1 / -1; padding: 42px 50px; text-align: center;">
             <span class="custom-heading" style="text-transform: uppercase; font-size: 20px; letter-spacing: 1px;">your favorites is currently empty</span>
             <span style="font-size: 12px; letter-spacing: 1px;">Don't worry - the best deals in party supplies are just a click away!</span>
             <a href="/collections/all" class="custom-heading" style="background-color: black; color: white; font-size: 16px; padding: 9px 20px; line-height: 20px;">
@@ -517,10 +517,10 @@
         `;
         wishlistContainer.style.filter = "drop-shadow(0 2px 3px rgba(22,22,22,0.1))";
         wishlistContainer.style.backgroundColor = "white";
-        if (emptyWishlistMessage) {
-          emptyWishlistMessage.style.display = 'flex';
-          wishlistContainer.appendChild(emptyWishlistMessage);
-        }
+        // if (emptyWishlistMessage) {
+        //   emptyWishlistMessage.style.display = 'flex';
+        //   wishlistContainer.appendChild(emptyWishlistMessage);
+        // }
 
         return;
       }
