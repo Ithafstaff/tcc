@@ -1437,11 +1437,21 @@
               
               // Show empty message if wishlist is empty
               if (wishlist.length <= 0) {
-                wishlistContainer.innerHTML = emptyWishlistMessage;
-                // if (emptyWishlistMessage) {
-                //   emptyWishlistMessage.style.display = 'block';
-                //   wishlistContainer.appendChild(emptyWishlistMessage);
-                // }
+                wishlistContainer.innerHTML = `
+                  <div
+                    id="empty-wishlist-message"
+                    style="grid-column: span 4; text-align: center; padding: 50px 0; display: none;"
+                  >
+                    <p style="font-size: 16px;">Your wishlist is empty.</p>
+                    <a href="/collections/all" class="profile-sub__order-btn-link" style="margin: 20px auto;"
+                      >BROWSE PRODUCTS</a
+                    >
+                  </div>
+                `;
+                if (emptyWishlistMessage) {
+                  emptyWishlistMessage.style.display = 'block';
+                  wishlistContainer.appendChild(emptyWishlistMessage);
+                }
                 return;
               }
               
