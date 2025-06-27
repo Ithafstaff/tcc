@@ -988,7 +988,7 @@ setTimeout(() => {
       wishlistContainer.innerHTML = '';
       
       // Show empty message if wishlist is empty
-      if (wishlist.length === 0) {
+      if (wishlist.length <= 0) {
         if (emptyWishlistMessage) {
           emptyWishlistMessage.style.display = 'block';
           wishlistContainer.appendChild(emptyWishlistMessage);
@@ -1010,6 +1010,7 @@ setTimeout(() => {
     window.openProductModal = openProductModal;
     window.removeFromWishlist = removeFromWishlist;
     window.selectSwatch = selectSwatch;
+    window.renderWishlistItems = renderWishlistItems
   });
 
   function hoverSwatch(el) {
