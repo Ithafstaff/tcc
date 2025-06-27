@@ -505,6 +505,7 @@
       wishlistContainer.innerHTML = '';
       
       // Show empty message if wishlist is empty
+      console.log('chek wishlist length:', wishlist.length);
       if (wishlist.length <= 0) {
         wishlistContainer.innerHTML = `
           <div id="empty-wishlist-message-mobile" style="gap: 20px; display: none; width: 100%; flex-direction: column; justify-content: center; align-items: center; grid-column: 1 / -1; padding: 42px 50px; text-align: center;">
