@@ -1436,7 +1436,7 @@
               wishlistContainer.innerHTML = '';
               
               // Show empty message if wishlist is empty
-              if (wishlist.length === 0) {
+              if (wishlist.length <= 0) {
                 wishlistContainer.innerHTML = `
                   <div
                     id="empty-wishlist-message"
