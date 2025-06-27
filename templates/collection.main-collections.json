@@ -244,8 +244,7 @@
     "recently_viewed_products_i8QMgh": {
       "type": "recently-viewed-products",
       "custom_css": [
-        ".section-full {padding: 0 50px;}",
-        "@media screen and (max-width: 767px) {.section-full {padding: 0 20px; margin-bottom: 10px; }}"
+        ".section-full {padding: 0 20px; margin-bottom: 10px;}"
       ],
       "name": "Recently viewed products",
       "settings": {
