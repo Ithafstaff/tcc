@@ -249,8 +249,27 @@
 
     const categories = ['dining', 'table top', 'plastic dinnerware', 'judaica', 'bedding', 'lucite', 'towels', 'tablecloth'];
 
-    categories.forEach(item => {
-      document.getElementById('sort-categories').appendChild(createCategoryButtons(item));
+    categories.forEach((item, index) => {
+      // Create checkbox input
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = `checkbox-${index}`;
+      checkbox.name = `checkbox-group`;
+      checkbox.value = item;
+    
+      // Create label
+      const label = document.createElement('label');
+      label.htmlFor = checkbox.id;
+      label.textContent = item;
+    
+      // Optionally group them in a wrapper div
+      const wrapper = document.createElement('div');
+      wrapper.appendChild(checkbox);
+      wrapper.appendChild(label);
+      wrapper.style = "text-transform: uppercase; display: flex; justify-content: space-between";
+    
+      // Append to container
+      document.getElementById('sort-categories').appendChild(wrapper);
     });
 
     
