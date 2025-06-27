@@ -162,6 +162,7 @@
   margin: 0 auto 15px;
   overflow: hidden;
   gap: 30px !important;
+  padding: 20px;
 }
 
 .location-btn__wrapper {
