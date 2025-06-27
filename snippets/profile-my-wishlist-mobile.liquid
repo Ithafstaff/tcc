@@ -515,13 +515,13 @@
             </a>
           </div>
         `;
-        console.log('chek wishlist length:', wishlist.length);
         wishlistContainer.style.filter = "drop-shadow(0 2px 3px rgba(22,22,22,0.1))";
         wishlistContainer.style.backgroundColor = "white";
         if (emptyWishlistMessage) {
           emptyWishlistMessage.style.display = 'flex';
           wishlistContainer.appendChild(emptyWishlistMessage);
         }
+        console.log('chek wishlist length:', wishlist.length);
         return;
       }
 
