@@ -1141,9 +1141,13 @@ setTimeout(() => {
       
       // Save updated wishlist
       localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
+
+      console.log('chek removed from wishlist!');
       
       // Re-render wishlist
       renderWishlistItems();
+
+      console.log('chek rerender after deletion!');
       
       // Notify
       alert('Item removed from wishlist');
