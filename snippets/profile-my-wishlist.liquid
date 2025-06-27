@@ -1,6 +1,7 @@
 <style>
   .profile-sub {
     padding: 0 50px 30px;
+    width: 100%;
     font-family: 'Alata', sans-serif !important;
     color: #222222;
   }
@@ -448,7 +449,7 @@
     // Render wishlist items
     renderWishlistItems();
     
-    // Listen for wishlist updates
+    // Listen for wishlist updateswi
     document.addEventListener('wishlist:updated', function(event) {
       renderWishlistItems();
     });
@@ -971,71 +972,46 @@ setTimeout(() => {
       return cardElement;
     }
     
+    function renderWishlistItems() {
+      const wishlistContainer = document.getElementById('wishlist-container');
+      const emptyWishlistMessage = document.getElementById('empty-wishlist-message');
+      
+      if (!wishlistContainer) {
+        console.error('Wishlist container not found');
+        return;
+      }
+      
+      // Get wishlist from localStorage
+      const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+      console.log('Current wishlist:', wishlist);
+      
+      // Clear existing items
+      wishlistContainer.innerHTML = '';
+      
+      // Show empty message if wishlist is empty
+      if (wishlist.length === 0) {
+        if (emptyWishlistMessage) {
+          emptyWishlistMessage.style.display = 'block';
+          wishlistContainer.appendChild(emptyWishlistMessage);
+        }
+        return;
+      }
+      
+      // Add items to container
+      wishlist.forEach(item => {
+        const productCard = createProductCard(item);
+        wishlistContainer.appendChild(productCard);
+      });
+
+      // Add event listeners to cart icons after rendering
+      addCartIconListeners();
+    }
+    
     // Make functions available globally
     window.openProductModal = openProductModal;
-    window.selectSwatch = selectSwatch;
     window.removeFromWishlist = removeFromWishlist;
-    window.renderWishlistItems = renderWishlistItems;
+    window.selectSwatch = selectSwatch;
   });
-
-  function renderWishlistItems() {
-    const wishlistContainer = document.getElementById('wishlist-container');
-    const emptyWishlistMessage = document.getElementById('empty-wishlist-message');
-    
-    if (!wishlistContainer) {
-      console.error('Wishlist container not found');
-      return;
-    }
-    
-    // Get wishlist from localStorage
-    const wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
-    console.log('Current wishlist:', wishlist);
-    
-    // Clear existing items
-    wishlistContainer.innerHTML = '';
-    
-    // Show empty message if wishlist is empty
-    if (wishlist.length <= 0) {
-      if (emptyWishlistMessage) {
-        emptyWishlistMessage.style.display = 'block';
-        wishlistContainer.appendChild(emptyWishlistMessage);
-      }
-      return;
-    }
-    
-    // Add items to container
-    wishlist.forEach(item => {
-      const productCard = createProductCard(item);
-      wishlistContainer.appendChild(productCard);
-    });
-
-    // Add event listeners to cart icons after rendering
-    addCartIconListeners();
-  }
-
-  function removeFromWishlist(productId) {
-    // Get current wishlist
-    let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
-    
-    // Find and remove the product
-    const index = wishlist.findIndex(item => item.id === productId);
-    if (index !== -1) {
-      wishlist.splice(index, 1);
-      
-      // Save updated wishlist
-      localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
-
-      console.log('chek removed from wishlist!');
-      
-      // Re-render wishlist
-      renderWishlistItems();
-
-      console.log('chek rerender after deletion!');
-      
-      // Notify
-      alert('Item removed from wishlist');
-    }
-  }
 
   function hoverSwatch(el) {
     const productCard = el.closest('[style*="width: 250px"]');
@@ -1151,6 +1127,26 @@ setTimeout(() => {
           priceElement.textContent = `$${price}`;
         }
       }
+    }
+  }
+  
+  function removeFromWishlist(productId) {
+    // Get current wishlist
+    let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
+    
+    // Find and remove the product
+    const index = wishlist.findIndex(item => item.id === productId);
+    if (index !== -1) {
+      wishlist.splice(index, 1);
+      
+      // Save updated wishlist
+      localStorage.setItem('shopify_wishlist', JSON.stringify(wishlist));
+      
+      // Re-render wishlist
+      renderWishlistItems();
+      
+      // Notify
+      alert('Item removed from wishlist');
     }
   }
   
