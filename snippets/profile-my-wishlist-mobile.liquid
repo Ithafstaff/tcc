@@ -322,6 +322,11 @@
 
       // Format price if available
       let formattedPrice = '';
+      if (item) {
+        console.log('chek', item);
+      } else {
+        console.log('chek item is suddenly missing!');
+      }
       if (item.price) {
         formattedPrice = typeof item.price === 'number' ? 
           `$${(item.price / 100).toFixed(2)}` : 
