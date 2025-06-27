@@ -434,7 +434,7 @@
             alt="Remove from Wishlist" 
             style="position: absolute; top: 8px; right: 8px; width: 16px; height: 16px; cursor: pointer;"
             onclick="(function() {
-              removeFromWishlist('${item.id}');
+              removeFromWishlistMobile('${item.id}');
             })()"
             width="16"
             height="16"
@@ -660,7 +660,7 @@
     }
   }
   
-  function removeFromWishlist(productId) {
+  function removeFromWishlistMobile(productId) {
     // Get current wishlist
     let wishlist = JSON.parse(localStorage.getItem('shopify_wishlist')) || [];
     
