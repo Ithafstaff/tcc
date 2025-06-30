@@ -786,6 +786,11 @@
   gap: 50px !important;
 }
 
+/* Hide random error message on cart item removed */
+.line-item__info .banner--error {
+  display: none !important;
+}
+
 
 /* end of custom collection variant style */
 
