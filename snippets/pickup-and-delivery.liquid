@@ -80,5 +80,18 @@
       deliveryModal.classList.add('show');
       pickupModal.classList.remove('show');
     });
+
+    // Close modal when clicking outside of .custom-pickup-delivery__modal-wrap
+    document.addEventListener('click', function(event) {
+      // Check if the click target is NOT inside any modal content or the pickup/delivery links
+      if (
+        !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
+        !event.target.closest('#pickup-link') &&
+        !event.target.closest('#delivery-link')
+      ) {
+        pickupModal.classList.remove('show');
+        deliveryModal.classList.remove('show');
+      }
+    });
   });
 </script>
