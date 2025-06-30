@@ -786,6 +786,10 @@
   gap: 50px !important;
 }
 
+.v-stack.gap-4 {
+  border: 1px solid red;
+}
+
 /* end of custom collection variant style */
 
 /* TABLET RESPONSIVENESS PORTION*/
