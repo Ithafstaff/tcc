@@ -925,6 +925,10 @@
     height: 2px !important;
   }
 
+  .custom__product-card {
+    height: 200px;
+  }
+
   /* .custom-product__gallery-media {
     max-height: 350px !important;
   } */
