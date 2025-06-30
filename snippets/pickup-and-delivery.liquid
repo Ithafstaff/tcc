@@ -77,39 +77,44 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const pickupModal = document.getElementById('pickup-modal');
-  const deliveryModal = document.getElementById('delivery-modal');
-  const closeButtons = document.querySelectorAll('.custom-pickup-delivery__close');
+  document.addEventListener('DOMContentLoaded', function() {
+    const pickupLink = document.getElementById('pickup-link');
+    const deliveryLink = document.getElementById('delivery-link');
+    const pickupModal = document.getElementById('pickup-modal');
+    const deliveryModal = document.getElementById('delivery-modal');
+    const closeButtons = document.querySelectorAll('.custom-pickup-delivery__close');
 
-  // Use delegation
-  document.addEventListener('click', function(event) {
-    if (event.target.matches('#pickup-link')) {
+    pickupLink.addEventListener('click', function(event) {
       event.preventDefault();
       pickupModal.classList.add('show');
       deliveryModal.classList.remove('show');
-    } else if (event.target.matches('#delivery-link')) {
+    });
+
+    deliveryLink.addEventListener('click', function(event) {
       event.preventDefault();
       deliveryModal.classList.add('show');
       pickupModal.classList.remove('show');
-    } else if (
-      !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
-      !event.target.closest('#pickup-link') &&
-      !event.target.closest('#delivery-link')
-    ) {
-      // Click outside: close both modals
-      pickupModal.classList.remove('show');
-      deliveryModal.classList.remove('show');
-    }
-  });
+    });
 
-  // Close buttons
-  closeButtons.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      pickupModal.classList.remove('show');
-      deliveryModal.classList.remove('show');
+    // Add click event to all close buttons
+    closeButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        pickupModal.classList.remove('show');
+        deliveryModal.classList.remove('show');
+        console.log('clicked!');
+      });
+    });
+
+    // Close modal when clicking outside modal wrap
+    document.addEventListener('click', function(event) {
+      if (
+        !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
+        !event.target.closest('#pickup-link') &&
+        !event.target.closest('#delivery-link')
+      ) {
+        pickupModal.classList.remove('show');
+        deliveryModal.classList.remove('show');
+      }
     });
   });
-});
-
 </script>
