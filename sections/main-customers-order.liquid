@@ -60,7 +60,7 @@
               </tr>
             </thead>
 
-            <tbody class="order-summary__body">
+            <tbody class="order-summary__body test">
               {%- for line_item in order.line_items -%}
                 <tr>
                   <td>{%- render 'line-item', line_item: line_item -%}</td>
