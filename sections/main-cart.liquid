@@ -130,6 +130,25 @@
 >
   {{- 'cart.order.remove' | t -}}
 </a>
+
+                  <script>
+                  _onRemoveLinkClicked(event) {
+  if (event.target.tagName !== "A" || !event.target.href.includes("/cart/change")) {
+    return;
+  }
+  event.preventDefault();
+  const url = new URL(event.target.href);
+  let id = url.searchParams.get("id");
+  if (!id) {
+    id = event.target.dataset.lineItemKey; // fallback to data attribute
+  }
+  const quantity = parseInt(url.searchParams.get("quantity")) || 0;
+  console.log("Remove clicked — id:", id, "quantity:", quantity);
+  this._changeLineItemQuantity(id, quantity);
+}
+
+                  </script>
+                  
                         </span>
                       </line-item-quantity>
 
