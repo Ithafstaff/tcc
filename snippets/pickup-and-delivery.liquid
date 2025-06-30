@@ -85,12 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const deliveryModal = document.getElementById('delivery-modal');
     const closeButtons = document.querySelectorAll('.custom-pickup-delivery__close');
 
-    if (!pickupLink || !deliveryLink || !pickupModal || !deliveryModal) {
-      console.warn('Modal elements not found yet.');
-      return;
-    }
+    // if (!pickupLink || !deliveryLink || !pickupModal || !deliveryModal) {
+    //   console.warn('Modal elements not found yet.');
+    //   return;
+    // }
 
-    console.log('Adding modal listeners…');
+    // console.log('Adding modal listeners…');
 
     pickupLink.addEventListener('click', function(event) {
       event.preventDefault();
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.addEventListener('click', function() {
         pickupModal.classList.remove('show');
         deliveryModal.classList.remove('show');
-        console.log('Close button clicked!');
+        // console.log('Close button clicked!');
       });
     });
 
