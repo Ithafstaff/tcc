@@ -783,7 +783,7 @@
 
 .cart-order {
   grid-template-columns: 1fr 420px !important;
-  gap: 40px !important;
+  gap: 50px !important;
 }
 
 /* end of custom collection variant style */
