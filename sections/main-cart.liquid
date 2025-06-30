@@ -114,7 +114,8 @@
                       
                         <span class="text-xs">
                           <a
-                            href="{{ line_item.url_to_remove }}"
+                            <!-- href="{{ line_item.url_to_remove }}" -->
+                            href="/cart/change?id={{ line_item.key }}&quantity=0"
                             class="link"
                             aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}"
                           >
