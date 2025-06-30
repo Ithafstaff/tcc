@@ -53,11 +53,13 @@
 
 <div class="custom-pickup-delivery__modal-container" id="pickup-modal">
   <div class="custom-pickup-delivery__modal-wrap">
+    <button class="custom-pickup-delivery__close">&times;</button>
     Pickup Modal Content
   </div>
 </div>
 <div class="custom-pickup-delivery__modal-container" id="delivery-modal">
   <div class="custom-pickup-delivery__modal-wrap">
+    <button class="custom-pickup-delivery__close">&times;</button>
     Delivery Modal Content
   </div>
 </div>
@@ -68,6 +70,7 @@
     const deliveryLink = document.getElementById('delivery-link');
     const pickupModal = document.getElementById('pickup-modal');
     const deliveryModal = document.getElementById('delivery-modal');
+    const closeButtons = document.querySelectorAll('.custom-pickup-delivery__close');
 
     pickupLink.addEventListener('click', function(event) {
       event.preventDefault();
@@ -81,9 +84,16 @@
       pickupModal.classList.remove('show');
     });
 
-    // Close modal when clicking outside of .custom-pickup-delivery__modal-wrap
+    // Add click event to all close buttons
+    closeButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        pickupModal.classList.remove('show');
+        deliveryModal.classList.remove('show');
+      });
+    });
+
+    // Close modal when clicking outside modal wrap
     document.addEventListener('click', function(event) {
-      // Check if the click target is NOT inside any modal content or the pickup/delivery links
       if (
         !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
         !event.target.closest('#pickup-link') &&
