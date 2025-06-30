@@ -891,6 +891,16 @@
     margin: 20px 0 30px;
   }
 
+  .cart-order {
+     display: flex !important;
+    flex-direction: column;
+  }
+
+  .custom-cart__order-summary,
+  .custom-cart__order-recap {
+    width: 100% !important;
+  }
+
 
 }
 
@@ -1220,15 +1230,6 @@
     grid-template-columns: 1fr 1fr !important;
   }
 
-  .cart-order {
-     display: flex !important;
-    flex-direction: column;
-  }
-
-  .custom-cart__order-summary,
-  .custom-cart__order-recap {
-    width: 100% !important;
-  }
 
 
   
