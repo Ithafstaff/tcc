@@ -392,29 +392,44 @@ getTheLook();
 
 
 
-document.addEventListener('click', function(event) {
-  console.log('Document click:', event.target); // add this line
+document.addEventListener('DOMContentLoaded', function() {
+  const pickupModal = document.getElementById('pickup-modal');
+  const deliveryModal = document.getElementById('delivery-modal');
+  const closeButtons = document.querySelectorAll('.custom-pickup-delivery__close');
 
-  if (event.target.matches('#pickup-link')) {
-    event.preventDefault();
-    console.log('Pickup link clicked');
-    pickupModal.classList.add('show');
-    deliveryModal.classList.remove('show');
-  } else if (event.target.matches('#delivery-link')) {
-    event.preventDefault();
-    console.log('Delivery link clicked');
-    deliveryModal.classList.add('show');
-    pickupModal.classList.remove('show');
-  } else if (
-    !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
-    !event.target.closest('#pickup-link') &&
-    !event.target.closest('#delivery-link')
-  ) {
-    console.log('Clicked outside modal');
-    pickupModal.classList.remove('show');
-    deliveryModal.classList.remove('show');
-  }
+  document.addEventListener('click', function(event) {
+    console.log('Document click:', event.target);
+
+    if (event.target.matches('#pickup-link')) {
+      event.preventDefault();
+      console.log('Pickup link clicked');
+      pickupModal.classList.add('show');
+      deliveryModal.classList.remove('show');
+    } else if (event.target.matches('#delivery-link')) {
+      event.preventDefault();
+      console.log('Delivery link clicked');
+      deliveryModal.classList.add('show');
+      pickupModal.classList.remove('show');
+    } else if (
+      !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
+      !event.target.closest('#pickup-link') &&
+      !event.target.closest('#delivery-link')
+    ) {
+      console.log('Clicked outside modal');
+      pickupModal.classList.remove('show');
+      deliveryModal.classList.remove('show');
+    }
+  });
+
+  // Close buttons
+  closeButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      pickupModal.classList.remove('show');
+      deliveryModal.classList.remove('show');
+    });
+  });
 });
+
 
 
 
