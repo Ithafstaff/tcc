@@ -77,58 +77,48 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  function addModalListeners() {
-    const pickupLink = document.getElementById('pickup-link');
-    const deliveryLink = document.getElementById('delivery-link');
-    const pickupModal = document.getElementById('pickup-modal');
-    const deliveryModal = document.getElementById('delivery-modal');
-    const closeButtons = document.querySelectorAll('.custom-pickup-delivery__close');
-
-    // if (!pickupLink || !deliveryLink || !pickupModal || !deliveryModal) {
-    //   console.warn('Modal elements not found yet.');
-    //   return;
-    // }
-
-    // console.log('Adding modal listeners…');
-
-    pickupLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      pickupModal.classList.add('show');
-      deliveryModal.classList.remove('show');
-    });
-
-    deliveryLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      deliveryModal.classList.add('show');
-      pickupModal.classList.remove('show');
-    });
-
-    closeButtons.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        pickupModal.classList.remove('show');
+  document.addEventListener('DOMContentLoaded', function() {
+    function addModalListeners() {
+      const pickupLink = document.getElementById('pickup-link');
+      const deliveryLink = document.getElementById('delivery-link');
+      const pickupModal = document.getElementById('pickup-modal');
+      const deliveryModal = document.getElementById('delivery-modal');
+      const closeButtons = document.querySelectorAll('.custom-pickup-delivery__close');
+  
+      pickupLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        pickupModal.classList.add('show');
         deliveryModal.classList.remove('show');
-        // console.log('Close button clicked!');
       });
-    });
-
-    document.addEventListener('click', function(event) {
-      if (
-        !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
-        !event.target.closest('#pickup-link') &&
-        !event.target.closest('#delivery-link')
-      ) {
+  
+      deliveryLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        deliveryModal.classList.add('show');
         pickupModal.classList.remove('show');
-        deliveryModal.classList.remove('show');
-      }
-    });
-  }
-
-  // Run immediately
-  addModalListeners();
-
-  // Re-run every second (1000ms)
-  setInterval(addModalListeners, 1000);
-});
+      });
+  
+      closeButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          pickupModal.classList.remove('show');
+          deliveryModal.classList.remove('show');
+          // console.log('Close button clicked!');
+        });
+      });
+  
+      document.addEventListener('click', function(event) {
+        if (
+          !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
+          !event.target.closest('#pickup-link') &&
+          !event.target.closest('#delivery-link')
+        ) {
+          pickupModal.classList.remove('show');
+          deliveryModal.classList.remove('show');
+        }
+      });
+    }
+    addModalListeners();
+  
+    setInterval(addModalListeners, 1000);
+  });
 </script>
 
