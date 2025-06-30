@@ -781,6 +781,10 @@
   padding: 30px !important;
 }
 
+.cart-order {
+  grid-template-columns: 1fr 420px !important;
+}
+
 /* end of custom collection variant style */
 
 /* TABLET RESPONSIVENESS PORTION*/
