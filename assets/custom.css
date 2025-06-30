@@ -1220,6 +1220,11 @@
     grid-template-columns: 1fr 1fr !important;
   }
 
+  .cart-order {
+     display: flex;
+    flex-direction: column;
+  }
+
 
   
 }
