@@ -113,8 +113,18 @@
                         </div>
                       
                         <span class="text-xs">
+                          {% comment %}
+                          <a
+                            href="{{ line_item.url_to_remove }}"
+                            class="link"
+                            aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}"
+                          >
+                            {{- 'cart.order.remove' | t -}}
+                          </a>
+                          {% endcomment %}
                           <a
   href="/cart/change?id={{ line_item.key }}&quantity=0"
+  data-line-item-key="{{ line_item.key }}"
   class="link"
   aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}"
 >
