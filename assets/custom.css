@@ -773,6 +773,10 @@
   padding: 20px !important;
 }
 
+.Zapiet-SMS-Consent label {
+  padding-left: 5px !important;
+}
+
 /* end of custom collection variant style */
 
 /* TABLET RESPONSIVENESS PORTION*/
