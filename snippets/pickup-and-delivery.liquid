@@ -60,7 +60,7 @@
 </style>
 
 <span class="custom-pickup-delivery">
-  Available for <a href="#" id="pickup-link" onclick="popupModal()">Pickup</a> and <a href="#" id="delivery-link" onclick="popupModal()">Delivery</a>
+  Available for <a href="#" id="pickup-link">Pickup</a> and <a href="#" id="delivery-link">Delivery</a>
 </span>
 
 <div class="custom-pickup-delivery__modal-container" id="pickup-modal">
@@ -77,7 +77,7 @@
 </div>
 
 <script>
-  function popupModal() {
+  document.addEventListener('DOMContentLoaded', function() {
     const pickupLink = document.getElementById('pickup-link');
     const deliveryLink = document.getElementById('delivery-link');
     const pickupModal = document.getElementById('pickup-modal');
@@ -115,5 +115,5 @@
         deliveryModal.classList.remove('show');
       }
     });
-  };
+  });
 </script>
