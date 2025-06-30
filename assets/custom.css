@@ -1135,6 +1135,10 @@
   .custom-footer__list {
     flex-direction: column;
   }
+
+  .custom-footer__list--sp-row {
+    flex-direction: row;
+  }
   
   .footer__wrapper {
     overflow: hidden;
