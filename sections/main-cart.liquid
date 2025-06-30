@@ -69,7 +69,7 @@
                 </tr>
               </thead>
 
-              <tbody class="order-summary__body">
+              <tbody class="order-summary__body test-body">
                 {%- for line_item in cart.items -%}
                   {% liquid
                     assign max_quantity = null
@@ -89,39 +89,39 @@
 
                     <td class="align-center text-center text-subdued block sm:table-cell">
 
-<line-item-quantity class="v-stack justify-center gap-2">
-  <div class="quantity-wrapper" style="display: flex; align-items: center; gap: 5px;">
-    <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity" style="padding: 4px 10px;">−</button>
-
-    <input
-      class="quantity-input"
-      type="number"
-      is="quantity-input"
-      inputmode="numeric"
-      min="{{ line_item.variant.quantity_rule.min }}"
-      step="{{ line_item.variant.quantity_rule.increment }}"
-      {% if max_quantity != null %}
-        max="{{ max_quantity }}"
-      {% endif %}
-      data-line-key="{{ line_item.key }}"
-      aria-label="{{ 'cart.order.change_quantity' | t | escape }}"
-      value="{{ line_item.quantity }}"
-      style="width: 50px; text-align: center;"
-    >
-
-    <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity" style="padding: 4px 10px;">+</button>
-  </div>
-
-  <span class="text-xs">
-    <a
-      href="{{ line_item.url_to_remove }}"
-      class="link"
-      aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}"
-    >
-      {{- 'cart.order.remove' | t -}}
-    </a>
-  </span>
-</line-item-quantity>
+                      <line-item-quantity class="v-stack justify-center gap-2">
+                        <div class="quantity-wrapper" style="display: flex; align-items: center; gap: 5px;">
+                          <button type="button" class="qty-btn qty-minus" aria-label="Decrease quantity" style="padding: 4px 10px;">−</button>
+                      
+                          <input
+                            class="quantity-input"
+                            type="number"
+                            is="quantity-input"
+                            inputmode="numeric"
+                            min="{{ line_item.variant.quantity_rule.min }}"
+                            step="{{ line_item.variant.quantity_rule.increment }}"
+                            {% if max_quantity != null %}
+                              max="{{ max_quantity }}"
+                            {% endif %}
+                            data-line-key="{{ line_item.key }}"
+                            aria-label="{{ 'cart.order.change_quantity' | t | escape }}"
+                            value="{{ line_item.quantity }}"
+                            style="width: 50px; text-align: center;"
+                          >
+                      
+                          <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity" style="padding: 4px 10px;">+</button>
+                        </div>
+                      
+                        <span class="text-xs">
+                          <a
+                            href="{{ line_item.url_to_remove }}"
+                            class="link"
+                            aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}"
+                          >
+                            {{- 'cart.order.remove' | t -}}
+                          </a>
+                        </span>
+                      </line-item-quantity>
 
                     </td>
 
