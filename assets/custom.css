@@ -1225,6 +1225,11 @@
     flex-direction: column;
   }
 
+  .custom-cart__order-summary,
+  .custom-cart__order-recap {
+    width: 100%:
+  }
+
 
   
 }
