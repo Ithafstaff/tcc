@@ -768,6 +768,11 @@
   text-decoration: none;
 }
 
+#storePickupApp .checkoutMethodContainer .locations .location .block span {
+  display: flex !important;
+  padding: 20px !important;
+}
+
 /* end of custom collection variant style */
 
 /* TABLET RESPONSIVENESS PORTION*/
