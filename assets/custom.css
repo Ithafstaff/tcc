@@ -1227,7 +1227,7 @@
 
   .custom-cart__order-summary,
   .custom-cart__order-recap {
-    width: 100%:
+    width: 100% !important;
   }
 
 
