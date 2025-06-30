@@ -787,7 +787,7 @@
 }
 
 .v-stack.gap-4 {
-  display: none;
+  /* display: none; */
 }
 
 /* end of custom collection variant style */
