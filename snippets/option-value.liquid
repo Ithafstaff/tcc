@@ -63,7 +63,7 @@ Color swatch specific parameters:
       assign disabled = true
     endif
   elsif filter_value
-    assign label = label | default: filter_value.color
+    assign label = label | default: filter_value.label
     assign value = filter_value.value
     assign param_name = filter_value.param_name
     assign disabled = false
