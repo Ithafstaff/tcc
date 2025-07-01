@@ -525,7 +525,8 @@
     box-shadow: none !important;
     width: 100%;
     height: 2px;
-    background:  var(--swatch-background);;
+    /* background:  var(--swatch-background); */
+    background:  #000;
     bottom: -6px !important;
 }
 
