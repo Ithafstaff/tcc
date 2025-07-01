@@ -32,7 +32,7 @@
     "heading_letter_spacing": -2,
     "text_font": "poppins_n4",
     "heading_apparition": "split_fade",
-    "color_swatch_config": "bronze:#CD7F32\nwhite-gray:#E9E9E9\ndark-grey:#808080\nnavy-blue:#004173",
+    "color_swatch_config": "bronze:#CD7F32\nwhite-gray:#E9E9E9\ndark-grey:#808080\nnavy-blue:#004173\nstone:#c9bfb6\ntaupe:#e3d0c2",
     "show_secondary_image": false,
     "product_color_display": "swatch",
     "product_info_alignment": "start",
