@@ -88,10 +88,11 @@ Color swatch specific parameters:
     else
       # When color or image is not explicitly passed, we parse the config
       assign swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />'
-       assign swatch_parts = swatch_item | split: ':'
+    for swatch_item in swatch_config
+      assign swatch_parts = swatch_item | split: ':'
       assign swatch_value = swatch_parts.last | strip
       assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: swatch_value | append: ', ' | append: swatch_value | append: ')'
-
+    endfor
       for swatch_item in swatch_config
         assign swatch_parts = swatch_item | split: ':'
         assign swatch_name = swatch_parts.first | downcase | strip
