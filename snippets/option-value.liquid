@@ -99,7 +99,7 @@ Color swatch specific parameters:
           assign swatch_value = swatch_parts.last | strip
 
           if swatch_value contains '#'
-            
+            assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: swatch_value | append: ', ' | append: swatch_value | append: ')'
           elsif swatch_value contains 'linear-gradient('
             assign swatch_style = '--swatch-background: ' | append: swatch_value
           elsif images[swatch_value] != blank
