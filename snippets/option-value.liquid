@@ -73,7 +73,7 @@ Color swatch specific parameters:
     assign swatch = filter_value.swatch
   endif
 
-  assign downcase_label = label | downcase | strip
+  assign downcase_label = value | downcase | strip
 -%}
 
 {%- capture id -%}option-value-{{ id_prefix }}-{{ section.id }}-{{ param_name }}-{{ value | handle }}{%- endcapture -%}
