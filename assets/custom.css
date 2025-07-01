@@ -787,7 +787,7 @@
   gap: 50px !important;
 }
 
-.custom-collection__swatch {
+.accordion__content .custom-collection__swatch {
   border-radius: 50% !important;
 }
 
