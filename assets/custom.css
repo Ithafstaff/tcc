@@ -796,7 +796,6 @@
 }
 
 .custom-collection__accordion .h-stack.wrap.gap-2 {
-  justify-content: space-between;
   gap: 0 !important;
 }
 
