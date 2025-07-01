@@ -63,7 +63,7 @@ Color swatch specific parameters:
       assign disabled = true
     endif
   elsif filter_value
-    assign label = label | default: filter_value.label
+    assign label = label | default: filter_value.color
     assign value = filter_value.value
     assign param_name = filter_value.param_name
     assign disabled = false
@@ -73,7 +73,7 @@ Color swatch specific parameters:
     assign swatch = filter_value.swatch
   endif
 
-  assign downcase_label = swatch | downcase | strip
+  assign downcase_label = label | downcase | strip
 -%}
 
 {%- capture id -%}option-value-{{ id_prefix }}-{{ section.id }}-{{ param_name }}-{{ value | handle }}{%- endcapture -%}
