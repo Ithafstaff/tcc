@@ -86,15 +86,10 @@ Color swatch specific parameters:
     elsif swatch.color != blank
       assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: swatch.color | append: ', ' | append: swatch.color | append: ')'
     else
-      # When color or image is not explicitly passed, we parse the config
       assign swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />'
 
+      assign swatch_style = ''  {# start empty #}
 
-    
-      assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: downcase_label | append: ', ' | append: downcase_label | append: ')'
-
-
-    
       for swatch_item in swatch_config
         assign swatch_parts = swatch_item | split: ':'
         assign swatch_name = swatch_parts.first | downcase | strip
@@ -114,9 +109,15 @@ Color swatch specific parameters:
           break
         endif
       endfor
+
+      # final fallback if swatch_style is still empty
+      if swatch_style == ''
+        assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: downcase_label | append: ', ' | append: downcase_label | append: ')'
+      endif
     endif
   endif
 -%}
+
 
 {%- capture attributes -%}
   {%- if url == blank -%}
