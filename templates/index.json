@@ -308,12 +308,6 @@
     "custom_collection_products_XmhK7E": {
       "type": "custom-collection-products",
       "blocks": {
-        "collection_WayArb": {
-          "type": "collection",
-          "settings": {
-            "collection": "plastic-dinnerware-cutlery"
-          }
-        },
         "collection_mzpENf": {
           "type": "collection",
           "settings": {
@@ -331,13 +325,19 @@
           "settings": {
             "collection": "plastic-dinnerware-cups"
           }
+        },
+        "collection_WayArb": {
+          "type": "collection",
+          "settings": {
+            "collection": "plastic-dinnerware-cutlery"
+          }
         }
       },
       "block_order": [
-        "collection_WayArb",
         "collection_mzpENf",
         "collection_6hgbpt",
-        "collection_Wcte6D"
+        "collection_Wcte6D",
+        "collection_WayArb"
       ],
       "custom_css": [
         ".section-full {padding: 40px;}",
