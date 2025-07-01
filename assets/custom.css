@@ -799,6 +799,10 @@
   gap: 0 !important;
 }
 
+.custom-collection__accordion .color-swatch::before {
+  width: 80% !important;
+}
+
 
 
 
