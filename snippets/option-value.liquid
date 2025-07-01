@@ -102,7 +102,7 @@ Color swatch specific parameters:
             assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: swatch_value | append: ', ' | append: swatch_value | append: ')'
           elsif swatch_value contains 'linear-gradient('
          
-            assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: swatch_value | append: ', ' | append: swatch_value | append: ')'
+            assign swatch_style = '--swatch-background: linear-gradient(to left, ' | append: swatch_value | append: ', ' | append: swatch_value | append: ')'
           elsif images[swatch_value] != blank
             assign swatch_image = images[swatch_value] | image_url: width: 72
             assign swatch_style = '--swatch-background: url(' | append: swatch_image | append: ')'
