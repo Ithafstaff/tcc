@@ -791,6 +791,11 @@
   border-radius: 50% !important;
 }
 
+.custom-collection__accordion {
+  padding: 0 !important;
+}
+
+
 
 /* end of custom collection variant style */
 
