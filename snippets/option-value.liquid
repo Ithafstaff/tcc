@@ -84,7 +84,7 @@ Color swatch specific parameters:
       assign swatch_image = swatch.image | image_url: width: 72
       assign swatch_style = '--swatch-background: url(' | append: swatch_image | append: ')'
     elsif swatch.color != blank
-      assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: swatch.color | append: ', ' | append: swatch.color | append: ')'
+      assign swatch_style = '--swatch-background: linear-gradient(to left, ' | append: swatch.color | append: ', ' | append: swatch.color | append: ')'
     else
       # When color or image is not explicitly passed, we parse the config
       assign swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />'
