@@ -388,20 +388,22 @@ function getTheLook() {
 getTheLook();
 
 
+
+
+
 // Zapiet App
 function changeZapietText() {
-
   const listElement = document.querySelector('.Zapiet-Select__Value');
-
   if (listElement) {
     listElement.textContent = "Your order should be delivered within two hours from when you place the order";
+  } else {
+    // Try again after 500ms if element doesn't exist yet
+    setTimeout(changeZapietText, 100);
   }
-
-
 }
-changeZapietText();
 
-
+// Run once DOM is ready
+document.addEventListener('DOMContentLoaded', changeZapietText);
 
 
 
