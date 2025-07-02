@@ -123,6 +123,7 @@
         "collection-3",
         "collection_Qg49He"
       ],
+      "disabled": true,
       "custom_css": [
         ".section-full {padding: 40px;}",
         "@media screen and (max-width: 767px) {.section-full {padding: 20px; }}"
