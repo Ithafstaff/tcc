@@ -445,10 +445,10 @@ function changeZapietText() {
       } else {
         listElement.textContent = 'Your order should be delivered within two hours from when you place the order';
       }
-    }, 1000); // check every second
+    }, 100); // check every second
   } else {
     // Keep checking until both elements are found
-    setTimeout(changeZapietText, 500);
+    setTimeout(changeZapietText, 100);
   }
 }
 
