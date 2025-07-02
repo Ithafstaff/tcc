@@ -404,8 +404,6 @@ getTheLook();
 
 
 
-
-
 //   document.addEventListener('DOMContentLoaded', function() {
 //     let previousValue = null;
 
@@ -433,11 +431,9 @@ getTheLook();
 
 
 
-
-
 // Zapiet App
 document.addEventListener('DOMContentLoaded', function() {
-  const allowedZipCodes = ['08701', '11201', '10001']; // add more zip codes here
+  const allowedZipCodes = ['08701', '07731', '08527', '08724', '08753', '08755', '08757', '08759']; // add more zip codes here
 
   setInterval(function() {
     const listElement = document.querySelector('.Zapiet-Select__Value');
@@ -450,7 +446,7 @@ document.addEventListener('DOMContentLoaded', function() {
         listElement.textContent = 'Your order should be delivered within two hours from when you place the order';
       }
     }
-  }, 1000); // check every second
+  }, 100); // check every second
 });
 
 
