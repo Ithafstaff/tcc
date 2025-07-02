@@ -148,7 +148,7 @@
             <div class="custom-col-slider__track splide__track">
               <ul class="custom-col-slider__list splide__list">
                 {% for sibling_link in top_link.links %}
-                  {% unless collection.metafields.custom.name_of_collection == sibling_link.object.metafields.custom.name_of_collection %}
+                  
                     <a class="custom-col-slider__slide splide__slide" href="{{ sibling_link.object.url }}">
                       {% if sibling_link.type == 'collection_link' and sibling_link.object %}
                         <div class="custom-col-slider__img-box">
@@ -178,7 +178,7 @@
                         <span class="custom-col-slider__img-label">{{ sibling_link.object.metafields.custom.name_of_collection | upcase }}</span>
                       {% endif %}
                     </a>
-                  {% endunless %}
+              
                 {% endfor %}
               </ul>
             </div>
