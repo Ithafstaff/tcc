@@ -722,14 +722,15 @@
   
   });
 
+
   document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.header.homepage-header');
-    const headerFilled = document.querySelector('.header.homepage-header.is-filled');
     const logoImg = document.querySelector('.header__logo img');
     const blackLogo = 'https://cdn.shopify.com/s/files/1/0723/0839/2168/files/black_tcc_new_logo.png?v=1751462838';
     const whiteLogo = 'https://cdn.shopify.com/s/files/1/0723/0839/2168/files/white_tcc_new_logo.png?v=1751462740';
 
-    if(header && logoImg) {
+    if (header && logoImg) {
+      // On hover, change to black; on leave, change back to white
       header.addEventListener('mouseenter', function() {
         logoImg.srcset = blackLogo;
       });
@@ -737,19 +738,20 @@
       header.addEventListener('mouseleave', function() {
         logoImg.srcset = whiteLogo;
       });
+
+      // Check every 100 ms if header has is-filled class
+      setInterval(function() {
+        const headerFilled = header.classList.contains('is-filled');
+        if (headerFilled) {
+          logoImg.srcset = blackLogo;
+        } else {
+          logoImg.srcset = whiteLogo;
+        }
+      }, 100);
     }
-
-    setInterval(function() {
-      const header = document.querySelector('.header.homepage-header');
-      const headerFilled = header && header.classList.contains('is-filled');
-
-      if (headerFilled) {
-        logoImg.srcset = blackLogo;
-      } else {
-        logoImg.srcset = whiteLogo;
-      }
-    }, 100); // checks every second
   });
+
+
 
   
            
