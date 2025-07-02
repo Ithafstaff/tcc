@@ -730,11 +730,11 @@
 
     if(header && logoImg){
       header.addEventListener('mouseenter', function() {
-        logoImg.src = blackLogo;
+        logoImg.srcset = blackLogo;
       });
       
       header.addEventListener('mouseleave', function() {
-        logoImg.src = whiteLogo;
+        logoImg.srcset = whiteLogo;
       });
     }
   });
