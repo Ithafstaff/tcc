@@ -175,7 +175,7 @@
                             />
                           {% endif %}
                         </div>
-                        <span class="custom-col-slider__img-label">{{ sibling_link.object.metafields.custom.name_of_collection | upcase }}</span>
+                        <span class="custom-col-slider__img-label" {% if collection.title ==  sibling_link.object.metafields.custom.name_of_collection %}style="font-weight: 700;"{% endif %}>{{ sibling_link.object.metafields.custom.name_of_collection | upcase }}</span>
                       {% endif %}
                     </a>
               
