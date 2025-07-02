@@ -739,12 +739,16 @@
       });
     }
 
-    if(headerFilled) {
-      logoImg.srcset = blackLogo;
-    }
-    else {
-      logoImg.srcset = whiteLogo;
-    }
+    setInterval(function() {
+      const header = document.querySelector('.header.homepage-header');
+      const headerFilled = header && header.classList.contains('is-filled');
+
+      if (headerFilled) {
+        logoImg.srcset = blackLogo;
+      } else {
+        logoImg.srcset = whiteLogo;
+      }
+    }, 100); // checks every second
   });
 
   
