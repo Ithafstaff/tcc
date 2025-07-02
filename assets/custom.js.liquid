@@ -407,16 +407,27 @@ document.addEventListener('DOMContentLoaded', changeZapietText);
 
 
   document.addEventListener('DOMContentLoaded', function() {
-    const input = document.querySelector('.snize-exclude-input');
+    let previousValue = null;
 
-    if (input) {
-      setInterval(function() {
-        console.log('Input value:', input.value);
-      }, 100); // every 1000 ms = 1 second
-    } else {
-      console.log('Input element not found');
+    function checkInput() {
+      const input = document.getElementById('deliveryGeoSearchField');
+
+      if (input) {
+        console.log('Input found, starting to watch value...');
+        setInterval(function() {
+          if (input.value !== previousValue) {
+            previousValue = input.value;
+            console.log('Input value:', input.value);
+          }
+        }, 1000); // check every second
+      } else {
+        console.log('Waiting for input element...');
+        setTimeout(checkInput, 500); // keep checking every half second
+      }
     }
-  });
+
+    checkInput();
+
 
 
 
