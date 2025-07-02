@@ -817,6 +817,10 @@
   display: none !important;
 }
 
+#storePickupApp .Zapiet-Select__Wrapper::after {
+  display: none !important;
+}
+
 
 
 
