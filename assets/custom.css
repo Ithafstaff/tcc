@@ -821,6 +821,11 @@
   display: none !important;
 }
 
+.Zapiet-Select__Value {
+  text-align: center;
+  line-height: 1.5em;
+}
+
 
 
 
