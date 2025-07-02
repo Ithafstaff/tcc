@@ -405,17 +405,19 @@ document.addEventListener('DOMContentLoaded', changeZapietText);
 
 
 
+
   document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById('deliveryGeoSearchField');
 
     if (input) {
-      input.addEventListener('input', function() {
+      setInterval(function() {
         console.log('Input value:', input.value);
-      });
+      }, 100); // every 1000 ms = 1 second
     } else {
       console.log('Input element not found');
     }
   });
+
 
 
 
