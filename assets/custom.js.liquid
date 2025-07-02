@@ -391,47 +391,68 @@ getTheLook();
 
 
 
+// // Zapiet App
+// function changeZapietText() {
+//   const listElement = document.querySelector('.Zapiet-Select__Value');
+//   if (listElement) {
+//     listElement.textContent = "Your order should be delivered within two hours from when you place the order";
+//   } else {
+//     setTimeout(changeZapietText, 100);
+//   }
+// }
+// document.addEventListener('DOMContentLoaded', changeZapietText);
+
+
+
+
+
+//   document.addEventListener('DOMContentLoaded', function() {
+//     let previousValue = null;
+
+//     function checkInput() {
+//       const input = document.getElementById('deliveryGeoSearchField');
+
+//       if (input) {
+//         console.log('Input found, starting to watch value...');
+//         setInterval(function() {
+//           if (input.value !== previousValue) {
+//             previousValue = input.value;
+//             console.log('Input value:', input.value);
+//           }
+//         }, 1000); // check every second
+//       } else {
+//         console.log('Waiting for input element...');
+//         setTimeout(checkInput, 500); // keep checking every half second
+//       }
+//     }
+
+//     checkInput();
+//   });
+
+
+
+
+
 // Zapiet App
 function changeZapietText() {
   const listElement = document.querySelector('.Zapiet-Select__Value');
-  if (listElement) {
-    listElement.textContent = "Your order should be delivered within two hours from when you place the order";
+  const input = document.getElementById('deliveryGeoSearchField');
+
+  if (listElement && input) {
+    setInterval(function() {
+      if (input.value === '08701') {
+        listElement.textContent = 'test';
+      } else {
+        listElement.textContent = 'Your order should be delivered within two hours from when you place the order';
+      }
+    }, 1000); // check every second
   } else {
-    setTimeout(changeZapietText, 100);
+    // Keep checking until both elements are found
+    setTimeout(changeZapietText, 500);
   }
 }
+
 document.addEventListener('DOMContentLoaded', changeZapietText);
-
-
-
-
-
-  document.addEventListener('DOMContentLoaded', function() {
-    let previousValue = null;
-
-    function checkInput() {
-      const input = document.getElementById('deliveryGeoSearchField');
-
-      if (input) {
-        console.log('Input found, starting to watch value...');
-        setInterval(function() {
-          if (input.value !== previousValue) {
-            previousValue = input.value;
-            console.log('Input value:', input.value);
-          }
-        }, 1000); // check every second
-      } else {
-        console.log('Waiting for input element...');
-        setTimeout(checkInput, 500); // keep checking every half second
-      }
-    }
-
-    checkInput();
-  });
-
-
-
-
 
 
 
