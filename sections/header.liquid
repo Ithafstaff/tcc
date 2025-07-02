@@ -723,12 +723,13 @@
   });
 
   document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('.header.homepage-header.is-filled');
+    const header = document.querySelector('.header.homepage-header');
+    const headerFilled = document.querySelector('.header.homepage-header.is-filled');
     const logoImg = document.querySelector('.header__logo img');
     const blackLogo = 'https://cdn.shopify.com/s/files/1/0723/0839/2168/files/black_tcc_new_logo.png?v=1751462838';
     const whiteLogo = 'https://cdn.shopify.com/s/files/1/0723/0839/2168/files/white_tcc_new_logo.png?v=1751462740';
 
-    if(header && logoImg){
+    if(header && logoImg) {
       header.addEventListener('mouseenter', function() {
         logoImg.srcset = blackLogo;
       });
