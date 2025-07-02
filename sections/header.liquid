@@ -722,7 +722,7 @@
   
   });
 
-
+// Script for changing logo dynamically
 document.addEventListener('DOMContentLoaded', function() {
   const headerWrap = document.querySelector('.header__wrapper');
   const header = document.querySelector('.header.homepage-header');
@@ -730,27 +730,34 @@ document.addEventListener('DOMContentLoaded', function() {
   const blackLogo = 'https://cdn.shopify.com/s/files/1/0723/0839/2168/files/black_tcc_new_logo.png?v=1751462838';
   const whiteLogo = 'https://cdn.shopify.com/s/files/1/0723/0839/2168/files/white_tcc_new_logo.png?v=1751462740';
 
+  let isHovering = false;
+
   if (headerWrap && logoImg) {
-    // Add hover listeners once
     headerWrap.addEventListener('mouseenter', function() {
+      isHovering = true;
       logoImg.srcset = blackLogo;
     });
 
     headerWrap.addEventListener('mouseleave', function() {
+      isHovering = false;
       logoImg.srcset = whiteLogo;
     });
   }
 
   if (header && logoImg) {
-    // Check every 1 second if header has is-filled class
     setInterval(function() {
-      const headerFilled = header.classList.contains('is-filled');
-      if (headerFilled) {
-        logoImg.srcset = blackLogo;
-      } 
+      if (!isHovering) {  // only change if not hovering
+        const headerFilled = header.classList.contains('is-filled');
+        if (headerFilled) {
+          logoImg.srcset = blackLogo;
+        } else {
+          logoImg.srcset = whiteLogo;
+        }
+      }
     }, 100);
   }
 });
+
 
 
 
