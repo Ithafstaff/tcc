@@ -813,6 +813,10 @@
   border: none !important;
 }
 
+.Zapiet-Select__Prefix {
+  display: none !important;
+}
+
 
 
 
