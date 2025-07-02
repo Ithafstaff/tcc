@@ -733,7 +733,7 @@
     if (headerWrap && logoImg) {
       // On hover, change to black; on leave, change back to white
       headerWrap.addEventListener('mouseenter', function() {
-        logoImg.srcset = whiteLogo;
+        logoImg.srcset = blackLogo;
       });
       
       headerWrap.addEventListener('mouseleave', function() {
@@ -748,7 +748,7 @@
         } else {
           logoImg.srcset = whiteLogo;
         }
-      }, 10);
+      }, 1000);
     }
   });
 
