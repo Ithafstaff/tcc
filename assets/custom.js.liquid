@@ -433,26 +433,24 @@ getTheLook();
 
 
 
-// Zapiet App
-function changeZapietText() {
-  const listElement = document.querySelector('.Zapiet-Select__Value');
-  const input = document.getElementById('deliveryGeoSearchField');
 
-  if (listElement && input) {
-    setInterval(function() {
+// Zapiet App
+document.addEventListener('DOMContentLoaded', function() {
+  setInterval(function() {
+    const listElement = document.querySelector('.Zapiet-Select__Value');
+    const input = document.getElementById('deliveryGeoSearchField');
+
+    if (listElement && input) {
       if (input.value === '08701') {
         listElement.textContent = 'test';
       } else {
         listElement.textContent = 'Your order should be delivered within two hours from when you place the order';
       }
-    }, 100); // check every second
-  } else {
-    // Keep checking until both elements are found
-    setTimeout(changeZapietText, 100);
-  }
-}
+    }
+  }, 100); // check every second
+});
 
-document.addEventListener('DOMContentLoaded', changeZapietText);
+
 
 
 
