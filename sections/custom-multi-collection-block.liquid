@@ -342,7 +342,8 @@
 
     {% assign hex = '' %}
     {% for entry in shop.metaobjects['shopify--color-pattern'].entries %}
-      {% if entry.label.value  %}
+      {% assign entry_label = entry.label.value | downcase | strip %}
+      {% if entry_label == color_name %}
         {% assign hex = entry.color.value %}
         {% break %}
       {% endif %}
@@ -359,6 +360,7 @@
     {% endif %}
   {% endunless %}
 {% endfor %}
+
 
 
           </div>
