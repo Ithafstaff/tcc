@@ -349,12 +349,12 @@
 
     {% if color_entry != blank %}
       <label class="color-swatch" style="background-color: {{ color_entry.color.value }};" title="{{ color_name }}">
-        <p>{{ color_entry.color.value }}</p>
+        <p>{{ shop.metaobjects['shopify--color-pattern'].entries }}</p>
         <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
       </label>
     {% else %}
       <label class="color-swatch" style="background-color: {{ color_name }};" title="{{ color_name }}">
-         <p>{{ color_name }}</p>
+         <p>{{ color_entry.color.value }}</p>
         <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
       </label>
     {% endif %}
