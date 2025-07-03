@@ -334,31 +334,32 @@
         
         {% if color_option_index >= 0 %}
           <div class="custom-multi-col__item-swatch-wrap">
-           {% assign colors = '' %}
+{% assign colors = '' %}
 {% for variant in product.variants %}
   {% assign color_name = variant.options[color_option_index] | downcase | strip %}
   {% unless colors contains color_name %}
     {% assign colors = colors | append: color_name | append: ',' %}
 
-    {% comment %}
-    Now find the metaobject color entry matching this color_name.
-    This depends on how you store the reference.
-    {% endcomment %}
+    {% assign hex = '' %}
+    {% for entry in shop.metaobjects['shopify--color-pattern'].entries %}
+      {% if entry.label.value  %}
+        {% assign hex = entry.color.value %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
 
-    {% assign color_entry = shop.metaobjects['color_pattern'][color_name] %}
-
-    {% if color_entry != blank %}
-      <label class="color-swatch" style="background-color: {{ color_entry.color.value }};" title="{{ color_name }}">
+    {% if hex != blank %}
+      <label class="color-swatch" style="background-color: {{ hex }};" title="{{ color_name }}">
         <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
       </label>
     {% else %}
       <label class="color-swatch" style="background-color: {{ color_name }};" title="{{ color_name }}">
-         <p>{{ color_entry.color_hex.value }}</p> 
         <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
       </label>
     {% endif %}
   {% endunless %}
 {% endfor %}
+
 
           </div>
         {% endif %}
