@@ -61,76 +61,16 @@
         "overlay_opacity": 30
       }
     },
-    "collection-list": {
-      "type": "custom-collection-list",
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/tablecloths-square-size.jpg",
-            "title": "SHOP TABLECLOTHS",
-            "url": "shopify://collections/table-cloth"
-          }
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Image_fullImg_2.png",
-            "title": "SHOP PLASTIC DINNERWARE",
-            "url": "#"
-          }
-        },
-        "collection_GpwWda": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/Bedding.png",
-            "title": "SHOP LINENS",
-            "url": "shopify://collections/bedding"
-          }
-        },
-        "collection_bR7fGU": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "url": ""
-          }
-        },
-        "collection-3": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "url": ""
-          }
-        },
-        "collection_Qg49He": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "title": "",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection_GpwWda",
-        "collection_bR7fGU",
-        "collection-3",
-        "collection_Qg49He"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".section-full {padding: 40px;}",
-        "@media screen and (max-width: 767px) {.section-full {padding: 20px; }}"
-      ],
+    "hero_video_Gy4CC3": {
+      "type": "hero-video",
+      "name": "Hero Video Banner",
       "settings": {
-        "title": "BEAUTIFUL CELEBRATIONS START HERE"
+        "hero_video": "shopify://files/videos/6.mp4",
+        "headline": "",
+        "subheadline": "",
+        "autoplay": true,
+        "loop": true,
+        "muted": true
       }
     },
     "rich_text_EK3hAN": {
@@ -564,7 +504,7 @@
   "order": [
     "image_with_text_overlay_YVqTtY",
     "video_UmP9qt",
-    "collection-list",
+    "hero_video_Gy4CC3",
     "rich_text_EK3hAN",
     "custom_drawer_banner_nKGchn",
     "custom_collection_products_dkYzhr",
