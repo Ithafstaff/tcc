@@ -223,7 +223,6 @@
           </button>
         </div> -->
 
-    {% if section.settings.collection != blank %}
     <span class="custom-drawer__collection-overlay"></span>
     <div class="custom-drawer__collection-wrap" data-col-id="{{ section.settings.collection }}">>
         <div class="custom-drawer__product-container">
@@ -263,7 +262,7 @@
           </div>
         </div>
     </div>
-    {% endif %}
+ 
 
     
     {%- if section.blocks.size > 0 -%}
