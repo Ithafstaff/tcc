@@ -49,6 +49,7 @@
         ".section-full {padding: 0;}"
       ],
       "settings": {
+        "collection": "all-products",
         "full_width": true,
         "allow_transparent_header": true,
         "autoplay": true,
