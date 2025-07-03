@@ -334,38 +334,42 @@
         {% endfor %}
         
         {% if color_option_index >= 0 %}
+          <div class="custom-multi-col__item-swatch-wrap">
+
           
-<div class="custom-multi-col__item-swatch-wrap">
-  {% assign colors_shown = '' %}
+{% assign colors = '' %}
+{% for variant in product.variants %}
+  {% assign color_name = variant.options[color_option_index] | downcase | strip %}
+  {% unless colors contains color_name %}
+    {% assign colors = colors | append: color_name | append: ',' %}
 
-  {% for variant in product.variants %}
-    {% assign color_name = variant.options[color_option_index] | downcase %}
-
-    {% unless colors_shown contains color_name %}
-      {% assign colors_shown = colors_shown | append: color_name | append: ',' %}
-
-      {% comment %}
-        Look up the metaobject by handle or metafield.
-        Example: if each product has metafields.colors where handle = color_name
-        Adjust 'custom.color' to match your metafield namespace.key
-      {% endcomment %}
-
-      {% assign color_meta = shop.metaobjects.color[ color_name ] %}
-
-      {% if color_meta != nil and color_meta.color != blank %}
-        <label class="color-swatch" style="background-color: {{ color_meta.color }};" title="{{ color_name }}">
-          <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
-        </label>
-      {% else %}
-        <label class="color-swatch" style="background-color: {{ color_name }};" title="{{ color_name }}">
-          <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
-        </label>
+    {% assign hex = '' %}
+    {% for entry in shop.metaobjects['shopify--color-pattern'].entries %}
+      {% assign entry_label = entry.label.value | downcase | strip %}
+      {% if entry_label == color_name %}
+        {% assign hex = entry.color.value %}
+        {% break %}
       {% endif %}
+    {% endfor %}
 
-    {% endunless %}
-  {% endfor %}
-</div>
+    {% if hex != blank %}
+      <label class="color-swatch" style="background-color: {{ hex }};" title="{{ color_name }}">
+        <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
+      </label>
+    {% else %}
+      <label class="color-swatch" style="background-color: {{ color_name }}; border: 1px solid;" title="{{ color_name }}">
+        <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
+      </label>
+    {% endif %}
+  {% endunless %}
+{% endfor %}
 
+
+
+
+
+
+          </div>
         {% endif %}
      
         <h3 class="custom-multi-col__item-name">{{ product.title }}</h3>
