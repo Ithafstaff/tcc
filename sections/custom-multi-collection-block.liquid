@@ -361,7 +361,18 @@
     {% endif %}
   {% endunless %}
 {% endfor %}
-          
+          {% assign swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' %}
+
+{% assign hex = '' %}
+{% for item in swatch_config %}
+  {% assign parts = item | split: ':' %}
+  {% assign name = parts[0] | downcase | strip %}
+  {% assign value = parts[1] | strip %}
+  {% if name == color_name  %}
+    {% assign hex = value %}
+  {% endif %}
+{% endfor %}
+
 
 
 
