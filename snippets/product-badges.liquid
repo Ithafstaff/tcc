@@ -39,6 +39,12 @@ Supported variables
             </sold-out-badge>
           {%- endif -%}
         {%- endif -%}
+      
+      {%- when 'coming_soon' -%}
+        {%- if product.tags contains 'coming-soon' -%}
+          <span class="badge badge--coming-soon">Coming Soon</span>
+        {%- endif -%}
+
 
       {%- when 'discount' -%}
         {%- if settings.show_discount -%}
