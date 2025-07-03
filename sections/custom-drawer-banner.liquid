@@ -320,7 +320,7 @@
                   class="x:w-full x:aspect-square x:bg-cover x:bg-center x:mb-[8px] x:md:mb-[18px] custom-drawer__product-img"
                   style="background-image: url('{{ product.featured_image.src | image_url: width: product.featured_image.width }}')"
                 >
-                  {% if product_variant.available %}
+                  {% if product.available %}
                     <button onclick="showCartDrawer()"
                       class="custom-drawer__product-item-btn" 
                       data-variant-id="{{ product.variants.first.id }}" 
