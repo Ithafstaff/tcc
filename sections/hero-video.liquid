@@ -81,43 +81,7 @@
 
 
   <div class="custom-hero-drawer__container">
-    <div class="x:relative {% comment %}x:lg:max-w-[1650px]{% endcomment %} x:overflow-hidden x:rounded">
-      <div
-        class="x:bg-cover x:bg-no-repeat x:bg-center x:w-full x:aspect-square x:lg:aspect-[16/9]"
-        style="background-image: url('{{ section.settings.image | image_url: width: 1000 }}'); max-height: 550px;"
-      >
-        <div class="x:absolute x:z-[1] drawer__button-container" style="left: 40px; bottom: 40px;">
-          <button
-            class="custom-hero-drawer__btn drawer-button-responsive drawer-button-{{ section.id }}" data-col-id="{{ section.settings.collection }}"
-            style="
-              background-color: rgba(34, 34, 34, 0.7);
-              color: white;
-              aspect-ratio: 1 / 1;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 9999px;
-              padding: 12px;
-            "
-            >
-            <i class="bx bx-shopping-bag"
-              style="
-                font-size: 1rem;
-                line-height: 0;
-              "
-            ></i>
-            <p class="animate-on-scroll get-the-look"
-              style="
-                text-align: center;
-                white-space: nowrap;
-                display: none;
-              ">
-              GET THE LOOK
-            </p>
-          </button>
-        </div>
-      </div>
-    </div>
+
 
 
     {% if section.settings.collection != blank %}
