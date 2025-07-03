@@ -334,45 +334,8 @@
         {% endfor %}
         
         {% if color_option_index >= 0 %}
-          <div class="custom-multi-col__item-swatch-wrap">
-{% assign colors = '' %}
-{% for variant in product.variants %}
-  {% assign color_name = variant.options[color_option_index] | downcase | strip %}
-  {% unless colors contains color_name %}
-    {% assign colors = colors | append: color_name | append: ',' %}
-
-    {% assign hex = '' %}
-    {% for entry in shop.metaobjects['shopify--color-pattern'].entries %}
-      {% assign entry_label = entry.label.value | downcase | strip %}
-      {% if entry_label == color_name %}
-        {% assign hex = entry.color.value %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
-
-    {% if hex != blank %}
-      <label class="color-swatch" style="background-color: {{ hex }};" title="{{ color_name }}">
-        <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
-      </label>
-    {% else %}
-      <label class="color-swatch" style="background-color: {{ color_name }}; border: 1px solid;" title="{{ color_name }}">
-        <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
-      </label>
-    {% endif %}
-  {% endunless %}
-{% endfor %}
-          {% assign swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />' %}
-
-{% assign hex = '' %}
-{% for item in swatch_config %}
-  {% assign parts = item | split: ':' %}
-  {% assign name = parts[0] | downcase | strip %}
-  {% assign value = parts[1] | strip %}
-  {% if name == color_name  %}
-    {% assign hex = value %}
-  {% endif %}
-{% endfor %}
-          <div class="custom-multi-col__item-swatch-wrap">
+          
+<div class="custom-multi-col__item-swatch-wrap">
   {% assign colors_shown = '' %}
 
   {% for variant in product.variants %}
@@ -403,11 +366,6 @@
   {% endfor %}
 </div>
 
-
-
-
-
-          </div>
         {% endif %}
      
         <h3 class="custom-multi-col__item-name">{{ product.title }}</h3>
