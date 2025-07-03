@@ -372,7 +372,37 @@
     {% assign hex = value %}
   {% endif %}
 {% endfor %}
-          <p>{{ hex }}</p>
+          <div class="custom-multi-col__item-swatch-wrap">
+  {% assign colors_shown = '' %}
+
+  {% for variant in product.variants %}
+    {% assign color_name = variant.options[color_option_index] | downcase %}
+
+    {% unless colors_shown contains color_name %}
+      {% assign colors_shown = colors_shown | append: color_name | append: ',' %}
+
+      {% comment %}
+        Look up the metaobject by handle or metafield.
+        Example: if each product has metafields.colors where handle = color_name
+        Adjust 'custom.color' to match your metafield namespace.key
+      {% endcomment %}
+
+      {% assign color_meta = shop.metaobjects.color[ color_name ] %}
+
+      {% if color_meta != nil and color_meta.color != blank %}
+        <label class="color-swatch" style="background-color: {{ color_meta.color }};" title="{{ color_name }}">
+          <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
+        </label>
+      {% else %}
+        <label class="color-swatch" style="background-color: {{ color_name }};" title="{{ color_name }}">
+          <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
+        </label>
+      {% endif %}
+
+    {% endunless %}
+  {% endfor %}
+</div>
+
 
 
 
