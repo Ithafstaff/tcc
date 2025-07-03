@@ -221,48 +221,9 @@
               GET THE LOOK
             </p>
           </button>
-        </div> -->
-
-    <!-- <span class="custom-drawer__collection-overlay"></span>
-    <div class="custom-drawer__collection-wrap" data-col-id="{{ section.settings.collection }}">>
-        <div class="custom-drawer__product-container">
-          <span class="custom-drawer__collection-close">X</span>
-          <h3 class="custom-drawer__heading-txt">
-            GET THE LOOK
-          </h3>
-          <div
-            id="product-container-{{ section.id }}"
-            class="custom-drawer__product-wrap"
-          >
-            {% for product in section.settings.collection.products %}
-              <div class="x:w-full x:flex x:flex-col custom-drawer__product-item">
-                <a href="{{ product.url }}"
-                  class="x:w-full x:aspect-square x:bg-cover x:bg-center x:mb-[8px] x:md:mb-[18px] custom-drawer__product-img"
-                  style="background-image: url('{{ product.featured_image.src | image_url: width: product.featured_image.width }}')"
-                >
-                  <button onclick="showCartDrawer()"
-                    class="custom-drawer__product-item-btn" 
-                    data-variant-id="{{ product.variants.first.id }}" 
-                    data-product-title="{{ product.title }}">
-                    ADD TO CART
-                  </button>
-
-                </a>
-                <div class="x:flex x:flex-col x:justify-between x:gap-[8px] x:flex-grow x:items-start">
-                  <a href="{{ product.url }}" class="x:space-y-[2px] x:md:space-y-[5px]">
-                    <p href="{{ product.url }}" class="x:text-[12px] x:md:text-[14px] x:leading-[16px] x:md:leading-[20px]">
-                      {{ product.title }}
-                    </p>
-                    <p class="x:text-[12px] x:leading-[18px] x:tracking-[-0.21px]">{{ product.price | money }}</p>
-                  </a>
-                  
-                </div>
-              </div>
-            {% endfor %}
-          </div>
         </div>
-    </div>
-  -->
+ -->
+
 
     
     {%- if section.blocks.size > 0 -%}
