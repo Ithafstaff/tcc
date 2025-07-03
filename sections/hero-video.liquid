@@ -1,6 +1,113 @@
+<style>
+.hero-video-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-video-banner__container {
+  position: relative;
+}
+
+.hero-video-banner__video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-video-banner__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
+.hero-video-banner__overlay h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.hero-video-banner__overlay p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0;
+}
+</style>
+
+
+
+<section class="hero-video-banner">
+  <div class="hero-video-banner__container">
+    {% if section.settings.hero_video != blank %}
+      <video 
+        class="hero-video-banner__video"
+        {% if section.settings.autoplay %} autoplay {% endif %}
+        {% if section.settings.loop %} loop {% endif %}
+        {% if section.settings.muted %} muted {% endif %}
+        playsinline
+      >
+        <source src="{{ section.settings.hero_video | video_url }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    {% endif %}
+
+    <div class="hero-video-banner__overlay">
+      <h1>{{ section.settings.headline }}</h1>
+      <p>{{ section.settings.subheadline }}</p>
+    </div>
+  </div>
+</section>
+
+
+
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Hero Video Banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "video",
+      "id": "hero_video",
+      "label": "Hero Video"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Your Headline Here"
+    },
+    {
+      "type": "text",
+      "id": "subheadline",
+      "label": "Subheadline",
+      "default": "Your subheadline goes here"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay video",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop video",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "muted",
+      "label": "Mute video",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Video Banner"
+    }
+  ]
+}
 {% endschema %}
