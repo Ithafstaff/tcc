@@ -1269,6 +1269,11 @@
     grid-template-columns: 1fr 1fr !important;
   }
 
+  .facets__floating-filter {
+    bottom: unset !important;
+    top: 130px;
+  }
+
 
 
   
