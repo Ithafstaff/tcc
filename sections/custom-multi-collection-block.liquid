@@ -361,7 +361,16 @@
     {% endif %}
   {% endunless %}
 {% endfor %}
-          
+          {% for variant in product.variants %}
+  <p>Variant title: {{ variant.title }}</p>
+  {% for namespace in variant.metafields %}
+    <p>Namespace: {{ namespace[0] }}</p>
+    {% for key in namespace[1] %}
+      <p>Key: {{ key[0] }} | Value: {{ key[1].value }}</p>
+    {% endfor %}
+  {% endfor %}
+{% endfor %}
+
 
 
 
