@@ -111,7 +111,7 @@
             style="--aspect-ratio: {{ section.settings.mobile_video.aspect_ratio }}"
           {% endif %}
         >
-        <div style="position: absolute; bottom: 40px; left: 40px; z-index: 1;">
+        <!-- <div style="position: absolute; bottom: 40px; left: 40px; z-index: 1;">
           <button
             class="drawer-button-{{ section.id }} x:bg-[#222]/70 x:text-white x:aspect-square x:flex x:items-center x:lg:aspect-auto x:justify-center x:rounded-full x:p-3 x:md:py-1 x:md:p-3 x:lg:pr-[0px]"
           >
@@ -123,7 +123,7 @@
               GET THE LOOK
             </p>
           </button>
-        </div>
+        </div> -->
           {{-
             section.settings.mobile_video
             | video_tag:
@@ -193,7 +193,7 @@
       </video-media>
     {%- endif -%}
       <div class="drawer__button-container" style="position: absolute; bottom: 40px; left: 40px; z-index: 1;">
-        <!-- <button
+        <button
           class="drawer-button-responsive drawer-button-{{ section.id }}"
           style="
             background-color: rgba(34, 34, 34, 0.7);
@@ -223,7 +223,7 @@
           >
             GET THE LOOK
           </p>
-        </button> -->
+        </button>
     </div>
     {%- if section.blocks.size > 0 -%}
       <div class="place-self-center text-center">
