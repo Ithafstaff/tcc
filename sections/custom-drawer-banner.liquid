@@ -1,5 +1,74 @@
 <style>
 
+   #shopify-section-{{ section.id }} {
+    {%- if section.settings.full_width -%}
+      --section-outer-spacing-block: 0;
+    {%- endif -%}
+
+    --content-over-media-overlay: {{ section.settings.overlay_color.rgb }} / {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+
+    {%- if section.settings.allow_transparent_header -%}
+      margin-block-start: calc(-1 * var(--header-height) * var(--section-is-first));
+    {%- endif -%}
+  }
+
+  {%- unless section.settings.full_width -%}
+    #shopify-section-{{ section.id }}:first-child .section[allow-transparent-header] {
+      padding-block-start: max(var(--section-inner-max-spacing-block), var(--header-height));
+    }
+  {%- endunless -%}
+
+  .custom-content-over-media {
+    margin: 0;
+    gap: 0;
+    display: flex;  
+  }
+
+
+    .drawer-button-responsive {
+      padding-top: 4px !important;
+      padding-bottom: 4px !important;
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+      aspect-ratio: auto !important;
+    }
+
+  @media screen and (max-width: 767px) {
+    .drawer-button-responsive {
+      bottom: 25px !important;
+      left: 25px !important;
+    }
+  }
+
+    .get-the-look {
+      display: block !important;
+    }
+
+    @media screen and (max-width: 767px) {
+      .get-the-look {
+        padding-left: 10px !important;
+      }
+    }
+
+    .drawer-button-responsive i {
+      font-size: 1.25rem !important; /* md:text-xl */
+    }
+
+    @media screen and (max-width: 767px) {
+      .drawer-button-responsive i {
+        font-size: unset !important;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .drawer__button-container {
+        bottom: 25px !important;
+        left: 25px !important;
+      }
+    }
+
+  
+
   /* Initial state (hidden) */
   .animate-on-scroll {
     width: 0px;
