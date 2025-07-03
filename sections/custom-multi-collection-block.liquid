@@ -361,6 +361,9 @@
     {% endif %}
   {% endunless %}
 {% endfor %}
+          {% for variant in product.variants %}
+  <pre>{{ variant | json }}</pre>
+{% endfor %}
 
 
 
