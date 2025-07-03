@@ -320,12 +320,19 @@
                   class="x:w-full x:aspect-square x:bg-cover x:bg-center x:mb-[8px] x:md:mb-[18px] custom-drawer__product-img"
                   style="background-image: url('{{ product.featured_image.src | image_url: width: product.featured_image.width }}')"
                 >
-                  <button onclick="showCartDrawer()"
-                    class="custom-drawer__product-item-btn" 
-                    data-variant-id="{{ product.variants.first.id }}" 
-                    data-product-title="{{ product.title }}">
-                    ADD TO CART
-                  </button>
+                  {% if product_variant.available %}
+                    <button onclick="showCartDrawer()"
+                      class="custom-drawer__product-item-btn" 
+                      data-variant-id="{{ product.variants.first.id }}" 
+                      data-product-title="{{ product.title }}">
+                      ADD TO CART
+                    </button>
+                  {% else %}
+                    <button onclick="showCartDrawer()" class="custom-drawer__product-item-btn" disabled>
+                      class="custom-drawer__product-item-btn" >
+                      SOLD OUT
+                    </button>
+                  {% endif %}
 
                 </a>
                 <div class="x:flex x:flex-col x:justify-between x:gap-[8px] x:flex-grow x:items-start">
