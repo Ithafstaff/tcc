@@ -197,55 +197,7 @@
 
 
     
-    {%- if section.blocks.size > 0 -%}
-      <div class="place-self-center text-center">
-        <div class="prose">
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-              {%- when 'play' -%}
-                {%- unless section.settings.autoplay -%}
-                  <button class="video-play-button" type="button" {{ block.shopify_attributes }}>
-                    <span class="sr-only">{{ 'general.accessibility.play_video' | t }}</span>
-                    {%- render 'icon' with 'play-button', width: 48, height: 48 -%}
-                  </button>
-                {%- endunless -%}
 
-              {%- when 'subheading' -%}
-                {%- if block.settings.text != blank -%}
-                  <p class="bold" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</p>
-                {%- endif -%}
-
-              {%- when 'heading' -%}
-                {%- if block.settings.text != blank -%}
-                  <p class="{{ block.settings.heading_tag }}" {{ block.shopify_attributes }}>
-                    {{ block.settings.text | escape }}
-                  </p>
-                {%- endif -%}
-
-              {%- when 'richtext' -%}
-                {%- if block.settings.content != blank -%}
-                  <div {{ block.shopify_attributes }}>
-                    {{- block.settings.content -}}
-                  </div>
-                {%- endif -%}
-
-              {%- when 'button' -%}
-                {%- if block.settings.text != blank -%}
-                  {% render 'button',
-                    content: block.settings.text,
-                    href: block.settings.url,
-                    size: block.settings.size,
-                    style: block.settings.style,
-                    background: block.settings.background,
-                    text_color: block.settings.text_color,
-                    block: block
-                  %}
-                {%- endif -%}
-            {%- endcase -%}
-          {%- endfor -%}
-        </div>
-      </div>
-    {%- endif -%}
   </div>
 </div>
 
