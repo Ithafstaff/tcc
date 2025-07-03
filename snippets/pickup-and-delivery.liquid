@@ -1,13 +1,14 @@
 <style>
-
   .custom-pickup-delivery {
     font-size: 14px;
     margin: 10px 0;
-    display: block
+    display: block;
   }
 
   .custom-pickup-delivery a {
     text-decoration: underline;
+    color: #000;
+    cursor: pointer;
   }
 
   .custom-pickup-delivery__modal-container {
@@ -16,48 +17,63 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #00000075;
-    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
     align-items: center;
     justify-content: center;
-    display: none;
-    z-index: 2;
+    z-index: 999;
   }
 
   .custom-pickup-delivery__modal-wrap {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 380px;
-    height: 300px;
-    padding: 30px;
     background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
+    border-radius: 12px;
+    max-width: 420px;
+    width: 90%;
+    padding: 24px 28px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  }
+
+  .custom-pickup-delivery__modal-wrap h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .custom-pickup-delivery__modal-wrap p {
+    font-size: 14px;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .custom-pickup-delivery__modal-wrap ul {
+    padding-left: 20px;
+    margin-bottom: 14px;
+  }
+
+  .custom-pickup-delivery__modal-wrap li {
+    font-size: 14px;
+    margin-bottom: 6px;
   }
 
   .custom-pickup-delivery__close {
-    border: 1px solid;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 20px;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 16px;
+    right: 16px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
   }
 
   .show {
-    display: block;
+    display: flex !important;
   }
-
 </style>
+
 
 <span class="custom-pickup-delivery">
   Available for <a href="#" id="pickup-link">Pickup</a> and <a href="#" id="delivery-link">Local Delivery</a>
@@ -66,7 +82,7 @@
 <!-- Pickup Modal -->
 <div class="custom-pickup-delivery__modal-container" id="pickup-modal">
   <div class="custom-pickup-delivery__modal-wrap">
-    <button class="custom-pickup-delivery__close">&times;</button>
+    <button class="custom-pickup-delivery__close" aria-label="Close">&times;</button>
     <h2>Pickup Information</h2>
     <p>You can pick up your order at our store once it's ready. We'll notify you by email or text when it's available.</p>
     <ul>
@@ -74,14 +90,14 @@
       <li><strong>Pickup Hours:</strong> Mon–Fri, 9:00 AM – 6:00 PM</li>
       <li><strong>Processing Time:</strong> 1–2 business days</li>
     </ul>
-    <p>Don't forget to bring your order confirmation and a valid ID when picking up.</p>
+    <p>Please bring your order confirmation and a valid ID when picking up.</p>
   </div>
 </div>
 
 <!-- Delivery Modal -->
 <div class="custom-pickup-delivery__modal-container" id="delivery-modal">
   <div class="custom-pickup-delivery__modal-wrap">
-    <button class="custom-pickup-delivery__close">&times;</button>
+    <button class="custom-pickup-delivery__close" aria-label="Close">&times;</button>
     <h2>Local Delivery Information</h2>
     <p>We offer local delivery for select areas. Orders are typically delivered within 1–2 business days after processing.</p>
     <ul>
@@ -89,54 +105,49 @@
       <li><strong>Delivery Schedule:</strong> Mon–Sat, 10:00 AM – 5:00 PM</li>
       <li><strong>Delivery Fee:</strong> [Free or Insert fee amount]</li>
     </ul>
-    <p>We’ll notify you once your order is out for delivery. Please make sure someone is available to receive it.</p>
+    <p>We'll notify you once your order is out for delivery. Please ensure someone is available to receive it.</p>
   </div>
 </div>
 
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    function addModalListeners() {
-      const pickupLink = document.getElementById('pickup-link');
-      const deliveryLink = document.getElementById('delivery-link');
-      const pickupModal = document.getElementById('pickup-modal');
-      const deliveryModal = document.getElementById('delivery-modal');
-      const closeButtons = document.querySelectorAll('.custom-pickup-delivery__close');
-  
-      pickupLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        pickupModal.classList.add('show');
+    const pickupLink = document.getElementById('pickup-link');
+    const deliveryLink = document.getElementById('delivery-link');
+    const pickupModal = document.getElementById('pickup-modal');
+    const deliveryModal = document.getElementById('delivery-modal');
+    const closeButtons = document.querySelectorAll('.custom-pickup-delivery__close');
+
+    pickupLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      pickupModal.classList.add('show');
+      deliveryModal.classList.remove('show');
+    });
+
+    deliveryLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      deliveryModal.classList.add('show');
+      pickupModal.classList.remove('show');
+    });
+
+    closeButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        pickupModal.classList.remove('show');
         deliveryModal.classList.remove('show');
       });
-  
-      deliveryLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        deliveryModal.classList.add('show');
+    });
+
+    document.addEventListener('click', function(event) {
+      if (
+        !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
+        !event.target.closest('#pickup-link') &&
+        !event.target.closest('#delivery-link')
+      ) {
         pickupModal.classList.remove('show');
-      });
-  
-      closeButtons.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          pickupModal.classList.remove('show');
-          deliveryModal.classList.remove('show');
-          // console.log('Close button clicked!');
-        });
-      });
-  
-      document.addEventListener('click', function(event) {
-        if (
-          !event.target.closest('.custom-pickup-delivery__modal-wrap') &&
-          !event.target.closest('#pickup-link') &&
-          !event.target.closest('#delivery-link')
-        ) {
-          pickupModal.classList.remove('show');
-          deliveryModal.classList.remove('show');
-        }
-      });
-    }
-    addModalListeners();
-  
-    setInterval(addModalListeners, 1000);
+        deliveryModal.classList.remove('show');
+      }
+    });
   });
 </script>
+
 
