@@ -225,6 +225,7 @@
           {%- endif -%}
         </div>
 
+       {%- render 'pagination', paginate: paginate, facet: true, class: 'collection__pagination' -%}
         {% comment %}{%- render 'pagination', paginate: paginate, facet: true, class: 'collection__pagination' -%}{% endcomment %}
       </div>
     {%- endpaginate -%}
