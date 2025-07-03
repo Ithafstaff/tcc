@@ -42,17 +42,18 @@
 <section class="hero-video-banner">
   <div class="hero-video-banner__container">
     {% if section.settings.hero_video != blank %}
-      <video 
-        class="hero-video-banner__video"
-        {% if section.settings.autoplay %} autoplay {% endif %}
-        {% if section.settings.loop %} loop {% endif %}
-        {% if section.settings.muted %} muted {% endif %}
-        playsinline
-      >
-        <source src="{{ section.settings.hero_video.sources[0].url }}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    {% endif %}
+  <video 
+    class="hero-video-banner__video"
+    autoplay
+    loop
+    muted
+    playsinline
+  >
+    <source src="{{ section.settings.hero_video.sources[0].url }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+{% endif %}
+
 
     <div class="hero-video-banner__overlay">
       <h1>{{ section.settings.headline }}</h1>
