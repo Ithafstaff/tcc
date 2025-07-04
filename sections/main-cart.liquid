@@ -119,7 +119,7 @@
                       
     <span class="text-xs">
       <a
-        href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0"
+        href="{{ routes.cart_change_url }}?line={{ forloop.index0 | plus: 1 }}&quantity=0"
         class="link"
       >
         {{ 'cart.order.remove' | t }}
