@@ -124,14 +124,14 @@
                           <button type="button" class="qty-btn qty-plus" aria-label="Increase quantity" style="padding: 4px 10px;">+</button>
                         </div>
                       
-<span class="text-xs">
-  <a
-    href="{{ routes.cart_change_url }}?line={{ index }}&quantity=0"
-    class="link"
-  >
-    {{ 'cart.order.remove' | t }}
-  </a>
-</span>
+    <span class="text-xs">
+      <a
+        href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0"
+        class="link"
+      >
+        {{ 'cart.order.remove' | t }}
+      </a>
+    </span>
                       </line-item-quantity>
 
                     </td>
