@@ -85,7 +85,19 @@
                   %}
 
                   <tr>
-                    <td>{%- render 'line-item', line_item: line_item, index: forloop.index -%}</td>
+                    <td>
+  {%- render 'line-item', line_item: line_item -%}
+
+  <!-- Remove link with line number -->
+  <span class="text-xs">
+    <a
+      href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0"
+      class="link"
+    >
+      {{ 'cart.order.remove' | t }}
+    </a>
+  </span>
+</td>
 
                     <td class="align-center text-center text-subdued block sm:table-cell">
 
