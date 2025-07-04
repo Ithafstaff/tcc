@@ -1,3 +1,8 @@
+{%- if request.path == '/collections' -%}
+  <script>
+    window.location.href = 'https://thecloseoutconnection.com/collections/all-products';
+  </script>
+{%- endif -%}
 {%- if collections.size == 0 -%}
   <div class="empty-state">
     <div class="empty-state__icon-wrapper">
@@ -40,7 +45,7 @@
   <div class="container">
     <div class="page-spacer">
       <div class="v-stack gap-12">
-        <h1 class="h1 text-center"> test {{ 'collection.general.all_collections' | t }}</h1>
+        <h1 class="h1 text-center">{{ 'collection.general.all_collections' | t }}</h1>
 
         {%- paginate collections by 48 -%}
           <collection-list class="collection-list">
