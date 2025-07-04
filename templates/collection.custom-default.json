@@ -130,7 +130,7 @@
         "products_per_page": 20,
         "products_per_row_mobile": "2",
         "products_per_row_desktop": 4,
-        "filter_layout": "horizontal",
+        "filter_layout": "sidebar",
         "show_sort_by": true,
         "show_filters": true,
         "show_filter_group_name": true,

@@ -304,6 +304,12 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+        if (!sessionStorage.getItem('cartRefreshed')) {
+            sessionStorage.setItem('cartRefreshed', 'true');
+            location.reload();
+          } else {
+            sessionStorage.removeItem('cartRefreshed');
+          }
     document.querySelectorAll('.qty-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         const wrapper = btn.closest('.quantity-wrapper');
