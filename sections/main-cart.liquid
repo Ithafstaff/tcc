@@ -114,20 +114,12 @@
                       
                         <span class="text-xs">
 
-                          <a
-                            href="{{ line_item.url_to_remove }}"
+                           <a
+                            href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0"
                             class="link"
-                            aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}"
                           >
-                            {{- 'cart.order.remove' | t -}}
+                            {{ 'cart.order.remove' | t }}
                           </a>
-<!-- 
-<a
-  href="/cart/change?line={{ forloop.index }}&quantity=0"
-  class="link"
->
-  {{- 'cart.order.remove' | t -}}
-</a> -->
                         </span>
                       </line-item-quantity>
 
