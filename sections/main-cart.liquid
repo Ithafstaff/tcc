@@ -122,14 +122,12 @@
                             {{- 'cart.order.remove' | t -}}
                           </a>
                           {% endcomment %}
-                          <a
-                            href="/cart/change?id={{ line_item.key }}&quantity=0"
-                            data-line-item-key="{{ line_item.key }}"
-                            class="link"
-                            aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}"
-                          >
-                            {{- 'cart.order.remove' | t -}}
-                          </a>
+<a
+  href="/cart/change?line={{ forloop.index }}&quantity=0"
+  class="link"
+>
+  {{- 'cart.order.remove' | t -}}
+</a>
                         </span>
                       </line-item-quantity>
 
