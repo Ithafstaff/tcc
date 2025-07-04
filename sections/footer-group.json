@@ -19,7 +19,7 @@
           "settings": {
             "title": "ORDERS",
             "content": "<p>Find out when your purchase will arrive or schedule a delivery.</p><p><a href=\"/pages/profile\" title=\"Profile\">TRACK ORDER</a>  </p>",
-            "enable_follow_on_shop": true
+            "enable_follow_on_shop": false
           }
         },
         "CLOSEOUT": {
@@ -27,7 +27,7 @@
           "settings": {
             "title": "WE OFFER LOCAL DELIVERY",
             "content": "<p>Enjoy the convenience of having your order delivered right to your doorstep! With reliable and efficient delivery, we make it easy to get what you need without the hassle.  </p>",
-            "enable_follow_on_shop": true
+            "enable_follow_on_shop": false
           }
         },
         "ABOUT": {
@@ -35,7 +35,7 @@
           "settings": {
             "title": "CONTACT US & STORE LOCATOR",
             "content": "<p>Questions? Text us: 718-854-2595</p><p><a href=\"/pages/contact-us\" title=\"Contact Us\">LEAVE FEEDBACK</a>   |   <a href=\"/pages/store-locator\" title=\"Store Locator\">FIND A STORE</a></p>",
-            "enable_follow_on_shop": true
+            "enable_follow_on_shop": false
           }
         }
       },
