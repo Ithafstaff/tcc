@@ -35,7 +35,7 @@ Supported variables
     </div>
   {%- endif -%}
 
-  <div class="line-item__info test">
+  <div class="line-item__info">
     <div class="v-stack gap-0.5">
       {%- if line_item.url != blank -%}
         <a href="{{ line_item.url }}" class="bold">
@@ -49,7 +49,7 @@ Supported variables
     </div>
 
     {%- unless line_item.product.has_only_default_variant or line_item.gift_card -%}
-      <p class="text-sm text-subdued test">{{ line_item.variant.title }}</p>
+      <p class="text-sm text-subdued">{{ line_item.variant.title }}</p>
     {%- endunless -%}
 
     {%- if line_item.selling_plan_allocation -%}
@@ -76,7 +76,6 @@ Supported variables
       </ul>
     {%- endunless -%}
 
-    {% comment %}
     <div class="text-sm text-subdued sm:hidden">
       {%- if line_item.url_to_remove -%}
         <line-item-quantity class="h-stack justify-center gap-3">
@@ -92,7 +91,6 @@ Supported variables
         {{- 'customer.order.quantity' | t }}: {{ line_item.quantity -}}
       {%- endif -%}
     </div>
-    {% endcomment %}
 
     {%- if line_item.line_level_discount_allocations != blank -%}
       <ul class="contents" role="list">
@@ -110,12 +108,11 @@ Supported variables
       <line-item-quantity class="v-stack gap-2">
         <input class="quantity-input" type="number" is="quantity-input" inputmode="numeric" min="{{ line_item.variant.quantity_rule.min }}" step="{{ line_item.variant.quantity_rule.increment }}" {% if max_quantity != nil %}max="{{ max_quantity }}"{% endif %} data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
 
-<span class="text-xs text-center">
-<a href="{{ routes.cart_change_url }}?line={{ index }}&quantity=0" class="link">
-  {{ 'cart.order.remove' | t }}
-</a>
-  <p style="font-size: 12px;">Debug index: {{ index }}</p>
-</span>
+        <span class="text-xs text-center">
+          <a href="{{ line_item.url_to_remove }}" class="link" aria-label="{{ 'cart.order.remove_with_title' | t: title: line_item.title | escape }}">
+            {{- 'cart.order.remove' | t -}}
+          </a>
+        </span>
       </line-item-quantity>
     </div>
   {%- endif -%}
