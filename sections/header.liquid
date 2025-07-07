@@ -239,8 +239,34 @@
   
 }
 
+.search-suggestions {
+    display: flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: flex-end;
+}
 
 
+  .hidden {
+    display: none !important;
+  }
+
+  .suggestion-item-container {
+    position: relative !important;
+  }
+
+  .search-input>input {
+    font-size: 20px;
+  }
+
+
+  .h2.text-center {
+    font-size: 24px;
+  }
   
 
   
@@ -578,20 +604,23 @@
         <li class="custom-search__bar-list">
             <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
               <form
-                role="search"
+                action="/search"
+                method="get"
                 class="x:flex x:items-center x:w-full x:border search-bar-link x:pl-4 x:mr-auto x:last:justify-end"
-                onsubmit="return false;"
               >
                 <input
                   type="search"
+                  name="q"
                   class="x:w-full search-bar-input x:outline-none"
                   placeholder="What are you looking for?"
                   id="header-search-input"
                   autocomplete="off"
                   style=" font-size: 13px; text-align: center;"
                 >
+                <input type="hidden" name="type" value="product,collection,page,article">
                 {% comment %} <span class="sr-only">{{ 'header.general.search' | t }}</span> {% endcomment %}
-                <span class="x:ml-auto x:px-4">{% render 'icon' with 'search' %}</span>
+                <!-- <span class="x:ml-auto x:px-4"></span> -->
+                <button type="submit">{% render 'icon' with 'search' %}</button>
               </form>
               <div id="header-search-suggestions" class="search-suggestions hidden test2"></div>
             </div>
@@ -646,60 +675,100 @@
 {%- endif -%}
 
 <script>
-  document.documentElement.style.setProperty(
-    '--header-height',
-    Math.round(document.getElementById('shopify-section-{{ section.id }}').clientHeight) + 'px'
-  );
-  document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('header-search-input');
-    const suggestionsBox = document.getElementById('header-search-suggestions');
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('header-search-input');
+  const suggestionsBox = document.getElementById('header-search-suggestions');
 
-    searchInput.addEventListener('input', async (e) => {
-      const query = e.target.value.trim();
-      if (query.length < 2) {
-        suggestionsBox.classList.add('hidden');
-        return;
-      }
+  searchInput.addEventListener('input', async (e) => {
+    const query = e.target.value.trim();
+    if (query.length < 2) {
+      suggestionsBox.classList.add('hidden');
+      return;
+    }
 
-      try {
-        const res = await fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product`);
-        const data = await res.json();
+    try {
+      const res = await fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product,collection,page,article`);
+      const data = await res.json();
 
-        const suggestions = `
-          <div class="suggestion-item-container test" style="gap: 0 !important; padding: 5px 0 !important;">
-          <div class="x:w-full x:flex x:items-center x:justify-between x:h-full">
-            <span class="x:p-0 x:m-0 x:text-xs" style="padding: 10px !important; text-transform: uppercase; letter-spacing: 1px; color: #000; font-weight: 500;">Product Suggestions</span>
-          </div>
-            ${data.resources.results.products
-            .map((product) => {
-              // console.log(product);
-              return `
-                <a class="suggestion-item" href="${product.url}" style="display: flex !important; flex-direction: row-reverse !important; justify-content: flex-end; gap: 10px; align-items: center; line-height: normal; padding: 5px 10px !important;}">
-                  ${product.title}
-                  <div class="custom-suggestion__item-img-wrap">
-                    <img class="custom-suggestion__item-img" src="${product.image}" alt="${product.title}">
-                  </div>
-                </a>
-              `;
-            })
-            .join('')}
+      const products = data.resources.results.products || [];
+      const collections = data.resources.results.collections || [];
+      const pages = data.resources.results.pages || [];
+      const articles = data.resources.results.articles || [];
 
+      let suggestions = '';
+
+      if (products.length) {
+        suggestions += `
+          <div class="suggestion-item-container" style="gap: 0 !important; padding: 5px 0 !important;">
+            <div class="x:w-full x:flex x:items-center x:justify-between x:h-full">
+              <span class="x:p-0 x:m-0 x:text-xs" style="padding: 10px !important; text-transform: uppercase; letter-spacing: 1px; color: #000; font-weight: 500; font-size: 14px !important;">Product Suggestions</span>
+            </div>
+            ${products.map(product => `
+              <a class="suggestion-item" href="${product.url}" style="display: flex !important; flex-direction: row-reverse !important; justify-content: flex-end; gap: 10px; align-items: center; line-height: normal; padding: 5px 10px !important;">
+                ${product.title}
+                <div class="custom-suggestion__item-img-wrap">
+                  <img class="custom-suggestion__item-img" src="${product.image}" alt="${product.title}">
+                </div>
+              </a>
+            `).join('')}
           </div>
         `;
-
-        suggestionsBox.innerHTML = suggestions || '<div class="suggestion-item">No results found.</div>';
-        suggestionsBox.classList.remove('hidden');
-      } catch (error) {
-        console.error('Error fetching suggestions', error);
       }
-    });
 
-    document.addEventListener('click', (e) => {
-      if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
-        suggestionsBox.classList.add('hidden');
+      if (collections.length) {
+        suggestions += `
+          <div class="suggestion-item-container" style="gap: 0 !important; padding: 5px 0 !important;">
+            <span style="padding: 10px !important; text-transform: uppercase; letter-spacing: 1px; color: #000; font-weight: 500; font-size: 14px !important;">Collections</span>
+            ${collections.map(collection => `
+              <a class="suggestion-item" href="${collection.url}" style="padding: 5px 10px !important;">
+                ${collection.title}
+              </a>
+            `).join('')}
+          </div>
+        `;
       }
-    });
+
+      if (pages.length) {
+        suggestions += `
+          <div class="suggestion-item-container" style="gap: 0 !important; padding: 5px 0 !important;">
+            <span style="padding: 10px !important; text-transform: uppercase; letter-spacing: 1px; color: #000; font-weight: 500; font-size: 14px !important;">Pages</span>
+            ${pages.map(page => `
+              <a class="suggestion-item" href="${page.url}" style="padding: 5px 10px !important;">
+                ${page.title}
+              </a>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      if (articles.length) {
+        suggestions += `
+          <div class="suggestion-item-container" style="gap: 0 !important; padding: 5px 0 !important;">
+            <span style="padding: 10px !important; text-transform: uppercase; letter-spacing: 1px; color: #000; font-weight: 500; font-size: 14px !important;">Articles</span>
+            ${articles.map(article => `
+              <a class="suggestion-item" href="${article.url}" style="padding: 5px 10px !important;">
+                ${article.title}
+              </a>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      suggestionsBox.innerHTML = suggestions || '<div class="suggestion-item">No results found.</div>';
+      suggestionsBox.classList.remove('hidden');
+
+    } catch (error) {
+      console.error('Error fetching suggestions', error);
+    }
   });
+
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+      suggestionsBox.classList.add('hidden');
+    }
+  });
+});
+
 
 
          
