@@ -1,1 +1,46 @@
-{"sections":{"main":{"type":"main-list-collections","settings":{}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "disabled": true,
+      "settings": {
+        "collections": [],
+        "collections_per_row_mobile": "1",
+        "collections_per_row": 3,
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "custom_multi_collection_block_P3WmMx": {
+      "type": "custom-multi-collection-block",
+      "blocks": {
+        "image_qCikwi": {
+          "type": "Image",
+          "settings": {
+            "id_col-desc": "",
+            "id_link": "beddings-main-category"
+          }
+        }
+      },
+      "block_order": [
+        "image_qCikwi"
+      ],
+      "name": "Custom Multi Collection",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "custom_multi_collection_block_P3WmMx"
+  ]
+}
