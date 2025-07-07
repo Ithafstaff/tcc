@@ -132,7 +132,7 @@ Supported variables
                 {%- assign downcase_label = filter.label | downcase -%}
                 <div class="custom-filter__box-wrap">
                 <button type="button" class="text-with-icon group custom-filter__with-icon" aria-controls="filter-dialog-{{ filter.param_name }}" aria-expanded="false">
-                  <span>{{ filter.label }}</span>
+                  <span>{% if filter.label == 'color palette test' %}color palette{% else %}{{ filter.label }}{% endif %}</span>
                   <span class="circle-chevron group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small', direction_aware: true -%}</span>
                 </button>
 
