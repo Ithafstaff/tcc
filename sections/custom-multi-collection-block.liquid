@@ -356,8 +356,8 @@
           <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
         </label>
       {% else %}
-        <label class="color-swatch" style="background-color: {{ color_name }}; border: 1px solid;" title="{{ color_name }}">
-          <input type="radio" name="color" value="{{ color_name }}" class="sr-only" data-test={{ color_entry }}>
+        <label class="color-swatch" style="background-color: {{ color_name }}; border: 1px solid;" title="{{ color_name }}" {{ color_entry }}>
+          <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
         </label>
       {% endif %}
 
