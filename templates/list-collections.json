@@ -93,6 +93,9 @@
     },
     "recently_viewed_products_xV4YME": {
       "type": "recently-viewed-products",
+      "custom_css": [
+        ".section-full {padding: 0 20px; margin-bottom: 10px; max-width: 1400px; margin: 0 auto 15px;}"
+      ],
       "name": "Recently viewed products",
       "settings": {
         "full_width": true,
