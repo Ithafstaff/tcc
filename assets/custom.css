@@ -833,7 +833,7 @@
 }
 
 .badge--coming-soon {
-  color: #fff;
+  color: #fff !important;
 }
 
 
