@@ -352,11 +352,11 @@
       {% assign color_entry = shop.metaobjects['shopify--color-pattern'][color_name] %}
 
       {% if color_entry and color_entry.color %}
-        <label class="color-swatch" style="background-color: {{ color_entry.color }}; border: 1px solid;" title="{{ color_entry.color }}">
+        <label class="color-swatch" style="background-color: {{ color_entry.color }}; border: 1px solid;" title="{{ color_name }}">
           <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
         </label>
       {% else %}
-        <label class="color-swatch" style="background-color: {{ color_name }}; border: 1px solid;" title="{{ color_entry.color }}" {{ color_entry }}>
+        <label class="color-swatch" style="background-color: {{ color_name }}; border: 1px solid;" title="{{ color_name }}">
           <input type="radio" name="color" value="{{ color_name }}" class="sr-only">
         </label>
       {% endif %}
