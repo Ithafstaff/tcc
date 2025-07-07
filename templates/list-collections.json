@@ -38,7 +38,7 @@
         "heading_agLpxP"
       ],
       "custom_css": [
-        ".section-full {margin: 30px 0;}"
+        ".section-full {margin: 40px 0;}"
       ],
       "name": "Rich text",
       "settings": {
