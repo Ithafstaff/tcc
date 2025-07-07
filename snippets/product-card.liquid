@@ -56,7 +56,7 @@ Supported variables
   {%- endcomment -%}
 
   {%- if show_badges and product.media.size > 0 -%}
-    {%- render 'product-badges', product: product, types: 'custom, sold_out, discount, coming_soon', context: 'card', class: 'product-card__badge-list' -%}
+    {%- render 'product-badges', product: product, types: 'custom, sold_out, discount, coming_soon', context: 'card', class: 'product-card__badge-list badge badge--sold-out' -%}
   {%- endif -%}
 
   {%- comment -%}
