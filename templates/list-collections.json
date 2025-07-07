@@ -83,11 +83,19 @@
       ],
       "name": "Custom Multi Collection",
       "settings": {}
+    },
+    "custom_category_slider_rrecCa": {
+      "type": "custom-category-slider",
+      "name": "Custom Category Slider",
+      "settings": {
+        "id_header": ""
+      }
     }
   },
   "order": [
     "main",
     "rich_text_wMFnDN",
-    "custom_multi_collection_block_P3WmMx"
+    "custom_multi_collection_block_P3WmMx",
+    "custom_category_slider_rrecCa"
   ]
 }
