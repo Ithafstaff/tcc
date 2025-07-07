@@ -34,7 +34,7 @@
     "heading_apparition": "split_fade",
     "color_swatch_config": "bronze:#CD7F32\nwhite-gray:#E9E9E9\ndark-grey:#808080\nnavy-blue:#004173\nstone:#c9bfb6\ntaupe:#e3d0c2\nbrown:#573b3b\nbeige:#F2E8CD",
     "show_secondary_image": false,
-    "show_sold_out_badge": false,
+    "show_sold_out_badge": true,
     "product_color_display": "swatch",
     "product_info_alignment": "start",
     "cart_icon": "shopping_cart",
