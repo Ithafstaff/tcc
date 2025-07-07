@@ -51,9 +51,8 @@
         },
         "price": {
           "type": "price",
-          "disabled": true,
           "settings": {
-            "show_taxes_notice": false
+            "show_taxes_notice": true
           }
         },
         "judge_me_reviews_preview_badge_dCPARp": {
