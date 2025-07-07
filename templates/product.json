@@ -52,7 +52,7 @@
         "price": {
           "type": "price",
           "settings": {
-            "show_taxes_notice": true
+            "show_taxes_notice": false
           }
         },
         "judge_me_reviews_preview_badge_dCPARp": {
