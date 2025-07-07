@@ -1,8 +1,8 @@
-{%- if request.path == '/collections' -%}
+{% comment %} {%- if request.path == '/collections' -%}
   <script>
     window.location.href = 'https://thecloseoutconnection.com/collections/all-products';
   </script>
-{%- endif -%}
+{%- endif -%} {% endcomment %}
 {%- if collections.size == 0 -%}
   <div class="empty-state">
     <div class="empty-state__icon-wrapper">
