@@ -21,6 +21,15 @@
         "overlay_opacity": 30
       }
     },
+    "custom_collection_slider_YkjfkU": {
+      "type": "custom-collection-slider",
+      "name": "Custom Collection Slider",
+      "settings": {
+        "id_header": "",
+        "id_sub-header": "",
+        "id_content": ""
+      }
+    },
     "custom_multi_collection_block_P3WmMx": {
       "type": "custom-multi-collection-block",
       "blocks": {
@@ -41,6 +50,7 @@
   },
   "order": [
     "main",
+    "custom_collection_slider_YkjfkU",
     "custom_multi_collection_block_P3WmMx"
   ]
 }
