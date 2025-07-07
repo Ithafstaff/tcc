@@ -60,10 +60,26 @@
             "id_col-desc": "<p>Oversized profile is perfect for lounging  <br/>with family and friends without sacrificing style<br/><br/>Available in Sofa, Sectional & Armless Chair  25+ Fabrics</p>",
             "id_link": "beddings-main-category"
           }
+        },
+        "image_pLpJaU": {
+          "type": "Image",
+          "settings": {
+            "id_col-desc": "<p>Oversized profile is perfect for lounging  <br/>with family and friends without sacrificing style<br/><br/>Available in Sofa, Sectional & Armless Chair  25+ Fabrics</p>",
+            "id_link": "tablecloth-main-category"
+          }
+        },
+        "image_FjLJTW": {
+          "type": "Image",
+          "settings": {
+            "id_col-desc": "<p>Oversized profile is perfect for lounging  <br/>with family and friends without sacrificing style<br/><br/>Available in Sofa, Sectional & Armless Chair  25+ Fabrics</p>",
+            "id_link": "plastic-dinnerware-main-category"
+          }
         }
       },
       "block_order": [
-        "image_qCikwi"
+        "image_qCikwi",
+        "image_pLpJaU",
+        "image_FjLJTW"
       ],
       "name": "Custom Multi Collection",
       "settings": {}
