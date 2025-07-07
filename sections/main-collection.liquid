@@ -112,7 +112,7 @@
           </div>
         {%- endif -%}
 
-        <div class="collection__results test">
+        <div class="collection__results">
           {%- if collection.products_count == 0 -%}
             <div class="empty-state">
               <div class="empty-state__icon-wrapper">
@@ -136,7 +136,7 @@
               </div>
 
               <reveal-items selector=".product-list > *">
-                <product-list class="product-list" role="region" aria-live="polite">
+                <product-list class="product-list rwe" role="region" aria-live="polite">
                   {%- for product in collection.products -%}
                     {%- for block in section.blocks -%}
                       {%- if forloop.parentloop.index != block.settings.position -%}
