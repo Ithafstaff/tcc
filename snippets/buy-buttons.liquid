@@ -75,7 +75,7 @@ Supported variables
         </div>
       </gift-card-recipient>
     {%- endif -%}
-
+  {% if product.available %}
     <buy-buttons class="buy-buttons custom-product__buy-buttons x {% if show_payment_button %}buy-buttons--multiple{% endif %}" template="{{ product.template_suffix | escape }}" form="{{ form_id }}">
       {%- render 'button', content: button_content, type: 'submit', size: button_size, disabled: button_disabled, secondary: show_payment_button, subdued: button_disabled, background: atc_button_background, text_color: atc_button_text_color -%}
       
@@ -118,6 +118,8 @@ Supported variables
         </style>
       {%- endif -%}
     </buy-buttons>
+    {% else %}
+    {% endif %}
   </div>
 {%- endform -%}
 
