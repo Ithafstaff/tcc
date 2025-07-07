@@ -834,6 +834,9 @@
 
 .badge--coming-soon {
   color: #fff !important;
+  padding-top: 5px !important;
+  font-weight: 500 !important;
+  background: #000 !important;
 }
 
 
