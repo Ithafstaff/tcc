@@ -1618,8 +1618,8 @@
 }
 @layer base {
   .suggestion-item-container {
-    position: absolute !important;
-    margin-block: calc(var(--x-spacing) * 1) !important;
+    position: absolute;
+    /* margin-block: calc(var(--x-spacing) * 1) !important; */
     display: flex !important;
     width: 100% !important;
     flex-direction: column !important;
