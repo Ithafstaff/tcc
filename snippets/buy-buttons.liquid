@@ -120,7 +120,7 @@ Supported variables
     </buy-buttons>
     {% else %}
     <buy-buttons class="buy-buttons custom-product__buy-buttons x {% if show_payment_button %}buy-buttons--multiple{% endif %}" template="{{ product.template_suffix | escape }}" form="{{ form_id }}" disabled>
-      <button type="submit" class="button custom-product__buy-button test1 button--xl button--secondary" is="custom-button" fdprocessedid="ehoevg"><div>Coming Soon</div><span class="button__loader">
+      <button type="submit" class="button custom-product__buy-button test1 button--xl button--secondary" is="custom-button" fdprocessedid="ehoevg" disabled><div>Coming Soon</div><span class="button__loader">
       </span></button>
     </buy-buttons>
     {% endif %}
