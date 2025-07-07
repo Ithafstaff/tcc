@@ -49,15 +49,15 @@
           "type": "badges",
           "settings": {}
         },
+        "judge_me_reviews_preview_badge_dCPARp": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
         "price": {
           "type": "price",
           "settings": {
             "show_taxes_notice": false
           }
-        },
-        "judge_me_reviews_preview_badge_dCPARp": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
         },
         "text_cedcxt": {
           "type": "text",
@@ -150,8 +150,8 @@
         "title",
         "liquid_3darrU",
         "badges",
-        "price",
         "judge_me_reviews_preview_badge_dCPARp",
+        "price",
         "text_cedcxt",
         "liquid_zHBBjj",
         "rating",
