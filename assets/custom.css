@@ -1280,6 +1280,11 @@
     top: 130px;
   }
 
+  .cart-order__summary,
+  .cart-order__recap {
+    width: 100%;
+  }
+
 
 
   
