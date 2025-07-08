@@ -80,7 +80,9 @@ Supported variables
 
 {% comment %}{%- assign selected_sort_by_value = results.sort_by | default: results.default_sort_by -%}{% endcomment %}
 {%- assign selected_sort_by_value = results.sort_by | default: results.default_sort_by -%}
-{%- assign selected_sort_by = results.sort_options | where: 'value', selected_sort_by_value | first -%}
+<!-- {%- assign selected_sort_by = results.sort_options | where: 'value', selected_sort_by_value | first -%} -->
+{%- assign selected_sort_by = results.sort_options | where: 'value', 'best-selling' | first -%}
+
 
 <div class="collection__top-bar">
   {%- if show_active_filters -%}
