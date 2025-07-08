@@ -153,7 +153,7 @@
       "empty_collection": "This collection is empty",
       "all_collections": "All collections",
       "no_collections": "This store does not contain any collection.",
-      "continue_shopping": "Continue shopping"
+      "continue_shopping": "Continue shoppings"
     },
     "products_count": {
       "zero": "0 products",
@@ -222,7 +222,7 @@
       "addresses": "Addresses",
       "logout": "Logout",
       "no_orders": "You haven't placed any orders yet.",
-      "continue_shopping": "Continue shoppings"
+      "continue_shopping": "Continue shopping"
     },
     "login": {
       "title": "Login",
@@ -321,7 +321,7 @@
         "one": "{{ count }} item",
         "other": "{{ count }} items"
       },
-      "continue_shopping": "Continue shopping",
+      "continue_shopping": "Continue shoppings",
       "weight": "Weight",
       "subtotal": "Subtotal",
       "total": "Total",
@@ -366,7 +366,7 @@
   "404": {
     "general": {
       "title": "Page not found",
-      "continue_shopping": "Continue shopping"
+      "continue_shopping": "Continue shoppings"
     }
   },
   "search": {
