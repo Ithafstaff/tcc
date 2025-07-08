@@ -132,7 +132,7 @@ Supported variables
 
                 {%- assign downcase_label = filter.label | downcase -%}
                 <div class="custom-filter__box-wrap">
-                <button type="button" class="text-with-icon group custom-filter__with-icon" aria-controls="filter-dialog-{{ filter.param_name }}" aria-expanded="false">
+                <button type="button" class="text-with-icon group custom-filter__with-icon b" aria-controls="filter-dialog-{{ filter.param_name }}" aria-expanded="false">
                   <span>{% if filter.label == 'color palette test' %}Color Palette{% else %}{{ filter.label }}{% endif %}</span>
                   <span class="circle-chevron group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small', direction_aware: true -%}</span>
                 </button>
@@ -185,7 +185,7 @@ Supported variables
         <facet-sort-by class="sort-by-facet">
           <span id="{{ section.id }}-sort-by-label" class="bold custom-filter__sort">{{ 'collection.faceting.sort_by' | t }}:</span>
 
-          <button type="button" class="text-with-icon group custom-filter__with-icon" aria-labelledby="{{ section.id }}-sort-by-label {{ sort_by_popover_id }}-value" aria-controls="{{ sort_by_popover_id }}" aria-expanded="false">
+          <button type="button" class="text-with-icon group custom-filter__with-icon a" aria-labelledby="{{ section.id }}-sort-by-label {{ sort_by_popover_id }}-value" aria-controls="{{ sort_by_popover_id }}" aria-expanded="false">
             <span id="{{ sort_by_popover_id }}-value" class="reversed-link custom-filter__sort-txt">{{- selected_sort_by.name -}}</span>
             <span class="circle-chevron group-hover:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small', direction_aware: true -%}</span>
           </button>
@@ -194,7 +194,7 @@ Supported variables
             <x-listbox class="popover-listbox" aria-owns="{{ sort_by_popover_id }}-value">
               {%- for sort_option in results.sort_options -%}
                 {%- if sort_option.name != blank -%}
-                  <button type="button" class="popover-listbox__option group" role="option" value="{{ sort_option.value }}"}>
+                  <button type="button" class="popover-listbox__option group" role="option" value="{{ sort_option.value }}" {% if sort_option.value == selected_sort_by_value %}aria-selected="true"{% endif %}>
                     <span class="reversed-link">{{ sort_option.name }}</span>
                   </button>
                 {%- endif -%}
