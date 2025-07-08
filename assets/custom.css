@@ -723,7 +723,7 @@
 
 .custom__product-card {
   width: auto;
-  height: auto;
+  height: 240px;
 }
 
 .custom-recently__container .custom__product-card {
