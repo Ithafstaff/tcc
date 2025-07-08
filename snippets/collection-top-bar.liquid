@@ -136,7 +136,7 @@ Supported variables
                   <span class="circle-chevron group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small', direction_aware: true -%}</span>
                 </button>
 
-                <facet-dialog id="filter-dialog-{{ filter.param_name }}" class="facet-dialog shadow">
+                <facet-dialog id="filter-dialog-{{ filter.param_name }}" class="facet-dialog shadow {% if collection %}custom-collection__facet{% endif %}">
                   {%- case filter.type -%}
                     {%- when 'list' or 'boolean' -%}
                       {%- if filter.presentation == 'image' -%}
