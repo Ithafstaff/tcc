@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Only apply once by checking if the class isn't already added
       if (tooltipValue === 'Blue' && !swatch.classList.contains('custom-swatch__pallete')) {
         swatch.style.background = `url("${backgroundImages[0]}") no-repeat`;
-        swatch.classList.add('custom-swatch__pallete');
+      
         console.log('Applied custom palette to:', tooltipValue);
       }
     });
