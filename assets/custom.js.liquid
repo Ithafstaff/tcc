@@ -452,6 +452,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+  document.addEventListener('DOMContentLoaded', function() {
+    // Select all elements with class .custom-collection__swatch
+    const swatches = document.querySelectorAll('.custom-collection__swatch');
+
+    swatches.forEach(function(swatch) {
+      // Get the value of data-tooltip attribute
+      const tooltipValue = swatch.getAttribute('data-tooltip');
+      
+      // Do something with it, e.g., log to console
+      console.log('Tooltip value:', tooltipValue);
+    });
+  });
+
 
 
 
