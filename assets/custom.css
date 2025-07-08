@@ -840,7 +840,7 @@
 }
 
 .custom-swatch__pallete {
-  background-size: 100%;
+  background-size: 100% !important;
   width: 40px !important;
   height: 40px !important;
   border-radius: 50% !important;
