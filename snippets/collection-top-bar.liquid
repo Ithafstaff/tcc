@@ -194,7 +194,7 @@ Supported variables
             <x-listbox class="popover-listbox" aria-owns="{{ sort_by_popover_id }}-value">
               {%- for sort_option in results.sort_options -%}
                 {%- if sort_option.name != blank -%}
-                  <button type="button" class="popover-listbox__option group" role="option" value="{{ sort_option.value }}" {% if sort_option.value == selected_sort_by_value %}aria-selected="true"{% endif %}>
+                  <button type="button" class="popover-listbox__option group" role="option" value="{{ sort_option.value }}"}>
                     <span class="reversed-link">{{ sort_option.name }}</span>
                   </button>
                 {%- endif -%}
