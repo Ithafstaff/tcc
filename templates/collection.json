@@ -31,6 +31,11 @@
     },
     "main": {
       "type": "main-collection",
+      "custom_css": [
+        ".container {max-width: 1400px; margin: 0 auto; padding: 0 20px;}",
+        ".bg-custom {background: transparent;}",
+        ".product-card__figure img {border-radius: 0;}"
+      ],
       "settings": {
         "products_per_page": 24,
         "products_per_row_mobile": "2",
