@@ -49,10 +49,10 @@
   <li data-item="block-link">
     <a href="{{ routes.root_url }}">Home</a>
   </li>
- {% assign first_collection = product.collections.first %}
-    {% if first_collection %}
+ {% assign last_collection = product.collections.last %}
+    {% if last_collection %}
       <li data-item="block-link">
-      <a href="{{ first_collection.url }}">{{ first_collection.title }}</a>
+      <a href="{{ last_collection.url }}">{{ last_collection.title }}</a>
         </li>
     {% endif %}
 
