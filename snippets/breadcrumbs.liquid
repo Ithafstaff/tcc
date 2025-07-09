@@ -49,12 +49,18 @@
   <li data-item="block-link">
     <a href="{{ routes.root_url }}">Home</a>
   </li>
- {% assign last_collection = product.collections.last %}
-    {% if last_collection %}
-      <li data-item="block-link">
-      <a href="{{ last_collection.url }}">{{ last_collection.title }}</a>
-        </li>
-    {% endif %}
+  {% assign last_collection = product.collections.last %}
+  {% if last_collection %}
+    <li data-item="block-link">
+      <a href="{{ last_collection.url }}">
+      {% if last_collection.metafields.custom.name_of_collection %}
+        {{ last_collection.metafields.custom.name_of_collection }}
+      {% else %}
+        {{ last_collection.title }}
+      {% endif %}
+      </a>
+    </li>
+  {% endif %}
 
   {% comment %}
   {% if request.page_type == "product" %}
