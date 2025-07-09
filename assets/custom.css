@@ -554,6 +554,9 @@
 
 .Size .custom-variant__inputs:checked + * {
   font-weight: 700;
+  border: 1px solid !important;
+  border-radius: 0;
+  padding: 15px 30px !important;
 }
 
 .Size .block-swatch {
@@ -581,6 +584,7 @@
   left: 0;
   opacity: 1;
   border-radius: 0;
+  display: none;
 }
 
 .Size input[type="radio"]:checked + .block-swatch::before {
