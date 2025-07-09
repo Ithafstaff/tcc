@@ -403,8 +403,8 @@
 .custom-product__swatch-rectangle {
   border-radius: 0 !important;
   border: 1px solid;
-  width: 20px !important;
-  height: 20px !important;
+  width: 28px !important;
+  height: 28px !important;
 }
 
 .product .custom-product__swatch-rectangle {
