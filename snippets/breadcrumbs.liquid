@@ -49,9 +49,9 @@
   <li data-item="block-link">
     <a href="{{ routes.root_url }}">Home</a>
   </li>
-   {% if collection %}
+ {% if first_collection %}
     <span> / </span>
-    <a href="{{ collection.url }}">{{ collection.title }}</a>
+    <a href="{{ first_collection.url }}">{{ first_collection.title }}</a>
   {% endif %}
 
   {% if request.page_type == "product" %}
