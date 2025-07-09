@@ -51,7 +51,6 @@
   </li>
  {% assign first_collection = product.collections.first %}
     {% if first_collection %}
-      <span> / </span>
       <a href="{{ first_collection.url }}">{{ first_collection.title }}</a>
     {% endif %}
 
