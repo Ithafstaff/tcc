@@ -155,7 +155,7 @@ only way to do it on Shopify right now.
   --------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
 
-  {%- if product.media.size > 1 -%}
+  {%- if product.media.size > 0 -%}
     {%- if section.settings.mobile_carousel_control == 'dots' -%}
       {{- page_dots -}}
     {%- endif -%}
