@@ -49,10 +49,11 @@
   <li data-item="block-link">
     <a href="{{ routes.root_url }}">Home</a>
   </li>
- {% if first_collection %}
-    <span> / </span>
-    <a href="{{ first_collection.url }}">{{ first_collection.title }}</a>
-  {% endif %}
+ {% assign first_collection = product.collections.first %}
+    {% if first_collection %}
+      <span> / </span>
+      <a href="{{ first_collection.url }}">{{ first_collection.title }}</a>
+    {% endif %}
 
   {% if request.page_type == "product" %}
     <li data-item="block-link">
