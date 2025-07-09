@@ -51,14 +51,18 @@
   </li>
  {% assign first_collection = product.collections.first %}
     {% if first_collection %}
+      <li data-item="block-link">
       <a href="{{ first_collection.url }}">{{ first_collection.title }}</a>
+        </li>
     {% endif %}
 
+  {% comment %}
   {% if request.page_type == "product" %}
     <li data-item="block-link">
       <a href="/collections/all-products">Collections</a>
     </li>
   {% endif %}
+  {% endcomment %}
 
   <li data-item="accent-text">{{ product.title }}</li>
 </ul>
