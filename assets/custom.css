@@ -555,8 +555,6 @@
 .Size .custom-variant__inputs:checked + * {
   font-weight: 700;
   border: 1px solid !important;
-  border-radius: 0;
-  padding: 15px 30px !important;
 }
 
 .Size .block-swatch {
@@ -571,6 +569,9 @@
   position: relative;
   padding: 0 0 0 34px !important;
   height: unset !important;
+  border: 1px solid #ccc !important;
+  border-radius: 0;
+  padding: 15px 30px !important;
 }
  
 .Size .block-swatch::before {
