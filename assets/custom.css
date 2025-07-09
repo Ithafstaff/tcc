@@ -621,6 +621,10 @@
   font-weight: 700;
 }
 
+.variant-picker__option-name span {
+  font-weight: 400;
+}
+
 .custom-product-info__block-item {
   margin: 0;
 }
