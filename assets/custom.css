@@ -498,6 +498,7 @@
 .shopify-product-form,
 .product-card__quick-buy div{
   height: 100%;
+  margin-bottom: 10px;
 }
 
 .section-header h2 {
