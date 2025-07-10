@@ -878,11 +878,11 @@
   border-color: #cdcdcd !important;
 }
 
-:checked + .custom-filter__box-wrap .custom-collection__swatch {
+:checked + .custom-collection__swatch {
   outline: 3px solid;
 }
 
-:checked + .custom-filter__box-wrap .custom-collection__swatch::before {
+:checked + .custom-collection__swatch::before {
   opacity: 0 !important;
 }
 
