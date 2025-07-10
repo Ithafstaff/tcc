@@ -451,33 +451,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
 
-  // Step 1: Create an array of background images
-  const backgroundImages = [
-    "https://cdn.shopify.com/s/files/1/0723/0839/2168/files/WhatsApp_Image_2025-07-04_at_02.30.34_ce8a432f.jpg?v=1751988586",
-    // add more URLs here if needed
-  ];
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Map of swatch names to background URLs
+  const swatchBackgrounds = {
+    "Blue": "https://cdn.shopify.com/s/files/1/0723/0839/2168/files/WhatsApp_Image_2025-07-04_at_02.30.34_ce8a432f.jpg?v=1751988586",
+    "Red": "https://cdn.shopify.com/s/files/1/0723/0839/2168/files/red.jpg?v=456",
+    // add more: "Green": "url", etc.
+  };
 
   function applySwatchBackgrounds() {
-    const swatches = document.querySelectorAll('.color-swatch.custom-collection__swatch');
+    document.querySelectorAll('.color-swatch.custom-collection__swatch').forEach(swatch => {
+      const tooltip = swatch.getAttribute('data-tooltip');
+      const bgUrl = swatchBackgrounds[tooltip];
 
-    swatches.forEach(function(swatch) {
-      const tooltipValue = swatch.getAttribute('data-tooltip');
-
-      // Only apply once by checking if the class isn't already added
-      if (tooltipValue === 'Blue' && !swatch.classList.contains('custom-swatch__pallete')) {
-        swatch.style.background = `url("${backgroundImages[0]}") no-repeat`;
-      
-        console.log('Applied custom palette to:', tooltipValue);
+      if (bgUrl && !swatch.classList.contains('custom-swatch__palette')) {
+        swatch.style.background = `url("${bgUrl}") no-repeat`;
+        swatch.classList.add('custom-swatch__palette');
+        console.log('Applied custom palette to:', tooltip);
       }
     });
   }
 
   // Run every 100 ms
   setInterval(applySwatchBackgrounds, 100);
-
 });
+
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+
+//   // Step 1: Create an array of background images
+//   const backgroundImages = [
+//     "https://cdn.shopify.com/s/files/1/0723/0839/2168/files/WhatsApp_Image_2025-07-04_at_02.30.34_ce8a432f.jpg?v=1751988586",
+//     // add more URLs here if needed
+//   ];
+
+//   function applySwatchBackgrounds() {
+//     const swatches = document.querySelectorAll('.color-swatch.custom-collection__swatch');
+
+//     swatches.forEach(function(swatch) {
+//       const tooltipValue = swatch.getAttribute('data-tooltip');
+
+//       // Only apply once by checking if the class isn't already added
+//       if (tooltipValue === 'Blue' && !swatch.classList.contains('custom-swatch__pallete')) {
+//         swatch.style.background = `url("${backgroundImages[0]}") no-repeat`;
+      
+//         console.log('Applied custom palette to:', tooltipValue);
+//       }
+//     });
+//   }
+
+//   // Run every 100 ms
+//   setInterval(applySwatchBackgrounds, 100);
+
+// });
 
 
 
