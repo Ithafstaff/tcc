@@ -894,6 +894,7 @@
 :checked+.facet-dialog-option {
   background: none !important;
   text-decoration: underline;
+  font-weight: 500;
 }
 
 
