@@ -1367,6 +1367,10 @@
     width: 100%;
   }
 
+  .custom__heading-title {
+    text-align: center;
+  }
+
 
   
 }
