@@ -882,7 +882,7 @@
   outline: 3px solid;
 }
 
-:checked + .custom-collection__swatch::before {
+.custom-filter__box-wrap input:checked + .custom-collection__swatch::before {
   opacity: 0 !important;
 }
 
