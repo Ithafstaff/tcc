@@ -878,7 +878,7 @@
   border-color: #cdcdcd !important;
 }
 
-:checked + .custom-collection__swatch {
+.custom-filter__box-wrap input:checked + .custom-collection__swatch {
   outline: 3px solid;
 }
 
