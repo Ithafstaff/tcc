@@ -879,7 +879,7 @@
 }
 
 :checked + .custom-collection__swatch {
-  outline: 2px solid;
+  outline: 3px solid;
 }
 
 :checked + .custom-collection__swatch::before {
