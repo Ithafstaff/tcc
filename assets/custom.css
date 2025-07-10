@@ -1332,6 +1332,10 @@
     width: 100%;
   }
 
+  .custom-product__buy-button {
+    padding-top: 0 !important;
+  }
+
 
 
   
