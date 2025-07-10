@@ -167,7 +167,7 @@ Supported variables
 
                             {%- capture checkbox_id -%}checkbox-{{ section.id }}-{{ filter_value.param_name }}-{{ forloop.index }}{%- endcapture -%}
                             <input id="{{ checkbox_id }}" class="sr-only" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" {% if filter_value.active %}checked{% endif %} {% if disabled %}disabled{% endif %}>
-                            <label for="{{ checkbox_id }}" class="facet-dialog-option test">{{ filter_value.label }} {% if section.settings.show_filter_values_count %}({{ filter_value.count }}){% endif %}</label>
+                            <label for="{{ checkbox_id }}" class="facet-dialog-option custom-filter__item">{{ filter_value.label }} {% if section.settings.show_filter_values_count %}({{ filter_value.count }}){% endif %}</label>
                           {%- endfor -%}
                         </div>
                       {%- endif -%}
