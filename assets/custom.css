@@ -882,6 +882,10 @@
   outline: 2px solid;
 }
 
+:checked + .custom-collection__swatch::before {
+  opacity: 0;
+}
+
 
 .custom-collection__facet {
   padding-top: 25px !important;
