@@ -19,7 +19,7 @@ Supported variables
   {%- for filter in results.filters -%}
     {%- if filter.type == 'price_range' -%}
       {%- if filter.max_value.value != blank or filter.min_value.value != blank -%}
-        <div class="removable-facet">
+        <div class="removable-facet custom-removable-facet">
           {%- if section.settings.show_filter_group_name -%}
             {{- filter.label }}: {{ filter.min_value.value | default: 0 | money_without_trailing_zeros }} - {{ filter.max_value.value | default: filter.range_max | money_without_trailing_zeros -}}
           {%- else -%}
@@ -33,7 +33,7 @@ Supported variables
       {%- endif -%}
     {%- else -%}
       {%- for active_value in filter.active_values -%}
-        <div class="removable-facet">
+        <div class="removable-facet custom-removable-facet">
           {%- if section.settings.show_filter_group_name or filter.type == 'boolean' -%}
             {{- filter.label }}: {{ active_value.label -}}
           {%- else -%}
