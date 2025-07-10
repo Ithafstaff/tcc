@@ -1065,6 +1065,8 @@
 
   .custom-product__swatch-rectangle {
     margin: 0 !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   .Size .block-swatch {
