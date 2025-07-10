@@ -891,6 +891,11 @@
   border-radius: 0 !important;
 }
 
+:checked+.facet-dialog-option {
+  background: none !important;
+  text-decoration: underline;
+}
+
 
 /* end of custom collection variant style */
 
