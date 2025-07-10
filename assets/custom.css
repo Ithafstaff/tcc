@@ -538,7 +538,7 @@
     height: 2px;
     /* background:  var(--swatch-background); */
     background:  #000;
-    bottom: -6px !important;
+    bottom: -8px !important;
 }
 
 .product-info__text {
