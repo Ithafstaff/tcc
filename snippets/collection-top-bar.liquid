@@ -82,6 +82,10 @@ Supported variables
     background: none;
     text-decoration: underline;
   }
+
+  .custom-filter__color-swatch-wrap {
+    
+  }
   
 
   
@@ -160,7 +164,7 @@ Supported variables
                           {%- endfor -%}
                         </div>
                       {%- elsif filter.presentation == 'swatch' or color_label_list contains downcase_label -%}
-                        <div class="color-list h-stack wrap justify-center gap-4">
+                        <div class="color-list h-stack wrap justify-center gap-4 custom-filter__color-swatch-wrap">
                           {%- for filter_value in filter.values -%}
                             {%- render 'option-value', type: 'swatch', filter_value: filter_value, show_tooltip: true, id_prefix: id_prefix -%}
                           {%- endfor -%}
