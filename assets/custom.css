@@ -906,6 +906,11 @@
   font-weight: 600;
 }
 
+.custom-header__store-location {
+  width: 20px;
+  height: 20px;
+}
+
 
 /* end of custom collection variant style */
 
