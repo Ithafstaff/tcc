@@ -912,6 +912,10 @@
   height: 25px;
 }
 
+.suggestion-item-container .suggestion-item {
+  color: #000 !important;
+}
+
 
 /* end of custom collection variant style */
 
