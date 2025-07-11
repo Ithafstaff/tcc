@@ -1347,6 +1347,7 @@
   
     .search-bar-link {
       border-color: #000 !important;
+      height: 35px;
     }
   
     #header-search-input::placeholder,
