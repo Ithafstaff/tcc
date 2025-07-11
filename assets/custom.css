@@ -932,6 +932,8 @@
 }
 
 
+
+
 /* end of custom collection variant style */
 
 /* TABLET RESPONSIVENESS PORTION*/
@@ -1384,6 +1386,10 @@
 
   .custom__heading-title {
     text-align: center;
+  }
+
+  .icon.icon-filter {
+    color: #fff !important;
   }
 
 
