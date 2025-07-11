@@ -639,6 +639,10 @@
   margin: 0;
 }
 
+.shipping_note {
+  display: none;
+}
+
 /* end of custom product page layout */
 
 
