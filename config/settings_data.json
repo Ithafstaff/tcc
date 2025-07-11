@@ -40,6 +40,7 @@
     "cart_icon": "shopping_cart",
     "cart_show_free_shipping_threshold": true,
     "cart_free_shipping_threshold": "200",
+    "favicon": "shopify://shop_images/168197a9286f80b28f90f7947ca17a32_400x400-removebg-preview.jpg",
     "checkout_accent_color": "#f0c417",
     "checkout_button_color": "#1a1a1a",
     "content_for_index": [],
