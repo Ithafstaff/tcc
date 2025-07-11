@@ -75,7 +75,7 @@ Supported variables
         {%- endfor -%}
       </ul>
     {%- endunless -%}
-
+{% comment %}
     <div class="text-sm text-subdued sm:hidden">
       {%- if line_item.url_to_remove -%}
         <line-item-quantity class="h-stack justify-center gap-3">
@@ -90,7 +90,8 @@ Supported variables
       {%- else -%}
         {{- 'customer.order.quantity' | t }}: {{ line_item.quantity -}}
       {%- endif -%}
-    </div>
+    </div
+{% endcomment %}
 
     {%- if line_item.line_level_discount_allocations != blank -%}
       <ul class="contents" role="list">
