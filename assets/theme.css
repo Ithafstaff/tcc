@@ -3999,7 +3999,7 @@ tfoot td {
 
 .block-swatch:before {
   content: "";
-  box-shadow: 0 0 0 2px rgb(var(--text-color));
+  box-shadow: 0 0 0 1px rgb(var(--text-color));
   border-radius: inherit;
   opacity: 0;
   will-change: transform;
