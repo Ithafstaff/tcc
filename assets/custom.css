@@ -621,6 +621,9 @@
 .variant-picker__option-values .block-swatch {
   border-radius: 0;
 }
+.custom__swatch:checked + * {
+  font-weight: 700;
+}
 
 .variant-picker__option-name {
   font-weight: 700;
