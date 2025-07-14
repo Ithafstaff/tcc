@@ -1,1 +1,50 @@
-{"sections":{"main":{"type":"main-customers-account","blocks":{"orders":{"type":"orders","settings":{}}},"block_order":["orders"],"settings":{}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-customers-account",
+      "blocks": {
+        "orders": {
+          "type": "orders",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "orders"
+      ],
+      "settings": {}
+    },
+    "17525152168043c5ba": {
+      "type": "apps",
+      "blocks": {
+        "appstle_subscription_appstle_subscription_manage_button_MmJYdz": {
+          "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-manage-button/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "appstle_subscription_appstle_subscription_manage_button_MmJYdz"
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17525152168043c5ba"
+  ]
+}
