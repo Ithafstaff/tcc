@@ -685,7 +685,7 @@
   /* border: 1px solid; */
   background: #fff;
   transition: all 0.3s ease;
-  padding-bottom: 60px;
+  padding-bottom: 60px !important;
 
   .link-faded-reverse {
     color: #000 !important;
