@@ -684,7 +684,8 @@
 .header__wrapper:hover {
   /* border: 1px solid; */
   background: #fff;
-   transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding-bottom: 60px;
 
   .link-faded-reverse {
     color: #000 !important;
