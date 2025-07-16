@@ -191,7 +191,7 @@
 .header__wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: 40px;
 }
 
@@ -209,12 +209,6 @@
 
 .header__secondary-nav {
   order: 3;
-}
-
-.custom-header__link-list {
-  width: 100%;
-  justify-content: center;
-  padding-bottom: 20px;
 }
 
 
@@ -325,7 +319,217 @@
         --------------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
 
-      
+      <div class="header__main-nav">
+        <div class="header__icon-list">
+          <button id="hamburgerBtn"
+            type="button"
+            class="tap-area test {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}"
+            aria-controls="header-sidebar-menu"
+          >
+            <span class="sr-only">{{ 'header.general.menu' | t }}</span>
+            <div class="custom-hamburger__wrap" id="hamburgerToggle">
+              <span class="custom-hamburger__line"></span>
+              <span class="custom-hamburger__line"></span>
+              <span class="custom-hamburger__line"></span>
+            </div>
+            {% comment %}{%- render 'icon' with 'hamburger' -%}{% endcomment %}
+          </button>
+
+          {% comment %}
+          <a href="{{ routes.search_url }}" class="tap-area sm:hidden" aria-controls="search-drawer">
+            <span class="sr-only">{{ 'header.general.search' | t }}</span>
+            {%- render 'icon' with 'search' -%}
+          </a>
+          {% endcomment %}
+
+          {%- if section.settings.layout != 'drawer' and section.settings.menu.links.size > 0 -%}
+            <nav
+              class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap"
+              role="navigation"
+            >
+              <ul class="contents" role="list">
+                {%- for link in section.settings.menu.links -%}
+                  {% liquid
+                    assign link_title_downcase = link.title | strip | downcase
+                    assign mega_menu_block = ''
+
+                    for block in section.blocks
+                      assign menu_item_downcase = block.settings.menu_item | strip | downcase
+
+                      if menu_item_downcase == link_title_downcase
+                        assign mega_menu_block = block
+                        break
+                      endif
+                    endfor
+                  %}
+
+                  <li class="x:uppercase x:tracking-wider x:underline-offset-4 x:group x:transition-all x:duration-400">
+                    {%- if link.levels == 0 and mega_menu_block == '' -%}
+                      <a
+                        href="{{ link.url }}"
+                        class="link-faded-reverse"
+                        {% if link.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{- link.title -}}
+                      </a>
+                    {%- else -%}
+                      {%- if mega_menu_block != '' -%}
+                        {%- comment -%}
+                          Implementation note: the designers had the desire to show a lot of different kind of menus in Impact: one standard
+                          mega menu but also a kind of "sidebar" mode when the mega-menu appears in a drawer. Unfortunately, this comes with
+                          a lot of extra complexity as we have to go through two different code path: a "details" element for the standard
+                          menu, and a full drawer for the other one.
+                        {%- endcomment -%}
+                        {%- unless mega_menu_block.settings.layout == 'drawer' -%}
+                          <details
+                            is="mega-menu-disclosure"
+                            trigger="{{ section.settings.menu_open_trigger | escape }}"
+                            {{ mega_menu_block.shopify_attributes }}
+                          >
+                            <summary
+                              class="text-with-icon gap-2.5 link-faded-reverse"
+                              {% if link.url != '#' %}
+                                data-url="{{ link.url | escape }}"
+                              {% endif %}
+                            >
+                              {{- link.title -}}
+                              {% comment %} {%- render 'icon' with 'chevron-bottom' -%} {% endcomment %}
+                            </summary>
+                            {% if link.title == 'Catalog' %}
+                              {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                            {% else %}
+                              {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
+                            {% endif %}
+
+                            {% comment %} {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%} {% endcomment %}
+                          </details>
+                        {%- else -%}
+                          <button
+                            aria-controls="navigation-drawer-{{ forloop.index }}"
+                            aria-expanded="false"
+                            class="text-with-icon gap-2.5 bold link-faded-reverse"
+                          >
+                            {{- link.title -}}
+                            {%- render 'icon' with 'chevron-bottom' -%}
+                          </button>
+
+                          <navigation-drawer
+                            class="navigation-drawer drawer lg-max:hidden"
+                            id="navigation-drawer-{{ forloop.index }}"
+                            open-from="left"
+                            mega-menu
+                          >
+                            {%- render 'navigation-panel',
+                              navigation_layout: section.settings.layout,
+                              main_menu: link,
+                              is_mega_menu: true,
+                              mega_menu_block: mega_menu_block
+                            -%}
+                          </navigation-drawer>
+                        {%- endunless -%}
+                      {%- else -%}
+                        <details
+                          class="relative"
+                          is="dropdown-disclosure"
+                          trigger="{{ section.settings.menu_open_trigger | escape }}"
+                        >
+                          <summary
+                            class="text-with-icon gap-2.5 link-faded-reverse custom-header__text"
+                            {% if link.url != '#' %}
+                              data-url="{{ link.url | escape }}"
+                            {% endif %}
+                          >
+                            {{- link.title -}}
+                            {% comment %}
+                              {%- render 'icon' with 'chevron-bottom' -%}
+                            {% endcomment %}
+                          </summary>
+
+                          <div class="dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable custom__dropdown{% endif %}">
+                            <ul class="contents custom__contents" role="list">
+                              {%- for sub_link in link.links -%}
+                                <li>
+                                  {%- if sub_link.levels == 0 -%}
+                                    <a
+                                      href="{{ sub_link.url }}"
+                                      class="dropdown-menu__item group"
+                                      {% if sub_link.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      <span
+                                        ><span class="reversed-link">{{ sub_link.title }}</span></span
+                                      >
+                                    </a>
+                                  {%- else -%}
+                                    <details
+                                      class="relative"
+                                      is="dropdown-disclosure"
+                                      trigger="{{ section.settings.menu_open_trigger | escape }}"
+                                    >
+                                      <summary
+                                        class="dropdown-menu__item group"
+                                        {% if sub_link.url != '#' %}
+                                          data-url="{{ sub_link.url | escape }}"
+                                        {% endif %}
+                                      >
+                                        <span
+                                          ><span class="reversed-link">{{- sub_link.title -}}</span></span
+                                        >
+                                        {%- render 'icon' with 'chevron-right' -%}
+                                      </summary>
+
+                                      <div class="dropdown-menu">
+                                        <ul class="contents" role="list">
+                                          {%- for sub_sub_link in sub_link.links -%}
+                                            <li>
+                                              <a
+                                                href="{{ sub_sub_link.url }}"
+                                                class="dropdown-menu__item group"
+                                                {% if sub_sub_link.current %}
+                                                  aria-current="page"
+                                                {% endif %}
+                                              >
+                                                <span
+                                                  ><span class="reversed-link">{{ sub_sub_link.title }}</span></span
+                                                >
+                                              </a>
+                                            </li>
+                                          {%- endfor -%}
+                                        </ul>
+                                      </div>
+                                    </details>
+                                  {%- endif -%}
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          </div>
+                        </details>
+                      {%- endif -%}
+                    {%- endif -%}
+
+                    <div class="x:h-0.5 x:w-0 x:rounded-full x:bg-black x:transition-all x:duration-300 x:group-hover:w-full">
+                      &nbsp;
+                    </div>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </nav>
+          {%- endif -%}
+        </div>
+        <li>
+            <a class="custom-header__store-location sp" href="/pages/store-locator">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 
+                         0-2.5-1.12-2.5-2.5s1.12-2.5 
+                         2.5-2.5 2.5 1.12 2.5 2.5S13.38 
+                         11.5 12 11.5z"/>
+              </svg>
+            </a>
+          </li>
+      </div>
 
       {%- comment -%}
         --------------------------------------------------------------------------------------------------------------------
@@ -473,228 +677,7 @@
             </div>
           </li>
       </div>
-
-
-
-
-    <div class="header__main-nav">
-      <div class="header__icon-list custom-header__icon-list">
-        <button id="hamburgerBtn"
-          type="button"
-          class="tap-area test {% if section.settings.layout != 'drawer' %}lg:hidden{% endif %}"
-          aria-controls="header-sidebar-menu"
-        >
-          <span class="sr-only">{{ 'header.general.menu' | t }}</span>
-          <div class="custom-hamburger__wrap" id="hamburgerToggle">
-            <span class="custom-hamburger__line"></span>
-            <span class="custom-hamburger__line"></span>
-            <span class="custom-hamburger__line"></span>
-          </div>
-          {% comment %}{%- render 'icon' with 'hamburger' -%}{% endcomment %}
-        </button>
-
-        {% comment %}
-        <a href="{{ routes.search_url }}" class="tap-area sm:hidden" aria-controls="search-drawer">
-          <span class="sr-only">{{ 'header.general.search' | t }}</span>
-          {%- render 'icon' with 'search' -%}
-        </a>
-        {% endcomment %}
-
-        {%- if section.settings.layout != 'drawer' and section.settings.menu.links.size > 0 -%}
-          <nav
-            class="header__link-list custom-header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap"
-            role="navigation"
-          >
-            <ul class="contents" role="list">
-              {%- for link in section.settings.menu.links -%}
-                {% liquid
-                  assign link_title_downcase = link.title | strip | downcase
-                  assign mega_menu_block = ''
-
-                  for block in section.blocks
-                    assign menu_item_downcase = block.settings.menu_item | strip | downcase
-
-                    if menu_item_downcase == link_title_downcase
-                      assign mega_menu_block = block
-                      break
-                    endif
-                  endfor
-                %}
-
-                <li class="x:uppercase x:tracking-wider x:underline-offset-4 x:group x:transition-all x:duration-400">
-                  {%- if link.levels == 0 and mega_menu_block == '' -%}
-                    <a
-                      href="{{ link.url }}"
-                      class="link-faded-reverse"
-                      {% if link.current %}
-                        aria-current="page"
-                      {% endif %}
-                    >
-                      {{- link.title -}}
-                    </a>
-                  {%- else -%}
-                    {%- if mega_menu_block != '' -%}
-                      {%- comment -%}
-                        Implementation note: the designers had the desire to show a lot of different kind of menus in Impact: one standard
-                        mega menu but also a kind of "sidebar" mode when the mega-menu appears in a drawer. Unfortunately, this comes with
-                        a lot of extra complexity as we have to go through two different code path: a "details" element for the standard
-                        menu, and a full drawer for the other one.
-                      {%- endcomment -%}
-                      {%- unless mega_menu_block.settings.layout == 'drawer' -%}
-                        <details
-                          is="mega-menu-disclosure"
-                          trigger="{{ section.settings.menu_open_trigger | escape }}"
-                          {{ mega_menu_block.shopify_attributes }}
-                        >
-                          <summary
-                            class="text-with-icon gap-2.5 link-faded-reverse"
-                            {% if link.url != '#' %}
-                              data-url="{{ link.url | escape }}"
-                            {% endif %}
-                          >
-                            {{- link.title -}}
-                            {% comment %} {%- render 'icon' with 'chevron-bottom' -%} {% endcomment %}
-                          </summary>
-                          {% if link.title == 'Catalog' %}
-                            {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
-                          {% else %}
-                            {%- render 'mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%}
-                          {% endif %}
-
-                          {% comment %} {%- render 'custom-mega-menu-horizontal', link: link, mega_menu_block: mega_menu_block -%} {% endcomment %}
-                        </details>
-                      {%- else -%}
-                        <button
-                          aria-controls="navigation-drawer-{{ forloop.index }}"
-                          aria-expanded="false"
-                          class="text-with-icon gap-2.5 bold link-faded-reverse"
-                        >
-                          {{- link.title -}}
-                          {%- render 'icon' with 'chevron-bottom' -%}
-                        </button>
-
-                        <navigation-drawer
-                          class="navigation-drawer drawer lg-max:hidden"
-                          id="navigation-drawer-{{ forloop.index }}"
-                          open-from="left"
-                          mega-menu
-                        >
-                          {%- render 'navigation-panel',
-                            navigation_layout: section.settings.layout,
-                            main_menu: link,
-                            is_mega_menu: true,
-                            mega_menu_block: mega_menu_block
-                          -%}
-                        </navigation-drawer>
-                      {%- endunless -%}
-                    {%- else -%}
-                      <details
-                        class="relative"
-                        is="dropdown-disclosure"
-                        trigger="{{ section.settings.menu_open_trigger | escape }}"
-                      >
-                        <summary
-                          class="text-with-icon gap-2.5 link-faded-reverse custom-header__text"
-                          {% if link.url != '#' %}
-                            data-url="{{ link.url | escape }}"
-                          {% endif %}
-                        >
-                          {{- link.title -}}
-                          {% comment %}
-                            {%- render 'icon' with 'chevron-bottom' -%}
-                          {% endcomment %}
-                        </summary>
-
-                        <div class="dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable custom__dropdown{% endif %}">
-                          <ul class="contents custom__contents" role="list">
-                            {%- for sub_link in link.links -%}
-                              <li>
-                                {%- if sub_link.levels == 0 -%}
-                                  <a
-                                    href="{{ sub_link.url }}"
-                                    class="dropdown-menu__item group"
-                                    {% if sub_link.current %}
-                                      aria-current="page"
-                                    {% endif %}
-                                  >
-                                    <span
-                                      ><span class="reversed-link">{{ sub_link.title }}</span></span
-                                    >
-                                  </a>
-                                {%- else -%}
-                                  <details
-                                    class="relative"
-                                    is="dropdown-disclosure"
-                                    trigger="{{ section.settings.menu_open_trigger | escape }}"
-                                  >
-                                    <summary
-                                      class="dropdown-menu__item group"
-                                      {% if sub_link.url != '#' %}
-                                        data-url="{{ sub_link.url | escape }}"
-                                      {% endif %}
-                                    >
-                                      <span
-                                        ><span class="reversed-link">{{- sub_link.title -}}</span></span
-                                      >
-                                      {%- render 'icon' with 'chevron-right' -%}
-                                    </summary>
-
-                                    <div class="dropdown-menu">
-                                      <ul class="contents" role="list">
-                                        {%- for sub_sub_link in sub_link.links -%}
-                                          <li>
-                                            <a
-                                              href="{{ sub_sub_link.url }}"
-                                              class="dropdown-menu__item group"
-                                              {% if sub_sub_link.current %}
-                                                aria-current="page"
-                                              {% endif %}
-                                            >
-                                              <span
-                                                ><span class="reversed-link">{{ sub_sub_link.title }}</span></span
-                                              >
-                                            </a>
-                                          </li>
-                                        {%- endfor -%}
-                                      </ul>
-                                    </div>
-                                  </details>
-                                {%- endif -%}
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                        </div>
-                      </details>
-                    {%- endif -%}
-                  {%- endif -%}
-
-                  <div class="x:h-0.5 x:w-0 x:rounded-full x:bg-black x:transition-all x:duration-300 x:group-hover:w-full">
-                    &nbsp;
-                  </div>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </nav>
-        {%- endif -%}
-      </div>
-      <li>
-          <a class="custom-header__store-location sp" href="/pages/store-locator">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 
-                       0-2.5-1.12-2.5-2.5s1.12-2.5 
-                       2.5-2.5 2.5 1.12 2.5 2.5S13.38 
-                       11.5 12 11.5z"/>
-            </svg>
-          </a>
-        </li>
     </div>
-    </div>
-
-    
-
-
-
-                  
   </store-header>
 </height-observer>
 
