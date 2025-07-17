@@ -206,7 +206,9 @@
 }
   
 .custom-search__bar-list svg {
-  color: #fff;
+  {% if template.name != 'index' %}
+    color: #fff;
+  {% endif %}
   margin: 5px;
 }
   
