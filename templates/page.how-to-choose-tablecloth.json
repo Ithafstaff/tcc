@@ -11,10 +11,29 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "settings": {}
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "image_with_text_overlay_B7FMA8": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/image_27_1.png",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_with_text_overlay_B7FMA8"
   ]
 }
