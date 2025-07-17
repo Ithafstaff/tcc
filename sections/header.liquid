@@ -100,7 +100,7 @@
       padding: 0 !important;
     }
     
-    .custom-navigation__drawer .panel-list__wrapper {
+    .custom-navigation__drawer .panel-list__wrapper{
       background: #fff;
     }
 
@@ -108,11 +108,6 @@
     background: #000 !important;
   }
     
-  }
-
-  .custom-panel__list li a .reversed-link {
-    font-size: 14px;
-    opacity: 1;
   }
   
   .custom-suggestion__item-img-wrap {
@@ -185,26 +180,39 @@
 }
 
 .header__link-list {
-  gap: 30px;
+  gap: 15px;
 }
 
 .header__wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 20px;
+}
+  
+.header__wrapper-top {
+  display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  gap: 40px;
+  align-items: center;
+  width: 100%;
 }
 
 .header__logo {
   order: 1;
 }
   
-.header__main-nav {
+.custom-search__bar-list {
   order: 2;
 }
-
-.header__main-nav li {
-  list-style: none;
+  
+.custom-search__bar-list svg {
+  color: #fff;
+  margin: 5px;
+}
+  
+.custom-search__bar-list input,
+.custom-search__bar-list input::placeholder {
+  color: #fff;
 }
 
 .header__secondary-nav {
@@ -225,12 +233,7 @@
     
   .header__main-nav {
     order: 1;
-    display: flex;
-    gap: 10px;
-    align-items: center;
   }
-
-  
 
   .header__logo-image {
    max-width: 120px;
@@ -254,15 +257,15 @@
 }
 
 .search-suggestions {
-    display: flex;
-    flex-direction: column-reverse;
-    position: absolute;
-    top: 35px;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    justify-content: flex-end;
-    z-index: 100 !important;
+  display: flex;
+  flex-direction: column-reverse;
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  justify-content: flex-end;
+  z-index: 9;
 }
 
 
@@ -281,21 +284,6 @@
 
   .h2.text-center {
     font-size: 24px;
-    margin-top: 20px;
-  }
-
-  .sp {
-    display: none;
-  }
-
-  @media screen and (max-width: 767px) {
-    .pc {
-      display: none;
-    }
-
-    .sp {
-      display: flex;
-    }
   }
   
 
@@ -313,11 +301,156 @@
     {% endif %}
   >
     <div class="header__wrapper">
-      {%- comment -%}
-        --------------------------------------------------------------------------------------------------------------------
-        MAIN NAV AREA
-        --------------------------------------------------------------------------------------------------------------------
-      {%- endcomment -%}
+      <div class="header__wrapper-top">
+        {%- comment -%}
+          --------------------------------------------------------------------------------------------------------------------
+          MAIN NAV AREA
+          --------------------------------------------------------------------------------------------------------------------
+        {%- endcomment -%}
+  
+  
+  
+        {%- comment -%}
+          --------------------------------------------------------------------------------------------------------------------
+          LOGO AREA
+          --------------------------------------------------------------------------------------------------------------------
+        {%- endcomment -%}
+  
+        {%- capture logo_content -%}
+          {%- if section.settings.logo -%}
+            {%- capture sizes -%}{{ section.settings.logo_max_width }}px{%- endcapture -%}
+            {%- capture widths -%}{{ section.settings.logo_max_width | times: 2 | at_most: section.settings.logo.width }}, {{ section.settings.logo_max_width | times: 3 | at_most: section.settings.logo.width }}{%- endcapture -%}
+            <span class="sr-only">{{ shop.name }}</span>
+            {{- section.settings.logo | image_url: width: section.settings.logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image' -}}
+  
+            {%- if section.settings.transparent_logo -%}
+              {{- section.settings.transparent_logo | image_url: width: section.settings.transparent_logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image header__logo-image--transparent' -}}
+            {%- endif -%}
+          {%- else -%}
+            <span class="header__logo-text h4">{{ shop.name }}</span>
+          {%- endif -%}
+        {%- endcapture -%}
+  
+        {%- if request.page_type == 'index' -%}
+          <h1 class="header__logo">
+            <a href="{{ routes.root_url }}">{{ logo_content }}</a>
+          </h1>
+        {% else %}
+          <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>
+        {% endif %}
+
+
+
+        <li class="custom-search__bar-list">
+          <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
+            <form
+              action="/search"
+              method="get"
+              class="x:flex x:items-center x:w-full x:border search-bar-link x:pl-4 x:mr-auto x:last:justify-end"
+            >
+              <input
+                type="search"
+                name="q"
+                class="x:w-full search-bar-input x:outline-none"
+                placeholder="What are you looking for?"
+                id="header-search-input"
+                autocomplete="off"
+                style=" font-size: 13px; text-align: center;"
+              >
+              <input type="hidden" name="type" value="product,collection,page,article">
+              {% comment %} <span class="sr-only">{{ 'header.general.search' | t }}</span> {% endcomment %}
+              <!-- <span class="x:ml-auto x:px-4"></span> -->
+              <button type="submit">{% render 'icon' with 'search' %}</button>
+            </form>
+            <div id="header-search-suggestions" class="search-suggestions hidden test2"></div>
+          </div>
+        </li>
+  
+        {%- comment -%}
+          --------------------------------------------------------------------------------------------------------------------
+          SECONDARY NAV AREA
+          --------------------------------------------------------------------------------------------------------------------
+        {%- endcomment -%}
+  
+        <div class="header__secondary-nav" style="flex-direction: column;">
+          {%- if section.settings.header != 'drawer' and section.settings.secondary_menu.links.size > 0 -%}
+            <nav class="header__link-list" role="navigation">
+              <ul class="contents">
+                {%- for link in section.settings.secondary_menu.links -%}
+                  <li>
+                    <a href="{{ link.url }}" class="bold link-faded-reverse">{{ link.title }}</a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </nav>
+          {%- endif -%}
+  
+          <ul class="header__icon-list x:flex x:items-center x:h-6">
+            {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
+              <li class="hidden md:block shrink-0">
+                {%- render 'localization-selector',
+                  type: 'country',
+                  show_country_name: section.settings.show_country_name,
+                  show_country_flag: section.settings.show_country_flag,
+                  popover_vertical_position: 'end'
+                -%}7
+              </li>
+            {%- endif -%}
+  
+            {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
+              <li class="hidden md:block shrink-0">
+                {%- render 'localization-selector', type: 'locale', popover_vertical_position: 'end' -%}
+              </li>
+            {%- endif -%}
+  
+            
+  
+            {%- if shop.customer_accounts_enabled -%}
+              <li>
+                <a
+                  href="{% if customer %}/pages/profile{% else %}#{% endif %}"
+                  class="tap-area sm:block"
+                  {% unless customer %}
+                    onclick="
+                      event.preventDefault();
+                      document.getElementById('login-modal').classList.remove('x:hidden');
+                    "
+                  {% endunless %}
+                >
+                  <span class="sr-only">
+                    {% if customer -%}
+                      {{- 'header.general.account' | t -}}
+                    {%- else -%}
+                      {{- 'header.general.login' | t -}}
+                    {%- endif %}
+                  </span>
+                  {%- render 'icon' with 'account' -%}
+                </a>
+              </li>
+            {%- endif -%}
+  
+            <li>
+              <a
+                href="/cart"
+                data-no-instant
+                class="relative block tap-area"
+              >
+                <span class="sr-only">{{ 'header.general.cart' | t }}</span>
+                {%- render 'icon' with 'cart' -%}
+  
+                <div class="header__cart-count">
+                  <cart-count class="count-bubble {% if cart.item_count == 0 %}opacity-0{% endif %}">
+                    <span class="sr-only">{{ 'cart.general.item_count' | t: count: cart.item_count }}</span>
+                    <span aria-hidden="true">{{ cart.item_count }}</span>
+                  </cart-count>
+                </div>
+              </a>
+            </li>
+          </ul>
+          
+        </div>
+      </div>
+
 
       <div class="header__main-nav">
         <div class="header__icon-list">
@@ -519,164 +652,9 @@
             </nav>
           {%- endif -%}
         </div>
-        <li>
-            <a class="custom-header__store-location sp" href="/pages/store-locator">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 
-                         0-2.5-1.12-2.5-2.5s1.12-2.5 
-                         2.5-2.5 2.5 1.12 2.5 2.5S13.38 
-                         11.5 12 11.5z"/>
-              </svg>
-            </a>
-          </li>
       </div>
-
-      {%- comment -%}
-        --------------------------------------------------------------------------------------------------------------------
-        LOGO AREA
-        --------------------------------------------------------------------------------------------------------------------
-      {%- endcomment -%}
-
-      {%- capture logo_content -%}
-        {%- if section.settings.logo -%}
-          {%- capture sizes -%}{{ section.settings.logo_max_width }}px{%- endcapture -%}
-          {%- capture widths -%}{{ section.settings.logo_max_width | times: 2 | at_most: section.settings.logo.width }}, {{ section.settings.logo_max_width | times: 3 | at_most: section.settings.logo.width }}{%- endcapture -%}
-          <span class="sr-only">{{ shop.name }}</span>
-          {{- section.settings.logo | image_url: width: section.settings.logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image' -}}
-
-          {%- if section.settings.transparent_logo -%}
-            {{- section.settings.transparent_logo | image_url: width: section.settings.transparent_logo.width | image_tag: sizes: sizes, widths: widths, class: 'header__logo-image header__logo-image--transparent' -}}
-          {%- endif -%}
-        {%- else -%}
-          <span class="header__logo-text h4">{{ shop.name }}</span>
-        {%- endif -%}
-      {%- endcapture -%}
-
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__logo">
-          <a href="{{ routes.root_url }}">{{ logo_content }}</a>
-        </h1>
-      {% else %}
-        <a href="{{ routes.root_url }}" class="header__logo">{{ logo_content }}</a>
-      {% endif %}
-
-      {%- comment -%}
-        --------------------------------------------------------------------------------------------------------------------
-        SECONDARY NAV AREA
-        --------------------------------------------------------------------------------------------------------------------
-      {%- endcomment -%}
-
-      <div class="header__secondary-nav test" style="flex-direction: column;">
-        {%- if section.settings.header != 'drawer' and section.settings.secondary_menu.links.size > 0 -%}
-          <nav class="header__link-list" role="navigation">
-            
-            <ul class="contents">
-              {%- for link in section.settings.secondary_menu.links -%}
-                <li>
-                  <a href="{{ link.url }}" class="bold link-faded-reverse">{{ link.title }}</a>
-                </li>
-              {%- endfor -%}
-            </ul>
-          </nav>
-        {%- endif -%}
-
-        <ul class="header__icon-list x:flex x:items-center x:h-6">
-          <li>
-            <a class="custom-header__store-location pc" href="/pages/store-locator">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 
-                         0-2.5-1.12-2.5-2.5s1.12-2.5 
-                         2.5-2.5 2.5 1.12 2.5 2.5S13.38 
-                         11.5 12 11.5z"/>
-              </svg>
-            </a>
-          </li>
-          {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
-            <li class="hidden md:block shrink-0">
-              {%- render 'localization-selector',
-                type: 'country',
-                show_country_name: section.settings.show_country_name,
-                show_country_flag: section.settings.show_country_flag,
-                popover_vertical_position: 'end'
-              -%}7
-            </li>
-          {%- endif -%}
-
-          {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
-            <li class="hidden md:block shrink-0">
-              {%- render 'localization-selector', type: 'locale', popover_vertical_position: 'end' -%}
-            </li>
-          {%- endif -%}
-
-          
-
-          {%- if shop.customer_accounts_enabled -%}
-            <li>
-              <a
-                href="{% if customer %}/pages/profile{% else %}#{% endif %}"
-                class="tap-area sm:block"
-                {% unless customer %}
-                  onclick="
-                    event.preventDefault();
-                    document.getElementById('login-modal').classList.remove('x:hidden');
-                  "
-                {% endunless %}
-              >
-                <span class="sr-only">
-                  {% if customer -%}
-                    {{- 'header.general.account' | t -}}
-                  {%- else -%}
-                    {{- 'header.general.login' | t -}}
-                  {%- endif %}
-                </span>
-                {%- render 'icon' with 'account' -%}
-              </a>
-            </li>
-          {%- endif -%}
-
-          <li>
-            <a
-              href="/cart"
-              data-no-instant
-              class="relative block tap-area"
-            >
-              <span class="sr-only">{{ 'header.general.cart' | t }}</span>
-              {%- render 'icon' with 'cart' -%}
-
-              <div class="header__cart-count">
-                <cart-count class="count-bubble {% if cart.item_count == 0 %}opacity-0{% endif %}">
-                  <span class="sr-only">{{ 'cart.general.item_count' | t: count: cart.item_count }}</span>
-                  <span aria-hidden="true">{{ cart.item_count }}</span>
-                </cart-count>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <li class="custom-search__bar-list">
-            <div class="x:relative x:w-full x:focus-within:icon-visible custom-search__bar-wrap">
-              <form
-                action="/search"
-                method="get"
-                class="x:flex x:items-center x:w-full x:border search-bar-link x:pl-4 x:mr-auto x:last:justify-end"
-              >
-                <input
-                  type="search"
-                  name="q"
-                  class="x:w-full search-bar-input x:outline-none"
-                  placeholder="What are you looking for?"
-                  id="header-search-input"
-                  autocomplete="off"
-                  style=" font-size: 13px; text-align: center;"
-                >
-                <input type="hidden" name="type" value="product,collection,page,article">
-                {% comment %} <span class="sr-only">{{ 'header.general.search' | t }}</span> {% endcomment %}
-                <!-- <span class="x:ml-auto x:px-4"></span> -->
-                <button type="submit">{% render 'icon' with 'search' %}</button>
-              </form>
-              <div id="header-search-suggestions" class="search-suggestions hidden test2"></div>
-            </div>
-          </li>
-      </div>
+      
+      
     </div>
   </store-header>
 </height-observer>
@@ -752,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
         suggestions += `
           <div class="suggestion-item-container" style="gap: 0 !important; padding: 5px 0 !important;">
             <div class="x:w-full x:flex x:items-center x:justify-between x:h-full">
-              <span class="x:p-0 x:m-0 x:text-xs" style="padding: 10px !important; text-transform: uppercase; letter-spacing: 1px; color: #000; font-weight: 500; font-size: 14px !important;">Products</span>
+              <span class="x:p-0 x:m-0 x:text-xs" style="padding: 10px !important; text-transform: uppercase; letter-spacing: 1px; color: #000; font-weight: 500; font-size: 14px !important;">Product Suggestions</span>
             </div>
             ${products.map(product => `
               <a class="suggestion-item" href="${product.url}" style="display: flex !important; flex-direction: row-reverse !important; justify-content: flex-end; gap: 10px; align-items: center; line-height: normal; padding: 5px 10px !important;">
