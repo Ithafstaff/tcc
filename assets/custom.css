@@ -656,6 +656,7 @@
   .custom-search__bar-list svg,
   .custom-search__bar-list input,
   .header__secondary-nav svg,
+  .custom-search__bar-list svg,
   .header__secondary-nav span {
     color: #000 !important;
     fill: #000 !important;
