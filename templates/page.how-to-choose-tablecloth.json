@@ -17,6 +17,7 @@
     },
     "image_with_text_overlay_B7FMA8": {
       "type": "image-with-text-overlay",
+      "disabled": true,
       "name": "Image with text overlay",
       "settings": {
         "full_width": true,
@@ -30,10 +31,24 @@
         "overlay_color": "#000000",
         "overlay_opacity": 0
       }
+    },
+    "custom_liquid_RHQCtL": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% render 'how-to-choose-tablecloth' %}",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
     }
   },
   "order": [
     "main",
-    "image_with_text_overlay_B7FMA8"
+    "image_with_text_overlay_B7FMA8",
+    "custom_liquid_RHQCtL"
   ]
 }
