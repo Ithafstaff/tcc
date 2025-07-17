@@ -711,6 +711,12 @@
   .custom-hamburger__line {
     background: #000;
   }
+
+  .custom-search__bar-list input {
+    color: #000;
+  }
+
+  
 }
 
 .search-bar-link {
