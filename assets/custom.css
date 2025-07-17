@@ -1274,6 +1274,10 @@
     }
   }
 
+  .homepage-header .header__main-nav:hover svg {
+    color: #000;
+  }
+
   .product-list {
     grid-template-columns: 1fr 1fr !important;
   }
