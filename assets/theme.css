@@ -28,7 +28,7 @@
 }
 
 /* Default: White for all text/icons/inputs on homepage */
-.homepage-header .header__main-nav a,
+/* .homepage-header .header__main-nav a, */
 .homepage-header .header__main-nav svg,
 .homepage-header .header__main-nav input,
 .homepage-header .header__main-nav span,
