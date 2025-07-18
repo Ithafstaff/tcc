@@ -48,11 +48,22 @@
         "background_gradient": "",
         "text_color": ""
       }
+    },
+    "custom_shipping_section_Jc6JHB": {
+      "type": "custom-shipping-section",
+      "name": "Custom Shipping Section",
+      "settings": {
+        "heading": "FREE SHIPPING ON ORDERS OVER $200",
+        "subheading": "Get alerts about new items, sales, and more.",
+        "button_text": "GET STARTED",
+        "button_url": ""
+      }
     }
   },
   "order": [
     "main",
     "image_with_text_overlay_B7FMA8",
-    "custom_liquid_RHQCtL"
+    "custom_liquid_RHQCtL",
+    "custom_shipping_section_Jc6JHB"
   ]
 }
