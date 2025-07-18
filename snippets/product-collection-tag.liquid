@@ -2,7 +2,7 @@
   {% if product.metafields.custom.sub_title != blank %}
   {% assign collectionTag = product.metafields.custom.product_category_name | remove: '[' | remove: ']' | remove: '"' %}
     {% assign last_collection = product.collections.last %}
-  Shop the full <a href="{{ last_collection.url }}?filter.p.m.custom.product_category_name={{ raw | replace: ' ', '-' | downcase }}"> {{ collectionTag }}</a> collection
+  Shop the full <a href="{{ last_collection.url }}?filter.p.m.custom.product_category_name={{ collectionTag }}{{ raw | replace: ' ', '-' | downcase }}"> {{ collectionTag }}</a> collection
 
   {% endif %}
 </span>
