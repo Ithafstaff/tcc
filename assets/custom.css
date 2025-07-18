@@ -351,7 +351,8 @@
 
 .custom-product__info-title {
   font-size: 32px !important;
-  font-family: "Alata", sans-serif !important;
+  /* font-family: "Alata", sans-serif !important; */
+   font-family: 'Cinzel', serif;
   font-weight: 400 !important;
   font-style: normal !important;
   color: #000;
