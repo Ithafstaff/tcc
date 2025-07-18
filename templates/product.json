@@ -36,7 +36,7 @@
         "liquid_QVRRkM": {
           "type": "liquid",
           "settings": {
-            "liquid": "{% render 'product-collection-tag' %}"
+            "liquid": "{% render 'product-sub-title' %}"
           }
         },
         "title": {
@@ -48,7 +48,7 @@
         "liquid_3darrU": {
           "type": "liquid",
           "settings": {
-            "liquid": "{% render 'product-sub-title' %}"
+            "liquid": "{% render 'product-collection-tag' %}"
           }
         },
         "badges": {
