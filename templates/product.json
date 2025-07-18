@@ -33,16 +33,22 @@
           "disabled": true,
           "settings": {}
         },
-        "liquid_3darrU": {
+        "liquid_QVRRkM": {
           "type": "liquid",
           "settings": {
-            "liquid": "{% render 'product-sub-title' %}"
+            "liquid": "{% render 'product-collection-tag' %}"
           }
         },
         "title": {
           "type": "title",
           "settings": {
             "heading_tag": "h2"
+          }
+        },
+        "liquid_3darrU": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'product-sub-title' %}"
           }
         },
         "badges": {
@@ -147,8 +153,9 @@
       },
       "block_order": [
         "vendor",
-        "liquid_3darrU",
+        "liquid_QVRRkM",
         "title",
+        "liquid_3darrU",
         "badges",
         "judge_me_reviews_preview_badge_dCPARp",
         "price",
