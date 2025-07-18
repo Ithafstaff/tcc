@@ -367,6 +367,16 @@
   display: block;
 }
 
+.custom-product__info-collection-tag {
+  font-size: 18px !important;
+  font-family: "Alata", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  color: #000;
+  margin: 10px;
+  display: block;
+}
+
 .custom-product__info-quantity-wrap {
   display: flex;
   justify-content: space-between;
