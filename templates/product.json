@@ -33,16 +33,16 @@
           "disabled": true,
           "settings": {}
         },
-        "title": {
-          "type": "title",
-          "settings": {
-            "heading_tag": "h2"
-          }
-        },
         "liquid_3darrU": {
           "type": "liquid",
           "settings": {
             "liquid": "{% render 'product-sub-title' %}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
           }
         },
         "badges": {
@@ -147,8 +147,8 @@
       },
       "block_order": [
         "vendor",
-        "title",
         "liquid_3darrU",
+        "title",
         "badges",
         "judge_me_reviews_preview_badge_dCPARp",
         "price",
