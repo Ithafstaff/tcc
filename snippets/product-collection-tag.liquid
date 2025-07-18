@@ -1,7 +1,7 @@
 <span class="custom-product__info-collection-tag prose">
   {% if product.metafields.custom.sub_title != blank %}
-{% assign raw = product.metafields.custom.product_category_name | remove: '[' | remove: ']' | remove: '"' %}
-<a href="/collections/{{ raw | replace: ' ', '-' | downcase }}">{{ raw }}</a>
+{% assign collectionTag = product.metafields.custom.product_category_name | remove: '[' | remove: ']' | remove: '"' %}
+<a href="/collections/{{ raw | replace: ' ', '-' | downcase }}">{{ collectionTag }}</a>
 
   {% endif %}
 </span>
