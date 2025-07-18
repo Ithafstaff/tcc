@@ -1,5 +1,5 @@
 <span class="custom-product__info-sub-title prose">
   {% if product.metafields.custom.sub_title != blank %}
-    By <a href="/collections/{{ product.metafields.custom.sub_title | replace: ' ', '-' | downcase }}">{{ product.metafields.custom.sub_title }}</a>
+    <a href="/collections/{{ product.metafields.custom.sub_title | replace: ' ', '-' | downcase }}">{{ product.metafields.custom.sub_title }}</a>
   {% endif %}
 </span>
