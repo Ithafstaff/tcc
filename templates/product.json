@@ -51,12 +51,6 @@
             "liquid": "{% render 'product-collection-tag' %}"
           }
         },
-        "liquid_9bLTG6": {
-          "type": "liquid",
-          "settings": {
-            "liquid": "{% render 'product-sku' %}"
-          }
-        },
         "badges": {
           "type": "badges",
           "settings": {}
@@ -69,6 +63,12 @@
           "type": "price",
           "settings": {
             "show_taxes_notice": false
+          }
+        },
+        "liquid_9bLTG6": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'product-sku' %}"
           }
         },
         "text_cedcxt": {
@@ -162,10 +162,10 @@
         "liquid_QVRRkM",
         "title",
         "liquid_3darrU",
-        "liquid_9bLTG6",
         "badges",
         "judge_me_reviews_preview_badge_dCPARp",
         "price",
+        "liquid_9bLTG6",
         "text_cedcxt",
         "liquid_zHBBjj",
         "rating",
