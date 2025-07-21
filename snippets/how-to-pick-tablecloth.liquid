@@ -1,5 +1,5 @@
-{% comment %} {% if product.metafields.custom.type contains 'Tablecloth' %} {% endcomment %}
-{% if product.handle == 'linen-like-silver-tablecloth' %}
+{% assign type_value = product.metafields.custom.type.value | default: product.metafields.custom.type %}
+{% if type_value contains 'Tablecloth' %}
 
 <style>
   .tablecloth-section__container {
@@ -46,11 +46,7 @@
     <p class="tablecloth-section__desc">Learn how to pick the best rug for any room with our area rug buying guide with expert tips from CB2 textiles merchant Allison Jones.</p>
     <a class="tablecloth-section__button" href="/pages/how-to-choose-the-right-tablecloth">LEARN MORE</a>
 
-    
-{% assign type_value = product.metafields.custom.type.value | default: product.metafields.custom.type %}
-{% if type_value contains 'Tablecloth' %}
-       <h2>test</h2> 
-    {% endif %}
+
 
     
   </div>
