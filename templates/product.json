@@ -193,6 +193,19 @@
         "input_text_color": ""
       }
     },
+    "custom_liquid_eEmxiw": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% render 'how-to-pick-tablecloth' %}",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "related-products": {
       "type": "related-products",
       "disabled": true,
@@ -362,6 +375,7 @@
   "order": [
     "custom_liquid_WpJwGU",
     "main",
+    "custom_liquid_eEmxiw",
     "related-products",
     "custom_liquid_BWRTar",
     "174593330128df7416",
