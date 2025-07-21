@@ -272,7 +272,7 @@
 }
 
 .custom-product__gallery {
-  gap: 20px !important;
+  gap: 24px !important;
   position: sticky;
   top: 10px;
   height: 100%;
