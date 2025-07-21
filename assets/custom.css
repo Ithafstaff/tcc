@@ -1085,6 +1085,10 @@
     flex-direction: column;
   }
 
+  .custom-product__info {
+    max-width: unset;
+  }
+
   .product-gallery {
     position: relative; 
     overflow: hidden;
