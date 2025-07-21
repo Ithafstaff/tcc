@@ -6,7 +6,39 @@
 </style>
 
 
-<span id="variant-sku" class="custom-sku">SKU: {{ product.variants.first.sku }}</span>
+<p id="variant-sku">SKU: {{ product.variants.first.sku }}</p>
 <script>
   const productData = {{ product | json }};
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const skuDisplay = document.getElementById('variant-sku');
+    const productData = {{ product | json }};
+
+    // Listen to change events on all variant inputs
+    document.querySelectorAll('[name^="options"]').forEach(function(select) {
+      select.addEventListener('change', function () {
+        updateSku();
+      });
+    });
+
+    function updateSku() {
+      const selectedOptions = Array.from(document.querySelectorAll('[name^="options"]')).map(el => el.value);
+      const matchedVariant = productData.variants.find(v => {
+        return v.options.every((opt, idx) => opt === selectedOptions[idx]);
+      });
+
+      if (matchedVariant) {
+        skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
+
+        // Also update the hidden variant ID input
+        const variantIdInput = document.querySelector('[name="id"]');
+        if (variantIdInput) {
+          variantIdInput.value = matchedVariant.id;
+        }
+      }
+    }
+  });
 </script>
