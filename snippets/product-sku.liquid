@@ -4,36 +4,25 @@
   document.addEventListener('DOMContentLoaded', function () {
     const skuDisplay = document.getElementById('variant-sku');
     const productData = {{ product | json }};
-    let lastVariantId = null;
+    let lastCheckedId = null;
 
     function updateSkuById(variantId) {
       const matchedVariant = productData.variants.find(v => v.id == variantId);
       if (matchedVariant) {
         skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
 
-        // Update hidden input if needed
         const variantIdInput = document.querySelector('[name="id"]');
         if (variantIdInput) variantIdInput.value = matchedVariant.id;
       }
     }
 
-    function getVariantFromUrl() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get('variant');
-    }
-
-    // Initial load
-    let currentVariantId = getVariantFromUrl() || productData.variants[0].id;
-    updateSkuById(currentVariantId);
-    lastVariantId = currentVariantId;
-
-    // Interval to detect URL-based variant change
+    // Keep checking the currently checked variant input every 200ms
     setInterval(() => {
-      const newVariantId = getVariantFromUrl();
-      if (newVariantId && newVariantId !== lastVariantId) {
-        lastVariantId = newVariantId;
-        updateSkuById(newVariantId);
+      const checkedInput = document.querySelector('.custom-variant__inputs:checked');
+      if (checkedInput && checkedInput.value !== lastCheckedId) {
+        updateSkuById(checkedInput.value);
+        lastCheckedId = checkedInput.value;
       }
-    }, 300); // check every 300ms
+    }, 200);
   });
 </script>
