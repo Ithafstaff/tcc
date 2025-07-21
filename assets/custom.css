@@ -268,7 +268,7 @@
   margin: 0 auto;
   width: auto;
   max-width: calc(37% - 64px);
-  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .custom-product__gallery {
