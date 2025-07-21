@@ -4,11 +4,10 @@
   document.addEventListener('DOMContentLoaded', function () {
     const skuDisplay = document.getElementById('variant-sku');
     const productData = {{ product | json }};
-    let lastCheckedId = null;
+    let lastVariantId = null;
 
     function updateSkuById(variantId) {
-      const id = Number(variantId);
-      const matchedVariant = productData.variants.find(v => v.id === id);
+      const matchedVariant = productData.variants.find(v => v.id == variantId);
       if (matchedVariant) {
         skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
 
@@ -23,31 +22,18 @@
       return params.get('variant');
     }
 
-    // Initial load with URL
-    const variantFromUrl = getVariantFromUrl();
-    if (variantFromUrl) {
-      const input = document.querySelector(`.custom-variant__inputs[value="${variantFromUrl}"]`);
-      if (input) {
-        input.checked = true;
-        input.dispatchEvent(new Event('change'));
-      } else {
-        updateSkuById(variantFromUrl);
-      }
-    } else {
-      const checkedInput = document.querySelector('.custom-variant__inputs:checked');
-      if (checkedInput) {
-        updateSkuById(checkedInput.value);
-        lastCheckedId = checkedInput.value;
-      }
-    }
+    // Initial load
+    let currentVariantId = getVariantFromUrl() || productData.variants[0].id;
+    updateSkuById(currentVariantId);
+    lastVariantId = currentVariantId;
 
-    // Continuous check every 200ms for selected variant changes
+    // Interval to detect URL-based variant change
     setInterval(() => {
-      const currentInput = document.querySelector('.custom-variant__inputs:checked');
-      if (currentInput && currentInput.value !== lastCheckedId) {
-        lastCheckedId = currentInput.value;
-        updateSkuById(currentInput.value);
+      const newVariantId = getVariantFromUrl();
+      if (newVariantId && newVariantId !== lastVariantId) {
+        lastVariantId = newVariantId;
+        updateSkuById(newVariantId);
       }
-    }, 200);
+    }, 300); // check every 300ms
   });
 </script>
