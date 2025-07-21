@@ -7,7 +7,7 @@
   position: relative;
   /* overflow: hidden; */
   display: flex !important;
-  gap: 0;
+  gap: 0 !important;
 }
 
 .custom__btn-width {
