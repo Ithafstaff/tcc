@@ -1082,7 +1082,7 @@
 @media screen and (max-width: 767px) {
 
   .product {
-    grid-template-columns: 1fr !important;
+    flex-direction: column;
   }
 
   .product-gallery {
