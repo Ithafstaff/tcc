@@ -5,20 +5,12 @@
     const skuDisplay = document.getElementById('variant-sku');
     const productData = {{ product | json }};
 
-    function updateSku() {
-      // Get all selected option values (dropdown or radio)
-      const selectedOptions = Array.from(document.querySelectorAll('[name^="options"]'))
-        .filter(el => el.type === 'radio' ? el.checked : true)
-        .map(el => el.value);
-
-      const matchedVariant = productData.variants.find(v => {
-        return v.options.every((opt, idx) => opt === selectedOptions[idx]);
-      });
-
+    function updateSkuById(variantId) {
+      const matchedVariant = productData.variants.find(v => v.id == variantId);
       if (matchedVariant) {
         skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
 
-        // Also update the hidden variant ID input if present
+        // Update hidden variant ID input if needed
         const variantIdInput = document.querySelector('[name="id"]');
         if (variantIdInput) {
           variantIdInput.value = matchedVariant.id;
@@ -26,12 +18,17 @@
       }
     }
 
-    // Listen for changes on all variant selectors
-    document.querySelectorAll('[name^="options"]').forEach(function (el) {
-      el.addEventListener('change', updateSku);
-    });
+    // Set initial SKU
+    const initiallyChecked = document.querySelector('.custom-variant__inputs:checked');
+    if (initiallyChecked) {
+      updateSkuById(initiallyChecked.value);
+    }
 
-    // Initial load
-    updateSku();
+    // Listen to changes
+    document.querySelectorAll('.custom-variant__inputs').forEach(input => {
+      input.addEventListener('change', function () {
+        updateSkuById(this.value);
+      });
+    });
   });
 </script>
