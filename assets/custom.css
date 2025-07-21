@@ -274,9 +274,9 @@
   top: 10px;
   height: 100%;
   height: auto;
-          width: auto;
-        max-width: 63%;
-        margin-right: 64px;
+  width: auto;
+  max-width: 63%;
+  margin-right: 64px;
 }
 
 .custom-product__thumbnail-wrapper {
@@ -1087,6 +1087,11 @@
 
   .custom-product__info {
     max-width: unset;
+  }
+
+  .custom-product__gallery {
+    max-width: unset;
+    margin-right: 0;
   }
 
   .product-gallery {
