@@ -3,48 +3,45 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const skuDisplay = document.getElementById('variant-sku');
-    const variantIdInput = document.querySelector('[name="id"]');
     const productData = {{ product | json }};
 
     function updateSkuById(variantId) {
-      const variant = productData.variants.find(v => v.id == variantId);
-      if (variant) {
-        skuDisplay.textContent = variant.sku ? 'SKU: ' + variant.sku : 'SKU: N/A';
-        if (variantIdInput) variantIdInput.value = variant.id;
-        history.replaceState(null, '', `?variant=${variant.id}`); // optional: update URL without reload
+      const matchedVariant = productData.variants.find(v => v.id == variantId);
+      if (matchedVariant) {
+        skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
+
+        // Update hidden input if needed
+        const variantIdInput = document.querySelector('[name="id"]');
+        if (variantIdInput) variantIdInput.value = matchedVariant.id;
       }
     }
 
-    // Handle initial URL variant param
-    const params = new URLSearchParams(window.location.search);
-    const variantFromUrl = params.get('variant');
+    function getVariantFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('variant');
+    }
+
+    // Auto-select variant if variant ID is in the URL
+    const variantFromUrl = getVariantFromUrl();
     if (variantFromUrl) {
-      const radio = document.querySelector(`.custom-variant__inputs[value="${variantFromUrl}"]`);
-      if (radio) {
-        radio.checked = true;
-        updateSkuById(variantFromUrl);
+      const input = document.querySelector(`.custom-variant__inputs[value="${variantFromUrl}"]`);
+      if (input) {
+        input.checked = true;
+        input.dispatchEvent(new Event('change')); // trigger change for dynamic SKU update
+      } else {
+        updateSkuById(variantFromUrl); // fallback: update only SKU
       }
     } else {
-      // Fallback: Use currently checked input
+      // On initial load, update SKU from the currently selected radio
       const checkedInput = document.querySelector('.custom-variant__inputs:checked');
       if (checkedInput) updateSkuById(checkedInput.value);
     }
 
-    // Watch for variant change manually
+    // Watch for any variant input change
     document.querySelectorAll('.custom-variant__inputs').forEach(input => {
       input.addEventListener('change', function () {
         updateSkuById(this.value);
       });
     });
-
-    // Also observe theme-internal variant change via MutationObserver (if your theme replaces hidden input)
-    const observer = new MutationObserver(() => {
-      const newId = variantIdInput?.value;
-      if (newId) updateSkuById(newId);
-    });
-
-    if (variantIdInput) {
-      observer.observe(variantIdInput, { attributes: true, attributeFilter: ['value'] });
-    }
   });
 </script>
