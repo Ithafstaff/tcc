@@ -6,7 +6,8 @@
     const productData = {{ product | json }};
 
     function updateSkuById(variantId) {
-      const matchedVariant = productData.variants.find(v => v.id == variantId);
+      const id = Number(variantId); // Ensure it's a number
+      const matchedVariant = productData.variants.find(v => v.id === id);
       if (matchedVariant) {
         skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
 
@@ -21,18 +22,18 @@
       return params.get('variant');
     }
 
-    // Auto-select variant if variant ID is in the URL
+    // On load: handle variant from URL
     const variantFromUrl = getVariantFromUrl();
     if (variantFromUrl) {
       const input = document.querySelector(`.custom-variant__inputs[value="${variantFromUrl}"]`);
       if (input) {
         input.checked = true;
-        input.dispatchEvent(new Event('change')); // trigger change for dynamic SKU update
+        input.dispatchEvent(new Event('change'));
       } else {
-        updateSkuById(variantFromUrl); // fallback: update only SKU
+        updateSkuById(variantFromUrl); // fallback
       }
     } else {
-      // On initial load, update SKU from the currently selected radio
+      // Default to currently selected variant
       const checkedInput = document.querySelector('.custom-variant__inputs:checked');
       if (checkedInput) updateSkuById(checkedInput.value);
     }
