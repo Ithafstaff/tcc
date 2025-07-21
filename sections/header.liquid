@@ -211,11 +211,17 @@
   {% endif %}
   margin: 5px;
 }
-  
-.custom-search__bar-list input,
-.custom-search__bar-list input::placeholder {
-  color: #fff;
-}
+
+
+  .custom-search__bar-list input,
+  .custom-search__bar-list input::placeholder {
+    {% if template.name == 'index' %}
+      color: #fff;
+    {% else %}
+      color: #00;
+    {% endif %}
+  }
+
 
 .header__secondary-nav {
   order: 3;
