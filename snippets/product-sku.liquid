@@ -7,16 +7,17 @@
     let lastCheckedId = null;
 
     function updateSkuById(variantId) {
-      const matchedVariant = productData.variants.find(v => v.id == variantId);
+      const matchedVariant = productData.variants.find(v => v.id == parseInt(variantId));
       if (matchedVariant) {
         skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
 
+        // Optional: also update the hidden input
         const variantIdInput = document.querySelector('[name="id"]');
         if (variantIdInput) variantIdInput.value = matchedVariant.id;
       }
     }
 
-    // Keep checking the currently checked variant input every 200ms
+    // Use setInterval to continuously check for variant change
     setInterval(() => {
       const checkedInput = document.querySelector('.custom-variant__inputs:checked');
       if (checkedInput && checkedInput.value !== lastCheckedId) {
