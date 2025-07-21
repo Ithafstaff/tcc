@@ -172,8 +172,8 @@
         "collapsible_text_9mdYfy"
       ],
       "custom_css": [
-        "@media screen and (min-width: 1201px) {.section-full {padding: 0 48px !important; }}",
         "@media screen and (min-width: 768px) {.section-full {padding: 0 24px !important; }}",
+        "@media screen and (min-width: 1201px) {.section-full {padding: 0 48px !important; }}",
         "@media screen and (max-width: 767px) {.section-full {padding: 0 20px !important; }}"
       ],
       "settings": {
