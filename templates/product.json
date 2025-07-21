@@ -51,6 +51,12 @@
             "liquid": "{% render 'product-collection-tag' %}"
           }
         },
+        "liquid_9bLTG6": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'product-sku' %}"
+          }
+        },
         "badges": {
           "type": "badges",
           "settings": {}
@@ -156,6 +162,7 @@
         "liquid_QVRRkM",
         "title",
         "liquid_3darrU",
+        "liquid_9bLTG6",
         "badges",
         "judge_me_reviews_preview_badge_dCPARp",
         "price",
