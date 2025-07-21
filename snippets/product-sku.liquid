@@ -10,7 +10,7 @@
       if (matchedVariant) {
         skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
 
-        // Update hidden variant ID input if needed
+        // Update the hidden variant ID input if present
         const variantIdInput = document.querySelector('[name="id"]');
         if (variantIdInput) {
           variantIdInput.value = matchedVariant.id;
@@ -18,10 +18,25 @@
       }
     }
 
-    // Set initial SKU
-    const initiallyChecked = document.querySelector('.custom-variant__inputs:checked');
-    if (initiallyChecked) {
-      updateSkuById(initiallyChecked.value);
+    function getVariantFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('variant');
+    }
+
+    // If variant is in URL, select it
+    const variantFromUrl = getVariantFromUrl();
+    if (variantFromUrl) {
+      const radioToSelect = document.querySelector(`.custom-variant__inputs[value="${variantFromUrl}"]`);
+      if (radioToSelect) {
+        radioToSelect.checked = true;
+        updateSkuById(variantFromUrl);
+      }
+    } else {
+      // If not from URL, fall back to first checked input
+      const initiallyChecked = document.querySelector('.custom-variant__inputs:checked');
+      if (initiallyChecked) {
+        updateSkuById(initiallyChecked.value);
+      }
     }
 
     // Listen to changes
