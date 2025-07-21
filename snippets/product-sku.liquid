@@ -1,9 +1,27 @@
 <style>
-  .variant-sku {
+  .custom-sku {
     display: block;
     margin: 10px 0;
   }
 </style>
 
 
-<span class="variant-sku">SKU: {{ product.variants.first.sku }}</span>
+<span id="variant-sku" class="custom-sku">SKU: {{ product.variants.first.sku }}</span>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const skuDisplay = document.getElementById('variant-sku');
+
+    document.querySelector('form[action^="/cart/add"]').addEventListener('change', function (e) {
+      const selectedVariantId = document.querySelector('[name="id"]').value;
+      const productData = {{ product | json }};
+
+      const matchedVariant = productData.variants.find(v => v.id == selectedVariantId);
+      if (matchedVariant && matchedVariant.sku) {
+        skuDisplay.textContent = 'SKU: ' + matchedVariant.sku;
+      } else {
+        skuDisplay.textContent = 'SKU: N/A';
+      }
+    });
+  });
+</script>
