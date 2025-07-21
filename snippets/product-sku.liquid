@@ -23,19 +23,10 @@
 
     // Auto-select variant if variant ID is in the URL
     const variantFromUrl = getVariantFromUrl();
-    if (variantFromUrl) {
-      const input = document.querySelector(`.custom-variant__inputs[value="${variantFromUrl}"]`);
-      if (input) {
-        input.checked = true;
-        input.dispatchEvent(new Event('change')); // trigger change for dynamic SKU update
-      } else {
-        updateSkuById(variantFromUrl); // fallback: update only SKU
-      }
-    } else {
-      // On initial load, update SKU from the currently selected radio
+
       const checkedInput = document.querySelector('.custom-variant__inputs:checked');
       if (checkedInput) updateSkuById(checkedInput.value);
-    }
+   
 
     // Watch for any variant input change
     document.querySelectorAll('.custom-variant__inputs').forEach(input => {
