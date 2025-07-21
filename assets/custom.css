@@ -269,6 +269,9 @@
   top: 10px;
   height: 100%;
   height: auto;
+          width: auto;
+        max-width: 63%;
+        margin-right: 64px;
 }
 
 .custom-product__thumbnail-wrapper {
