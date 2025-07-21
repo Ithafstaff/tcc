@@ -11,17 +11,12 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const skuDisplay = document.getElementById('variant-sku');
+    const productData = {{ product | json }};
 
-    document.querySelector('form[action^="/cart/add"]').addEventListener('change', function (e) {
+    document.querySelector('form[action^="/cart/add"]').addEventListener('change', function () {
       const selectedVariantId = document.querySelector('[name="id"]').value;
-      const productData = {{ product | json }};
-
       const matchedVariant = productData.variants.find(v => v.id == selectedVariantId);
-      if (matchedVariant && matchedVariant.sku) {
-        skuDisplay.textContent = 'SKU: ' + matchedVariant.sku;
-      } else {
-        skuDisplay.textContent = 'SKU: N/A';
-      }
+      skuDisplay.textContent = matchedVariant && matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
     });
   });
 </script>
