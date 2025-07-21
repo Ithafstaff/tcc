@@ -67,6 +67,7 @@
         },
         "liquid_9bLTG6": {
           "type": "liquid",
+          "disabled": true,
           "settings": {
             "liquid": "{% render 'product-sku' %}"
           }
