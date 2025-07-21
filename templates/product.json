@@ -203,7 +203,7 @@
         "full_width": true,
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false,
-        "liquid": "{% render 'how-to-pick-tablecloth' %}",
+        "liquid": "{% if product.metafields.custom.type contains 'Tablecloth' %}\n{% render 'how-to-pick-tablecloth' %}\n{% endif %}",
         "background": "",
         "background_gradient": "",
         "text_color": ""
