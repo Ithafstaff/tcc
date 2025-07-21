@@ -47,7 +47,8 @@
     <a class="tablecloth-section__button" href="/pages/how-to-choose-the-right-tablecloth">LEARN MORE</a>
 
     
-    {% if product.metafields.custom.type contains 'Tablecloth' %}
+{% assign type_value = product.metafields.custom.type.value | default: product.metafields.custom.type %}
+{% if type_value contains 'Tablecloth' %}
        <h2>test</h2> 
     {% endif %}
 
