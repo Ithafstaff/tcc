@@ -261,6 +261,9 @@
 /* start of custom product page layout */
 .custom-product__info {
   /* border: 1px solid; */
+  margin: 0 auto;
+  width: auto;
+  max-width: calc(37% - 64px);
 }
 
 .custom-product__gallery {
