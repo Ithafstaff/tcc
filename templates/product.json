@@ -196,7 +196,7 @@
     "custom_liquid_eEmxiw": {
       "type": "custom-liquid",
       "custom_css": [
-        ".section-full {padding: 0;}"
+        ".section-full {padding: 0 5%;}"
       ],
       "name": "Custom Liquid",
       "settings": {
