@@ -7,16 +7,6 @@
 
 
 <span id="variant-sku" class="custom-sku">SKU: {{ product.variants.first.sku }}</span>
-
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const skuDisplay = document.getElementById('variant-sku');
-    const productData = {{ product | json }};
-
-    document.querySelector('form[action^="/cart/add"]').addEventListener('change', function () {
-      const selectedVariantId = document.querySelector('[name="id"]').value;
-      const matchedVariant = productData.variants.find(v => v.id == selectedVariantId);
-      skuDisplay.textContent = matchedVariant && matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
-    });
-  });
+  const productData = {{ product | json }};
 </script>
