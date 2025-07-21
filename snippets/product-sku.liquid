@@ -7,22 +7,46 @@
     let lastCheckedId = null;
 
     function updateSkuById(variantId) {
-      const matchedVariant = productData.variants.find(v => v.id == parseInt(variantId));
+      const id = Number(variantId);
+      const matchedVariant = productData.variants.find(v => v.id === id);
       if (matchedVariant) {
         skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
 
-        // Optional: also update the hidden input
+        // Update hidden input if needed
         const variantIdInput = document.querySelector('[name="id"]');
         if (variantIdInput) variantIdInput.value = matchedVariant.id;
       }
     }
 
-    // Use setInterval to continuously check for variant change
-    setInterval(() => {
+    function getVariantFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('variant');
+    }
+
+    // Initial load with URL
+    const variantFromUrl = getVariantFromUrl();
+    if (variantFromUrl) {
+      const input = document.querySelector(`.custom-variant__inputs[value="${variantFromUrl}"]`);
+      if (input) {
+        input.checked = true;
+        input.dispatchEvent(new Event('change'));
+      } else {
+        updateSkuById(variantFromUrl);
+      }
+    } else {
       const checkedInput = document.querySelector('.custom-variant__inputs:checked');
-      if (checkedInput && checkedInput.value !== lastCheckedId) {
+      if (checkedInput) {
         updateSkuById(checkedInput.value);
         lastCheckedId = checkedInput.value;
+      }
+    }
+
+    // Continuous check every 200ms for selected variant changes
+    setInterval(() => {
+      const currentInput = document.querySelector('.custom-variant__inputs:checked');
+      if (currentInput && currentInput.value !== lastCheckedId) {
+        lastCheckedId = currentInput.value;
+        updateSkuById(currentInput.value);
       }
     }, 200);
   });
