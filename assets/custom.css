@@ -585,10 +585,10 @@
 }
 
 .Size label.block-swatch:nth-of-type(even) {
-  border-left: none !important;
+  border-left: 1px solid transparent !important;
 }
 .Size label.block-swatch:nth-of-type(n+3) {
-  border-top: none !important;
+  border-top: 1px solid transparent !important;
 }
 
 
