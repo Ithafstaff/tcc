@@ -584,10 +584,21 @@
   display: none;
 }
 
+.Size label.block-swatch:nth-of-type(even) {
+  border-left: none !important;
+}
+.Size label.block-swatch:nth-of-type(n+3) {
+  border-top: none !important;
+}
+
+
+
 .Size .custom-variant__inputs:checked + * {
   font-weight: 700;
   border: 1px solid !important;
 }
+
+
 
 .Size .block-swatch {
   font-family: "Poppins", sans-serif !important;
@@ -607,13 +618,6 @@
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-}
-
-.Size label.block-swatch:nth-of-type(even) {
-  border-left: none !important;
-}
-.Size label.block-swatch:nth-of-type(n+3) {
-  border-top: none !important;
 }
 
 
