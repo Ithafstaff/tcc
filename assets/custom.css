@@ -594,10 +594,18 @@
 
 
 .Size .custom-variant__inputs:checked + * {
+  position: relative;
   font-weight: 700;
   /* border: 1px solid !important; */
-
-  
+}
+.Size .custom-variant__inputs:checked + * { 
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  top: 0;
+  left: 0
 }
 
 
