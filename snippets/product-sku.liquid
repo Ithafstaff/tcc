@@ -2,15 +2,34 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    function getSelectedVariantId() {
-      const radio = document.querySelector('[name="id"]:checked');
-      const select = document.querySelector('[name="id"] option:checked');
-      return radio?.value || select?.value || null;
+    const skuDisplay = document.getElementById('variant-sku');
+    const productData = {{ product | json }};
+
+    function updateSkuByVariantId(variantId) {
+      const matchedVariant = productData.variants.find(v => v.id == variantId);
+      if (matchedVariant) {
+        skuDisplay.textContent = matchedVariant.sku
+          ? 'SKU: ' + matchedVariant.sku
+          : 'SKU: N/A';
+      }
     }
 
+    function getVariantIdFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('variant');
+    }
+
+    let lastVariantId = null;
+
+    // Watch the URL every 500ms for variant change
     setInterval(() => {
-      const currentId = getSelectedVariantId();
-      console.log('Current selected variant ID:', currentId);
+      const currentVariantId = getVariantIdFromURL();
+
+      if (currentVariantId && currentVariantId !== lastVariantId) {
+        lastVariantId = currentVariantId;
+        updateSkuByVariantId(currentVariantId);
+        console.log('Variant changed:', currentVariantId);
+      }
     }, 500);
   });
 </script>
