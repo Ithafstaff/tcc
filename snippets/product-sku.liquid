@@ -13,16 +13,24 @@
       }
     }
 
-    // Poll every second to check the selected variant input
+    function getCurrentVariantId() {
+      // Try radio buttons first
+      const radioChecked = document.querySelector('input[name="id"]:checked');
+      if (radioChecked) return radioChecked.value;
+
+      // Try select dropdown
+      const select = document.querySelector('select[name="id"]');
+      if (select) return select.value;
+
+      return null;
+    }
+
     setInterval(() => {
-      const selected = document.querySelector('[name="id"]:checked, [name="id"] option:checked');
-      if (selected) {
-        const currentId = selected.value || selected.getAttribute('value');
-        if (currentId !== lastCheckedId) {
-          lastCheckedId = currentId;
-          updateSkuById(currentId);
-        }
+      const currentId = getCurrentVariantId();
+      if (currentId && currentId !== lastCheckedId) {
+        lastCheckedId = currentId;
+        updateSkuById(currentId);
       }
-    }, 1000);
+    }, 300); // checks every 300ms for better responsiveness
   });
 </script>
