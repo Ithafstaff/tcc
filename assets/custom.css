@@ -608,7 +608,7 @@
   box-sizing: border-box;
 }
 
-.Size .block-swatch:nth-child(odd) {
+.Size .block-swatch:nth-child(n+3) {
   border-left: none !important;
 }
 
