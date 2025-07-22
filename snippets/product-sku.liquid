@@ -4,55 +4,25 @@
   document.addEventListener('DOMContentLoaded', function () {
     const skuDisplay = document.getElementById('variant-sku');
     const productData = {{ product | json }};
-    const variantInputs = document.querySelectorAll('[name="id"]');
-    let currentVariantId = null;
+    let lastCheckedId = null;
 
-    function updateSku(variantId) {
-      const matched = productData.variants.find(v => v.id == variantId);
-      if (matched) {
-        skuDisplay.textContent = matched.sku ? 'SKU: ' + matched.sku : 'SKU: N/A';
+    function updateSkuById(variantId) {
+      const matchedVariant = productData.variants.find(v => v.id == variantId);
+      if (matchedVariant) {
+        skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
       }
     }
 
-    // Get variant from URL (like ?variant=123456789)
-    function getVariantFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get('variant');
-    }
-
-    // Initial setup on page load
-    const initialVariantId = getVariantFromURL();
-    if (initialVariantId) {
-      updateSku(initialVariantId);
-      currentVariantId = initialVariantId;
-    } else {
-      // If no variant in URL, get the selected one
-      const selected = document.querySelector('[name="id"]:checked, [name="id"] option:checked');
-      if (selected) {
-        updateSku(selected.value || selected.getAttribute('value'));
-        currentVariantId = selected.value || selected.getAttribute('value');
-      }
-    }
-
-    // Watch for any change on variant inputs
-    variantInputs.forEach(input => {
-      input.addEventListener('change', function () {
-        const newId = this.value || this.getAttribute('value');
-        if (newId !== currentVariantId) {
-          updateSku(newId);
-          currentVariantId = newId;
-        }
-      });
-    });
-
-    // Fallback interval watcher (for some JS-powered themes)
+    // Poll every second to check the selected variant input
     setInterval(() => {
       const selected = document.querySelector('[name="id"]:checked, [name="id"] option:checked');
-      const newId = selected?.value || selected?.getAttribute('value');
-      if (newId && newId !== currentVariantId) {
-        updateSku(newId);
-        currentVariantId = newId;
+      if (selected) {
+        const currentId = selected.value || selected.getAttribute('value');
+        if (currentId !== lastCheckedId) {
+          lastCheckedId = currentId;
+          updateSkuById(currentId);
+        }
       }
-    }, 500);
+    }, 1000);
   });
 </script>
