@@ -609,8 +609,8 @@
   box-sizing: border-box;
 }
 
-.Size label:nth-child(even) {
-  border-color: gray;
+.Size label.block-swatch:nth-of-type(even) {
+  border-color: gray !important;
 }
 
 
