@@ -596,7 +596,7 @@
   border: none !important;
   line-height: 20px;
   height: unset;
-  width: fit-content;
+  width: 100%;
   position: relative;
   padding: 0 0 0 34px !important;
   height: unset !important;
@@ -649,6 +649,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 1fr;
+  gap: 0;
 }
 
 .variant-picker__option-values .block-swatch {
