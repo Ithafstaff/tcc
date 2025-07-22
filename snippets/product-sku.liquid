@@ -4,50 +4,55 @@
   document.addEventListener('DOMContentLoaded', function () {
     const skuDisplay = document.getElementById('variant-sku');
     const productData = {{ product | json }};
-    let lastCheckedId = null;
+    const variantInputs = document.querySelectorAll('[name="id"]');
+    let currentVariantId = null;
 
-    function updateSkuById(variantId) {
-      const id = Number(variantId);
-      const matchedVariant = productData.variants.find(v => v.id === id);
-      if (matchedVariant) {
-        skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
-
-        // Update hidden input if needed
-        const variantIdInput = document.querySelector('[name="id"]');
-        if (variantIdInput) variantIdInput.value = matchedVariant.id;
+    function updateSku(variantId) {
+      const matched = productData.variants.find(v => v.id == variantId);
+      if (matched) {
+        skuDisplay.textContent = matched.sku ? 'SKU: ' + matched.sku : 'SKU: N/A';
       }
     }
 
-    function getVariantFromUrl() {
+    // Get variant from URL (like ?variant=123456789)
+    function getVariantFromURL() {
       const params = new URLSearchParams(window.location.search);
       return params.get('variant');
     }
 
-    // Initial load with URL
-    const variantFromUrl = getVariantFromUrl();
-    if (variantFromUrl) {
-      const input = document.querySelector(`.custom-variant__inputs[value="${variantFromUrl}"]`);
-      if (input) {
-        input.checked = true;
-        input.dispatchEvent(new Event('change'));
-      } else {
-        updateSkuById(variantFromUrl);
-      }
+    // Initial setup on page load
+    const initialVariantId = getVariantFromURL();
+    if (initialVariantId) {
+      updateSku(initialVariantId);
+      currentVariantId = initialVariantId;
     } else {
-      const checkedInput = document.querySelector('.custom-variant__inputs:checked');
-      if (checkedInput) {
-        updateSkuById(checkedInput.value);
-        lastCheckedId = checkedInput.value;
+      // If no variant in URL, get the selected one
+      const selected = document.querySelector('[name="id"]:checked, [name="id"] option:checked');
+      if (selected) {
+        updateSku(selected.value || selected.getAttribute('value'));
+        currentVariantId = selected.value || selected.getAttribute('value');
       }
     }
 
-    // Continuous check every 200ms for selected variant changes
+    // Watch for any change on variant inputs
+    variantInputs.forEach(input => {
+      input.addEventListener('change', function () {
+        const newId = this.value || this.getAttribute('value');
+        if (newId !== currentVariantId) {
+          updateSku(newId);
+          currentVariantId = newId;
+        }
+      });
+    });
+
+    // Fallback interval watcher (for some JS-powered themes)
     setInterval(() => {
-      const currentInput = document.querySelector('.custom-variant__inputs:checked');
-      if (currentInput && currentInput.value !== lastCheckedId) {
-        lastCheckedId = currentInput.value;
-        updateSkuById(currentInput.value);
+      const selected = document.querySelector('[name="id"]:checked, [name="id"] option:checked');
+      const newId = selected?.value || selected?.getAttribute('value');
+      if (newId && newId !== currentVariantId) {
+        updateSku(newId);
+        currentVariantId = newId;
       }
-    }, 200);
+    }, 500);
   });
 </script>
