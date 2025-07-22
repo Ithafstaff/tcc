@@ -12,15 +12,20 @@
     }
 
     function updateSkuByVariantId(variantId) {
-      const matchedVariant = productData.variants.find(v => v.id == variantId);
-      if (matchedVariant) {
+      const matchedVariant = productData.variants.find(v => String(v.id) === String(variantId));
+      if (matchedVariant && skuDisplay) {
         const sku = matchedVariant.sku || 'N/A';
-        
-
         console.log('Selected Variant ID:', variantId);
         console.log('SKU:', sku);
-        skuDisplay.innerHTML = sku;
+        skuDisplay.textContent = sku; // safer than innerHTML
       }
+    }
+
+    // Run on page load
+    const initialVariantId = getVariantIdFromURL();
+    if (initialVariantId) {
+      lastVariantId = initialVariantId;
+      updateSkuByVariantId(initialVariantId);
     }
 
     // Monitor URL for variant changes every 500ms
