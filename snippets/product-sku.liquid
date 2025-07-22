@@ -1,4 +1,4 @@
-<p id="variant-sku">SKU: {{ product.variants.first.sku }}</p>
+<p>SKU: <span id="variant-sku">{{ product.variants.first.sku }}</span></p>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -15,7 +15,7 @@
       const matchedVariant = productData.variants.find(v => v.id == variantId);
       if (matchedVariant) {
         const sku = matchedVariant.sku || 'N/A';
-        skuDisplay.textContent = 'SKU: ' + sku;
+        skuDisplay.innerHTML = sku;
 
         console.log('Selected Variant ID:', variantId);
         console.log('SKU:', sku);
