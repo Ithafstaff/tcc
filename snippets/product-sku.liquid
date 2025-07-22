@@ -1,4 +1,4 @@
-<p>SKUp: <span id="variant-sku"></span></p>
+<p>SKU: <span id="variant-sku"></span></p>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -16,7 +16,7 @@
       if (matchedVariant && skuDisplay) {
         const sku = matchedVariant.sku || 'N/A';
         console.log('Selected Variant ID:', variantId);
-        console.log('SKUo:', sku);
+        console.log('SKU:', sku);
         skuDisplay.textContent = sku; // safer than innerHTML
       }
     }
