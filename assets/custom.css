@@ -6,6 +6,7 @@
   margin: 0 auto;
   /* grid-template-columns: 0.6fr 0.4fr !important; */
   /* gap: 80px !important; */
+  font-family: 'Gotham', Verdana, sans-serif;
   position: relative;
   /* overflow: hidden; */
   display: flex !important;
