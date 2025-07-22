@@ -365,7 +365,8 @@
   font-size: 28px !important;
   /* font-family: "Alata", sans-serif !important; */
    /* font-family: 'Cinzel', serif !important; */
-  font-family: 'Proxima Nova', sans-serif !important;
+  /* font-family: 'Proxima Nova', sans-serif !important; */
+  font-family: 'Gotham', Verdana, sans-serif;
   font-weight: 500 !important;
   font-style: normal !important;
   color: #000;
@@ -374,7 +375,8 @@
 .custom-product__info-sub-title {
   font-size: 18px !important;
   /* font-family: 'Cinzel', serif; */
-  font-family: 'Proxima Nova', sans-serif;
+  /* font-family: 'Proxima Nova', sans-serif; */
+  font-family: 'Gotham', Verdana, sans-serif;
   font-weight: 500 !important;
   font-style: normal !important;
   color: #000;
@@ -386,7 +388,8 @@
   font-size: 18px !important;
   /* font-family: "Alata", sans-serif !important; */
   /* font-family: 'Cinzel', serif; */
-  font-family: 'Proxima Nova', sans-serif;
+  /* font-family: 'Proxima Nova', sans-serif; */
+  font-family: 'Gotham', Verdana, sans-serif;
   font-weight: 500 !important;
   font-style: normal !important;
   color: #000;
