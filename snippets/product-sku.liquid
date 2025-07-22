@@ -17,7 +17,7 @@
         const sku = matchedVariant.sku || 'N/A';
         console.log('Selected Variant ID:', variantId);
         console.log('SKU:', sku);
-        skuDisplay.textContent = "sku"; // safer than innerHTML
+        skuDisplay.innerHTML = "sku"; // safer than innerHTML
       }
     }
 
