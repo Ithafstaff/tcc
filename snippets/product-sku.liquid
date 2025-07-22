@@ -1,35 +1,26 @@
-<p>SKU: <span id="variant-sku"></span></p>
+<p id="variant-sku">SKU: {{ product.variants.first.sku }}</p>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const skuDisplay = document.getElementById('variant-sku');
     const productData = {{ product | json }};
-    let lastVariantId = null;
 
-    function getVariantIdFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get('variant');
-    }
-
-    function updateSkuByVariantId(variantId) {
-      const matchedVariant = productData.variants.find(v => v.id == variantId);
-      if (matchedVariant) {
+    function updateSkuById(variantId) {
+      const matchedVariant = productData.variants.find(v => String(v.id) === String(variantId));
+      if (matchedVariant && skuDisplay) {
         const sku = matchedVariant.sku || 'N/A';
-        
-
         console.log('Selected Variant ID:', variantId);
         console.log('SKU:', sku);
-        skuDisplay.innerHTML = sku;
+        skuDisplay.textContent = sku; // or .innerHTML
       }
     }
 
-    // Monitor URL for variant changes every 500ms
+    // Example: monitor variant ID every second
     setInterval(() => {
-      const currentVariantId = getVariantIdFromURL();
-      if (currentVariantId && currentVariantId !== lastVariantId) {
-        lastVariantId = currentVariantId;
-        updateSkuByVariantId(currentVariantId);
+      const variantIdInput = document.querySelector('[name="id"]');
+      if (variantIdInput) {
+        updateSkuById(variantIdInput.value);
       }
-    }, 500);
+    }, 1000);
   });
 </script>
