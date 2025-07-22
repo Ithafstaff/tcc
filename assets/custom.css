@@ -605,9 +605,10 @@
   padding: 15px 30px !important;
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
 }
 
-.Size .block-swatch:nth-child(3n) {
+.Size .block-swatch:nth-child(2n) {
   border-left: none !important;
 }
  
