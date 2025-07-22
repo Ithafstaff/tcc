@@ -609,6 +609,10 @@
   box-sizing: border-box;
 }
 
+.Size label:nth-child(even) {
+  border-color: red;
+}
+
 
 
  
