@@ -606,6 +606,10 @@
   display: flex;
   justify-content: center;
 }
+
+.Size .block-swatch:nth-child(2n) {
+  border-left: none;
+}
  
 .Size .block-swatch::before {
    content: "";
