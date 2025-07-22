@@ -612,7 +612,7 @@
   /* border-left: none !important; */
 }
 .Size .block-swatch:nth-child(n + 3) {
-  border-top: none !important;
+  /* border-top: none !important; */
 }
  
 .Size .block-swatch::before {
