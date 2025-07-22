@@ -598,14 +598,16 @@
   font-weight: 700;
   /* border: 1px solid !important; */
 }
-.Size .custom-variant__inputs:checked::before {
+.Size .custom-variant__inputs:checked + *::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   border: 1px solid;
   top: 0;
-  left: 0
+  left: 0;
+  pointer-events: none;
+  box-sizing: border-box;
 }
 
 
