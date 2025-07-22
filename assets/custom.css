@@ -607,8 +607,8 @@
   justify-content: center;
 }
 
-.Size .block-swatch:nth-child(2n) {
-  border-left: none;
+.Size .block-swatch:nth-child(3n) {
+  border-left: none !important;
 }
  
 .Size .block-swatch::before {
