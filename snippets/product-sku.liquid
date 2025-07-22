@@ -2,34 +2,15 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const skuDisplay = document.getElementById('variant-sku');
-    const productData = {{ product | json }};
-    let lastVariantId = null;
-
-    function getVariantIdFromUrl() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get('variant');
+    function getSelectedVariantId() {
+      const radio = document.querySelector('[name="id"]:checked');
+      const select = document.querySelector('[name="id"] option:checked');
+      return radio?.value || select?.value || null;
     }
 
-    function updateSkuByVariantId(variantId) {
-      const variant = productData.variants.find(v => v.id == variantId);
-      if (variant) {
-        skuDisplay.textContent = variant.sku ? 'SKU: ' + variant.sku : 'SKU: N/A';
-      }
-    }
-
-    function detectVariantChange() {
-      const currentId = getVariantIdFromUrl();
-      if (currentId && currentId !== lastVariantId) {
-        lastVariantId = currentId;
-        updateSkuByVariantId(currentId);
-      }
-    }
-
-    // Initial run
-    detectVariantChange();
-
-    // Keep checking every 300ms (variant change via JS doesn’t trigger full page reload)
-    setInterval(detectVariantChange, 300);
+    setInterval(() => {
+      const currentId = getSelectedVariantId();
+      console.log('Current selected variant ID:', currentId);
+    }, 100);
   });
 </script>
