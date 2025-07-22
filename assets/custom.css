@@ -609,10 +609,10 @@
 }
 
 .Size .block-swatch:nth-child(2n) {
-  border-left: none;
+  border-left: none !important;
 }
 .Size .block-swatch:nth-child(n + 3) {
-  border-top: none;
+  border-top: none !important;
 }
  
 .Size .block-swatch::before {
