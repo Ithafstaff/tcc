@@ -611,6 +611,9 @@
 .Size .block-swatch:nth-child(even) {
   border-right: none !important;
 }
+.Size .block-swatch:last-child {
+  border-right: 1px solid !important;
+}
 
  
 .Size .block-swatch::before {
