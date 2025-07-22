@@ -7,10 +7,17 @@
     font-style: normal;
     font-display: swap;
   }
+  
   @font-face {
     font-family: 'Gotham';
-    src: url('{{ "Gotham.woff2" | asset_url }}') format('woff2'),
-         url('{{ "Gotham.woff" | asset_url }}') format('woff');
+    src: url('{{ "Gotham-Regular" | asset_url }}') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gotham';
+    src: url('{{ "Gotham-Medium" | asset_url }}') format('woff2');
     font-weight: 500;
     font-style: normal;
   }
