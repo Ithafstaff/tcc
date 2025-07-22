@@ -369,7 +369,7 @@
   font-family: 'Gotham', Verdana, sans-serif;
   font-weight: 500 !important;
   font-style: normal !important;
-  color: #000;
+  color: #222;
 }
 
 .custom-product__info-sub-title {
@@ -379,7 +379,7 @@
   font-family: 'Gotham', Verdana, sans-serif;
   font-weight: 500 !important;
   font-style: normal !important;
-  color: #000;
+  color: #222;
   margin: 5px 0 10px;
   display: block;
 }
@@ -392,7 +392,7 @@
   font-family: 'Gotham', Verdana, sans-serif;
   font-weight: 500 !important;
   font-style: normal !important;
-  color: #000;
+  color: #222;
   margin: 10px 0 20px;
   display: block;
 }
