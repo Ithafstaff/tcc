@@ -596,6 +596,9 @@
 .Size .custom-variant__inputs:checked + * {
   font-weight: 700;
   border: 1px solid !important;
+  border-top: 1px solid !important;
+  border-left: 1px solid !important;
+  
 }
 
 
