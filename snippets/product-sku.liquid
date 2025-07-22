@@ -14,6 +14,7 @@
     function updateSkuByVariantId(variantId) {
       const matchedVariant = productData.variants.find(v => String(v.id) === String(variantId));
       if (matchedVariant && skuDisplay) {
+            const skuDisplay = document.getElementById('variant-sku');
         const sku = matchedVariant.sku || 'N/A';
         console.log('Selected Variant ID:', variantId);
         console.log('SKU:', sku);
