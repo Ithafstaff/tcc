@@ -598,7 +598,7 @@
   font-weight: 700;
   /* border: 1px solid !important; */
 }
-.Size .custom-variant__inputs:checked + * { 
+.Size .custom-variant__inputs:checked + label::before {
   content: "";
   position: absolute;
   width: 100%;
