@@ -608,9 +608,6 @@
   box-sizing: border-box;
 }
 
-.Size .block-swatch:nth-child(even) {
-  border-left: none !important;
-}
 
  
 .Size .block-swatch::before {
