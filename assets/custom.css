@@ -610,7 +610,7 @@
 }
 
 .Size label.block-swatch:nth-of-type(even) {
-  border-color: gray !important;
+  border-left: none !important;
 }
 
 
