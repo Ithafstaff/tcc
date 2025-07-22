@@ -15,10 +15,11 @@
       const matchedVariant = productData.variants.find(v => v.id == variantId);
       if (matchedVariant) {
         const sku = matchedVariant.sku || 'N/A';
-        skuDisplay.innerHTML = sku;
+        
 
         console.log('Selected Variant ID:', variantId);
         console.log('SKU:', sku);
+        skuDisplay.innerHTML = sku;
       }
     }
 
