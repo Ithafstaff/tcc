@@ -584,26 +584,21 @@
   display: none;
 }
 
-
-/* Regular grid borders */
-.Size label.block-swatch {
-  border: 1px solid #000;
-}
-
-/* Remove left border from even items */
 .Size label.block-swatch:nth-of-type(even) {
-  border-left: none;
+  border-left: none !important;
 }
-
-/* Remove top border from second row and below */
 .Size label.block-swatch:nth-of-type(n+3) {
-  border-top: none;
+  border-top: none !important;
 }
 
-/* Highlight the checked input (active border) */
-.Size .custom-variant__inputs:checked + label {
+
+
+.Size .custom-variant__inputs:checked + * {
   font-weight: 700;
-  border: 1px solid #000;
+  border: 1px solid !important;
+  border-top: 1px solid !important;
+  border-left: 1px solid !important;
+  
 }
 
 
