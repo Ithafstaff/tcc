@@ -608,12 +608,7 @@
   box-sizing: border-box;
 }
 
-.block-swatch:nth-child(even) {
-  border-right: none !important;
-}
-.block-swatch:last-child {
-  border-right: 1px solid !important;
-}
+
 
  
 .Size .block-swatch::before {
