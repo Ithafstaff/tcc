@@ -603,6 +603,8 @@
   border: 1px solid #ccc !important;
   border-radius: 0;
   padding: 15px 30px !important;
+  display: flex;
+  justify-content: center;
 }
  
 .Size .block-swatch::before {
