@@ -610,7 +610,7 @@
 }
 
 .Size label:nth-child(even) {
-  border-color: red;
+  border-color: gray;
 }
 
 
