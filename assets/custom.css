@@ -594,9 +594,12 @@
 
 
 .Size .custom-variant__inputs:checked + * {
-  position: relative;
+  span {
+      position: relative;
   font-weight: 700;
   /* border: 1px solid !important; */
+  }
+
 }
 .Size .custom-variant__inputs:checked + *::before {
   content: "";
