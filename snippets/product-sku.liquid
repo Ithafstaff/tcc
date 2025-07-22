@@ -4,33 +4,32 @@
   document.addEventListener('DOMContentLoaded', function () {
     const skuDisplay = document.getElementById('variant-sku');
     const productData = {{ product | json }};
-    let lastCheckedId = null;
+    let lastVariantId = null;
 
-    function updateSkuById(variantId) {
-      const matchedVariant = productData.variants.find(v => v.id == variantId);
-      if (matchedVariant) {
-        skuDisplay.textContent = matchedVariant.sku ? 'SKU: ' + matchedVariant.sku : 'SKU: N/A';
+    function getVariantIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('variant');
+    }
+
+    function updateSkuByVariantId(variantId) {
+      const variant = productData.variants.find(v => v.id == variantId);
+      if (variant) {
+        skuDisplay.textContent = variant.sku ? 'SKU: ' + variant.sku : 'SKU: N/A';
       }
     }
 
-    function getCurrentVariantId() {
-      // Try radio buttons first
-      const radioChecked = document.querySelector('input[name="id"]:checked');
-      if (radioChecked) return radioChecked.value;
-
-      // Try select dropdown
-      const select = document.querySelector('select[name="id"]');
-      if (select) return select.value;
-
-      return null;
+    function detectVariantChange() {
+      const currentId = getVariantIdFromUrl();
+      if (currentId && currentId !== lastVariantId) {
+        lastVariantId = currentId;
+        updateSkuByVariantId(currentId);
+      }
     }
 
-    setInterval(() => {
-      const currentId = getCurrentVariantId();
-      if (currentId && currentId !== lastCheckedId) {
-        lastCheckedId = currentId;
-        updateSkuById(currentId);
-      }
-    }, 300); // checks every 300ms for better responsiveness
+    // Initial run
+    detectVariantChange();
+
+    // Keep checking every 300ms (variant change via JS doesn’t trigger full page reload)
+    setInterval(detectVariantChange, 300);
   });
 </script>
