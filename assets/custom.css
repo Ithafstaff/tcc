@@ -915,7 +915,11 @@
 }
 
 .accordion__content .custom-collection__swatch {
+  background-size: 100% !important;
+  width: 30px !important;
+  height: 30px !important;
   border-radius: 50% !important;
+  border-color: #cdcdcd !important;
 }
 
 .custom-collection__accordion {
