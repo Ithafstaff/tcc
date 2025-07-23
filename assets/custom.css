@@ -1141,6 +1141,7 @@
 
   .custom-product__info {
     max-width: unset;
+    padding-right: 0;
   }
 
   .custom-product__gallery {
