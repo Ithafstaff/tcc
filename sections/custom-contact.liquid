@@ -184,13 +184,15 @@
       </div>
       
       <form method="post" action="/contact" accept-charset="UTF-8" class="custom-contact" id="contact_form">
+        <input type="hidden" name="form_type" value="contact" />
+        <input type="hidden" name="utf8" value="✓" />
         <div class="custom-contact__input-container">
          
             {% comment %} FIRST NAME & LAST NAME INPUTS {% endcomment %}
             <div class="custom-contact__first-last-name">
               {% comment %} FIRST NAME INPUT {% endcomment %}
               <div class="custom-contact__input-wrap">
-                <input placeholder="First Name" class="custom-contact__input">
+                <input placeholder="First Name" class="custom-contact__input" name="contact[first_name]"> 
                 <div class="custom-contact__icon-container">
                   <i>
                     {%- render 'icon' with 'user', class: 'user' -%}
@@ -200,7 +202,7 @@
     
               {% comment %} LAST NAME INPUT {% endcomment %}
               <div class="custom-contact__input-wrap">
-                <input placeholder="Last Name" class="custom-contact__input">
+                <input placeholder="Last Name" class="custom-contact__input" name="contact[last_name]">
                 <div class="custom-contact__icon-container">
                   <i>
                     {%- render 'icon' with 'user', class: 'user' -%}
@@ -212,7 +214,7 @@
             {% comment %} EMAIL INPUT {% endcomment %}
             <div class="x:w-full">
               <div class="custom-contact__input-wrap">
-                <input placeholder="Email" class="custom-contact__input">
+                <input placeholder="Email" class="custom-contact__input" name="contact[email]">
     
                 <div style="margin-left: 10px;" class="custom-contact__icon-container">
                   <i>
@@ -268,6 +270,7 @@
                   placeholder="Type Your Message Below"
                   class="custom-contact__textarea"
                   rows="4"
+                  name="contact[body]"
                 ></textarea>
               </div>
             </div>
