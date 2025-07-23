@@ -169,11 +169,26 @@
 }
 
 .custom__dropdown {
-  max-width: 500px;
+  position: absolute !important;
+  min-width: 100%;
   padding: 20px 40px;
-  top: 30px;
-  /* box-shadow: none; */
+  top: 145px;
+  left: 50% !important;
+  transform: translate(-50%);
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
 }
+
+.custom__contents {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+}
+
+ 
 
 .custom__contents a:hover {
   text-decoration: none;
@@ -309,6 +324,28 @@
 
   .h2.text-center {
     font-size: 24px;
+  }
+
+  .custom-nav__collection-img-wrap {
+    width: 300px;
+    height: 280px;
+  }
+
+  .custom-nav__collection-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .custom-nav__collection-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .custom-nav__collection-wrap a {
+    opacity: 0.7;
   }
 
   
@@ -815,7 +852,7 @@
                         {%- endunless -%}
                       {%- else -%}
                         <details
-                          class="relative"
+                          class=""
                           is="dropdown-disclosure"
                           trigger="{{ section.settings.menu_open_trigger | escape }}"
                         >
@@ -889,6 +926,22 @@
                                 </li>
                               {%- endfor -%}
                             </ul>
+                            <div class="custom-nav__collection-wrap">
+                              {%- assign first_sub_link = link.links[0] -%}
+                              {%- assign collection = first_sub_link.object -%}
+                              <div class="custom-nav__collection-img-wrap">
+                                {%- if collection.image != blank -%}
+                                  <img src="{{ collection.image | img_url: '500x' }}" alt="{{ collection.title }}">
+                                {%- elsif collection.products.size > 0 and collection.products.first.featured_image != blank -%}
+                                  <img src="{{ collection.products.first.featured_image | img_url: '500x' }}" alt="{{ collection.products.first.title }}">
+                                {%- else -%}
+                                  <!-- Optional fallback image -->
+                                  <img src="{{ 'placeholder.jpg' | asset_url }}" alt="No image available">
+                                {%- endif -%}
+                              </div>
+                              <a href="{{ link.links[0].url }}">View {{ link.links[0].object.metafields.custom.name_of_collection.value }} collection <span> > </span></a>
+                              
+                            </div>
                           </div>
                         </details>
                       {%- endif -%}
