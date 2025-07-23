@@ -11,6 +11,9 @@
   "sections": {
     "banner": {
       "type": "collection-banner",
+      "custom_css": [
+        ".collection-header {margin-top: 80px;}"
+      ],
       "settings": {
         "full_width": false,
         "allow_transparent_header": false,
