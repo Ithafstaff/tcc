@@ -11,6 +11,10 @@
 
 <html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
   <head>
+  {% if request.page_type == '404' %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+
     {% include 'booster-seo' %}
     <meta charset="utf-8">
     <meta
